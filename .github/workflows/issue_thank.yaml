@@ -1,4 +1,4 @@
-name: Auto Assign and Thank Issues
+name: Auto Assign, Thank, and Label Issues
 
 on:
   issues:
@@ -13,10 +13,10 @@ jobs:
       issues: write
 
     steps:
-    - name: 'Thank and assign the issue to the creator'
-      uses: actions/github-script@v7  # Updated to v7
+    - name: 'Thank, assign, and label the issue'
+      uses: actions/github-script@v7  # Latest version
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}  # Use auto-generated GitHub Token
+        github-token: ${{ secrets.GITHUB_TOKEN }}  # Use GitHub Token
         script: |
           const issueNumber = context.issue.number;
           const issueCreator = context.payload.issue.user.login;
@@ -35,4 +35,12 @@ jobs:
             owner: context.repo.owner,
             repo: context.repo.repo,
             assignees: [issueCreator]
+          });
+
+          // Add the label "ggsoc-ext" to the issue
+          await github.rest.issues.addLabels({
+            issue_number: issueNumber,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            labels: ['ggsoc-ext']  # Label to be added
           });
