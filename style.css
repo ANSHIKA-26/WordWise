@@ -206,7 +206,8 @@ a {
 }
 
 .text-secondary {
-  color: var(--border)
+  /* color: var(--border) */
+  color:black;
 }
 
 .text-dark {
@@ -240,7 +241,7 @@ a {
 }
 
 .text-title:hover {
-  color: pink;
+  color: white;
 }
 
 .secondary-title {
