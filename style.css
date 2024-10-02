@@ -356,19 +356,32 @@ a {
 
 /*main*/
 /*footer*/
-#footer {
-  padding-top: 4em;
 
+#footer {
+  padding-top: 2em;
+  color: #333; 
+  background-color: var(--light); /* Match header background color */
+  font-family: 'Roboto', sans-serif; /* Match header font */
+  text-align: justify;
+  border-top: 1px solid var(--dark); 
+  height: 60vh;
 }
 
 #footer .feature-post .flex-item {
   margin-bottom: 10px;
 }
 
-#footer .tag a {
+#footer .tags a {
+  background-color: var(--body-bg);
   border-radius: 99px;
-  padding: 10px 20px;
+  padding: 5px 15px;
+  text-align: center;
   font-size: 15px;
+}
+
+#footer .feature-post a:hover {
+  text-decoration: underline;
+  color: var(--dark);
 }
 
 /*footer*/
