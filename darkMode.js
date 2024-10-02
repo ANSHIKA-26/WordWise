@@ -8,16 +8,26 @@ if (localStorage.getItem('theme') === 'dark') {
     modeLabel.textContent = 'Dark Mode'
 }
 
-// Add event listener for toggle switch
-checkbox.addEventListener('change', () => {
-    if (checkbox.checked) {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        localStorage.setItem('theme', 'dark')
-        modeLabel.textContent = 'Dark Mode'
+// Add event listener for the FAB icon
+themeToggle.addEventListener('click', () => {
+    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+
+    if (isDarkMode) {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        modeLabel.textContent = 'Light Mode';
+        themeToggle.classList.remove('fa-sun'); // If you want to use sun icon for light mode
+        themeToggle.classList.add('fa-moon'); // Moon icon for dark mode
     } else {
-        document.documentElement.setAttribute('data-theme', 'light')
-        localStorage.setItem('theme', 'light')
-        modeLabel.textContent = 'Light Mode'
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        modeLabel.textContent = 'Dark Mode';
+        themeToggle.classList.remove('fa-moon'); // If you want to use moon icon for dark mode
+        themeToggle.classList.add('fa-sun'); // Sun icon for light mode
     }
-})
-rgb(255, 255, 255)
+});
+
+// Toggle dark mode class on the body
+document.getElementById('darkModeToggle').addEventListener('click', function () {
+    document.body.classList.toggle('dark-mode');
+});

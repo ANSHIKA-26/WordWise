@@ -32,22 +32,18 @@ font-family: 'Ubuntu', sans-serif;*/
     }
 }
 
+/* Dark mode colors */
 [data-theme="dark"] {
-    --light: #0025ff;
-    /* Dark background color */
-    --secondary: #6c757d;
-    /* Light gray for secondary elements */
-    --dark: #f8f9fa;
-    /* Light color for text on dark background */
-    --primary-color: #f15bb5;
-    /* Primary accent color */
-    --secondary-color: #2ec4b6;
-    /* Secondary accent color */
-    --border: #495057;
-    /* Dark gray for borders */
-    --body-bg: black;
+    --background-color: #1e1e2e;
+    --text-color: #ffffff;
+    --header-bg: #282a36;
+      #footer{
+          background-color: #414141;
+      }
+    .about-us p{
+      color:white;
+    }
 }
-
 
 /* #header{
   border-radius: 20px;
@@ -88,9 +84,15 @@ body {
 
 /* Dark mode colors */
 [data-theme="dark"] {
-  --background-color: #121212;
-  --text-color: #f1f1f1;
-  --header-bg: #3e3b3b;
+    --background-color: #1e1e2e;
+    --text-color: #ffffff;
+    --header-bg: #282a36;
+    #footer{
+      background-color: #414141;
+    }
+    .about-us p{
+      color:white;
+    }
 }
 
 body {
@@ -102,8 +104,20 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
+.circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 24px;
+    background-color: black;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99999999; /* so that it stays on top of all other elements */
+}
 span {
   color: var(--text-color);
+  display: none;
 }
 header {
   background-color: var(--header-bg);
@@ -173,7 +187,10 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-
+/* Default light mode styling */
+.about-us p {
+    color: black; /* Black text for light mode */
+}
 
 [data-theme="dark"] {
   --light: #1764e0;

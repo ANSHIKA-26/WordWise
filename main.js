@@ -76,8 +76,11 @@ navLinks.forEach(link => {
 });
 
 
+
+// Theme Switcher
+//determines if the user has a set theme
 function detectColorScheme() {
-  var theme = "light";   
+  var theme = "light";    //default to light
 
 
   //local storage is used to override OS theme settings
@@ -102,11 +105,6 @@ function detectColorScheme() {
   }
 }
 
-
-//identify the toggle switch HTML element
-const toggleSwitch = document.querySelector('#theme-switch input[type="checkbox"]');
-
-
 //function that changes the theme, and sets a localStorage variable to track the theme between page loads
 function switchTheme(e) {
   if (e.target.checked) {
@@ -119,14 +117,3 @@ function switchTheme(e) {
     toggleSwitch.checked = false;
   }
 }
-
-
-//listener for changing themes
-toggleSwitch.addEventListener('change', switchTheme, false);
-
-
-//pre-check the dark-theme checkbox if dark-theme is set
-if (document.documentElement.getAttribute("data-theme") == "dark") {
-  toggleSwitch.checked = true;
-}
-
