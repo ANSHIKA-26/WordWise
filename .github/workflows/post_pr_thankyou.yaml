@@ -21,10 +21,10 @@ jobs:
             const owner = context.repo.owner;
             const repo = context.repo.repo;
 
-            // Post a comment thanking the contributor
+            // Post a cute thank you message
             await github.rest.issues.createComment({
               owner: owner,
               repo: repo,
               issue_number: prNumber,
-              body: `Amazing work! 🚀 Thank you for your contribution. We appreciate your efforts in making this project better.`
+              body: `🎉🎉 Thank you for your contribution! Your PR has been merged !🎉🎉`
             });
