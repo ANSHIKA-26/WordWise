@@ -119,6 +119,7 @@ header {
   flex-direction: row;
   justify-content: space-around;
   border-bottom: 1px solid black;
+  background-color: #343a40;
 }
 
 body {
@@ -236,6 +237,8 @@ a {
 }
 
 *>* {
+  color: white;
+  font-weight: 700;
   box-sizing: border-box;
 }
 
@@ -272,6 +275,7 @@ a {
 .text-title {
   font-family: 'Nunito Sans', sans-serif;
   font-weight: bold;
+  color: white;
 }
 
 .text-title:hover {
@@ -302,6 +306,12 @@ a {
   text-align: right;
 }
 
+.container{
+  background-color: #343a40;
+}
+
+/*section*/
+/* navigation menu*/
 .navbar {
   position: relative;
   display: flex;
@@ -315,6 +325,7 @@ a {
   font-weight: bold;
   align-self: center;
   font-size: 32px;
+  color: wheat;
 }
 
 .collapse {
@@ -326,12 +337,18 @@ a {
   padding: 2px;
   font-size: 18px;
   margin: 7px;
-  color: var(--dark);
+  color: var(--white);
   font-family: 'Ubuntu', sans-serif;
 }
 
 .nav-link:hover {
-  color: var(--primary-color);
+  color: #c9d3db;
+  text-decoration: underline;
+}
+
+.nav-link.active {
+  color: #c9d3db;
+  text-decoration: underline;
 }
 
 .search-box {

@@ -47,13 +47,37 @@ function myFunction() {
   }
 }
 
+//Active Nav bar 
+const navLinks = document.querySelectorAll('.nav-link');
+const setActiveLink = () => {
+  const activePath = localStorage.getItem('activeLink');
+  if (activePath) {
+    navLinks.forEach(link => {
+      const linkHref = link.getAttribute('href');
+      if (linkHref === activePath) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+};
+
+document.addEventListener('DOMContentLoaded', setActiveLink);
+
+navLinks.forEach(link => {
+  link.addEventListener('click', function() {
+    navLinks.forEach(link => link.classList.remove('active'));
+
+    this.classList.add('active');
+
+    localStorage.setItem('activeLink', this.getAttribute('href'));
+  });
+});
 
 
-
-// Theme Switcher
-//determines if the user has a set theme
 function detectColorScheme() {
-  var theme = "light";    //default to light
+  var theme = "light";   
 
 
   //local storage is used to override OS theme settings
