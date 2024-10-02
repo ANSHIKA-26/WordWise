@@ -302,9 +302,11 @@ a {
 .text-right {
   text-align: right;
 }
-
 .container{
   background-color: #343a40;
+}
+.container2{
+  background-color: #4e7397;
 }
 
 /*section*/
@@ -387,51 +389,8 @@ a {
   margin-bottom: 3em;
 }
 
-#footer {
-  padding-top: 4em;
-}
-
-#footer .feature-post .flex-item {
-  margin-bottom: 10px;
-}
-
-#footer .tag a {
-  border-radius: 99px;
-  padding: 10px 20px;
-  font-size: 15px;
-}
-
-#post {
-  padding: 0 2em;
-  margin-bottom: 4em;
-}
-
-.post-footer .post-author {
-  position: relative;
-  margin-top: 4em;
-  background-color: var(--secondary);
-}
-
-.post-footer .post-author::after {
-  background-color: white;
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4em;
-  z-index: 0;
-}
-
-.post-footer .post-author .author-avatar {
-  margin: 0 auto;
-  margin-bottom: 1em;
-  position: inherit;
-  z-index: 1;
-}
-
-.post-footer .post-comments .reply {
-  padding-left: 7em;
+.container{
+  background-color: #4e7397;
 }
 
 .form-control {
