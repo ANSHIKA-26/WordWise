@@ -754,3 +754,96 @@ a {
 }
 
 /* start writing page*/
+
+/* General styling for navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Enables wrapping of the menu */
+  padding: 1rem;
+  /* background-color: #f8f9fa; */
+}
+
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-nav li {
+  margin-left: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #efecec;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ff00ee; /* Hover effect for links */
+}
+
+#theme-switch {
+  display: flex;
+  align-items: center;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.theme-switch .slider {
+  width: 40px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.theme-switch .slider::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border-radius: 50%;
+  top: 1px;
+  left: 1px;
+  transition: transform 0.3s ease;
+}
+
+.theme-switch input:checked + .slider {
+  background-color: #333;
+}
+
+.theme-switch input:checked + .slider::before {
+  transform: translateX(20px);
+}
+
+.theme-switch span {
+  margin-left: 10px;
+  color: #333;
+}
+
+@media (max-width: 480px) {
+  /* Tighter layout for very small screens */
+  .navbar-nav li {
+      margin-bottom: 8px; /* Reduce margin for small devices */
+  }
+
+  .navbar {
+      padding: 0.5rem; /* Less padding on small devices */
+  }
+
+  .navbar-nav .nav-link {
+      padding: 0.5rem 1rem; /* Ensure clickable areas are large enough */
+  }
+}
+
