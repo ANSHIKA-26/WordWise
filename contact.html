@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - WordWise</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Add custom styles for the popup */
+        .popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            border-radius: 8px;
+        }
+
+        .popup.show {
+            display: block;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        .btn-close {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        /* Improved styles for the contact section */
+        .contact-section {
+            max-width: 500px; /* Adjusted width for better alignment */
+            margin: 120px auto; /* Increased top margin for more space from the top */
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            margin-bottom: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Optional: Adjust header margin if needed */
+        #header {
+            margin-bottom: 0; /* Ensure no margin at the bottom to avoid extra space */
+        }
+
+        /* Additional spacing for the heading and paragraph */
+        .contact-section h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #e72d2d;
+        }
+
+        .contact-section p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #360d73;
+            font-weight: bold;
+        }
+
+        .contact-form {
+            display: flex;
+            margin-top: 4px;
+            padding-top: 4px;
+            flex-direction: column;
+            gap: 15px; /* Adjusted gap for better spacing */
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 3px; /* Slightly reduced padding for better fit */
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s ease;
+            margin-top: 1px;
+            color:#2a1885;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #30cfd0;
+            outline: none;
+        }
+
+        .contact-form button {
+            background-color: #30cfd0;
+            color: white;
+            border: none;
+            padding: 12px; /* Slightly reduced padding for better fit */
+            border-radius: 55px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #28b7b5;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .contact-section {
+                padding: 15px;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                padding: 10px; /* Further reduced padding for smaller screens */
+            }
+
+            .contact-form button {
+                padding: 10px; /* Further reduced padding for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header" class="shadow bg-light">
+        <nav class="container navbar">
+            <a href="index.html" class="nav-brand text-dark">WordWise</a>
+            <button class="toggle-button">
+                <span><i class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse">
+                <ul class="navbar-nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="blog" class="nav-link">Leading Blog</a>
+                    <a href="start.html" class="nav-link">Start Writing</a>
+                    <a href="category.html" class="nav-link">Categories</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact Us</a>
+                </ul>
+            </div>
+            <div class="collapse">
+                <ul class="navbar-nav">
+                    <div class="search-box">
+                        <a href="#" class="nav-link"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                    <a href="#" class="nav-link"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="nav-link"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="nav-link"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="nav-link"><i class="fa-brands fa-dribbble"></i></a>
+                </ul>
+            </div>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox">
+                    <div class="slider"></div>
+                </label>
+                <span id="mode-label">Light Mode</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container contact-section">
+        <h1>Contact Us</h1>
+        <p>
+            We would love to hear from you! Whether you have a question, feedback, or just want to say hello, feel free to reach out to us using the contact form below or through our social media channels.
+        </p>
+        
+        <form class="contact-form" onsubmit="showAlert(); return false;">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="email" name="email" placeholder="Your Email" required />
+            <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <!-- Popup and Overlay -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <button class="btn-close" onclick="closePopup()">×</button>
+        <h2>Message Sent!</h2>
+        <p>Your message has been successfully sent. We will get back to you shortly.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-3">
+                    <h2 class="footer-title secondary-title">About Us</h2>
+                    <div class="secondary-title text-secondary">
+                        <p class="mt-2">
+                            We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the world.
+                        </p>
+                        <address>
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                            5 South Main Street Los Angeles, ZZ-9611 USA
+                        </address>
+                        <div class="phone">
+                            <i class="fas fa-mobile text-primary"></i>
+                            125-896-485
+                        </div>
+                        <div class="email">
+                            <i class="fas fa-envelope text-primary"></i>
+                            dailysupport@gmail.com
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <h2 class="footer-title secondary-title">Feature Post</h2>
+                    <div class="feature-post">
+                        <div class="flex-item">
+                            <article class="article">
+                                <div class="d-flex">
+                                    <a href="#">
+                                        <img src="./assets/img9.jpg" class="object-fit px-1" alt="">
+                                        <div class="px-1">
+                                            <a href="#" class="text-title display-2 text-dark">
+                                                Embrace the beauty of nature through our enchanting blog.
+                                            </a>
+                                            <p class="secondary-title text-secondary display-3">
+                                                <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+                        <!-- Add more feature posts as needed -->
+                    </div>
+                </div>
+                <div class="col-3">
+                    <h2 class="footer-title secondary-title">Tags</h2>
+                    <div class="tags">
+                        <div class="d-flex flex-wrap">
+                            <a href="#" class="nav-link btn bg-light">Travel</a>
+                            <a href="#" class="nav-link btn bg-light">Food</a>
+                            <a href="#" class="nav-link btn bg-light">Lifestyle</a>
+                            <a href="#" class="nav-link btn bg-light">Technology</a>
+                            <a href="#" class="nav-link btn bg-light">Fashion</a>
+                        </div>
+                    </div>
+                    <h2 class="footer-title secondary-title mt-2">Social</h2>
+                    <div class="tags social" id="contact">
+                        <div class="d-flex flex-wrap">
+                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="./darkMode.js"></script>
+    <script>
+        function showAlert() {
+            document.getElementById('popup').classList.add('show');
+            document.getElementById('overlay').classList.add('show');
+        }
+
+        function closePopup() {
+            document.getElementById('popup').classList.remove('show');
+            document.getElementById('overlay').classList.remove('show');
+        }
+    </script>
+</body>
+</html>
