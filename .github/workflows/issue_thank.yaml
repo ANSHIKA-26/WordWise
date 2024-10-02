@@ -13,6 +13,7 @@ jobs:
     - name: 'Thank and assign the issue to the creator'
       uses: actions/github-script@v6
       with:
+        github-token: ${{ secrets.GITHUB_TOKEN }} # This line uses the token
         script: |
           const issueNumber = context.issue.number;
           const issueCreator = context.payload.issue.user.login;
@@ -22,7 +23,7 @@ jobs:
             issue_number: issueNumber,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: `Thanks @${issueCreator} for raising this issue! We'll look into it. Meanwhile, it's been assigned to you for further tracking.`
+            body: `Thanks @${issueCreator} for raising this issue!`
           });
 
           // Assign the issue to the creator
