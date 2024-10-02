@@ -7,12 +7,13 @@ on:
 jobs:
   restrict_issue_creation:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Fetch contributor's issues
-      uses: actions/github-script@v7  # Updated to v7
+        uses: actions/github-script@v6.1.0 # Updated to a newer version
         with:
           script: |
             const user = context.payload.issue.user.login;
@@ -42,6 +43,4 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: context.payload.issue.number,
-                body: `Hello, since this is an open-source project, we would like every contributor to have a chance to contribute. Therefore, we have restricted the number of issues one contributor can create at a time. In order to make a new issue, kindly close one of your open issues first, so that there is less spamming of issues and more PR merges!`
-              });
-            }
+                body: `Hello, since this is an open-source project, we would like every contributor to have a chance to contribute
