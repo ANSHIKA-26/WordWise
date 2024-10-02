@@ -66,12 +66,13 @@
 
               </ul>
           </div>
-          <div class="collapse">
-            <label id="theme-switch" class="theme-switch" for="theme-switch">
-              <input type="checkbox" id="theme-switch">
-              Dark Theme
+          <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox">
+                <div class="slider"></div>
             </label>
-          </div>
+            <span id="mode-label">Light Mode</span>
+        </div>
 
       </nav>
       </header>
@@ -348,6 +349,7 @@
   <!-- .footer -->
 
     <script src="main.js"></script>
+    <script src="./darkMode.js"></script>
     <!--swiper slider cdn-->
 
 </body>
