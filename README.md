@@ -5,17 +5,11 @@ Blogging website
 ## Table of Contents
 
 - [Description]()
-- [Screenshots](#screenshots)
 - [Installation & Contributing](#installation )
 
 ## Description-
 Word Wise is a dynamic blogging website designed to enhance user experience with a variety of versatile features. It offers both dark and light themes to suit users' preferences. The platform has several key pages, including the 'Start Writing' page, which serves as a quick launchpad for bloggers eager to begin sharing their thoughts. The leading blog page features top picks, showcasing the best content, while a convenient sliding bar keeps users updated with the latest blogs, ensuring they stay engaged with fresh content. Word Wise fosters an interactive and evolving blogging experience.
 
-## Screenshots
-
-
-
-<video controls src="WhatsApp Video 2024-10-02 at 13.37.12_63060c55.mp4" title="Title"></video>
 
 ## Installation and Contributing
 1. Fork the repository
