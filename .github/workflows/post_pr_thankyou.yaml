@@ -1,0 +1,29 @@
+name: Post-PR Merge Thank You
+
+on:
+  pull_request:
+    types: [closed]  # This will trigger the workflow when a PR is closed
+
+permissions:
+  pull-requests: write  # Grants permission to write to pull request comments
+
+jobs:
+  post_merge_message:
+    if: github.event.pull_request.merged == true  # Only run if the PR was merged
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Post thank you message
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            // Post a comment thanking the contributor
+            await github.rest.issues.createComment({
+              owner: owner,
+              repo: repo,
+              issue_number: prNumber,
+body: Amazing work! 🚀 Thank you for your contribution. We appreciate your efforts in making this project better.});
