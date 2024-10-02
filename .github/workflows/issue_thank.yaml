@@ -1,4 +1,4 @@
-name: Issue Checker and Auto Assign
+name: Auto Assign, Thank, and Label Issues
 
 on:
   issues:
@@ -6,83 +6,41 @@ on:
       - opened
 
 jobs:
-  check-for-similar-issues:
+  auto-assign:
     runs-on: ubuntu-latest
 
     permissions:
-      issues: read, write  # Required for reading and commenting on issues
+      issues: write
 
     steps:
-    - name: 'Check for similar issues'
-      uses: actions/github-script@v7
+    - name: 'Thank, assign, and label the issue'
+      uses: actions/github-script@v7  # Latest version
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}  # Use GitHub Token
         script: |
           const issueNumber = context.issue.number;
-          const newIssueTitle = context.payload.issue.title.toLowerCase();
-          const newIssueBody = context.payload.issue.body ? context.payload.issue.body.toLowerCase() : '';
+          const issueCreator = context.payload.issue.user.login;
 
-          // Fetch all open issues in the repository
-          const { data: issues } = await github.rest.issues.listForRepo({
+          // Thank the issue creator
+          await github.rest.issues.createComment({
+            issue_number: issueNumber,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            state: 'open',
+            body: `Thanks @${issueCreator} for raising this issue! We'll look into it. Meanwhile, it's been assigned to you for further tracking.`
           });
 
-          // Check for similar issues
-          const similarIssues = issues.filter(issue => {
-            const issueTitle = issue.title.toLowerCase();
-            const issueBody = issue.body ? issue.body.toLowerCase() : '';
-
-            // Check if the title or body contains the same keywords
-            return (
-              issueTitle.includes(newIssueTitle) ||
-              (issueBody && issueBody.includes(newIssueBody))
-            ) && issue.number !== issueNumber; // Exclude the newly created issue
+          // Assign the issue to the creator
+          await github.rest.issues.addAssignees({
+            issue_number: issueNumber,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            assignees: [issueCreator]
           });
 
-          if (similarIssues.length > 0) {
-            // Notify the user about the existing similar issue(s)
-            const existingIssuesLinks = similarIssues.map(issue => `#${issue.number}: ${issue.title}`).join(', ');
-            await github.rest.issues.createComment({
-              issue_number: issueNumber,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `It seems there are already existing similar issues: ${existingIssuesLinks}. Please check them out and consider commenting on those instead of creating a new issue.`,
-            });
-
-            // Optionally, you can close the new issue if a similar one exists
-            // await github.rest.issues.update({
-            //   issue_number: issueNumber,
-            //   owner: context.repo.owner,
-            //   repo: context.repo.repo,
-            //   state: 'closed'
-            // });
-          } else {
-            // Proceed with normal actions (thank, assign, and label)
-            const issueCreator = context.payload.issue.user.login;
-
-            // Thank the issue creator
-            await github.rest.issues.createComment({
-              issue_number: issueNumber,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `Thanks @${issueCreator} for raising this issue! We'll look into it. Meanwhile, it's been assigned to you for further tracking.`,
-            });
-
-            // Assign the issue to the creator
-            await github.rest.issues.addAssignees({
-              issue_number: issueNumber,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              assignees: [issueCreator],
-            });
-
-            // Add the label "ggsoc-ext" to the issue
-            await github.rest.issues.addLabels({
-              issue_number: issueNumber,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ['ggsoc-ext'],
-            });
-          }
+          // Add the label "ggsoc-ext" to the issue
+          await github.rest.issues.addLabels({
+            issue_number: issueNumber,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            labels: ['ggsoc-ext']  # Label to be added
+          });
