@@ -1,108 +1,82 @@
-let toggle = document.querySelector("#header .toggle-button");
-let collapse = document.querySelectorAll("#header .collapse");
-
-
-toggle.addEventListener('click', function () {
-  collapse.forEach(col => col.classList.toggle("collapse-toggle"));
-})
-//swiper library
-// main.js
 document.addEventListener('DOMContentLoaded', function () {
-  var swiper = new Swiper('.swiper-container', {
-    direction: 'horizontal',
-    loop: true,
-    slidesPerView: 1,
-    autoplay: {
-      delay: 3000
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  });
-       detectColorScheme();
- });
+    const toggle = document.querySelector("#header .toggle-button");
+    const collapse = document.querySelectorAll("#header .collapse");
+    const toggleSwitch = document.querySelector('#theme-switch input[type="checkbox"]');
+    const navbar = document.getElementById("header");
+    const sticky = navbar.offsetTop;
 
-window.onscroll = function () { myFunction() };
-
-
-// get the current value
-let navbar = document.getElementById("header");
-
-
-// get the navbar position
-let sticky = navbar.offsetTop;
-
-
-// sticky function
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky");
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}
-
-
-
-
-// Theme Switcher
-//determines if the user has a set theme
-function detectColorScheme() {
-  var theme = "light";    //default to light
-
-
-  //local storage is used to override OS theme settings
-  if (localStorage.getItem("theme")) {
-    if (localStorage.getItem("theme") == "dark") {
-      var theme = "dark";
+    // Event listener for toggle button to collapse sections
+    if (toggle) {
+        toggle.addEventListener('click', function () {
+            collapse.forEach(col => col.classList.toggle("collapse-toggle"));
+        });
     }
-  } else if (!window.matchMedia) {
-    //matchMedia method not supported
-    return false;
-  } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    //OS theme setting detected as dark
-    var theme = "dark";
-  }
 
+    // Initialize Swiper
+    const swiper = new Swiper('.swiper-container', {
+        direction: 'horizontal',
+        loop: true,
+        slidesPerView: 1,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false, // Allows autoplay to continue even after user interaction
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
 
-  //dark theme preferred, set document with a `data-theme` attribute
-  if (theme == "dark") {
-    let toggleSwitch = document.querySelector('#theme-switch input[type="checkbox"]');
-    document.documentElement.setAttribute("data-theme", "dark");
-    toggleSwitch.checked = true;
-  }
-}
+    detectColorScheme();
 
+    // Sticky navbar function
+    window.onscroll = function () {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky");
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    };
 
-//identify the toggle switch HTML element
-const toggleSwitch = document.querySelector('#theme-switch input[type="checkbox"]');
+    // Function to detect color scheme
+    function detectColorScheme() {
+        const storedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        
+        // Set the theme based on localStorage or system preference
+        const theme = storedTheme || (prefersDark ? "dark" : "light");
 
+        if (theme === "dark") {
+            document.documentElement.setAttribute("data-theme", "dark");
+            if (toggleSwitch) {
+                toggleSwitch.checked = true;
+            }
+        } else {
+            document.documentElement.setAttribute("data-theme", "light");
+            if (toggleSwitch) {
+                toggleSwitch.checked = false;
+            }
+        }
+    }
 
-//function that changes the theme, and sets a localStorage variable to track the theme between page loads
-function switchTheme(e) {
-  if (e.target.checked) {
-    localStorage.setItem('theme', 'dark');
-    document.documentElement.setAttribute('data-theme', 'dark');
-    toggleSwitch.checked = true;
-  } else {
-    localStorage.setItem('theme', 'light');
-    document.documentElement.setAttribute('data-theme', 'light');
-    toggleSwitch.checked = false;
-  }
-}
+    // Function to switch themes
+    function switchTheme(e) {
+        const newTheme = e.target.checked ? 'dark' : 'light';
+        localStorage.setItem('theme', newTheme);
+        document.documentElement.setAttribute('data-theme', newTheme);
+    }
 
-
-//listener for changing themes
-toggleSwitch.addEventListener('change', switchTheme, false);
-
-
-//pre-check the dark-theme checkbox if dark-theme is set
-if (document.documentElement.getAttribute("data-theme") == "dark") {
-  toggleSwitch.checked = true;
-}
-
+    // Attach event listener to theme switch
+    if (toggleSwitch) {
+        toggleSwitch.addEventListener('change', switchTheme, false);
+        
+        // Pre-check the dark-theme checkbox if dark-theme is set
+        if (document.documentElement.getAttribute("data-theme") === "dark") {
+            toggleSwitch.checked = true;
+        }
+    }
+});
