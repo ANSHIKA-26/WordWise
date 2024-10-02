@@ -1,8 +1,9 @@
+# 📖 WordWise Blogging Website 📝
 
-![GSSoC-Ext](/Untitled%20design.png)
-# 📖 WordWise Blogging Website 📝 
+![WordWise Website Screenshot](Screenshot%202024-10-02%20143221.png)
 
-![WordWise Website Screenshot](/Screenshot%202024-10-02%20143221.png)
+![Project Badge](https://img.shields.io/badge/build-passing-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
 ---
 
@@ -15,6 +16,7 @@
 - [GSSoC Guidelines](#gssoc-guidelines)
 - [Ending Note](#-ending-note-)
 - [Join Us!](#-join-us-)
+- [License](#-license)
 
 ---
 
@@ -122,3 +124,9 @@ If you have any questions or need assistance, please feel free to reach out thro
 We encourage you to explore the website, share your thoughts, and get involved in improving the project. Let’s make this blogging experience even better together!
 
 Happy coding! 📝
+
+---
+
+## 🔖 License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
