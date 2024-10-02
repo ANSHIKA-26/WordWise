@@ -281,6 +281,12 @@ a {
   flex-direction: row;
   justify-content: space-between;
   padding: 10px;
+  img{
+    margin-right: 17px;
+    align-self: left;
+    width: 52px;
+    height: 52px;
+  }
 }
 
 .nav-brand {
