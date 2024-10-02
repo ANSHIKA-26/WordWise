@@ -1,3 +1,5 @@
+https://ek-ta-bharti.github.io/WordWise/
+
 Since I'm unable to access live websites directly, I recommend verifying the live version of your project on GitHub Pages by opening the link in your browser. You can review the changes there yourself, such as the navbar updates and 3D effects.
 
 For the README file, I'll update it to include the correct image link:
