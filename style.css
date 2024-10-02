@@ -237,6 +237,8 @@ a {
 }
 
 *>* {
+  color: white;
+  font-weight: 700;
   box-sizing: border-box;
 }
 
@@ -273,6 +275,7 @@ a {
 .text-title {
   font-family: 'Nunito Sans', sans-serif;
   font-weight: bold;
+  color: white;
 }
 
 .text-title:hover {
@@ -322,6 +325,7 @@ a {
   font-weight: bold;
   align-self: center;
   font-size: 32px;
+  color: wheat;
 }
 
 .collapse {
@@ -333,7 +337,7 @@ a {
   padding: 2px;
   font-size: 18px;
   margin: 7px;
-  color: var(--dark);
+  color: var(--white);
   font-family: 'Ubuntu', sans-serif;
 }
 
