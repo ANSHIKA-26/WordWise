@@ -265,31 +265,32 @@ a {
     margin-right: auto;
     left: 0;
     right: 0;
-    position: absolute;
+    position: relative;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
-/* ... baaki code ... */
-
-.nav-brand {
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-    align-self: center;
-    font-size: 32px;
+.toggle-button {
+    display: block;
+    font-size: 21px;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 0;
+    margin: 8px 10px;
 }
 
 .collapse {
-    align-self: center;
+    overflow: hidden;
+    transition: all 0.8s cubic-bezier(0.51, -0.15, 0, 0.98);
 }
 
 .nav-link {
+    color: white;
     border-radius: 99px;
     padding: 2px;
     font-size: 18px;
     margin: 7px;
-    color: var(--dark);
     font-family: 'Ubuntu', sans-serif
 }
 
@@ -332,50 +333,34 @@ a {
     margin-bottom: 5em;
 }
 
-
-/* .grid {
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-} */
-
-
-/* .grid {
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    justify-content: center;
-}
-
-.grid .grid-item {
-    margin-bottom: 3em;
-} */
-
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    grid-template-rows: auto;
+    gap: 0;
 }
 
-.grid-item {
+
+/* .grid-item {
     position: relative;
     overflow: hidden;
-}
+} */
 
-.grid-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
 
-.grid-item:hover img {
-    transform: scale(1.1);
-}
+/* .grid-item img {
+    transition: transform 0.5s;
+    border-radius: 10px;
+} */
 
-.grid-item::after {
+
+/* .grid-item img:hover {
+    transform: rotateY(180deg) scale(1.2);
+    box-shadow: 0 0 10px rgba(216, 216, 216, 0.5);
+    transition: all 0.3s ease-in-out;
+} */
+
+
+/* .grid-item::after {
     content: "";
     position: absolute;
     top: 0;
@@ -385,11 +370,13 @@ a {
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
     transition: opacity 0.3s ease;
-}
+} */
 
-.grid-item:hover::after {
+
+/* .grid-item:hover::after {
     opacity: 1;
-}
+    border: 5px solid #fff;
+} */
 
 
 /*main*/
@@ -554,6 +541,12 @@ a {
 
 .overflow-img:hover {
     transform: scale(1.1);
+    border: 5px solid #fff;
+    padding: 5px 0 2px 15px;
+    box-sizing: border-box;
+    transition: transform 0.5s;
+    transform: rotateY(180deg) scale(1.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .overflow-img a {
