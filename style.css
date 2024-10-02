@@ -71,6 +71,7 @@ header{
   flex-direction: row;
   justify-content: space-around;
   border-bottom: 1px solid black;
+  background-color: #343a40;
 }
 
 
@@ -268,10 +269,9 @@ a {
   text-align: right;
 }
 
-
-
-
-
+.container{
+  background-color: #343a40;
+}
 
 /*section*/
 /* navigation menu*/
@@ -304,7 +304,13 @@ a {
 }
 
 .nav-link:hover {
-  color: var(--primary-color);
+  color: #c9d3db;
+  text-decoration: underline;
+}
+
+.nav-link.active {
+  color: #c9d3db;
+  text-decoration: underline;
 }
 
 .search-box {
