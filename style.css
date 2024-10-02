@@ -357,21 +357,73 @@ a {
 
 #site-main {
   margin-top: 8em;
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text */
 }
 
 #posts {
   margin-bottom: 5em;
 }
 
-.grid {
-  margin: 0 auto;
+.grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(3, 1fr); /* Three columns */
+  gap: 20px; /* Space between cards */
+  max-width: 1200px; /* Max width for the grid */
+  margin: auto; /* Center the grid */
 }
 
-.grid .grid-item {
-  margin-bottom: 3em;
+.grid-item {
+  background-color: #fff; /* Card background color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  overflow: hidden; /* Prevent content overflow */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effects */
+  height: 350px; /* Fixed height for uniform card size */
+}
+
+.grid-item:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.overflow-img {
+  width: 100%; /* Full width */
+  height: 200px; /* Fixed height for the image */
+  display: flex; /* Flexbox for centering */
+  align-items: center; /* Center align vertically */
+  justify-content: center; /* Center align horizontally */
+  overflow: hidden; /* Hide overflow */
+}
+
+.overflow-img img {
+  max-width: 100%; /* Max width to maintain aspect ratio */
+  max-height: 100%; /* Max height to maintain aspect ratio */
+  object-fit: cover; /* Cover the area, maintaining aspect ratio */
+}
+
+.card-body {
+  padding: 20px; /* Spacing inside the card */
+  text-align: center; /* Center-align text */
+}
+
+.text-title {
+  font-size: 1.5em; /* Title font size */
+  color: #333; /* Dark text color */
+  margin: 10px 0; /* Space around the title */
+}
+
+.secondary-title {
+  font-size: 0.9em; /* Subtitle font size */
+  color: #777; /* Lighter text color for subtitle */
+}
+
+.secondary-title span {
+  margin-right: 10px; /* Space between icons */
+}
+
+.fa-regular, .fa-solid {
+  color: #ff5722; /* Icon color */
 }
 
 #footer {
