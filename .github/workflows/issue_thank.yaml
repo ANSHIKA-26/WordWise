@@ -1,0 +1,35 @@
+name: Auto Assign and Thank Issues
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  auto-assign:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 'Thank and assign the issue to the creator'
+      uses: actions/github-script@v6
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }} # This line uses the token
+        script: |
+          const issueNumber = context.issue.number;
+          const issueCreator = context.payload.issue.user.login;
+
+          // Thank the issue creator
+          await github.issues.createComment({
+            issue_number: issueNumber,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: `Thanks @${issueCreator} for raising this issue!`
+          });
+
+          // Assign the issue to the creator
+          await github.issues.addAssignees({
+            issue_number: issueNumber,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            assignees: [issueCreator]
+          });
