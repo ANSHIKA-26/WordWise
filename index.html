@@ -19,7 +19,7 @@
 </head>
 <body>
     <!--header-->
-    <header id="header" class="shadow bg-light">
+    <header id="header" class="shadow">
         <nav class="container navbar">
             <a href="index.html" class="nav-brand text-dark">
               WordWise
@@ -69,13 +69,13 @@
 
                 </ul>
             </div>
-            <div class="collapse">
-              <label id="theme-switch" class="theme-switch" for="theme-switch">
-                <input type="checkbox" id="theme-switch">
-                Dark Theme
-              </label>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox">
+                    <div class="slider"></div>
+                </label>
+                <span id="mode-label">Light Mode</span>
             </div>
-
         </nav>
         </header>
 
@@ -638,7 +638,7 @@
 
 
     <script src="main.js"></script>
-
+    <script src="darkMode.js"></script>
 
 </body>
 </html>
