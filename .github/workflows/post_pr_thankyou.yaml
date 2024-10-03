@@ -5,7 +5,9 @@ on:
     types: [closed]  # This will trigger the workflow when a PR is closed
 
 permissions:
-  pull-requests: write  # Grants permission to write to pull request comments
+  issues: write
+  pull-requests: write
+
 
 jobs:
   post_merge_message:
