@@ -15,7 +15,7 @@ jobs:
       if: github.event_name == 'issues'
       uses: actions-ecosystem/action-add-labels@v1
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.PAT_TOKEN }}  # Use PAT_TOKEN instead of GITHUB_TOKEN
         labels: |
           ggsoc-ext
           hacktoberfest-accepted
@@ -24,7 +24,7 @@ jobs:
       if: github.event_name == 'pull_request'
       uses: actions-ecosystem/action-add-labels@v1
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.PAT_TOKEN }}  # Use PAT_TOKEN instead of GITHUB_TOKEN
         labels: |
           ggsoc-ext
           hacktoberfest-accepted
