@@ -3,7 +3,7 @@ name: Auto Label Issues and PRs
 on: 
   issues:
     types: [opened]
-  pull_request:
+  pull_request_target:  # Change from pull_request to pull_request_target
     types: [opened]
 
 jobs:
@@ -20,11 +20,11 @@ jobs:
           ggsoc-ext
           hacktoberfest-accepted
 
-    - name: Add labels to new pull requests
-      if: github.event_name == 'pull_request'
-      uses: actions-ecosystem/action-add-labels@v1
-      with:
-        github_token: ${{ secrets.PAT_TOKEN }}  # Use PAT_TOKEN instead of GITHUB_TOKEN
-        labels: |
-          ggsoc-ext
-          hacktoberfest-accepted
+  - name: Add labels to new pull requests
+   if: github.event_name == 'pull_request'
+   uses: actions-ecosystem/action-add-labels@v1
+   with:
+    github_token: ${{ secrets.GITHUB_TOKEN }}  # Use GITHUB_TOKEN for PRs
+    labels: |
+      ggsoc-ext
+      hacktoberfest-accepted
