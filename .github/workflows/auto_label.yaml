@@ -18,6 +18,7 @@ jobs:
         github_token: ${{ secrets.PAT_TOKEN }}  # Use PAT_TOKEN instead of GITHUB_TOKEN
         labels: |
           ggsoc-ext
+          hacktoberfest-accepted
 
     - name: Add labels to new pull requests
       if: github.event_name == 'pull_request'
@@ -26,3 +27,4 @@ jobs:
         github_token: ${{ secrets.PAT_TOKEN }}  # Use PAT_TOKEN instead of GITHUB_TOKEN
         labels: |
           ggsoc-ext
+          hacktoberfest-accepted
