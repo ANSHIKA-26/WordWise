@@ -16,11 +16,11 @@ jobs:
       uses: actions-ecosystem/action-add-labels@v1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        labels: "ggsoc-ext, hacktoberfest-accepted"
+        labels: "ggsoc-ext,hacktoberfest-accepted"  # No space between labels
 
     - name: Add labels to new pull requests
       if: github.event_name == 'pull_request'
       uses: actions-ecosystem/action-add-labels@v1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        labels: "ggsoc-ext, hacktoberfest-accepted"
+        labels: "ggsoc-ext,hacktoberfest-accepted"  # No space between labels
