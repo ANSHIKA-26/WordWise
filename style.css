@@ -35,6 +35,11 @@ body {
   background: var(--body-bg);
 }
 
+
+.main-body::-webkit-scrollbar {
+  display: none;
+} 
+
 header {
   width: 100%;
   display: flex;
@@ -55,7 +60,7 @@ header {
   height: 50px;
 }
 .navbar{
-  margin-top: 20px;
+  margin-bottom: 3em;
   background: #434343; 
 }
 
