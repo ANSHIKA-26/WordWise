@@ -16,25 +16,15 @@ jobs:
       uses: actions-ecosystem/action-add-labels@v1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        labels: "ggsoc-ext"  # Add the first label
-
-    - name: Add second label to issues
-      if: github.event_name == 'issues'
-      uses: actions-ecosystem/action-add-labels@v1
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        labels: "hacktoberfest-accepted"  # Add the second label
+        labels: |
+          ggsoc-ext
+          hacktoberfest-accepted
 
     - name: Add labels to new pull requests
       if: github.event_name == 'pull_request'
       uses: actions-ecosystem/action-add-labels@v1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        labels: "ggsoc-ext"  # Add the first label to PRs
-
-    - name: Add second label to PRs
-      if: github.event_name == 'pull_request'
-      uses: actions-ecosystem/action-add-labels@v1
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        labels: "hacktoberfest-accepted"  # Add the second label to PRs
+        labels: |
+          ggsoc-ext
+          hacktoberfest-accepted
