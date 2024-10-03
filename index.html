@@ -500,71 +500,108 @@
             <span>dailysupport@gmail.com</span>
           </div>
         </div>
-        <!-- Featured Posts -->
-        <div class="col-md-3 mb-4"> <!-- Added mb-4 for vertical spacing -->
-          <h2 class="footer-title secondary-title">Featured Posts</h2>
-          <div class="feature-post">
-            <article class="d-flex mb-2">
-              <img src="./assets/img9.jpg" class="object-fit px-1" alt="Nature Blog Image">
-              <div class="px-2">
-                <a href="#" class="text-title display-2 text-white">Embrace the beauty of nature...</a>
-                <p class="secondary-title text-secondary display-3">
-                  <i class="far fa-clock text-primary"></i> Wed 02, 2022
-                </p>
-              </div>
-            </article>
-            <article class="d-flex mb-2">
-              <img src="./assets/img1.jpg" class="object-fit px-1" alt="Travel Blog Image">
-              <div class="px-2">
-                <a href="#" class="text-title display-2 text-white">Embark on unforgettable journeys...</a>
-                <p class="secondary-title text-secondary display-3">
-                  <i class="far fa-clock text-primary"></i> Wed 05, 2020
-                </p>
-              </div>
-            </article>
-            <article class="d-flex">
-              <img src="./assets/img2.jpg" class="object-fit px-1" alt="Gaming Blog Image">
-              <div class="px-2">
-                <a href="#" class="text-title display-2 text-white">Gaming Adventures Unleashed</a>
-                <p class="secondary-title text-secondary display-3">
-                  <i class="far fa-clock text-primary"></i> Wed 02, 2021
-                </p>
-              </div>
-            </article>
+        <div class="container footer-content mt-5"> <!-- Added mt-5 for top spacing -->
+          <div class="row">
+            <!-- Container for Footer -->
+<div class="container footer-content mt-5 py-4"> <!-- Added padding for spacing -->
+  <div class="row g-5"> <!-- Added g-5 for column gap -->
+    <!-- Featured Posts -->
+    <div class="col-md-4 pb-4 border-end border-light"> <!-- Added pb-4 and border for separation -->
+      <h2 class="footer-title secondary-title mb-4">Featured Posts</h2>
+      <div class="feature-post">
+        <article class="d-flex mb-5"> <!-- Increased mb-5 for better spacing -->
+          <img src="./assets/img9.jpg" class="object-fit px-2" alt="Nature Blog Image" style="width: 300px; height: 150px;"> <!-- Set fixed image size -->
+          <div class="px-3">
+            <a href="#" class="text-title text-white fw-bold fs-5">Embrace the beauty of nature...</a> <!-- Reduced font size for title -->
+            <p class="secondary-title text-secondary mt-1">
+              <i class="far fa-clock text-primary"></i> Wed 02, 2022
+            </p>
           </div>
-        </div>
-  
-        <!-- Tags -->
-        <div class="col-md-3 mb-4"> <!-- Added mb-4 for vertical spacing -->
-          <h2 class="footer-title secondary-title">Tags</h2>
-          <div class="d-flex flex-column"> <!-- Changed to flex-column -->
-            <a href="#" class="btn btn-outline-light mb-1">Travel</a>
-            <a href="#" class="btn btn-outline-light mb-1">Food</a>
-            <a href="#" class="btn btn-outline-light mb-1">Lifestyle</a>
-            <a href="#" class="btn btn-outline-light mb-1">Technology</a>
-            <a href="#" class="btn btn-outline-light mb-1">Fashion</a>
+        </article>
+        <article class="d-flex mb-5">
+          <img src="./assets/img1.jpg" class="object-fit px-2" alt="Travel Blog Image" style="width: 300px; height: 150px;">
+          <div class="px-3">
+            <a href="#" class="text-title text-white fw-bold fs-5">Embark on unforgettable journeys...</a>
+            <p class="secondary-title text-secondary mt-1">
+              <i class="far fa-clock text-primary"></i> Wed 05, 2020
+            </p>
           </div>
-        </div>
-  
-        <!-- Social Links -->
-        <div class="col-md-3 mb-4"> <!-- Added mb-4 for vertical spacing -->
-          <h2 class="footer-title secondary-title">Social</h2>
-          <div class="d-flex flex-column"> <!-- Changed flex-wrap to flex-column -->
-            <a href="#" class="btn btn-outline-light m-1"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="btn btn-outline-light m-1"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="btn btn-outline-light m-1"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="btn btn-outline-light m-1"><i class="fab fa-dribbble"></i></a>
+        </article>
+        <article class="d-flex mb-5">
+          <img src="./assets/img2.jpg" class="object-fit px-2" alt="Gaming Blog Image" style="width: 300px; height: 150px;">
+          <div class="px-3">
+            <a href="#" class="text-title text-white fw-bold fs-5">Gaming Adventures Unleashed</a>
+            <p class="secondary-title text-secondary mt-1">
+              <i class="far fa-clock text-primary"></i> Wed 02, 2021
+            </p>
           </div>
-        </div>
-      </div>
-  
-      <!-- Copyright -->
-      <div class="text-center py-3 mt-3 border-top border-light">
-        <p class="m-0">&copy; 2024 WordWise. All rights reserved.</p>
+        </article>
       </div>
     </div>
-  </footer>
-  <!-- .footer -->
+
+    <!-- Tags -->
+    <div class="col-md-4 pb-4 border-end border-light">
+      <h2 class="footer-title secondary-title mb-4">Tags</h2>
+      <div class="d-flex flex-column"> <!-- Changed to flex-column for each option on a new line -->
+        <a href="#" class="btn btn-outline-light rounded-pill px-4 py-2 mb-3">Travel</a> <!-- Rounded buttons for aesthetic appeal -->
+        <a href="#" class="btn btn-outline-light rounded-pill px-4 py-2 mb-3">Food</a>
+        <a href="#" class="btn btn-outline-light rounded-pill px-4 py-2 mb-3">Lifestyle</a>
+        <a href="#" class="btn btn-outline-light rounded-pill px-4 py-2 mb-3">Technology</a>
+        <a href="#" class="btn btn-outline-light rounded-pill px-4 py-2 mb-3">Fashion</a>
+      </div>
+      
+    </div>
+
+    <!-- Social Links -->
+    <div class="col-md-4 pb-4">
+      <h2 class="footer-title secondary-title mb-4">Social</h2>
+      <div class="d-flex flex-wrap gap-3"> <!-- Added gap for spacing -->
+        <a href="#" class="btn btn-outline-light rounded-circle mb-3" style="width: 50px; height: 50px;">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="btn btn-outline-light rounded-circle mb-3" style="width: 50px; height: 50px;">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="btn btn-outline-light rounded-circle mb-3" style="width: 50px; height: 50px;">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="btn btn-outline-light rounded-circle mb-3" style="width: 50px; height: 50px;">
+          <i class="fab fa-dribbble"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="text-center py-4 mt-5 border-top border-light">
+    <p class="m-0">&copy; 2024 WordWise. All rights reserved.</p>
+  </div>
+</div>
+
+<style>
+  .text-title:hover {
+    color: #f0ad4e; /* Change link color on hover */
+    text-decoration: underline;
+  }
+
+  .btn-outline-light:hover {
+    background-color: #f0ad4e;
+    color: #fff;
+  }
+
+  .feature-post img {
+    border-radius: 8px; /* Add border radius to images for a softer look */
+  }
+
+  /* Adjust column layout for better spacing on smaller screens */
+  @media (max-width: 768px) {
+    .footer-content .col-md-4 {
+      border: none;
+      margin-bottom: 3rem; /* Added bottom margin on smaller screens */
+    }
+  }
+</style>
+
    
   <script src="main.js"></script>
   </body>
