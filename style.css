@@ -19,8 +19,8 @@ font-family: 'Ubuntu', sans-serif;
 
 @media (prefers-color-scheme: dark), [data-theme="dark"] {
   /* Dark Theme Colors */
-  --light: #2e3440;
-  --secondary: #3b4252;
+  light: #2e3440;
+  secondary: #3b4252;
   --dark: #eceff4;
   --primary-color: #f4978e;
   --secondary-color: #b48ead;
@@ -154,12 +154,6 @@ nav a img {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
-
-
-
-
-
 
 body.dark {background-color: #292c35;} /* #9b59b6 */
 
@@ -459,6 +453,65 @@ a {
 
 .grid .grid-item {
   margin-bottom: 3em;
+}
+.swiper-container {
+  width: 100%;
+  height: 400px;
+}
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.social-sharing {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.share-button {
+  cursor: pointer;
+  color: #007bff;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+
+/* Modal Styles */
+#share-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.modal-content a {
+  display: block;
+  border:rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  margin: 10px 0;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.close-modal {
+  cursor: pointer;
+  color: #ff0000;
+  margin-top: 10px;
 }
 
 #footer {
