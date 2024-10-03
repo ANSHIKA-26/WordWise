@@ -7,6 +7,33 @@ font-family: 'Roboto', sans-serif;
 font-family: 'Ubuntu', sans-serif;*/
 
 :root {
+  /* Light Theme Colors */
+  --light: #f0e4d7;
+  --secondary: #2d545e;
+  --dark: #3b3b58;
+  --primary-color: #f4978e;
+  --secondary-color: #c1c8e4;
+  --border: #ddbea9;
+  --body-bg: #f5f5f5;
+}
+
+@media (prefers-color-scheme: dark), [data-theme="dark"] {
+  /* Dark Theme Colors */
+  light: #2e3440;
+  secondary: #3b4252;
+  --dark: #eceff4;
+  --primary-color: #f4978e;
+  --secondary-color: #b48ead;
+  --border: #4c566a;
+  --body-bg: #1e1e2f;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  padding: 0;
+  margin: 0;
+  background: var(--body-bg);
+}
   --light: #96c4f3;
   --secondary: #4f3145;
   --dark: #343a40;
@@ -32,11 +59,7 @@ font-family: 'Ubuntu', sans-serif;*/
     --border: #495057;
     /* Dark gray for borders */
     --body-bg:black;
-
-
   }
-
-
 }
 
 [data-theme="dark"] {
@@ -54,9 +77,6 @@ font-family: 'Ubuntu', sans-serif;*/
   --border: #495057;
   /* Dark gray for borders */
   --body-bg:black;
-
-
-
 }
 /* #header{
   border-radius: 20px;
@@ -73,8 +93,45 @@ header{
   border-bottom: 1px solid black;
 }
 
+body.dark {background-color: #292c35;} /* #9b59b6 */
 
+body.dark h1, body.dark .support a {color: #fff;}
 
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #111;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-moon {color: #f1c40f;}
+
+.fa-sun {color: #f39c12;}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(26px);
 body {
   font-family: 'Roboto', sans-serif;
   padding: 0;
@@ -267,12 +324,6 @@ a {
 .text-right {
   text-align: right;
 }
-
-
-
-
-
-
 /*section*/
 /* navigation menu*/
 .navbar {
@@ -351,11 +402,16 @@ a {
   margin-bottom: 3em;
 }
 
+.swiper-container {
+  width: 100%;
+  height: 400px;
+}
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-
-
-/*main*/
-/*footer*/
 #footer {
   padding-top: 4em;
 }
@@ -447,8 +503,6 @@ a {
     flex-wrap: wrap;
   }
 
-
-
 }
 
 
@@ -519,10 +573,6 @@ a {
 
 }
 
-
-
-
-
 .collapse.nav-link {
   display: block;
   text-align: center;
@@ -581,16 +631,11 @@ a {
 
 }
 
-
-
 .post-thumbnail img {
   width: 800px;
   height: 300px;
 
 }
-
-
-
 
 .post-title {
   font-size: 18px;
@@ -599,9 +644,6 @@ a {
   /* Thin line under post title */
   padding-bottom: 5px;
 }
-
-
-
 
 .container2 {
   display: flex;
@@ -635,9 +677,6 @@ a {
   height: 33.33%;
   padding-left: 450px;
   flex: 3;
-
-
-
 
 }
 
@@ -751,4 +790,3 @@ a {
   font-size: 25px;
 }
 
-/* start writing page*/
