@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - WordWise</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Swiper Slider CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom styles for headings */
+        .about-section h1 {
+            padding-top: 70px;
+            margin-top: 80px;
+            font-size: 36px; /* Adjust size as needed */
+            color: #2c3e50; /* Dark blue color */
+            font-family: 'Arial', sans-serif; /* Change font family */
+            margin-bottom: 20px; /* Space below the heading */
+            transition: color 0.3s; /* Smooth transition for color change */
+        }
+
+        .about-section h1:hover {
+            color: #c54e09; /* Change color on hover */
+        }
+
+        .about-section h2 {
+            font-size: 28px; /* Adjust size as needed */
+            color: #6371b4; /* Bright blue color */
+            font-family: 'Georgia', serif; /* Change font family */
+            margin-top: 30px; /* Space above the heading */
+            margin-bottom: 10px; /* Space below the heading */
+            transition: color 0.3s; /* Smooth transition for color change */
+        }
+
+        .about-section h2:hover {
+            color: #090e85; /* Change color on hover */
+        }
+
+        /* Add icons to headings */
+        .about-section h1:before {
+            content: "\f007"; /* User icon */
+            font-family: "Font Awesome 5 Free"; /* Ensure Font Awesome is used */
+            font-weight: 900; /* Bold weight for Font Awesome */
+            margin-right: 10px; /* Space between icon and text */
+            color: #ca8b3d; /* Icon color */
+        }
+
+        .about-section h2:before {
+            content: "\f0e7"; /* Book icon */
+            font-family: "Font Awesome 5 Free"; /* Ensure Font Awesome is used */
+            font-weight: 900; /* Bold weight for Font Awesome */
+            margin-right: 10px; /* Space between icon and text */
+            color: #ca1c50; /* Icon color */
+        }
+
+        .about-section p {
+            font-size: 18px; /* Font size for paragraphs */
+            line-height: 1.6; /* Line height for better readability */
+            color: #17042a; /* Grey color for text */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header" class="shadow bg-light">
+        <nav class="container navbar">
+            <a href="index.html" class="nav-brand text-dark">WordWise</a>
+            <button class="toggle-button">
+                <span><i class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse">
+                <ul class="navbar-nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="blog" class="nav-link">Leading Blog</a>
+                    <a href="start.html" class="nav-link">Start Writing</a>
+                    <a href="category.html" class="nav-link">Categories</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact Us</a>
+                </ul>
+            </div>
+            <div class="collapse">
+                <ul class="navbar-nav">
+                    <div class="search-box">
+                        <a href="#" class="nav-link"><i class="fa-solid fa-magnifying-glass"></i></a>
+                    </div>
+                    <a href="#" class="nav-link"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="nav-link"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="nav-link"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="nav-link"><i class="fa-brands fa-dribbble"></i></a>
+                </ul>
+            </div>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox">
+                    <div class="slider"></div>
+                </label>
+                <span id="mode-label">Light Mode</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container about-section">
+        <h1>About Us</h1>
+        <p>
+            Welcome to WordWise! We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the world. Our mission is to empower writers and provide them with the tools they need to succeed in their creative journeys.
+        </p>
+        <h2>Our Story</h2>
+        <p>
+            WordWise has grown from a small group of enthusiasts into a vibrant community of writers, readers, and creatives. Our platform is built on the belief that everyone has a story to tell and that stories have the power to inspire, inform, and connect people.
+        </p>
+        <h2>Our Vision</h2>
+        <p>
+            Our vision is to create a space where writers can flourish and readers can discover new ideas, perspectives, and voices. We believe in the importance of quality storytelling and aim to foster a culture of creativity, collaboration, and innovation.
+        </p>
+        <h2>Meet the Team</h2>
+        <p>
+            Our team consists of experienced writers, editors, and marketers who are passionate about the art of storytelling. Together, we work tirelessly to curate engaging content and provide our community with the best resources for success.
+        </p>
+        <h2>Join Us</h2>
+        <p>
+            Whether you’re a seasoned writer or just starting, we invite you to join our community. Explore our platform, connect with fellow writers, and share your stories with the world!
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-3">
+                    <h2 class="footer-title secondary-title">About Us</h2>
+                    <div class="secondary-title text-secondary">
+                        <p class="mt-2">
+                            We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the world.
+                        </p>
+                        <address>
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                            5 South Main Street Los Angeles, ZZ-9611 USA
+                        </address>
+                        <div class="phone">
+                            <i class="fas fa-mobile text-primary"></i>
+                            125-896-485
+                        </div>
+                        <div class="email">
+                            <i class="fas fa-envelope text-primary"></i>
+                            dailysupport@gmail.com
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <h2 class="footer-title secondary-title">Feature Post</h2>
+                    <div class="feature-post">
+                        <div class="flex-item">
+                            <article class="article">
+                                <div class="d-flex">
+                                    <a href="#">
+                                        <img src="./assets/img9.jpg" class="object-fit px-1" alt="">
+                                        <div class="px-1">
+                                            <a href="#" class="text-title display-2 text-dark">
+                                                Embrace the beauty of nature through our enchanting blog.
+                                            </a>
+                                            <p class="secondary-title text-secondary display-3">
+                                                <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+                        <!-- Add more feature posts as needed -->
+                    </div>
+                </div>
+                <div class="col-3">
+                    <h2 class="footer-title secondary-title">Tags</h2>
+                    <div class="tags">
+                        <div class="d-flex flex-wrap">
+                            <a href="#" class="nav-link btn bg-light">Travel</a>
+                            <a href="#" class="nav-link btn bg-light">Food</a>
+                            <a href="#" class="nav-link btn bg-light">Lifestyle</a>
+                            <a href="#" class="nav-link btn bg-light">Technology</a>
+                            <a href="#" class="nav-link btn bg-light">Fashion</a>
+                        </div>
+                    </div>
+                    <h2 class="footer-title secondary-title mt-2">Social</h2>
+                    <div class="tags social" id="contact">
+                        <div class="d-flex flex-wrap">
+                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="./darkMode.js"></script>
+    <!-- Swiper Slider CDN -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</body>
+</html>

@@ -769,27 +769,20 @@ a {
 
 .swiper-container {
     height: 500px;
-    /* aap apne slider ke height ko yahan set kar sakte hain */
     width: 100%;
-    /* aap apne slider ke width ko yahan set kar sakte hain */
     overflow: hidden;
 }
 
 .swiper-slide {
     height: 80%;
-    margin-right: 60px;
-    /* aap apne slider ke slides ke height ko yahan set kar sakte hain */
     width: 80%;
-    /* aap apne slider ke slides ke width ko yahan set kar sakte hain */
 }
 
 .swiper-slide img {
     height: 100%;
-    /* aap apne slider ke images ke height ko yahan set kar sakte hain */
     width: 100%;
-    /* aap apne slider ke images ke width ko yahan set kar sakte hain */
     object-fit: cover;
-    /* aap apne slider ke images ko cover karne ke liye yeh CSS use kar sakte hain */
+    margin-right: 60px;
 }
 
 
