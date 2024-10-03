@@ -85,9 +85,7 @@
                   <span class="ball"></span>
                 </label>
               </div>
-        
-        
-            </nav>
+             </nav>
         
           </section>
         
@@ -387,16 +385,11 @@
                             <div class="overflow-img">
                                 <a href="#">
                                     <img src="./assets/img11.jpg" class="img-fluid">
-
-
                                 </a>
                             </div>
                             <div class="card-body text-center px-1">
                                 <a href="#" class="text-title display-1 text-dark">
                                   Aesthetic Abodes: Inspirations from Architectural Design
-
-
-
                                 </a>
                                 <p class="secondary-title text-secondary display-3">
                                     <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
@@ -422,10 +415,6 @@
                           <div class="card-body text-center px-1">
                               <a href="#" class="text-title display-1 text-dark">
                                 Nature's Kaleidoscope: A Symphony of Colors and Life
-
-
-
-
                               </a>
                               <p class="secondary-title text-secondary display-3">
                                   <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
@@ -449,9 +438,6 @@
                         <div class="card-body text-center px-1">
                             <a href="#" class="text-title display-1 text-dark">
                               Chirp & Flutter: Tales from the Aviary
-
-
-
                             </a>
                             <p class="secondary-title text-secondary display-3">
                                 <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
@@ -470,17 +456,11 @@
                       <div class="overflow-img">
                           <a href="#">
                               <img src="./assets/img14.jpg" class="img-fluid">
-
-
                           </a>
                       </div>
                       <div class="card-body text-center px-1">
                           <a href="#" class="text-title display-1 text-dark">
-                            Unlocking the Power of the Mind: A Journey to Self-Discovery
-
-
-
-                          </a>
+                            Unlocking the Power of the Mind: A Journey to Self-Discovery     </a>
                           <p class="secondary-title text-secondary display-3">
                               <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
                               <span><i class="fa-solid fa-comment"></i>12</span>
@@ -517,29 +497,42 @@
         <!--blog post section-->
         <div class="swiper-container">
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="./assets/slider/img1.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img2.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img3.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img4.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img5.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img6.jpg" class="img-fluid" alt=""></div>
-
-
-
+            <div class="swiper-slide"><img src="./assets/slider/img1.jpg" class="img-fluid" alt="Image 1"></div>
+            <div class="swiper-slide"><img src="./assets/slider/img2.jpg" class="img-fluid" alt="Image 2"></div>
+            <div class="swiper-slide"><img src="./assets/slider/img3.jpg" class="img-fluid" alt="Image 3"></div>
+            <div class="swiper-slide"><img src="./assets/slider/img4.jpg" class="img-fluid" alt="Image 4"></div>
+            <div class="swiper-slide"><img src="./assets/slider/img5.jpg" class="img-fluid" alt="Image 5"></div>
+            <div class="swiper-slide"><img src="./assets/slider/img6.jpg" class="img-fluid" alt="Image 6"></div>
           </div>
-
-
-
+      
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+      
+          <!-- Add Navigation -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-
+        <script>
+          var swiper = new Swiper('.swiper-container', {
+            loop: true, // Makes it a continuous carousel
+            autoplay: {
+              delay: 3000, // Slides every 3 seconds
+              disableOnInteraction: false, // Keeps autoplay running even after user interaction
+            },
+            pagination: {
+              el: '.swiper-pagination',
+              clickable: true, // Allows clicking on pagination dots
+            },
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            },
+          });
+        </script>
 </div>
 </section>
-
-
-
-
-
     </main>
 
     <!--mainn-->
@@ -566,7 +559,6 @@
             <span>dailysupport@gmail.com</span>
           </div>
         </div>
-  
         <!-- Featured Posts -->
         <div class="col-md-3 mb-4"> <!-- Added mb-4 for vertical spacing -->
           <h2 class="footer-title secondary-title">Featured Posts</h2>
@@ -638,4 +630,3 @@
   <script src="main.js"></script>
   </body>
   </html>
-  
