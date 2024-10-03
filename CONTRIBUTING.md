@@ -97,10 +97,7 @@ git push origin my-feature
 
 ## :zap: Communication and Support 💬
 - Join the project's communication channels to interact with other contributors and seek assistance.
-- If you have any questions or need help, don't hesitate to ask in the project's communication channels or comment on the relevant issue.
-
-## :zap: Code of Conduct 😇
-Please follow our project's code of conduct while contributing.</br>Treat all contributors and users with respect and create a positive and inclusive environment for everyone.
+- If you have any questions or need help, don't hesitate to ask in the project's communication channels or comment on the relevant issues 
 
 ## :zap: License 📄
 The project is licensed under ***MIT***. Make sure to review and comply with the license terms.</br>We hope this guide helps you get started with contributing to our open-source project. Thank you for your contribution!
