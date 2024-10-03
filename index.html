@@ -17,81 +17,74 @@
 
 
 </head>
-<body>
+<body class="main-body">
     <!--header-->
-    
-        <section class="navbar">
-
-
-            <nav>
-              <div class="logo">
-            
-                <h1>WordWise</h1>
-              </div>
-        
-              <div class="search-bar">
-                <input type="search" id="search-input" class="search-input" placeholder="Search...">
-                <button class="search-button"><i class="fas fa-search"></i></button>
-              </div>
-              <div>
-                <a href="#" class="">
-                  <img width="24" height="24" src="https://img.icons8.com/?size=100&id=T4nnbmHS4kEt&format=png&color=000000
-                    alt="external-trending-content-creator-tanah-basah-basic-outline-tanah-basah" />
+    <section class="navbar">
+      <nav>
+          <div class="logo">
+              <h1>WordWise</h1>
+          </div>
+  
+          <div class="search-bar">
+              <input type="search" id="search-input" class="search-input" placeholder="Search...">
+              <button class="search-button"><i class="fas fa-search"></i></button>
+          </div>
+  
+          <div class="nav-links">
+              <a href="#" aria-label="Trending">
+                  <img width="24" height="24" src="https://img.icons8.com/?size=100&id=T4nnbmHS4kEt&format=png&color=000000" alt="Trending Icon" />
                   Trending
-                </a>
-                <a href="start.html">
-                  <img width="50" height="50" src="https://img.icons8.com/?size=100&id=18877&format=png&color=000000"
-                    alt="blog" />
+              </a>
+              <a href="start.html" aria-label="Start">
+                  <img width="50" height="50" src="https://img.icons8.com/?size=100&id=18877&format=png&color=000000" alt="Start Icon" />
                   Start
-                </a>
-                <div class="dropdown">    
-                <a href="category.html" class="dropdown-toggle">
-                  <img width="50" height="50" src="https://img.icons8.com/?size=100&id=13705&format=png&color=000000"
-                    alt="category" />
-                  Categories
-                </a>
-                <div class="dropdown-content">
-                    <a href="#">Education</a>
-                    <a href="#">Food</a>
-                    <a href="#">Technology</a>
-                    <a href="#">Sports</a>
-                    <a href="#">Innovation</a>
-                    <a href="#">Global News</a>
-                  </div>
-                </div>
-        
-                <a href="about.html">
-                  <img src="https://img.icons8.com/?size=100&id=82450&format=png&color=000000" alt="">
-                  About
-                </a>
-                <div class="dropdown">
-                  <a href="contact.html" class="dropdown-toggle">
-                    <img src="https://img.icons8.com/?size=100&id=2817&format=png&color=000000" alt=""> Contact
+              </a>
+  
+              <div class="dropdown">
+                  <a href="category.html" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                      <img width="50" height="50" src="https://img.icons8.com/?size=100&id=13705&format=png&color=000000" alt="Categories Icon" />
+                      Categories
                   </a>
                   <div class="dropdown-content">
-                    <a href="#"><i class="fa-brands fa-facebook"></i>&nbsp;Facebook</a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i> &nbsp;Instagram</a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i> &nbsp;Twitter</a>
-                    <a href="#"><i class="fa-brands fa-dribbble"></i> &nbsp;Dribble</a>
+                      <a href="#">Education</a>
+                      <a href="#">Food</a>
+                      <a href="#">Technology</a>
+                      <a href="#">Sports</a>
+                      <a href="#">Innovation</a>
+                      <a href="#">Global News</a>
                   </div>
-                </div>
               </div>
-        
-              <div>
-                <input type="checkbox" class="checkbox" id="checkbox">
-                <label for="checkbox" class="checkbox-label">
+  
+              <a href="about.html" aria-label="About">
+                  <img src="https://img.icons8.com/?size=100&id=82450&format=png&color=000000" alt="About Icon" />
+                  About
+              </a>
+  
+              <div class="dropdown">
+                  <a href="contact.html" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                      <img src="https://img.icons8.com/?size=100&id=2817&format=png&color=000000" alt="Contact Icon" />
+                      Contact
+                  </a>
+                  <div class="dropdown-content">
+                      <a href="#"><i class="fa-brands fa-facebook"></i>&nbsp;Facebook</a>
+                      <a href="#"><i class="fa-brands fa-instagram"></i>&nbsp;Instagram</a>
+                      <a href="#"><i class="fa-brands fa-twitter"></i>&nbsp;Twitter</a>
+                      <a href="#"><i class="fa-brands fa-dribbble"></i>&nbsp;Dribbble</a>
+                  </div>
+              </div>
+          </div>
+  
+          <div class="theme-switch">
+              <input type="checkbox" class="checkbox" id="checkbox">
+              <label for="checkbox" class="checkbox-label" aria-label="Toggle dark mode">
                   <i class="fas fa-moon"></i>
                   <i class="fas fa-sun"></i>
                   <span class="ball"></span>
-                </label>
-              </div>
-        
-        
-            </nav>
-        
-          </section>
-        
-
+              </label>
+          </div>
+      </nav>
+  </section>
+  
     <!--header-->
     <!--mainn-->
     <main id="site-main">
@@ -106,140 +99,115 @@
                                 <div class="overflow-img">
                                     <a href="#">
                                         <img src="./assets/img1.jpg" class="img-fluid">
-
-
                                     </a>
                                 </div>
                                 <div class="card-body text-center px-1">
-                                    <a href="blog.html" class="text-title display-1 text-dark">
-                                        Roaming Routes
-
-
-
-                                    </a>
-                                    <p class="secondary-title text-secondary display-3">
-                                        <span><i class="fa-regular fa-clock"></i> wed 01,2020</span>
-                                        <span><i class="fa-solid fa-comment"></i>13</span>
-                                    </p>
-                                </div>
-
+                                  <a href="blog.html" class="text-title display-1 text-dark">
+                                      Roaming Routes
+                                  </a>
+                                  <p class="secondary-title text-secondary display-3">
+                                      <span><i class="fa-regular fa-clock"></i> wed 01,2020</span>
+                                      <span><i class="fa-solid fa-comment"></i> 13</span>
+                                  </p>
+                                  <!-- Share Button -->
+                                  <span class="share-button" onclick="openShareModal('https://example.com/blog.html', 'Roaming Routes')">Share</span>
+                              </div>
                             </div>
                         </article>
                     </div>
-                    <!-- article-->
-                    <!-- article-->
                     <div class="grid-item">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
                                         <img src="./assets/img2.jpg" class="img-fluid">
-
-
                                     </a>
                                 </div>
                                 <div class="card-body text-center px-1">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Gaming Chronicles
-
-
                                     </a>
                                     <p class="secondary-title text-secondary display-3">
                                         <span><i class="fa-regular fa-clock"></i> Mon 13,2023</span>
                                         <span><i class="fa-solid fa-comment"></i>12</span>
                                     </p>
+                                     <!-- Share Button -->
+                                     <span class="share-button" onclick="openShareModal('https://example.com/blog.html', 'Gaming Chronicles')">Share</span>
                                 </div>
-
                             </div>
                         </article>
                     </div>
-                    <!-- article-->
-                    <!-- article-->
+                    
                     <div class="grid-item">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
                                         <img src="./assets/img3.jpg" class="img-fluid">
-
-
                                     </a>
                                 </div>
                                 <div class="card-body text-center px-1">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Virtual Realms
-
-
-
                                     </a>
                                     <p class="secondary-title text-secondary display-3">
                                         <span><i class="fa-regular fa-clock"></i>wed 09,2023</span>
                                         <span><i class="fa-solid fa-comment"></i>19</span>
                                     </p>
+                                    <!-- Share Button -->
+                                    <span class="share-button" onclick="openShareModal('https://example.com/blog.html', 'Virtual Realms')">Share</span>
                                 </div>
 
                             </div>
                         </article>
                     </div>
-                    <!-- article-->
-                    <!-- article-->
+                    
                     <div class="grid-item">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
                                         <img src="./assets/img4.jpg" class="img-fluid">
-
-
                                     </a>
                                 </div>
                                 <div class="card-body text-center px-1">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Laptop life
-
-
-
                                     </a>
                                     <p class="secondary-title text-secondary display-3">
                                         <span><i class="fa-regular fa-clock"></i> Tue 07,2019</span>
                                         <span><i class="fa-solid fa-comment"></i>6</span>
                                     </p>
-                                </div>
-
+                                    <!-- Share Button -->
+                                    <span class="share-button" onclick="openShareModal('https://example.com/blog.html', 'laptop Life')">Share</span>
+                                  </div>
                             </div>
                         </article>
                     </div>
-                    <!-- article-->
-                    <!-- article-->
+                  
                     <div class="grid-item">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
                                         <img src="./assets/img5.jpg" class="img-fluid">
-
-
                                     </a>
                                 </div>
                                 <div class="card-body text-center px-1">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Mouthwatering Memoirs
-
-
-
                                     </a>
                                     <p class="secondary-title text-secondary display-3">
                                         <span><i class="fa-regular fa-clock"></i> Tue 02,2021</span>
                                         <span><i class="fa-solid fa-comment"></i>10</span>
                                     </p>
+                                    <!-- Share Button -->
+                                    <span class="share-button" onclick="openShareModal('https://example.com/blog.html', 'Mouthwatering Memoirs')">Share</span>
                                 </div>
-
                             </div>
                         </article>
                     </div>
-                    <!-- article-->
-
-                    <!-- article-->
+                    
                     <div class="grid-item">
                         <article class="article">
 
@@ -247,197 +215,166 @@
                                 <div class="overflow-img">
                                     <a href="#">
                                         <img src="./assets/img6.jpg" class="img-fluid">
-
-
                                     </a>
                                 </div>
                                 <div class="card-body text-center px-1">
                                     <a href="#" class="text-title display-1 text-dark">
                                       Tech travels
-
-
-
                                     </a>
                                     <p class="secondary-title text-secondary display-3">
                                         <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
                                         <span><i class="fa-solid fa-comment"></i>12</span>
                                     </p>
+                                    <!-- Share Button -->
+                                    <span class="share-button" onclick="openShareModal('https://example.com/blog.html', 'Tech Travels')">Share</span>
                                 </div>
 
                             </div>
                         </article>
                     </div>
-                    <!-- article-->
-                    <!-- article-->
+                    
                     <div class="grid-item">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
                                         <img src="./assets/img7.jpg" class="img-fluid">
-
-
                                     </a>
                                 </div>
                                 <div class="card-body text-center px-1">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Culinary Delights
-
-
-
                                     </a>
                                     <p class="secondary-title text-secondary display-3">
                                         <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
                                         <span><i class="fa-solid fa-comment"></i>12</span>
                                     </p>
+                                    <!-- Share Button -->
+                                    <span class="share-button" onclick="openShareModal('https://example.com/blog.html', 'Culinary Delights')">Share</span>
                                 </div>
 
                             </div>
                         </article>
                     </div>
-                    <!-- article-->
-                    <!-- article-->
+                    
                     <div class="grid-item">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
                                         <img src="./assets/img8.jpg" class="img-fluid">
-
-
                                     </a>
                                 </div>
                                 <div class="card-body text-center px-1">
                                     <a href="#" class="text-title display-1 text-dark">
                                       Voyage Vista: Where Travel Dreams Take Flight
-
-
-
                                     </a>
                                     <p class="secondary-title text-secondary display-3">
                                         <span><i class="fa-regular fa-clock"></i>wed 02,2023</span>
                                         <span><i class="fa-solid fa-comment"></i>12</span>
                                     </p>
+                                    <!-- Share Button -->
+                                    <span class="share-button" onclick="openShareModal('https://example.com/blog.html', 'Voyage Vista')">Share</span>
                                 </div>
 
                             </div>
                         </article>
                     </div>
-                    <!-- article-->
-                    <!-- article-->
+                    
                     <div class="grid-item">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
                                         <img src="./assets/img9.jpg" class="img-fluid">
-
-
                                     </a>
                                 </div>
                                 <div class="card-body text-center px-1">
                                     <a href="#" class="text-title display-1 text-dark">
                                       Beak & Claw: A Chronicle of Birds in the Wild
-
-
-
                                     </a>
                                     <p class="secondary-title text-secondary display-3">
                                         <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
                                         <span><i class="fa-solid fa-comment"></i>12</span>
                                     </p>
+                                    <!-- Share Button -->
+                                    <span class="share-button" onclick="openShareModal('https://example.com/blog.html', 'Beak')">Share</span>
                                 </div>
 
                             </div>
                         </article>
                     </div>
-                    <!-- article-->
-                    <!-- article-->
                     <div class="grid-item">
                       <article class="article">
                           <div class="card">
                               <div class="overflow-img">
                                   <a href="#">
                                       <img src="./assets/img10.jpg" class="img-fluid">
-
-
                                   </a>
                               </div>
                               <div class="card-body text-center px-1">
                                   <a href="#" class="text-title display-1 text-dark">
                                     Wild Whispers: Listening to Nature's Creatures
-
-
-
                                   </a>
                                   <p class="secondary-title text-secondary display-3">
                                       <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
                                       <span><i class="fa-solid fa-comment"></i>12</span>
                                   </p>
+                                  <!-- Share Button -->
+                                  <span class="share-button" onclick="openShareModal('https://example.com/blog.html', 'Wild Whispers')">Share</span>
                               </div>
 
                           </div>
                       </article>
                   </div>
-                  <!-- article-->
-                  <!-- article-->
+                
                   <div class="grid-item">
                     <article class="article">
                         <div class="card">
                             <div class="overflow-img">
                                 <a href="#">
                                     <img src="./assets/img11.jpg" class="img-fluid">
-
-
                                 </a>
                             </div>
                             <div class="card-body text-center px-1">
                                 <a href="#" class="text-title display-1 text-dark">
                                   Aesthetic Abodes: Inspirations from Architectural Design
-
-
-
                                 </a>
                                 <p class="secondary-title text-secondary display-3">
                                     <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
                                     <span><i class="fa-solid fa-comment"></i>12</span>
                                 </p>
+                                <!-- Share Button -->
+                                <span class="share-button" onclick="openShareModal('https://example.com/blog.html', 'Roaming Routes')">Share</span>
                             </div>
 
                         </div>
                     </article>
                 </div>
-                <!-- article-->
-                <!-- article-->
+              
                 <div class="grid-item">
                   <article class="article">
                       <div class="card">
                           <div class="overflow-img">
                               <a href="#">
                                   <img src="./assets/img12.jpg" class="img-fluid">
-
-
                               </a>
                           </div>
                           <div class="card-body text-center px-1">
                               <a href="#" class="text-title display-1 text-dark">
                                 Nature's Kaleidoscope: A Symphony of Colors and Life
-
-
-
-
                               </a>
                               <p class="secondary-title text-secondary display-3">
                                   <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
                                   <span><i class="fa-solid fa-comment"></i>12</span>
                               </p>
+                              <!-- Share Button -->
+                              <span class="share-button" onclick="openShareModal('https://example.com/blog.html', 'Roaming Routes')">Share</span>
                           </div>
-
                       </div>
                   </article>
               </div>
-              <!-- article-->
-              <!-- article-->
+
               <div class="grid-item">
                 <article class="article">
                     <div class="card">
@@ -449,97 +386,89 @@
                         <div class="card-body text-center px-1">
                             <a href="#" class="text-title display-1 text-dark">
                               Chirp & Flutter: Tales from the Aviary
-
-
-
                             </a>
                             <p class="secondary-title text-secondary display-3">
                                 <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
                                 <span><i class="fa-solid fa-comment"></i>12</span>
                             </p>
+                            <!-- Share Button -->
+                            <span class="share-button" onclick="openShareModal('https://example.com/blog.html', 'Roaming Routes')">Share</span>
                         </div>
 
                     </div>
                 </article>
             </div>
-            <!-- article-->
-            <!-- article-->
+            
             <div class="grid-item">
               <article class="article">
                   <div class="card">
                       <div class="overflow-img">
                           <a href="#">
                               <img src="./assets/img14.jpg" class="img-fluid">
-
-
                           </a>
                       </div>
                       <div class="card-body text-center px-1">
                           <a href="#" class="text-title display-1 text-dark">
-                            Unlocking the Power of the Mind: A Journey to Self-Discovery
-
-
-
-                          </a>
+                            Unlocking the Power of the Mind: A Journey to Self-Discovery     </a>
                           <p class="secondary-title text-secondary display-3">
                               <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
                               <span><i class="fa-solid fa-comment"></i>12</span>
                           </p>
+                          <!-- Share Button -->
+                          <span class="share-button" onclick="openShareModal('https://example.com/blog.html', 'Roaming Routes')">Share</span>
                       </div>
 
                   </div>
               </article>
           </div>
-          <!-- article-->
         </div>
+        <!-- Share Modal -->
+  <div id="share-modal">
+  <div class="modal-content">
+      <h4>Share this post:</h4>
+      <a href="#" id="share-facebook">Facebook</a>
+      <a href="#" id="share-twitter">Twitter</a>
+      <a href="#" id="share-linkedin">LinkedIn</a>
+      <a href="#" id="share-pinterest">Pinterest</a>
+      <span class="close-modal" id="close-modal">Close</span>
+    </div>
+    </div>
+    <script src="share.js"></script>
+
         <div class="text-center">
           <button class="btn btn-primary secondary-title text-light" 
           style="
-          
                 color: rgb(6, 2, 2);  
                 background-color: aqua;    
                 height: 40px;  
                 border-radius: 4px solid black;  
-                font-family: sans-serif; 
-               
-                
-
-          "
-          
-          
-          
-          > <b>Load More Posts...</b></button>
+                font-family: sans-serif; "
+                > <b>Load More Posts...</b></button>
       </div>
     </div>
-
-
         </section>
         <!--blog post section-->
         <div class="swiper-container">
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="./assets/slider/img1.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img2.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img3.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img4.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img5.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img6.jpg" class="img-fluid" alt=""></div>
-
-
-
+            <div class="swiper-slide"><img src="./assets/slider/img1.jpg" class="img-fluid" alt="Image 1"></div>
+            <div class="swiper-slide"><img src="./assets/slider/img2.jpg" class="img-fluid" alt="Image 2"></div>
+            <div class="swiper-slide"><img src="./assets/slider/img3.jpg" class="img-fluid" alt="Image 3"></div>
+            <div class="swiper-slide"><img src="./assets/slider/img4.jpg" class="img-fluid" alt="Image 4"></div>
+            <div class="swiper-slide"><img src="./assets/slider/img5.jpg" class="img-fluid" alt="Image 5"></div>
+            <div class="swiper-slide"><img src="./assets/slider/img6.jpg" class="img-fluid" alt="Image 6"></div>
           </div>
-
-
-
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-
+        <script>
+          var swiper = new Swiper('.swiper-container', {
+            loop: true, // Makes it a continuous carousel
+            autoplay: {
+              delay: 3000, // Slides every 3 seconds
+              disableOnInteraction: false, // Keeps autoplay running even after user interaction
+            },
+          });
+        </script>
 </div>
 </section>
-
-
-
-
-
     </main>
 
     <!--mainn-->
@@ -566,7 +495,6 @@
             <span>dailysupport@gmail.com</span>
           </div>
         </div>
-  
         <!-- Featured Posts -->
         <div class="col-md-3 mb-4"> <!-- Added mb-4 for vertical spacing -->
           <h2 class="footer-title secondary-title">Featured Posts</h2>
@@ -632,9 +560,7 @@
     </div>
   </footer>
   <!-- .footer -->
-  
- 
-  
+   
   <script src="main.js"></script>
   </body>
   </html>
