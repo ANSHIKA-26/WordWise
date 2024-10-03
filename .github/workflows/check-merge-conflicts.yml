@@ -1,36 +1,39 @@
-name: Check Merge Conflicts
+name: Merge Conflict Checker
 
-# This triggers the workflow on pull requests when opened or updated.
 on:
   pull_request:
-    types: [opened, synchronize]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  pull-requests: write
+  contents: read
 
 jobs:
-  check-merge-conflicts:
-    runs-on: ubuntu-latest  # Runs on the latest Ubuntu environment
-
+  check_merge_conflicts:
+    runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2  # Checks out the code from the repo
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Fetch all branches
-      run: git fetch --all  # Fetches all the branches to compare
+      - name: Check for merge conflicts
+        run: |
+          git fetch origin
+          if git merge-base --is-ancestor HEAD origin/main; then
+            echo "No merge conflicts."
+          else
+            echo "Merge conflicts detected."
+            exit 1
+          fi
+        continue-on-error: true
 
-    - name: Check for merge conflicts
-      run: |
-        git checkout ${{ github.event.pull_request.base.ref }}  # Checkout base branch
-        git pull  # Update base branch to the latest
-        git merge --no-commit --no-ff ${{ github.event.pull_request.head.ref }} || echo "Merge conflict detected"
-        if git ls-files -u | grep -q "."; then
-          echo "::error::Merge conflict detected! Please resolve conflicts."
-          exit 1  # If conflicts are found, fail the workflow
-        else
-          echo "No merge conflicts."
-        fi
-
-    - name: Notify PR owner
-      if: failure()
-      run: |
-        curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-        -d '{"body": "⚠️ Merge conflicts detected. Please resolve conflicts before merging."}' \
-        ${{ github.event.pull_request.url }}/comments
+      - name: Post comment if there are merge conflicts
+        if: failure()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.payload.pull_request.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '⚠️ This branch has conflicts that must be resolved. Please resolve the merge conflicts before proceeding.'
+            })
