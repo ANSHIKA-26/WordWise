@@ -19,8 +19,8 @@ font-family: 'Ubuntu', sans-serif;
 
 @media (prefers-color-scheme: dark), [data-theme="dark"] {
   /* Dark Theme Colors */
-  --light: #2e3440;
-  --secondary: #3b4252;
+  light: #2e3440;
+  secondary: #3b4252;
   --dark: #eceff4;
   --primary-color: #f4978e;
   --secondary-color: #b48ead;
@@ -154,12 +154,6 @@ nav a img {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
-
-
-
-
-
 
 body.dark {background-color: #292c35;} /* #9b59b6 */
 
@@ -460,7 +454,15 @@ a {
 .grid .grid-item {
   margin-bottom: 3em;
 }
-
+.swiper-container {
+  width: 100%;
+  height: 400px;
+}
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 #footer {
   padding-top: 45em;
   padding-bottom: 2em; /* Adjust if necessary */
