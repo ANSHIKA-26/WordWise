@@ -97,6 +97,10 @@ We’re excited to have you contribute to the **WordWise Blogging Website** proj
    - The project manager will review your PR, and if approved, your request will be merged.
 
 ---
+ ## Usage
+- Open the website and navigate through the articles.
+- Use the search bar to find specific topics.
+- Click on any article to read in detail.
 
 ## 🏆 Contribution Points
 All tasks will be assigned various levels based on complexity and required skills. Each level provides different points:
@@ -110,6 +114,7 @@ All tasks will be assigned various levels based on complexity and required skill
 It is important to adhere to the guidelines; violations can affect your profile. Review the guidelines [here](https://github.com/GSSoC24/Contributor/tree/main/gssoc-guidelines).
 
 ---
+
 
 ## 📄 Ending Note
 Thank you for checking out the WordWise Blogging Website! We hope you find this project enjoyable and informative. Your feedback, contributions, and suggestions are always welcome!

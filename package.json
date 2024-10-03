@@ -1,0 +1,12 @@
+{
+  "name": "wordwise",
+  "version": "1.0.0",
+  "description": "![GSSoC-Ext](/Untitled%20design.png)\r # 📖 WordWise Blogging Website 📝",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
