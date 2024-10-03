@@ -62,7 +62,7 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    border-bottom: 1px solid black;
+    border-bottom: none;
 }
 
 body {
@@ -70,9 +70,200 @@ body {
     padding: 0;
     margin: 0;
     /* background: linear-gradient(to right, #7F7FD5, #91EAE4); */
-    background: var(--body-bg);
+    /* background: var(--body-bg); */
+    background-color: #232323;
     /* background-color: f7d6e0; */
 }
+
+.dark-theme {
+    background-color: #f2f2f2;
+    color: #000000;
+}
+
+.dark-theme .navbar {
+    width: 100%;
+    color: #000000;
+    padding: 10px;
+    background-color: #fffbfb;
+    border-bottom: 1px solid var(--dark);
+    border-bottom: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    position: relative;
+    border-radius: 10px;
+    -webkit-box-shadow: -1px 9px 17px 2px rgba(0, 0, 0, 1);
+    -moz-box-shadow: -1px 9px 17px 2px rgba(0, 0, 0, 1);
+    box-shadow: -1px 9px 17px 2px rgba(0, 0, 0, 1);
+}
+
+.dark-theme .nav-link {
+    color: rgb(0, 0, 0);
+    border-radius: 99px;
+    padding: 2px;
+    font-size: 18px;
+    margin: 7px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.dark-theme .nav-link:hover {
+    color: #ffc300;
+}
+
+.dark-theme .text-secondary {
+    color: #131616;
+}
+
+.dark-theme .text-dark {
+    color: #000000;
+}
+
+.dark-theme .bg-light {
+    background-color: #f2f2f2;
+}
+
+.dark-theme .nav-link:hover {
+    color: #2c2c2c;
+}
+
+.dark-theme .search-box {
+    border-right: 1px solid #ffffff;
+    color: #fff;
+}
+
+.dark-theme .overflow-img:hover {
+    transform: scale(1.1);
+    border: 5px solid #ffffff;
+    background-color: #d6d6d6;
+    border-radius: 30px;
+    padding: 5px 0 2px 15px;
+    box-sizing: border-box;
+    transition: transform 0.5s;
+    transform: rotateY(180deg) scale(1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+/* .theme-switcher {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.checkbox {
+    display: none;
+}
+
+.checkbox-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.checkbox-label i {
+    font-size: 18px;
+    color: #666;
+}
+
+.ball {
+    position: absolute;
+   
+    left: 3px;
+    right: 17px;
+    width: 30px;
+    height: 28px;
+    border-radius: 90%;
+    background-color: #fff;
+    transition: transform 0.3s ease-in-out;
+}
+
+.checkbox:checked+.checkbox-label .ball {
+    transform: translateX(30px);
+}
+
+.checkbox:checked+.checkbox-label {
+    background-color: #333;
+}
+
+.checkbox:checked+.checkbox-label i.fa-moon {
+    color: #fff;
+}
+
+.checkbox:checked+.checkbox-label i.fa-sun {
+    color: #fff;
+} */
+
+.theme-switcher {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.checkbox {
+    display: none;
+}
+
+.checkbox-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.checkbox-label i {
+    font-size: 18px;
+    color: #666;
+}
+
+.ball {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+    border-radius: 90%;
+    background-color: #fff;
+    transition: transform 0.3s ease-in-out;
+}
+
+.checkbox:checked+.checkbox-label .ball {
+    transform: translateX(30px);
+}
+
+.checkbox:checked+.checkbox-label {
+    background-color: #333;
+}
+
+.checkbox:checked+.checkbox-label i.fa-moon {
+    color: #fff;
+}
+
+.checkbox:checked+.checkbox-label i.fa-sun {
+    color: #fff;
+}
+
+
+/* okok */
 
 .btn-primary {
     border-radius: 4px;
@@ -256,7 +447,8 @@ a {
 .navbar {
     width: 100%;
     padding: 10px;
-    background-color: var(--secondary);
+    /* background-color: var(--secondary); */
+    background-color: #000;
     border-bottom: 1px solid var(--dark);
     display: flex;
     justify-content: space-between;
@@ -267,7 +459,21 @@ a {
     right: 0;
     position: relative;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: -1px -5px 49px -12px rgba(255, 255, 255, 1);
+    -moz-box-shadow: -1px -5px 49px -12px rgba(255, 255, 255, 1);
+    box-shadow: -1px -5px 49px -12px rgba(255, 255, 255, 1);
+}
+
+.nav-brand {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to right, #ff69b4, #ffa07a, #ffff00, #00ff00, #0000ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease-in-out;
 }
 
 .toggle-button {
@@ -294,9 +500,10 @@ a {
     font-family: 'Ubuntu', sans-serif
 }
 
-.nav-link:hover {
+
+/* .nav-link:hover {
     color: var(--primary-color);
-}
+} */
 
 .search-box {
     display: inline;
@@ -339,44 +546,6 @@ a {
     grid-template-rows: auto;
     gap: 0;
 }
-
-
-/* .grid-item {
-    position: relative;
-    overflow: hidden;
-} */
-
-
-/* .grid-item img {
-    transition: transform 0.5s;
-    border-radius: 10px;
-} */
-
-
-/* .grid-item img:hover {
-    transform: rotateY(180deg) scale(1.2);
-    box-shadow: 0 0 10px rgba(216, 216, 216, 0.5);
-    transition: all 0.3s ease-in-out;
-} */
-
-
-/* .grid-item::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-} */
-
-
-/* .grid-item:hover::after {
-    opacity: 1;
-    border: 5px solid #fff;
-} */
 
 
 /*main*/
@@ -541,12 +710,18 @@ a {
 
 .overflow-img:hover {
     transform: scale(1.1);
-    border: 5px solid #fff;
+    border: 5px solid #000000;
+    background-color: #161616;
+    border-radius: 30px;
     padding: 5px 0 2px 15px;
     box-sizing: border-box;
     transition: transform 0.5s;
-    transform: rotateY(180deg) scale(1.2);
+    transform: rotateY(180deg) scale(1);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.overflow-img img {
+    border-radius: 30px;
 }
 
 .overflow-img a {
@@ -573,18 +748,48 @@ a {
 }*
 /* CSS */
 
-.swiper-container {
+
+/* .swiper-container {
     max-width: 400px;
     margin: 0 auto;
+}
+
+.swiper-container {
+    overflow: hidden;
 }
 
 .swiper-slide img {
     width: 80%;
     height: auto;
-}
+} */
 
 .slider-wrapper {
     max-width: 800px;
+}
+
+.swiper-container {
+    height: 500px;
+    /* aap apne slider ke height ko yahan set kar sakte hain */
+    width: 100%;
+    /* aap apne slider ke width ko yahan set kar sakte hain */
+    overflow: hidden;
+}
+
+.swiper-slide {
+    height: 80%;
+    margin-right: 60px;
+    /* aap apne slider ke slides ke height ko yahan set kar sakte hain */
+    width: 80%;
+    /* aap apne slider ke slides ke width ko yahan set kar sakte hain */
+}
+
+.swiper-slide img {
+    height: 100%;
+    /* aap apne slider ke images ke height ko yahan set kar sakte hain */
+    width: 100%;
+    /* aap apne slider ke images ke width ko yahan set kar sakte hain */
+    object-fit: cover;
+    /* aap apne slider ke images ko cover karne ke liye yeh CSS use kar sakte hain */
 }
 
 
@@ -788,7 +993,6 @@ a {
 
 .nav-link:hover {
     color: #ffc300;
-    /* Replace with hover color of choice */
 }
 
 
