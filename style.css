@@ -33,6 +33,7 @@ body {
   padding: 0;
   margin: 0;
   background: var(--body-bg);
+  overflow-x: hidden;
 }
 
 
