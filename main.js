@@ -76,11 +76,8 @@ navLinks.forEach(link => {
 });
 
 
-
-// Theme Switcher
-//determines if the user has a set theme
 function detectColorScheme() {
-  var theme = "light";    //default to light
+  var theme = "light";   
 
 
   //local storage is used to override OS theme settings
@@ -117,3 +114,4 @@ function switchTheme(e) {
     toggleSwitch.checked = false;
   }
 }
+

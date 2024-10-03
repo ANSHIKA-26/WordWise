@@ -40,7 +40,7 @@ font-family: 'Ubuntu', sans-serif;*/
       #footer{
           background-color: #414141;
       }
-    .about-us p{
+    .col-md-3 mb-4 p{
       color:white;
     }
 }
@@ -90,7 +90,7 @@ body {
     #footer{
       background-color: #414141;
     }
-    .about-us p{
+    .col-md-3 mb-4 p{
       color:white;
     }
 }

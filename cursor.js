@@ -1,29 +1,28 @@
 const coords = { x: 0, y: 0 };
 const circles = document.querySelectorAll(".circle");
-
 const colors = [
-  "#ffb56b",
-  "#fdaf69",
-  "#f89d63",
-  "#f59761",
-  "#ef865e",
-  "#ec805d",
-  "#e36e5c",
-  "#df685c",
-  "#d5585c",
-  "#d1525c",
-  "#c5415d",
-  "#c03b5d",
-  "#b22c5e",
-  "#ac265e",
-  "#9c155f",
-  "#950f5f",
-  "#830060",
-  "#7c0060",
-  "#680060",
-  "#60005f",
-  "#48005f",
-  "#3d005e"
+  "#ffbe73", // slightly brighter orange for better contrast
+  "#fcb96f",
+  "#f8a76a",
+  "#f59e68",
+  "#ef8d65",
+  "#ec8864",
+  "#e27763", // increased brightness for better visibility
+  "#de7162",
+  "#d36162",
+  "#cf5b62",
+  "#c34b62",
+  "#bd4561", // toned down to reduce harsh contrast
+  "#ad3562",
+  "#a62f62",
+  "#951f63",
+  "#8e1862",
+  "#7b0963", // darkened for better visibility in light theme
+  "#740162",
+  "#5f0162", // adjusted for balanced visibility
+  "#570161",
+  "#410161", 
+  "#360161"
 ];
 
 circles.forEach(function (circle, index) {
