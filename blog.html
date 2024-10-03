@@ -19,7 +19,7 @@
 </head>
 <body>
      <!--header-->
-     <header id="header" class="shadow bg-light">
+     <header id="header" class="shadow">
       <nav class="container navbar">
           <a href="index.html" class="nav-brand text-dark">
             WordWise
@@ -37,8 +37,10 @@
                   <a href="blog.html" class="nav-link"> Leading Blog</a>
                   <a href="start.html" class="nav-link">Start Writing</a>
                   <a href="category.html" class="nav-link">Categories</a>
-                  <a href="#contact" class="nav-link">About</a>
-                  <a href="#contact" class="nav-link">Contact </a>
+                  
+                  <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact Us </a>
+                    
               </ul>
           </div>
           <!--collapse on toggle button click-->
@@ -66,12 +68,13 @@
 
               </ul>
           </div>
-          <div class="collapse">
-            <label id="theme-switch" class="theme-switch" for="theme-switch">
-              <input type="checkbox" id="theme-switch">
-              Dark Theme
+          <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox">
+                <div class="slider"></div>
             </label>
-          </div>
+            <span id="mode-label">Light Mode</span>
+        </div>
 
       </nav>
       </header>
@@ -548,6 +551,7 @@
 <!-- .footer -->
 
     <script src="main.js"></script>
+    <script src="darkMode.js"></script>
     <!--swiper slider cdn-->
 
 </body>

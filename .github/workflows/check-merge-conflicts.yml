@@ -1,0 +1,36 @@
+name: Check Merge Conflicts
+
+# This triggers the workflow on pull requests when opened or updated.
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  check-merge-conflicts:
+    runs-on: ubuntu-latest  # Runs on the latest Ubuntu environment
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2  # Checks out the code from the repo
+
+    - name: Fetch all branches
+      run: git fetch --all  # Fetches all the branches to compare
+
+    - name: Check for merge conflicts
+      run: |
+        git checkout ${{ github.event.pull_request.base.ref }}  # Checkout base branch
+        git pull  # Update base branch to the latest
+        git merge --no-commit --no-ff ${{ github.event.pull_request.head.ref }} || echo "Merge conflict detected"
+        if git ls-files -u | grep -q "."; then
+          echo "::error::Merge conflict detected! Please resolve conflicts."
+          exit 1  # If conflicts are found, fail the workflow
+        else
+          echo "No merge conflicts."
+        fi
+
+    - name: Notify PR owner
+      if: failure()
+      run: |
+        curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+        -d '{"body": "⚠️ Merge conflicts detected. Please resolve conflicts before merging."}' \
+        ${{ github.event.pull_request.url }}/comments

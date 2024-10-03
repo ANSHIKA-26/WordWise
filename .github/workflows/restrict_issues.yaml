@@ -1,0 +1,51 @@
+name: Restrict Issue Creation
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write  # Grants the necessary permission to update and comment on issues
+
+jobs:
+  restrict_issue_creation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Fetch contributor's issues
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const user = context.payload.issue.user.login;
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              creator: user
+            });
+
+            const issueCount = issues.data.length;
+
+            // Set the issue limit
+            const issueLimit = 3;
+
+            if (issueCount >= issueLimit) {
+              // Close the new issue
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.issue.number,
+                state: 'closed'
+              });
+
+              // Comment on the issue explaining why it was closed
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.issue.number,
+                body: `Hello, since this is an open-source project, we would like every contributor to have a chance to contribute. Therefore, we have restricted the number of issues one contributor can create at a time. In order to make a new issue, kindly close one of your open issues first, so that there is less spamming of issues and more PR merges!`
+              });
+            }

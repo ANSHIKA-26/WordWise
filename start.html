@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--swiper slider css-->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!--css-->
     <link rel="stylesheet" href="style.css">
 
@@ -19,7 +19,7 @@
 </head>
 <body>
      <!--header-->
-     <header id="header" class="shadow bg-light">
+     <header id="header" class="shadow ">
       <nav class="container navbar">
           <a href="index.html" class="nav-brand text-dark">
             WordWise
@@ -34,11 +34,15 @@
           <div class="collapse">
               <ul class="navbar-nav">
                   <a href="index.html" class="nav-link">Home</a>
-                  <a href="blog" class="nav-link"> Leading Blog</a>
+                  <a href="blog.html" class="nav-link"> Leading Blog</a>
                   <a href="start.html" class="nav-link">Start Writing</a>
                   <a href="category.html" class="nav-link">Categories</a>
-                  <a href="#contact" class="nav-link">About</a>
-                  <a href="#contact" class="nav-link">Contact </a>
+
+                  <a href="about.html" class="nav-link">About</a>
+                  <a href="contact.html" class="nav-link">Contact Us </a>
+
+                 
+
               </ul>
           </div>
           <!--collapse on toggle button click-->
@@ -61,17 +65,15 @@
                       <a href="#" class="nav-link">
                           <i class="fa-brands fa-dribbble"></i>
                       </a>
-
-
-
               </ul>
           </div>
-          <div class="collapse">
-            <label id="theme-switch" class="theme-switch" for="theme-switch">
-              <input type="checkbox" id="theme-switch">
-              Dark Theme
+          <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox">
+                <div class="slider"></div>
             </label>
-          </div>
+            <span id="mode-label"><i class='bx bx-sun'></i></span>
+        </div>
 
       </nav>
       </header>
@@ -346,8 +348,9 @@
         </div>
     </footer>
   <!-- .footer -->
-
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="main.js"></script>
+    <script src="./darkMode.js"></script>
     <!--swiper slider cdn-->
 
 </body>
