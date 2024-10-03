@@ -62,7 +62,7 @@
             margin: 120px auto; /* Increased top margin for more space from the top */
             padding: 20px;
             text-align: center;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(141, 103, 103, 0.9);
             border-radius: 10px;
             margin-bottom: 5px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -145,6 +145,194 @@
                 padding: 10px; /* Further reduced padding for smaller screens */
             }
         }
+
+        /* Add these new styles */
+        body {
+            background: linear-gradient(135deg, #f0f4f8, #e0e8f0);
+        }
+
+        .contact-section {
+            max-width: 500px;
+            margin: 80px auto;
+            padding: 30px;
+            background: linear-gradient(135deg, #ffffff, #f0f4f8);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+        }
+
+        .contact-section h1 {
+            font-size: 28px;
+            color: #2a1885;
+            margin-bottom: 15px;
+        }
+
+        .contact-section p {
+            font-size: 16px;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid #d1d9e6;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .contact-form button {
+            background: linear-gradient(135deg, #30cfd0, #28b7b5);
+            padding: 10px 20px;
+            border-radius: 25px;
+        }
+
+        /* Special effects for contact form */
+        .contact-form input,
+        .contact-form textarea {
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(48, 207, 208, 0.3);
+        }
+
+        .contact-form button {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .contact-form button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: all 0.6s;
+            z-index: -1;
+        }
+
+        .contact-form button:hover::before {
+            left: 100%;
+        }
+
+        /* Floating label effect */
+        .form-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-bottom: 2px solid #d1d9e6;
+            background-color: transparent;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px;
+            transition: 0.3s;
+            pointer-events: none;
+        }
+
+        .form-group input:focus ~ label,
+        .form-group input:valid ~ label,
+        .form-group textarea:focus ~ label,
+        .form-group textarea:valid ~ label {
+            top: -20px;
+            left: 0;
+            color: #30cfd0;
+            font-size: 12px;
+        }
+
+        /* Updated footer styles */
+        #footer {
+            background: linear-gradient(135deg, #2a1885, #30cfd0);
+            color: #ffffff;
+            padding: 30px 0 20px;
+            font-size: 0.9em;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin-bottom: 20px;
+            min-width: 200px;
+            padding: 0 15px;
+        }
+
+        .footer-title {
+            color: #ffffff;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 30px;
+            height: 2px;
+            background-color: #30cfd0;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: #e0e8f0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #30cfd0;
+        }
+
+        .footer-social a {
+            color: #ffffff;
+            margin-right: 15px;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: #30cfd0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
     </style>
 </head>
 <body>
@@ -189,15 +377,25 @@
 
     <!-- Main Content -->
     <div class="container contact-section">
-        <h1>Contact Us</h1>
-        <p>
-            We would love to hear from you! Whether you have a question, feedback, or just want to say hello, feel free to reach out to us using the contact form below or through our social media channels.
-        </p>
+        <h1>Get in Touch</h1>
+        <p>We're excited to hear from you! Drop us a message below.</p>
         
         <form class="contact-form" onsubmit="showAlert(); return false;">
-            <input type="text" name="name" placeholder="Your Name" required />
-            <input type="email" name="email" placeholder="Your Email" required />
-            <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+            <div class="form-group">
+                <input type="text" id="name" name="name" required />
+                <label for="name">Your Name</label>
+            </div>
+            
+            <div class="form-group">
+                <input type="email" id="email" name="email" required />
+                <label for="email">Your Email</label>
+            </div>
+            
+            <div class="form-group">
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <label for="message">Your Message</label>
+            </div>
+            
             <button type="submit">Send Message</button>
         </form>
     </div>
@@ -210,74 +408,38 @@
         <p>Your message has been successfully sent. We will get back to you shortly.</p>
     </div>
 
-    <!-- Footer -->
+    <!-- Updated footer HTML -->
     <footer id="footer">
         <div class="container">
-            <div class="row mb-3">
-                <div class="col-3">
-                    <h2 class="footer-title secondary-title">About Us</h2>
-                    <div class="secondary-title text-secondary">
-                        <p class="mt-2">
-                            We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the world.
-                        </p>
-                        <address>
-                            <i class="fas fa-map-marker-alt text-primary"></i>
-                            5 South Main Street Los Angeles, ZZ-9611 USA
-                        </address>
-                        <div class="phone">
-                            <i class="fas fa-mobile text-primary"></i>
-                            125-896-485
-                        </div>
-                        <div class="email">
-                            <i class="fas fa-envelope text-primary"></i>
-                            dailysupport@gmail.com
-                        </div>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">About WordWise</h3>
+                    <p>
+                        WordWise is your go-to platform for insightful articles, engaging stories, and expert advice on a wide range of topics.
+                    </p>
+                </div>
+                <!-- <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blog">Leading Blog</a></li>
+                        <li><a href="start.html">Start Writing</a></li>
+                        <li><a href="category.html">Categories</a></li>
+                    </ul>
+                </div> -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Connect With Us</h3>
+                    <p>Stay updated with our latest news and articles.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-                <div class="col-3">
-                    <h2 class="footer-title secondary-title">Feature Post</h2>
-                    <div class="feature-post">
-                        <div class="flex-item">
-                            <article class="article">
-                                <div class="d-flex">
-                                    <a href="#">
-                                        <img src="./assets/img9.jpg" class="object-fit px-1" alt="">
-                                        <div class="px-1">
-                                            <a href="#" class="text-title display-2 text-dark">
-                                                Embrace the beauty of nature through our enchanting blog.
-                                            </a>
-                                            <p class="secondary-title text-secondary display-3">
-                                                <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
-                                            </p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </article>
-                        </div>
-                        <!-- Add more feature posts as needed -->
-                    </div>
-                </div>
-                <div class="col-3">
-                    <h2 class="footer-title secondary-title">Tags</h2>
-                    <div class="tags">
-                        <div class="d-flex flex-wrap">
-                            <a href="#" class="nav-link btn bg-light">Travel</a>
-                            <a href="#" class="nav-link btn bg-light">Food</a>
-                            <a href="#" class="nav-link btn bg-light">Lifestyle</a>
-                            <a href="#" class="nav-link btn bg-light">Technology</a>
-                            <a href="#" class="nav-link btn bg-light">Fashion</a>
-                        </div>
-                    </div>
-                    <h2 class="footer-title secondary-title mt-2">Social</h2>
-                    <div class="tags social" id="contact">
-                        <div class="d-flex flex-wrap">
-                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 WordWise. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -294,6 +456,21 @@
             document.getElementById('popup').classList.remove('show');
             document.getElementById('overlay').classList.remove('show');
         }
+
+        // Add this script for form field animations
+        const formInputs = document.querySelectorAll('.contact-form input, .contact-form textarea');
+
+        formInputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('focused');
+            });
+
+            input.addEventListener('blur', () => {
+                if (input.value === '') {
+                    input.parentElement.classList.remove('focused');
+                }
+            });
+        });
     </script>
 </body>
 </html>
