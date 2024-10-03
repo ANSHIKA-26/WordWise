@@ -462,59 +462,36 @@ a {
 }
 
 #footer {
-  padding-top: 45em;
-  padding-bottom: 2em; /* Adjust if necessary */
+  padding-top: 4em;
 }
 
 #footer .feature-post .flex-item {
   margin-bottom: 10px;
 }
 
-#footer .tag a {
+#footer .tags a {
   border-radius: 99px;
   padding: 10px 20px;
   font-size: 15px;
 }
 
-#post {
-  padding: 0 2em;
-  margin-bottom: 4em;
+/* Footer styles */
+#footer .footer-title {
+  font-weight: bold;
 }
 
-.post-footer .post-author {
-  position: relative;
-  margin-top: 4em;
-  background-color: var(--secondary);
+.secondary-title {
+  color: #6c757d; /* Use a lighter color for secondary text */
 }
 
-.post-footer .post-author::after {
-  background-color: white;
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4em;
-  z-index: 0;
-}
-
-.post-footer .post-author .author-avatar {
-  margin: 0 auto;
-  margin-bottom: 1em;
-  position: inherit;
-  z-index: 1;
-}
-
-.post-footer .post-comments .reply {
-  padding-left: 7em;
-}
-
-.form-control {
-  width: 100%;
-  border: 2px solid var(--border);
-  padding: 1em;
-  font-size: 18px;
-  margin-right: 10px;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #footer .row {
+      flex-direction: column;
+  }
+  #footer .col-3 {
+      margin-bottom: 2em;
+  }
 }
 
 #sidebar .categories a {
