@@ -25,3 +25,4 @@ function closeShareModal() {
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('close-modal').addEventListener('click', closeShareModal);
 });
+
