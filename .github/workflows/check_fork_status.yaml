@@ -41,5 +41,5 @@ jobs:
               owner: owner,
               repo: repo,
               issue_number: prNumber,
-              body: `⚠️ It looks like your branch is out of date with the base branch. Please sync your fork and update the PR.`
+              body: '⚠️ It looks like your branch is out of date with the base branch. Please sync your fork and update the PR.'
             });

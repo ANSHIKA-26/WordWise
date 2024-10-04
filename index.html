@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WordWise</title>
+
     <!--font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
@@ -15,10 +16,12 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="style.css">
 
-
-</head>
-
-
+    <!--favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="manifest" href="../images/site.webmanifest">
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -73,15 +76,19 @@
 
                 </ul>
             </div>
-
-            <!-- HTML Structure -->
-            <div class="theme-switcher">
-                <input type="checkbox" class="checkbox" id="checkbox">
-                <label for="checkbox" class="checkbox-label">
-                  <i class="fas fa-moon"></i>
-                  <i class="fas fa-sun"></i>
-                  <span class="ball"></span>
+            <main>
+                <div class="collapse">
+                    <label id="theme-switch" class="theme-switch" for="theme-switch">
+                <input type="checkbox" id="theme-switch">
+                Dark Theme
+              </label>
+                    <div class="theme-switch-wrapper">
+                        <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox">
+                    <div class="slider"></div>
                 </label>
+                        <span id="mode-label">Light Mode</span>
+            </main>
             </div>
 
         </nav>
@@ -498,32 +505,25 @@
 
         </section>
         <!--blog post section-->
-        <section>
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="./assets/slider/img1.jpg" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="./assets/slider/img2.jpg" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="./assets/slider/img3.jpg" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="./assets/slider/img4.jpg" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="./assets/slider/img5.jpg" class="img-fluid" alt=""></div>
-                    <div class="swiper-slide"><img src="./assets/slider/img6.jpg" class="img-fluid" alt=""></div>
-                </div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="./assets/slider/img1.jpg" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="./assets/slider/img2.jpg" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="./assets/slider/img3.jpg" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="./assets/slider/img4.jpg" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="./assets/slider/img5.jpg" class="img-fluid" alt=""></div>
+                <div class="swiper-slide"><img src="./assets/slider/img6.jpg" class="img-fluid" alt=""></div>
+
+
+
             </div>
+
+
+
             <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-            <script>
-                var swiper = new Swiper('.swiper-container', {
-                    slidesPerView: 3,
-                    spaceBetween: 60,
-                    loop: true,
-                    autoplay: {
-                        delay: 3000,
-                    },
-                    pagination: false,
-                    scrollbar: false,
-                    centeredSlides: true,
-                    loopFillGroupWithBlank: true,
-                });
-            </script>
+
+
+        </div>
         </section>
 
 
@@ -652,4 +652,6 @@
     <script src="main.js"></script>
     <script src="main2.js"></script>
 
-    b429a0ffecbfd6c3b2b1fb9
+</body>
+
+</html>
