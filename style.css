@@ -127,10 +127,14 @@ header {
 
 .auth-buttons .login-btn:hover {
   background-color: #333;
+  transform: scale(1.08);
+  transition: all 0.2s ease;
 }
 
 .auth-buttons .signup-btn:hover {
   background-color: #333;
+  transform: scale(1.08);
+  transition: all 0.2s ease;
 }
 
 .toggle-mode {
