@@ -34,8 +34,61 @@ span {
   color: var(--text-color);
 }
 header {
+
   background-color: var(--header-bg);
   padding: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Import Montserrat font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;900&display=swap');
+
+/* Global styles */
+* {
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box; /* Added for better box model handling */
+  margin: 0; /* Reset margin */
+  padding: 0; /* Reset padding */
+}
+
+.logo img {
+  height: 50px;
+}
+/* Navbar styles */
+.navbar {
+  margin-bottom: 3em;
+  background: #434343;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 130px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.search-button {
+  padding: 5px;
+  background-color: transparent;
+  border: none;
+  filter: invert(1);
+  cursor: pointer; /* Added cursor pointer */
+}
+
+/* Navigation styling */
+nav {
+  padding: 10px 36px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -50,9 +103,24 @@ h1 {
   align-items: center;
 }
 
+
 #mode-label {
   margin-left: 10px;
   font-size: 1rem;
+
+.navbar {
+  background-color: rgb(54, 54, 54);; /* Existing background */
+}
+
+.navbar a {
+  color: white; /* Change text color to white */
+}
+
+
+.active-page {
+  color: #EEC48B;
+  background: rgba(159, 159, 159, 0.2);
+
 }
 
 /* Toggle Switch */
@@ -128,6 +196,7 @@ body {
   margin: 0;
   background: var(--body-bg);
 }
+
 
 .btn-primary {
   border-radius: 4px;
