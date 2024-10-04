@@ -55,58 +55,36 @@
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon"> 
   </head>
 <body>
-    <header id="header" class="shadow bg-light">
-        <nav class="container-fluid navbar d-flex justify-content-between align-items-center w-100">
-            <a href="index.html" class="nav-brand text-dark">
-                WordWise
-            </a>
-            <!--toggle button-->
-            <button class="toggle-button">
-                <span><i class="fas fa-bars"></i></span>
-            </button>
-            <!--collapse on toggle button click-->
-            <div class="collapse d-flex justify-content-between w-100">
-                <!-- Left Side (First 3 links) -->
-                <ul class="navbar-nav d-flex">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="blog.html" class="nav-link">Leading Blog</a></li>
-                    <li><a href="start.html" class="nav-link">Start Writing</a></li>
-                </ul>
-                <!-- Right Side (Last 3 links) -->
-                <ul class="navbar-nav d-flex">
-                    <li><a href="category.html" class="nav-link">Categories</a></li>
-                    <li><a href="#contact" class="nav-link">About</a></li>
-                    <li><a href="#contact" class="nav-link">Contact Us</a></li>
-                </ul>
-            </div>
-            <!-- Search & Social Icons -->
-            <div class="collapse d-flex align-items-center">
-                <div class="search-box">
-                    <a href="#" class="nav-link">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </a>
-                </div>
-                <a href="#" class="nav-link">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </a>
-                <a href="#" class="nav-link">
-                    <i class="fa-brands fa-twitter"></i>
-                </a>
-                <a href="#" class="nav-link">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="#" class="nav-link">
-                    <i class="fa-brands fa-dribbble"></i>
-                </a>
-            </div>
-            <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="checkbox">
-                    <input type="checkbox" id="checkbox">
-                    <div class="slider"></div>
-                </label>
-                <span id="mode-label">Light Mode</span>
-            </div>
+    <header class="navbar">
+        <div class="logo">
+            <h2>WordWise</h2>
+        </div>
+
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="blog.html">Leading Blog</a></li>
+                <!-- <li><a href="#start-writing">Start Writing</a></li> -->
+                <li><a href="category.html">Categories</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="contact.html">Give Feedback</a></li>
+            </ul>
         </nav>
+
+        <div class="auth-buttons">
+            <a href="#login" class="login-btn">Login</a>
+            <a href="#signup" class="signup-btn">Signup</a>
+        </div>
+
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox">
+                <div class="slider"></div>
+            </label>
+            <span id="mode-label">Light Mode</span>
+        </div> 
+
     </header>
     
     <!--main-->

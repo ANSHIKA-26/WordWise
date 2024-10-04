@@ -20,4 +20,3 @@ checkbox.addEventListener('change', () => {
         modeLabel.textContent = 'Light Mode'
     }
 })
-rgb(255, 255, 255)
