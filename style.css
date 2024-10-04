@@ -698,6 +698,7 @@ a {
   max-width: 300px;
   overflow: hidden;
   transition: transform 0.3s ease;
+  z-index: -2;
 }
 
 .overflow-img img {
@@ -706,7 +707,7 @@ a {
 }
 
 .overflow-img:hover {
-  transform: scale(1.1);
+  transform: translate(-5%, -5%) scale(1.1); /* Zoom from all directions */
 }
 
 .overflow-img a {
