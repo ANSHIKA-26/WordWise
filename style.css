@@ -560,6 +560,61 @@ a {
   color: #ff0000;
   margin-top: 10px;
 }
+#footer {
+  background-color: #343a40; /* Dark background */
+  color: #fff; /* White text */
+}
+
+.footer-title {
+  font-size: 20px;
+  margin-bottom: 15px; /* Adds space below the title */
+}
+
+.footer-title.secondary-title {
+  font-family: 'Ubuntu', sans-serif; /* Style for titles */
+}
+
+.text-secondary {
+  color: #b0b3b8; /* Lighter secondary text color */
+}
+
+.phone, .email, address {
+  display: flex;
+  align-items: center; /* Align icons with text */
+}
+
+.phone i, .email i {
+  margin-right: 5px; /* Spacing between icon and text */
+}
+
+.feature-post img {
+  width: 80px; /* Fixed width for images in posts */
+  height: 80px; /* Fixed height for images in posts */
+}
+
+.feature-post article {
+  transition: transform 0.3s; /* Smooth animation */
+}
+
+.feature-post article:hover {
+  transform: scale(1.05); /* Slightly zoom on hover */
+}
+
+.btn-outline-light {
+  color: #ffffff; /* Button text color */
+  border-color: rgba(255, 255, 255, 0.5); /* Light border color */
+}
+
+.btn-outline-light:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Light background on hover */
+  border-color: rgba(255, 255, 255, 0.8); /* Darker border on hover */
+}
+
+#footer .text-center {
+  padding-top: 20px; /* Space above copyright text */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle top border */
+}
+
 
 #footer {
   padding-top: 45em;
