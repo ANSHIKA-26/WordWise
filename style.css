@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Roboto&family=Ubuntu:ital@1&display=swap");
-
+githu
 *{
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /*
@@ -23,21 +26,22 @@ font-family: 'Ubuntu', sans-serif;
 
 @media (prefers-color-scheme: dark), [data-theme="dark"] {
   /* Dark Theme Colors */
-  light: #2e3440;
-  secondary: #3b4252;
+  --light: #2e3440;
+  --secondary: #3b4252;
   --dark: #eceff4;
   --primary-color: #f4978e;
   --secondary-color: #b48ead;
-  --border: #4c566a;
+  --border : #4c566a;
   --body-bg: #1e1e2f;
 }
-
 
 body {
   font-family: "Roboto", sans-serif;
   padding: 0;
   margin: 0;
   background: var(--body-bg);
+  font-family: Arial, sans-serif;
+  background-color: #f4ede3;
 }
 
 
@@ -66,53 +70,86 @@ header {
   padding: 0; /* Reset padding */
 }
 
-.logo img {
-  height: 50px;
-}
+
 /* Navbar styles */
 .navbar {
-  margin-bottom: 3em;
-  background: #434343;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #a6a5f285;
+  padding: 20px;
 }
 
-.search-bar {
+.logo h2 {
+  font-size: 2.5rem;  /* Adjusted font size for better visibility */
+  color: #333;
+   white-space: nowrap; /* Prevent logo from breaking into two lines*/
+} 
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.auth-buttons .login-btn,
+.auth-buttons .signup-btn {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.auth-buttons .login-btn {
+  background-color: #4c566a;
+  color: #eceff4;
+}
+
+.auth-buttons .signup-btn {
+  background-color: #4c566a;
+  color: #eceff4;
+}
+
+.auth-buttons .login-btn:hover {
+  background-color: #333;
+}
+
+.auth-buttons .signup-btn:hover {
+  background-color: #333;
+}
+
+.toggle-mode {
   display: flex;
   align-items: center;
+  gap: 5px;
 }
 
-.search-input {
-  width: 130px;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
+.toggle-mode label {
+  font-size: 1rem;
+  color: #333;
 }
 
-.search-button {
-  padding: 5px;
-  background-color: transparent;
-  border: none;
-  filter: invert(1);
-  cursor: pointer; /* Added cursor pointer */
+input[type="checkbox"] {
+  transform: scale(1.2);
 }
 
 /* Navigation styling */
-nav {
-  padding: 10px 36px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 20px; /* Space between elements */
-}
 
-nav h1 {
-  font-size: 32px;
-  background: linear-gradient(90deg, #EEC48B, #947A58);
-  background-clip: border-box;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 
 /* Navigation links and dropdown */
 .nav-links {
@@ -121,37 +158,10 @@ nav h1 {
   margin-left: auto; /* Push links to the right */
 }
 
-nav a {
-  text-decoration: none;
-  color: #9F9F9F;
-  font-size: 14px;
-  padding: 10px 15px; /* Increased padding for better touch area */
-  display: flex;
-  align-items: center;
-  border-radius: 5px;
-  transition: background 0.2s ease-in-out, color 0.2s ease-in-out; /* Adjusted transition for smooth hover effect */
-}
-
 nav a:hover {
-  background: rgba(159, 159, 159, 0.2); /* Slightly increased hover opacity */
+  background-color: rgb(195, 164, 218); /* Slightly increased hover opacity */
+  /* color: #d3c2e1; */
 }
-
-nav a img {
-  filter: invert(1);
-  display: inline-block;
-  height: 20px;
-  width: 20px;
-  margin-right: 10px;
-}
-
-.navbar {
-  background-color: rgb(54, 54, 54);; /* Existing background */
-}
-
-.navbar a {
-  color: white; /* Change text color to white */
-}
-
 
 .active-page {
   color: #EEC48B;
@@ -231,11 +241,20 @@ body.dark .support a {
 
 /* Responsive styles */
 @media (max-width: 768px) {
-  nav {
-      flex-direction: column; /* Stack items vertically */
-      align-items: flex-start; /* Align items to the start */
-      padding: 10px; /* Reduce padding */
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
   }
+  
+  .nav-menu ul {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .nav-icons {
+      margin-top: 10px;
+  }
+
 
   .search-bar {
       margin-bottom: 10px; /* Space between search bar and nav links */
@@ -257,7 +276,6 @@ body.dark .support a {
 }
 
 /*navbar */
-
 
 .btn-primary {
   border-radius: 4px;
@@ -445,14 +463,19 @@ a {
   text-align: right;
 }
 
-.navbar {
+/* .navbar {
   display: flex;
   align-items: center; /* Center vertically */
-  justify-content: space-between;
+  /* justify-content: space-between;
   padding: 10px;
-}
+} */ */
 
-.nav-brand {
+/* .logo h1 {
+  font-size: 2rem;
+  color: #333;
+} */
+
+/* .nav-brand {
   font-family: "Roboto", sans-serif;
   font-weight: bold;
   align-self: center;
@@ -461,7 +484,7 @@ a {
 
 .collapse {
   align-self: center;
-}
+} */
 
 .nav-link {
   border-radius: 99px;
@@ -698,7 +721,6 @@ a {
   max-width: 300px;
   overflow: hidden;
   transition: transform 0.3s ease;
-  z-index: -2;
 }
 
 .overflow-img img {
@@ -707,7 +729,7 @@ a {
 }
 
 .overflow-img:hover {
-  transform: translate(-5%, -5%) scale(1.1); /* Zoom from all directions */
+  transform: scale(1.1);
 }
 
 .overflow-img a {
