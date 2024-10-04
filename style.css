@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Roboto&family=Ubuntu:ital@1&display=swap");
 
+*{
+  overflow-x: hidden;
+}
+
 /*
 font-family: 'Nunito Sans', sans-serif;
 font-family: 'Roboto', sans-serif;
