@@ -21,56 +21,49 @@
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon"> 
   </head>
 <body>
-    <!--header-->
     <header id="header" class="shadow bg-light">
-        <nav class="container navbar">
+        <nav class="container-fluid navbar d-flex justify-content-between align-items-center w-100">
             <a href="index.html" class="nav-brand text-dark">
-              WordWise
+                WordWise
             </a>
             <!--toggle button-->
             <button class="toggle-button">
-                <span><i class="fas fa-bars">  </i></span>
-
-
+                <span><i class="fas fa-bars"></i></span>
             </button>
             <!--collapse on toggle button click-->
-            <div class="collapse">
-                <ul class="navbar-nav">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="blog.html" class="nav-link"> Leading Blog</a>
-                    <a href="start.html" class="nav-link">Start Writing</a>
-                    <a href="category.html" class="nav-link">Categories</a>
-                    <a href="#contact" class="nav-link">About</a>
-                    <a href="#contact" class="nav-link">Contact Us </a>
+            <div class="collapse d-flex justify-content-between w-100">
+                <!-- Left Side (First 3 links) -->
+                <ul class="navbar-nav d-flex">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="blog.html" class="nav-link">Leading Blog</a></li>
+                    <li><a href="start.html" class="nav-link">Start Writing</a></li>
                 </ul>
-
-
-
+                <!-- Right Side (Last 3 links) -->
+                <ul class="navbar-nav d-flex">
+                    <li><a href="category.html" class="nav-link">Categories</a></li>
+                    <li><a href="#contact" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact Us</a></li>
+                </ul>
             </div>
-            <!--collapse on toggle button click-->
-            <div class="collapse">
-                <ul class="navbar-nav">
-                    <div class="search-box">
-                        <a href="#" class="nav-link">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
-                        </div>
-                        <a href="#" class="nav-link">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="nav-link">
-                            <i class="fa-brands fa-twitter"></i>
-                        </a>
-                        <a href="#" class="nav-link">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="#" class="nav-link">
-                            <i class="fa-brands fa-dribbble"></i>
-                        </a>
-
-
-
-                </ul>
+            <!-- Search & Social Icons -->
+            <div class="collapse d-flex align-items-center">
+                <div class="search-box">
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                </div>
+                <a href="#" class="nav-link">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fa-brands fa-dribbble"></i>
+                </a>
             </div>
             <div class="theme-switch-wrapper">
                 <label class="theme-switch" for="checkbox">
@@ -80,10 +73,9 @@
                 <span id="mode-label">Light Mode</span>
             </div>
         </nav>
-        </header>
-
-    <!--header-->
-    <!--mainn-->
+    </header>
+    
+    <!--main-->
     <main id="site-main">
         <!--blog post section-->
         <section id="posts">
