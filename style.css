@@ -1,4 +1,15 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Roboto&family=Ubuntu:ital@1&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Roboto&family=Ubuntu:ital@1&display=swap");
+githu
+*{
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 
 /*
 font-family: 'Nunito Sans', sans-serif;
@@ -6,6 +17,7 @@ font-family: 'Roboto', sans-serif;
 font-family: 'Ubuntu', sans-serif;*/
 
 :root {
+
     --light: #96c4f3;
     --secondary: #4f3145;
     --dark: #343a40;
@@ -73,6 +85,36 @@ body {
     /* background: var(--body-bg); */
     background-color: #232323;
     /* background-color: f7d6e0; */
+
+  /* Light Theme Colors */
+  --light: #f0e4d7;
+  --secondary: #2d545e;
+  --dark: #3b3b58;
+  --primary-color: #f4978e;
+  --secondary-color: #c1c8e4;
+  --border: #ddbea9;
+  --body-bg: #f5f5f5;
+}
+
+@media (prefers-color-scheme: dark), [data-theme="dark"] {
+  /* Dark Theme Colors */
+  --light: #2e3440;
+  --secondary: #3b4252;
+  --dark: #eceff4;
+  --primary-color: #f4978e;
+  --secondary-color: #b48ead;
+  --border : #4c566a;
+  --body-bg: #1e1e2f;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  padding: 0;
+  margin: 0;
+  background: var(--body-bg);
+  font-family: Arial, sans-serif;
+  background-color: #f4ede3;
+
 }
 
 .dark-theme {
@@ -109,6 +151,7 @@ body {
     margin: 7px;
     font-family: 'Ubuntu', sans-serif;
 }
+
 
 .dark-theme .nav-link:hover {
     color: #ffc300;
@@ -169,6 +212,99 @@ body {
     border-radius: 30px;
     background-color: #fff;
     cursor: pointer;
+
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #a6a5f285;
+  padding: 20px;
+}
+
+.logo h2 {
+  font-size: 2.5rem;  /* Adjusted font size for better visibility */
+  color: #333;
+   white-space: nowrap; /* Prevent logo from breaking into two lines*/
+} 
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.auth-buttons .login-btn,
+.auth-buttons .signup-btn {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.auth-buttons .login-btn {
+  background-color: #4c566a;
+  color: #eceff4;
+}
+
+.auth-buttons .signup-btn {
+  background-color: #4c566a;
+  color: #eceff4;
+}
+
+.auth-buttons .login-btn:hover {
+  background-color: #333;
+}
+
+.auth-buttons .signup-btn:hover {
+  background-color: #333;
+}
+
+.toggle-mode {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.toggle-mode label {
+  font-size: 1rem;
+  color: #333;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.2);
+}
+
+/* Navigation styling */
+
+
+/* Navigation links and dropdown */
+.nav-links {
+  display: flex;
+  gap: 20px; /* Space between links */
+  margin-left: auto; /* Push links to the right */
+}
+
+nav a:hover {
+  background-color: rgb(195, 164, 218); /* Slightly increased hover opacity */
+  /* color: #d3c2e1; */
+
 }
 
 .checkbox-label i {
@@ -254,9 +390,42 @@ body {
     background-color: #333;
 }
 
+
 .checkbox:checked+.checkbox-label i.fa-moon {
     color: #fff;
 }
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+  
+  .nav-menu ul {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .nav-icons {
+      margin-top: 10px;
+  }
+
+
+  .search-bar {
+      margin-bottom: 10px; /* Space between search bar and nav links */
+  }
+
+  .nav-links {
+      flex-direction: column; /* Stack links vertically */
+      width: 100%; /* Full width */
+  }
+
+  nav a {
+      width: 100%; /* Make links full width */
+      justify-content: center; /* Center align text */
+  }
+
 
 .checkbox:checked+.checkbox-label i.fa-sun {
     color: #fff;
@@ -439,6 +608,7 @@ a {
 }
 
 
+
 /*section*/
 
 
@@ -490,6 +660,30 @@ a {
     overflow: hidden;
     transition: all 0.8s cubic-bezier(0.51, -0.15, 0, 0.98);
 }
+
+/* .navbar {
+  display: flex;
+  align-items: center; /* Center vertically */
+  /* justify-content: space-between;
+  padding: 10px;
+} */ */
+
+/* .logo h1 {
+  font-size: 2rem;
+  color: #333;
+} */
+
+/* .nav-brand {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  align-self: center;
+  font-size: 32px;
+}
+
+.collapse {
+  align-self: center;
+} */
+
 
 .nav-link {
     color: white;
