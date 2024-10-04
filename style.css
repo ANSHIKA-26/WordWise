@@ -27,7 +27,7 @@ font-family: 'Ubuntu', sans-serif;
 @media (prefers-color-scheme: dark), [data-theme="dark"] {
   /* Dark Theme Colors */
   --light: #2e3440;
-  --secondary: #3b4252;
+  --secondary : #3b4252;
   --dark: #eceff4;
   --primary-color: #f4978e;
   --secondary-color: #b48ead;
@@ -599,18 +599,21 @@ a {
 }
 
 #footer {
-  padding-top: 45em;
+  padding-top: 40em;
   padding-bottom: 2em; /* Adjust if necessary */
 }
 
 #footer .feature-post .flex-item {
   margin-bottom: 10px;
+  padding: 10px;
 }
 
 #footer .tag a {
   border-radius: 99px;
-  padding: 10px 20px;
+  padding: 10px 10px;
   font-size: 15px;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 #post {
@@ -629,8 +632,8 @@ a {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 10px;
+  right: 10px;
   height: 4em;
   z-index: 0;
 }
@@ -708,6 +711,7 @@ a {
     flex: 0 0 100%;
     max-width: calc(100% - 50px);
     padding-top: 40px 50px;
+    padding-left: 40px;
   }
 }
 
