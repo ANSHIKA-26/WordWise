@@ -23,51 +23,67 @@
 </head>
 <body>
    <!--header-->
-<header id="header" class="shadow bg-light">
-  <nav class="container-fluid navbar d-flex justify-content-between align-items-center w-100">
-      <a href="index.html" class="nav-brand text-dark">
-          WordWise
-      </a>
-      <button class="toggle-button">
-          <span><i class="fas fa-bars"></i></span>
-      </button>
-      <div class="collapse d-flex justify-content-between w-100">
-          <ul class="navbar-nav d-flex">
-              <li><a href="index.html" class="nav-link">Home</a></li>
-              <li><a href="blog.html" class="nav-link">Leading Blog</a></li>
-              <li><a href="start.html" class="nav-link">Start Writing</a></li>
-              <li><a href="category.html" class="nav-link">Categories</a></li>
-              <li><a href="#about-us" class="nav-link">About</a></li>
-              <li><a href="contact_us.html" class="nav-link">Contact Us</a></li>
-          </ul>
-          <ul class="navbar-nav d-flex">
-              <div class="search-box">
-                  <a href="#" class="nav-link">
-                      <i class="fa-solid fa-magnifying-glass"></i>
-                  </a>
-              </div>
-              <a href="#" class="nav-link">
-                  <i class="fa-brands fa-facebook-f"></i>
-              </a>
-              <a href="#" class="nav-link">
-                  <i class="fa-brands fa-twitter"></i>
-              </a>
-              <a href="#" class="nav-link">
-                  <i class="fa-brands fa-instagram"></i>
-              </a>
-              <a href="#" class="nav-link">
-                  <i class="fa-brands fa-dribbble"></i>
-              </a>
-          </ul>
-      </div>
-      <div class="theme-switch-wrapper">
-          <label class="theme-switch" for="checkbox">
-              <input type="checkbox" id="checkbox">
-              <div class="slider"></div>
-          </label>
-          <span id="mode-label"><i class='bx bx-sun'></i></span>
-      </div>
-  </nav>
+   <header class="navbar">
+    <div class="logo">
+        <h2><a class="home-link" href="index.html">WordWise</a></h2>
+    </div>
+
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Leading Blog</a></li>
+            <li><a href="#start-writing">Start Writing</a></li>
+            <li><a href="category.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact_us.html">Contact Us</a></li>
+            <li><a href="contact_us.html">Give Feedback</a></li>
+        </ul>
+    </nav>
+
+    <div class="auth-buttons">
+        <a href="#login" class="login-btn" onclick="openForm('login')">Login</a>
+        <a href="#signup" class="signup-btn" onclick="openForm('signup')">Signup</a>
+    </div>
+
+    <!-- Login Form -->
+<div class="form-popup" id="loginForm">
+    <form class="form-container" onsubmit="return validateLoginForm()">
+        <h2>Login</h2>
+        <label for="loginEmail"><b>Email</b></label>
+        <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
+        <label for="loginPsw"><b>Password</b></label>
+        <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+        <button type="submit" class="btn">LOGIN</button>
+        <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
+    </form>
+</div>
+
+<!-- Signup Form -->
+<div class="form-popup" id="signupForm">
+    <form class="form-container" onsubmit="return validateSignupForm()">
+        <h2>Signup</h2>
+        <label for="name"><b>Full Name</b></label>
+        <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
+        <label for="signupEmail"><b>Email</b></label>
+        <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
+        <label for="signupPsw"><b>Password</b></label>
+        <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+        <label for="confirmPsw"><b>Confirm Password</b></label>
+        <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+        <button type="submit" class="btn">SIGNUP</button>
+        <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
+    </form>
+</div>
+
+
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox">
+            <div class="slider"></div>
+        </label>
+        <span id="mode-label">Light Mode</span>
+    </div> 
+
 </header>
 <!--header-->
 
@@ -343,6 +359,8 @@
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="main.js"></script>
     <script src="./darkMode.js"></script>
+    <script src="./backend/login-Auth/login.js"></script>
+    <script src="./backend/signup-Auth/signup.js"></script>
     <!--swiper slider cdn-->
 
 </body>

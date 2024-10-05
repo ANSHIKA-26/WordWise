@@ -26,13 +26,13 @@ jobs:
             issue_number: issueNumber,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: `Thanks @${issueCreator} for raising this issue! We'll look into it. Meanwhile, it's been assigned to you for further tracking.`
+            body: `Thanks @${issueCreator} for raising this issue! We'll look into it.We hope you have made sure that a similar issue doesnt exist , if it does, kindly ask to be assigned on that issue `
           });
 
           // Assign the issue to the creator
-          await github.rest.issues.addAssignees({
-            issue_number: issueNumber,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            assignees: [issueCreator]
-          });
+          //await github.rest.issues.addAssignees({
+          //  issue_number: issueNumber,
+          //  owner: context.repo.owner,
+          //  repo: context.repo.repo,
+          //  assignees: [issueCreator]
+          // });

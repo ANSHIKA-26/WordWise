@@ -180,15 +180,6 @@
     text-align: center;
     margin-top: 15px;
   }
-
-  /* Header styling */
-  header {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    border-bottom: 1px solid var(--border);
-  }
   
   /* Import Montserrat font */
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;900&display=swap');
@@ -199,70 +190,6 @@
     box-sizing: border-box; /* Added for better box model handling */
     margin: 0; /* Reset margin */
     padding: 0; /* Reset padding */
-  }
-  
-  
-  /* Navbar styles */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--background-color);
-    padding: 20px;
-  }
-  
-  .logo h2 {
-    font-size: 2.5rem;  /* Adjusted font size for better visibility */
-    color: var(--text-color);
-     white-space: nowrap; /* Prevent logo from breaking into two lines*/
-  } 
-  /* added navbar styles */
-  .nav-menu {
-    background-color: rgb(244, 237, 227);;
-    padding: 10px 20px;
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .nav-menu ul {
-    list-style: none;
-    display: flex;
-    padding: 0;
-    margin: 0;
-    gap: 20px;
-  }
-  
-  .nav-menu ul li {
-    list-style: none;
-  }
-  
-  .nav-menu ul li a {
-    text-decoration: none;
-    color: #000;
-    padding: 10px 20px;
-    border-radius: 30px;
-    background-color: rgb(244, 237, 227);;
-    transition: all 0.3s ease;
-    min-height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  
-  /* Hover Effect - Slight enlarge on hover */
-  .nav-menu ul li a:hover {
-    background-color: #ffd479; 
-    color: #000;
-    transform: scale(1.1); 
-  }
-  
-  /* Active link styling */
-  .nav-menu ul li a.active {
-    background-color: #ffd479; 
-    color: #000;
   }
   
   /* Responsive Design */
@@ -396,3 +323,57 @@
     align-items: center;
   }
   
+
+/* Form Popup */
+.form-popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #888;
+  z-index: 9;
+  width: 300px;
+  padding: 20px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.form-container h2 {
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.form-container .btn {
+  background-color: #3be56b;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  margin: 5px;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.form-container .btn:hover {
+  background-color: #218838;
+}
+
+.form-container .cancel {
+  background-color: #ec6371;
+}
+
+.form-container .cancel:hover {
+  background-color: #c82333;
+
+}
