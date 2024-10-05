@@ -84,13 +84,13 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: var(--background-color);
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 .logo h2 {
   font-size: 2.5rem;  /* Adjusted font size for better visibility */
   color: var(--text-color);
-   white-space: nowrap; /* Prevent logo from breaking into two lines*/
+  white-space: nowrap; /* Prevent logo from breaking into two lines*/
 } 
 /* navbar styling changed */ 
 .nav-menu {
@@ -105,9 +105,14 @@ header {
 .nav-menu ul {
   list-style: none;
   display: flex;
+<<<<<<< HEAD
   padding: 0;
   margin: 0;
-  gap: 20px;
+  
+=======
+  gap: 10px;
+  
+>>>>>>> upstream/main
 }
 
 .nav-menu ul li {
@@ -167,26 +172,91 @@ header {
   font-size: 1rem;
   font-weight: 600;
   padding: 8px 15px;
-  border-radius: 5px;
+  border-radius: 20px;
   transition: background-color 0.3s ease;
 }
 
 .auth-buttons .login-btn {
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
   color: var(--text-color);
 }
 
 .auth-buttons .signup-btn {
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
   color: var(--text-color);
 }
 
 .auth-buttons .login-btn:hover {
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
+  
+  border-radius: 20px;
+  box-shadow: 0 0 2px var(--dark);
+  background-color: #a3f3ffbb;
+  color:blue;
 }
 
 .auth-buttons .signup-btn:hover {
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
+
+
+  border-radius: 20px;
+  box-shadow: 0 0 2px var(--dark);
+  background-color: #a3f3ffbb;
+  color:blue;
+}
+
+/* Form Popup */
+.form-popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #888;
+  z-index: 9;
+  width: 300px;
+  padding: 20px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.form-container h2 {
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.form-container .btn {
+  background-color: #3be56b;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  margin: 5px;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.form-container .btn:hover {
+  background-color: #218838;
+}
+
+.form-container .cancel {
+  background-color: #ec6371;
+}
+
+.form-container .cancel:hover {
+  background-color: #c82333;
+
 }
 
 .toggle-mode {
@@ -210,14 +280,21 @@ input[type="checkbox"] {
 /* Navigation links and dropdown */
 .nav-links {
   display: flex;
-  gap: 20px; /* Space between links */
+  gap: 10px; /* Space between links */
   margin-left: auto; /* Push links to the right */
 }
 
-nav a:hover {
-  background-color: rgb(195, 164, 218); /* Slightly increased hover opacity */
-  /* color: #d3c2e1; */
-  padding: 10px;
+nav a{
+  padding: 0.7rem;
+}
+
+.home-link{
+  color: var(--text-color);
+  
+}
+.home-link:active{
+  color: var(--text-color);
+  
 }
 
 .active-page {
@@ -657,7 +734,7 @@ a {
 }
 
 #footer {
-  padding-top: 45em;
+  padding-top: 5em;
   padding-bottom: 2em; /* Adjust if necessary */
 }
 
@@ -973,5 +1050,84 @@ input:checked + .slider {
 input:checked + .slider:before {
   transform: translateX(26px);
 }
+
+/* WordWise Newsletter Section Styling */
+.wordwise-newsletter-section {
+  background-color: #f8b5b5;
+  padding: 50px 20px;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 600px;
+}
+
+.wordwise-newsletter-container h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.wordwise-newsletter-container p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.wordwise-newsletter-form input[type="email"] {
+  padding: 10px;
+  font-size: 1rem;
+  width: 60%;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.wordwise-newsletter-form button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.wordwise-newsletter-form button:hover {
+  background-color: #555;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .wordwise-newsletter-form input[type="email"] {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  .wordwise-newsletter-form button {
+    width: 100%;
+  }
+}
+
+/* WordWise Footer Styling for authentication */
+.wordwise-footer {
+  background-color: #333;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 30px;
+}
+
+.wordwise-footer-content p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: white;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .wordwise-footer-content p {
+    font-size: 0.8rem;
+  }
+}
+
+
 
 /*--------*/

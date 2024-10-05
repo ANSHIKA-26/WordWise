@@ -47,6 +47,24 @@ function myFunction() {
   }
 }
 
+// Open the specific form (login or signup)
+function openForm(formType) {
+  if (formType === 'login') {
+      document.getElementById('loginForm').style.display = 'block';
+  } else if (formType === 'signup') {
+      document.getElementById('signupForm').style.display = 'block';
+  }
+}
+
+// Close the specific form
+function closeForm(formType) {
+  if (formType === 'login') {
+      document.getElementById('loginForm').style.display = 'none';
+  } else if (formType === 'signup') {
+      document.getElementById('signupForm').style.display = 'none';
+  }
+}
+
 //Active Nav bar 
 const navLinks = document.querySelectorAll('.nav-link');
 const setActiveLink = () => {
@@ -130,3 +148,7 @@ if (document.documentElement.getAttribute("data-theme") == "dark") {
   toggleSwitch.checked = true;
 }
 
+document.querySelector('#about').addEventListener('click', function(event) {
+  event.preventDefault();
+  document.querySelector('#about-us').scrollIntoView({ behavior: 'smooth' });
+});

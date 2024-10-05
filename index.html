@@ -24,7 +24,7 @@
     <!--header-->
     <header class="navbar">
         <div class="logo">
-            <h2>WordWise</h2>
+            <h2><a class="home-link" href="/">WordWise</a></h2>
         </div>
 
         <nav class="nav-menu">
@@ -33,16 +33,47 @@
                 <li><a href="blog.html">Leading Blog</a></li>
                 <li><a href="#start-writing">Start Writing</a></li>
                 <li><a href="category.html">Categories</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="#about-us">About</a></li>
                 <li><a href="contact_us.html">Contact Us</a></li>
                 <li><a href="contact_us.html">Give Feedback</a></li>
             </ul>
         </nav>
 
         <div class="auth-buttons">
-            <a href="#login" class="login-btn">Login</a>
-            <a href="#signup" class="signup-btn">Signup</a>
+            <a href="#login" class="login-btn" onclick="openForm('login')">Login</a>
+            <a href="#signup" class="signup-btn" onclick="openForm('signup')">Signup</a>
         </div>
+
+        <!-- Login Form -->
+    <div class="form-popup" id="loginForm">
+        <form class="form-container" onsubmit="return validateLoginForm()">
+            <h2>Login</h2>
+            <label for="loginEmail"><b>Email</b></label>
+            <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
+            <label for="loginPsw"><b>Password</b></label>
+            <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+            <button type="submit" class="btn">LOGIN</button>
+            <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
+        </form>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="form-popup" id="signupForm">
+        <form class="form-container" onsubmit="return validateSignupForm()">
+            <h2>Signup</h2>
+            <label for="name"><b>Full Name</b></label>
+            <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
+            <label for="signupEmail"><b>Email</b></label>
+            <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
+            <label for="signupPsw"><b>Password</b></label>
+            <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+            <label for="confirmPsw"><b>Confirm Password</b></label>
+            <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+            <button type="submit" class="btn">SIGNUP</button>
+            <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
+        </form>
+    </div>
+
 
         <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
@@ -480,8 +511,18 @@
 </div>
 </section>
 
-
-
+<!-- Newsletter Section -->
+<section id="wordwise-newsletter" class="wordwise-newsletter-section">
+    <div class="wordwise-newsletter-container">
+      <h2>Subscribe to Our Newsletter</h2>
+      <p>Stay updated with the latest articles and insights from WordWise.</p>
+      <form class="wordwise-newsletter-form">
+        <input type="email" placeholder="Enter your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+  
 
 
     </main>
@@ -492,9 +533,10 @@
       <div class="container">
           <div class="row mb-3">
               <div class="col-3">
+                 <div id = "about-us">
                   <h2 class="footer-title secondary-title">About Us</h2>
 
-                  <div class="secondary-title text-secondary">
+                    <div class="secondary-title text-secondary">
                        <p class="mt-2 ">
                         We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the world.
                        </p>
@@ -514,8 +556,9 @@
                            <span>dailysupport@gmail.com</span>
                         </a>
                        </div>
+                    </div>
 
-                  </div>
+                 </div>
               </div>
               <div class="col-3">
                   <h2 class="footer-title secondary-title">Feature Post</h2>
@@ -603,6 +646,15 @@
 
 
       </div>
+       <!-- the authentication copyright -->
+       <div class="wordwise-footer">
+        <div class="wordwise-footer-content">
+          <p>&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
+          <p>Designed by Anshika</p>
+        </div>
+    </div>
+      
+      
   </footer>
 <!-- .footer -->
 <!-- this script is for twitter icon  starts -->
@@ -610,7 +662,15 @@
 <!-- this script is for twitter icon  ends -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="main.js"></script>
+    <script src="SignIn_SignUp.js"></script>
     <script src="darkMode.js"></script>
+
+
+    <!-- this script is to display the year in the copyright authentication in the footer -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+    
 
 </body>
 </html>
