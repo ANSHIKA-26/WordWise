@@ -1,5 +1,5 @@
 
-![GSSoC-Ext](/Untitled%20design.png)
+![GSSoC-Ext](https://github.com/sakshamsaraf23/WordWise/blob/main/images/Untitled%20design.png)
 # 📖 WordWise Blogging Website 📝 
 
 ![WordWise Website Screenshot](https://github.com/sakshamsaraf23/WordWise/blob/main/images/website.png)
