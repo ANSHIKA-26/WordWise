@@ -80,6 +80,39 @@
             form.reset();
         });
     </script>
+    <script>        
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value
+            };
+    
+            // Send form data to the backend via fetch
+            fetch('http://localhost:3000/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display success message
+                document.getElementById('responseMessage').textContent = "Thank you for contacting us!";
+                form.reset(); // Reset form after submission
+            })
+            .catch(error => {
+                document.getElementById('responseMessage').textContent = "There was an error sending your message. Please try again.";
+                console.error('Error:', error);
+            });
+        });
+    </script>
+    
     <script src="./darkMode.js"></script>
 </body>
 </html>
