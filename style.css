@@ -90,7 +90,7 @@ header {
 .logo h2 {
   font-size: 2.5rem;  /* Adjusted font size for better visibility */
   color: var(--text-color);
-   white-space: nowrap; /* Prevent logo from breaking into two lines*/
+  white-space: nowrap; /* Prevent logo from breaking into two lines*/
 } 
 
 .nav-menu ul {
@@ -134,10 +134,16 @@ header {
 
 .auth-buttons .login-btn:hover {
   background-color: var(--background-color);
+
+  border-radius: 25px;
+  box-shadow: 0 0 2px var(--dark);
 }
 
 .auth-buttons .signup-btn:hover {
   background-color: var(--background-color);
+
+  border-radius: 25px;
+  box-shadow: 0 0 2px var(--dark);
 }
 
 .toggle-mode {
@@ -161,14 +167,30 @@ input[type="checkbox"] {
 /* Navigation links and dropdown */
 .nav-links {
   display: flex;
-  gap: 20px; /* Space between links */
+  gap: 10px; /* Space between links */
   margin-left: auto; /* Push links to the right */
 }
 
+nav a{
+  padding: 0.7rem;
+}
+
+.home-link{
+  color: var(--text-color);
+  
+}
+.home-link:active{
+  color: var(--text-color);
+  
+}
+
 nav a:hover {
-  background-color: rgb(195, 164, 218); /* Slightly increased hover opacity */
+  border: 2px solid rgba(228, 192, 255, 0.803); /* Slightly increased hover opacity */
   /* color: #d3c2e1; */
-  padding: 10px;
+  padding: 0.6rem;
+
+  border-radius: 15px;
+  box-shadow: 0 0 2px var(--dark);
 }
 
 .active-page {
