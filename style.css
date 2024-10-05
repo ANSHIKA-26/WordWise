@@ -378,7 +378,11 @@ body.dark .support a {
 }
 
 .d-flex {
+  margin-top: 5px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .d-flex-gap {
@@ -769,10 +773,20 @@ a {
   display: flex;
 }
 
+.footer-container {
+  padding: 0 80px;
+  margin: auto;
+}
+
+.col-3-main{
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
 .col-3 {
   flex: 0 0 33.3333%;
   max-width: 33.333%;
-  padding-right: 35px;
 }
 
 @media (max-width: 1024px) {
@@ -781,15 +795,6 @@ a {
   }
 }
 
-.col-8 {
-  flex: 0 0 70%;
-  max-width: 70%;
-}
-
-.col-4 {
-  flex: 0 0 30%;
-  max-width: 30%;
-}
 
 @media (max-width: 992px) {
   .navbar {
@@ -893,9 +898,9 @@ a {
 }
 
 .object-fit {
-  max-height: 120px;
+  max-height: 130px;
   height: auto; /* Maintain aspect ratio */
-  width: 100px; /* Adjust width to a reasonable size */
+  width: 130px; /* Adjust width to a reasonable size */
   object-fit: cover; /* Ensures it fills the dimensions appropriately */
 }
 
