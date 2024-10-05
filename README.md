@@ -58,6 +58,18 @@ We’re excited to have you contribute to the **WordWise Blogging Website** proj
    - Go to the [repository page](https://github.com/ANSHIKA-26/WordWise).
    - Click the *Fork* button (top right) to create a copy in your GitHub account.
 
+******Alternative way to set up the project in yout directory   - 
+https://drive.google.com/file/d/1kBHUSmUhnTceicXUwyUBqRGVrpCoGuWN/view?usp=sharing is the google drive link to blogfinal.exe which provides an easy way to set up the project
+i)![Screenshot 2024-10-06 032846](https://github.com/user-attachments/assets/87abbddc-0918-477a-a8f0-957bfd755234)
+ii)![Screenshot 2024-10-06 032853](https://github.com/user-attachments/assets/f76f2663-36a4-44c7-9abe-203cbf8ec8e9)
+iii)it creates a foller with this whole setup inside another folder blog ![image](https://github.com/user-attachments/assets/46ae05d2-6959-451e-b568-097f9c3c920a)
+![image](https://github.com/user-attachments/assets/6e24ce5c-4122-488d-8982-957b3d5a284b)
+iv)![image](https://github.com/user-attachments/assets/f39ace62-c3e2-4c71-a040-197179643163)
+
+
+
+
+
 2. **💻 Clone Your Fork**  
    - Open your terminal and run:
      ```bash
