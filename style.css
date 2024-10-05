@@ -680,7 +680,7 @@ a {
 }
 
 #footer {
-  padding-top: 45em;
+  padding-top: 5em;
   padding-bottom: 2em; /* Adjust if necessary */
 }
 
@@ -996,5 +996,84 @@ input:checked + .slider {
 input:checked + .slider:before {
   transform: translateX(26px);
 }
+
+/* WordWise Newsletter Section Styling */
+.wordwise-newsletter-section {
+  background-color: #f8b5b5;
+  padding: 50px 20px;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 600px;
+}
+
+.wordwise-newsletter-container h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.wordwise-newsletter-container p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.wordwise-newsletter-form input[type="email"] {
+  padding: 10px;
+  font-size: 1rem;
+  width: 60%;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.wordwise-newsletter-form button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.wordwise-newsletter-form button:hover {
+  background-color: #555;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .wordwise-newsletter-form input[type="email"] {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  .wordwise-newsletter-form button {
+    width: 100%;
+  }
+}
+
+/* WordWise Footer Styling for authentication */
+.wordwise-footer {
+  background-color: #333;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 30px;
+}
+
+.wordwise-footer-content p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: white;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .wordwise-footer-content p {
+    font-size: 0.8rem;
+  }
+}
+
+
 
 /*--------*/

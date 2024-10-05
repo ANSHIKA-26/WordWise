@@ -511,8 +511,18 @@
 </div>
 </section>
 
-
-
+<!-- Newsletter Section -->
+<section id="wordwise-newsletter" class="wordwise-newsletter-section">
+    <div class="wordwise-newsletter-container">
+      <h2>Subscribe to Our Newsletter</h2>
+      <p>Stay updated with the latest articles and insights from WordWise.</p>
+      <form class="wordwise-newsletter-form">
+        <input type="email" placeholder="Enter your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+  
 
 
     </main>
@@ -634,6 +644,15 @@
 
 
       </div>
+       <!-- the authentication copyright -->
+       <div class="wordwise-footer">
+        <div class="wordwise-footer-content">
+          <p>&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
+          <p>Designed by Anshika</p>
+        </div>
+    </div>
+      
+      
   </footer>
 <!-- .footer -->
 <!-- this script is for twitter icon  starts -->
@@ -643,6 +662,13 @@
     <script src="main.js"></script>
     <script src="SignIn_SignUp.js"></script>
     <script src="darkMode.js"></script>
+
+
+    <!-- this script is to display the year in the copyright authentication in the footer -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+    
 
 </body>
 </html>
