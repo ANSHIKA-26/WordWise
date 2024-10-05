@@ -106,7 +106,7 @@
   }
   
   
-  .container {
+  .container2 {
     max-width: 600px;
     margin: 0 auto;
     background: white;
@@ -116,12 +116,12 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
   
-  h2 {
+  .container2 h2 {
     text-align: center;
     color: #333;
   }
   
-  h2::after {
+  .container2 h2::after {
     content: "";
     display: block;
     width: 130px;
@@ -130,7 +130,7 @@
     margin: 10px auto;
   }
   
-  .container p {
+  .container2 p {
     font-size: small;
     margin-left: 60px;
     margin-right: 60px;

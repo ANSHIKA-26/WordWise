@@ -6,7 +6,11 @@
     <title>Contact Us</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="./contact_us.css">
+    <link rel="stylesheet" href="style.css">
+   
 
 </head>
 <body>
@@ -41,7 +45,7 @@
         </div> 
 
     </header>
-    <div class="container">
+    <div class="container2">
         <h2>Get in Touch</h2>
         <p>Whether you have questions, feedback, or need assistance, our team is here to help. Please fill out the form below, and we'll get back to you as soon as possible.</p>
         
@@ -72,6 +76,87 @@
         <div class="message" id="responseMessage"></div>
     </div>
 
+     <!-- footer -->
+     <footer>
+        <footer id="footer">
+            <div class="container">
+              <div class="row mb-3">
+                <!-- About Us Section -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <h2 class="footer-title">About Us</h2>
+                  <p class="text-secondary">
+                    We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the world.
+                  </p>
+                  <address>
+                    <i class="fas fa-map-marker-alt text-primary"></i>
+                    5 South Main Street, Los Angeles, ZZ-9611 USA
+                  </address>
+                  <div class="phone">
+                    <i class="fas fa-mobile text-primary"></i> 125-896-485
+                  </div>
+                  <div class="email">
+                    <i class="fas fa-envelope text-primary"></i> dailysupport@gmail.com
+                  </div>
+                </div>
+          
+                <!-- Featured Post Section -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <h2 class="footer-title">Featured Posts</h2>
+                  <div class="feature-post">
+                    <!-- First Post -->
+                    <div class="d-flex mb-3">
+                      <img src="./assets/img9.jpg" class="object-fit" alt="Nature Blog">
+                      <div class="px-2">
+                        <a href="#" class="text-title text-dark">Embrace the beauty of nature through our enchanting blog...</a>
+                        <p class="text-secondary"><i class="far fa-clock text-primary"></i> Wed 02, 2022</p>
+                      </div>
+                    </div>
+                    <!-- Second Post -->
+                    <div class="d-flex mb-3">
+                      <img src="./assets/img1.jpg" class="object-fit" alt="Travel Blog">
+                      <div class="px-2">
+                        <a href="#" class="text-title text-dark">Embark on unforgettable journeys through our travel blog...</a>
+                        <p class="text-secondary"><i class="far fa-clock text-primary"></i> Wed 05, 2020</p>
+                      </div>
+                    </div>
+                    <!-- Third Post -->
+                    <div class="d-flex">
+                      <img src="./assets/img2.jpg" class="object-fit" alt="Gaming Blog">
+                      <div class="px-2">
+                        <a href="#" class="text-title text-dark">Gaming Adventures Unleashed</a>
+                        <p class="text-secondary"><i class="far fa-clock text-primary"></i> Wed 02, 2021</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          
+                <!-- Tags and Social Media Section -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                  <h2 class="footer-title">Tags</h2>
+                  <div class="tags d-flex flex-wrap">
+                    <a href="#" class="nav-link btn bg-light mb-2">Travel</a>
+                    <a href="#" class="nav-link btn bg-light mb-2">Food</a>
+                    <a href="#" class="nav-link btn bg-light mb-2">Lifestyle</a>
+                    <a href="#" class="nav-link btn bg-light mb-2">Technology</a>
+                    <a href="#" class="nav-link btn bg-light mb-2">Fashion</a>
+                  </div>
+                  <h2 class="footer-title mt-3">Social</h2>
+                  <div class="social d-flex">
+                    <a href="#" class="nav-link btn bg-light mx-1"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="nav-link btn bg-light"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="nav-link btn bg-light mx-1"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="nav-link btn bg-light mx-1"><i class="fab fa-dribbble"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center py-3">
+              <p>&copy; 2024 WordWise. All rights reserved. | Designed by Anshika</p>
+            </div>
+          </footer>
+<!-- this script is for twitter icon  starts -->
+<script src="https://kit.fontawesome.com/856f4a44d7.js" crossorigin="anonymous"></script>
+<!-- this script is for twitter icon  ends -->
     <script>
         const form = document.getElementById('contactForm');
         form.addEventListener('submit', function(event) {
