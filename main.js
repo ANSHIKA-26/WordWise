@@ -148,3 +148,7 @@ if (document.documentElement.getAttribute("data-theme") == "dark") {
   toggleSwitch.checked = true;
 }
 
+document.querySelector('#about').addEventListener('click', function(event) {
+  event.preventDefault();
+  document.querySelector('#about-us').scrollIntoView({ behavior: 'smooth' });
+});
