@@ -216,19 +216,68 @@
     color: var(--text-color);
      white-space: nowrap; /* Prevent logo from breaking into two lines*/
   } 
+  /* added navbar styles */
+  .nav-menu {
+    background-color: rgb(244, 237, 227);;
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   
   .nav-menu ul {
     list-style: none;
     display: flex;
+    padding: 0;
+    margin: 0;
     gap: 20px;
-    
   }
   
-  .nav-menu a {
+  .nav-menu ul li {
+    list-style: none;
+  }
+  
+  .nav-menu ul li a {
     text-decoration: none;
-    color: var(--text-color);
-    font-size: 1rem;
-    font-weight: 500;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background-color: rgb(244, 237, 227);;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    min-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Hover Effect - Slight enlarge on hover */
+  .nav-menu ul li a:hover {
+    background-color: #ffd479; 
+    color: #000;
+    transform: scale(1.1); 
+  }
+  
+  /* Active link styling */
+  .nav-menu ul li a.active {
+    background-color: #ffd479; 
+    color: #000;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+  
+    .nav-menu ul li a {
+        text-align: center;
+        padding: 10px;
+        width: 100%; /* Ensures full-width for small screens */
+    }
   }
   
   .auth-buttons {
