@@ -119,7 +119,23 @@ function switchTheme(e) {
     toggleSwitch.checked = false;
   }
 }
+// Open the specific form (login or signup)
+function openForm(formType) {
+  if (formType === 'login') {
+      document.getElementById('loginForm').style.display = 'block';
+  } else if (formType === 'signup') {
+      document.getElementById('signupForm').style.display = 'block';
+  }
+}
 
+// Close the specific form
+function closeForm(formType) {
+  if (formType === 'login') {
+      document.getElementById('loginForm').style.display = 'none';
+  } else if (formType === 'signup') {
+      document.getElementById('signupForm').style.display = 'none';
+  }
+}
 
 //listener for changing themes
 toggleSwitch.addEventListener('change', switchTheme, false);
