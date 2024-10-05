@@ -61,9 +61,9 @@ We’re excited to have you contribute to the **WordWise Blogging Website** proj
 2. **💻 Clone Your Fork**  
    - Open your terminal and run:
      ```bash
-     git clone https://github.com/your-username/WordWise.git
+     git clone https://github.com/ANSHIKA-26/WordWise.git
      ```
-   - Replace `your-username` with your GitHub username.
+
 
 3. **🌿 Create a New Branch** 
    - Create a new branch for your work:
