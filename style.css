@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Roboto&family=Ubuntu:ital@1&display=swap");
-githu
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
+
 *{
   overflow-x: hidden;
   margin: 0;
@@ -7,11 +7,7 @@ githu
   box-sizing: border-box;
 }
 
-/*
-font-family: 'Nunito Sans', sans-serif;
-font-family: 'Roboto', sans-serif;
-font-family: 'Ubuntu', sans-serif;
-*/
+ 
 
 img{
   width: 100%;
@@ -43,12 +39,14 @@ img{
 }*/
 
 body {
-  font-family: "Roboto", sans-serif;
-  padding: 0;
+  font-family: "Vollkorn", serif,sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+   padding: 0;
   margin: 0;
   background: var(--body-bg);
-  font-family: Arial, sans-serif;
-  background-color: var(--background-color);
+   background-color: var(--background-color);
 }
 
 
@@ -71,8 +69,7 @@ header {
 
 /* Global styles */
 * {
-  font-family: "Montserrat", sans-serif;
-  box-sizing: border-box; /* Added for better box model handling */
+   box-sizing: border-box; /* Added for better box model handling */
   margin: 0; /* Reset margin */
   padding: 0; /* Reset padding */
 }
@@ -522,17 +519,14 @@ a {
 }
 
 .text-title {
-  font-family: "Nunito Sans", sans-serif;
-  font-weight: bold;
+   font-weight: bold;
 }
 
 .text-title:hover {
   color: var(--primary-color);
 }
 
-.secondary-title {
-  font-family: "Ubuntu", sans-serif;
-}
+
 
 .display-1 {
   font-size: 22px;
@@ -567,8 +561,7 @@ a {
 } */
 
 /* .nav-brand {
-  font-family: "Roboto", sans-serif;
-  font-weight: bold;
+   font-weight: bold;
   align-self: center;
   font-size: 32px;
 }
@@ -583,8 +576,7 @@ a {
   font-size: 18px;
   margin: 7px;
   color: var(--dark);
-  font-family: "Ubuntu", sans-serif;
-}
+ }
 
 .nav-link:hover {
   color: var(--text-color);
@@ -933,8 +925,7 @@ p{
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-  font-family: Arial, sans-serif;
-  margin: 0;
+   margin: 0;
   padding: 0;
   transition: background-color 0.3s, color 0.3s;
 }
