@@ -46,12 +46,12 @@
 
         <!-- Login Form -->
     <div class="form-popup" id="loginForm">
-        <form class="form-container">
+        <form class="form-container" onsubmit="return validateLoginForm()">
             <h2>Login</h2>
-            <label for="email"><b>Email</b></label>
-            <input type="email" placeholder="Enter Email" name="email" required>
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+            <label for="loginEmail"><b>Email</b></label>
+            <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
+            <label for="loginPsw"><b>Password</b></label>
+            <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
             <button type="submit" class="btn">LOGIN</button>
             <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
         </form>
@@ -59,14 +59,16 @@
 
     <!-- Signup Form -->
     <div class="form-popup" id="signupForm">
-        <form class="form-container">
+        <form class="form-container" onsubmit="return validateSignupForm()">
             <h2>Signup</h2>
             <label for="name"><b>Full Name</b></label>
-            <input type="text" placeholder="Enter Full Name" name="name" required>
-            <label for="email"><b>Email</b></label>
-            <input type="email" placeholder="Enter Email" name="email" required>
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+            <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
+            <label for="signupEmail"><b>Email</b></label>
+            <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
+            <label for="signupPsw"><b>Password</b></label>
+            <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+            <label for="confirmPsw"><b>Confirm Password</b></label>
+            <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
             <button type="submit" class="btn">SIGNUP</button>
             <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
         </form>
@@ -658,6 +660,7 @@
 <!-- this script is for twitter icon  ends -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="main.js"></script>
+    <script src="SignIn_SignUp.js"></script>
     <script src="darkMode.js"></script>
 
 
