@@ -243,16 +243,6 @@ nav a{
   
 }
 
-nav a:hover {
-  /* border: 1px solid rgba(228, 192, 255, 0.803); Slightly increased hover opacity */
-  /* color: #d3c2e1; */
-  /* padding: 0.7rem; */
-
-  box-shadow: 0 0 1px var(--dark);
-  border-radius: 12px;
-  background-color: #e8e8e8;
-}
-
 .active-page {
   color: #EEC48B;
   background: rgba(159, 159, 159, 0.2);
