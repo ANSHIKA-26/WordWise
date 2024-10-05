@@ -598,53 +598,81 @@ a {
   margin-top: 10px;
 }
 
+/* footer styling starts */
+
 #footer {
-  padding-top: 45em;
-  padding-bottom: 2em; /* Adjust if necessary */
+  background-color: #a6a5f285;
+  color: #333333;
+  padding: 40px 0;
 }
 
-#footer .feature-post .flex-item {
-  margin-bottom: 10px;
+#footer .footer-title {
+  font-size: 20px;
+  color: #333333;
+  margin-bottom: 20px;
 }
 
-#footer .tag a {
-  border-radius: 99px;
-  padding: 10px 20px;
-  font-size: 15px;
+#footer p, #footer address, #footer .phone, #footer .email {
+  color: #333333;
+  font-size: 14px;
 }
 
-#post {
-  padding: 0 2em;
-  margin-bottom: 4em;
+#footer a {
+  color: #333333;
+  text-decoration: none;
+  font-size: 14px;
 }
 
-.post-footer .post-author {
-  position: relative;
-  margin-top: 4em;
-  background-color: var(--secondary);
+#footer a:hover {
+  color: #1e90ff;
 }
 
-.post-footer .post-author::after {
-  background-color: white;
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4em;
-  z-index: 0;
+#footer .object-fit {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 10px;
 }
 
-.post-footer .post-author .author-avatar {
-  margin: 0 auto;
-  margin-bottom: 1em;
-  position: inherit;
-  z-index: 1;
+#footer .tags .nav-link {
+  background-color: #f1f1f1;
+  color: #333;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  text-decoration: none;
 }
 
-.post-footer .post-comments .reply {
-  padding-left: 7em;
+#footer .social a {
+  color: #333;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+  font-size: 16px;
 }
+
+#footer .social a:hover {
+  background-color: #1e90ff;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  #footer .col-lg-3 {
+    width: 50%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  #footer .col-lg-3 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+/* footer styling ends */
 
 .form-control {
   width: 100%;
