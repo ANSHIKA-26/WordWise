@@ -245,7 +245,6 @@
     border-radius: 30px;
     background-color: rgb(244, 237, 227);;
     transition: all 0.3s ease;
-    font-weight: bold;
     min-height: 60px;
     display: flex;
     justify-content: center;
