@@ -435,6 +435,23 @@ body.dark .support a {
   display: flex;
 }
 
+.d-flex-gap {
+  margin: 10px 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.d-flex-gap a{
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.d-flex-gap a i{
+  font-size: 24px;
+  padding-right: 15px;
+}
+
 .flex-column {
   flex-direction: column; /* Stack items vertically */
   align-items: center; /* Center align items horizontally */
