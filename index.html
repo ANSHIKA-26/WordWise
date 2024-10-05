@@ -24,7 +24,7 @@
     <!--header-->
     <header class="navbar">
         <div class="logo">
-            <h2>WordWise</h2>
+            <h2><a class="home-link" href="/">WordWise</a></h2>
         </div>
 
         <nav class="nav-menu">
@@ -40,9 +40,38 @@
         </nav>
 
         <div class="auth-buttons">
-            <a href="#login" class="login-btn">Login</a>
-            <a href="#signup" class="signup-btn">Signup</a>
+            <a href="#login" class="login-btn" onclick="openForm('login')">Login</a>
+            <a href="#signup" class="signup-btn" onclick="openForm('signup')">Signup</a>
         </div>
+
+        <!-- Login Form -->
+    <div class="form-popup" id="loginForm">
+        <form class="form-container">
+            <h2>Login</h2>
+            <label for="email"><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" name="email" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            <button type="submit" class="btn">LOGIN</button>
+            <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
+        </form>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="form-popup" id="signupForm">
+        <form class="form-container">
+            <h2>Signup</h2>
+            <label for="name"><b>Full Name</b></label>
+            <input type="text" placeholder="Enter Full Name" name="name" required>
+            <label for="email"><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" name="email" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            <button type="submit" class="btn">SIGNUP</button>
+            <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
+        </form>
+    </div>
+
 
         <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
