@@ -902,20 +902,6 @@ a {
   max-height: 500px;
 }
 
-/* Swiper container and slides */
-.swiper-container {
-  width: 100%; /* Set to 100% */
-  max-width: 600px; /* Maximum width */
-  height: 200px; /* Reduced height for the swiper */
-  margin: 0 auto; /* Center align the swiper */
-  margin-bottom: 20px; /* Margin to prevent overlap */
-}
-
-.swiper-slide img {
-  width: 100%; /* Set image width to fill the slide */
-  height: auto; /* Maintain aspect ratio */
-  object-fit: cover; /* Ensure images are centered */
-}
 
 .category-box {
   background-color: var(--background-color);
