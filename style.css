@@ -84,7 +84,7 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: var(--background-color);
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 .logo h2 {
@@ -96,7 +96,7 @@ header {
 .nav-menu ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 10px;
   
 }
 
@@ -118,35 +118,36 @@ header {
   font-size: 1rem;
   font-weight: 600;
   padding: 8px 15px;
-  border-radius: 5px;
+  border-radius: 20px;
   transition: background-color 0.3s ease;
 }
 
 .auth-buttons .login-btn {
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
   color: var(--text-color);
 }
 
 .auth-buttons .signup-btn {
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
   color: var(--text-color);
 }
 
 .auth-buttons .login-btn:hover {
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
   
-  border-radius: 25px;
+  border-radius: 20px;
   box-shadow: 0 0 2px var(--dark);
+  background-color: #a3f3ffbb;
   color:blue;
 }
 
 .auth-buttons .signup-btn:hover {
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
 
 
-  border-radius: 25px;
+  border-radius: 20px;
   box-shadow: 0 0 2px var(--dark);
-
+  background-color: #a3f3ffbb;
   color:blue;
 }
 
@@ -243,12 +244,13 @@ nav a{
 }
 
 nav a:hover {
-  border: 2px solid rgba(228, 192, 255, 0.803); /* Slightly increased hover opacity */
+  /* border: 1px solid rgba(228, 192, 255, 0.803); Slightly increased hover opacity */
   /* color: #d3c2e1; */
-  padding: 0.6rem;
+  /* padding: 0.7rem; */
 
-  border-radius: 15px;
-  box-shadow: 0 0 2px var(--dark);
+  box-shadow: 0 0 1px var(--dark);
+  border-radius: 12px;
+  background-color: #e8e8e8;
 }
 
 .active-page {
