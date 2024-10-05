@@ -84,19 +84,19 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: var(--background-color);
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 .logo h2 {
   font-size: 2.5rem;  /* Adjusted font size for better visibility */
   color: var(--text-color);
-   white-space: nowrap; /* Prevent logo from breaking into two lines*/
+  white-space: nowrap; /* Prevent logo from breaking into two lines*/
 } 
 
 .nav-menu ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 10px;
   
 }
 
@@ -118,30 +118,37 @@ header {
   font-size: 1rem;
   font-weight: 600;
   padding: 8px 15px;
-  border-radius: 5px;
+  border-radius: 20px;
   transition: background-color 0.3s ease;
 }
 
 .auth-buttons .login-btn {
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
   color: var(--text-color);
 }
 
 .auth-buttons .signup-btn {
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
   color: var(--text-color);
 }
 
 .auth-buttons .login-btn:hover {
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
+  
+  border-radius: 20px;
+  box-shadow: 0 0 2px var(--dark);
+  background-color: #a3f3ffbb;
   color:blue;
-  border: solid rgb(92, 86, 86);
 }
 
 .auth-buttons .signup-btn:hover {
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
+
+
+  border-radius: 20px;
+  box-shadow: 0 0 2px var(--dark);
+  background-color: #a3f3ffbb;
   color:blue;
-  border: solid rgb(92, 86, 86);
 }
 
 /* Form Popup */
@@ -195,6 +202,7 @@ header {
 
 .form-container .cancel:hover {
   background-color: #c82333;
+
 }
 
 .toggle-mode {
@@ -218,14 +226,31 @@ input[type="checkbox"] {
 /* Navigation links and dropdown */
 .nav-links {
   display: flex;
-  gap: 20px; /* Space between links */
+  gap: 10px; /* Space between links */
   margin-left: auto; /* Push links to the right */
 }
 
+nav a{
+  padding: 0.7rem;
+}
+
+.home-link{
+  color: var(--text-color);
+  
+}
+.home-link:active{
+  color: var(--text-color);
+  
+}
+
 nav a:hover {
-  background-color: rgb(195, 164, 218); /* Slightly increased hover opacity */
+  /* border: 1px solid rgba(228, 192, 255, 0.803); Slightly increased hover opacity */
   /* color: #d3c2e1; */
-  padding: 10px;
+  /* padding: 0.7rem; */
+
+  box-shadow: 0 0 1px var(--dark);
+  border-radius: 12px;
+  background-color: #e8e8e8;
 }
 
 .active-page {
