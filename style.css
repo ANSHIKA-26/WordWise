@@ -105,14 +105,9 @@ header {
 .nav-menu ul {
   list-style: none;
   display: flex;
-<<<<<<< HEAD
   padding: 0;
   margin: 0;
   
-=======
-  gap: 10px;
-  
->>>>>>> upstream/main
 }
 
 .nav-menu ul li {
@@ -628,6 +623,7 @@ a {
   margin: 7px;
   color: var(--dark);
   font-family: "Ubuntu", sans-serif;
+  margin-left: 1rem;
 }
 
 .nav-link:hover {
@@ -1131,3 +1127,22 @@ input:checked + .slider:before {
 
 
 /*--------*/
+
+
+/* footer social links update */
+.footer-social {
+  display: flex;
+  align-items: center;
+}
+
+.footer-social i {
+  color: blue;
+  font-size: 1.25rem;
+  margin-right: 1rem;
+  opacity: 0.7;
+  border: 2px solid blue;
+  border-radius: 100%;
+  padding: 0.5rem;
+  transition: background-color 0.3s ease 0s;
+}
+
