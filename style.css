@@ -13,12 +13,6 @@ font-family: 'Roboto', sans-serif;
 font-family: 'Ubuntu', sans-serif;
 */
 
-img{
-  width: 100%;
-  height: auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
-}
 :root {
   /* Light Theme Colors */
   --light: #f0e4d7;
@@ -30,9 +24,8 @@ img{
   --body-bg: #f5f5f5;
 }
 
-/*
 @media (prefers-color-scheme: dark), [data-theme="dark"] {
-   Dark Theme Colors 
+  /* Dark Theme Colors */
   --light: #2e3440;
   --secondary: #3b4252;
   --dark: #eceff4;
@@ -40,7 +33,7 @@ img{
   --secondary-color: #b48ead;
   --border : #4c566a;
   --body-bg: #1e1e2f;
-}*/
+}
 
 body {
   font-family: "Roboto", sans-serif;
@@ -48,7 +41,7 @@ body {
   margin: 0;
   background: var(--body-bg);
   font-family: Arial, sans-serif;
-  background-color: var(--background-color);
+  background-color: #f4ede3;
 }
 
 
@@ -83,13 +76,13 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--background-color);
+  background-color: #a6a5f285;
   padding: 20px;
 }
 
 .logo h2 {
   font-size: 2.5rem;  /* Adjusted font size for better visibility */
-  color: var(--text-color);
+  color: #333;
    white-space: nowrap; /* Prevent logo from breaking into two lines*/
 } 
 
@@ -102,42 +95,84 @@ header {
 
 .nav-menu a {
   text-decoration: none;
-  color: var(--text-color);
+  color: #333;
   font-size: 1rem;
   font-weight: 500;
 }
 
-.auth-buttons {
-  display: flex;
-  gap: 10px;
-}
-
-.auth-buttons .login-btn,
-.auth-buttons .signup-btn {
+.auth-buttons a {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 24px;
   text-decoration: none;
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 8px 15px;
+  color: white;
+  background-color: #28a745;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  font-size: 18px;
 }
 
 .auth-buttons .login-btn {
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: #3e82cc;
 }
 
 .auth-buttons .signup-btn {
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: #23ad66;
 }
 
-.auth-buttons .login-btn:hover {
-  background-color: var(--background-color);
+.auth-buttons a:hover {
+  opacity: 0.8;
 }
 
-.auth-buttons .signup-btn:hover {
-  background-color: var(--background-color);
+/* Form Popup */
+.form-popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #888;
+  z-index: 9;
+  width: 300px;
+  padding: 20px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.form-container h2 {
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.form-container .btn {
+  background-color: #38ce5b;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.form-container .btn:hover {
+  background-color: #218838;
+}
+
+.form-container .cancel {
+  background-color: #ee505f;
+}
+
+.form-container .cancel:hover {
+  background-color: #c82333;
 }
 
 .toggle-mode {
@@ -148,7 +183,7 @@ header {
 
 .toggle-mode label {
   font-size: 1rem;
-  color: var(--text-color);
+  color: #333;
 }
 
 input[type="checkbox"] {
@@ -168,7 +203,6 @@ input[type="checkbox"] {
 nav a:hover {
   background-color: rgb(195, 164, 218); /* Slightly increased hover opacity */
   /* color: #d3c2e1; */
-  padding: 10px;
 }
 
 .active-page {
@@ -185,7 +219,7 @@ nav a:hover {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: var(--background-color);
+  background-color: #1A1A1A;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -197,12 +231,12 @@ nav a:hover {
 
 /* Dark mode styling */
 body.dark {
-  background-color: var(--background-color);
+  background-color: #292c35;
 }
 
 body.dark h1,
 body.dark .support a {
-  color: var(--text-color);
+  color: #fff;
 }
 
 /* Checkbox for theme switcher */
@@ -212,7 +246,7 @@ body.dark .support a {
 }
 
 .checkbox-label {
-  background-color: var(--background-color);
+  background-color: #111;
   width: 50px;
   height: 26px;
   border-radius: 50px;
@@ -233,7 +267,7 @@ body.dark .support a {
 }
 
 .checkbox-label .ball {
-  background-color: var(--background-color);
+  background-color: #fff;
   width: 22px;
   height: 22px;
   position: absolute;
@@ -287,15 +321,14 @@ body.dark .support a {
 
 .btn-primary {
   border-radius: 4px;
-  background-color: var(--text-color);
-  color: var(--background-color);
+  background-color: var(--secondary-color);
+  color: var(--dark);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-primary:hover {
-  background-color: var(--background-color);
+  background-color: var(--primary-color);
   color: var(--light);
-  padding: 2px;
 }
 
 .object-fit {
@@ -410,23 +443,23 @@ a {
 }
 
 .text-light {
-  color: var(--text-color);
+  color: var(--light);
 }
 
 .text-secondary {
-  color: var(--text-color);
+  color: var(--secondary);
 }
 
 .text-dark {
-  color: var(--text-color);
+  color: var(--dark);
 }
 
 .text-primary {
-  color: var(--text-color);
+  color: var(--primary-color);
 }
 
 .bg-light {
-  background-color: var(--background-color);
+  background-color: var(--light);
 }
 
 .container {
@@ -505,7 +538,7 @@ a {
 }
 
 .nav-link:hover {
-  color: var(--text-color);
+  color: var(--primary-color);
 }
 
 .search-box {
@@ -580,13 +613,13 @@ a {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--background-color);
+  background-color: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
 }
 
 .modal-content {
-  background-color: var(--background-color);
+  background-color: white;
   padding: 20px;
   border-radius: 5px;
   text-align: center;
@@ -630,11 +663,11 @@ a {
 .post-footer .post-author {
   position: relative;
   margin-top: 4em;
-  background-color: var(--background-color);
+  background-color: var(--secondary);
 }
 
 .post-footer .post-author::after {
-  background-color: var(--background-color);
+  background-color: white;
   content: "";
   position: absolute;
   top: 0;
@@ -667,13 +700,13 @@ a {
   padding: 1em 3em;
   font-size: 18px;
   margin-bottom: 1em;
-  background-color: var(--background-color);
+  background-color: var(--light);
   border-radius: 99px;
 }
 
 #sidebar .categories a:hover {
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(--primary-color);
+  color: var(--light);
 }
 
 .row {
@@ -774,7 +807,7 @@ a {
 }
 
 .category-box {
-  background-color: var(--background-color);
+  background-color: var(--secondary-color);
   border-radius: 10px;
   padding: 10px;
   margin: 10px;
@@ -785,16 +818,16 @@ a {
 }
 
 .start-writing {
-  background-color: var(--background-color);
+  background-color: var(--primary-color);
   padding: 15px 35px;
   border-radius: 5px;
-  color: var(--text-color);
+  color: var(--light);
   cursor: pointer;
   font-weight: bold;
 }
 
 .start-writing:hover {
-  background-color: var(--background-color);
+  background-color: var(--secondary-color);
 }
 
 .thumbnail {
@@ -821,108 +854,3 @@ a {
   max-width: 100%; /* Ensure images don’t exceed container */
   height: auto; /* Maintain aspect ratio */
 }
-
-
-
-
-
-/* Dark mode */
-
-/* Default light mode colors */
-:root {
-  --background-color: rgb(244,237,227);
-  --text-color:rgb(59,59,88);
-  --header-bg: lightgray;
-}
-
-h2{
-  color: var(--text-color);
-}
-/* Dark mode colors */
-[data-theme="dark"] {
-  --background-color: #171717;
-  --text-color: #f2dede;
-  --header-bg: #1c1c1c;
-}
-p{
-  color: var(--text-color); 
-}
-
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-header {
-  background-color: var(--header-bg);
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-h1 {
-  margin: 0;
-}
-
-.theme-switch-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-#mode-label {
-  margin-left: 10px;
-  font-size: 1rem;
-}
-
-/* Toggle Switch */
-.theme-switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 24px;
-}
-
-.theme-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 24px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 18px;
-  width: 18px;
-  border-radius: 50%;
-  background-color: white;
-  transition: 0.4s;
-  top: 3px;
-  left: 4px;
-}
-
-input:checked + .slider {
-  background-color: #66bb6a;
-}
-
-input:checked + .slider:before {
-  transform: translateX(26px);
-}
-
-/*--------*/
