@@ -117,6 +117,7 @@ header {
 
 .nav-menu ul li {
   list-style: none;
+  margin: 0 0.2rem;
 }
 
 .nav-menu ul li a {
@@ -138,7 +139,7 @@ header {
 .nav-menu ul li a:hover {
   background-color: #ffd479; 
   color: #000;
-  transform: scale(1.1); 
+  transform: scale(1.05); 
 }
 
 /* Active link styling */
