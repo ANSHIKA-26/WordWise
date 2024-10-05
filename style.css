@@ -134,16 +134,74 @@ header {
 
 .auth-buttons .login-btn:hover {
   background-color: var(--background-color);
-
+  
   border-radius: 25px;
   box-shadow: 0 0 2px var(--dark);
+  color:blue;
 }
 
 .auth-buttons .signup-btn:hover {
   background-color: var(--background-color);
 
+
   border-radius: 25px;
   box-shadow: 0 0 2px var(--dark);
+
+  color:blue;
+}
+
+/* Form Popup */
+.form-popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #888;
+  z-index: 9;
+  width: 300px;
+  padding: 20px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.form-container h2 {
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.form-container input[type="email"],
+.form-container input[type="password"],
+.form-container input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.form-container .btn {
+  background-color: #3be56b;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  margin: 5px;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.form-container .btn:hover {
+  background-color: #218838;
+}
+
+.form-container .cancel {
+  background-color: #ec6371;
+}
+
+.form-container .cancel:hover {
+  background-color: #c82333;
+
 }
 
 .toggle-mode {

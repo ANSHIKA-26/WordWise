@@ -2,7 +2,9 @@
 ![GSSoC-Ext](/Untitled%20design.png)
 # 📖 WordWise Blogging Website 📝 
 
-![WordWise Website Screenshot](/Screenshot%202024-10-02%20143221.png)
+![WordWise Website Screenshot](https://github.com/sakshamsaraf23/WordWise/blob/main/images/website.png)
+).
+
 
 ---
 
