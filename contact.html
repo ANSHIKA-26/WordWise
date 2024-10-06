@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - WordWise</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favi.png" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
     <style>
         /* Add custom styles for the popup */
+        
+        .secondary-title {
+            color: white;
+        }
         .popup {
             display: none;
             position: fixed;
@@ -145,43 +150,6 @@
 </head>
 <body>
 
-    <!-- Header -->
-    <header id="header" class="shadow bg-light">
-        <nav class="container navbar">
-            <a href="index.html" class="nav-brand text-dark">WordWise</a>
-            <button class="toggle-button">
-                <span><i class="fas fa-bars"></i></span>
-            </button>
-            <div class="collapse">
-                <ul class="navbar-nav">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="blog" class="nav-link">Leading Blog</a>
-                    <a href="start.html" class="nav-link">Start Writing</a>
-                    <a href="category.html" class="nav-link">Categories</a>
-                    <a href="about.html" class="nav-link">About</a>
-                    <a href="contact.html" class="nav-link">Contact Us</a>
-                </ul>
-            </div>
-            <div class="collapse">
-                <ul class="navbar-nav">
-                    <div class="search-box">
-                        <a href="#" class="nav-link"><i class="fa-solid fa-magnifying-glass"></i></a>
-                    </div>
-                    <a href="#" class="nav-link"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="nav-link"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="nav-link"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="nav-link"><i class="fa-brands fa-dribbble"></i></a>
-                </ul>
-            </div>
-            <div class="theme-switch-wrapper">
-                <label class="theme-switch" for="checkbox">
-                    <input type="checkbox" id="checkbox">
-                    <div class="slider"></div>
-                </label>
-                <span id="mode-label">Light Mode</span>
-            </div>
-        </nav>
-    </header>
 
     <!-- Main Content -->
     <div class="container contact-section">
@@ -225,9 +193,10 @@
                             125-896-485
                         </div>
                         <div class="email">
-                            <i class="fas fa-envelope text-primary"></i>
-                            dailysupport@gmail.com
-                        </div>
+                            <a href="mailto: dailysupport@gmail.com" style="color: 3B3B58;"><i class="fas fa-envelope text-primary"></i>
+                           <span>dailysupport@gmail.com</span>
+                        </a>
+                       </div>
                     </div>
                 </div>
                 <div class="col-3">

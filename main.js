@@ -47,6 +47,24 @@ function myFunction() {
   }
 }
 
+// Open the specific form (login or signup)
+function openForm(formType) {
+  if (formType === 'login') {
+      document.getElementById('loginForm').style.display = 'block';
+  } else if (formType === 'signup') {
+      document.getElementById('signupForm').style.display = 'block';
+  }
+}
+
+// Close the specific form
+function closeForm(formType) {
+  if (formType === 'login') {
+      document.getElementById('loginForm').style.display = 'none';
+  } else if (formType === 'signup') {
+      document.getElementById('signupForm').style.display = 'none';
+  }
+}
+
 //Active Nav bar 
 const navLinks = document.querySelectorAll('.nav-link');
 const setActiveLink = () => {
@@ -114,4 +132,18 @@ function switchTheme(e) {
     toggleSwitch.checked = false;
   }
 }
+
+// Listener for changing themes
+toggleSwitch.addEventListener('change', switchTheme, false);
+
+// Pre-check the dark-theme checkbox if dark-theme is set
+if (document.documentElement.getAttribute("data-theme") === "dark") {
+    toggleSwitch.checked = true;
+}
+
+// Smooth scroll to the About section when the about link is clicked
+document.querySelector('#about').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.querySelector('#about-us').scrollIntoView({ behavior: 'smooth' });
+});
 

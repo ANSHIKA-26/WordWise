@@ -25,9 +25,9 @@ themeToggle.addEventListener('click', () => {
         themeToggle.classList.remove('fa-moon'); // If you want to use moon icon for dark mode
         themeToggle.classList.add('fa-sun'); // Sun icon for light mode
     }
-});
-
+})
 // Toggle dark mode class on the body
 document.getElementById('darkModeToggle').addEventListener('click', function () {
     document.body.classList.toggle('dark-mode');
 });
+
