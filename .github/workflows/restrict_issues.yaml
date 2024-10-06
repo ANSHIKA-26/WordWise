@@ -1,5 +1,4 @@
 name: Check for Duplicate Issues
-name: Check for Duplicate Issues
 
 on:
   issues:
@@ -7,55 +6,12 @@ on:
 
 jobs:
   check_duplicate:
-  check_duplicate:
     runs-on: ubuntu-latest
 
     steps:
     - name: Check out repository
       uses: actions/checkout@v3
-    - name: Check out repository
-      uses: actions/checkout@v3
 
-    - name: Search for existing issues
-      id: search_issues
-      run: |
-        # Search for issues with a similar title
-        existing_issues=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          "https://api.github.com/search/issues?q=repo:${{ github.repository }}+type:issue+state:open+${{ github.event.issue.title }}")
-
-        # Extract issue numbers from the search result
-        echo "$existing_issues" | jq -r '.items[] | .number' > issue_numbers.txt
-
-    - name: Check if a duplicate exists
-      id: check_duplicate
-      run: |
-        issue_count=$(wc -l < issue_numbers.txt)
-
-        if [ "$issue_count" -gt 0 ]; then
-          echo "Duplicate issue(s) found."
-          exit 0
-        else
-          echo "No duplicates found."
-          exit 1
-        fi
-
-    - name: Comment and close the new issue if duplicate exists
-      if: steps.check_duplicate.outcome == 'success'
-      run: |
-        issue_numbers=$(cat issue_numbers.txt | tr '\n' ', ' | sed 's/, $//')
-        existing_issue=$(head -n 1 issue_numbers.txt)
-
-        # Comment on the new issue
-        curl -s -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-        -H "Content-Type: application/json" \
-        -d "{\"body\": \"Thanks for raising this issue! However, a similar issue already exists: #$existing_issue. Kindly ask to be assigned to that issue.\"}" \
-        "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/comments"
-
-        # Close the new issue
-        curl -s -X PATCH -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-        -H "Content-Type: application/json" \
-        -d '{"state": "closed"}' \
-        "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.issue.number }}"
     - name: Install jq
       run: sudo apt-get update && sudo apt-get install -y jq
 
