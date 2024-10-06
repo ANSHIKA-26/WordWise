@@ -1261,8 +1261,8 @@ h1 {
 .theme-switch {
   position: relative;
   display: inline-block;
-  width: 50px;
-  height: 24px;
+  width: 60px;
+  height: 30px;
 }
 
 .theme-switch input {
@@ -1278,29 +1278,62 @@ h1 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background: linear-gradient(to right, #ffecb3, #ffcc80); /* Gradient for light mode */
   transition: 0.4s;
-  border-radius: 24px;
+  border-radius: 30px;
+}
+
+input:checked + .slider {
+  background: linear-gradient(to right, #283e51, #4b79a1); 
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 18px;
-  width: 18px;
+  height: 24px;
+  width: 24px;
   border-radius: 50%;
   background-color: white;
   transition: 0.4s;
   top: 3px;
-  left: 4px;
-}
-
-input:checked + .slider {
-  background-color: #66bb6a;
+  left: 3px;
 }
 
 input:checked + .slider:before {
-  transform: translateX(26px);
+  transform: translateX(30px); 
+}
+
+.icon {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 6px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sun-icon {
+  left: 5px;
+  opacity: 1;
+}
+
+.moon-icon {
+  right: 5px;
+  opacity: 0;
+}
+
+input:checked + .slider .sun-icon {
+  opacity: 0;
+}
+
+input:checked + .slider .moon-icon {
+  opacity: 1; 
+}
+
+#mode-label {
+  font-size: 14px;
+  margin-left: 10px;
+  color: #333;
 }
 /* FAQ Section */
 .container_1 {
