@@ -1,3 +1,10 @@
+ 
+.logo img{
+  padding: 0%;
+  width: 50%;
+  height: auto;
+  box-shadow: none;
+}
 .category-container {
     margin: 20px auto;
     max-width: 1200px;

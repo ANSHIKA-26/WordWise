@@ -12,7 +12,13 @@ font-family: 'Nunito Sans', sans-serif;
 font-family: 'Roboto', sans-serif;
 font-family: 'Ubuntu', sans-serif;
 */
-
+/* by harsh */
+.logo img{
+  padding: 0%;
+  width: 50%;
+  height: auto;
+  box-shadow: none;
+}
 img{
   width: 100%;
   height: auto;
@@ -1008,10 +1014,34 @@ a {
 /* Swiper container and slides */
 .swiper-container {
   width: 100%; /* Set to 100% */
-  max-width: 600px; /* Maximum width */
-  height: 200px; /* Reduced height for the swiper */
+  max-width: 800px; /* Maximum width */
+  height: 600px; /* Reduced height for the swiper */
   margin: 0 auto; /* Center align the swiper */
   margin-bottom: 20px; /* Margin to prevent overlap */
+  /* by harsh */
+  animation: changeImage 10s linear infinite;
+}
+/* by harsh */
+@keyframes changeImage {
+  0%{
+    background-image: url(./assets/slider/img1.jpg);
+  }
+  20%{
+    background-image: url(./assets/slider/img2.jpg);
+  }
+  40%{
+    background-image: url(./assets/slider/img3.jpg);
+  }
+  60%{
+    background-image: url(./assets/slider/img4.jpg);
+  }
+  80%{
+    background-image: url(./assets/slider/img5.jpg);
+  }
+  100%{
+    background-image: url(./assets/slider/img6.jpg);
+  }
+  
 }
 
 .swiper-slide img {
