@@ -1166,6 +1166,91 @@ input:checked + .slider {
 input:checked + .slider:before {
   transform: translateX(26px);
 }
+/* FAQ Section */
+.container_1 {
+  width: 100%;
+  margin: auto;
+  min-height: 100vh;
+  padding: 2rem;
+  display: grid;
+  place-items: center;
+  margin-top: 500px;
+}
+
+.accordion__wrapper {
+  background-color: #f3b5af;;
+  box-shadow: 0px 60px 56px -12px rgba(9, 40, 163, 0.05);
+  border-radius: 2.5rem;
+  width: 100%;
+  max-width: 60rem;
+  padding: 5rem;
+}
+
+.accordion__title,
+.faq h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #242e4c;
+  margin-bottom: 4rem;
+}
+
+.accordion {
+  border-bottom: 0.5rem solid #dae1f5;
+  padding-bottom: 2rem;
+  margin-bottom: 3rem;
+  border-radius: 30px;
+  
+}
+
+.accordion__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.accordion__header:hover {
+  background-color: #f1f1f1;
+}
+
+.accordion__icon {
+  background-color: #f16565;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: black;
+  flex-shrink: 0;
+  font-weight: 900;
+}
+
+.accordion__question {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #002B5B;
+}
+
+.accordion__answer {
+  padding: 2rem 0;
+}
+
+.accordion__content {
+  overflow: hidden;
+  height: 0;
+  transition: height 0.4s ease-in-out;
+  color: #333333;
+  font-size: 18px;
+}
+
+footer p {
+  margin: 10px 0 0 0;
+  text-align: center;
+}
 
 /* WordWise Newsletter Section Styling */
 .wordwise-newsletter-section {
@@ -1173,7 +1258,7 @@ input:checked + .slider:before {
   padding: 50px 20px;
   text-align: center;
   border-radius: 10px;
-  margin-top: 600px;
+  margin-top: 10px;
 }
 
 .wordwise-newsletter-container h2 {
