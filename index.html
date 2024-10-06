@@ -12,6 +12,9 @@
     <!--swiper slider css-->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <!--css-->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -44,11 +47,10 @@
         <!-- Login Form -->
     <div class="form-popup" id="loginForm">
         <form class="form-container" onsubmit="return validateLoginForm()">
-            <h1>WordWise</h1>
             <h2>Login</h2>
-            <label for="loginEmail"><b> <h3>Email</h3></b></label>
+            <label for="loginEmail"><b>Email</b></label>
             <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
-            <label for="loginPsw"><b><h3>Password</h3></b></label>
+            <label for="loginPsw"><b>Password</b></label>
             <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
             <button type="submit" class="btn">LOGIN</button>
             <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
@@ -58,15 +60,14 @@
     <!-- Signup Form -->
     <div class="form-popup" id="signupForm">
         <form class="form-container" onsubmit="return validateSignupForm()">
-            <h1>WordWise</h1>
             <h2>Signup</h2>
-            <label for="name"><b><h3>Full Name</h3></b></label>
+            <label for="name"><b>Full Name</b></label>
             <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
-            <label for="signupEmail"><b><h3>Email</h3></b></label>
+            <label for="signupEmail"><b>Email</b></label>
             <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
-            <label for="signupPsw"><b><h3>Password</h3></b></label>
+            <label for="signupPsw"><b>Password</b></label>
             <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
-            <label for="confirmPsw"><b><h3>Confirm Password</h3></b></label>
+            <label for="confirmPsw"><b>Confirm Password</b></label>
             <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
             <button type="submit" class="btn">SIGNUP</button>
             <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
@@ -74,13 +75,16 @@
     </div>
     
     
-        <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox">
-                <div class="slider"></div>
-            </label>
-            <span id="mode-label">Light Mode</span>
-        </div> 
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox">
+            <div class="slider">
+                <img src="https://img.icons8.com/emoji/48/000000/sun-emoji.png" alt="Sun" class="icon sun-icon">
+                <img src="https://img.icons8.com/emoji/48/000000/crescent-moon-emoji.png" alt="Moon" class="icon moon-icon">
+            </div>
+        </label>
+        <span id="mode-label">Light Mode</span>
+    </div>
     
     </header>
     <!--header-->
@@ -104,13 +108,10 @@
                                 <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="blog.html"  class="text-title display-1 text-dark">
                                         Roaming Routes
-
-
-
                                     </a>
-                                    <p class="secondary-title text-secondary display-3">
-                                        <span><i class="fa-regular fa-clock"></i> wed 01,2020</span>
-                                        <span><i class="fa-solid fa-comment"></i>13</span>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Wed 01,2020 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 13</span>
                                     </p>
                                 </div>
 
@@ -135,9 +136,9 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3">
-                                        <span><i class="fa-regular fa-clock"></i> Mon 13,2023</span>
-                                        <span><i class="fa-solid fa-comment"></i>12</span>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Mon 13,2023 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 12</span>
                                     </p>
                                 </div>
 
@@ -163,9 +164,9 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3">
-                                        <span><i class="fa-regular fa-clock"></i>wed 09,2023</span>
-                                        <span><i class="fa-solid fa-comment"></i>19</span>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Wed 09,2023 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 19</span>
                                     </p>
                                 </div>
 
@@ -191,9 +192,9 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3">
-                                        <span><i class="fa-regular fa-clock"></i> Tue 07,2019</span>
-                                        <span><i class="fa-solid fa-comment"></i>6</span>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Tue 07,2019 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 6</span>
                                     </p>
                                 </div>
 
@@ -219,9 +220,9 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3">
-                                        <span><i class="fa-regular fa-clock"></i> Tue 02,2021</span>
-                                        <span><i class="fa-solid fa-comment"></i>10</span>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Tue 02,2021 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 10</span>
                                     </p>
                                 </div>
 
@@ -249,9 +250,9 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3">
-                                        <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
-                                        <span><i class="fa-solid fa-comment"></i>12</span>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 12</span>
                                     </p>
                                 </div>
 
@@ -277,9 +278,9 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3">
-                                        <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
-                                        <span><i class="fa-solid fa-comment"></i>12</span>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 12</span>
                                     </p>
                                 </div>
 
@@ -305,9 +306,9 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3">
-                                        <span><i class="fa-regular fa-clock"></i>wed 02,2023</span>
-                                        <span><i class="fa-solid fa-comment"></i>12</span>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 12</span>
                                     </p>
                                 </div>
 
@@ -333,9 +334,9 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3">
-                                        <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
-                                        <span><i class="fa-solid fa-comment"></i>12</span>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 12</span>
                                     </p>
                                 </div>
 
@@ -361,9 +362,9 @@
 
 
                                   </a>
-                                  <p class="secondary-title text-secondary display-3">
-                                      <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
-                                      <span><i class="fa-solid fa-comment"></i>12</span>
+                                  <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                      <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                                      <span><i class="bi bi-chat-fill"></i> 12</span>
                                   </p>
                               </div>
 
@@ -389,9 +390,9 @@
 
 
                                 </a>
-                                <p class="secondary-title text-secondary display-3">
-                                    <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
-                                    <span><i class="fa-solid fa-comment"></i>12</span>
+                                <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                    <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                                    <span><i class="bi bi-chat-fill"></i> 12</span>
                                 </p>
                             </div>
 
@@ -418,9 +419,9 @@
 
 
                               </a>
-                              <p class="secondary-title text-secondary display-3">
-                                  <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
-                                  <span><i class="fa-solid fa-comment"></i>12</span>
+                              <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                  <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                                  <span><i class="bi bi-chat-fill"></i> 12</span>
                               </p>
                           </div>
 
@@ -444,9 +445,9 @@
 
 
                             </a>
-                            <p class="secondary-title text-secondary display-3">
-                                <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
-                                <span><i class="fa-solid fa-comment"></i>12</span>
+                            <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                                <span><i class="bi bi-chat-fill"></i> 12</span>
                             </p>
                         </div>
 
@@ -472,9 +473,9 @@
 
 
                           </a>
-                          <p class="secondary-title text-secondary display-3">
-                              <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
-                              <span><i class="fa-solid fa-comment"></i>12</span>
+                          <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                              <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                              <span><i class="bi bi-chat-fill"></i> 12</span>
                           </p>
                       </div>
 
@@ -485,7 +486,7 @@
 
                 </div>
                 <div class="text-center">
-                  <button class="btn btn-primary secondary-title text-light" style="height:50px;width:200px;font-size: large;color: black;">Load More Posts...</button>
+                    <button class="btn load-posts-btn secondary-title text-light" style="height:50px;width:200px;font-size: large;">Load More Posts...</button>
               </div>
             </div>
 
@@ -494,22 +495,61 @@
 
         </section>
         <!--blog post section-->
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="./assets/slider/img1.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img2.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img3.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img4.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img5.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img6.jpg" class="img-fluid" alt=""></div>
-          </div>
-
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-
-</div>
+        <div class="sliderr">
+            <div class="slides">
+                <!-- Radio buttons for navigation -->
+                <input type="radio" name="radio-btn" id="radio1" checked>
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+                <input type="radio" name="radio-btn" id="radio5">
+                <input type="radio" name="radio-btn" id="radio6">
+    
+                <!-- Slide images -->
+                <div class="slide first">
+                    <img src="./assets/slider/img1.jpg" alt="Slide 1">
+                </div>
+                <div class="slide">
+                    <img src="./assets/slider/img2.jpg" alt="Slide 2">
+                </div>
+                <div class="slide">
+                    <img src="./assets/slider/img3.jpg" alt="Slide 3">
+                </div>
+                <div class="slide">
+                    <img src="./assets/slider/img4.jpg" alt="Slide 4">
+                </div>
+                <div class="slide">
+                    <img src="./assets/slider/img5.jpg" alt="Slide 5">
+                </div>
+                <div class="slide">
+                    <img src="./assets/slider/img6.jpg" alt="Slide 6">
+                </div>
+    
+                <!-- Automatic navigation -->
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                    <div class="auto-btn5"></div>
+                    <div class="auto-btn6"></div>
+                </div>
+            </div>
+    
+            <!-- Manual navigation -->
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+                <label for="radio4" class="manual-btn"></label>
+                <label for="radio5" class="manual-btn"></label>
+                <label for="radio6" class="manual-btn"></label>
+            </div>
+        </div>
 </section>
-<section class="faq" id="faq"></section>
+<section class="faq" id="faq">
+    
+<!-- </section> -->
     <div class="container_1">
         <div class="accordion__wrapper">
             <h1 class="accordion__title">Frequently Asked Questions</h1>
@@ -522,6 +562,7 @@
                     </span>
                 </div>
                 <div class="accordion__content">
+                    <!-- <i class="fa-solid fa-comments"></i> -->
                     <p class="accordion__answer">You can easily switch between dark and light themes by clicking the theme toggle button located in the website header. This allows you to customize your viewing experience according to your preference.</p>
                 </div>
             </div>
@@ -534,6 +575,7 @@
                     </span>
                 </div>
                 <div class="accordion__content">
+                    <!-- <i class="fa-solid fa-comments"></i> -->
                     <p class="accordion__answer">The 'Start Writing' page provides a simple interface for quickly creating and publishing blog posts. Just click "Start Writing" from the navigation bar, fill in your title, content, and tags, and publish your blog with a single click.</p>
                 </div>
             </div>
@@ -546,6 +588,7 @@
                     </span>
                 </div>
                 <div class="accordion__content">
+                    <!-- <i class="fa-solid fa-comments"></i> -->
                     <p class="accordion__answer">The sliding bar on the home page features the latest blogs published on the platform. It updates automatically and allows users to easily scroll through and click on any blog that catches their attention.</p>
                 </div>
             </div>
@@ -558,6 +601,7 @@
                     </span>
                 </div>
                 <div class="accordion__content">
+                    <!-- <i class="fa-solid fa-comments"></i> -->
                     <p class="accordion__answer">Top picks are curated by a combination of editor recommendations and user engagement metrics, such as views, likes, and comments, to highlight the best content available on Word Wise.</p>
                 </div>
             </div>
@@ -570,6 +614,7 @@
                     </span>
                 </div>
                 <div class="accordion__content">
+                    <!-- <i class="fa-solid fa-comments"></i> -->
                     <p class="accordion__answer">You can stay updated by following your favorite authors or topics, and by checking the sliding bar for the latest blog posts. You can also subscribe to newsletters or enable notifications for real-time updates.</p>
                 </div>
             </div>
@@ -582,12 +627,19 @@
     <div class="wordwise-newsletter-container">
       <h2>Subscribe to Our Newsletter</h2>
       <p>Stay updated with the latest articles and insights from WordWise.</p>
-      <form class="wordwise-newsletter-form">
-        <input type="email" placeholder="Enter your email address" required>
+      <form class="wordwise-newsletter-form" id="newsletterForm" novalidate>
+        <input type="email" id="emailInput" placeholder="Enter your email address" required>
         <button type="submit">Subscribe</button>
       </form>
     </div>
-  </section>
+    
+    <!-- Toast Popup -->
+    <div id="toast" class="toast hidden"></div>
+</section>
+
+<!-- Include the Newsletter.js script file -->
+<script src="./backend/newsLetter.js"></script>
+
   
 
 
@@ -643,7 +695,7 @@
                                           <a href="#" class="text-title display-2 text-dark">
                                             Embrace the beauty of nature through our enchanting blog, where we celebrate the wonders of the natural world
                                           </a>
-                                          <p class="secondary-title text-secondary display-3">
+                                          <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                                <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
                                           </p>
                                       </div>
@@ -660,7 +712,7 @@
                                        <a href="#" class="text-title display-2 text-dark">
                                         Embark on unforgettable journeys through our travel blog, where wanderlust meets inspiration
                                        </a>
-                                       <p class="secondary-title text-secondary display-3">
+                                       <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                             <span><i class="far fa-clock text-primary"></i> Wed 05, 2020 </span>
                                        </p>
                                    </div>
@@ -677,7 +729,7 @@
                                            <a href="#" class="text-title display-2 text-dark">
                                             Gaming Adventures Unleashed
                                            </a>
-                                           <p class="secondary-title text-secondary display-3">
+                                           <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                                 <span><i class="far fa-clock text-primary"></i> Wed 02, 2021 </span>
                                            </p>
                                        </div>
@@ -744,5 +796,6 @@
     </script>
     
     <script src="faq.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
 </html>

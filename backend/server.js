@@ -12,32 +12,57 @@ app.post('/send-email', async (req, res) => {
     const { firstName, lastName, email, phone, message } = req.body;
 
     let transporter = nodemailer.createTransport({
-        service: 'gmail',  // Use your email service provider
+        service: 'gmail',
         auth: {
-            user: 'your-email@gmail.com',  // Your email
-            pass: 'your-email-password'   // Your email password or app password
+            user: 'your-email@gmail.com',
+            pass: 'your-email-password'
         }
     });
 
     let mailOptions = {
-        from: email,  // Sender address (user's email)
-        to: 'your-email@gmail.com',  // Receiver address (your email)
+        from: email,
+        to: 'your-email@gmail.com',
         subject: `Contact Us Form Submission from ${firstName} ${lastName}`,
         text: `You have received a new message from your website contact form.
 
         Name: ${firstName} ${lastName}
         Email: ${email}
         Phone: ${phone}
-        Message: ${message}
-        `
+        Message: ${message}`
     };
 
-    // Send the email
     try {
         await transporter.sendMail(mailOptions);
         res.status(200).send({ message: "Email sent successfully!" });
     } catch (error) {
         res.status(500).send({ message: "Error sending email", error });
+    }
+});
+
+// New endpoint for newsletter subscription
+app.post('/subscribe', async (req, res) => {
+    const { email } = req.body;
+
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'your-email@gmail.com',
+            pass: 'your-email-password'
+        }
+    });
+
+    let mailOptions = {
+        from: 'your-email@gmail.com',
+        to: 'your-email@gmail.com',
+        subject: 'New Newsletter Subscription',
+        text: `You have a new subscriber! Email: ${email}`
+    };
+
+    try {
+        await transporter.sendMail(mailOptions);
+        res.status(200).send({ message: "Subscription successful!" });
+    } catch (error) {
+        res.status(500).send({ message: "Error sending subscription email", error });
     }
 });
 
