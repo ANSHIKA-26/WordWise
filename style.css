@@ -1548,5 +1548,40 @@ footer p {
     background-color: red;
 }
 
+/* for facebook */
+.flex-wrap .fa-facebook-f {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.flex-wrap .fa-facebook-f:hover{
+  color:#4267B2;
+  transform:scale(1.1);
+}
+
+/* for twitter */
+.flex-wrap .fa-x-twitter {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.flex-wrap .fa-x-twitter:hover{
+  color:black;
+  transform:scale(1.1);
+}
+/* for instagram */
+.flex-wrap .fa-instagram {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.flex-wrap .fa-instagram:hover{
+  color:#c32aa3;
+  transform:scale(1.1);
+}
+
+/* for dribble */
+.flex-wrap .fa-dribbble {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.flex-wrap .fa-dribbble:hover{
+  color:#ea4c89;
+  transform:scale(1.1);
+}
+
 
 /*--------*/
