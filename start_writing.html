@@ -15,7 +15,7 @@
 
     <!--css-->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="category.css">
+    <link rel="stylesheet" href="start_writing.css">
 
     <style>
         * {
@@ -39,7 +39,7 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="blog.html">Leading Blog</a></li>
-                <li><a href="start_writing.html">Start Writing</a></li>
+                <li><a href="start-writing.html">Start Writing</a></li>
                 <li><a href="category.html">Categories</a></li>
                 <li><a href="index.html">About</a></li>
                 <li><a href="contact_us.html">Contact Us</a></li>
@@ -94,163 +94,39 @@
 
     </header>
     <!--header-->
+<!-- main -->
+<!-- main -->
+<main>
+    <div class="blog-form-container">
+        <form id="blogForm">
+            <h2  style="margin-bottom: 15px;" >Start Writing</h2>
+            <label for="blogHeading">Blog Heading:</label>
+            <input type="text" id="blogHeading" name="heading" placeholder="Enter blog heading" required>
 
+            <label for="blogTopic">Select Topic:</label>
+            <select id="blogTopic" name="topic" required>
+                <option value="" disabled selected>Select a topic</option>
+                <option value="Travel">Travel</option>
+                <option value="Technology">Technology</option>
+                <option value="Lifestyle">Lifestyle</option>
+            </select>
 
-    <main>
-        <section class="category-container">
-            <div class="category-row">
-                <div class="new-category-box">
-                    <h2 class="new-category-title">Food</h2>
-                    <div class="new-post-list">
-                        <article class="new-post-item">
-                            <div class="new-post-thumbnail">
-                                <img src="./assets/img5.jpg" alt="Post Image">
-                            </div>
-                            <div class="new-post-content">
-                                <h3 class="new-post-title">Mouthwatering Memoirs</h3>
-                                <p class="new-post-excerpt">Mouth watering tales from all over the world...</p>
-                                <a href="#" class="new-read-more-link">Read More</a>
-                            </div>
-                        </article>
-                    </div>
-                </div>
+            <label for="blogImage">Upload Image:</label>
+            <input type="file" id="blogImage" name="image" accept="image/*">
 
-                <div class="new-category-box">
-                    <h2 class="new-category-title">Travel</h2>
-                    <div class="new-post-list">
-                        <article class="new-post-item">
-                            <div class="new-post-thumbnail">
-                                <img src="./assets/img21.jpg" alt="Post Image">
-                            </div>
-                            <div class="new-post-content">
-                                <h3 class="new-post-title">Roaming Routes</h3>
-                                <p class="new-post-excerpt">In the realm of mechanical marvels.</p>
-                                <a href="#" class="new-read-more-link">Read More</a>
-                            </div>
-                        </article>
-                    </div>
-                </div>
+            <label for="blogContent">Blog Content:</label>
+            <textarea id="blogContent" name="content" rows="10" placeholder="Start writing your blog here..."></textarea>
 
-                <div class="new-category-box">
-                    <h2 class="new-category-title">Technology</h2>
-                    <div class="new-post-list">
-                        <article class="new-post-item">
-                            <div class="new-post-thumbnail">
-                                <img src="./assets/img2.jpg" alt="Post Image">
-                            </div>
-                            <div class="new-post-content">
-                                <h3 class="new-post-title">The Future of Tech</h3>
-                                <p class="new-post-excerpt">Exploring the innovations that are changing the world.</p>
-                                <a href="#" class="new-read-more-link">Read More</a>
-                            </div>
-                        </article>
-                    </div>
-                </div>
+            <label for="writerName">Your Name:</label>
+            <input type="text" id="writerName" name="writerName" placeholder="Enter your name" required>
 
-                <div class="new-category-box">
-                    <h2 class="new-category-title">Lifestyle</h2>
-                    <div class="new-post-list">
-                        <article class="new-post-item">
-                            <div class="new-post-thumbnail">
-                                <img src="./assets/img7.jpg" alt="Post Image">
-                            </div>
-                            <div class="new-post-content">
-                                <h3 class="new-post-title">Living Well</h3>
-                                <p class="new-post-excerpt">Tips and tricks for a balanced life.</p>
-                                <a href="#" class="new-read-more-link">Read More</a>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="new-category-box">
-                    <h2 class="new-category-title">Health</h2>
-                    <div class="new-post-list">
-                        <article class="new-post-item">
-                            <div class="new-post-thumbnail">
-                                <img src="./assets/health.jpeg" alt="Post Image">
-                            </div>
-                            <div class="new-post-content">
-                                <h3 class="new-post-title">Health Tips</h3>
-                                <p class="new-post-excerpt">Best practices for a healthier you.</p>
-                                <a href="#" class="new-read-more-link">Read More</a>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="new-category-box">
-                    <h2 class="new-category-title">Fashion</h2>
-                    <div class="new-post-list">
-                        <article class="new-post-item">
-                            <div class="new-post-thumbnail">
-                                <img src="./assets/fashion.jpeg" alt="Post Image">
-                            </div>
-                            <div class="new-post-content">
-                                <h3 class="new-post-title">Fashion Trends</h3>
-                                <p class="new-post-excerpt">Stay stylish with the latest trends.</p>
-                                <a href="#" class="new-read-more-link">Read More</a>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <div class="sliderr">
-        <div class="slides">
-            <!-- Radio buttons for navigation -->
-            <input type="radio" name="radio-btn" id="radio1" checked>
-            <input type="radio" name="radio-btn" id="radio2">
-            <input type="radio" name="radio-btn" id="radio3">
-            <input type="radio" name="radio-btn" id="radio4">
-            <input type="radio" name="radio-btn" id="radio5">
-            <input type="radio" name="radio-btn" id="radio6">
-
-            <!-- Slide images -->
-            <div class="slide first">
-                <img src="./assets/slider/img1.jpg" alt="Slide 1">
-            </div>
-            <div class="slide">
-                <img src="./assets/slider/img2.jpg" alt="Slide 2">
-            </div>
-            <div class="slide">
-                <img src="./assets/slider/img3.jpg" alt="Slide 3">
-            </div>
-            <div class="slide">
-                <img src="./assets/slider/img4.jpg" alt="Slide 4">
-            </div>
-            <div class="slide">
-                <img src="./assets/slider/img5.jpg" alt="Slide 5">
-            </div>
-            <div class="slide">
-                <img src="./assets/slider/img6.jpg" alt="Slide 6">
-            </div>
-
-            <!-- Automatic navigation -->
-            <div class="navigation-auto">
-                <div class="auto-btn1"></div>
-                <div class="auto-btn2"></div>
-                <div class="auto-btn3"></div>
-                <div class="auto-btn4"></div>
-                <div class="auto-btn5"></div>
-                <div class="auto-btn6"></div>
-            </div>
-        </div>
-
-        <!-- Manual navigation -->
-        <div class="navigation-manual">
-            <label for="radio1" class="manual-btn"></label>
-            <label for="radio2" class="manual-btn"></label>
-            <label for="radio3" class="manual-btn"></label>
-            <label for="radio4" class="manual-btn"></label>
-            <label for="radio5" class="manual-btn"></label>
-            <label for="radio6" class="manual-btn"></label>
-        </div>
+            <button type="submit">Submit Blog</button>
+        </form>
     </div>
-    <!-- Swiper end -->
+</main>
 
+  
+<!-- main -->
 
     <!-- footer -->
 
@@ -385,6 +261,7 @@
     </footer>
     <!-- .footer -->
 
+    <script src="start_writing.js"></script>
     <script src="main.js"></script>
     <script src="./darkMode.js"></script>
 
