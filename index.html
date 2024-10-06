@@ -44,10 +44,11 @@
         <!-- Login Form -->
     <div class="form-popup" id="loginForm">
         <form class="form-container" onsubmit="return validateLoginForm()">
+            <h1>WordWise</h1>
             <h2>Login</h2>
-            <label for="loginEmail"><b>Email</b></label>
+            <label for="loginEmail"><b> <h3>Email</h3></b></label>
             <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
-            <label for="loginPsw"><b>Password</b></label>
+            <label for="loginPsw"><b><h3>Password</h3></b></label>
             <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
             <button type="submit" class="btn">LOGIN</button>
             <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
@@ -57,14 +58,15 @@
     <!-- Signup Form -->
     <div class="form-popup" id="signupForm">
         <form class="form-container" onsubmit="return validateSignupForm()">
+            <h1>WordWise</h1>
             <h2>Signup</h2>
-            <label for="name"><b>Full Name</b></label>
+            <label for="name"><b><h3>Full Name</h3></b></label>
             <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
-            <label for="signupEmail"><b>Email</b></label>
+            <label for="signupEmail"><b><h3>Email</h3></b></label>
             <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
-            <label for="signupPsw"><b>Password</b></label>
+            <label for="signupPsw"><b><h3>Password</h3></b></label>
             <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
-            <label for="confirmPsw"><b>Confirm Password</b></label>
+            <label for="confirmPsw"><b><h3>Confirm Password</h3></b></label>
             <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
             <button type="submit" class="btn">SIGNUP</button>
             <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
