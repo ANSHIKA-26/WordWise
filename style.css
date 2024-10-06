@@ -50,9 +50,53 @@ body {
   background-color: var(--background-color);
 }
 
-/* Hide scrollbar for main body */
+/* Hide scrollbar for main body 
 .main-body::-webkit-scrollbar {
   display: none;
+}*/
+
+/* Global Styles - Remove Horizontal Scroll */
+html, body {
+  overflow-x: hidden;  /* Prevent horizontal scroll */
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Light Mode Scrollbar - Vertical Scroll Styling */
+::-webkit-scrollbar {
+  width: 16px; /* Vertical scrollbar width */
+  height: 16px; /* Horizontal scrollbar height */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color); /* Background color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-color); /* Color of the thumb (scrollbar handle) */
+  border: 3px solid var(--background-color); /* Adds padding around the thumb */
+  border-radius: 20px;
+}
+
+/* Hover Effect for Light Mode */
+::-webkit-scrollbar-thumb:hover {
+  background: #f4978e; 
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--background-color); /* Dark mode background for scrollbar track */
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--text-color); /* Dark mode thumb color */
+  border: 3px solid var(--background-color); /* Adds padding in dark mode */
+  border-radius: 20px;
+}
+
+/* Hover Effect for Dark Mode */
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: #f4978e; 
 }
 
 /* Header styling */
