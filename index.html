@@ -624,12 +624,19 @@
     <div class="wordwise-newsletter-container">
       <h2>Subscribe to Our Newsletter</h2>
       <p>Stay updated with the latest articles and insights from WordWise.</p>
-      <form class="wordwise-newsletter-form">
-        <input type="email" placeholder="Enter your email address" required>
+      <form class="wordwise-newsletter-form" id="newsletterForm" novalidate>
+        <input type="email" id="emailInput" placeholder="Enter your email address" required>
         <button type="submit">Subscribe</button>
       </form>
     </div>
-  </section>
+    
+    <!-- Toast Popup -->
+    <div id="toast" class="toast hidden"></div>
+</section>
+
+<!-- Include the Newsletter.js script file -->
+<script src="./backend/newsLetter.js"></script>
+
   
 
 
