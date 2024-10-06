@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Start Writing - Blog</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 20px;
+            }
+
+            .container {
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: #ffffff;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            h2 {
+                text-align: center;
+                color: #333;
+                margin-bottom: 20px;
+            }
+
+            .form-group {
+                margin-bottom: 15px;
+            }
+
+            label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+
+            input,
+            textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            button {
+                width: 100%;
+                padding: 10px;
+                background-color: #28a745;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            button:hover {
+                background-color: #218838;
+            }
+
+            #message {
+                margin-top: 20px;
+                font-size: 16px;
+                text-align: center;
+                color: green;
+                display: none;
+                /* Hidden by default */
+            }
+
+            .error {
+                color: red;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="container">
+            <h2>Start Writing Your Blog Post</h2>
+            <form id="writingForm">
+                <div class="form-group">
+                    <label for="title">Post Title:</label>
+                    <input type="text" id="title" name="title" placeholder="Enter your post title" required>
+                </div>
+                <div class="form-group">
+                    <label for="content">Content:</label>
+                    <textarea id="content" name="content" rows="10" placeholder="Write your blog content here..."
+                        required></textarea>
+                </div>
+                <button type="submit">Publish Post</button>
+                <div id="message"></div>
+            </form>
+        </div>
+
+        <script>
+            document.getElementById('writingForm').addEventListener('submit', function (event) {
+                event.preventDefault();  // Prevent form from submitting normally
+
+                // Get form values
+                const title = document.getElementById('title').value;
+                const content = document.getElementById('content').value;
+                const message = document.getElementById('message');
+
+                // Simple validation
+                if (title.trim() === "" || content.trim() === "") {
+                    message.textContent = 'Please fill in all fields.';
+                    message.classList.add('error');
+                    message.style.display = 'block';
+                    return;
+                }
+
+                // Display success message
+                message.textContent = 'Your post has been published successfully!';
+                message.classList.remove('error');
+                message.style.display = 'block';
+
+                // Reset the form
+                document.getElementById('writingForm').reset();
+            });
+        </script>
+
+    </body>
+
+</html>
