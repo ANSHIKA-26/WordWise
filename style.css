@@ -970,8 +970,11 @@ a {
 
 .overflow-img {
   max-width: 300px;
-  overflow: hidden;
+  /* overflow: hidden; */
+  height: auto;
   transition: transform 0.3s ease;
+  box-shadow: 0 0 10px rgb(249, 81, 81) ;
+  border-radius: 20px;
 }
 
 .overflow-img img {
@@ -981,6 +984,8 @@ a {
 
 .overflow-img:hover {
   transform: scale(1.1);
+  box-shadow: 7px 7px 10px rgb(184, 0, 0) ;
+  transition: all 0.2s ease-in-out;
 }
 
 .overflow-img a {
