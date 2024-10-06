@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WordWise</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favi.png" />
     <!--fotn awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--swiper slider css-->
@@ -22,68 +23,70 @@
 
 </head>
 <body>
-     <!--header-->
-     <header id="header" class="shadow ">
-      <nav class="container navbar">
-          <a href="index.html" class="nav-brand text-dark">
-            WordWise
-          </a>
-          <!--toggle button-->
-          <button class="toggle-button">
-              <span><i class="fas fa-bars">  </i></span>
+   <!--header-->
+   <header class="navbar">
+    <div class="logo">
+        <h2><a class="home-link" href="index.html">WordWise</a></h2>
+    </div>
+
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Leading Blog</a></li>
+            <li><a href="#start-writing">Start Writing</a></li>
+            <li><a href="category.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact_us.html">Contact Us</a></li>
+            <li><a href="contact_us.html">Give Feedback</a></li>
+        </ul>
+    </nav>
+
+    <div class="auth-buttons">
+        <a href="#login" class="login-btn" onclick="openForm('login')">Login</a>
+        <a href="#signup" class="signup-btn" onclick="openForm('signup')">Signup</a>
+    </div>
+
+    <!-- Login Form -->
+<div class="form-popup" id="loginForm">
+    <form class="form-container" onsubmit="return validateLoginForm()">
+        <h2>Login</h2>
+        <label for="loginEmail"><b>Email</b></label>
+        <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
+        <label for="loginPsw"><b>Password</b></label>
+        <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+        <button type="submit" class="btn">LOGIN</button>
+        <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
+    </form>
+</div>
+
+<!-- Signup Form -->
+<div class="form-popup" id="signupForm">
+    <form class="form-container" onsubmit="return validateSignupForm()">
+        <h2>Signup</h2>
+        <label for="name"><b>Full Name</b></label>
+        <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
+        <label for="signupEmail"><b>Email</b></label>
+        <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
+        <label for="signupPsw"><b>Password</b></label>
+        <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+        <label for="confirmPsw"><b>Confirm Password</b></label>
+        <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+        <button type="submit" class="btn">SIGNUP</button>
+        <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
+    </form>
+</div>
 
 
-          </button>
-          <!--collapse on toggle button click-->
-          <div class="collapse">
-              <ul class="navbar-nav">
-                  <a href="index.html" class="nav-link">Home</a>
-                  <a href="blog.html" class="nav-link"> Leading Blog</a>
-                  <a href="start.html" class="nav-link">Start Writing</a>
-                  <a href="category.html" class="nav-link">Categories</a>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox">
+            <div class="slider"></div>
+        </label>
+        <span id="mode-label">Light Mode</span>
+    </div> 
 
-                  <a href="about.html" class="nav-link">About</a>
-                  <a href="contact.html" class="nav-link">Contact Us </a>
-
-                 
-
-              </ul>
-          </div>
-          <!--collapse on toggle button click-->
-          <div class="collapse">
-              <ul class="navbar-nav">
-                  <div class="search-box">
-                      <a href="#" class="nav-link">
-                          <i class="fa-solid fa-magnifying-glass"></i>
-                      </a>
-                      </div>
-                      <a href="#" class="nav-link">
-                          <i class="fa-brands fa-facebook-f"></i>
-                      </a>
-                      <a href="#" class="nav-link">
-                          <i class="fa-brands fa-twitter"></i>
-                      </a>
-                      <a href="#" class="nav-link">
-                          <i class="fa-brands fa-instagram"></i>
-                      </a>
-                      <a href="#" class="nav-link">
-                          <i class="fa-brands fa-dribbble"></i>
-                      </a>
-              </ul>
-          </div>
-          <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox">
-                <div class="slider"></div>
-            </label>
-            <span id="mode-label"><i class='bx bx-sun'></i></span>
-        </div>
-
-      </nav>
-      </header>
-
-  <!--header-->
-
+</header>
+<!--header-->
 
         <div class="container2 px-3 py-4">
             <div class="row light-blue">
@@ -240,6 +243,7 @@
         <div class="container">
             <div class="row mb-3">
                 <div class="col-3">
+                  <div id = "about-us"></div>
                     <h2 class="footer-title secondary-title">About Us</h2>
 
                     <div class="secondary-title text-secondary">
@@ -258,9 +262,10 @@
                          </div>
 
                          <div class="email">
-                             <i class="fas fa-envelope text-primary"></i>
-                             dailysupport@gmail.com
-                         </div>
+                            <a href="mailto: dailysupport@gmail.com" style="color: 3B3B58;"><i class="fas fa-envelope text-primary"></i>
+                           <span>dailysupport@gmail.com</span>
+                        </a>
+                       </div>
 
                     </div>
                 </div>
@@ -355,6 +360,8 @@
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="main.js"></script>
     <script src="./darkMode.js"></script>
+    <script src="./backend/login-Auth/login.js"></script>
+    <script src="./backend/signup-Auth/signup.js"></script>
     <!--swiper slider cdn-->
 
 </body>

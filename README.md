@@ -1,8 +1,10 @@
 
-![GSSoC-Ext](/Untitled%20design.png)
+![GSSoC-Ext](https://github.com/sakshamsaraf23/WordWise/blob/main/images/Untitled%20design.png)
 # 📖 WordWise Blogging Website 📝 
 
-![WordWise Website Screenshot](/Screenshot%202024-10-02%20143221.png)
+![WordWise Website Screenshot](https://github.com/sakshamsaraf23/WordWise/blob/main/images/website.png)
+).
+
 
 ---
 
@@ -125,5 +127,10 @@ If you have any questions or need assistance, please feel free to reach out thro
 
 ## 🙌🏻 Join Us!
 We encourage you to explore the website, share your thoughts, and get involved in improving the project. Let’s make this blogging experience even better together!
+
+## Our Valuable Contributors ❤️✨
+
+[![Contributors](https://contrib.rocks/image?repo=say-het/WordWise)](https://github.com/say-het/WordWise/graphs/contributors)
+
 
 Happy coding! 📝

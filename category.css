@@ -1,0 +1,513 @@
+.category-container {
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 0 15px;
+}
+
+.category-row {
+    display: flex; /* Use flexbox for horizontal layout */
+    flex-wrap: wrap; /* Allows wrapping for smaller screens */
+    justify-content: space-between; /* Space between boxes */
+    gap: 20px; /* Space between boxes */
+}
+
+.new-category-box {
+    background: #f9f9f9;
+    border-radius: 10px; /* Slightly increased border radius */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow for more depth */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effect */
+    overflow: hidden; /* Prevents content overflow */
+    flex: 1 1 calc(33% - 20px); /* Responsive sizing: 3 boxes per row */
+    max-width: calc(33% - 20px); /* Ensure max width for 3 boxes */
+    padding: 20px; /* Added padding inside boxes */
+}
+
+@media (max-width: 768px) {
+    .new-category-box {
+        flex: 1 1 calc(50% - 20px); /* 2 boxes per row on tablets */
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .new-category-box {
+        flex: 1 1 100%; /* Stacks boxes on small screens */
+        max-width: 100%;
+    }
+}
+
+.new-category-title {
+    font-size: 26px; /* Increased title size */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px; /* Margin added for consistent spacing */
+}
+
+.new-post-list {
+    padding: 0; /* Removed inner padding */
+}
+
+.new-post-item {
+    display: flex;
+    margin-bottom: 20px; /* Increased margin between posts */
+}
+
+.new-post-thumbnail {
+    flex: 0 0 150px; /* Increased width for thumbnails */
+    height: 100px; /* Increased height for thumbnails */
+    overflow: hidden; /* Prevents overflow */
+    border-radius: 8px; /* Rounded corners for thumbnails */
+}
+
+.new-post-thumbnail img {
+    width: 100%; /* Make the image fill the container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the area while maintaining aspect ratio */
+}
+
+.new-post-content {
+    margin-left: 15px; /* Space between image and content */
+    flex: 1; /* Allow content to take remaining space */
+}
+
+.new-post-title {
+    font-size: 20px; /* Increased post title size */
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+.new-post-excerpt {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.new-read-more-link {
+    display: inline-block;
+    padding: 12px 18px; /* Increased padding for the button */
+    background: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s; /* Transition for hover effect */
+}
+
+.new-read-more-link:hover {
+    background: #0056b3;
+    transform: scale(1.05); /* Slightly enlarges link on hover */
+}
+
+/* Swiper */
+
+.sliderr * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .sliderr {
+    width: 100%;
+    max-width: 800px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+  }
+  
+  .sliderr .slides {
+    display: flex;
+    width: 600%;
+    height: 400px;
+    position: relative; 
+  }
+  
+  
+  .sliderr .slides input[type="radio"] {
+    display: none;
+  }
+  
+  .sliderr .slide {
+    width: 16.66%;
+    transition: 0.6s ease;
+  }
+  
+  .sliderr .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .sliderr .navigation-manual {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .sliderr .manual-btn {
+    border: 2px solid #fff;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.4s;
+    margin: 0 5px;
+  }
+  
+  .sliderr .manual-btn:hover {
+    background: #fff;
+  }
+  
+
+  #radio1:checked ~ .first {
+    margin-left: 0;
+  }
+  
+  #radio2:checked ~ .first {
+    margin-left: -16.66%;
+  }
+  
+  #radio3:checked ~ .first {
+    margin-left: -33.32%;
+  }
+  
+  #radio4:checked ~ .first {
+    margin-left: -49.98%;
+  }
+  
+  #radio5:checked ~ .first {
+    margin-left: -66.64%;
+  }
+  
+  #radio6:checked ~ .first {
+    margin-left: -83.3%;
+  }
+  
+
+  .sliderr .navigation-auto {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .sliderr .navigation-auto div {
+    border: 2px solid #fff;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 0.4s;
+    margin: 0 5px;
+  }
+  
+  
+  .sliderr::before,
+  .sliderr::after,
+  .sliderr .slides::before,
+  .sliderr .slides::after,
+  .sliderr .slide::before,
+  .sliderr .slide::after {
+    content: none;
+  }
+
+  @keyframes slider {
+    0% {margin-left: 0;}
+    16.66% {margin-left: -16.66%;}
+    33.32% {margin-left: -33.32%;}
+    49.98% {margin-left: -49.98%;}
+    66.64% {margin-left: -66.64%;}
+    83.3% {margin-left: -83.3%;}
+  }
+  
+  #radio1:checked ~ .first {
+    margin-left: 0;
+    animation: slider 36s infinite;
+  }
+  
+  #radio2:checked ~ .first {
+    animation: slider 36s infinite;
+  }
+  
+  #radio3:checked ~ .first {
+    animation: slider 36s infinite;
+  }
+  
+  #radio4:checked ~ .first {
+    animation: slider 36s infinite;
+  }
+  
+  #radio5:checked ~ .first {
+    animation: slider 36s infinite;
+  }
+  
+  #radio6:checked ~ .first {
+    animation: slider 36s infinite;
+  }
+  
+
+
+/* footer */
+
+/* Footer Styles */
+#custom-footer {
+    background-color: #f8f9fa; /* Light background color */
+    padding: 20px 0;
+    color: #333; /* Default text color */
+}
+
+.footer-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-col {
+    flex: 1;
+    padding: 10px;
+    min-width: 250px; /* Minimum width for responsive design */
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #3B3B58; /* Title color */
+}
+
+.footer-content {
+    font-size: 0.9rem;
+}
+
+.footer-description {
+    margin: 10px 0;
+}
+
+.footer-address, .footer-phone, .footer-email {
+    margin: 5px 0;
+}
+
+.footer-icon {
+    color: #007bff; /* Primary color for icons */
+    margin-right: 5px;
+}
+
+.footer-email-link {
+    color: #3B3B58; /* Email link color */
+    text-decoration: none;
+}
+
+.footer-email-link:hover {
+    text-decoration: underline;
+}
+
+.feature-post {
+    margin-top: 15px;
+}
+
+.post-item {
+    margin-bottom: 10px;
+}
+
+.post-flex {
+    display: flex;
+    align-items: center;
+}
+
+.post-image {
+    width: 80px; /* Fixed width for images */
+    height: 80px; /* Fixed height for images */
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.post-title {
+    font-size: 1rem;
+    color: #333; /* Title color */
+}
+
+.post-date {
+    font-size: 0.8rem;
+    color: #6c757d; /* Secondary text color */
+}
+
+.footer-tags, .footer-social {
+    margin-top: 10px;
+}
+
+.tags-wrapper, .social-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-tag, .footer-social-link {
+    background-color: #e9ecef; /* Light button color */
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px;
+    color: #333; /* Default text color */
+    text-decoration: none;
+}
+
+.footer-tag:hover, .footer-social-link:hover {
+    background-color: #d5d9db; /* Darker button color on hover */
+}
+
+
+/* Footer */
+
+/* Footer container */
+.custom-footer {
+  background: transparent ;
+
+  padding: 40px 0;
+  color: #333;
+}
+
+.custom-footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.custom-footer .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Footer columns */
+.custom-footer .col-3 {
+  flex: 0 0 30%; /* Takes up about 30% of width per column */
+  padding: 15px;
+  min-width: 280px; /* Ensures better minimum size on small screens */
+  box-sizing: border-box;
+}
+
+/* Footer Titles */
+.custom-footer .footer-title {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  color: #3B3B58;
+  font-weight: bold;
+}
+
+/* About Us content */
+.custom-footer p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #6c757d;
+}
+
+.custom-footer address {
+  font-style: normal;
+  margin-bottom: 15px;
+  color: #6c757d;
+}
+
+.custom-footer i {
+  margin-right: 10px;
+  color: #007bff;
+}
+
+.custom-footer .phone, 
+.custom-footer .email {
+  margin-bottom: 15px;
+}
+
+.custom-footer .email a {
+  color: #3B3B58;
+  text-decoration: none;
+}
+
+.custom-footer .email a:hover {
+  text-decoration: underline;
+}
+
+/* Feature Post section */
+.custom-footer .feature-post {
+  margin-top: 20px;
+}
+
+.custom-footer .article {
+  margin-bottom: 20px;
+}
+
+.custom-footer .article .d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.custom-footer .article img {
+  width: 90px; /* Larger image for better balance */
+  height: 90px;
+  object-fit: cover;
+  margin-right: 15px; /* Increased spacing between image and text */
+  border-radius: 8px;
+}
+
+.custom-footer .text-title {
+  font-size: 1.1rem; /* Slightly larger text for better readability */
+  color: #333;
+  text-decoration: none;
+}
+
+.custom-footer .text-title:hover {
+  text-decoration: underline;
+}
+
+.custom-footer .secondary-title {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.custom-footer .display-3 {
+  font-size: 0.85rem;
+}
+
+/* Tags section */
+.custom-footer .tags {
+  margin-top: 20px;
+}
+
+.custom-footer .tags .nav-link {
+  background-color: #e9ecef;
+  border-radius: 5px;
+  padding: 8px 12px; /* More padding for better button size */
+  margin: 5px;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.custom-footer .tags .nav-link:hover {
+  background-color: #d5d9db;
+}
+
+/* Social media section */
+.custom-footer .social .nav-link {
+  padding: 10px;
+  font-size: 1.2rem;
+  background-color: #e9ecef;
+  border-radius: 50%;
+  margin: 5px;
+  color: #333;
+}
+
+.custom-footer .social .nav-link:hover {
+  background-color: #d5d9db;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .custom-footer .col-3 {
+      flex: 0 0 45%; /* Each column takes up 45% on tablet screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-footer .col-3 {
+      flex: 0 0 100%; /* Each column takes up full width on mobile screens */
+  }
+}
