@@ -9,7 +9,56 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./contact_us.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom popup styles */
+        .popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            background-color: #fff;
+            border: 2px solid  #ea5541;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border-radius: 5px;
+        }
 
+        .popup h3 {
+            color:  #ea5541;
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .popup p {
+            color: #333;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .popup button {
+            background-color:  #ea5541;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            float: right;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
 </head>
 <body>
     <header class="navbar">
@@ -33,47 +82,8 @@
             <a href="#login" class="login-btn" onclick="openForm('login')">Login</a>
             <a href="#signup" class="signup-btn" onclick="openForm('signup')">Signup</a>
         </div>
-    
-        <!-- Login Form -->
-    <div class="form-popup" id="loginForm">
-        <form class="form-container" onsubmit="return validateLoginForm()">
-            <h2>Login</h2>
-            <label for="loginEmail"><b>Email</b></label>
-            <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
-            <label for="loginPsw"><b>Password</b></label>
-            <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
-            <button type="submit" class="btn">LOGIN</button>
-            <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
-        </form>
-    </div>
-    
-    <!-- Signup Form -->
-    <div class="form-popup" id="signupForm">
-        <form class="form-container" onsubmit="return validateSignupForm()">
-            <h2>Signup</h2>
-            <label for="name"><b>Full Name</b></label>
-            <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
-            <label for="signupEmail"><b>Email</b></label>
-            <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
-            <label for="signupPsw"><b>Password</b></label>
-            <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
-            <label for="confirmPsw"><b>Confirm Password</b></label>
-            <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
-            <button type="submit" class="btn">SIGNUP</button>
-            <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
-        </form>
-    </div>
-    
-    
-        <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox">
-                <div class="slider"></div>
-            </label>
-            <span id="mode-label">Light Mode</span>
-        </div> 
-    
     </header>
+    
     <div class="container">
         <h2>Get in Touch</h2>
         <p>Whether you have questions, feedback, or need assistance, our team is here to help. Please fill out the form below, and we'll get back to you as soon as possible.</p>
@@ -102,50 +112,52 @@
             <button type="submit">Send</button>
         </form>
         
-        <div class="message" id="responseMessage"></div>
+        <!-- Custom popup -->
+        <div class="overlay" id="overlay"></div>
+        <div class="popup" id="popupMessage">
+            <h3>Message Sent</h3>
+            <p>Thank you for contacting us! We will get back to you soon.</p>
+            <button id="closePopup">Close</button>
+        </div>
     </div>
 
     <script>
         const form = document.getElementById('contactForm');
+        const popup = document.getElementById('popupMessage');
+        const overlay = document.getElementById('overlay');
+        const closePopup = document.getElementById('closePopup');
+
         form.addEventListener('submit', function(event) {
             event.preventDefault();
-            document.getElementById('responseMessage').textContent = "Thank you for contacting us!";
+
+            // Message length validation
+            const message = document.getElementById('message').value;
+            if (message.length < 10) {
+                alert("Message must be at least 10 characters long.");
+                return;
+            }
+
+            // Show popup
+            overlay.style.display = 'block';
+            popup.style.display = 'block';
+
+            // Clear the form
             form.reset();
         });
-    </script>
-    <script>        
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-    
-            const formData = {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                message: document.getElementById('message').value
-            };
-    
-            // Send form data to the backend via fetch
-            fetch('http://localhost:3000/send-email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Display success message
-                document.getElementById('responseMessage').textContent = "Thank you for contacting us!";
-                form.reset(); // Reset form after submission
-            })
-            .catch(error => {
-                document.getElementById('responseMessage').textContent = "There was an error sending your message. Please try again.";
-                console.error('Error:', error);
-            });
+
+        // Close the popup
+        closePopup.addEventListener('click', function() {
+            popup.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+
+        // Close the popup when clicking outside of it
+        overlay.addEventListener('click', function() {
+            popup.style.display = 'none';
+            overlay.style.display = 'none';
         });
     </script>
-    
+
     <script src="./darkMode.js"></script>
 </body>
 </html>
