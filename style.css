@@ -768,6 +768,20 @@ a {
   margin-bottom: 6em;
 }
 
+.load-posts-btn {
+  background-color: #ffd479;
+  color: black;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 2px 2px 5px #3E2C20 ;
+}
+
+.load-posts-btn:hover {
+  background-color: #e89e00 ;
+  color: black;
+  cursor : pointer ;
+}
+
 .grid {
   margin: 0 auto;
   display: grid;
