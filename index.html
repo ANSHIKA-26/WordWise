@@ -492,20 +492,57 @@
 
         </section>
         <!--blog post section-->
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="./assets/slider/img1.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img2.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img3.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img4.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img5.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img6.jpg" class="img-fluid" alt=""></div>
-          </div>
-
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-
-</div>
+        <div class="sliderr">
+            <div class="slides">
+                <!-- Radio buttons for navigation -->
+                <input type="radio" name="radio-btn" id="radio1" checked>
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+                <input type="radio" name="radio-btn" id="radio5">
+                <input type="radio" name="radio-btn" id="radio6">
+    
+                <!-- Slide images -->
+                <div class="slide first">
+                    <img src="./assets/slider/img1.jpg" alt="Slide 1">
+                </div>
+                <div class="slide">
+                    <img src="./assets/slider/img2.jpg" alt="Slide 2">
+                </div>
+                <div class="slide">
+                    <img src="./assets/slider/img3.jpg" alt="Slide 3">
+                </div>
+                <div class="slide">
+                    <img src="./assets/slider/img4.jpg" alt="Slide 4">
+                </div>
+                <div class="slide">
+                    <img src="./assets/slider/img5.jpg" alt="Slide 5">
+                </div>
+                <div class="slide">
+                    <img src="./assets/slider/img6.jpg" alt="Slide 6">
+                </div>
+    
+                <!-- Automatic navigation -->
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                    <div class="auto-btn5"></div>
+                    <div class="auto-btn6"></div>
+                </div>
+            </div>
+    
+            <!-- Manual navigation -->
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+                <label for="radio4" class="manual-btn"></label>
+                <label for="radio5" class="manual-btn"></label>
+                <label for="radio6" class="manual-btn"></label>
+            </div>
+        </div>
 </section>
 <section class="faq" id="faq"></section>
     <div class="container_1">
@@ -738,5 +775,6 @@
     </script>
     
     <script src="faq.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
 </html>
