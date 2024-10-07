@@ -5,7 +5,9 @@ const modeLabel = document.getElementById('mode-label')
 if (localStorage.getItem('theme') === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark')
     checkbox.checked = true
-    modeLabel.textContent = 'Dark Mode'
+
+    modeLabel.textContent = ''
+
 }
 
 // Add event listener for toggle switch
@@ -13,10 +15,12 @@ checkbox.addEventListener('change', () => {
     if (checkbox.checked) {
         document.documentElement.setAttribute('data-theme', 'dark')
         localStorage.setItem('theme', 'dark')
-        modeLabel.textContent = 'Dark Mode'
+
+        modeLabel.textContent = ''
     } else {
         document.documentElement.setAttribute('data-theme', 'light')
         localStorage.setItem('theme', 'light')
-        modeLabel.textContent = 'Light Mode'
+        modeLabel.textContent = ''
+
     }
 })
