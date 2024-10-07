@@ -16,6 +16,7 @@
     <!--css-->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="start_writing.css">
+    <link rel="stylesheet" href="Scroll_and_progressbar.css">
 
     <style>
         * {
@@ -27,8 +28,9 @@
 </head>
 
 <body>
-
-
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
     <!--header-->
 
     <div class="layout-container" style="margin-bottom: 4rem;">
@@ -60,9 +62,9 @@
 
 
         <div class="logo">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+<!--             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
                 <path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
-            </svg>
+            </svg> -->
             <h2>WordWise</h2>
         </div>
         <div class="nav-links1">
@@ -296,6 +298,7 @@
     <script src="start_writing.js"></script>
     <script src="main.js"></script>
     <script src="./darkMode.js"></script>
+    <script src="progress_bar.js"></script>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>

@@ -95,6 +95,11 @@ body {
   background-color: var(--background-color);
 }
 
+/* Hide scrollbar for main body */
+/* .main-body::-webkit-scrollbar {
+  display: none;
+} */
+
 /* Hide scrollbar for main body 
 .main-body::-webkit-scrollbar {
   display: none;
@@ -139,6 +144,7 @@ html, body {
   border-radius: 20px;
 }
 
+
 /* Hover Effect for Dark Mode */
 [data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
   background: #f4978e; 
@@ -172,11 +178,11 @@ header {
   font-size: 1rem;
   font-weight: bold;
   line-height: 1.5;
-  /* letter-spacing: 0.2rem */
+  letter-spacing: 0.2rem
 }
 .nav-links1 {
   display: flex;
-  gap: 2rem;
+  gap: 2.1rem;
   margin: 0 0.5rem;
   /* margin: 0 2rem; */
   /* margin-right: 3rem; */
