@@ -12,6 +12,7 @@
 
     <!--css-->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Scroll_and_progressbar.css">
 
 <style>
   .secondary-title {
@@ -23,13 +24,11 @@
 
 </head>
 <body>
-
-  <div class="layout-container" style="margin-bottom: 4rem;">
-
-    <header>
-<!--header-->
-<!-- <header class="navbar"> -->
-    <!-- <div class="logo">
+  <div class="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+  <header class="navbar">
+    <div class="logo">
         <h2><a class="home-link" href="index.html">WordWise</a></h2>
     </div>
 
@@ -311,15 +310,13 @@
                     <input id="websiteInput" class="comment-input2" type="text" placeholder="Website">
                     <textarea id="messageInput" class="comment-textarea form-control mt-3" placeholder="Message"></textarea>
                     <div class="text-center">
-                        <button class="issue-303">Submit</button>
+                      <button class="commentbtn" onclick="submitComment()">Submit</button>
                     </div>
                 </div>
 
                 </div>
                 
-                <div class="text-center">
-                    <button class="commentbtn" onclick="submitComment()">Submit</button>
-                </div>
+                
             </div>
 
               </div>
@@ -616,6 +613,7 @@
     <script src="darkMode.js"></script>
     <script src="./backend/login-Auth/login.js"></script>
     <script src="./backend/signup-Auth/signup.js"></script>
+    <script src="progress_bar.js"></script>
     <!--swiper slider cdn-->
 
     <script>
