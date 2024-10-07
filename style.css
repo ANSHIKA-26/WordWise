@@ -6,7 +6,7 @@ githu * {
   box-sizing: border-box;
 }
 #preloader{
-  background: #ddbea9;
+  background: #c98659;
   height: 100vh;
   width: 100%;
   position: fixed;
@@ -24,7 +24,7 @@ githu * {
   font-family: helvetica, arial, sans-serif;
   text-transform: uppercase;
   font-weight: 900;
-  color: #ce4233;
+  color: #cba09b;
   letter-spacing: 0.2em;
   
   &::before, &::after {
@@ -197,7 +197,7 @@ font-size: 1rem; /* Font size */
 font-weight: 500; /* Medium weight */
 position: relative; /* Position for the underline */
 padding-bottom: 5px; /* Add space for the underline */
-/* margin: 0.3rem; */
+margin: 0.3rem;
 
 }
 .auth-buttons {
@@ -409,7 +409,7 @@ background: transparent
   text-align: left;
 }
 .dropdown-content a:hover{
-  background-color: #ee9048;
+  background-color: #e8b187;
   color: white;
 }
 .dropdown:hover .dropdown-content{
@@ -1386,7 +1386,6 @@ a {
   /* overflow: hidden; */
   height: auto;
   transition: transform 0.3s ease;
-  box-shadow: 0 0 10px rgb(249, 81, 81);
   border-radius: 20px;
 }
 
@@ -1397,7 +1396,6 @@ a {
 
 .overflow-img:hover {
   transform: scale(1.1);
-  box-shadow: 7px 7px 10px rgb(184, 0, 0);
   transition: all 0.2s ease-in-out;
 }
 
