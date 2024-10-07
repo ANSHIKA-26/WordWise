@@ -47,7 +47,31 @@
     <div class="auth-buttons">
         <a href="#login" class="login-btn" onclick="openForm('login')">Login</a>
         <a href="#signup" class="signup-btn" onclick="openForm('signup')">Signup</a>
+    </div> -->
+
+
+
+    <div class="logo">
+<!--         <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+            <path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+        </svg> -->
+        <h2>WordWise</h2>
     </div>
+    <div class="nav-links1">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Leading Blog</a>
+        <a href="start_writing.html">Start Writing</a>
+        <a href="category.html">Categories</a>
+        <a href="about.html">About</a>
+        <a href="contact_us.html">Contact Us</a>
+        <a href="contact_us.html">Give Feedback</a>
+    </div>
+    <div class="auth-buttons">
+        <button class="login-button" onclick="openForm('login')">Login</button>
+        <button class="signup-button" onclick="openForm('signup')">Signup</button>
+
+    </div>
+
 
     <!-- Login Form -->
 <div class="form-popup" id="loginForm">
@@ -80,15 +104,19 @@
 </div>
 
 
-    <div class="theme-switch-wrapper">
-        <label class="theme-switch" for="checkbox">
-            <input type="checkbox" id="checkbox">
-            <div class="slider"></div>
-        </label>
-        <span id="mode-label">Light Mode</span>
-    </div> 
+<div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox">
+        <div class="slider">
+            <img src="https://img.icons8.com/emoji/48/000000/sun-emoji.png" alt="Sun" class="icon sun-icon">
+            <img src="https://img.icons8.com/emoji/48/000000/crescent-moon-emoji.png" alt="Moon" class="icon moon-icon">
+        </div>
+    </label>
+    <span id="mode-label"></span>
+    </div>
 
 </header>
+</div>
 
   <!--header-->
     <!--mainn-->
@@ -270,20 +298,28 @@
               </div>
 
               <!--comment form-->
-              <div class="comment-form">
-                <h3 class="text-center display-1 secondary-title py-2">
+              <div class="commentform">
+                <h3 class="text-center display-1 bg-black text-black secondary-title py-2">
                     Leave Comments
                 </h3>
-                <div class="d-flex justify-content-between flex-wrap">
-                  <input type="text" class="form-control" placeholder="Name">
-                  <input type="email" class="form-control" placeholder="Email">
-                  <input type="text" class="form-control" placeholder="Website">
+                <div class="comment-box1">
+                    <input id="nameInput" class="comment-input" type="text" class="form-control" placeholder="Name">
+                    <input id="emailInput" class="comment-input" type="email" class="form-control" placeholder="Email">
                 </div>
-                <textarea class="form-control mt-3" placeholder="Message"></textarea>
+                <div class="comment-box2">
+                    <input id="websiteInput" class="comment-input2" type="text" placeholder="Website">
+                    <textarea id="messageInput" class="comment-textarea form-control mt-3" placeholder="Message"></textarea>
+                    <div class="text-center">
+                        <button class="issue-303">Submit</button>
+                    </div>
+                </div>
+
+                </div>
+                
                 <div class="text-center">
-                  <button class="btn btn-primary display-2 text-light mt-2">Submit</button>
+                    <button class="commentbtn" onclick="submitComment()">Submit</button>
                 </div>
-                </div>
+            </div>
 
               </div>
             </div>
@@ -414,25 +450,7 @@
 
       <!--post content-->
 
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="./assets/slider/img1.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img2.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img3.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img4.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img5.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img6.jpg" class="img-fluid" alt=""></div>
 
-
-          </div>
-
-
-
-        <script src="main.js"></script>
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-
-</div>
 </section>
 
 
@@ -445,20 +463,21 @@
     <!-- footer -->
     <!-- footer -->
     <footer id="footer">
-      <div class="container">
-          <div class="row mb-3">
+      <div class="footer-container">
+          <div class="row mb-3 col-3-main">
               <div class="col-3">
+                 <div id = "about-us">
                   <h2 class="footer-title secondary-title">About Us</h2>
 
-                  <div class="secondary-title text-secondary">
+                    <div class="secondary-title text-secondary">
                        <p class="mt-2 ">
                         We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the world.
                        </p>
 
-                       <div class = "address">
+                       <address>
                            <i class="fas fa-map-marker-alt text-primary"></i>
                            5 South Main Street Los Angeles, ZZ-9611 USA
-                       </div>
+                       </address>
 
                        <div class="phone">
                            <i class="fas fa-mobile text-primary"></i>
@@ -471,7 +490,12 @@
                         </a>
                        </div>
 
-                  </div>
+                       <div>
+                        <img src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5" alt="Web views" style="height: 20px;width: 150px;margin-top: 40px;">
+                       </div>
+                    </div>
+
+                 </div>
               </div>
               <div class="col-3">
                   <h2 class="footer-title secondary-title">Feature Post</h2>
@@ -479,14 +503,14 @@
                   <div class="feature-post">
                       <div class="flex-item">
                           <article class="article">
-                              <div class="d-flex">
-                                  <a href="#">
-                                      <img src="./assets/img9.jpg" class="object-fit px-1" alt="">
-                                      <div class="px-1">
+                              <div class="d-flex ">
+                                  <a class="d-flex" href="#">
+                                      <img src="./assets/img9.jpg" class="object-fit" alt="">
+                                      <div class="px-1" style="width: 300px;">
                                           <a href="#" class="text-title display-2 text-dark">
                                             Embrace the beauty of nature through our enchanting blog, where we celebrate the wonders of the natural world
                                           </a>
-                                          <p class="secondary-title text-secondary display-3">
+                                          <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                                <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
                                           </p>
                                       </div>
@@ -497,13 +521,13 @@
                       <div class="flex-item">
                        <article class="article">
                            <div class="d-flex">
-                               <a href="#">
-                                   <img src="./assets/img1.jpg" class="object-fit px-1" alt="">
-                                   <div class="px-1">
+                               <a class="d-flex" href="#">
+                                   <img src="./assets/img1.jpg" class="object-fit" alt="">
+                                   <div class="px-1" style="width: 300px;">
                                        <a href="#" class="text-title display-2 text-dark">
                                         Embark on unforgettable journeys through our travel blog, where wanderlust meets inspiration
                                        </a>
-                                       <p class="secondary-title text-secondary display-3">
+                                       <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                             <span><i class="far fa-clock text-primary"></i> Wed 05, 2020 </span>
                                        </p>
                                    </div>
@@ -514,13 +538,13 @@
                         <div class="flex-item">
                            <article class="article">
                                <div class="d-flex">
-                                   <a href="#">
-                                       <img src="./assets/img2.jpg" class="object-fit px-1" alt="">
-                                       <div class="px-1">
+                                   <a class="d-flex" href="#">
+                                       <img src="./assets/img2.jpg" class="object-fit" alt="">
+                                       <div class="px-1" style="width: 300px;">
                                            <a href="#" class="text-title display-2 text-dark">
                                             Gaming Adventures Unleashed
                                            </a>
-                                           <p class="secondary-title text-secondary display-3">
+                                           <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                                 <span><i class="far fa-clock text-primary"></i> Wed 02, 2021 </span>
                                            </p>
                                        </div>
@@ -531,10 +555,10 @@
                   </div>
               </div>
               <div class="col-3">
-                   <h2 class="footer-title secondary-title">Tags</h2>
+                   <h2 class="footer-title secondary-title">Popular Tags</h2>
 
                    <div class="tags">
-                       <div class="d-flex flex-wrap">
+                       <div class="d-flex-gap flex-wrap">
                            <a href="#" class="nav-link btn bg-light">Travel</a>
                            <a href="#" class="nav-link btn bg-light">Food</a>
                            <a href="#" class="nav-link btn bg-light">Lifestyle</a>
@@ -543,14 +567,14 @@
                        </div>
                    </div>
 
-                   <h2 class="footer-title secondary-title mt-2">Social</h2>
+                   <h2 class="footer-title secondary-title mt-2">Connect with us</h2>
 
                    <div class="tags social" id="contact">
-                       <div class="d-flex flex-wrap">
-                           <a href="#" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
-                           <a href="#" class="nav-link btn bg-light"><i class="fab fa-twitter"></i></a>
-                           <a href="#" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
-                           <a href="#" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
+                       <div class="d-flex-gap flex-wrap">
+                           <a href="https://www.facebook.com/" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
+                           <a href="https://x.com/" class="nav-link btn bg-light"><i class="fa-brands fa-x-twitter"></i></a>
+                           <a href="https://www.instagram.com/" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
+                           <a href="https://dribbble.com/" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
                        </div>
                    </div>
 
@@ -559,8 +583,33 @@
 
 
       </div>
+       <!-- the authentication copyright -->
+       <div class="wordwise-footer">
+        <div class="wordwise-footer-content">
+          <p>&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
+          <p>Designed by Anshika</p>
+        </div>
+    </div>
+      
+      
   </footer>
 <!-- .footer -->
+<!-- this script is for twitter icon  starts -->
+ <script src="https://kit.fontawesome.com/856f4a44d7.js" crossorigin="anonymous"></script>
+<!-- this script is for twitter icon  ends -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    <script src="./backend/login-Auth/login.js"></script>
+    <script src="./backend/signup-Auth/signup.js"></script>
+    <script src="SignIn_SignUp.js"></script>
+    <script src="darkMode.js"></script>
+
+
+    <!-- this script is to display the year in the copyright authentication in the footer -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+    
 
     <script src="main.js"></script>
     <script src="darkMode.js"></script>
@@ -568,6 +617,66 @@
     <script src="./backend/signup-Auth/signup.js"></script>
     <script src="progress_bar.js"></script>
     <!--swiper slider cdn-->
+
+    <script>
+      // Load saved comments when the page loads
+      document.addEventListener('DOMContentLoaded', () => {
+          loadSavedData();
+      });
+      
+      // Function to save form data to local storage
+      function submitComment() {
+          const comment = {
+              name: document.getElementById('nameInput').value,
+              email: document.getElementById('emailInput').value,
+              website: document.getElementById('websiteInput').value,
+              message: document.getElementById('messageInput').value,
+              timestamp: new Date().toISOString()
+          };
+      
+          // Get existing comments from local storage or initialize empty array
+          let comments = JSON.parse(localStorage.getItem('comments') || '[]');
+          
+          // Add new comment to array
+          comments.push(comment);
+          
+          // Save updated comments back to local storage
+          localStorage.setItem('comments', JSON.stringify(comments));
+          
+          // Clear the form
+          clearForm();
+          
+          alert('Comment submitted successfully!');
+      }
+      
+      // Function to load saved data
+      function loadSavedData() {
+          // Get the last comment if it exists
+          const comments = JSON.parse(localStorage.getItem('comments') || '[]');
+          if (comments.length > 0) {
+              const lastComment = comments[comments.length - 1];
+              
+              // Fill in the form with the last submitted data
+              document.getElementById('nameInput').value = lastComment.name || '';
+              document.getElementById('emailInput').value = lastComment.email || '';
+              document.getElementById('websiteInput').value = lastComment.website || '';
+              document.getElementById('messageInput').value = lastComment.message || '';
+          }
+      }
+      
+      // Function to clear the form
+      function clearForm() {
+          document.getElementById('nameInput').value = '';
+          document.getElementById('emailInput').value = '';
+          document.getElementById('websiteInput').value = '';
+          document.getElementById('messageInput').value = '';
+      }
+      
+      // Function to retrieve all comments (useful for displaying comments)
+      function getAllComments() {
+          return JSON.parse(localStorage.getItem('comments') || '[]');
+      }
+      </script>
 
 </body>
 </html>
