@@ -1629,3 +1629,56 @@ footer p {
 
 
 /*--------*/
+
+.commentform{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap:30px;
+}
+
+.comment-box1{
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  width: 900px;
+}
+.comment-input{
+  flex: 1;
+  padding: 20px;
+  border-radius: 20px;
+  border: #000 solid 1px;
+  max-width: 500px;
+}
+
+.comment-box2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  height: auto;
+}
+
+.comment-input2,.comment-textarea{
+  padding: 20px;
+  border-radius: 20px;
+  border: #000 solid 1px;
+  width: 98%;
+}
+
+.comment-textarea{
+  height: 250px;
+  resize: none;
+}
+.commentbtn{
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
+  background-color: #007bff;
+  border: #000 1px solid;
+  width: 200px;
+}
