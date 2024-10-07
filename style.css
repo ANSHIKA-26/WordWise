@@ -776,7 +776,7 @@ body.dark .support a {
 }
 
 .mt-3 {
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 .mb-3 {
@@ -807,10 +807,10 @@ body.dark .support a {
   padding-bottom: 10px;
 }
 
-.py-2 {
+/* .py-2 {
   padding-top: 20px;
   padding-bottom: 20px;
-}
+} */
 
 .py-3 {
   padding-top: 20px;
@@ -845,9 +845,16 @@ body.dark .support a {
   z-index: 99;
   width: 100%;
 }
-
+.meta{
+  margin-top: 10px;
+}
 a {
-  text-decoration: none;
+  text-decoration: none;  
+   font-size: large;
+  font-weight: 700;
+}
+#travel{
+  color: rgb(59, 59, 88);
 }
 
 * > * {
@@ -855,13 +862,18 @@ a {
 }
 
 .text-light {
+ 
   color: var(--text-color);
 }
 
 .text-secondary {
+  margin-right: 20px;
   color: var(--text-color);
-}
 
+}
+#fa{
+  margin: 4px;
+}
 .text-dark {
   color: var(--text-color);
 }
@@ -895,12 +907,13 @@ a {
 
 .secondary-title {
   font-family: "Ubuntu", sans-serif;
+  margin-left: 18px;
+  color: var(--text-color);
 }
 
 .display-1 {
   font-size: 22px;
 }
-
 .display-2 {
   font-size: 16px;
 }
@@ -911,6 +924,7 @@ a {
 
 .text-center {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .text-right {
@@ -1398,6 +1412,11 @@ a {
   width: 100%;
   max-height: 300px; /* Limit the maximum height */
   object-fit: cover;
+  box-shadow:rgb(69 17 11) 0px 0px 10px;
+  border-radius: 20px;
+}
+.thumbnail:hover{
+  box-shadow:rgb(148, 24, 10) 0px 0px 20px;
 }
 
 .object-fit {
@@ -1816,34 +1835,38 @@ footer p {
 /*--------*/
 
 .commentform{
+  margin-top: 50px;
+  margin-left: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  gap:30px;
+  width: 40%;
+  /* height: 500px; */
+  gap:10px;
+  
 }
 
 .comment-box1{
   display: flex;
-  flex-direction: row;
-  gap: 40px;
-  width: 900px;
-}
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+} 
 .comment-input{
-  flex: 1;
+  /* flex: 1; */
   padding: 20px;
   border-radius: 20px;
   border: #000 solid 1px;
-  max-width: 500px;
+  /* max-width: 500px; */
 }
 
 .comment-box2{
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 40px;
+  gap: 10px;
   width: 100%;
   height: auto;
 }
@@ -1852,18 +1875,25 @@ footer p {
   padding: 20px;
   border-radius: 20px;
   border: #000 solid 1px;
-  width: 98%;
+  width: 100%;
 }
 
 .comment-textarea{
-  height: 250px;
+  height: 200px;
   resize: none;
 }
 .commentbtn{
+  margin-top: 20px;
+  margin-left: 40%;
   padding: 20px;
   border-radius: 20px;
   color: white;
   background-color: #007bff;
   border: #000 1px solid;
   width: 200px;
+}
+
+.comment-input,.comment-input2,.form-control::placeholder{
+ text-align: center;
+ font-size: 18px;
 }
