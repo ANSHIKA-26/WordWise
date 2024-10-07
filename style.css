@@ -102,7 +102,7 @@ body {
 
 /* Global Styles - Remove Horizontal Scroll */
 html, body {
-  overflow-x: hidden;  /* Prevent horizontal scroll */
+  /* overflow-x: hidden;  Prevent horizontal scroll */
   margin: 0;
   padding: 0;
 }
@@ -144,14 +144,140 @@ html, body {
   background: #f4978e; 
 }
 
-/* Header styling */
+
+
+
+
+
+
 header {
-  width: 100%;
+
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  border-bottom: 1px solid var(--border);
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #F4EFE6;
+  padding: 0rem 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 100%;
 }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  color: #1C160C;
+  /* margin: 0 3rem; */
+}
+.logo h2 {
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.5;
+  /* letter-spacing: 0.2rem */
+}
+.nav-links1 {
+  display: flex;
+  gap: 2rem;
+  margin: 0 0.5rem;
+  /* margin: 0 2rem; */
+  /* margin-right: 3rem; */
+}
+.nav-links1 {
+position: relative; /* Set relative positioning for parent */
+}
+.nav-links1 a {
+color: #1C160C; /* Original color for links */
+text-decoration: none; /* Remove underline */
+font-size: 1rem; /* Font size */
+font-weight: 500; /* Medium weight */
+position: relative; /* Position for the underline */
+padding-bottom: 5px; /* Add space for the underline */
+/* margin: 0.3rem; */
+
+}
+.auth-buttons {
+  display: flex;
+  gap: 0.5rem;
+  /* margin-left: 0.5rem; */
+}
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 9999px;
+  height: 2.5rem;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.login-button {
+  background-color: black;
+  color: #FFFFFF;
+  /* border: none; */
+}
+.signup-button {
+  background-color: #F4EFE6;
+  color: #1C160C;
+  border: 2px solid black;
+  /* margin-right: 0.3rem; */
+}
+.toggle-button {
+  background-color: #F4EFE6;
+  color: #1C160C;
+  gap: 0.5rem;
+  border: 2px solid black;
+}
+.toggle-icon {
+  color: #1C160C;
+}
+.layout-container {
+  flex-grow: 1;
+  padding: 0 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ background-color: #F4EFE6;
+ /* position: relative; */
+ top: 0;
+ position: sticky;
+ z-index: 999;
+}
+/* hover effect */
+.signup-button:hover{
+/* background-color: #1C160C; */
+  /* border: #1C160C; */
+  transform: scale(1.05);
+  transition: all 0.3s;
+}
+.login-button:hover{
+/* background-color: #1C160C; */
+  /* border: #1C160C; */
+  transform: scale(1.05);
+  transition: all 0.3s;
+}
+.nav-links1 a::after {
+content: ''; /* Create a pseudo-element */
+position: absolute; /* Absolute positioning */
+left: 0; /* Align to the left */
+bottom: 0; /* Align to the bottom */
+width: 100%; /* Full width */
+height: 3px; /* Height of the underline */
+background-color: #4A4A4A; /* Color of the underline */
+transform: scaleX(0); /* Start with no width */
+transition: transform 0.2s ease; /* Smooth transition */
+}
+/* Hover Effect */
+.nav-links1 a:hover::after {
+transform: scaleX(1); /* Scale to full width on hover */
+}
+/* Optional: To make the navbar more distinctive #F4EFE6*/
+.header {
+background-color: #f4ede3; /* Navbar Background */
+border-bottom: 2px solid #f4978e; /* Optional border to distinguish the navbar */
+background: transparent
+}   
+
 
 /* Import Montserrat font */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;900&display=swap");
@@ -169,13 +295,13 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
   /* padding: 20px; */
 }
 
 .logo h2 {
   font-size: 2.5rem; /* Adjusted font size for better visibility */
-  color: var(--text-color);
+  color: rgb(59, 59, 88);
   white-space: nowrap; /* Prevent logo from breaking into two lines*/
 }
 /* navbar styling changed */
@@ -1305,10 +1431,10 @@ a {
 h2 {
   color: var(--text-color);
 }
-/* Dark mode colors */
+/* Dark mode colors #1c1c1c  #f2dede;   rgb(59, 59, 88);*/
 [data-theme="dark"] {
   --background-color: #171717;
-  --text-color: #f2dede;
+  --text-color:  #f2dede; 
   --header-bg: #1c1c1c;
 }
 p {
@@ -1324,13 +1450,15 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-header {
+
+/* header {
   background-color: var(--header-bg);
+
   padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
 h1 {
   margin: 0;

@@ -30,69 +30,101 @@
 
 
     <!--header-->
-    <header class="navbar">
-        <div class="logo">
+
+    <div class="layout-container" style="margin-bottom: 4rem;">
+
+        <header>
+    <!--header-->
+    <!-- <header class="navbar"> -->
+        <!-- <div class="logo">
             <h2><a class="home-link" href="index.html">WordWise</a></h2>
         </div>
-
+    
         <nav class="nav-menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="blog.html">Leading Blog</a></li>
-                <li><a href="start-writing.html">Start Writing</a></li>
+                <li><a href="start_writing.html">Start Writing</a></li>
                 <li><a href="category.html">Categories</a></li>
-                <li><a href="index.html">About</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="contact_us.html">Contact Us</a></li>
                 <li><a href="contact_us.html">Give Feedback</a></li>
             </ul>
         </nav>
-
+    
         <div class="auth-buttons">
             <a href="#login" class="login-btn" onclick="openForm('login')">Login</a>
             <a href="#signup" class="signup-btn" onclick="openForm('signup')">Signup</a>
+        </div> -->
+
+
+
+        <div class="logo">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+                <path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+            </svg>
+            <h2>WordWise</h2>
+        </div>
+        <div class="nav-links1">
+            <a href="index.html">Home</a>
+            <a href="blog.html">Leading Blog</a>
+            <a href="start_writing.html">Start Writing</a>
+            <a href="category.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="contact_us.html">Contact Us</a>
+            <a href="contact_us.html">Give Feedback</a>
+        </div>
+        <div class="auth-buttons">
+            <button class="login-button" onclick="openForm('login')">Login</button>
+            <button class="signup-button" onclick="openForm('signup')">Signup</button>
+
         </div>
 
+    
         <!-- Login Form -->
-        <div class="form-popup" id="loginForm">
-            <form class="form-container" onsubmit="return validateLoginForm()">
-                <h2>Login</h2>
-                <label for="loginEmail"><b>Email</b></label>
-                <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
-                <label for="loginPsw"><b>Password</b></label>
-                <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
-                <button type="submit" class="btn">LOGIN</button>
-                <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
-            </form>
-        </div>
-
-        <!-- Signup Form -->
-        <div class="form-popup" id="signupForm">
-            <form class="form-container" onsubmit="return validateSignupForm()">
-                <h2>Signup</h2>
-                <label for="name"><b>Full Name</b></label>
-                <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
-                <label for="signupEmail"><b>Email</b></label>
-                <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
-                <label for="signupPsw"><b>Password</b></label>
-                <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
-                <label for="confirmPsw"><b>Confirm Password</b></label>
-                <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required
-                    minlength="6">
-                <button type="submit" class="btn">SIGNUP</button>
-                <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
-            </form>
-        </div>
-
-
-        <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox">
-                <div class="slider"></div>
-            </label>
-            <span id="mode-label">Light Mode</span>
-        </div>
-
+    <div class="form-popup" id="loginForm">
+        <form class="form-container" onsubmit="return validateLoginForm()">
+            <h2>Login</h2>
+            <label for="loginEmail"><b>Email</b></label>
+            <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
+            <label for="loginPsw"><b>Password</b></label>
+            <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+            <button type="submit" class="btn">LOGIN</button>
+            <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
+        </form>
+    </div>
+    
+    <!-- Signup Form -->
+    <div class="form-popup" id="signupForm">
+        <form class="form-container" onsubmit="return validateSignupForm()">
+            <h2>Signup</h2>
+            <label for="name"><b>Full Name</b></label>
+            <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
+            <label for="signupEmail"><b>Email</b></label>
+            <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
+            <label for="signupPsw"><b>Password</b></label>
+            <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+            <label for="confirmPsw"><b>Confirm Password</b></label>
+            <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+            <button type="submit" class="btn">SIGNUP</button>
+            <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
+        </form>
+    </div>
+    
+    
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox">
+            <div class="slider">
+                <img src="https://img.icons8.com/emoji/48/000000/sun-emoji.png" alt="Sun" class="icon sun-icon">
+                <img src="https://img.icons8.com/emoji/48/000000/crescent-moon-emoji.png" alt="Moon" class="icon moon-icon">
+            </div>
+        </label>
+        <span id="mode-label"></span>
+    </div>
+    
     </header>
+    </div>
     <!--header-->
 <!-- main -->
 <!-- main -->
