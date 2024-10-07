@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordWise</title>
+    <!--favicon-->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favi.png" />
+
+    <!--font awesome-->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <!--swiper slider css-->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> -->
+
+    <!-- bootstrap icons -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
+
+    <!--css-->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+</head>
+
+<body>
+    <!-- preloader -->
+    <!-- <div id="preloader">
+        <div class="loader">Loading...</div>
+    </div> -->
+    <!--header-->
+    <header class="navbar">
+        <div class="logo">
+            <h2><a class="home-link" href="index.html">WordWise</a></h2>
+        </div>
+
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Leading Blog</a></li>
+                <li><a href="start_writing.html">Start Writing</a></li>
+                <li><a href="category.html">Categories</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact_us.html">Contact Us</a></li>
+                <li><a href="contact_us.html">Give Feedback</a></li>
+            </ul>
+        </nav>
+
+        <div class="auth-buttons">
+            <!-- <a href="#login" class="login-btn" onclick="openForm('login')">Login</a>
+            <a href="#signup" class="signup-btn" onclick="openForm('signup')">Signup</a> -->
+            <div class="nav-item dropdown" style="list-style-type: none;">
+                <button class="dropbtn">
+                    <img width="30px" src="images/profile.png" alt="Profile" class="profile-icon"
+                        onclick="toggleDropdown()">
+                </button>
+                <div id="profile-dropdown" class="dropdown-content">
+                    <div class="login-signup-form">
+                        <a href="login.html">Log In</a>
+                        <a href="signup.html">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox">
+                <div class="slider">
+                    <img src="https://img.icons8.com/emoji/48/000000/sun-emoji.png" alt="Sun" class="icon sun-icon">
+                    <img src="https://img.icons8.com/emoji/48/000000/crescent-moon-emoji.png" alt="Moon"
+                        class="icon moon-icon">
+                </div>
+            </label>
+            <span id="mode-label">Light Mode</span>
+                
+        </div>
+
+    </header>
+    <!--header-->
+    <main>
+        <div class="container-login">
+            <!-- Login Form -->
+            <div class="box-login">
+                <div class="top-header">
+                    <h2>Login</h2>
+                </div>
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="Name">Name</label><br>
+                        <input type="text" class="input-box" placeholder="Enter Name">
+                    </div>
+
+
+                    <div class="input-field">
+                        <label for="Name">Password</label>
+                        <input type="password" class="input-box" placeholder="Enter Password">
+                    </div>
+
+                    <div class="remember">
+                        <input type="checkbox" class="check" id="formcheck">
+                        <label for="formcheck">Remember Me</label>
+                    </div>
+                    <div class="submit">
+                        <input type="submit" class="Input-submit" value="LOGIN">
+                    </div>
+                    <div class="forgot">
+                        <a href="/*">Forgot Password?</a>
+                    </div>
+                </div>
+                <div class="new">
+                    <span>New User?</span>
+                    <a href="signup.html">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
