@@ -1618,24 +1618,28 @@ input:checked + .slider .moon-icon {
   border-radius: 2.5rem;
   width: 100%;
   max-width: 60rem;
-  padding: 5rem;
+  padding-top: 2.5rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-bottom: 2.5rem;
+  
 }
 
 .accordion__title,
 .faq h1 {
   text-align: center;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: #242e4c;
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
 }
 
 .accordion {
   /* border-bottom: 0.5rem solid #dae1f5; */
   border: 1px solid white;
   /* padding-bottom: 2rem; */
-  padding: 2rem;
-  margin-bottom: 1.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
   border-radius: 10px;
   font-size: 1.2rem;
 }
@@ -1655,8 +1659,8 @@ input:checked + .slider .moon-icon {
 
 .accordion__icon {
   background-color: #f16565;
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 2rem;
+  height: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1681,13 +1685,13 @@ input:checked + .slider .moon-icon {
   top: 10px;
 } */
 .accordion__question {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   font-weight: 500;
   color: #002b5b;
 }
 
 .accordion__answer {
-  padding: 2rem 0;
+  padding: 1.2rem 0 1rem ;
   /* z-index: 2; */
 }
 
@@ -1699,6 +1703,29 @@ input:checked + .slider .moon-icon {
   font-size: 18px;
   /* position: relative; */
 }
+
+/*FAQ improvement for Dark Theme*/
+[data-theme="dark"] .faq .accordion__wrapper {
+  background-color: #f1f1f1;
+  color: #f1f1f1;
+}
+
+[data-theme="dark"] .accordion__question {
+  color: #ddd;
+}
+
+[data-theme="dark"] .accordion {
+  background-color: black;
+}
+
+[data-theme="dark"] .accordion__icon{
+  background-color: white;
+}
+
+[data-theme="dark"] .accordion.active {
+  border: none;
+}
+
 
 footer p {
   margin: 10px 0 0 0;
