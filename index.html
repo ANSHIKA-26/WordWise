@@ -17,22 +17,17 @@
 
     <!--css-->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Scroll_and_progressbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 <body>
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
 
-    <!-- preloader -->
-    <div id="preloader">
-        <div class="loader">Loading...</div>
-    </div>
-    <!--header-->
-    <div class="layout-container">
-        <header>
-    <!--header-->
-
-    <!-- <header class="navbar"> -->
-        <!-- <div class="logo">
+    <header class="navbar">
+        <div class="logo">
             <h2><a class="home-link" href="index.html">WordWise</a></h2>
         </div>
     
@@ -70,15 +65,15 @@
             <a href="contact_us.html">Contact Us</a>
             <a href="contact_us.html">Give Feedback</a>
         </div>
-        <div class="auth-buttons">
+        <!-- <div class="auth-buttons">
             <button class="login-button" onclick="openForm('login')">Login</button>
             <button class="signup-button" onclick="openForm('signup')">Signup</button>
 
-        </div>
+        </div> -->
 
     
         <!-- Login Form -->
-    <div class="form-popup" id="loginForm">
+    <!-- <div class="form-popup" id="loginForm">
         <form class="form-container" onsubmit="return validateLoginForm()">
             <h2>Login</h2>
             <label for="loginEmail"><b>Email</b></label>
@@ -88,10 +83,10 @@
             <button type="submit" class="btn">LOGIN</button>
             <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
         </form>
-    </div>
+    </div> -->
     
      <!-- Signup Form -->
-     <div class="form-popup" id="signupForm">
+     <!-- <div class="form-popup" id="signupForm">
         <form class="form-container" onsubmit="return validateSignupForm()">
             <h2>Signup</h2>
             <div class="form-group">
@@ -115,9 +110,23 @@
             <button type="submit" class="btn">SIGNUP</button>
             <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
         </form>
+    </div> -->
+    <!-- <script src="signup.js"></script> Link to your JavaScript file -->
+    <div class="auth-buttons">
+        
+        <div class="nav-item dropdown" style="list-style-type: none;">
+            <button class="dropbtn">
+                <img width="30px" src="images/profile.png" alt="Profile" class="profile-icon"
+                    onclick="toggleDropdown()">
+            </button>
+            <div id="profile-dropdown" class="dropdown-content">
+                <div class="login-signup-form">
+                    <a href="login.html">Log In</a>
+                    <a href="signup.html">Sign Up</a>
+                </div>
+            </div>
+        </div>
     </div>
-    <script src="signup.js"></script> <!-- Link to your JavaScript file -->
-
     
     
     <div class="theme-switch-wrapper">
@@ -847,6 +856,7 @@
     </script>
     
     <script src="faq.js"></script>
+    <script src="progress_bar.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
 </html>

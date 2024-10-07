@@ -12,6 +12,7 @@
 
     <!--css-->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Scroll_and_progressbar.css">
 
 <style>
   .secondary-title {
@@ -23,13 +24,11 @@
 
 </head>
 <body>
-
-  <div class="layout-container" style="margin-bottom: 4rem;">
-
-    <header>
-<!--header-->
-<!-- <header class="navbar"> -->
-    <!-- <div class="logo">
+  <div class="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+  <header class="navbar">
+    <div class="logo">
         <h2><a class="home-link" href="index.html">WordWise</a></h2>
     </div>
 
@@ -67,42 +66,23 @@
         <a href="contact_us.html">Contact Us</a>
         <a href="contact_us.html">Give Feedback</a>
     </div>
+ 
+
     <div class="auth-buttons">
-        <button class="login-button" onclick="openForm('login')">Login</button>
-        <button class="signup-button" onclick="openForm('signup')">Signup</button>
-
-    </div>
-
-
-    <!-- Login Form -->
-<div class="form-popup" id="loginForm">
-    <form class="form-container" onsubmit="return validateLoginForm()">
-        <h2>Login</h2>
-        <label for="loginEmail"><b>Email</b></label>
-        <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
-        <label for="loginPsw"><b>Password</b></label>
-        <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
-        <button type="submit" class="btn">LOGIN</button>
-        <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
-    </form>
-</div>
-
-<!-- Signup Form -->
-<div class="form-popup" id="signupForm">
-    <form class="form-container" onsubmit="return validateSignupForm()">
-        <h2>Signup</h2>
-        <label for="name"><b>Full Name</b></label>
-        <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
-        <label for="signupEmail"><b>Email</b></label>
-        <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
-        <label for="signupPsw"><b>Password</b></label>
-        <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
-        <label for="confirmPsw"><b>Confirm Password</b></label>
-        <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
-        <button type="submit" class="btn">SIGNUP</button>
-        <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
-    </form>
-</div>
+        
+      <div class="nav-item dropdown" style="list-style-type: none;">
+          <button class="dropbtn">
+              <img width="30px" src="images/profile.png" alt="Profile" class="profile-icon"
+                  onclick="toggleDropdown()">
+          </button>
+          <div id="profile-dropdown" class="dropdown-content">
+              <div class="login-signup-form">
+                  <a href="login.html">Log In</a>
+                  <a href="signup.html">Sign Up</a>
+              </div>
+          </div>
+      </div>
+  </div>
 
 
 <div class="theme-switch-wrapper">
@@ -311,15 +291,13 @@
                     <input id="websiteInput" class="comment-input2" type="text" placeholder="Website">
                     <textarea id="messageInput" class="comment-textarea form-control mt-3" placeholder="Message"></textarea>
                     <div class="text-center">
-                        <button class="issue-303">Submit</button>
+                      <button class="commentbtn" onclick="submitComment()">Submit</button>
                     </div>
                 </div>
 
                 </div>
                 
-                <div class="text-center">
-                    <button class="commentbtn" onclick="submitComment()">Submit</button>
-                </div>
+                
             </div>
 
               </div>
@@ -616,6 +594,7 @@
     <script src="darkMode.js"></script>
     <script src="./backend/login-Auth/login.js"></script>
     <script src="./backend/signup-Auth/signup.js"></script>
+    <script src="progress_bar.js"></script>
     <!--swiper slider cdn-->
 
     <script>

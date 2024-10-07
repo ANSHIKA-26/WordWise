@@ -16,6 +16,7 @@
     <!--css-->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="start_writing.css">
+    <link rel="stylesheet" href="Scroll_and_progressbar.css">
 
     <style>
         * {
@@ -27,8 +28,9 @@
 </head>
 
 <body>
-
-
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
     <!--header-->
 
     <div class="layout-container" style="margin-bottom: 4rem;">
@@ -74,43 +76,23 @@
             <a href="contact_us.html">Contact Us</a>
             <a href="contact_us.html">Give Feedback</a>
         </div>
+       
+
         <div class="auth-buttons">
-            <button class="login-button" onclick="openForm('login')">Login</button>
-            <button class="signup-button" onclick="openForm('signup')">Signup</button>
-
+        
+            <div class="nav-item dropdown" style="list-style-type: none;">
+                <button class="dropbtn">
+                    <img width="30px" src="images/profile.png" alt="Profile" class="profile-icon"
+                        onclick="toggleDropdown()">
+                </button>
+                <div id="profile-dropdown" class="dropdown-content">
+                    <div class="login-signup-form">
+                        <a href="login.html">Log In</a>
+                        <a href="signup.html">Sign Up</a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-    
-        <!-- Login Form -->
-    <div class="form-popup" id="loginForm">
-        <form class="form-container" onsubmit="return validateLoginForm()">
-            <h2>Login</h2>
-            <label for="loginEmail"><b>Email</b></label>
-            <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
-            <label for="loginPsw"><b>Password</b></label>
-            <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
-            <button type="submit" class="btn">LOGIN</button>
-            <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
-        </form>
-    </div>
-    
-    <!-- Signup Form -->
-    <div class="form-popup" id="signupForm">
-        <form class="form-container" onsubmit="return validateSignupForm()">
-            <h2>Signup</h2>
-            <label for="name"><b>Full Name</b></label>
-            <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
-            <label for="signupEmail"><b>Email</b></label>
-            <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
-            <label for="signupPsw"><b>Password</b></label>
-            <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
-            <label for="confirmPsw"><b>Confirm Password</b></label>
-            <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
-            <button type="submit" class="btn">SIGNUP</button>
-            <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
-        </form>
-    </div>
-    
     
     <div class="theme-switch-wrapper">
         <label class="theme-switch" for="checkbox">
@@ -296,6 +278,7 @@
     <script src="start_writing.js"></script>
     <script src="main.js"></script>
     <script src="./darkMode.js"></script>
+    <script src="progress_bar.js"></script>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>

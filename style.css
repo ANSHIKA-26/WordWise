@@ -95,6 +95,11 @@ body {
   background-color: var(--background-color);
 }
 
+/* Hide scrollbar for main body */
+/* .main-body::-webkit-scrollbar {
+  display: none;
+} */
+
 /* Hide scrollbar for main body 
 .main-body::-webkit-scrollbar {
   display: none;
@@ -138,6 +143,7 @@ html, body {
   border: 3px solid var(--background-color); /* Adds padding in dark mode */
   border-radius: 20px;
 }
+
 
 /* Hover Effect for Dark Mode */
 [data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
@@ -368,6 +374,49 @@ background: transparent
     width: 100%; /* Ensures full-width for small screens */
   }
 }
+.dropdown{
+  float: left;
+  color: black;
+}
+
+.dropbtn{
+  padding-right: 13px;
+}
+.dropdown .dropbtn{
+  border: none;
+  background-color: rgb(244, 237, 227);
+
+}
+.profile-icon{
+  width: 30px;
+}
+.dropdown:hover .dropbtn{
+  border-bottom: 1px solid #fff;
+}
+.dropdown-content{
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a{
+  float: none;
+  padding: 12px;
+  color: black;
+  display: block;
+  text-align: left;
+}
+.dropdown-content a:hover{
+  background-color: #ee9048;
+  color: white;
+}
+.dropdown:hover .dropdown-content{
+  display: block;
+}
+
+
 
 .auth-buttons {
   display: flex;
@@ -1560,7 +1609,7 @@ input:checked + .slider .moon-icon {
   padding: 2rem;
   display: grid;
   place-items: center;
-  margin-top: 500px;
+  margin-top: 60px;
 }
 
 .accordion__wrapper {
