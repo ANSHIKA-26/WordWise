@@ -1651,6 +1651,29 @@ input:checked + .slider .moon-icon {
   /* position: relative; */
 }
 
+/*FAQ improvement for Dark Theme*/
+[data-theme="dark"] .faq .accordion__wrapper {
+  background-color: #f1f1f1;
+  color: #f1f1f1;
+}
+
+[data-theme="dark"] .accordion__question {
+  color: #ddd;
+}
+
+[data-theme="dark"] .accordion {
+  background-color: black;
+}
+
+[data-theme="dark"] .accordion__icon{
+  background-color: white;
+}
+
+[data-theme="dark"] .accordion.active {
+  border: none;
+}
+
+
 footer p {
   margin: 10px 0 0 0;
   text-align: center;
