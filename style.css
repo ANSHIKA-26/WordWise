@@ -95,6 +95,11 @@ body {
   background-color: var(--background-color);
 }
 
+/* Hide scrollbar for main body */
+/* .main-body::-webkit-scrollbar {
+  display: none;
+} */
+
 /* Hide scrollbar for main body 
 .main-body::-webkit-scrollbar {
   display: none;
@@ -138,6 +143,7 @@ html, body {
   border: 3px solid var(--background-color); /* Adds padding in dark mode */
   border-radius: 20px;
 }
+
 
 /* Hover Effect for Dark Mode */
 [data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
