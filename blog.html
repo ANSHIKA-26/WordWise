@@ -12,6 +12,7 @@
 
     <!--css-->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Scroll_and_progressbar.css">
 
 <style>
   .secondary-title {
@@ -23,6 +24,9 @@
 
 </head>
 <body>
+  <div class="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
   <header class="navbar">
     <div class="logo">
         <h2><a class="home-link" href="index.html">WordWise</a></h2>
@@ -43,7 +47,31 @@
     <div class="auth-buttons">
         <a href="#login" class="login-btn" onclick="openForm('login')">Login</a>
         <a href="#signup" class="signup-btn" onclick="openForm('signup')">Signup</a>
+    </div> -->
+
+
+
+    <div class="logo">
+<!--         <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+            <path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+        </svg> -->
+        <h2>WordWise</h2>
     </div>
+    <div class="nav-links1">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Leading Blog</a>
+        <a href="start_writing.html">Start Writing</a>
+        <a href="category.html">Categories</a>
+        <a href="about.html">About</a>
+        <a href="contact_us.html">Contact Us</a>
+        <a href="contact_us.html">Give Feedback</a>
+    </div>
+    <div class="auth-buttons">
+        <button class="login-button" onclick="openForm('login')">Login</button>
+        <button class="signup-button" onclick="openForm('signup')">Signup</button>
+
+    </div>
+
 
     <!-- Login Form -->
 <div class="form-popup" id="loginForm">
@@ -76,15 +104,19 @@
 </div>
 
 
-    <div class="theme-switch-wrapper">
-        <label class="theme-switch" for="checkbox">
-            <input type="checkbox" id="checkbox">
-            <div class="slider"></div>
-        </label>
-        <span id="mode-label">Light Mode</span>
-    </div> 
+<div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox">
+        <div class="slider">
+            <img src="https://img.icons8.com/emoji/48/000000/sun-emoji.png" alt="Sun" class="icon sun-icon">
+            <img src="https://img.icons8.com/emoji/48/000000/crescent-moon-emoji.png" alt="Moon" class="icon moon-icon">
+        </div>
+    </label>
+    <span id="mode-label"></span>
+    </div>
 
 </header>
+</div>
 
   <!--header-->
     <!--mainn-->
@@ -278,15 +310,13 @@
                     <input id="websiteInput" class="comment-input2" type="text" placeholder="Website">
                     <textarea id="messageInput" class="comment-textarea form-control mt-3" placeholder="Message"></textarea>
                     <div class="text-center">
-                        <button class="issue-303">Submit</button>
+                      <button class="commentbtn" onclick="submitComment()">Submit</button>
                     </div>
                 </div>
 
                 </div>
                 
-                <div class="text-center">
-                    <button class="commentbtn" onclick="submitComment()">Submit</button>
-                </div>
+                
             </div>
 
               </div>
@@ -583,6 +613,7 @@
     <script src="darkMode.js"></script>
     <script src="./backend/login-Auth/login.js"></script>
     <script src="./backend/signup-Auth/signup.js"></script>
+    <script src="progress_bar.js"></script>
     <!--swiper slider cdn-->
 
     <script>
