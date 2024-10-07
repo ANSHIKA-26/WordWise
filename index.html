@@ -21,9 +21,44 @@
 
 </head>
 <body>
+
+
+    <!-- <div class="layout-container">
+        <header>
+            <div class="logo">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+                    <path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+                </svg>
+                <h2>WordWise</h2>
+            </div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Leading Blog</a>
+                <a href="#">Start Writing</a>
+                <a href="#">Categories</a>
+                <a href="#">About</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="auth-buttons">
+                <button class="login-button">Login</button>
+                <button class="signup-button">Signup</button>
+                <button class="toggle-button">
+                    <div class="toggle-icon" data-icon="ToggleRight" data-size="20px" data-weight="regular">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                            <path d="M176,56H80a72,72,0,0,0,0,144h96a72,72,0,0,0,0-144Zm0,128H80A56,56,0,0,1,80,72h96a56,56,0,0,1,0,112Zm0-96a40,40,0,1,0,40,40A40,40,0,0,0,176,88Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,176,152Z"></path>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </header>
+        <div class="content"></div>
+    </div> -->
+
+    <div class="layout-container">
+        <header>
     <!--header-->
-    <header class="navbar">
-        <div class="logo">
+    <!-- <header class="navbar"> -->
+        <!-- <div class="logo">
             <h2><a class="home-link" href="index.html">WordWise</a></h2>
         </div>
     
@@ -42,7 +77,31 @@
         <div class="auth-buttons">
             <a href="#login" class="login-btn" onclick="openForm('login')">Login</a>
             <a href="#signup" class="signup-btn" onclick="openForm('signup')">Signup</a>
+        </div> -->
+
+
+
+        <div class="logo">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+                <path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+            </svg>
+            <h2>WordWise</h2>
         </div>
+        <div class="nav-links1">
+            <a href="index.html">Home</a>
+            <a href="blog.html">Leading Blog</a>
+            <a href="start_writing.html">Start Writing</a>
+            <a href="category.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="contact_us.html">Contact Us</a>
+            <a href="contact_us.html">Give Feedback</a>
+        </div>
+        <div class="auth-buttons">
+            <button class="login-button" onclick="openForm('login')">Login</button>
+            <button class="signup-button" onclick="openForm('signup')">Signup</button>
+
+        </div>
+
     
         <!-- Login Form -->
     <div class="form-popup" id="loginForm">
@@ -83,10 +142,11 @@
                 <img src="https://img.icons8.com/emoji/48/000000/crescent-moon-emoji.png" alt="Moon" class="icon moon-icon">
             </div>
         </label>
-        <span id="mode-label">Light Mode</span>
+        <span id="mode-label"></span>
     </div>
     
     </header>
+    </div>
     <!--header-->
     <!--mainn-->
     <main id="site-main" style="margin-top: 90px;margin-left: 50px;">
