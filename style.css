@@ -1627,6 +1627,18 @@ footer p {
   transform:scale(1.1);
 }
 
+.issue-303{
+  border-radius: 4px;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.issue-303:hover{
+  background-color: var(--background-color);
+  color: black;
+  padding: 2px;
+}
 
 /*--------*/
 
