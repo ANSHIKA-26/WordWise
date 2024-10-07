@@ -1609,7 +1609,7 @@ input:checked + .slider .moon-icon {
   padding: 2rem;
   display: grid;
   place-items: center;
-  margin-top: 500px;
+  margin-top: 60px;
 }
 
 .accordion__wrapper {
