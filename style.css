@@ -368,6 +368,49 @@ background: transparent
     width: 100%; /* Ensures full-width for small screens */
   }
 }
+.dropdown{
+  float: left;
+  color: black;
+}
+
+.dropbtn{
+  padding-right: 13px;
+}
+.dropdown .dropbtn{
+  border: none;
+  background-color: rgb(244, 237, 227);
+
+}
+.profile-icon{
+  width: 30px;
+}
+.dropdown:hover .dropbtn{
+  border-bottom: 1px solid #fff;
+}
+.dropdown-content{
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a{
+  float: none;
+  padding: 12px;
+  color: black;
+  display: block;
+  text-align: left;
+}
+.dropdown-content a:hover{
+  background-color: #ee9048;
+  color: white;
+}
+.dropdown:hover .dropdown-content{
+  display: block;
+}
+
+
 
 .auth-buttons {
   display: flex;

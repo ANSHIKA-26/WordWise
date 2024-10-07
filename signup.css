@@ -1,0 +1,124 @@
+main{
+    width: 100vw;
+    height: 84vh;
+    background: url(images/login_bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.container-signup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+}
+.box-login{
+    background-color: rgba(238, 216, 187, 0.849);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding: 0px 20px 15px 20px;
+    height: 550px;
+    width: 450px;
+    border: 3px solid rgba(245, 135, 62, 0.882);
+    border-radius: 23px;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(-15px);
+    overflow: hidden;
+}
+.top-header{
+    text-align: center;
+    margin: 15px 0;
+    /* padding-top: 15px; */
+}
+.top-header h2{
+    color: brown;
+    font-size: 29px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    margin-left: 18px;
+}
+.input-group{
+    width: 100%;
+}
+.input-field{
+    margin: 12px 0;
+    position: relative;
+}
+.input-box{
+    /* width: 100%; */
+    margin-top: 8px;
+    margin-left: 13px;
+    height: 40px;
+    width: 340px;
+    font-size: 15px;
+    color: black;
+    border: 1px solid rgb(178, 95, 18);
+    border-radius:10px;
+    padding: 2px 15px 0 20px;
+    background: rgba(244, 208, 154, 0.926);
+    backdrop-filter: blur(2px);
+    outline: none;
+}
+.input-field label{
+    color: brown;
+    font-size: 18px;
+    transition: .3s ease-in-out;
+
+}
+.remember{
+    display: flex;
+    font-size: 16px;
+    margin: 12px 0 20px 0;
+    color: brown;
+}
+.check{
+    margin-right: 8px;
+    width: 14px;
+}
+.Input-submit{
+    width: 100%;
+    height: 50px;
+    margin: 5px 0;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    background: rgb(184, 98, 5);
+    color: white;
+    box-shadow: 0px 4px 20px rgba(169, 115, 61, 0.726);
+    cursor: pointer;
+    transition: .4s;
+}
+.Input-submit:hover{
+    background: wheat;
+    color: brown;
+    border: 2px solid brown;
+    box-shadow: 0px 4px 20px rgba(117, 88, 54, 0.32);
+}
+.forgot{
+    text-align:end;
+    font-size: 13px;
+    padding: 23px;
+}
+.forgot a{
+    text-decoration: none;
+    color: rgb(254, 252, 252);
+    color: brown;
+}
+.new{
+    text-align:center;
+    font-size: 16px;
+    padding-top: 26px;
+    padding-bottom: 0;
+    font-weight: 500;
+    color: brown;
+}
+.new a{
+    text-decoration: none;
+    color: brown;
+    font-weight: bolder;
+}
