@@ -61,22 +61,34 @@
         </form>
     </div>
     
-    <!-- Signup Form -->
-    <div class="form-popup" id="signupForm">
+     <!-- Signup Form -->
+     <div class="form-popup" id="signupForm">
         <form class="form-container" onsubmit="return validateSignupForm()">
             <h2>Signup</h2>
-            <label for="name"><b>Full Name</b></label>
-            <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
-            <label for="signupEmail"><b>Email</b></label>
-            <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
-            <label for="signupPsw"><b>Password</b></label>
-            <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
-            <label for="confirmPsw"><b>Confirm Password</b></label>
-            <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+            <div class="form-group">
+                <label for="name"><b>Full Name</b></label>
+                <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="signupEmail"><b>Email</b></label>
+                <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="signupPsw"><b>Password</b></label>
+                <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+                <span id="togglePassword" class="toggle-button">Show</span>
+            </div>
+            <div class="form-group">
+                <label for="confirmPsw"><b>Confirm Password</b></label>
+                <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+                <span id="toggleConfirmPassword" class="toggle-button">Show</span>
+            </div>
             <button type="submit" class="btn">SIGNUP</button>
             <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
         </form>
     </div>
+    <script src="signup.js"></script> <!-- Link to your JavaScript file -->
+
     
     
     <div class="theme-switch-wrapper">
