@@ -1589,8 +1589,8 @@ input:checked + .slider .moon-icon {
   /* border-bottom: 0.5rem solid #dae1f5; */
   border: 1px solid white;
   /* padding-bottom: 2rem; */
-  padding: 2rem;
-  margin-bottom: 1.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
   border-radius: 10px;
   font-size: 1.2rem;
 }
@@ -1636,13 +1636,13 @@ input:checked + .slider .moon-icon {
   top: 10px;
 } */
 .accordion__question {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 500;
   color: #002b5b;
 }
 
 .accordion__answer {
-  padding: 2rem 0;
+  padding: 1.2rem 0 1rem ;
   /* z-index: 2; */
 }
 
