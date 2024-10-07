@@ -31,7 +31,7 @@ img {
 
 /*
 @media (prefers-color-scheme: dark), [data-theme="dark"] {
-   Dark Theme Colors 
+   Dark Theme Colors
   --light: #2e3440;
   --secondary: #3b4252;
   --dark: #eceff4;
@@ -50,7 +50,7 @@ body {
   background-color: var(--background-color);
 }
 
-/* Hide scrollbar for main body 
+/* Hide scrollbar for main body
 .main-body::-webkit-scrollbar {
   display: none;
 }*/
@@ -81,7 +81,7 @@ html, body {
 
 /* Hover Effect for Light Mode */
 ::-webkit-scrollbar-thumb:hover {
-  background: #f4978e; 
+  background: #f4978e;
 }
 
 [data-theme="dark"] ::-webkit-scrollbar-track {
@@ -96,7 +96,7 @@ html, body {
 
 /* Hover Effect for Dark Mode */
 [data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
-  background: #f4978e; 
+  background: #f4978e;
 }
 
 /* Header styling */
@@ -854,7 +854,7 @@ a {
   display: flex;
   width: 600%;
   height: 400px;
-  position: relative; 
+  position: relative;
 }
 
 .sliderr .slides input[type="radio"] {
@@ -1328,7 +1328,7 @@ h1 {
 }
 
 input:checked + .slider {
-  background: linear-gradient(to right, #283e51, #4b79a1); 
+  background: linear-gradient(to right, #283e51, #4b79a1);
 }
 
 .slider:before {
@@ -1344,7 +1344,7 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-  transform: translateX(30px); 
+  transform: translateX(30px);
 }
 
 .icon {
@@ -1371,7 +1371,7 @@ input:checked + .slider .sun-icon {
 }
 
 input:checked + .slider .moon-icon {
-  opacity: 1; 
+  opacity: 1;
 }
 
 #mode-label {
@@ -1629,3 +1629,81 @@ footer p {
 
 
 /*--------*/
+
+.load_posts {
+  height: 35px;
+  width: 150px;
+  color: rgb(240, 175, 53);
+  background-color: white;
+  border: 2px solid rgb(222, 162, 51);
+  border-radius: 7px;
+  margin-bottom: 50px;
+  transition: 0.2s linear;
+  animation: grow-shrink 1.5s infinite ease-in-out;
+
+}
+
+.load_posts:hover {
+
+   box-shadow: 6px 6px 5px rgba(0, 0, 0, 0.5);
+   transform: scale(1.1);
+   cursor: pointer;
+   animation-play-state: paused;
+}
+
+@keyframes grow-shrink {
+    0% {
+        transform: scale(1);  /* Original size */
+    }
+    50% {
+        transform: scale(1.2);  /* Grows larger */
+    }
+    100% {
+        transform: scale(1);  /* Returns to original size */
+    }
+  }
+
+  .wordwise-footer {
+    background-color: rgb(216, 176, 100);
+  }
+
+  #about-us {
+    display: block;
+  }
+
+  .secondary-title p {
+    margin-right: 55px;
+    margin-bottom: 7px;
+    align-items: flex-start;
+  }
+
+  .add_ress, .phone {
+    margin-bottom: 7px;
+  }
+
+  .web_views {
+    margin: 7px;
+    margin-top: 20px;
+    height: 20px;
+    width: 150px;
+    color: orange;
+  }
+
+
+  .card img {
+
+    background: none;
+    box-shadow: none;
+
+  }
+  .card {
+    margin-bottom: 20px;
+  }
+
+  .navbar {
+    margin-bottom: 30px;
+  }
+
+  .card-body  {
+    margin-top: 20px;
+  }
