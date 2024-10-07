@@ -51,9 +51,9 @@ body {
 }
 
 /* Hide scrollbar for main body */
-.main-body::-webkit-scrollbar {
+/* .main-body::-webkit-scrollbar {
   display: none;
-}
+} */
 
 /* Header styling */
 header {
