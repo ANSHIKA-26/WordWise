@@ -4,9 +4,20 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 3000;
+//blog modal
+const BlogModal = require("./modal/BlogModal");
+
+//middleware
+const formidable = require("express-formidable");
+
+//to process image
+const fs = require("fs").promises;
+
+const ConnectDb = require("./Database");
 
 app.use(bodyParser.json());
 app.use(cors());
+ConnectDb();
 
 app.post("/send-email", async (req, res) => {
   const { firstName, lastName, email, phone, message } = req.body;
@@ -65,6 +76,51 @@ app.post("/subscribe", async (req, res) => {
     res
       .status(500)
       .send({ message: "Error sending subscription email", error });
+  }
+});
+
+//create a blog Api
+
+app.post("/post_blog", formidable(), async (req, resp) => {
+  try {
+    const { heading, topic, content, writerName } = req.fields;
+
+    if (!heading || !topic || !content || !writerName) {
+      return resp.status(400).send({
+        success: false,
+        message: "All required fields must be provided",
+      });
+    }
+
+    const blogdata = {
+      heading,
+      topic,
+      content,
+      writerName,
+    };
+
+    const blog = await new BlogModal(blogdata).save();
+
+    // process the image if it exists
+    if (req.files && req.files.image) {
+      blog.image.data = await fs.readFile(req.files.image.path);
+      blog.image.contentType = req.files.image.type;
+      await fs.unlink(req.files.image.path); // delete the file after saving
+      await blog.save();
+    }
+
+    return resp.status(201).send({
+      success: true,
+      message: "Blog created successfully",
+      blog,
+    });
+  } catch (error) {
+    console.log(error);
+    return resp.status(500).send({
+      success: false,
+      message: "Error creating blog",
+      error: error.message,
+    });
   }
 });
 
