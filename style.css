@@ -1,4 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Roboto&family=Ubuntu:ital@1&display=swap");
+/* Import Montserrat font */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;900&display=swap");
+
+/* Global styles */
+* {
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box; /* Added for better box model handling */
+  margin: 0; /* Reset margin */
+  padding: 0; /* Reset padding */
+}
+
 githu * {
   overflow-x: hidden;
   margin: 0;
@@ -175,11 +186,15 @@ header {
   /* margin: 0 3rem; */
 }
 .logo h2 {
-  font-size: 1rem;
+  font-size: 2.5rem; /* Adjusted font size for better visibility */
   font-weight: bold;
   line-height: 1.5;
-  letter-spacing: 0.2rem
+  letter-spacing: 0.2rem;
+  color: rgb(59, 59, 88);
+  white-space: nowrap; /* Prevent logo from breaking into two lines*/
 }
+/* Navigation Bar */
+
 .nav-links1 {
   display: flex;
   gap: 2.1rem;
@@ -198,8 +213,248 @@ font-weight: 500; /* Medium weight */
 position: relative; /* Position for the underline */
 padding-bottom: 5px; /* Add space for the underline */
 /* margin: 0.3rem; */
-
 }
+.nav-links1 a::after {
+  content: ''; /* Create a pseudo-element */
+  position: absolute; /* Absolute positioning */
+  left: 0; /* Align to the left */
+  bottom: 0; /* Align to the bottom */
+  width: 100%; /* Full width */
+  height: 3px; /* Height of the underline */
+  background-color: #4A4A4A; /* Color of the underline */
+  transform: scaleX(0); /* Start with no width */
+  transition: transform 0.2s ease; /* Smooth transition */
+  }
+  /* Hover Effect */
+  .nav-links1 a:hover::after {
+  transform: scaleX(1); /* Scale to full width on hover */
+  }
+  /* Optional: To make the navbar more distinctive #F4EFE6*/
+  .header {
+  background-color: #f4ede3; /* Navbar Background */
+  border-bottom: 2px solid #f4978e; /* Optional border to distinguish the navbar */
+  background: transparent
+  }   
+
+  /* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: var(--background-color); */
+  /* padding: 20px; */
+}
+
+
+.nav-link {
+  border-radius: 99px;
+  padding: 2px;
+  font-size: 18px;
+  margin: 7px;
+  color: var(--dark);
+  font-family: "Ubuntu", sans-serif;
+}
+
+.nav-link:hover {
+  color: var(--text-color);
+}
+
+
+/* navbar styling changed */
+.nav-menu {
+  background-color: rgb(244, 237, 227);
+  padding: 10px 20px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+}
+
+.nav-menu ul li {
+  list-style: none;
+  margin: 0 0.2rem;
+}
+
+.nav-menu ul li a {
+  text-decoration: none;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 30px;
+  background-color: rgb(244, 237, 227);
+  transition: all 0.3s ease;
+
+  min-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Hover Effect - Slight enlarge on hover */
+.nav-menu ul li a:hover {
+  background-color: #ffd479;
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* Active link styling */
+.nav-menu ul li a.active {
+  background-color: #ffd479;
+  color: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-menu ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-menu ul li a {
+    text-align: center;
+    padding: 10px;
+    width: 100%; /* Ensures full-width for small screens */
+  }
+}
+
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: var(--background-color); */
+  /* padding: 20px; */
+}
+/* navbar styling changed */
+.nav-menu {
+  background-color: rgb(244, 237, 227);
+  padding: 10px 20px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+}
+
+.nav-menu ul li {
+  list-style: none;
+  margin: 0 0.2rem;
+}
+
+.nav-menu ul li a {
+  text-decoration: none;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 30px;
+  background-color: rgb(244, 237, 227);
+  transition: all 0.3s ease;
+
+  min-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Hover Effect - Slight enlarge on hover */
+.nav-menu ul li a:hover {
+  background-color: #ffd479;
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* Active link styling */
+.nav-menu ul li a.active {
+  background-color: #ffd479;
+  color: #000;
+}
+/* Navigation links and dropdown */
+.nav-links {
+  display: flex;
+  gap: 10px; /* Space between links */
+  margin-left: auto; /* Push links to the right */
+}
+
+nav a {
+  padding: 0.7rem;
+}
+
+.home-link {
+  color: var(--text-color);
+}
+.home-link:active {
+  color: var(--text-color);
+}
+
+.active-page {
+  color: #eec48b;
+  background: rgba(159, 159, 159, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-menu ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-menu ul li a {
+    text-align: center;
+    padding: 10px;
+    width: 100%; /* Ensures full-width for small screens */
+  }
+}
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* .nav-menu ul {
+      flex-direction: column;
+      gap: 10px;
+  } */
+
+  .nav-icons {
+    margin-top: 10px;
+  }
+
+  .search-bar {
+    margin-bottom: 10px; /* Space between search bar and nav links */
+  }
+
+  .nav-links {
+    flex-direction: column; /* Stack links vertically */
+    width: 100%; /* Full width */
+  }
+
+  nav a {
+    width: 100%; /* Make links full width */
+    justify-content: center; /* Center align text */
+  }
+
+  .theme-switch {
+    margin-top: 10px; /* Space above theme switch */
+  }
+}
+
 
 .load-posts-btn {
   transition: transform 330ms ease-in-out;
@@ -270,118 +525,11 @@ button {
   transform: scale(1.05);
   transition: all 0.3s;
 }
-.nav-links1 a::after {
-content: ''; /* Create a pseudo-element */
-position: absolute; /* Absolute positioning */
-left: 0; /* Align to the left */
-bottom: 0; /* Align to the bottom */
-width: 100%; /* Full width */
-height: 3px; /* Height of the underline */
-background-color: #4A4A4A; /* Color of the underline */
-transform: scaleX(0); /* Start with no width */
-transition: transform 0.2s ease; /* Smooth transition */
-}
-/* Hover Effect */
-.nav-links1 a:hover::after {
-transform: scaleX(1); /* Scale to full width on hover */
-}
-/* Optional: To make the navbar more distinctive #F4EFE6*/
-.header {
-background-color: #f4ede3; /* Navbar Background */
-border-bottom: 2px solid #f4978e; /* Optional border to distinguish the navbar */
-background: transparent
-}   
 
 
-/* Import Montserrat font */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;900&display=swap");
 
-/* Global styles */
-* {
-  font-family: "Montserrat", sans-serif;
-  box-sizing: border-box; /* Added for better box model handling */
-  margin: 0; /* Reset margin */
-  padding: 0; /* Reset padding */
-}
 
-/* Navbar styles */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  /* background-color: var(--background-color); */
-  /* padding: 20px; */
-}
 
-.logo h2 {
-  font-size: 2.5rem; /* Adjusted font size for better visibility */
-  color: rgb(59, 59, 88);
-  white-space: nowrap; /* Prevent logo from breaking into two lines*/
-}
-/* navbar styling changed */
-.nav-menu {
-  background-color: rgb(244, 237, 227);
-  padding: 10px 20px;
-  border-radius: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav-menu ul {
-  list-style: none;
-  display: flex;
-  padding: 0;
-  margin: 0;
-  gap: 10px;
-}
-
-.nav-menu ul li {
-  list-style: none;
-  margin: 0 0.2rem;
-}
-
-.nav-menu ul li a {
-  text-decoration: none;
-  color: #000;
-  padding: 10px 20px;
-  border-radius: 30px;
-  background-color: rgb(244, 237, 227);
-  transition: all 0.3s ease;
-
-  min-height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-/* Hover Effect - Slight enlarge on hover */
-.nav-menu ul li a:hover {
-  background-color: #ffd479;
-  color: #000;
-  transform: scale(1.05);
-}
-
-/* Active link styling */
-.nav-menu ul li a.active {
-  background-color: #ffd479;
-  color: #000;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .nav-menu ul {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .nav-menu ul li a {
-    text-align: center;
-    padding: 10px;
-    width: 100%; /* Ensures full-width for small screens */
-  }
-}
 .dropdown{
   float: left;
   color: black;
@@ -632,32 +780,6 @@ background: transparent
 input[type="checkbox"] {
   transform: scale(1.2);
 }
-
-/* Navigation styling */
-
-/* Navigation links and dropdown */
-.nav-links {
-  display: flex;
-  gap: 10px; /* Space between links */
-  margin-left: auto; /* Push links to the right */
-}
-
-nav a {
-  padding: 0.7rem;
-}
-
-.home-link {
-  color: var(--text-color);
-}
-.home-link:active {
-  color: var(--text-color);
-}
-
-.active-page {
-  color: #eec48b;
-  background: rgba(159, 159, 159, 0.2);
-}
-
 /* Dropdown button styles */
 .dropdown {
   position: relative;
@@ -729,42 +851,7 @@ body.dark .support a {
   transform: translateX(26px);
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
 
-  /* .nav-menu ul {
-      flex-direction: column;
-      gap: 10px;
-  } */
-
-  .nav-icons {
-    margin-top: 10px;
-  }
-
-  .search-bar {
-    margin-bottom: 10px; /* Space between search bar and nav links */
-  }
-
-  .nav-links {
-    flex-direction: column; /* Stack links vertically */
-    width: 100%; /* Full width */
-  }
-
-  nav a {
-    width: 100%; /* Make links full width */
-    justify-content: center; /* Center align text */
-  }
-
-  .theme-switch {
-    margin-top: 10px; /* Space above theme switch */
-  }
-}
-
-/*navbar */
 
 .btn-primary {
   border-radius: 4px;
@@ -983,44 +1070,6 @@ a {
 .text-right {
   text-align: right;
 }
-
-/* .navbar {
-  display: flex;
-  align-items: center; /* Center vertically */
-/* justify-content: space-between;
-  padding: 10px;
-} */
-*/
-
-/* .logo h1 {
-  font-size: 2rem;
-  color: #333;
-} */
-
-/* .nav-brand {
-  font-family: "Roboto", sans-serif;
-  font-weight: bold;
-  align-self: center;
-  font-size: 32px;
-}
-
-.collapse {
-  align-self: center;
-} */
-
-.nav-link {
-  border-radius: 99px;
-  padding: 2px;
-  font-size: 18px;
-  margin: 7px;
-  color: var(--dark);
-  font-family: "Ubuntu", sans-serif;
-}
-
-.nav-link:hover {
-  color: var(--text-color);
-}
-
 .search-box {
   display: inline;
   border-right: 1px solid var(--secondary);
@@ -1350,6 +1399,7 @@ a {
   padding: 0 15px;
   margin: auto auto;
 }
+/* For making content responsive on smaller devices <768 pixels */
 
 .grid {
   margin: 0 auto;
@@ -1372,7 +1422,7 @@ a {
   flex-direction: column;
   /* justify-content: center; */
   align-items: center;
-  
+
 
 }
 @media (max-width: 1024px) {
