@@ -76,7 +76,17 @@
     </style>
 
 </head>
-<body>
+<body onload="Finish_Loader()">
+ <!-- pre load -->
+    <div id="loader">
+<div class="loadingspinner">
+  <div id="square1"></div>
+  <div id="square2"></div>
+  <div id="square3"></div>
+  <div id="square4"></div>
+  <div id="square5"></div>
+</div>
+    </div>
     <div class="progress-container">
         <div class="progress-bar" id="progress-bar"></div>
       </div>
@@ -864,14 +874,14 @@
     <script src="darkMode.js"></script>
 
 
-    <!-- this script is to display the year in the copyright authentication in the footer -->
+    this script is to display the year in the copyright authentication in the footer
     <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-        // /preloader js styling
-        let preloader = document.querySelector("#preloader");
-        window.addEventListener("load",function(e){
-            preloader.style.display = "none";
-        });
+       
+// For Loader Page
+const preloader = document.querySelector("#loader");
+function Finish_Loader(){
+    preloader.style.display = "none";
+}
     </script>
     <script src="script.js"></script>
     <script src="faq.js"></script>
