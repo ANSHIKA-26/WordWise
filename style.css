@@ -2123,6 +2123,7 @@ footer p {
   border-color: #333;
   outline: none;
 }
+////////////////////////////
 /* General Styles */
 * {
   margin: 0;
@@ -2241,4 +2242,63 @@ a.nav-link {
 .mt-5 {
   margin-top: 40px;
 }
+/* Social Icons Container */
+.tags.social {
+  display: flex; /* Align icons in a row */
+  gap: 10px; /* Space between icons */
+}
+
+/* Individual Icon Styles */
+.tags.social a {
+  width: 50px; /* Set width */
+  height: 50px; /* Set height equal to width for circular shape */
+  background-color: transparent; /* Keep background transparent */
+  border-radius: 50%; /* Make it circular */
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center icons vertically */
+  justify-content: flex-start; /* Align icons to the left */
+  font-size: 24px; /* Larger icon size */
+  transition: transform 0.4s ease, box-shadow 0.4s ease; /* Smooth transition */
+}
+
+/* Colors for Social Media Icons */
+.tags.social a:nth-child(1) {
+  color: #3b5998; /* Facebook color */
+}
+
+.tags.social a:nth-child(2) {
+  color: #1da1f2; /* X/Twitter color */
+}
+
+.tags.social a:nth-child(3) {
+  color: #e4405f; /* Instagram color */
+}
+
+.tags.social a:nth-child(4) {
+  color: #ea4c89; /* Dribbble color */
+}
+
+/* Hover Effect: Zoom and Subtle Shadow */
+.tags.social a:hover {
+  transform: scale(1.2); /* Zoom in slightly on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Add a subtle shadow */
+}
+
+/* Hover Effects for Social Media: Add Light Transparent Background */
+.tags.social a:hover:nth-child(1) {
+  background-color: rgba(59, 89, 152, 0.1); /* Light Facebook background on hover */
+}
+
+.tags.social a:hover:nth-child(2) {
+  background-color: rgba(29, 161, 242, 0.1); /* Light X/Twitter background on hover */
+}
+
+.tags.social a:hover:nth-child(3) {
+  background-color: rgba(228, 64, 95, 0.1); /* Light Instagram background on hover */
+}
+
+.tags.social a:hover:nth-child(4) {
+  background-color: rgba(234, 76, 137, 0.1); /* Light Dribbble background on hover */
+}
+
 
