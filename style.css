@@ -1179,8 +1179,7 @@ a {
 }
 
 #footer {
-  padding-top: 5em;
-  padding-bottom: 2em; /* Adjust if necessary */
+  padding-top: 5em; 
 }
 
 #footer .feature-post .flex-item {
