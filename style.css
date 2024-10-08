@@ -200,6 +200,14 @@ padding-bottom: 5px; /* Add space for the underline */
 /* margin: 0.3rem; */
 
 }
+
+.load-posts-btn {
+  transition: transform 330ms ease-in-out;
+}
+
+.load-posts-btn:hover{
+   transform: scaleX(1.2);
+}
 .auth-buttons {
   display: flex;
   gap: 0.5rem;
