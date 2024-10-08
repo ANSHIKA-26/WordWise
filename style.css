@@ -2123,3 +2123,122 @@ footer p {
   border-color: #333;
   outline: none;
 }
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.tags {
+  display: flex;
+  flex-direction: column;
+}
+
+.d-flex-gap {
+  display: flex;
+  gap: 10px; /* Spacing between buttons */
+  flex-wrap: wrap;
+}
+
+a.nav-link {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+}
+
+.btn {
+  background-color: #f0f0f0;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+/* Specific for Popular Tags */
+.tags a {
+  background-color: #e6e6e6;
+  border-radius: 8px;
+  padding: 12px 20px;
+  transition: 0.3s;
+}
+
+.tags a:hover {
+  background-color: #d4d4d4;
+}
+
+/* Social Icons */
+.tags.social a {
+  background-color: #fff;
+  color: #333;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 18px;
+  display: inline-block;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tags.social a i {
+  color: #fff;
+}
+
+.tags.social a:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Social Media Colors */
+.tags.social a:nth-child(1) {
+  background-color: #3b5998; /* Facebook */
+}
+
+.tags.social a:nth-child(2) {
+  background-color: #1da1f2; /* X/Twitter */
+}
+
+.tags.social a:nth-child(3) {
+  background-color: #e4405f; /* Instagram */
+}
+
+.tags.social a:nth-child(4) {
+  background-color: #ea4c89; /* Dribbble */
+}
+
+.tags.social a:hover:nth-child(1) {
+  background-color: #2d4373;
+}
+
+.tags.social a:hover:nth-child(2) {
+  background-color: #0d95e8;
+}
+
+.tags.social a:hover:nth-child(3) {
+  background-color: #d82d4b;
+}
+
+.tags.social a:hover:nth-child(4) {
+  background-color: #e94d8b;
+}
+
+/* Footer Styling */
+.col-3 {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.mt-5 {
+  margin-top: 40px;
+}
+
