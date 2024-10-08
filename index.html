@@ -75,6 +75,13 @@
   }
     </style>
 
+<!-- Script for Navbar Toggle -->
+ <script>
+    function toggleMenu() {
+    const menu = document.getElementById('nav-menu');
+    menu.classList.toggle('active');
+}
+ </script>
 </head>
 <body>
     <div class="progress-container">
@@ -86,7 +93,11 @@
             <h2><a class="home-link" href="index.html">WordWise</a></h2>
         </div>
     
-        <nav class="nav-menu">
+        <button class="toggle-button" onclick="toggleMenu()">
+            &#9776; <!-- Hamburger icon -->
+        </button>
+    
+        <nav class="nav-menu" id="nav-menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="blog.html">Leading Blog</a></li>
