@@ -1757,60 +1757,152 @@ footer p {
   margin: 10px 0 0 0;
   text-align: center;
 }
-
 /* WordWise Newsletter Section Styling */
 .wordwise-newsletter-section {
   background-color: #f8b5b5;
-  padding: 50px 20px;
+  padding: 60px 20px;
   text-align: center;
-  border-radius: 10px;
-  margin-top: 10px;
+  border-radius: 15px;
+  margin-top: 20px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .wordwise-newsletter-container h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .wordwise-newsletter-container p {
-  font-size: 1.2rem;
-  color: #666;
-  margin-bottom: 20px;
+  font-size: 1.3rem;
+  color: #555;
+  margin-bottom: 25px;
 }
 
 .wordwise-newsletter-form input[type="email"] {
-  padding: 10px;
-  font-size: 1rem;
-  width: 60%;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  margin-right: 10px;
+  padding: 12px 15px;
+  font-size: 1.1rem;
+  width: 55%;
+  max-width: 450px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  margin-right: 15px;
+  transition: border 0.3s ease;
+}
+
+.wordwise-newsletter-form input[type="email"]:focus {
+  border-color: #333;
+  outline: none;
+}
+
+/* Button Container for Centering */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .wordwise-newsletter-form button {
-  padding: 10px 20px;
-  font-size: 1rem;
+  padding: 12px 30px;
+  font-size: 1.1rem;
   background-color: #333;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .wordwise-newsletter-form button:hover {
   background-color: #555;
+  transform: translateY(-2px);
+}
+
+.wordwise-newsletter-form button:active {
+  transform: translateY(0);
+}
+
+/* Toast Popup Styling */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Success Message After Clicking Subscribe */
+.success-message {
+  font-size: 1.5rem;
+  color: #4caf50;
+  margin-top: 30px;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Form Disappear After Success */
+.wordwise-newsletter-form.hide-form {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 /* Responsive for smaller screens */
 @media (max-width: 768px) {
   .wordwise-newsletter-form input[type="email"] {
-    width: 80%;
-    margin-bottom: 10px;
+    width: 85%;
+    margin-bottom: 15px;
   }
 
   .wordwise-newsletter-form button {
-    width: 100%;
+    width: 85%;
+    padding: 12px;
+  }
+}
+
+/* Toast Styling */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .wordwise-newsletter-form input[type="email"] {
+    width: 85%; /* Wider input for mobile */
+    margin-bottom: 15px;
+  }
+
+  .wordwise-newsletter-form button {
+    width: 85%; /* Full-width button on mobile */
+    padding: 12px;
   }
 }
 
@@ -1979,4 +2071,55 @@ footer p {
 .comment-input,.comment-input2,.form-control::placeholder{
  text-align: center;
  font-size: 18px;
+}
+/* Apply flexbox to the form container */
+.wordwise-newsletter-form {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Horizontally center the items */
+  justify-content: center; /* Vertically center the items */
+  min-height: 10vh; /* Make sure the form covers the full screen height */
+}
+
+/* Style for the button container */
+#sub {
+  display: flex;
+  justify-content: center; /* Horizontally center the button */
+  width: 100%; /* Ensure it spans the width of the form */
+}
+
+/* Style the button */
+.wordwise-newsletter-form button {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.wordwise-newsletter-form button:hover {
+  background-color: #555;
+  transform: translateY(-2px);
+}
+
+.wordwise-newsletter-form button:active {
+  transform: translateY(0);
+}
+
+/* Input field styling */
+.wordwise-newsletter-form input[type="email"] {
+  padding: 12px 15px;
+  font-size: 1.1rem;
+  width: 60%; /* Adjust width as needed */
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px; /* Add space between input and button */
+}
+
+.wordwise-newsletter-form input[type="email"]:focus {
+  border-color: #333;
+  outline: none;
 }
