@@ -452,23 +452,18 @@ background: var(--light);
 
 #backToTop {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: lightblue;
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 50%;
+  bottom: 30px;
+  right: 10px;
+  font-size: 50px;
   cursor: pointer;
-  font-size: 24px;
+  text-align: center;
+  background-color: transparent;
   z-index: 1000;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  
 }
 
 
-#backToTop:hover {
-  background-color: skyblue;
-}
+
 
 
 
@@ -664,6 +659,7 @@ button {
   height: 2.5rem;
   padding: 0 1rem;
   font-size: 0.875rem;
+  
   font-weight: bold;
   cursor: pointer;
 }
