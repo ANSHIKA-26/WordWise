@@ -1,3 +1,4 @@
+<!-- Before creating the backend for the google signin checkout the google_signin.js file to get idea of how the frontend is sensding the req to the backend -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,6 +83,8 @@
     menu.classList.toggle('active');
 }
  </script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
 </head>
 <body onload="Finish_Loader()">
  <!-- pre load -->
@@ -133,6 +136,10 @@
             <label for="loginPsw"><b>Password</b></label>
             <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
             <button type="submit" class="btn">LOGIN</button>
+             <!-- Google Sign-In Button -->
+             <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+                <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
+                Sign in with Google</button>
             <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
         </form>
     </div>
@@ -160,6 +167,10 @@
                 <span id="toggleConfirmPassword" class="toggle-button">Show</span>
             </div>
             <button type="submit" class="btn">SIGNUP</button>
+             <!-- Google Sign-In Button -->
+             <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+                <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
+                Sign in with Google</button>
             <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
         </form>
     </div>
@@ -896,5 +907,6 @@ function Finish_Loader(){
     <script src="faq.js"></script>
     <script src="progress_bar.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="google_signin.js"></script>
 </body>
 </html>
