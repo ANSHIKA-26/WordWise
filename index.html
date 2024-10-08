@@ -75,6 +75,13 @@
   }
     </style>
 
+<!-- Script for Navbar Toggle -->
+ <script>
+    function toggleMenu() {
+    const menu = document.getElementById('nav-menu');
+    menu.classList.toggle('active');
+}
+ </script>
 </head>
 <body onload="Finish_Loader()">
  <!-- pre load -->
@@ -90,13 +97,17 @@
     <div class="progress-container">
         <div class="progress-bar" id="progress-bar"></div>
       </div>
-
+<!-- Navigation Bar  -->
     <header class="navbar">
         <div class="logo">
             <h2><a class="home-link" href="index.html">WordWise</a></h2>
         </div>
     
-        <nav class="nav-menu">
+        <button class="toggle-button" onclick="toggleMenu()">
+            &#9776; <!-- Hamburger icon -->
+        </button>
+    
+        <nav class="nav-menu" id="nav-menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="blog.html">Leading Blog</a></li>
@@ -107,7 +118,7 @@
                 <li><a href="contact_us.html">Give Feedback</a></li>
             </ul>
         </nav>
-    
+<!-- Navigation Bar Ends -->
         <div class="auth-buttons">
             <a href="#login" class="login-btn" onclick="openForm('login')">Login</a>
             <a href="#signup" class="signup-btn" onclick="openForm('signup')">Signup</a>
@@ -168,9 +179,9 @@
     </div>
     
     </header>
-    </div>
-    <!--header-->
-    <!--mainn-->
+</div>
+<!--Header Ends-->
+    <!--Main Section Starts-->
     <main id="site-main" style="margin-top: 90px;margin-left: 50px;">
         <!--blog post section-->
         <section id="posts">
@@ -859,8 +870,6 @@
           <p>Designed by Anshika</p>
         </div>
     </div>
-      
-      
   </footer>
 <!-- .footer -->
 <!-- this script is for twitter icon  starts -->
