@@ -2125,6 +2125,7 @@ footer p {
 }
 ////////////////////////////
 /* General Styles */
+/* General Styles */
 * {
   margin: 0;
   padding: 0;
@@ -2182,55 +2183,58 @@ a.nav-link {
 
 /* Social Icons */
 .tags.social a {
-  background-color: #fff;
+  background-color: transparent; /* Transparent background in normal state */
   color: #333;
   padding: 10px;
   border-radius: 50%;
   font-size: 18px;
   display: inline-block;
   text-align: center;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .tags.social a i {
-  color: #fff;
+  color: inherit; /* Icon color is inherited from parent */
 }
 
+/* Hover Effect: Show background and slightly zoom on hover */
 .tags.social a:hover {
-  transform: scale(1.1); /* Slight zoom on hover */
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.1); /* Subtle background on hover */
 }
 
-/* Social Media Colors */
-.tags.social a:nth-child(1) {
-  background-color: #3b5998; /* Facebook */
+/* Social Media Colors (Icon colors only, no background) */
+.tags.social a:nth-child(1) i {
+  color: #3b5998; /* Facebook */
 }
 
-.tags.social a:nth-child(2) {
-  background-color: #1da1f2; /* X/Twitter */
+.tags.social a:nth-child(2) i {
+  color: #1da1f2; /* X/Twitter */
 }
 
-.tags.social a:nth-child(3) {
-  background-color: #e4405f; /* Instagram */
+.tags.social a:nth-child(3) i {
+  color: #e4405f; /* Instagram */
 }
 
-.tags.social a:nth-child(4) {
-  background-color: #ea4c89; /* Dribbble */
+.tags.social a:nth-child(4) i {
+  color: #ea4c89; /* Dribbble */
 }
 
+/* Hover Effects for Social Media: Light Transparent Background */
 .tags.social a:hover:nth-child(1) {
-  background-color: #2d4373;
+  background-color: rgba(59, 89, 152, 0.1); /* Facebook hover background */
 }
 
 .tags.social a:hover:nth-child(2) {
-  background-color: #0d95e8;
+  background-color: rgba(29, 161, 242, 0.1); /* X/Twitter hover background */
 }
 
 .tags.social a:hover:nth-child(3) {
-  background-color: #d82d4b;
+  background-color: rgba(228, 64, 95, 0.1); /* Instagram hover background */
 }
 
 .tags.social a:hover:nth-child(4) {
-  background-color: #e94d8b;
+  background-color: rgba(234, 76, 137, 0.1); /* Dribbble hover background */
 }
 
 /* Footer Styling */
@@ -2242,6 +2246,7 @@ a.nav-link {
 .mt-5 {
   margin-top: 40px;
 }
+
 /* Social Icons Container */
 .tags.social {
   display: flex; /* Align icons in a row */
@@ -2252,30 +2257,13 @@ a.nav-link {
 .tags.social a {
   width: 50px; /* Set width */
   height: 50px; /* Set height equal to width for circular shape */
-  background-color: transparent; /* Keep background transparent */
+  background-color: transparent; /* Transparent background */
   border-radius: 50%; /* Make it circular */
   display: flex; /* Use flexbox for alignment */
   align-items: center; /* Center icons vertically */
-  justify-content: flex-start; /* Align icons to the left */
+  justify-content: center; /* Align icons to the center */
   font-size: 24px; /* Larger icon size */
   transition: transform 0.4s ease, box-shadow 0.4s ease; /* Smooth transition */
-}
-
-/* Colors for Social Media Icons */
-.tags.social a:nth-child(1) {
-  color: #3b5998; /* Facebook color */
-}
-
-.tags.social a:nth-child(2) {
-  color: #1da1f2; /* X/Twitter color */
-}
-
-.tags.social a:nth-child(3) {
-  color: #e4405f; /* Instagram color */
-}
-
-.tags.social a:nth-child(4) {
-  color: #ea4c89; /* Dribbble color */
 }
 
 /* Hover Effect: Zoom and Subtle Shadow */
@@ -2284,21 +2272,10 @@ a.nav-link {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Add a subtle shadow */
 }
 
-/* Hover Effects for Social Media: Add Light Transparent Background */
-.tags.social a:hover:nth-child(1) {
-  background-color: rgba(59, 89, 152, 0.1); /* Light Facebook background on hover */
-}
-
-.tags.social a:hover:nth-child(2) {
-  background-color: rgba(29, 161, 242, 0.1); /* Light X/Twitter background on hover */
-}
-
-.tags.social a:hover:nth-child(3) {
-  background-color: rgba(228, 64, 95, 0.1); /* Light Instagram background on hover */
-}
-
+/* Remove hover background, keeping only color transitions */
+.tags.social a:hover:nth-child(1),
+.tags.social a:hover:nth-child(2),
+.tags.social a:hover:nth-child(3),
 .tags.social a:hover:nth-child(4) {
-  background-color: rgba(234, 76, 137, 0.1); /* Light Dribbble background on hover */
+  background-color: transparent; /* Ensure the background remains transparent on hover */
 }
-
-
