@@ -15,11 +15,15 @@
     <!-- bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <!-- for scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
     <!--css-->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="Scroll_and_progressbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+    
          @media (max-width: 1200px) {
     .footer-container {
       padding: 20px;
@@ -75,6 +79,74 @@
   }
     </style>
 
+    <style>
+        /* .form-popup {
+    display: none;
+    position: fixed;
+    top: 15%;
+    bottom: 15%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 9;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+    max-width: 400px;
+    max-height: 800px;
+    overflow: auto;
+    width: 100%;
+} */
+
+.form-container {
+    max-width: 350px;
+    padding: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1px;
+    
+    display: inline-block;
+    border: 1px solid #ccc;
+    /* box-sizing: border-box; */
+    font-size: 16px;
+}
+
+.form-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.cancel {
+    background-color: #f44336;
+}
+
+.toggle-button {
+    cursor: pointer;
+    color: #007bff;
+    margin-left: 10px;
+}
+
+
+    </style>
+
 </head>
 <body>
     <div class="progress-container">
@@ -106,6 +178,7 @@
         <!-- Login Form -->
     <div class="form-popup" id="loginForm">
         <form class="form-container" onsubmit="return validateLoginForm()">
+            <span class="close-icon" onclick="closeForm('login')">&times;</span>
             <h2>Login</h2>
             <label for="loginEmail"><b>Email</b></label>
             <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
@@ -117,31 +190,33 @@
     </div>
     
      <!-- Signup Form -->
-     <div class="form-popup" id="signupForm">
-        <form class="form-container" onsubmit="return validateSignupForm()">
-            <h2>Signup</h2>
-            <div class="form-group">
-                <label for="name"><b>Full Name</b></label>
-                <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="signupEmail"><b>Email</b></label>
-                <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="signupPsw"><b>Password</b></label>
-                <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
-                <span id="togglePassword" class="toggle-button">Show</span>
-            </div>
-            <div class="form-group">
-                <label for="confirmPsw"><b>Confirm Password</b></label>
-                <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
-                <span id="toggleConfirmPassword" class="toggle-button">Show</span>
-            </div>
-            <button type="submit" class="btn">SIGNUP</button>
-            <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
-        </form>
-    </div>
+     
+<div class="form-popup" id="signupForm">
+    <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
+        <span class="close-icon" onclick="closeForm('signup')">&times;</span>
+        <h2 id="headings" class="text-center">Signup</h2>
+        <div class="form-group mb-3">
+            <label for="name"><b>Full Name</b></label>
+            <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
+        </div>
+        <div class="form-group mb-3">
+            <label for="signupEmail"><b>Email</b></label>
+            <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required>
+        </div>
+        <div class="form-group mb-3">
+            <label for="signupPsw"><b>Password</b></label>
+            <input type="password" class="form-control" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+        </div>
+        <div class="form-group mb-3">
+            <label for="confirmPsw"><b>Confirm Password</b></label>
+            <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+        </div>
+        <button type="submit" class="btn btn-primary w-100 mb-3">SIGNUP</button>
+        <button type="button" class="btn btn-secondary w-100" onclick="closeForm('signup')">CLOSE</button>
+    </form>
+</div>
+
+
     <script src="signup.js"></script> <!-- Link to your JavaScript file -->
 
     
@@ -167,12 +242,12 @@
             <div class="container" >
                 <div class="grid" >
                     <!-- article-->
-                    <div class="grid-item" >
+                    <div class="grid-item revel1" >
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img1.jpg" class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img1.jpg" class="img-fluid ">
 
 
                                     </a>
@@ -192,12 +267,12 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel2">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img2.jpg" class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img2.jpg" class="img-fluid ">
 
 
                                     </a>
@@ -219,12 +294,12 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel3">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img3.jpg" class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img3.jpg" class="img-fluid ">
 
 
                                     </a>
@@ -247,7 +322,7 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel1">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
@@ -275,7 +350,7 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel2">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
@@ -304,7 +379,7 @@
                     <!-- article-->
 
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel3">
                         <article class="article">
 
                             <div class="card">
@@ -333,7 +408,7 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel1">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
@@ -361,7 +436,7 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel2">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
@@ -389,7 +464,7 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel3">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
@@ -417,7 +492,7 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel1">
                       <article class="article">
                           <div class="card">
                               <div class="overflow-img">
@@ -445,7 +520,7 @@
                   </div>
                   <!-- article-->
                   <!-- article-->
-                  <div class="grid-item">
+                  <div class="grid-item revel2">
                     <article class="article">
                         <div class="card">
                             <div class="overflow-img">
@@ -473,7 +548,7 @@
                 </div>
                 <!-- article-->
                 <!-- article-->
-                <div class="grid-item">
+                <div class="grid-item revel3">
                   <article class="article">
                       <div class="card">
                           <div class="overflow-img">
@@ -502,7 +577,7 @@
               </div>
               <!-- article-->
               <!-- article-->
-              <div class="grid-item">
+              <div class="grid-item revel1">
                 <article class="article">
                     <div class="card">
                         <div class="overflow-img">
@@ -528,7 +603,7 @@
             </div>
             <!-- article-->
             <!-- article-->
-            <div class="grid-item">
+            <div class="grid-item revel2">
               <article class="article">
                   <div class="card">
                       <div class="overflow-img">
@@ -716,7 +791,7 @@
 
 
     </main>
-
+    <button id="backToTop" style="display: none;">Back to Top</button>
     <!--mainn-->
     <!-- footer -->
     <footer id="footer">
@@ -876,5 +951,38 @@
     <script src="faq.js"></script>
     <script src="progress_bar.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <button id="backToTop" style="display: none;">
+        Back to top 
+      </button>
+      <script>
+        window.addEventListener("scroll", function() {
+  var scrollPosition = window.scrollY;
+  var height = document.body.offsetHeight - window.innerHeight;
+  if (scrollPosition > height / 2) {
+    document.getElementById("backToTop").style.display = "block";
+  } else {
+    document.getElementById("backToTop").style.display = "none";
+  }
+});
+
+document.getElementById("backToTop").addEventListener("click", function() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+      </script>
+
+<script>
+    // Initialize ScrollReveal
+    ScrollReveal({
+        reset:true,
+        distance:'60px',
+        duration:2500,
+        delay:400
+       }) ;
+       ScrollReveal().reveal('.revel1',{ delay:5,origin:'left'});
+       ScrollReveal().reveal('.revel2',{ delay:5,origin:'bottom'});
+       ScrollReveal().reveal('.revel3',{ delay:5,origin:'right'});
+</script>
+
+
 </body>
 </html>

@@ -1,6 +1,6 @@
-.form-popup {
-    display: none; /* Initially hidden */
-    position: fixed;
+/* .form-popup {
+    display: none; Initially hidden */
+    /* position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -22,14 +22,14 @@
     color: white;
     border: none;
     cursor: pointer;
-}
-.btn.cancel {
-    background-color: #dc3545; /* Red for cancel button */
-}
-.toggle-button {
+} */
+/* .btn.cancel {
+    background-color: #dc3545; Red for cancel button */
+/* } */
+/* .toggle-button {
     cursor: pointer;
     margin-left: 5px;
 }
 .form-group {
     margin-bottom: 15px;
-}
+} */

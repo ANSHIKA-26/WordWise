@@ -67,7 +67,7 @@ img {
   /* Light Theme Colors */
   --light: #f0e4d7;
   --secondary: #2d545e;
-  --dark: #3b3b58;
+  --dark: black;
   --primary-color: #f4978e;
   --secondary-color: #c1c8e4;
   --border: #ddbea9;
@@ -151,6 +151,86 @@ html, body {
 }
 
 
+.form-popup {
+  display: none;
+    position: fixed;
+    top: 15%;
+    bottom: 15%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 9;
+  background-color: var(--light-bg); /* Default light mode background */
+  border: 1px solid #888;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+    /* max-width: 400px;
+    max-height: 80%; */
+    overflow: auto;
+    width: 80%;
+    height: 70%;
+  overflow-y: auto;
+  transition: background-color 0.3s ease;
+}
+
+/* Dark mode form background */
+[data-theme="dark"] .form-popup {
+  background-color: var(--dark); /* Dark mode background */
+}
+
+#headings{
+    color: var(--dark);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
+    font-size: 36px;
+}
+
+#headings:hover{
+  transform: scale(1.1);
+}
+
+[data-theme="dark"] #headings{
+  color: var(--light);
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.85);
+}
+
+.close-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--dark); /* Color of the close "X" */
+  transition: transform 0.5s;
+}
+
+.close-icon:hover {
+  color: #ff0000; /* Optional: Change color on hover */
+  transform: rotate(180deg)
+}
+
+[data-theme="dark"] .close-icon{
+background: var(--light);
+}
+
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+#backToTop:hover {
+  background-color: #3e8e41;
+}
 
 
 
