@@ -430,7 +430,7 @@ background: var(--light);
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #4CAF50;
+  background-color: lightblue;
   color: #fff;
   padding: 10px 15px;
   border: none;
@@ -443,7 +443,7 @@ background: var(--light);
 
 
 #backToTop:hover {
-  background-color: #3e8e41;
+  background-color: skyblue;
 }
 
 
