@@ -76,7 +76,17 @@
     </style>
 
 </head>
-<body>
+<body onload="Finish_Loader()">
+ <!-- pre load -->
+    <div id="loader">
+<div class="loadingspinner">
+  <div id="square1"></div>
+  <div id="square2"></div>
+  <div id="square3"></div>
+  <div id="square4"></div>
+  <div id="square5"></div>
+</div>
+    </div>
     <div class="progress-container">
         <div class="progress-bar" id="progress-bar"></div>
       </div>
@@ -557,8 +567,8 @@
           <!-- article-->
 
                 </div>
-                <div class="text-center">
-                    <button class="btn load-posts-btn secondary-title text-light" style="height:50px;width:200px;font-size: large;">Load More Posts...</button>
+                <div style="display: flex;justify-content: center;">
+                    <button class="btn load-posts-btn secondary-title text-light" style="height:50px;width:200px;font-size: large;border-radius: 20px;">Load More Posts...</button>
               </div>
             </div>
 
@@ -701,8 +711,9 @@
       <p>Stay updated with the latest articles and insights from WordWise.</p>
       <form class="wordwise-newsletter-form" id="newsletterForm" novalidate>
         <input type="email" id="emailInput" placeholder="Enter your email address" required>
-        <button type="submit">Subscribe</button>
-      </form>
+        <div id="error-message" style="color: red; display: none;">Please include '@' in your email address.</div>
+        <div id="sub"><button type="submit">Subscribe</button></div>
+    </form>
     </div>
     
     <!-- Toast Popup -->
@@ -863,16 +874,16 @@
     <script src="darkMode.js"></script>
 
 
-    <!-- this script is to display the year in the copyright authentication in the footer -->
+    this script is to display the year in the copyright authentication in the footer
     <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-        // /preloader js styling
-        let preloader = document.querySelector("#preloader");
-        window.addEventListener("load",function(e){
-            preloader.style.display = "none";
-        });
+       
+// For Loader Page
+const preloader = document.querySelector("#loader");
+function Finish_Loader(){
+    preloader.style.display = "none";
+}
     </script>
-    
+    <script src="script.js"></script>
     <script src="faq.js"></script>
     <script src="progress_bar.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

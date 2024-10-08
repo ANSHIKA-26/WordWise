@@ -5,52 +5,266 @@ githu * {
   padding: 0;
   box-sizing: border-box;
 }
-#preloader{
-  background: #ddbea9;
-  height: 100vh;
-  width: 100%;
+/* Adding loader styling */
+#loader{
+ height: 100vh;
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
   position: fixed;
-  z-index: 200;
+  background: rgb(248, 214, 104) center;
+  z-index: 99;
 }
-.loader {
-  width: 250px;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
+/* From Uiverse.io by Nawsome */ 
+.loadingspinner {
+  --square: 26px;
+  --offset: 30px;
+  --duration: 2.4s;
+  --delay: 0.2s;
+  --timing-function: ease-in-out;
+  --in-duration: 0.4s;
+  --in-delay: 0.1s;
+  --in-timing-function: ease-out;
+  width: calc( 3 * var(--offset) + var(--square));
+  height: calc( 2 * var(--offset) + var(--square));
+  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.loadingspinner div {
+  display: inline-block;
+  background: darkorange;
+    /*background: var(--text-color);*/
+    /*box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);*/
+  border: none;
+  border-radius: 2px;
+  width: var(--square);
+  height: var(--square);
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  font-family: helvetica, arial, sans-serif;
-  text-transform: uppercase;
-  font-weight: 900;
-  color: #ce4233;
-  letter-spacing: 0.2em;
-  
-  &::before, &::after {
-    content: "";
-    display: block;
-    width: 15px;
-    height: 15px;
-    background: #ce4233;
-    position: absolute;
-    animation: load .7s infinite alternate ease-in-out;
+  padding: 0px;
+  margin: 0px;
+  font-size: 6pt;
+  color: black;
+}
+
+.loadingspinner #square1 {
+  left: calc( 0 * var(--offset) );
+  top: calc( 0 * var(--offset) );
+  animation: square1 var(--duration) var(--delay) var(--timing-function) infinite,
+               squarefadein var(--in-duration) calc(1 * var(--in-delay)) var(--in-timing-function) both;
+}
+
+.loadingspinner #square2 {
+  left: calc( 0 * var(--offset) );
+  top: calc( 1 * var(--offset) );
+  animation: square2 var(--duration) var(--delay) var(--timing-function) infinite,
+              squarefadein var(--in-duration) calc(1 * var(--in-delay)) var(--in-timing-function) both;
+}
+
+.loadingspinner #square3 {
+  left: calc( 1 * var(--offset) );
+  top: calc( 1 * var(--offset) );
+  animation: square3 var(--duration) var(--delay) var(--timing-function) infinite,
+               squarefadein var(--in-duration) calc(2 * var(--in-delay)) var(--in-timing-function) both;
+}
+
+.loadingspinner #square4 {
+  left: calc( 2 * var(--offset) );
+  top: calc( 1 * var(--offset) );
+  animation: square4 var(--duration) var(--delay) var(--timing-function) infinite,
+               squarefadein var(--in-duration) calc(3 * var(--in-delay)) var(--in-timing-function) both;
+}
+
+.loadingspinner #square5 {
+  left: calc( 3 * var(--offset) );
+  top: calc( 1 * var(--offset) );
+  animation: square5 var(--duration) var(--delay) var(--timing-function) infinite,
+               squarefadein var(--in-duration) calc(4 * var(--in-delay)) var(--in-timing-function) both;
+}
+
+@keyframes square1 {
+  0% {
+    left: calc( 0 * var(--offset) );
+    top: calc( 0 * var(--offset) );
   }
-  
-  &::before {
-    top: 0;
+
+  8.333% {
+    left: calc( 0 * var(--offset) );
+    top: calc( 1 * var(--offset) );
   }
-  
-  &::after {
-    bottom: 0;
+
+  100% {
+    left: calc( 0 * var(--offset) );
+    top: calc( 1 * var(--offset) );
   }
 }
 
-@keyframes load {
-  0% { left: 0; height: 30px; width: 15px }
-  50% { height: 8px; width: 40px }
-  100% { left: 235px; height: 30px; width: 15px}
+@keyframes square2 {
+  0% {
+    left: calc( 0 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  8.333% {
+    left: calc( 0 * var(--offset) );
+    top: calc( 2 * var(--offset) );
+  }
+
+  16.67% {
+    left: calc( 1 * var(--offset) );
+    top: calc( 2 * var(--offset) );
+  }
+
+  25.00% {
+    left: calc( 1 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  83.33% {
+    left: calc( 1 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  91.67% {
+    left: calc( 1 * var(--offset) );
+    top: calc( 0 * var(--offset) );
+  }
+
+  100% {
+    left: calc( 0 * var(--offset) );
+    top: calc( 0 * var(--offset) );
+  }
 }
+
+@keyframes square3 {
+  0%,100% {
+    left: calc( 1 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  16.67% {
+    left: calc( 1 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  25.00% {
+    left: calc( 1 * var(--offset) );
+    top: calc( 0 * var(--offset) );
+  }
+
+  33.33% {
+    left: calc( 2 * var(--offset) );
+    top: calc( 0 * var(--offset) );
+  }
+
+  41.67% {
+    left: calc( 2 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  66.67% {
+    left: calc( 2 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  75.00% {
+    left: calc( 2 * var(--offset) );
+    top: calc( 2 * var(--offset) );
+  }
+
+  83.33% {
+    left: calc( 1 * var(--offset) );
+    top: calc( 2 * var(--offset) );
+  }
+
+  91.67% {
+    left: calc( 1 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+}
+
+@keyframes square4 {
+  0% {
+    left: calc( 2 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  33.33% {
+    left: calc( 2 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  41.67% {
+    left: calc( 2 * var(--offset) );
+    top: calc( 2 * var(--offset) );
+  }
+
+  50.00% {
+    left: calc( 3 * var(--offset) );
+    top: calc( 2 * var(--offset) );
+  }
+
+  58.33% {
+    left: calc( 3 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  100% {
+    left: calc( 3 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+}
+
+@keyframes square5 {
+  0% {
+    left: calc( 3 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  50.00% {
+    left: calc( 3 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  58.33% {
+    left: calc( 3 * var(--offset) );
+    top: calc( 0 * var(--offset) );
+  }
+
+  66.67% {
+    left: calc( 2 * var(--offset) );
+    top: calc( 0 * var(--offset) );
+  }
+
+  75.00% {
+    left: calc( 2 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+
+  100% {
+    left: calc( 2 * var(--offset) );
+    top: calc( 1 * var(--offset) );
+  }
+}
+
+@keyframes squarefadein {
+  0% {
+    transform: scale(0.75);
+    opacity: 0.0;
+  }
+
+  100% {
+    transform: scale(1.0);
+    opacity: 1.0;
+  }
+}
+  /* To This */
+
 /*
 font-family: 'Nunito Sans', sans-serif;
 font-family: 'Roboto', sans-serif;
@@ -199,6 +413,14 @@ position: relative; /* Position for the underline */
 padding-bottom: 5px; /* Add space for the underline */
 /* margin: 0.3rem; */
 
+}
+
+.load-posts-btn {
+  transition: transform 330ms ease-in-out;
+}
+
+.load-posts-btn:hover{
+   transform: scaleX(1.2);
 }
 .auth-buttons {
   display: flex;
@@ -1757,60 +1979,152 @@ footer p {
   margin: 10px 0 0 0;
   text-align: center;
 }
-
 /* WordWise Newsletter Section Styling */
 .wordwise-newsletter-section {
   background-color: #f8b5b5;
-  padding: 50px 20px;
+  padding: 60px 20px;
   text-align: center;
-  border-radius: 10px;
-  margin-top: 10px;
+  border-radius: 15px;
+  margin-top: 20px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .wordwise-newsletter-container h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .wordwise-newsletter-container p {
-  font-size: 1.2rem;
-  color: #666;
-  margin-bottom: 20px;
+  font-size: 1.3rem;
+  color: #555;
+  margin-bottom: 25px;
 }
 
 .wordwise-newsletter-form input[type="email"] {
-  padding: 10px;
-  font-size: 1rem;
-  width: 60%;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  margin-right: 10px;
+  padding: 12px 15px;
+  font-size: 1.1rem;
+  width: 55%;
+  max-width: 450px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  margin-right: 15px;
+  transition: border 0.3s ease;
+}
+
+.wordwise-newsletter-form input[type="email"]:focus {
+  border-color: #333;
+  outline: none;
+}
+
+/* Button Container for Centering */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .wordwise-newsletter-form button {
-  padding: 10px 20px;
-  font-size: 1rem;
+  padding: 12px 30px;
+  font-size: 1.1rem;
   background-color: #333;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .wordwise-newsletter-form button:hover {
   background-color: #555;
+  transform: translateY(-2px);
+}
+
+.wordwise-newsletter-form button:active {
+  transform: translateY(0);
+}
+
+/* Toast Popup Styling */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Success Message After Clicking Subscribe */
+.success-message {
+  font-size: 1.5rem;
+  color: #4caf50;
+  margin-top: 30px;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Form Disappear After Success */
+.wordwise-newsletter-form.hide-form {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 /* Responsive for smaller screens */
 @media (max-width: 768px) {
   .wordwise-newsletter-form input[type="email"] {
-    width: 80%;
-    margin-bottom: 10px;
+    width: 85%;
+    margin-bottom: 15px;
   }
 
   .wordwise-newsletter-form button {
-    width: 100%;
+    width: 85%;
+    padding: 12px;
+  }
+}
+
+/* Toast Styling */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .wordwise-newsletter-form input[type="email"] {
+    width: 85%; /* Wider input for mobile */
+    margin-bottom: 15px;
+  }
+
+  .wordwise-newsletter-form button {
+    width: 85%; /* Full-width button on mobile */
+    padding: 12px;
   }
 }
 
@@ -1979,4 +2293,55 @@ footer p {
 .comment-input,.comment-input2,.form-control::placeholder{
  text-align: center;
  font-size: 18px;
+}
+/* Apply flexbox to the form container */
+.wordwise-newsletter-form {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Horizontally center the items */
+  justify-content: center; /* Vertically center the items */
+  min-height: 10vh; /* Make sure the form covers the full screen height */
+}
+
+/* Style for the button container */
+#sub {
+  display: flex;
+  justify-content: center; /* Horizontally center the button */
+  width: 100%; /* Ensure it spans the width of the form */
+}
+
+/* Style the button */
+.wordwise-newsletter-form button {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.wordwise-newsletter-form button:hover {
+  background-color: #555;
+  transform: translateY(-2px);
+}
+
+.wordwise-newsletter-form button:active {
+  transform: translateY(0);
+}
+
+/* Input field styling */
+.wordwise-newsletter-form input[type="email"] {
+  padding: 12px 15px;
+  font-size: 1.1rem;
+  width: 60%; /* Adjust width as needed */
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px; /* Add space between input and button */
+}
+
+.wordwise-newsletter-form input[type="email"]:focus {
+  border-color: #333;
+  outline: none;
 }
