@@ -2125,7 +2125,7 @@ footer p {
 }
 ////////////////////////////
 /* General Styles */
-/* General Styles */
+//* General Styles */
 * {
   margin: 0;
   padding: 0;
@@ -2169,21 +2169,22 @@ a.nav-link {
   background-color: #ddd;
 }
 
-/* Specific for Popular Tags */
+/* Styling for Popular Tags */
 .tags a {
   background-color: #e6e6e6;
   border-radius: 8px;
   padding: 12px 20px;
-  transition: 0.3s;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .tags a:hover {
   background-color: #d4d4d4;
+  color: #000; /* Dark text color on hover */
 }
 
 /* Social Icons */
 .tags.social a {
-  background-color: transparent; /* Transparent background in normal state */
+  background-color: transparent;
   color: #333;
   padding: 10px;
   border-radius: 50%;
@@ -2194,13 +2195,17 @@ a.nav-link {
 }
 
 .tags.social a i {
-  color: inherit; /* Icon color is inherited from parent */
+  color: inherit; /* Inherit icon color */
 }
 
-/* Hover Effect: Show background and slightly zoom on hover */
+/* Hover Effect: Slight Zoom and Background Change */
 .tags.social a:hover {
   transform: scale(1.1);
-  background-color: rgba(0, 0, 0, 0.1); /* Subtle background on hover */
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.tags.social a:hover i {
+  color: #000; /* Darken icon color on hover */
 }
 
 /* Social Media Colors (Icon colors only, no background) */
@@ -2220,7 +2225,7 @@ a.nav-link {
   color: #ea4c89; /* Dribbble */
 }
 
-/* Hover Effects for Social Media: Light Transparent Background */
+/* Social Media Hover Effects */
 .tags.social a:hover:nth-child(1) {
   background-color: rgba(59, 89, 152, 0.1); /* Facebook hover background */
 }
@@ -2249,33 +2254,33 @@ a.nav-link {
 
 /* Social Icons Container */
 .tags.social {
-  display: flex; /* Align icons in a row */
+  display: flex;
   gap: 10px; /* Space between icons */
 }
 
-/* Individual Icon Styles */
+/* Social Icon Styles */
 .tags.social a {
-  width: 50px; /* Set width */
-  height: 50px; /* Set height equal to width for circular shape */
-  background-color: transparent; /* Transparent background */
-  border-radius: 50%; /* Make it circular */
-  display: flex; /* Use flexbox for alignment */
-  align-items: center; /* Center icons vertically */
-  justify-content: center; /* Align icons to the center */
-  font-size: 24px; /* Larger icon size */
-  transition: transform 0.4s ease, box-shadow 0.4s ease; /* Smooth transition */
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Hover Effect: Zoom and Subtle Shadow */
+/* Hover Effect: Slight Zoom and Shadow */
 .tags.social a:hover {
-  transform: scale(1.2); /* Zoom in slightly on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Add a subtle shadow */
+  transform: scale(1.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Remove hover background, keeping only color transitions */
+/* Ensure background remains transparent on hover */
 .tags.social a:hover:nth-child(1),
 .tags.social a:hover:nth-child(2),
 .tags.social a:hover:nth-child(3),
 .tags.social a:hover:nth-child(4) {
-  background-color: transparent; /* Ensure the background remains transparent on hover */
+  background-color: transparent;
 }
