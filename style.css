@@ -943,11 +943,7 @@ a {
   background-color: var(--background-color);
 }
 
-.container {
-  max-width: 1200px;
-  padding: 0 15px;
-  margin: auto;
-}
+
 
 .img-fluid {
   width: 93%;
@@ -1068,16 +1064,6 @@ a {
   cursor : pointer ;
 }
 
-.grid {
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.grid .grid-item {
-  margin-bottom: 3em;
-}
 .sliderr * {
   margin: 0;
   padding: 0;
@@ -1359,9 +1345,43 @@ a {
   max-width: 33.333%;
 }
 
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: auto auto;
+}
+
+.grid {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid .grid-item {
+  margin-bottom: 3em;
+}
+
+.card{
+  width: 100%;
+  /* margin: 0 auto; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  
+
+}
 @media (max-width: 1024px) {
   .row {
     flex-wrap: wrap;
+  }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    /* width: 100%; */
   }
 }
 
@@ -1369,11 +1389,29 @@ a {
   .navbar {
     flex-direction: column;
   }
+  .grid{
+    grid-template-columns: repeat(2, 1fr);
+    /* width: 100%; */
+  }
+  .grid-item {
+    flex: 0 0 100%;
+    max-width: calc(100% - 50px);
+    padding-top: 40px 50px;
+  }
 }
 
 @media (max-width: 768px) {
-  .grid .grid-item {
-    width: calc(50% - 20px);
+  .grid  {
+    /* width: calc(50% - 20px); */
+    /* width: 100%; */
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
+    align-items: center;
+  }
+  .grid-item {
+    flex: 0 0 100%;
+    max-width: calc(100% - 50px);
+    padding-top: 40px 50px;
   }
 
   .col-3 {
