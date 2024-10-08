@@ -20,6 +20,45 @@
     <link rel="stylesheet" href="Scroll_and_progressbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px; /* Adjust as needed */
+            right: 20px; /* Adjust as needed */
+            z-index: 1000; /* Ensure it appears above other elements */
+        }
+
+        .chatbot-button {
+            background-color: #007bff; /* Change to your preferred color */
+            border: none;
+            border-radius: 50%;
+            padding: 5px; /* Smaller padding */
+            cursor: pointer;
+            position: relative;
+            width: 50px; /* Adjusted size */
+            height: 50px; /* Adjusted size */
+        }
+
+        .chatbot-button img {
+            width: 30px; /* Adjusted image size */
+            height: 30px; /* Adjusted image size */
+        }
+
+        .tooltip-text {
+            display: none; /* Hide by default */
+            position: absolute;
+            bottom: 100%; /* Position above the button */
+            right: 50%;
+            transform: translateX(50%);
+            background-color: #333; /* Background color for tooltip */
+            color: #fff; /* Tooltip text color */
+            padding: 5px;
+            border-radius: 5px;
+            white-space: nowrap; /* Prevent text from wrapping */
+        }
+
+        .chatbot-button:hover .tooltip-text {
+            display: block; /* Show on hover */
+        }
          @media (max-width: 1200px) {
     .footer-container {
       padding: 20px;
@@ -722,13 +761,20 @@
 
 <!-- Include the Newsletter.js script file -->
 <script src="./backend/newsLetter.js"></script>
-
-  
-
-
     </main>
 
     <!--mainn-->
+    <a href="chatbot.html">
+        <div class="fixed bottom-0 right-2 chatbot-container">
+            <button class="chatbot-button group">
+                <img class="h-20" src="chatbot.gif" alt="chatbot">
+                <span class="tooltip-text">
+                    Welcome to Word Wise! <br>
+                    How can I help You? ^_^ 
+                </span>
+            </button>
+        </div>
+    </a>
     <!-- footer -->
     <footer id="footer">
       <div class="footer-container">
@@ -859,7 +905,6 @@
           <p>Designed by Anshika</p>
         </div>
     </div>
-      
       
   </footer>
 <!-- .footer -->
