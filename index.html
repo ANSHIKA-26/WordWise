@@ -712,8 +712,9 @@
       <p>Stay updated with the latest articles and insights from WordWise.</p>
       <form class="wordwise-newsletter-form" id="newsletterForm" novalidate>
         <input type="email" id="emailInput" placeholder="Enter your email address" required>
-        <div id="sub"><button type="submit" id="">Subscribe</button></div>
-      </form>
+        <div id="error-message" style="color: red; display: none;">Please include '@' in your email address.</div>
+        <div id="sub"><button type="submit">Subscribe</button></div>
+    </form>
     </div>
     
     <!-- Toast Popup -->
