@@ -1,188 +1,104 @@
-let toggle = document.querySelector("#header .toggle-button");
-let collapse = document.querySelectorAll("#header .collapse");
-
-
-toggle.addEventListener('click', function () {
-  collapse.forEach(col => col.classList.toggle("collapse-toggle"));
-})
-//swiper library
-// main.js
 document.addEventListener('DOMContentLoaded', function () {
-  var swiper = new Swiper('.swiper-container', {
-    direction: 'horizontal',
-    loop: true,
-    slidesPerView: 1,
-    autoplay: {
-      delay: 3000
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  });
-       detectColorScheme();
- });
 
-window.onscroll = function () { myFunction() };
+    // Toggle button functionality
+    const toggle = document.querySelector("#header .toggle-button");
+    const collapse = document.querySelectorAll("#header .collapse");
 
-
-// get the current value
-let navbar = document.getElementById("header");
-
-
-// get the navbar position
-let sticky = navbar.offsetTop;
-
-
-// sticky function
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky");
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}
-
-// Open the specific form (login or signup)
-function openForm(formType) {
-  if (formType === 'login') {
-      document.getElementById('loginForm').style.display = 'block';
-  } else if (formType === 'signup') {
-      document.getElementById('signupForm').style.display = 'block';
-  }
-}
-
-// Close the specific form
-function closeForm(formType) {
-  if (formType === 'login') {
-      document.getElementById('loginForm').style.display = 'none';
-  } else if (formType === 'signup') {
-      document.getElementById('signupForm').style.display = 'none';
-  }
-}
-
-function openForgotPassword() {
-  document.getElementById('loginForm').style.display = 'none';
-  document.getElementById('email').value = '';
-  document.getElementById('forgot-password-modal').style.display = 'block';
-}
-
-// Close Forgot Password Modal
-function closeForgotPasswordModal() {
-  document.getElementById('email').value = '';
-  document.getElementById('forgot-password-modal').style.display = 'none';
-}
-
-// Simulate form submission for Forgot Password
-function submitForgotPassword() {
-  const email = document.getElementById('email').value;
-  if (email) {
-    alert("Password reset instructions have been sent to " + email);
-    closeForgotPasswordModal(); // Close modal after submission
-  } else {
-    alert("Please enter your email.");
-  }
-}
-
-// Close modal when clicking outside of it
-window.onclick = function(event) {
-  const modal = document.getElementById('forgot-password-modal');
-  if (event.target == modal) {
-    modal.style.display = 'none';
-  }
-};
-
-
-
-
-//Active Nav bar 
-const navLinks = document.querySelectorAll('.nav-link');
-const setActiveLink = () => {
-  const activePath = localStorage.getItem('activeLink');
-  if (activePath) {
-    navLinks.forEach(link => {
-      const linkHref = link.getAttribute('href');
-      if (linkHref === activePath) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-  }
-};
-
-document.addEventListener('DOMContentLoaded', setActiveLink);
-
-navLinks.forEach(link => {
-  link.addEventListener('click', function() {
-    navLinks.forEach(link => link.classList.remove('active'));
-
-    this.classList.add('active');
-
-    localStorage.setItem('activeLink', this.getAttribute('href'));
-  });
-});
-
-
-function detectColorScheme() {
-  var theme = "light";   
-
-
-  //local storage is used to override OS theme settings
-  if (localStorage.getItem("theme")) {
-    if (localStorage.getItem("theme") == "dark") {
-      var theme = "dark";
+    if (toggle) {
+      toggle.addEventListener('click', function () {
+        collapse.forEach(col => col.classList.toggle("collapse-toggle"));
+      });
     }
-  } else if (!window.matchMedia) {
-    //matchMedia method not supported
-    return false;
-  } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    //OS theme setting detected as dark
-    var theme = "dark";
-  }
 
+    // Initialize Swiper
+    const swiper = new Swiper('.swiper-container', {
+      direction: 'horizontal',
+      loop: true,
+      slidesPerView: 1,
+      autoplay: {
+        delay: 3000
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
 
-  //dark theme preferred, set document with a `data-theme` attribute
-  if (theme == "dark") {
-    let toggleSwitch = document.querySelector('#theme-switch input[type="checkbox"]');
-    document.documentElement.setAttribute("data-theme", "dark");
-    toggleSwitch.checked = true;
-  }
-}
+    detectColorScheme();
 
+    // Sticky Navbar
+    const navbar = document.getElementById("header");
+    const sticky = navbar ? navbar.offsetTop : 0;
 
-//identify the toggle switch HTML element
-const toggleSwitch = document.querySelector('#theme-switch input[type="checkbox"]');
+    window.onscroll = function () {
+      if (navbar) {
+        navbar.classList.toggle("sticky", window.pageYOffset >= sticky);
+      }
+    };
 
+    // Theme Toggle
+    const toggleSwitch = document.querySelector('#theme-switch input[type="checkbox"]');
 
-//function that changes the theme, and sets a localStorage variable to track the theme between page loads
-function switchTheme(e) {
-  if (e.target.checked) {
-    localStorage.setItem('theme', 'dark');
-    document.documentElement.setAttribute('data-theme', 'dark');
-    toggleSwitch.checked = true;
-  } else {
-    localStorage.setItem('theme', 'light');
-    document.documentElement.setAttribute('data-theme', 'light');
-    toggleSwitch.checked = false;
-  }
-}
+    if (toggleSwitch) {
+      toggleSwitch.addEventListener('change', switchTheme, false);
+    }
 
+    // Initialize theme
+    if (document.documentElement.getAttribute("data-theme") === "dark") {
+      toggleSwitch.checked = true;
+    }
 
-//listener for changing themes
-toggleSwitch.addEventListener('change', switchTheme, false);
+    // Smooth Scrolling to About Section
+    const aboutLink = document.querySelector('#about');
+    if (aboutLink) {
+      aboutLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        document.querySelector('#about-us').scrollIntoView({ behavior: 'smooth' });
+      });
+    }
 
+    // Active Navigation Links
+    const navLinks = document.querySelectorAll('.nav-link');
 
-//pre-check the dark-theme checkbox if dark-theme is set
-if (document.documentElement.getAttribute("data-theme") == "dark") {
-  toggleSwitch.checked = true;
-}
+    const setActiveLink = () => {
+      const activePath = localStorage.getItem('activeLink');
+      navLinks.forEach(link => {
+        const linkHref = link.getAttribute('href');
+        link.classList.toggle('active', linkHref === activePath);
+      });
+    };
 
-document.querySelector('#about').addEventListener('click', function(event) {
-  event.preventDefault();
-  document.querySelector('#about-us').scrollIntoView({ behavior: 'smooth' });
+    setActiveLink();
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        navLinks.forEach(link => link.classList.remove('active'));
+        this.classList.add('active');
+        localStorage.setItem('activeLink', this.getAttribute('href'));
+      });
+    });
 });
+
+// Theme Detection
+function detectColorScheme() {
+    let theme = localStorage.getItem("theme") ||
+                (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+
+    document.documentElement.setAttribute("data-theme", theme);
+
+    const toggleSwitch = document.querySelector('#theme-switch input[type="checkbox"]');
+    if (toggleSwitch) {
+        toggleSwitch.checked = (theme === "dark");
+    }
+}
+
+// Theme Switch Function
+function switchTheme(e) {
+    const theme = e.target.checked ? 'dark' : 'light';
+    localStorage.setItem('theme', theme);
+    document.documentElement.setAttribute('data-theme', theme);
+}
