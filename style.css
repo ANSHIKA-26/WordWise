@@ -826,8 +826,8 @@ button {
 .form-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 10px;
+  align-items: left;
+  padding: 5% 15%;
 }
 
 .form-container h1 {
@@ -864,6 +864,7 @@ button {
   outline: none;
   color: var(--text-color);
   font-size: 18px;
+  
 }
 
 .form-container input::placeholder {
