@@ -53,13 +53,16 @@ function togglePasswordVisibility(inputId, toggleButtonId) {
   toggleButton.textContent = type === "password" ? "Show" : "Hide";
 }
 
-// Add event listeners for toggle buttons
-document.getElementById("togglePassword").addEventListener("click", function() {
-  togglePasswordVisibility("signupPsw", "togglePassword");
-});
+document.addEventListener("DOMContentLoaded", function() {
 
-document.getElementById("toggleConfirmPassword").addEventListener("click", function() {
-  togglePasswordVisibility("confirmPsw", "toggleConfirmPassword");
+    // Add event listeners for toggle buttons
+    document.getElementById("toggleSignupPassword").addEventListener("click", function() {
+    togglePasswordVisibility("signupPsw", "toggleSignupPassword");
+    });
+
+    document.getElementById("toggleConfirmPassword").addEventListener("click", function() {
+    togglePasswordVisibility("confirmPsw", "toggleConfirmPassword");
+    });
 });
 
 // Functions to open and close the form
