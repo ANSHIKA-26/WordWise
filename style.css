@@ -800,6 +800,12 @@ button {
   color: blue;
 }
 
+.google-logo {
+  width: 20px; /* Adjust the size as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 10px; /* Space between logo and text */
+}
+
 /* Form Popup */
 .form-popup {
   display: none;
@@ -880,9 +886,29 @@ button {
   align-items: center;
 }
 
+
+.form-container .google-btn {
+  background-color: white; /* Google Red */
+  color: black;
+  border: none;
+  padding: 10px 15px;
+  width: 100%;
+  cursor: pointer;
+  margin-top: 10px; /* space between buttons */
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+
 .form-container .btn:hover {
   background-color: #333333;
   color: var(--body-bg);
+}
+
+
+.form-container .google-btn:hover {
+  background-color: rgb(235, 207, 207); /* Darker shade on hover */
+  color: #000;
 }
 
 .form-container .cancel {
