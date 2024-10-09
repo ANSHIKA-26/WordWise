@@ -421,11 +421,14 @@
             &copy; <span id="current-year"></span> WordWise. All rights
             reserved.
           </p>
-          <p>Designed by Anshika</p>
         </div>
       </div>
     </footer>
     <!-- .footer -->
+     <!-- this script is to display the year in the copyright authentication in the footer -->
+    <script>
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
 
     <script src="start_writing.js"></script>
     <script src="main.js"></script>
