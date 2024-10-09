@@ -157,10 +157,6 @@ img {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .new-category-box {
-
-  }
-
   .category-row {
     flex-direction: column;
     align-items: center;
