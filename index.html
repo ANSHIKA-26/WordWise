@@ -183,45 +183,131 @@
         </div> 
     
         <!-- Login Form -->
-    <div class="form-popup" id="loginForm">
-        <form class="form-container" onsubmit="return validateLoginForm()">
-            <span class="close-icon" onclick="closeForm('login')">&times;</span>
-            <h2>Login</h2>
+<!-- Login Form -->
+<div class="form-popup" id="loginForm">
+    <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
+        <span class="close-icon" onclick="closeForm('login')">&times;</span>
+        <h2 class="text-center">Login</h2>
+        <div class="form-group">
             <label for="loginEmail"><b>Email</b></label>
-            <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
+            <input type="email" class="form-control" id="loginEmail" placeholder="Enter Email" name="email" required>
+        </div>
+        <div class="form-group position-relative">
             <label for="loginPsw"><b>Password</b></label>
-            <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
-            <button type="submit" class="btn">LOGIN</button>
-            <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
-        </form>
-    </div>
-    
-     <!-- Signup Form -->
-     
+            <input type="password" class="form-control" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+            <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 mb-3">LOGIN</button>
+        <button type="button" class="btn btn-secondary w-100" onclick="closeForm('login')">CLOSE</button>
+    </form>
+</div>
+
+<!-- Signup Form -->
 <div class="form-popup" id="signupForm">
     <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
         <span class="close-icon" onclick="closeForm('signup')">&times;</span>
-        <h2 id="headings" class="text-center">Signup</h2>
-        <div class="form-group mb-3">
+        <h2 class="text-center">Signup</h2>
+        <div class="form-group">
             <label for="name"><b>Full Name</b></label>
             <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
         </div>
-        <div class="form-group mb-3">
+        <div class="form-group">
             <label for="signupEmail"><b>Email</b></label>
             <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required>
         </div>
-        <div class="form-group mb-3">
+        <div class="form-group position-relative">
             <label for="signupPsw"><b>Password</b></label>
             <input type="password" class="form-control" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+            <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
         </div>
-        <div class="form-group mb-3">
+        <div class="form-group position-relative">
             <label for="confirmPsw"><b>Confirm Password</b></label>
             <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+            <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
         </div>
         <button type="submit" class="btn btn-primary w-100 mb-3">SIGNUP</button>
         <button type="button" class="btn btn-secondary w-100" onclick="closeForm('signup')">CLOSE</button>
     </form>
 </div>
+
+<!-- Toggle Password Visibility Script -->
+<script>
+    function togglePasswordVisibility(passwordFieldId, iconId) {
+        const passwordField = document.getElementById(passwordFieldId);
+        const togglePassword = document.getElementById(iconId);
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            togglePassword.classList.remove('bi-eye');
+            togglePassword.classList.add('bi-eye-slash');
+        } else {
+            passwordField.type = 'password';
+            togglePassword.classList.remove('bi-eye-slash');
+            togglePassword.classList.add('bi-eye');
+        }
+    }
+</script>
+
+<!-- Styles -->
+<style>
+    .form-popup {
+        width: 100%;
+        max-width: 400px;
+        margin: auto;
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn {
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+
+    .eye-icon {
+        position: absolute;
+        right: 15px;
+        top: 38px;
+        cursor: pointer;
+        color: #007bff;
+    }
+
+    .close-icon {
+        font-size: 24px;
+        cursor: pointer;
+        float: right;
+    }
+
+    .position-relative {
+        position: relative;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    .btn-secondary:hover {
+        background-color: #6c757d;
+    }
+</style>
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
 
     <script src="signup.js"></script> <!-- Link to your JavaScript file -->
