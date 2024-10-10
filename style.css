@@ -1825,17 +1825,19 @@ a {
 
 .thumbnail {
   width: 100%;
-  max-height: 300px; /* Limit the maximum height */
+  max-height: 450px; /* Limit the maximum height */
   object-fit: cover;
-  box-shadow:rgb(69 17 11) 0px 0px 10px;
+  /* box-shadow:rgb(69 17 11) 0px 0px 10px; */
   border-radius: 20px;
-}
-.thumbnail:hover{
-  box-shadow:rgb(148, 24, 10) 0px 0px 20px;
+  margin-bottom: 2rem;
 }
 
+/* .thumbnail:hover{
+  box-shadow:rgb(148, 24, 10) 0px 0px 20px;
+} */
+
 .object-fit {
-  max-height: 130px;
+  max-height: 100px;
   height: auto; /* Maintain aspect ratio */
   width: 130px; /* Adjust width to a reasonable size */
   object-fit: cover; /* Ensures it fills the dimensions appropriately */
