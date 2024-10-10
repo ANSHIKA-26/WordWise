@@ -268,14 +268,27 @@
           <input type="file" id="blogImage" name="image" accept="image/*" />
 
           <label for="blogContent">Blog Content:</label>
-          <textarea
-            id="blogContent"
-            name="content"
-            rows="10"
-            placeholder="Start writing your blog here..."
-            required
-          ></textarea>
+<div style="position: relative;">
+    <textarea
+        id="blogContent"
+        name="content"
+        rows="10"
+        placeholder="Start writing your blog here..."
+        required
+    ></textarea>
+    <button type="button" id="start-voice-input" style="position: absolute; top: 5px; right: 5px;">
+        🎤
+    </button>
+</div>
 
+<!-- Add a button to get writing suggestions -->
+<button type="button" id="getSuggestions" style="margin-top: 10px;">Get Suggestions</button>
+
+<!-- Placeholder to show the suggestions -->
+<div id="suggestionsContainer" style="margin-top: 15px;">
+    <h4>Suggestions:</h4>
+    <p id="suggestionsText">Your suggestions will appear here...</p>
+</div>
           <label for="writerName">Your Name:</label>
           <input
             type="text"
