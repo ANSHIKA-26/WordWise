@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="Scroll_and_progressbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-    
+
          @media (max-width: 1200px) {
     .footer-container {
       padding: 20px;
@@ -83,7 +83,7 @@
 
 
     <style>
-       
+
 
 .form-container {
     max-width: 350px;
@@ -93,7 +93,7 @@
 .form-group input {
     width: 100%;
     padding: 1px;
-    
+
     display: inline-block;
     border: 1px solid #ccc;
     /* box-sizing: border-box; */
@@ -179,25 +179,25 @@
         <a href="contact_us.html">Contact Us</a>
         <a href="contact_us.html">Give Feedback</a>
     </div>
-       
-              
-          
+
+
+
 
               <div class="dropdown">
                 <!-- Profile Icon -->
                 <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
                     <i class="fas fa-user-circle"></i>
                 </a>
-            
+
                 <!-- Dropdown Menu -->
                 <ul class="dropdown-menu" id="dropdownMenu">
                     <li><a href="#login" onclick="openForm('login')">Login</a></li>
                     <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
                 </ul>
             </div>
-         
-      
-         
+
+
+
         <!-- Login Form -->
 <!-- Login Form -->
 <div class="form-popup" id="loginForm">
@@ -262,10 +262,10 @@
     <div class="form-container modal-content">
       <h2>Forgot Password</h2>
       <p>Please enter your email address to reset your password.</p>
-  
+
       <label for="email">Email Address</label>
       <input type="email" id="email" placeholder="Enter your email" required />
-  
+
       <button class="btn" onclick="submitForgotPassword()">Submit</button>
       <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
     </div>
@@ -358,7 +358,7 @@
 
 <!-- Bootstrap Icons -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <script src="signup.js"></script> <!-- Link to your JavaScript file -->
+    <script src="backend/signup/signup.js"></script> <!-- Link to your JavaScript file -->
 
       <div class="theme-switch-wrapper">
         <label class="theme-switch" for="checkbox">
@@ -370,7 +370,7 @@
         </label>
         <span id="mode-label"></span>
     </div>
-    
+
     </header>
 </div>
 <!--Header Ends-->
@@ -898,7 +898,7 @@
                 <input type="radio" name="radio-btn" id="radio4">
                 <input type="radio" name="radio-btn" id="radio5">
                 <input type="radio" name="radio-btn" id="radio6">
-    
+
                 <!-- Slide images -->
                 <div class="slide first">
                     <img src="./assets/slider/img1.jpg" alt="Slide 1">
@@ -918,7 +918,7 @@
                 <div class="slide">
                     <img src="./assets/slider/img6.jpg" alt="Slide 6">
                 </div>
-    
+
                 <!-- Automatic navigation -->
                 <div class="navigation-auto">
                     <div class="auto-btn1"></div>
@@ -929,7 +929,7 @@
                     <div class="auto-btn6"></div>
                 </div>
             </div>
-    
+
             <!-- Manual navigation -->
             <div class="navigation-manual">
                 <label for="radio1" class="manual-btn"></label>
@@ -942,7 +942,7 @@
         </div>
 </section>
 <section class="faq" id="faq">
-    
+
 <!-- </section> -->
     <div class="container_1">
         <div class="accordion__wrapper">
@@ -1027,7 +1027,7 @@
         <div id="sub"><button type="submit">Subscribe</button></div>
     </form>
     </div>
-    
+
     <!-- Toast Popup -->
     <div id="toast" class="toast hidden"></div>
 </section>
@@ -1035,7 +1035,7 @@
 <!-- Include the Newsletter.js script file -->
 <script src="./backend/newsLetter.js"></script>
 
-  
+
 
 
     </main>
@@ -1097,7 +1097,7 @@
                                 </a>
                             </div>
                         </article>
-                        
+
                       </div>
                       <div class="flex-item">
                        <article class="article">
@@ -1178,7 +1178,7 @@
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="main.js"></script>
     <script src="./backend/login-Auth/login.js"></script>
-    <script src="./backend/signup-Auth/signup.js"></script>
+    <script src="./backend/signup/signup.js"></script>
     <script src="SignIn_SignUp.js"></script>
     <script src="darkMode.js"></script>
 
@@ -1188,7 +1188,7 @@
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
     <script>
-       
+
 // For Loader Page
 const preloader = document.querySelector("#loader");
 function Finish_Loader(){
