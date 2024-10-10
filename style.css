@@ -473,7 +473,7 @@ background: var(--light);
 header {
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   border-bottom: 1px solid #F4EFE6;
   padding: 0rem 1rem;
