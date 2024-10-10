@@ -67,11 +67,13 @@ function closeForm(formType) {
 
 function openForgotPassword() {
   document.getElementById('loginForm').style.display = 'none';
+  document.getElementById('email').value = '';
   document.getElementById('forgot-password-modal').style.display = 'block';
 }
 
 // Close Forgot Password Modal
 function closeForgotPasswordModal() {
+  document.getElementById('email').value = '';
   document.getElementById('forgot-password-modal').style.display = 'none';
 }
 
