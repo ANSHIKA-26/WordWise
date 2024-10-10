@@ -50,7 +50,7 @@ jobs:
         # Comment on the new issue
         curl -s -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
         -H "Content-Type: application/json" \
-        -d "{\"body\": \"Thanks for raising this issue! However, we believe a similar issue already exists. Kindly go through all the open issues and ask to be assigned to that issue.\"}" \
+        -d "{\"body\": \"Thanks for raising this issue! However, we believe a similar issue already exists. Kindly go through all the open issues and ask to be assigned to that issue.If you believe that your issue is unique , feel free to comment and ask for it to be reopened , or you can also start a discussion regarding the same ! \"}" \
         "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/comments"
 
         # Close the new issue

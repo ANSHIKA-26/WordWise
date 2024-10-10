@@ -1,3 +1,4 @@
+<!-- Before creating the backend for the google signin checkout the google_signin.js file to get idea of how the frontend is sensding the req to the backend -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +15,9 @@
 
     <!-- bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- for scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
 
     <!--css-->
     <link rel="stylesheet" href="style.css">
@@ -114,6 +118,69 @@
   }
     </style>
 
+
+    <style>
+       
+
+.form-container {
+    max-width: 350px;
+    padding: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1px;
+    
+    display: inline-block;
+    border: 1px solid #ccc;
+    /* box-sizing: border-box; */
+    font-size: 16px;
+}
+
+.form-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+} */
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.cancel {
+    background-color: #f44336;
+}
+
+.toggle-button {
+    cursor: pointer;
+    color: #007bff;
+    margin-left: 10px;
+}
+
+
+    </style>
+
+
+<!-- Script for Navbar Toggle -->
+ <script>
+    function toggleMenu() {
+    const menu = document.getElementById('nav-menu');
+    menu.classList.toggle('active');
+}
+ </script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
 </head>
 <body onload="Finish_Loader()">
  <!-- pre load -->
@@ -129,13 +196,17 @@
     <div class="progress-container">
         <div class="progress-bar" id="progress-bar"></div>
       </div>
-
+<!-- Navigation Bar  -->
     <header class="navbar">
         <div class="logo">
             <h2><a class="home-link" href="index.html">WordWise</a></h2>
         </div>
     
-        <nav class="nav-menu">
+        <button class="toggle-button" onclick="toggleMenu()">
+            &#9776; <!-- Hamburger icon -->
+        </button>
+    
+        <nav class="nav-menu" id="nav-menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="blog.html">Leading Blog</a></li>
@@ -146,56 +217,175 @@
                 <li><a href="contact_us.html">Give Feedback</a></li>
             </ul>
         </nav>
-    
+<!-- Navigation Bar Ends -->
         <div class="auth-buttons">
             <a href="#login" class="login-btn" onclick="openForm('login')">Login</a>
             <a href="#signup" class="signup-btn" onclick="openForm('signup')">Signup</a>
         </div> 
     
         <!-- Login Form -->
-    <div class="form-popup" id="loginForm">
-        <form class="form-container" onsubmit="return validateLoginForm()">
-            <h2>Login</h2>
+<!-- Login Form -->
+<div class="form-popup" id="loginForm">
+    <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
+        <span class="close-icon" onclick="closeForm('login')">&times;</span>
+        <h2 class="text-center">Login</h2>
+        <div class="form-group">
             <label for="loginEmail"><b>Email</b></label>
-            <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
+            <input type="email" class="form-control" id="loginEmail" placeholder="Enter Email" name="email" required>
+        </div>
+        <div class="form-group position-relative">
             <label for="loginPsw"><b>Password</b></label>
-            <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
-            <button type="submit" class="btn">LOGIN</button>
-            <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
-        </form>
+            <input type="password" class="form-control" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+            <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
+        </div>
+        <div class="forgot">
+            <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
+          </div>
+        <button type="submit" class="btn btn-primary w-100 mb-3">LOGIN</button>
+       <!-- Google Sign-In Button -->
+             <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+                <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
+                Sign in with Google</button>
+        <button type="button" class="btn btn-secondary w-100" onclick="closeForm('login')">CLOSE</button>
+    </form>
+</div>
+
+<!-- Signup Form -->
+<div class="form-popup" id="signupForm">
+    <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
+        <span class="close-icon" onclick="closeForm('signup')">&times;</span>
+        <h2 class="text-center">Signup</h2>
+        <div class="form-group">
+            <label for="name"><b>Full Name</b></label>
+            <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="signupEmail"><b>Email</b></label>
+            <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required>
+        </div>
+        <div class="form-group position-relative">
+            <label for="signupPsw"><b>Password</b></label>
+            <input type="password" class="form-control" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+            <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
+        </div>
+        <div class="form-group position-relative">
+            <label for="confirmPsw"><b>Confirm Password</b></label>
+            <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+            <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 mb-3">SIGNUP</button>
+        <!-- Google Sign-In Button -->
+         <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+          <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
+          Sign in with Google</button>
+        <button type="button" class="btn btn-secondary w-100" onclick="closeForm('signup')">CLOSE</button>
+    </form>
+</div>
+
+<!-- Forgot Password Modal -->
+<div id="forgot-password-modal" class="modal">
+    <div class="form-container modal-content">
+      <h2>Forgot Password</h2>
+      <p>Please enter your email address to reset your password.</p>
+  
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email" required />
+  
+      <button class="btn" onclick="submitForgotPassword()">Submit</button>
+      <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
     </div>
-    
-     <!-- Signup Form -->
-     <div class="form-popup" id="signupForm">
-        <form class="form-container" onsubmit="return validateSignupForm()">
-            <h2>Signup</h2>
-            <div class="form-group">
-                <label for="name"><b>Full Name</b></label>
-                <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="signupEmail"><b>Email</b></label>
-                <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="signupPsw"><b>Password</b></label>
-                <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
-                <span id="togglePassword" class="toggle-button">Show</span>
-            </div>
-            <div class="form-group">
-                <label for="confirmPsw"><b>Confirm Password</b></label>
-                <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
-                <span id="toggleConfirmPassword" class="toggle-button">Show</span>
-            </div>
-            <button type="submit" class="btn">SIGNUP</button>
-            <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
-        </form>
-    </div>
+  </div>
+
+<!-- Toggle Password Visibility Script -->
+<script>
+    function togglePasswordVisibility(passwordFieldId, iconId) {
+        const passwordField = document.getElementById(passwordFieldId);
+        const togglePassword = document.getElementById(iconId);
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            togglePassword.classList.remove('bi-eye');
+            togglePassword.classList.add('bi-eye-slash');
+        } else {
+            passwordField.type = 'password';
+            togglePassword.classList.remove('bi-eye-slash');
+            togglePassword.classList.add('bi-eye');
+        }
+    }
+</script>
+
+<!-- Styles -->
+<style>
+    .form-popup {
+        .form-popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9; /* Sit on top */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Center the popup */
+    width: 100%;
+    max-width: 500px; /* Limit width */
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+    }
+
+    .form-container h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn {
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+
+    .eye-icon {
+        position: absolute;
+        right: 15px;
+        top: 38px;
+        cursor: pointer;
+        color: #007bff;
+    }
+
+    .close-icon {
+        font-size: 24px;
+        cursor: pointer;
+        float: right;
+    }
+
+    .position-relative {
+        position: relative;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    .btn-secondary:hover {
+        background-color: #6c757d;
+    }
+</style>
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <script src="signup.js"></script> <!-- Link to your JavaScript file -->
 
-    
-    
-    <div class="theme-switch-wrapper">
+      <div class="theme-switch-wrapper">
         <label class="theme-switch" for="checkbox">
             <input type="checkbox" id="checkbox">
             <div class="slider">
@@ -207,21 +397,21 @@
     </div>
     
     </header>
-    </div>
-    <!--header-->
-    <!--mainn-->
+</div>
+<!--Header Ends-->
+    <!--Main Section Starts-->
     <main id="site-main" style="margin-top: 90px;margin-left: 50px;">
         <!--blog post section-->
         <section id="posts">
             <div class="container" >
                 <div class="grid" >
                     <!-- article-->
-                    <div class="grid-item" >
+                    <div class="grid-item revel1" >
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img1.jpg" class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img1.jpg" class="img-fluid ">
 
 
                                     </a>
@@ -241,12 +431,12 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel2">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img2.jpg" class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img2.jpg" class="img-fluid ">
 
 
                                     </a>
@@ -268,12 +458,12 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel3">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img3.jpg" class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img3.jpg" class="img-fluid ">
 
 
                                     </a>
@@ -296,7 +486,7 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel1">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
@@ -324,7 +514,7 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel2">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
@@ -353,7 +543,7 @@
                     <!-- article-->
 
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel3">
                         <article class="article">
 
                             <div class="card">
@@ -382,7 +572,7 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel1">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
@@ -410,7 +600,7 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel2">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
@@ -438,7 +628,7 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel3">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
@@ -466,7 +656,7 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel1">
                       <article class="article">
                           <div class="card">
                               <div class="overflow-img">
@@ -494,7 +684,7 @@
                   </div>
                   <!-- article-->
                   <!-- article-->
-                  <div class="grid-item">
+                  <div class="grid-item revel2">
                     <article class="article">
                         <div class="card">
                             <div class="overflow-img">
@@ -522,7 +712,7 @@
                 </div>
                 <!-- article-->
                 <!-- article-->
-                <div class="grid-item">
+                <div class="grid-item revel3">
                   <article class="article">
                       <div class="card">
                           <div class="overflow-img">
@@ -551,7 +741,7 @@
               </div>
               <!-- article-->
               <!-- article-->
-              <div class="grid-item">
+              <div class="grid-item revel1">
                 <article class="article">
                     <div class="card">
                         <div class="overflow-img">
@@ -577,7 +767,7 @@
             </div>
             <!-- article-->
             <!-- article-->
-            <div class="grid-item">
+            <div class="grid-item revel2">
               <article class="article">
                   <div class="card">
                       <div class="overflow-img">
@@ -762,7 +952,7 @@
 <!-- Include the Newsletter.js script file -->
 <script src="./backend/newsLetter.js"></script>
     </main>
-
+    <button id="backToTop">⬆️</button>
     <!--mainn-->
     <a href="chatbot.html">
         <div class="fixed bottom-0 right-2 chatbot-container">
@@ -902,10 +1092,8 @@
        <div class="wordwise-footer">
         <div class="wordwise-footer-content">
           <p>&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
-          <p>Designed by Anshika</p>
         </div>
     </div>
-      
   </footer>
 <!-- .footer -->
 <!-- this script is for twitter icon  starts -->
@@ -919,7 +1107,10 @@
     <script src="darkMode.js"></script>
 
 
-    this script is to display the year in the copyright authentication in the footer
+    <!-- this script is to display the year in the copyright authentication in the footer -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
     <script>
        
 // For Loader Page
@@ -932,5 +1123,34 @@ function Finish_Loader(){
     <script src="faq.js"></script>
     <script src="progress_bar.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+      <script>
+        window.addEventListener("scroll", function() {
+  var scrollPosition = window.scrollY;
+  var height = document.body.offsetHeight - window.innerHeight;
+  if (scrollPosition > 90) {
+    document.getElementById("backToTop").style.display = "block";
+  } else {
+    document.getElementById("backToTop").style.display = "none";
+  }
+});
+
+document.getElementById("backToTop").addEventListener("click", function() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+      </script>
+
+<script>
+    // Initialize ScrollReveal
+    ScrollReveal({
+        reset:true,
+        distance:'60px',
+        duration:2500,
+        delay:400
+       }) ;
+       ScrollReveal().reveal('.revel1',{ delay:5,origin:'left'});
+       ScrollReveal().reveal('.revel2',{ delay:5,origin:'bottom'});
+       ScrollReveal().reveal('.revel3',{ delay:5,origin:'right'});
+</script>
+    <script src="google_signin.js"></script>
 </body>
 </html>

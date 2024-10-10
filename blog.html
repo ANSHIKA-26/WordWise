@@ -32,7 +32,11 @@
         <h2><a class="home-link" href="index.html">WordWise</a></h2>
     </div>
 
-    <nav class="nav-menu">
+    <button class="toggle-button" onclick="toggleMenu()">
+        &#9776; <!-- Hamburger icon -->
+    </button>
+
+    <nav class="nav-menu" id="nav-menu">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="blog.html">Leading Blog</a></li>
@@ -43,46 +47,159 @@
             <li><a href="contact_us.html">Give Feedback</a></li>
         </ul>
     </nav>
-
+<!-- Navigation Bar Ends -->
     <div class="auth-buttons">
         <a href="#login" class="login-btn" onclick="openForm('login')">Login</a>
         <a href="#signup" class="signup-btn" onclick="openForm('signup')">Signup</a>
-    </div> -->
+    </div> 
 
-
-
-    <div class="logo">
-<!--         <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
-            <path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
-        </svg> -->
-        <h2>WordWise</h2>
-    </div>
-    <div class="nav-links1">
-        <a href="index.html">Home</a>
-        <a href="blog.html">Leading Blog</a>
-        <a href="start_writing.html">Start Writing</a>
-        <a href="category.html">Categories</a>
-        <a href="about.html">About</a>
-        <a href="contact_us.html">Contact Us</a>
-        <a href="contact_us.html">Give Feedback</a>
-    </div>
- 
-
-    <div class="auth-buttons">
-        
-      <div class="nav-item dropdown" style="list-style-type: none;">
-          <button class="dropbtn">
-              <img width="30px" src="images/profile.png" alt="Profile" class="profile-icon"
-                  onclick="toggleDropdown()">
-          </button>
-          <div id="profile-dropdown" class="dropdown-content">
-              <div class="login-signup-form">
-                  <a href="login.html">Log In</a>
-                  <a href="signup.html">Sign Up</a>
-              </div>
-          </div>
+      <!-- Login Form -->
+<div class="form-popup" id="loginForm">
+  <form class="form-container" onsubmit="return validateLoginForm()">
+      <h2>Login</h2>
+      <label for="loginEmail"><b>Email</b></label>
+      <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
+      
+      <div class="form-group position-relative">
+          <label for="loginPsw"><b>Password</b></label>
+          <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+          <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
       </div>
+      <div class="forgot">
+        <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
+      </div>
+
+      <button type="submit" class="btn">LOGIN</button>
+      <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
+  </form>
+</div>
+
+<!-- Signup Form -->
+<div class="form-popup" id="signupForm">
+  <form class="form-container" onsubmit="return validateSignupForm()">
+      <h2>Signup</h2>
+
+      <div class="form-group">
+          <label for="name"><b>Full Name</b></label>
+          <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
+      </div>
+
+      <div class="form-group">
+          <label for="signupEmail"><b>Email</b></label>
+          <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
+      </div>
+
+      <div class="form-group position-relative">
+          <label for="signupPsw"><b>Password</b></label>
+          <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+          <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
+      </div>
+
+      <div class="form-group position-relative">
+          <label for="confirmPsw"><b>Confirm Password</b></label>
+          <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+          <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
+      </div>
+
+      <button type="submit" class="btn">SIGNUP</button>
+      <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
+  </form>
+</div>
+
+<!-- Forgot Password Modal -->
+<div id="forgot-password-modal" class="modal">
+  <div class="form-container modal-content">
+    <h2>Forgot Password</h2>
+    <p>Please enter your email address to reset your password.</p>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" placeholder="Enter your email" required />
+
+    <button class="btn" onclick="submitForgotPassword()">Submit</button>
+    <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
   </div>
+</div>
+
+<!-- Bootstrap Icons and Script for Eye Icon Functionality -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<script>
+  function togglePasswordVisibility(passwordFieldId, iconId) {
+      const passwordField = document.getElementById(passwordFieldId);
+      const togglePassword = document.getElementById(iconId);
+      if (passwordField.type === 'password') {
+          passwordField.type = 'text';
+          togglePassword.classList.remove('bi-eye');
+          togglePassword.classList.add('bi-eye-slash');
+      } else {
+          passwordField.type = 'password';
+          togglePassword.classList.remove('bi-eye-slash');
+          togglePassword.classList.add('bi-eye');
+      }
+  }
+</script>
+
+<style>
+  /* Form Container Styles */
+  .form-popup {
+      width: 400px;
+      margin: auto;
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+  }
+
+  .form-control {
+      border-radius: 5px;
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: border-color 0.3s;
+  }
+
+  .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+
+  .btn {
+      margin-top: 15px;
+      border-radius: 5px;
+  }
+
+  .eye-icon {
+      position: absolute;
+      right: 15px;
+      top: 38px; /* Adjust according to input field height */
+      cursor: pointer;
+      color: #007bff;
+  }
+
+  .position-relative {
+      position: relative;
+  }
+
+  .btn-block {
+      width: 100%;
+  }
+
+  /* Hover Effects */
+  .btn:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+  }
+
+  .btn.cancel:hover {
+      background-color: #6c757d;
+      border-color: #6c757d;
+  }
+</style>
+
+<script src="signup.js"></script> <!-- Link to your JavaScript file -->
+
 
 
 <div class="theme-switch-wrapper">
@@ -228,7 +345,7 @@
           </div>
           <!--comments-->
           <div class="post-comments py-2">
-            <h3 class="text-center display-1 secondary-title">3 Comments</h3>
+            <h2 class="text-center display-1 secondary-title">Comments</h2>
           </div>
           <div class="comment-details">
             <div class="comment-item py-2">
@@ -566,12 +683,18 @@
        <div class="wordwise-footer">
         <div class="wordwise-footer-content">
           <p>&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
-          <p>Designed by Anshika</p>
         </div>
     </div>
       
       
   </footer>
+  <!-- Script for Navbar Toggle -->
+ <script>
+  function toggleMenu() {
+  const menu = document.getElementById('nav-menu');
+  menu.classList.toggle('active');
+}
+</script>
 <!-- .footer -->
 <!-- this script is for twitter icon  starts -->
  <script src="https://kit.fontawesome.com/856f4a44d7.js" crossorigin="anonymous"></script>
