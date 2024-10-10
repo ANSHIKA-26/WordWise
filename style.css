@@ -461,11 +461,35 @@ background: var(--light);
   z-index: 1000;
   
 }
+.heart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 26px;
+  position: relative;
+    left: 200px;
+    bottom: 18px;
+  
+}
 
+.heart-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
 
+.heart-icon {
+  fill: white; /* Inside color is white */
+  stroke: black; /* Outline color is black */
+  stroke-width: 1; /* Outline thickness */
+  transition: fill 0.3s ease, stroke 0.3s ease;
+  height: 19px;
+}
 
-
-
+.heart-icon.red {
+  fill: red;
+}
 
 
 
@@ -651,14 +675,11 @@ header {
   /* margin-left: 0.5rem; */
 }
 button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border: none;
   border-radius: 9999px;
-  height: 2.5rem;
-  padding: 0 1rem;
-  font-size: 0.875rem;
+
+  
+ 
   
   font-weight: bold;
   cursor: pointer;
