@@ -2494,3 +2494,52 @@ footer p {
   color: brown;
   cursor: pointer;
 }
+
+            /* Profile Icon Styles */
+            .profile-icon {
+              display: flex;
+              align-items: center;
+              text-decoration: none;
+              font-size: 30px;
+              color: #333;
+              cursor: pointer;
+              margin-bottom: 7px;
+              position: relative; /* Position relative for dropdown alignment */
+          }
+          
+          /* Dropdown Menu Styles */
+          .dropdown-menu {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+              background-color: #fff;
+              border: 1px solid #ddd;
+              width: 150px; /* Adjust width based on content */
+              position: absolute;
+              top: 100%; /* Position below the profile icon */
+              right: 0;  /* Align to the right of the profile icon */
+              display: none; /* Initially hidden */
+              z-index: 1000; /* Ensure it's on top of other elements */
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional shadow for better appearance */
+          }
+          
+          .dropdown-menu li {
+              padding: 10px;
+              text-align: center;
+          }
+          
+          .dropdown-menu li a {
+              text-decoration: none;
+              color: #333;
+              display: block;
+              padding: 10px 15px;
+          }
+          
+          .dropdown-menu li a:hover {
+              background-color: #f1f1f1;
+          }
+          
+          /* Show dropdown when triggered */
+          .dropdown-menu.show {
+              display: block; /* Display the dropdown when the 'show' class is toggled */
+          }
