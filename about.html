@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
     <!--css-->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="style.css">
 
     <style>
@@ -66,32 +67,39 @@
         <div class="progress-bar" id="progress-bar"></div>
      </div>
  <!-- Navigation Bar  -->
- <header class="navbar">
+ <div class="layout-container" style="margin-bottom: 4rem;">
+
+    <header>
+
+
+
     <div class="logo">
-        <h2><a class="home-link" href="index.html">WordWise</a></h2>
+
+        <h2>WordWise</h2>
     </div>
-
-    <button class="toggle-button" onclick="toggleMenu()">
-        &#9776; <!-- Hamburger icon -->
-    </button>
-
-    <nav class="nav-menu" id="nav-menu">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="blog.html">Leading Blog</a></li>
-            <li><a href="start_writing.html">Start Writing</a></li>
-            <li><a href="category.html">Categories</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact_us.html">Contact Us</a></li>
-            <li><a href="contact_us.html">Give Feedback</a></li>
+    <div class="nav-links1">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Leading Blog</a>
+        <a href="start_writing.html">Start Writing</a>
+        <a href="category.html">Categories</a>
+        <a href="about.html">About</a>
+        <a href="contact_us.html">Contact Us</a>
+        <a href="contact_us.html">Give Feedback</a>
+    </div>
+     
+    <div class="dropdown">
+        <!-- Profile Icon -->
+        <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
+            <i class="fas fa-user-circle"></i>
+        </a>
+    
+        <!-- Dropdown Menu -->
+        <ul class="dropdown-menu" id="dropdownMenu">
+            <li><a href="#login" onclick="openForm('login')">Login</a></li>
+            <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
         </ul>
-    </nav>
-<!-- Navigation Bar Ends -->
-    <div class="auth-buttons">
-        <a href="#login" class="login-btn" onclick="openForm('login')">Login</a>
-        <a href="#signup" class="signup-btn" onclick="openForm('signup')">Signup</a>
-    </div> 
-
+    </div>
+ 
     <!-- Login Form -->
 <div class="form-popup" id="loginForm">
     <form class="form-container" onsubmit="return validateLoginForm()">
@@ -175,7 +183,7 @@
 </div>
 
 <!-- Bootstrap Icons and Script for Eye Icon Functionality -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"> -->
 <script>
     function togglePasswordVisibility(passwordFieldId, iconId) {
         const passwordField = document.getElementById(passwordFieldId);
@@ -291,7 +299,7 @@
                                     <a href="blog.html"  class="text-title display-1 text-dark">
                                         Roaming Routes
                                     </a>
-                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                    <p class="secondary-title display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 01,2020 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 13</span>
                                     </p>
@@ -318,7 +326,7 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                    <p class="secondary-title display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Mon 13,2023 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 12</span>
                                     </p>
@@ -346,7 +354,7 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                    <p class="secondary-title display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 09,2023 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 19</span>
                                     </p>
@@ -374,7 +382,7 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                    <p class="secondary-title display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Tue 07,2019 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 6</span>
                                     </p>
@@ -402,7 +410,7 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                    <p class="secondary-title display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Tue 02,2021 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 10</span>
                                     </p>
@@ -432,7 +440,7 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                    <p class="secondary-title display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 12</span>
                                     </p>
@@ -460,7 +468,7 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                    <p class="secondary-title display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 12</span>
                                     </p>
@@ -488,7 +496,7 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                    <p class="secondary-title display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 12</span>
                                     </p>
@@ -516,7 +524,7 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                    <p class="secondary-title display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 12</span>
                                     </p>
@@ -544,7 +552,7 @@
 
 
                                   </a>
-                                  <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                  <p class="secondary-title display-3" style="margin-top:3px;">
                                       <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
                                       <span><i class="bi bi-chat-fill"></i> 12</span>
                                   </p>
@@ -572,7 +580,7 @@
 
 
                                 </a>
-                                <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                <p class="secondary-title display-3" style="margin-top:3px;">
                                     <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
                                     <span><i class="bi bi-chat-fill"></i> 12</span>
                                 </p>
@@ -601,7 +609,7 @@
 
 
                               </a>
-                              <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                              <p class="secondary-title display-3" style="margin-top:3px;">
                                   <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
                                   <span><i class="bi bi-chat-fill"></i> 12</span>
                               </p>
@@ -627,7 +635,7 @@
 
 
                             </a>
-                            <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                            <p class="secondary-title display-3" style="margin-top:3px;">
                                 <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
                                 <span><i class="bi bi-chat-fill"></i> 12</span>
                             </p>
@@ -655,7 +663,7 @@
 
 
                           </a>
-                          <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                          <p class="secondary-title display-3" style="margin-top:3px;">
                               <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
                               <span><i class="bi bi-chat-fill"></i> 12</span>
                           </p>
@@ -836,13 +844,13 @@
                  <div id = "about-us">
                   <h2 class="footer-title secondary-title">About Us</h2>
 
-                    <div class="secondary-title text-secondary">
+                    <div class="secondary-title">
                        <p class="mt-2 ">
                         We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the world.
                        </p>
 
-                       <address>
-                           <i class="fas fa-map-marker-alt text-primary"></i>
+                       <address style="margin-bottom: 0;">
+                           <i class="fas fa-map-marker-alt" ></i>
                            5 South Main Street Los Angeles, ZZ-9611 USA
                        </address>
 
@@ -877,7 +885,7 @@
                                           <a href="#" class="text-title display-2 text-dark">
                                             Embrace the beauty of nature through our enchanting blog, where we celebrate the wonders of the natural world
                                           </a>
-                                          <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                          <p class="secondary-title display-3" style="margin-top:3px;">
                                                <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
                                           </p>
                                       </div>
@@ -894,7 +902,7 @@
                                        <a href="#" class="text-title display-2 text-dark">
                                         Embark on unforgettable journeys through our travel blog, where wanderlust meets inspiration
                                        </a>
-                                       <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                       <p class="secondary-title display-3" style="margin-top:3px;">
                                             <span><i class="far fa-clock text-primary"></i> Wed 05, 2020 </span>
                                        </p>
                                    </div>
@@ -911,7 +919,7 @@
                                            <a href="#" class="text-title display-2 text-dark">
                                             Gaming Adventures Unleashed
                                            </a>
-                                           <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                           <p class="secondary-title display-3" style="margin-top:3px;">
                                                 <span><i class="far fa-clock text-primary"></i> Wed 02, 2021 </span>
                                            </p>
                                        </div>
@@ -1005,6 +1013,8 @@
     <script src="main.js"></script>
     <script src="darkMode.js"></script>
     <script src="progress_bar.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="profiledropdown.js"></script>
 </body>
 </html>
