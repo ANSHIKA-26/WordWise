@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WordWise</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favi.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="signup.css" />
+    <style>
+      .input-field {
+        position: relative;
+        margin-bottom: 20px;
+      }
+
+      .input-box {
+        width: 100%;
+        padding-right: 40px; /* Extra space for the eye icon */
+        padding-left: 10px;
+        height: 40px;
+        box-sizing: border-box; /* Ensure padding is included in width */
+      }
+
+      .toggle-eye {
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%); /* Align vertically in the center */
+        color: black;
+        font-size: 18px;
+        margin-top: 15px;
+      }
+
+      .error {
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <h2><a class="home-link" href="index.html">WordWise</a></h2>
+      </div>
+    </header>
+
+    <main>
+      <div class="container-signup">
+        <div class="box-login">
+          <div class="top-header">
+            <h2>Sign Up</h2>
+          </div>
+          <div class="input-group">
+            <div class="input-field">
+              <label for="Name">Name</label><br />
+              <input type="text" class="input-box" placeholder="Enter Name" />
+            </div>
+            <div class="input-field">
+              <label for="Mail">Email</label><br />
+              <input type="text" class="input-box" placeholder="Enter Email" />
+            </div>
+
+            <!-- Password Field with Toggle Eye Icon inside -->
+            <div class="input-field">
+              <label for="password">Password</label><br />
+              <input
+                type="password"
+                id="password"
+                class="input-box"
+                placeholder="Enter Password"
+                oninput="validatePassword()"
+              />
+              <span
+                class="toggle-eye"
+                onclick="togglePassword('password', 'eye-icon1')"
+              >
+                <i id="eye-icon1" class="fa fa-eye-slash"></i>
+              </span>
+              <div class="error" id="passwordError"></div>
+            </div>
+
+            <!-- Confirm Password Field with Toggle Eye Icon inside -->
+            <div class="input-field">
+              <label for="confirm-password">Confirm Password</label><br />
+              <input
+                type="password"
+                id="confirm-password"
+                class="input-box"
+                placeholder="Confirm Password"
+              />
+              <span
+                class="toggle-eye"
+                onclick="togglePassword('confirm-password', 'eye-icon2')"
+              >
+                <i id="eye-icon2" class="fa fa-eye-slash"></i>
+              </span>
+            </div>
+
+            <div class="submit">
+              <input
+                type="submit"
+                class="Input-submit"
+                value="SIGN UP"
+                onclick="submitForm(event)"
+              />
+            </div>
+          </div>
+          <div class="new">
+            <span>Already have an account?</span>
+            <a href="login.html">Log In</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+    <script>
+      // Toggle password visibility for both password fields
+      function togglePassword(inputId, iconId) {
+        const passwordField = document.getElementById(inputId);
+        const eyeIcon = document.getElementById(iconId);
+        if (passwordField.type === "password") {
+          passwordField.type = "text";
+          eyeIcon.classList.remove("fa-eye-slash");
+          eyeIcon.classList.add("fa-eye");
+        } else {
+          passwordField.type = "password";
+          eyeIcon.classList.remove("fa-eye");
+          eyeIcon.classList.add("fa-eye-slash");
+        }
+      }
+
+      // Password validation
+      function validatePassword() {
+        const password = document.getElementById("password").value;
+        const errorElement = document.getElementById("passwordError");
+        const hasUpperCase = /[A-Z]/.test(password);
+        const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+        const isValidLength = password.length >= 8;
+
+        if (!hasUpperCase || !hasSpecialChar || !isValidLength) {
+          errorElement.textContent =
+            "Password must have at least 1 uppercase letter, 1 special character, and be at least 8 characters long.";
+          return false;
+        } else {
+          errorElement.textContent = ""; // Clear error
+          return true;
+        }
+      }
+
+      // Handle form submission
+      function submitForm(event) {
+        if (!validatePassword()) {
+          event.preventDefault(); // Prevent form submission if validation fails
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WordWise</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favi.png" />
     <!--fotn awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--swiper slider css-->
@@ -11,6 +12,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!--css-->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Scroll_and_progressbar.css">
 
     <style>
       .secondary-title {
@@ -22,52 +24,182 @@
 
 </head>
 <body>
+  <div class="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
    <!--header-->
-<header id="header" class="shadow bg-light">
-  <nav class="container-fluid navbar d-flex justify-content-between align-items-center w-100">
-      <a href="index.html" class="nav-brand text-dark">
-          WordWise
-      </a>
-      <button class="toggle-button">
-          <span><i class="fas fa-bars"></i></span>
-      </button>
-      <div class="collapse d-flex justify-content-between w-100">
-          <ul class="navbar-nav d-flex">
-              <li><a href="index.html" class="nav-link">Home</a></li>
-              <li><a href="blog.html" class="nav-link">Leading Blog</a></li>
-              <li><a href="start.html" class="nav-link">Start Writing</a></li>
-              <li><a href="category.html" class="nav-link">Categories</a></li>
-              <li><a href="#about-us" class="nav-link">About</a></li>
-              <li><a href="contact_us.html" class="nav-link">Contact Us</a></li>
-          </ul>
-          <ul class="navbar-nav d-flex">
-              <div class="search-box">
-                  <a href="#" class="nav-link">
-                      <i class="fa-solid fa-magnifying-glass"></i>
-                  </a>
-              </div>
-              <a href="#" class="nav-link">
-                  <i class="fa-brands fa-facebook-f"></i>
-              </a>
-              <a href="#" class="nav-link">
-                  <i class="fa-brands fa-twitter"></i>
-              </a>
-              <a href="#" class="nav-link">
-                  <i class="fa-brands fa-instagram"></i>
-              </a>
-              <a href="#" class="nav-link">
-                  <i class="fa-brands fa-dribbble"></i>
-              </a>
-          </ul>
+   <header class="navbar">
+    <div class="logo">
+        <h2><a class="home-link" href="index.html">WordWise</a></h2>
+    </div>
+
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Leading Blog</a></li>
+            <li><a href="start-writing.html">Start Writing</a></li>
+            <li><a href="category.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact_us.html">Contact Us</a></li>
+            <li><a href="contact_us.html">Give Feedback</a></li>
+        </ul>
+    </nav>
+
+    <div class="auth-buttons">
+        <a href="#login" class="login-btn" onclick="openForm('login')">Login</a>
+        <a href="#signup" class="signup-btn" onclick="openForm('signup')">Signup</a>
+    </div>
+
+     <!-- Login Form -->
+<div class="form-popup" id="loginForm">
+  <form class="form-container" onsubmit="return validateLoginForm()">
+      <h2>Login</h2>
+      <label for="loginEmail"><b>Email</b></label>
+      <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
+      
+      <div class="form-group position-relative">
+          <label for="loginPsw"><b>Password</b></label>
+          <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+          <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
       </div>
-      <div class="theme-switch-wrapper">
-          <label class="theme-switch" for="checkbox">
-              <input type="checkbox" id="checkbox">
-              <div class="slider"></div>
-          </label>
-          <span id="mode-label"><i class='bx bx-sun'></i></span>
+      <div class="forgot">
+        <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
       </div>
-  </nav>
+      <button type="submit" class="btn">LOGIN</button>
+      <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
+  </form>
+</div>
+
+<!-- Signup Form -->
+<div class="form-popup" id="signupForm">
+  <form class="form-container" onsubmit="return validateSignupForm()">
+      <h2>Signup</h2>
+
+      <div class="form-group">
+          <label for="name"><b>Full Name</b></label>
+          <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
+      </div>
+
+      <div class="form-group">
+          <label for="signupEmail"><b>Email</b></label>
+          <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
+      </div>
+
+      <div class="form-group position-relative">
+          <label for="signupPsw"><b>Password</b></label>
+          <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+          <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
+      </div>
+
+      <div class="form-group position-relative">
+          <label for="confirmPsw"><b>Confirm Password</b></label>
+          <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+          <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
+      </div>
+
+      <button type="submit" class="btn">SIGNUP</button>
+      <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
+  </form>
+</div>
+<!-- Forgot Password Modal -->
+<div id="forgot-password-modal" class="modal">
+  <div class="form-container modal-content">
+    <h2>Forgot Password</h2>
+    <p>Please enter your email address to reset your password.</p>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" placeholder="Enter your email" required />
+
+    <button class="btn" onclick="submitForgotPassword()">Submit</button>
+    <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
+  </div>
+</div>
+<!-- Bootstrap Icons and Script for Eye Icon Functionality -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<script>
+  function togglePasswordVisibility(passwordFieldId, iconId) {
+      const passwordField = document.getElementById(passwordFieldId);
+      const togglePassword = document.getElementById(iconId);
+      if (passwordField.type === 'password') {
+          passwordField.type = 'text';
+          togglePassword.classList.remove('bi-eye');
+          togglePassword.classList.add('bi-eye-slash');
+      } else {
+          passwordField.type = 'password';
+          togglePassword.classList.remove('bi-eye-slash');
+          togglePassword.classList.add('bi-eye');
+      }
+  }
+</script>
+
+<style>
+  /* Form Container Styles */
+  .form-popup {
+      width: 400px;
+      margin: auto;
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+  }
+
+  .form-control {
+      border-radius: 5px;
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: border-color 0.3s;
+  }
+
+  .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+
+  .btn {
+      margin-top: 15px;
+      border-radius: 5px;
+  }
+
+  .eye-icon {
+      position: absolute;
+      right: 15px;
+      top: 38px; /* Adjust according to input field height */
+      cursor: pointer;
+      color: #007bff;
+  }
+
+  .position-relative {
+      position: relative;
+  }
+
+  .btn-block {
+      width: 100%;
+  }
+
+  /* Hover Effects */
+  .btn:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+  }
+
+  .btn.cancel:hover {
+      background-color: #6c757d;
+      border-color: #6c757d;
+  }
+</style>
+
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox">
+            <div class="slider"></div>
+        </label>
+        <span id="mode-label">Light Mode</span>
+    </div> 
+
 </header>
 <!--header-->
 
@@ -343,6 +475,9 @@
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="main.js"></script>
     <script src="./darkMode.js"></script>
+    <script src="./backend/login-Auth/login.js"></script>
+    <script src="./backend/signup-Auth/signup.js"></script>
+    <script src="progress_bar.js"></script>
     <!--swiper slider cdn-->
 
 </body>

@@ -1,72 +1,248 @@
+<!-- Before creating the backend for the google signin checkout the google_signin.js file to get idea of how the frontend is sensding the req to the backend -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WordWise</title>
+    <!--favicon-->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favi.png" />
 
     <!--font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--swiper slider css-->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- for scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
     <!--css-->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Scroll_and_progressbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+    
+         @media (max-width: 1200px) {
+    .footer-container {
+      padding: 20px;
+    }
+    .col-3-main {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .col-3 {
+      width: 33.33%;
+    }
+  }
 
-    <!--favicon-->
-    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
-    <link rel="manifest" href="../images/site.webmanifest">
-    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+  @media (max-width: 992px) {
+    .col-3 {
+      width: 50%; /* Stack 2 columns side by side on medium screens */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .col-3 {
+      width: 100%; /* Stack all columns vertically on small screens */
+      margin-bottom: 20px;
+    }
+
+    .feature-post div {
+      flex-direction: column;
+    }
+
+    .tags {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .feature-post div {
+      align-items: center;
+    }
+
+    .tags.social {
+      justify-content: center;
+    }
+
+    .wordwise-footer-content {
+      text-align: center;
+    }
+  }
+
+  /* Optional: You can also set max-width for images */
+  img.object-fit {
+    max-width: 100%; /* Makes images responsive */
+    height: auto;
+  }
+    </style>
+
+
+    <style>
+       
+
+.form-container {
+    max-width: 350px;
+    padding: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1px;
+    
+    display: inline-block;
+    border: 1px solid #ccc;
+    /* box-sizing: border-box; */
+    font-size: 16px;
+}
+
+.form-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+} */
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.cancel {
+    background-color: #f44336;
+}
+
+.toggle-button {
+    cursor: pointer;
+    color: #007bff;
+    margin-left: 10px;
+}
+
+
+    </style>
+
+
+<!-- Script for Navbar Toggle -->
+ <script>
+    function toggleMenu() {
+    const menu = document.getElementById('nav-menu');
+    menu.classList.toggle('active');
+}
+ </script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
 </head>
-<body>
-    <!--header-->
+<body onload="Finish_Loader()">
+ <!-- pre load -->
+    <div id="loader">
+<div class="loadingspinner">
+  <div id="square1"></div>
+  <div id="square2"></div>
+  <div id="square3"></div>
+  <div id="square4"></div>
+  <div id="square5"></div>
+</div>
+    </div>
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+<!-- Navigation Bar  -->
     <header class="navbar">
         <div class="logo">
             <h2><a class="home-link" href="index.html">WordWise</a></h2>
         </div>
-
-        <nav class="nav-menu">
+    
+        <button class="toggle-button" onclick="toggleMenu()">
+            &#9776; <!-- Hamburger icon -->
+        </button>
+    
+        <nav class="nav-menu" id="nav-menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="blog.html">Leading Blog</a></li>
-                <li><a href="#start-writing">Start Writing</a></li>
+                <li><a href="start_writing.html">Start Writing</a></li>
                 <li><a href="category.html">Categories</a></li>
-                <li><a href="#about-us">About</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="contact_us.html">Contact Us</a></li>
                 <li><a href="contact_us.html">Give Feedback</a></li>
             </ul>
         </nav>
-
+<!-- Navigation Bar Ends -->
         <div class="auth-buttons">
-            <a href="/Signin_signup.html" class="login-btn" onclick="openForm('login')">Login</a>
-            <a href="/Signin_signup.html" class="signup-btn" onclick="openForm('signup')">Signup</a>
+            <a href="#login" class="login-btn" onclick="openForm('login')">Login</a>
+            <a href="#signup" class="signup-btn" onclick="openForm('signup')">Signup</a>
         </div>
 
-        <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox">
-                <div class="slider"></div>
-            </label>
-            <span id="mode-label">Light Mode</span>
-        </div> 
+        <!-- Login Form -->
+    <div class="form-popup" id="loginForm">
+        <form class="form-container" onsubmit="return validateLoginForm()">
+            <h2>Login</h2>
+            <label for="loginEmail"><b>Email</b></label>
+            <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
+            <label for="loginPsw"><b>Password</b></label>
+            <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+            <button type="submit" class="btn">LOGIN</button>
+            <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
+        </form>
+    </div>
 
+    <!-- Signup Form -->
+    <div class="form-popup" id="signupForm">
+        <form class="form-container" onsubmit="return validateSignupForm()">
+            <h2>Signup</h2>
+            <label for="name"><b>Full Name</b></label>
+            <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
+            <label for="signupEmail"><b>Email</b></label>
+            <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
+            <label for="signupPsw"><b>Password</b></label>
+            <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+            <label for="confirmPsw"><b>Confirm Password</b></label>
+            <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+            <button type="submit" class="btn">SIGNUP</button>
+            <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
+        </form>
+    </div>
+
+
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox">
+            <div class="slider">
+                <img src="https://img.icons8.com/emoji/48/000000/sun-emoji.png" alt="Sun" class="icon sun-icon">
+                <img src="https://img.icons8.com/emoji/48/000000/crescent-moon-emoji.png" alt="Moon" class="icon moon-icon">
+            </div>
+        </label>
+        <span id="mode-label"></span>
+    </div>
+    
     </header>
-    <!--header-->
-    <!--mainn-->
+</div>
+<!--Header Ends-->
+    <!--Main Section Starts-->
     <main id="site-main" style="margin-top: 90px;margin-left: 50px;">
         <!--blog post section-->
         <section id="posts">
             <div class="container" >
                 <div class="grid" >
                     <!-- article-->
-                    <div class="grid-item" >
+                    <div class="grid-item revel1" >
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img1.jpg" class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img1.jpg" class="img-fluid ">
 
 
                                     </a>
@@ -74,13 +250,10 @@
                                 <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="blog.html"  class="text-title display-1 text-dark">
                                         Roaming Routes
-
-
-
                                     </a>
-                                    <p class="secondary-title text-secondary display-3">
-                                        <span><i class="fa-regular fa-clock"></i> wed 01,2020</span>
-                                        <span><i class="fa-solid fa-comment"></i>13</span>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Wed 01,2020 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 13</span>
                                     </p>
                                 </div>
 
@@ -89,12 +262,12 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel2">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img2.jpg" class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img2.jpg" class="img-fluid ">
 
 
                                     </a>
@@ -105,9 +278,9 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3">
-                                        <span><i class="fa-regular fa-clock"></i> Mon 13,2023</span>
-                                        <span><i class="fa-solid fa-comment"></i>12</span>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Mon 13,2023 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 12</span>
                                     </p>
                                 </div>
 
@@ -116,12 +289,12 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel3">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img3.jpg" class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img3.jpg" class="img-fluid ">
 
 
                                     </a>
@@ -133,9 +306,9 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3">
-                                        <span><i class="fa-regular fa-clock"></i>wed 09,2023</span>
-                                        <span><i class="fa-solid fa-comment"></i>19</span>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Wed 09,2023 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 19</span>
                                     </p>
                                 </div>
 
@@ -144,7 +317,7 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel1">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
@@ -161,9 +334,9 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3">
-                                        <span><i class="fa-regular fa-clock"></i> Tue 07,2019</span>
-                                        <span><i class="fa-solid fa-comment"></i>6</span>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Tue 07,2019 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 6</span>
                                     </p>
                                 </div>
 
@@ -172,7 +345,7 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel2">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
@@ -189,9 +362,9 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3">
-                                        <span><i class="fa-regular fa-clock"></i> Tue 02,2021</span>
-                                        <span><i class="fa-solid fa-comment"></i>10</span>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Tue 02,2021 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 10</span>
                                     </p>
                                 </div>
 
@@ -201,7 +374,7 @@
                     <!-- article-->
 
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel3">
                         <article class="article">
 
                             <div class="card">
@@ -219,9 +392,9 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3">
-                                        <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
-                                        <span><i class="fa-solid fa-comment"></i>12</span>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 12</span>
                                     </p>
                                 </div>
 
@@ -230,7 +403,7 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel1">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
@@ -247,9 +420,9 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3">
-                                        <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
-                                        <span><i class="fa-solid fa-comment"></i>12</span>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 12</span>
                                     </p>
                                 </div>
 
@@ -258,7 +431,7 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel2">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
@@ -275,9 +448,9 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3">
-                                        <span><i class="fa-regular fa-clock"></i>wed 02,2023</span>
-                                        <span><i class="fa-solid fa-comment"></i>12</span>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 12</span>
                                     </p>
                                 </div>
 
@@ -286,7 +459,7 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel3">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
@@ -303,9 +476,9 @@
 
 
                                     </a>
-                                    <p class="secondary-title text-secondary display-3">
-                                        <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
-                                        <span><i class="fa-solid fa-comment"></i>12</span>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 12</span>
                                     </p>
                                 </div>
 
@@ -314,7 +487,7 @@
                     </div>
                     <!-- article-->
                     <!-- article-->
-                    <div class="grid-item">
+                    <div class="grid-item revel1">
                       <article class="article">
                           <div class="card">
                               <div class="overflow-img">
@@ -331,9 +504,9 @@
 
 
                                   </a>
-                                  <p class="secondary-title text-secondary display-3">
-                                      <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
-                                      <span><i class="fa-solid fa-comment"></i>12</span>
+                                  <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                      <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                                      <span><i class="bi bi-chat-fill"></i> 12</span>
                                   </p>
                               </div>
 
@@ -342,7 +515,7 @@
                   </div>
                   <!-- article-->
                   <!-- article-->
-                  <div class="grid-item">
+                  <div class="grid-item revel2">
                     <article class="article">
                         <div class="card">
                             <div class="overflow-img">
@@ -359,9 +532,9 @@
 
 
                                 </a>
-                                <p class="secondary-title text-secondary display-3">
-                                    <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
-                                    <span><i class="fa-solid fa-comment"></i>12</span>
+                                <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                    <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                                    <span><i class="bi bi-chat-fill"></i> 12</span>
                                 </p>
                             </div>
 
@@ -370,7 +543,7 @@
                 </div>
                 <!-- article-->
                 <!-- article-->
-                <div class="grid-item">
+                <div class="grid-item revel3">
                   <article class="article">
                       <div class="card">
                           <div class="overflow-img">
@@ -388,9 +561,9 @@
 
 
                               </a>
-                              <p class="secondary-title text-secondary display-3">
-                                  <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
-                                  <span><i class="fa-solid fa-comment"></i>12</span>
+                              <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                  <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                                  <span><i class="bi bi-chat-fill"></i> 12</span>
                               </p>
                           </div>
 
@@ -399,7 +572,7 @@
               </div>
               <!-- article-->
               <!-- article-->
-              <div class="grid-item">
+              <div class="grid-item revel1">
                 <article class="article">
                     <div class="card">
                         <div class="overflow-img">
@@ -414,9 +587,9 @@
 
 
                             </a>
-                            <p class="secondary-title text-secondary display-3">
-                                <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
-                                <span><i class="fa-solid fa-comment"></i>12</span>
+                            <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                                <span><i class="bi bi-chat-fill"></i> 12</span>
                             </p>
                         </div>
 
@@ -425,7 +598,7 @@
             </div>
             <!-- article-->
             <!-- article-->
-            <div class="grid-item">
+            <div class="grid-item revel2">
               <article class="article">
                   <div class="card">
                       <div class="overflow-img">
@@ -442,9 +615,9 @@
 
 
                           </a>
-                          <p class="secondary-title text-secondary display-3">
-                              <span><i class="fa-regular fa-clock"></i> wed 02,2023</span>
-                              <span><i class="fa-solid fa-comment"></i>12</span>
+                          <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                              <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                              <span><i class="bi bi-chat-fill"></i> 12</span>
                           </p>
                       </div>
 
@@ -454,8 +627,8 @@
           <!-- article-->
 
                 </div>
-                <div class="text-center">
-                  <button class="btn btn-primary secondary-title text-light" style="height:50px;width:200px;font-size: large;color: black;">Load More Posts...</button>
+                <div style="display: flex;justify-content: center;">
+                    <button class="btn load-posts-btn secondary-title text-light" style="height:50px;width:200px;font-size: large;border-radius: 20px;">Load More Posts...</button>
               </div>
             </div>
 
@@ -464,20 +637,131 @@
 
         </section>
         <!--blog post section-->
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="./assets/slider/img1.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img2.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img3.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img4.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img5.jpg" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="./assets/slider/img6.jpg" class="img-fluid" alt=""></div>
-          </div>
+        <div class="sliderr">
+            <div class="slides">
+                <!-- Radio buttons for navigation -->
+                <input type="radio" name="radio-btn" id="radio1" checked>
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+                <input type="radio" name="radio-btn" id="radio5">
+                <input type="radio" name="radio-btn" id="radio6">
+    
+                <!-- Slide images -->
+                <div class="slide first">
+                    <img src="./assets/slider/img1.jpg" alt="Slide 1">
+                </div>
+                <div class="slide">
+                    <img src="./assets/slider/img2.jpg" alt="Slide 2">
+                </div>
+                <div class="slide">
+                    <img src="./assets/slider/img3.jpg" alt="Slide 3">
+                </div>
+                <div class="slide">
+                    <img src="./assets/slider/img4.jpg" alt="Slide 4">
+                </div>
+                <div class="slide">
+                    <img src="./assets/slider/img5.jpg" alt="Slide 5">
+                </div>
+                <div class="slide">
+                    <img src="./assets/slider/img6.jpg" alt="Slide 6">
+                </div>
+    
+                <!-- Automatic navigation -->
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                    <div class="auto-btn5"></div>
+                    <div class="auto-btn6"></div>
+                </div>
+            </div>
+    
+            <!-- Manual navigation -->
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+                <label for="radio4" class="manual-btn"></label>
+                <label for="radio5" class="manual-btn"></label>
+                <label for="radio6" class="manual-btn"></label>
+            </div>
+        </div>
+</section>
+<section class="faq" id="faq">
+    
+<!-- </section> -->
+    <div class="container_1">
+        <div class="accordion__wrapper">
+            <h1 class="accordion__title">Frequently Asked Questions</h1>
+            <br>
+            <div class="accordion">
+                <div class="accordion__header">
+                    <h2 class="accordion__question">How do I switch between dark and light themes?</h2>
+                    <span class="accordion__icon">
+                        <i id="accordion-icon" class="fa-solid fa-plus"></i>
+                    </span>
+                </div>
+                <div class="accordion__content">
+                    <!-- <i class="fa-solid fa-comments"></i> -->
+                    <p class="accordion__answer">You can easily switch between dark and light themes by clicking the theme toggle button located in the website header. This allows you to customize your viewing experience according to your preference.</p>
+                </div>
+            </div>
 
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+            <div class="accordion">
+                <div class="accordion__header">
+                    <h2 class="accordion__question">How do I use the 'Start Writing' page?</h2>
+                    <span class="accordion__icon">
+                        <i id="accordion-icon" class="fa-solid fa-plus"></i>
+                    </span>
+                </div>
+                <div class="accordion__content">
+                    <!-- <i class="fa-solid fa-comments"></i> -->
+                    <p class="accordion__answer">The 'Start Writing' page provides a simple interface for quickly creating and publishing blog posts. Just click "Start Writing" from the navigation bar, fill in your title, content, and tags, and publish your blog with a single click.</p>
+                </div>
+            </div>
 
+            <div class="accordion">
+                <div class="accordion__header">
+                    <h2 class="accordion__question">How does the sliding bar with latest blogs work?</h2>
+                    <span class="accordion__icon">
+                        <i id="accordion-icon" class="fa-solid fa-plus"></i>
+                    </span>
+                </div>
+                <div class="accordion__content">
+                    <!-- <i class="fa-solid fa-comments"></i> -->
+                    <p class="accordion__answer">The sliding bar on the home page features the latest blogs published on the platform. It updates automatically and allows users to easily scroll through and click on any blog that catches their attention.</p>
+                </div>
+            </div>
 
-</div>
+            <div class="accordion">
+                <div class="accordion__header">
+                    <h2 class="accordion__question">How are top picks chosen for the leading blog page?</h2>
+                    <span class="accordion__icon">
+                        <i id="accordion-icon" class="fa-solid fa-plus"></i>
+                    </span>
+                </div>
+                <div class="accordion__content">
+                    <!-- <i class="fa-solid fa-comments"></i> -->
+                    <p class="accordion__answer">Top picks are curated by a combination of editor recommendations and user engagement metrics, such as views, likes, and comments, to highlight the best content available on Word Wise.</p>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion__header">
+                    <h2 class="accordion__question">How can I stay updated with new blog posts?</h2>
+                    <span class="accordion__icon">
+                        <i id="accordion-icon" class="fa-solid fa-plus"></i>
+                    </span>
+                </div>
+                <div class="accordion__content">
+                    <!-- <i class="fa-solid fa-comments"></i> -->
+                    <p class="accordion__answer">You can stay updated by following your favorite authors or topics, and by checking the sliding bar for the latest blog posts. You can also subscribe to newsletters or enable notifications for real-time updates.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- Newsletter Section -->
@@ -485,45 +769,57 @@
     <div class="wordwise-newsletter-container">
       <h2>Subscribe to Our Newsletter</h2>
       <p>Stay updated with the latest articles and insights from WordWise.</p>
-      <form class="wordwise-newsletter-form">
-        <input type="email" placeholder="Enter your email address" required>
-        <button type="submit">Subscribe</button>
-      </form>
+      <form class="wordwise-newsletter-form" id="newsletterForm" novalidate>
+        <input type="email" id="emailInput" placeholder="Enter your email address" required>
+        <div id="error-message" style="color: red; display: none;">Please include '@' in your email address.</div>
+        <div id="sub"><button type="submit">Subscribe</button></div>
+    </form>
     </div>
-  </section>
+    
+    <!-- Toast Popup -->
+    <div id="toast" class="toast hidden"></div>
+</section>
+
+<!-- Include the Newsletter.js script file -->
+<script src="./backend/newsLetter.js"></script>
+
   
 
 
     </main>
-
+    <button id="backToTop">⬆️</button>
     <!--mainn-->
     <!-- footer -->
     <footer id="footer">
-      <div class="container">
-          <div class="row mb-3">
+      <div class="footer-container">
+          <div class="row mb-3 col-3-main">
               <div class="col-3">
                  <div id = "about-us">
-                  <h2 class="footer-title secondary-title">About Us</h2>
+                  <h2 class="footer-title secondary-title" >About Us</h2>
 
-                    <div class="secondary-title text-secondary">
-                       <p class="mt-2 ">
+                    <div class="secondary-title text-secondary " >
+                       <p class="mt-2 text-lg" style="text-align: left;" >
                         We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the world.
                        </p>
 
-                       <address>
+                       <address class="mt-2">
                            <i class="fas fa-map-marker-alt text-primary"></i>
                            5 South Main Street Los Angeles, ZZ-9611 USA
                        </address>
 
-                       <div class="phone">
+                       <div class="phone mt-2">
                            <i class="fas fa-mobile text-primary"></i>
                            125-896-485
                        </div>
 
-                      <div class="email">
+                      <div class="email mt-2">
                             <a href="mailto: dailysupport@gmail.com" style="color: 3B3B58;"><i class="fas fa-envelope text-primary"></i>
                            <span>dailysupport@gmail.com</span>
                         </a>
+                       </div>
+
+                       <div>
+                        <img src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5" alt="Web views" style="height: 20px;width: 150px;margin-top: 40px;">
                        </div>
                     </div>
 
@@ -534,32 +830,33 @@
 
                   <div class="feature-post">
                       <div class="flex-item">
-                          <article class="article">
-                              <div class="d-flex">
-                                  <a href="#">
-                                      <img src="./assets/img9.jpg" class="object-fit px-1" alt="">
-                                      <div class="px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                          <a href="#" class="text-title display-2 text-dark">
+                        <article class="article">
+                            <div class="d-flex" style="align-items: flex-start; ">
+                                <a class="d-flex" href="#">
+                                    <img src="./assets/img9.jpg" class="object-fit" alt="">
+                                    <div class="px-1" style="width: 300px; ">
+                                        <a href="#" class="text-title display-2 text-dark">
                                             Embrace the beauty of nature through our enchanting blog, where we celebrate the wonders of the natural world
-                                          </a>
-                                          <p class="secondary-title text-secondary display-3">
-                                               <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
-                                          </p>
-                                      </div>
-                                  </a>
-                              </div>
-                          </article>
+                                        </a>
+                                        <p class="secondary-title text-secondary " style="margin-top:3px;margin-left:0px; text-align: left; ">
+                                            <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </article>
+                        
                       </div>
                       <div class="flex-item">
                        <article class="article">
-                           <div class="d-flex">
-                               <a href="#">
-                                   <img src="./assets/img1.jpg" class="object-fit px-1" alt="">
-                                   <div class="px-1" style="width: 300px;margin-top: 30px; text-align: center;">
+                           <div class="d-flex" style="align-items: flex-start; ">
+                               <a class="d-flex" href="#">
+                                   <img src="./assets/img1.jpg" class="object-fit" alt="">
+                                   <div class="px-1" style="width: 300px;">
                                        <a href="#" class="text-title display-2 text-dark">
                                         Embark on unforgettable journeys through our travel blog, where wanderlust meets inspiration
                                        </a>
-                                       <p class="secondary-title text-secondary display-3">
+                                       <p class="secondary-title text-secondary display-3" style="margin-top:3px;margin-left:0px; text-align: left;">
                                             <span><i class="far fa-clock text-primary"></i> Wed 05, 2020 </span>
                                        </p>
                                    </div>
@@ -569,14 +866,14 @@
                         </div>
                         <div class="flex-item">
                            <article class="article">
-                               <div class="d-flex">
-                                   <a href="#">
-                                       <img src="./assets/img2.jpg" class="object-fit px-1" alt="">
-                                       <div class="px-1" style="width: 300px;margin-top: 30px; text-align: center;">
+                               <div class="d-flex" style="align-items: flex-start; ">
+                                   <a class="d-flex " href="#" >
+                                       <img src="./assets/img2.jpg" class="object-fit" alt="">
+                                       <div class="px-1" style="width: 300px;">
                                            <a href="#" class="text-title display-2 text-dark">
                                             Gaming Adventures Unleashed
                                            </a>
-                                           <p class="secondary-title text-secondary display-3">
+                                           <p class="secondary-title text-secondary display-3" style="margin-top:3px;margin-left:0px; text-align: left;">
                                                 <span><i class="far fa-clock text-primary"></i> Wed 02, 2021 </span>
                                            </p>
                                        </div>
@@ -587,26 +884,26 @@
                   </div>
               </div>
               <div class="col-3">
-                   <h2 class="footer-title secondary-title">Tags</h2>
+                   <h2 class="footer-title secondary-title">Popular Tags</h2>
 
                    <div class="tags">
-                       <div class="d-flex flex-wrap">
-                           <a href="#" class="nav-link btn bg-light">Travel</a>
-                           <a href="#" class="nav-link btn bg-light">Food</a>
-                           <a href="#" class="nav-link btn bg-light">Lifestyle</a>
-                           <a href="#" class="nav-link btn bg-light">Techonogy</a>
-                           <a href="#" class="nav-link btn bg-light">Fashion</a>
+                       <div class="d-flex-gap flex-wrap">
+                           <a href="#" class="nav-link btn bg-light " style="font-weight: 400;">Travel</a>
+                           <a href="#" class="nav-link btn bg-light" style="font-weight: 400;">Food</a>
+                           <a href="#" class="nav-link btn bg-light" style="font-weight: 400;">Lifestyle</a>
+                           <a href="#" class="nav-link btn bg-light" style="font-weight: 400;">Techonogy</a>
+                           <a href="#" class="nav-link btn bg-light" style="font-weight: 400;">Fashion</a>
                        </div>
                    </div>
 
-                   <h2 class="footer-title secondary-title mt-2">Social</h2>
+                   <h2 class="footer-title secondary-title mt-5">Connect with us</h2>
 
                    <div class="tags social" id="contact">
-                       <div class="d-flex flex-wrap">
-                           <a href="#" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
-                           <a href="#" class="nav-link btn bg-light"><i class="fa-brands fa-x-twitter"></i></a>
-                           <a href="#" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
-                           <a href="#" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
+                       <div class="d-flex-gap flex-wrap">
+                           <a href="https://www.facebook.com/" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
+                           <a href="https://x.com/" class="nav-link btn bg-light"><i class="fa-brands fa-x-twitter"></i></a>
+                           <a href="https://www.instagram.com/" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
+                           <a href="https://dribbble.com/" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
                        </div>
                    </div>
 
@@ -619,11 +916,8 @@
        <div class="wordwise-footer">
         <div class="wordwise-footer-content">
           <p>&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
-          <p>Designed by Anshika</p>
         </div>
     </div>
-      
-      
   </footer>
 <!-- .footer -->
 <!-- this script is for twitter icon  starts -->
@@ -631,6 +925,8 @@
 <!-- this script is for twitter icon  ends -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="main.js"></script>
+    <script src="./backend/login-Auth/login.js"></script>
+    <script src="./backend/signup-Auth/signup.js"></script>
     <script src="SignIn_SignUp.js"></script>
     <script src="darkMode.js"></script>
 
@@ -639,7 +935,46 @@
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
-    
+    <script>
+       
+// For Loader Page
+const preloader = document.querySelector("#loader");
+function Finish_Loader(){
+    preloader.style.display = "none";
+}
+    </script>
+    <script src="script.js"></script>
+    <script src="faq.js"></script>
+    <script src="progress_bar.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+      <script>
+        window.addEventListener("scroll", function() {
+  var scrollPosition = window.scrollY;
+  var height = document.body.offsetHeight - window.innerHeight;
+  if (scrollPosition > height / 2) {
+    document.getElementById("backToTop").style.display = "block";
+  } else {
+    document.getElementById("backToTop").style.display = "none";
+  }
+});
 
+document.getElementById("backToTop").addEventListener("click", function() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+      </script>
+
+<script>
+    // Initialize ScrollReveal
+    ScrollReveal({
+        reset:true,
+        distance:'60px',
+        duration:2500,
+        delay:400
+       }) ;
+       ScrollReveal().reveal('.revel1',{ delay:5,origin:'left'});
+       ScrollReveal().reveal('.revel2',{ delay:5,origin:'bottom'});
+       ScrollReveal().reveal('.revel3',{ delay:5,origin:'right'});
+</script>
+    <script src="google_signin.js"></script>
 </body>
 </html>
