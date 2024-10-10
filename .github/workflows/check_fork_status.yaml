@@ -1,3 +1,4 @@
+
 name: Check Fork Status and Notify
 
 on:
@@ -5,7 +6,7 @@ on:
     types: [opened, synchronize]  # Trigger when a PR is opened or updated
 
 permissions:
-  pull-requests: write  # Allow posting comments on PRs
+  pull-requests: write-all # Allow posting comments on PRs
 
 jobs:
   check_fork:
