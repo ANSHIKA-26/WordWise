@@ -482,6 +482,18 @@
         </button>
       </div>
     </div>
+    <div class="wordwise-footer">
+      <div class="wordwise-footer-content">
+        <p>
+          &copy; <span id="current-year"></span> WordWise. All rights
+          reserved.
+        </p>
+      </div>
+    </div>
+    <!-- this script is to display the year in the copyright authentication in the footer -->
+    <script>
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
 
     <script src="./darkMode.js"></script>
 
