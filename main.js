@@ -65,6 +65,38 @@ function closeForm(formType) {
   }
 }
 
+function openForgotPassword() {
+  document.getElementById('loginForm').style.display = 'none';
+  document.getElementById('forgot-password-modal').style.display = 'block';
+}
+
+// Close Forgot Password Modal
+function closeForgotPasswordModal() {
+  document.getElementById('forgot-password-modal').style.display = 'none';
+}
+
+// Simulate form submission for Forgot Password
+function submitForgotPassword() {
+  const email = document.getElementById('email').value;
+  if (email) {
+    alert("Password reset instructions have been sent to " + email);
+    closeForgotPasswordModal(); // Close modal after submission
+  } else {
+    alert("Please enter your email.");
+  }
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+  const modal = document.getElementById('forgot-password-modal');
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+};
+
+
+
+
 //Active Nav bar 
 const navLinks = document.querySelectorAll('.nav-link');
 const setActiveLink = () => {

@@ -77,6 +77,9 @@
                 <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
                 <label for="loginPsw"><b>Password</b></label>
                 <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+                <div class="forgot">
+                    <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
+                  </div>
                 <button type="submit" class="btn">LOGIN</button>
                 <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
             </form>
@@ -110,7 +113,19 @@
         </div>
         <script src="signup.js"></script> <!-- Link to your JavaScript file -->
     
-        
+        <!-- Forgot Password Modal -->
+<div id="forgot-password-modal" class="modal">
+    <div class="form-container modal-content">
+      <h2>Forgot Password</h2>
+      <p>Please enter your email address to reset your password.</p>
+  
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email" required />
+  
+      <button class="btn" onclick="submitForgotPassword()">Submit</button>
+      <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
+    </div>
+  </div>
         
         <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
