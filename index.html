@@ -1095,7 +1095,7 @@ function Finish_Loader(){
         window.addEventListener("scroll", function() {
   var scrollPosition = window.scrollY;
   var height = document.body.offsetHeight - window.innerHeight;
-  if (scrollPosition > height / 2) {
+  if (scrollPosition > 90) {
     document.getElementById("backToTop").style.display = "block";
   } else {
     document.getElementById("backToTop").style.display = "none";
