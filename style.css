@@ -415,6 +415,10 @@ html, body {
   background-color: var(--dark); /* Dark mode background */
 }
 
+[data-theme="dark"] .form-container h2{
+  color: var(--light);/*form heading made light-colored in dark theme*/
+}
+
 #headings{
     color: var(--dark);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
@@ -756,6 +760,7 @@ button {
 .form-container p {
   text-align: center;
   margin-bottom: 20px;
+  /* color: white; */
 }
 
 .form-container input[type="email"] {
