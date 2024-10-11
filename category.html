@@ -106,10 +106,11 @@
                     <label for="signupEmail"><b>Email</b></label>
                     <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
                 </div>
-                <div class="form-group">
+                <div class="form-group position-relative">
                     <label for="signupPsw"><b>Password</b></label>
-                    <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
-                    <span id="togglePassword" class="toggle-button">Show</span>
+                    <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6" oninput="checkPasswordStrength()">
+                    <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
+                    <div id="passwordStrength" class="strength-meter"></div>
                 </div>
                 <div class="form-group">
                     <label for="confirmPsw"><b>Confirm Password</b></label>
@@ -120,6 +121,55 @@
                 <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
             </form>
         </div>
+        <style>.strength-meter {
+            height: 10px;
+            width: 0;
+            transition: width 0.3s;
+            margin-top: 5px;
+            text-align: center;
+            color: black;
+            font-size: 12px;
+        }</style>
+        <script>function checkPasswordStrength() {
+            var strengthMeter = document.getElementById('passwordStrength');
+            var password = document.getElementById('signupPsw').value;
+            var strength = 0;
+        
+            if (password.length >= 6) strength++;
+            if (password.match(/[a-z]+/)) strength++;
+            if (password.match(/[A-Z]+/)) strength++;
+            if (password.match(/[0-9]+/)) strength++;
+            if (password.match(/[\W]+/)) strength++;
+        
+            switch (strength) {
+                case 0:
+                case 1:
+                    strengthMeter.style.width = '20%';
+                    strengthMeter.style.backgroundColor = 'red';
+                    strengthMeter.textContent = 'Weak';
+                    break;
+                case 2:
+                    strengthMeter.style.width = '40%';
+                    strengthMeter.style.backgroundColor = 'orange';
+                    strengthMeter.textContent = 'Fair';
+                    break;
+                case 3:
+                    strengthMeter.style.width = '60%';
+                    strengthMeter.style.backgroundColor = 'yellow';
+                    strengthMeter.textContent = 'Good';
+                    break;
+                case 4:
+                    strengthMeter.style.width = '80%';
+                    strengthMeter.style.backgroundColor = 'blue';
+                    strengthMeter.textContent = 'Strong';
+                    break;
+                case 5:
+                    strengthMeter.style.width = '100%';
+                    strengthMeter.style.backgroundColor = 'green';
+                    strengthMeter.textContent = 'Very Strong';
+                    break;
+            }
+        }</script>
         <script src="signup.js"></script> <!-- Link to your JavaScript file -->
     
         <!-- Forgot Password Modal -->
