@@ -111,17 +111,17 @@ img {
 }
 
 .new-category-box:hover .new-category-title {
-  color: white;
+  color: black;
   transition-delay: .16s;
 }
 
 .new-category-box:hover .new-post-title {
-  color: white;
+  color: black;
   transition-delay: .16s;
 }
 
 .new-category-box:hover .new-post-excerpt {
-  color: white;
+  color: black;
   transition-delay: .16s;
 }
 
@@ -152,7 +152,7 @@ img {
 }
 
 .new-read-more-link:hover {
-  background: #0056b3;
+  background: #f8b5b5;
 }
 
 /* Responsive Design */
