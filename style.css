@@ -704,18 +704,21 @@ button {
 .toggle-icon {
   color: #1C160C;
 }
+
 .layout-container {
-  flex-grow: 1;
+  
   padding: 0 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
- background-color: #F4EFE6;
- /* position: relative; */
- top: 0;
- position: sticky;
- z-index: 999;
+  background-color: #f8b5b5;
+  position: relative;
+  top: 0;
+  position: sticky;
+  z-index: 999;
+
 }
+
 /* hover effect */
 .signup-button:hover{
 /* background-color: #1C160C; */
