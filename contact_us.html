@@ -18,6 +18,13 @@
     <link rel="stylesheet" href="Scroll_and_progressbar.css" />
     <style>
       /* Custom popup styles */
+      .send-btn{
+        transition: background-color 0.3s ease;
+      }
+      .send-btn:hover {
+        background-color: #3498db; /* Darker shade on hover */
+      }
+
       .popup {
         display: none;
         position: fixed;
@@ -418,9 +425,9 @@
 
         <button
           type="button"
+          class="send-btn"
           onclick="SendEmail(event)"
           style="
-            background-color: #3498db;
             color: white;
             padding: 10px 20px;
             font-size: 16px;
@@ -432,7 +439,7 @@
           Send
         </button>
       </form>
-
+      
       <!-- Custom popup -->
       <div
         class="overlay"
