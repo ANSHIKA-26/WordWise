@@ -661,14 +661,18 @@ header {
       width: 100%;
       justify-content: center;
   }
-}
-.load-posts-btn {
-  transition: transform 330ms ease-in-out;
+
+  .load-posts-btn {
+    width: 100%;
+    transition: width 330ms ease-in-out, background-color 0.3s ease;
+  }
+
+  .load-posts-btn:hover {
+    transform: none; /* no scaling on smaller screens for better UX */
+  }
+
 }
 
-.load-posts-btn:hover{
-   transform: scaleX(1.2);
-}
 .auth-buttons {
   display: flex;
   gap: 0.5rem;
@@ -1384,19 +1388,22 @@ a {
   margin-bottom: 6em;
 }
 
+/*Reanimated button*/
 .load-posts-btn {
   background-color: #ffd479;
   color: black;
   border-radius: 4px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  box-shadow: 2px 2px 5px #3E2C20 ;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 250ms ease-in-out;
+  box-shadow: 2px 2px 5px #3E2C20;
+  will-change: transform, background-color;
 }
 
 .load-posts-btn:hover {
-  background-color: #e89e00 ;
-  color: black;
-  cursor : pointer ;
+  background-color: #e89e00;
+  transform: scale(1.08); /* subtle scaling */
+  cursor: pointer;
 }
+
 
 .sliderr * {
   margin: 0;
