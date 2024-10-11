@@ -199,8 +199,7 @@
 
 
 
-        <!-- Login Form -->
-<!-- Login Form -->
+  <!--  Login Form -->
 <div class="form-popup" id="loginForm">
     <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
         <span class="close-icon" onclick="closeForm('login')">&times;</span>
@@ -216,15 +215,16 @@
         </div>
         <div class="forgot">
             <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
-          </div>
+        </div>
         <button type="submit" class="btn btn-primary w-100 mb-3">LOGIN</button>
-       <!-- Google Sign-In Button -->
-             <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
-                <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
-                Sign in with Google</button>
-        <button type="button" class="btn btn-secondary w-100" onclick="closeForm('login')">CLOSE</button>
+        <!-- Google Sign-In Button -->
+        <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+            <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
+            Sign in with Google
+        </button>
     </form>
 </div>
+
 
 <!-- Signup Form -->
 <div class="form-popup" id="signupForm">
@@ -255,7 +255,6 @@
          <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
           <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
           Sign in with Google</button>
-        <button type="button" class="btn btn-secondary w-100" onclick="closeForm('signup')">CLOSE</button>
     </form>
 </div>
 
@@ -330,25 +329,22 @@
 }
 </script>
 
-<!-- Styles -->
+<!-- Updated CSS Styles -->
 <style>
     .form-popup {
-        .form-popup {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 9; /* Sit on top */
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%); /* Center the popup */
-    width: 100%;
-    max-width: 500px; /* Limit width */
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-    box-sizing: border-box;
-}
-
+        display: none;
+        position: fixed;
+        z-index: 9;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        max-width: 500px;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+        box-sizing: border-box;
     }
 
     .form-container h2 {
@@ -362,8 +358,19 @@
 
     .form-control {
         border-radius: 5px;
-        padding: 10px;
+        padding: 12px;
+        font-size: 16px; 
+        line-height: 1.5; 
         box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 100%;
+    }
+
+    .forgot {
+        text-align: right; 
+        margin-left: 140px;
+        font-size: 10px;   
+        margin-top: -40px;
+
     }
 
     .btn {
@@ -389,12 +396,29 @@
         position: relative;
     }
 
+    /* Login button jumping issue fix */
+    .btn-primary {
+        transition: all 0.3s ease; /* Smooth transition */
+    }
+
     .btn-primary:hover {
         background-color: #0056b3;
     }
 
-    .btn-secondary:hover {
-        background-color: #6c757d;
+    .google-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .google-logo {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
     }
     .strength-meter {
     height: 10px;
