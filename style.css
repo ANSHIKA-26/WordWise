@@ -415,6 +415,10 @@ html, body {
   background-color: var(--dark); /* Dark mode background */
 }
 
+[data-theme="dark"] .form-container h2{
+  color: var(--light);/*form heading made light-colored in dark theme*/
+}
+
 #headings{
     color: var(--dark);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
@@ -461,11 +465,35 @@ background: var(--light);
   z-index: 1000;
   
 }
+.heart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 26px;
+  position: relative;
+    left: 200px;
+    bottom: 18px;
+  
+}
 
+.heart-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
 
+.heart-icon {
+  fill: white; /* Inside color is white */
+  stroke: black; /* Outline color is black */
+  stroke-width: 1; /* Outline thickness */
+  transition: fill 0.3s ease, stroke 0.3s ease;
+  height: 19px;
+}
 
-
-
+.heart-icon.red {
+  fill: red;
+}
 
 
 
@@ -473,7 +501,7 @@ background: var(--light);
 header {
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   border-bottom: 1px solid #F4EFE6;
   padding: 0rem 1rem;
@@ -637,28 +665,29 @@ header {
       width: 100%;
       justify-content: center;
   }
-}
-.load-posts-btn {
-  transition: transform 330ms ease-in-out;
+
+  .load-posts-btn {
+    width: 100%;
+    transition: width 330ms ease-in-out, background-color 0.3s ease;
+  }
+
+  .load-posts-btn:hover {
+    transform: none; /* no scaling on smaller screens for better UX */
+  }
+
 }
 
-.load-posts-btn:hover{
-   transform: scaleX(1.2);
-}
 .auth-buttons {
   display: flex;
   gap: 0.5rem;
   /* margin-left: 0.5rem; */
 }
 button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border: none;
   border-radius: 9999px;
-  height: 2.5rem;
-  padding: 0 1rem;
-  font-size: 0.875rem;
+
+  
+ 
   
   font-weight: bold;
   cursor: pointer;
@@ -683,18 +712,21 @@ button {
 .toggle-icon {
   color: #1C160C;
 }
+
 .layout-container {
-  flex-grow: 1;
+  
   padding: 0 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
- background-color: #F4EFE6;
- /* position: relative; */
- top: 0;
- position: sticky;
- z-index: 999;
+  background-color: #f8b5b5;
+  position: relative;
+  top: 0;
+  position: sticky;
+  z-index: 999;
+
 }
+
 /* hover effect */
 .signup-button:hover{
 /* background-color: #1C160C; */
@@ -735,6 +767,7 @@ button {
 .form-container p {
   text-align: center;
   margin-bottom: 20px;
+  /* color: white; */
 }
 
 .form-container input[type="email"] {
@@ -1363,19 +1396,22 @@ a {
   margin-bottom: 6em;
 }
 
+/*Reanimated button*/
 .load-posts-btn {
   background-color: #ffd479;
   color: black;
   border-radius: 4px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  box-shadow: 2px 2px 5px #3E2C20 ;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 250ms ease-in-out;
+  box-shadow: 2px 2px 5px #3E2C20;
+  will-change: transform, background-color;
 }
 
 .load-posts-btn:hover {
-  background-color: #e89e00 ;
-  color: black;
-  cursor : pointer ;
+  background-color: #e89e00;
+  transform: scale(1.08); /* subtle scaling */
+  cursor: pointer;
 }
+
 
 .sliderr * {
   margin: 0;
@@ -2420,7 +2456,7 @@ footer p {
 }
 .commentbtn{
   margin-top: 20px;
-  margin-left: 40%;
+  
   padding: 20px;
   border-radius: 20px;
   color: white;
@@ -2496,3 +2532,52 @@ footer p {
   color: brown;
   cursor: pointer;
 }
+
+            /* Profile Icon Styles */
+            .profile-icon {
+              display: flex;
+              align-items: center;
+              text-decoration: none;
+              font-size: 30px;
+              color: #333;
+              cursor: pointer;
+              margin-bottom: 7px;
+              position: relative; /* Position relative for dropdown alignment */
+          }
+          
+          /* Dropdown Menu Styles */
+          .dropdown-menu {
+              list-style: none;
+              padding: 0;
+              margin: 0;
+              background-color: #fff;
+              border: 1px solid #ddd;
+              width: 150px; /* Adjust width based on content */
+              position: absolute;
+              top: 100%; /* Position below the profile icon */
+              right: 0;  /* Align to the right of the profile icon */
+              display: none; /* Initially hidden */
+              z-index: 1000; /* Ensure it's on top of other elements */
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional shadow for better appearance */
+          }
+          
+          .dropdown-menu li {
+              padding: 10px;
+              text-align: center;
+          }
+          
+          .dropdown-menu li a {
+              text-decoration: none;
+              color: #333;
+              display: block;
+              padding: 10px 15px;
+          }
+          
+          .dropdown-menu li a:hover {
+              background-color: #f1f1f1;
+          }
+          
+          /* Show dropdown when triggered */
+          .dropdown-menu.show {
+              display: block; /* Display the dropdown when the 'show' class is toggled */
+          }

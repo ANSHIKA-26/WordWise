@@ -13,7 +13,9 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="./contact_us.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="Scroll_and_progressbar.css" />
     <style>
@@ -78,34 +80,41 @@
     <div class="progress-container">
       <div class="progress-bar" id="progress-bar"></div>
     </div>
-    <header class="navbar">
-      <div class="logo">
-        <h2><a class="home-link" href="index.html">WordWise</a></h2>
+    <div class="layout-container" style="margin-bottom: 4rem;">
+
+      <header>
+  
+  
+  
+        <div class="logo" >
+          <a href="index.html">
+            <h2>WordWise</h2>
+          </a>
+        </div>
+      <div class="nav-links1">
+          <a href="index.html">Home</a>
+          <a href="blog.html">Leading Blog</a>
+          <a href="start_writing.html">Start Writing</a>
+          <a href="category.html">Categories</a>
+          <a href="about.html">About</a>
+          <a href="contact_us.html">Contact Us</a>
+          <a href="contact_us.html">Give Feedback</a>
       </div>
-
-      <button class="toggle-button" onclick="toggleMenu()">
-        &#9776;
-        <!-- Hamburger icon -->
-      </button>
-
-      <nav class="nav-menu" id="nav-menu">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="blog.html">Leading Blog</a></li>
-          <li><a href="start_writing.html">Start Writing</a></li>
-          <li><a href="category.html">Categories</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact_us.html">Contact Us</a></li>
-          <li><a href="contact_us.html">Give Feedback</a></li>
+       
+                
+      <div class="dropdown">
+        <!-- Profile Icon -->
+        <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
+            <i class="fas fa-user-circle"></i>
+        </a>
+    
+        <!-- Dropdown Menu -->
+        <ul class="dropdown-menu" id="dropdownMenu">
+            <li><a href="#login" onclick="openForm('login')">Login</a></li>
+            <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
         </ul>
-      </nav>
-      <!-- Navigation Bar Ends -->
-      <div class="auth-buttons">
-        <a href="#login" class="login-btn" onclick="openForm('login')">Login</a>
-        <a href="#signup" class="signup-btn" onclick="openForm('signup')"
-          >Signup</a
-        >
-      </div>
+    </div>
+ 
 
         <!-- Login Form -->
 <div class="form-popup" id="loginForm">
@@ -274,6 +283,7 @@
             
       </div>
     </header>
+    </div>
 
     <div
       class="container"
@@ -520,5 +530,8 @@
     <!-- added script for contact form  -->
 
     <script src="contact_us.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="profiledropdown.js"></script>
   </body>
 </html>

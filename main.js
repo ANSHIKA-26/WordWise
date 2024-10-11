@@ -1,10 +1,12 @@
 let toggle = document.querySelector("#header .toggle-button");
 let collapse = document.querySelectorAll("#header .collapse");
 
+if (toggle) {
+    toggle.addEventListener('click', function () {
+    collapse.forEach(col => col.classList.toggle("collapse-toggle"));
+    })
+}
 
-toggle.addEventListener('click', function () {
-  collapse.forEach(col => col.classList.toggle("collapse-toggle"));
-})
 //swiper library
 // main.js
 document.addEventListener('DOMContentLoaded', function () {
@@ -33,13 +35,11 @@ window.onscroll = function () { myFunction() };
 // get the current value
 let navbar = document.getElementById("header");
 
-
-// get the navbar position
-let sticky = navbar.offsetTop;
-
-
 // sticky function
 function myFunction() {
+  // get the navbar position
+  let sticky = navbar.offsetTop;
+
   if (window.pageYOffset >= sticky) {
     navbar.classList.add("sticky");
   } else {
@@ -65,41 +65,38 @@ function closeForm(formType) {
   }
 }
 
+//Active Nav bar
 function openForgotPassword() {
-  document.getElementById('loginForm').style.display = 'none';
-  document.getElementById('email').value = '';
-  document.getElementById('forgot-password-modal').style.display = 'block';
-}
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('email').value = '';
+    document.getElementById('forgot-password-modal').style.display = 'block';
+  }
 
 // Close Forgot Password Modal
 function closeForgotPasswordModal() {
-  document.getElementById('email').value = '';
-  document.getElementById('forgot-password-modal').style.display = 'none';
+    document.getElementById('email').value = '';
+    document.getElementById('forgot-password-modal').style.display = 'none';
 }
 
 // Simulate form submission for Forgot Password
 function submitForgotPassword() {
-  const email = document.getElementById('email').value;
-  if (email) {
-    alert("Password reset instructions have been sent to " + email);
-    closeForgotPasswordModal(); // Close modal after submission
-  } else {
-    alert("Please enter your email.");
-  }
+    const email = document.getElementById('email').value;
+    if (email) {
+        alert("Password reset instructions have been sent to " + email);
+        closeForgotPasswordModal(); // Close modal after submission
+    } else {
+        alert("Please enter your email.");
+}
 }
 
 // Close modal when clicking outside of it
 window.onclick = function(event) {
-  const modal = document.getElementById('forgot-password-modal');
-  if (event.target == modal) {
-    modal.style.display = 'none';
-  }
+    const modal = document.getElementById('forgot-password-modal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+}
 };
 
-
-
-
-//Active Nav bar 
 const navLinks = document.querySelectorAll('.nav-link');
 const setActiveLink = () => {
   const activePath = localStorage.getItem('activeLink');
@@ -129,7 +126,7 @@ navLinks.forEach(link => {
 
 
 function detectColorScheme() {
-  var theme = "light";   
+  var theme = "light";
 
 
   //local storage is used to override OS theme settings
@@ -172,9 +169,9 @@ function switchTheme(e) {
   }
 }
 
-
-//listener for changing themes
-toggleSwitch.addEventListener('change', switchTheme, false);
+if (toggleSwitch)
+  //listener for changing themes
+  toggleSwitch.addEventListener('change', switchTheme, false);
 
 
 //pre-check the dark-theme checkbox if dark-theme is set
@@ -182,7 +179,11 @@ if (document.documentElement.getAttribute("data-theme") == "dark") {
   toggleSwitch.checked = true;
 }
 
-document.querySelector('#about').addEventListener('click', function(event) {
-  event.preventDefault();
-  document.querySelector('#about-us').scrollIntoView({ behavior: 'smooth' });
-});
+let aboutSection = document.querySelector('#about');
+
+if (aboutSection) {
+    document.querySelector('#about').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.querySelector('#about-us').scrollIntoView({ behavior: 'smooth' });
+    });
+}
