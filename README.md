@@ -1,23 +1,63 @@
-
-![GSSoC-Ext](https://github.com/sakshamsaraf23/WordWise/blob/main/images/Untitled%20design.png)
 # 📖 WordWise Blogging Website 📝 
-
-![WordWise Website Screenshot](https://github.com/sakshamsaraf23/WordWise/blob/main/images/website.png)
-).
-
+**WordWise** is a responsive, user-friendly blogging platform designed to enrich vocabulary and engage readers with insightful articles. Built using **HTML**, **CSS**, and **JavaScript**, the website offers an enjoyable experience with an interactive interface. Whether you're here to read blogs or explore topics, WordWise is for everyone.
 
 ---
 
+<table align="center">
+    <thead align="center">
+        <tr border: 1px;>
+            <td><b>🌟 Stars</b></td>
+            <td><b>🍴 Forks</b></td>
+            <td><b>🐛 Issues</b></td>
+            <td><b>🔔 Open PRs</b></td>
+            <td><b>🔕 Close PRs</b></td>
+        </tr>
+     </thead>
+    <tbody>
+         <tr>
+            <td><img alt="Stars" src="https://img.shields.io/github/stars/say-het/WordWise?style=flat&logo=github"/></td>
+            <td><img alt="Forks" src="https://img.shields.io/github/forks/say-het/WordWise?style=flat&logo=github"/></td>
+            <td><img alt="Issues" src="https://img.shields.io/github/issues/say-het/WordWise?style=flat&logo=github"/></td>
+            <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/say-het/WordWise?style=flat&logo=github"/></td>
+           <td><img alt="Close Pull Requests" src="https://img.shields.io/github/issues-pr-closed/say-het/WordWise?style=flat&color=critical&logo=github"/></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+---
+
+## Featured In
+
+<table>
+
+   <tr>
+      <th>Event Logo</th>
+      <th>Event Name</th>
+      <th>Event Description</th>
+   </tr>
+   <tr>
+      <td><img src="./images/Untitled design.png" width="200" height="auto" loading="lazy" alt="GSSoC 24"/></td>
+      <td>GirlScript Summer of Code 2024</td>
+      <td>GirlScript Summer of Code is a three-month-long Open Source Program conducted every summer by GirlScript Foundation. It is an initiative to bring more beginners to Open-Source Software Development.</td>
+   </tr>
+</table>
+
+---
 ## 🌟 Table of Contents
 - [Key Features](#-key-features-)
-- [Overview](#-overview-)
 - [Technologies Used](#-technologies-used-)
 - [How to Contribute](#-how-to-contribute-to-this-project-)
+- [Contribution](#contribution)
+- [Code of conduct](#code-of-conduct)
 - [Contribution Points](#contribution-points)
 - [GSSoC Guidelines](#gssoc-guidelines)
 - [Ending Note](#-ending-note-)
 - [Join Us!](#-join-us-)
-
+- [Contributors](#our-valuable-contributors-️)
+- [Website Preview](#-website-preview)
+- [Stargazers](#stargazers)
+- [Forkers](#forkers)
 ---
 
 ## ✨ Key Features ✨
@@ -30,11 +70,6 @@
 
 - **⭐ User Engagement**
   - Readers can share their thoughts and feedback directly on the Contact Us page.
-
----
-
-## 🌟 Overview 🌟
-**WordWise** is a responsive, user-friendly blogging platform designed to enrich vocabulary and engage readers with insightful articles. Built using **HTML**, **CSS**, and **JavaScript**, the website offers an enjoyable experience with an interactive interface. Whether you're here to read blogs or explore topics, WordWise is for everyone.
 
 ---
 
@@ -104,6 +139,35 @@ We’re excited to have you contribute to the **WordWise Blogging Website** proj
 - Use the search bar to find specific topics.
 - Click on any article to read in detail.
 
+---
+## <img src="https://github.com/Meetjain1/wanderlust/assets/133582566/90f3930e-5a12-4a4e-8ac9-0dc7d5396adb" width="35" height="35"> Contribution
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+- If you have any suggestions for the project, such as reporting a bug, improving the UI, or enhancing the README.md file, feel free to **open an issue** to discuss it or directly create a pull request with the necessary changes.
+- Please make sure to check your spelling and grammar.
+- Create individual pull requests for each suggestion to keep changes focused and manageable.
+
+Your involvement helps to improve the project and make it better for everyone. Thank you for your contributions!
+
+Kindly go through [CONTRIBUTING.md](CONTRIBUTING.md) to understand everything from setup to contributing guidelines.
+
+If you would like to contribute to the project, please follow our contribution guidelines.
+
+---
+## <h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="35" height="35"> Code of Conduct</h2>
+
+We are committed to fostering a welcoming and inclusive environment for everyone. All contributors and participants are expected to uphold the following values:
+
+- Be respectful of different viewpoints and experiences.
+- Show empathy toward others.
+- Use inclusive language.
+
+Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md) to foster an inclusive community.
+If anyone violates these standards, they may be banned from the community.
+
+---
+
 ## 🏆 Contribution Points
 All tasks will be assigned various levels based on complexity and required skills. Each level provides different points:
 - **🥇 Level 1**: 10 Points  
@@ -128,9 +192,42 @@ If you have any questions or need assistance, please feel free to reach out thro
 ## 🙌🏻 Join Us!
 We encourage you to explore the website, share your thoughts, and get involved in improving the project. Let’s make this blogging experience even better together!
 
+---
+
 ## Our Valuable Contributors ❤️✨
 
 [![Contributors](https://contrib.rocks/image?repo=say-het/WordWise)](https://github.com/say-het/WordWise/graphs/contributors)
 
+---
 
-Happy coding! 📝
+## 📸 Website Preview
+<img src="home.png" />
+<img src="faq.png" />
+
+🌐 **Visit our website:** [WordWise](https://wordwise-k9ho.onrender.com/#)
+
+---
+## Stargazers
+
+<div align='center'>
+
+[![Stargazers repo roster for @say-het/WordWise](https://reporoster.com/stars/say-het/WordWise)](https://github.com/say-het/WordWise/stargazers)
+
+</div>
+
+---
+## Forkers
+<div align='center'>
+
+[![Forkers repo roster for @say-het/WordWise](https://reporoster.com/forks/say-het/WordWise)](https://github.com/say-het/WordWise/network/members)
+
+</div>
+---
+
+<div align="center">
+    <a href="#top">
+        <img src="https://img.shields.io/badge/Back%20to%20Top-000000?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top">
+    </a>
+</div>
+
+## Show some ❤️ by starring this awesome repository!
