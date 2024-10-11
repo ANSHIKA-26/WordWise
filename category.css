@@ -36,7 +36,7 @@
 
 .new-category-title {
   font-size: 26px;
-  font-weight: bold;
+  font-weight: bolder;
   color: #686868;
   margin-bottom: 10px;
   margin-left: 2px;
@@ -106,7 +106,7 @@ img {
   font-size: 17px;
   color: #686868;
   margin-bottom: 7px;
-  font-weight: 600;
+  font-weight: 550;
   margin-left: 2px;
 }
 
