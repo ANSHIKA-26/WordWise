@@ -1303,9 +1303,14 @@ a {
   color: var(--text-color);
 
 }
+
 #fa{
+
   margin: 4px;
+  color:  #f9b0b0;
+
 }
+
 .text-dark {
   color: var(--text-color);
 }
