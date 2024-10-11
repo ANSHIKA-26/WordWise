@@ -211,7 +211,7 @@ We encourage you to explore the website, share your thoughts, and get involved i
 
 <div align='center'>
 
-[![Stargazers repo roster for @say-het/WordWise](https://reporoster.com/stars/say-het/WordWise)](https://github.com/say-het/WordWise/stargazers)
+[![Stargazers repo roster for @ANSHIKA-26/WordWise](https://reporoster.com/stars/ANSHIKA-26/WordWise)](https://github.com/ANSHIKA-26/WordWise/stargazers)
 
 </div>
 
@@ -219,7 +219,7 @@ We encourage you to explore the website, share your thoughts, and get involved i
 ## Forkers
 <div align='center'>
 
-[![Forkers repo roster for @say-het/WordWise](https://reporoster.com/forks/say-het/WordWise)](https://github.com/say-het/WordWise/network/members)
+[![Forkers repo roster for @ANSHIKA-26/WordWise](https://reporoster.com/forks/ANSHIKA-26/WordWise)](https://github.com/ANSHIKA-26/WordWise/network/members)
 
 </div>
 ---
