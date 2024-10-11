@@ -388,6 +388,24 @@ html, body {
 }
 
 
+body.dark-mode footer a{
+ background-color: #333;
+  color: #f2dede;
+}
+
+body.dark-mode footer p{
+  color: #f2dede;
+}
+
+body.dark-mode footer h2{
+  color: #f2dede;
+}
+body.dark-mode footer address{
+  color: #f2dede;
+}
+body.dark-mode footer .phone{
+  color: #f2dede;
+}
 
 .form-popup {
   display: none;
@@ -413,6 +431,10 @@ html, body {
 /* Dark mode form background */
 [data-theme="dark"] .form-popup {
   background-color: var(--dark); /* Dark mode background */
+}
+
+[data-theme="dark"] .form-container h2{
+  color: var(--light);/*form heading made light-colored in dark theme*/
 }
 
 #headings{
@@ -661,14 +683,18 @@ header {
       width: 100%;
       justify-content: center;
   }
-}
-.load-posts-btn {
-  transition: transform 330ms ease-in-out;
+
+  .load-posts-btn {
+    width: 100%;
+    transition: width 330ms ease-in-out, background-color 0.3s ease;
+  }
+
+  .load-posts-btn:hover {
+    transform: none; /* no scaling on smaller screens for better UX */
+  }
+
 }
 
-.load-posts-btn:hover{
-   transform: scaleX(1.2);
-}
 .auth-buttons {
   display: flex;
   gap: 0.5rem;
@@ -759,6 +785,7 @@ button {
 .form-container p {
   text-align: center;
   margin-bottom: 20px;
+  /* color: white; */
 }
 
 .form-container input[type="email"] {
@@ -1392,19 +1419,22 @@ a {
   margin-bottom: 6em;
 }
 
+/*Reanimated button*/
 .load-posts-btn {
   background-color: #ffd479;
   color: black;
   border-radius: 4px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  box-shadow: 2px 2px 5px #3E2C20 ;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 250ms ease-in-out;
+  box-shadow: 2px 2px 5px #3E2C20;
+  will-change: transform, background-color;
 }
 
 .load-posts-btn:hover {
-  background-color: #e89e00 ;
-  color: black;
-  cursor : pointer ;
+  background-color: #e89e00;
+  transform: scale(1.08); /* subtle scaling */
+  cursor: pointer;
 }
+
 
 .sliderr * {
   margin: 0;
@@ -2399,68 +2429,115 @@ footer p {
 
 /*--------*/
 
-.commentform{
+/* Made changes to the Comment form */
+.commentform {
   margin-top: 50px;
-  margin-left: 30%;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 40%;
-  /* height: 500px; */
-  gap:10px;
-  
+  width: 60%;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
-.comment-box1{
+.commentform h3 {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #333;
+}
+
+.comment-box1, .comment-box2 {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  width: 100%;
-} 
-.comment-input{
-  /* flex: 1; */
-  padding: 20px;
-  border-radius: 20px;
-  border: #000 solid 1px;
-  /* max-width: 500px; */
-}
-
-.comment-box2{
-  /* display: flex; */
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  height: auto;
-}
-
-.comment-input2,.comment-textarea{
-  padding: 20px;
-  border-radius: 20px;
-  border: #000 solid 1px;
+  gap: 15px;
   width: 100%;
 }
 
-.comment-textarea{
-  height: 200px;
+.form-floating {
+  position: relative;
+  width: 100%;
+}
+
+.form-floating > .form-control {
+  padding: 1.5rem 0.75rem;
+}
+
+.form-floating > label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 1rem 0.75rem;
+  pointer-events: none;
+  transition: all 0.2s ease-in-out;
+  color: #6c757d;
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+  top: -1.25rem;
+  left: 0.75rem;
+  font-size: 0.75rem;
+  color: #495057;
+}
+
+.comment-input, .comment-input2, .comment-textarea {
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  width: 100%;
+  font-size: 16px;
+}
+
+.comment-textarea {
+  height: 150px;
   resize: none;
 }
-.commentbtn{
+
+.commentbtn {
   margin-top: 20px;
-  
-  padding: 20px;
-  border-radius: 20px;
+  padding: 15px;
+  border-radius: 5px;
   color: white;
   background-color: #007bff;
-  border: #000 1px solid;
-  width: 200px;
+  border: none;
+  width: 150px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.comment-input,.comment-input2,.form-control::placeholder{
- text-align: center;
- font-size: 18px;
+.commentbtn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.commentbtn:active {
+  transform: scale(1.15);
+}
+
+.comment-input::placeholder, .comment-input2::placeholder, .comment-textarea::placeholder {
+  text-align: center;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .commentform {
+    width: 90%;
+  }
+
+  .commentbtn {
+    width: 100%;
+  }
 }
 /* Apply flexbox to the form container */
 .wordwise-newsletter-form {

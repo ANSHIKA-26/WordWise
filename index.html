@@ -166,9 +166,10 @@
 
 
 
-    <div class="logo">
-
-        <h2>WordWise</h2>
+    <div class="logo" >
+        <a href="index.html">
+          <h2>WordWise</h2>
+        </a>
     </div>
     <div class="nav-links1">
         <a href="index.html">Home</a>
@@ -198,8 +199,7 @@
 
 
 
-        <!-- Login Form -->
-<!-- Login Form -->
+  <!--  Login Form -->
 <div class="form-popup" id="loginForm">
     <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
         <span class="close-icon" onclick="closeForm('login')">&times;</span>
@@ -215,15 +215,16 @@
         </div>
         <div class="forgot">
             <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
-          </div>
+        </div>
         <button type="submit" class="btn btn-primary w-100 mb-3">LOGIN</button>
-       <!-- Google Sign-In Button -->
-             <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
-                <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
-                Sign in with Google</button>
-        <button type="button" class="btn btn-secondary w-100" onclick="closeForm('login')">CLOSE</button>
+        <!-- Google Sign-In Button -->
+        <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+            <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
+            Sign in with Google
+        </button>
     </form>
 </div>
+
 
 <!-- Signup Form -->
 <div class="form-popup" id="signupForm">
@@ -240,8 +241,9 @@
         </div>
         <div class="form-group position-relative">
             <label for="signupPsw"><b>Password</b></label>
-            <input type="password" class="form-control" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+            <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6" oninput="checkPasswordStrength()">
             <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
+            <div id="passwordStrength" class="strength-meter"></div>
         </div>
         <div class="form-group position-relative">
             <label for="confirmPsw"><b>Confirm Password</b></label>
@@ -253,7 +255,6 @@
          <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
           <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
           Sign in with Google</button>
-        <button type="button" class="btn btn-secondary w-100" onclick="closeForm('signup')">CLOSE</button>
     </form>
 </div>
 
@@ -286,27 +287,64 @@
             togglePassword.classList.add('bi-eye');
         }
     }
+    function checkPasswordStrength() {
+    var strengthMeter = document.getElementById('passwordStrength');
+    var password = document.getElementById('signupPsw').value;
+    var strength = 0;
+
+    if (password.length >= 6) strength++;
+    if (password.match(/[a-z]+/)) strength++;
+    if (password.match(/[A-Z]+/)) strength++;
+    if (password.match(/[0-9]+/)) strength++;
+    if (password.match(/[\W]+/)) strength++;
+
+    switch (strength) {
+        case 0:
+        case 1:
+            strengthMeter.style.width = '20%';
+            strengthMeter.style.backgroundColor = 'red';
+            strengthMeter.textContent = 'Weak';
+            break;
+        case 2:
+            strengthMeter.style.width = '40%';
+            strengthMeter.style.backgroundColor = 'orange';
+            strengthMeter.textContent = 'Fair';
+            break;
+        case 3:
+            strengthMeter.style.width = '60%';
+            strengthMeter.style.backgroundColor = 'yellow';
+            strengthMeter.textContent = 'Good';
+            break;
+        case 4:
+            strengthMeter.style.width = '80%';
+            strengthMeter.style.backgroundColor = 'blue';
+            strengthMeter.textContent = 'Strong';
+            break;
+        case 5:
+            strengthMeter.style.width = '100%';
+            strengthMeter.style.backgroundColor = 'green';
+            strengthMeter.textContent = 'Very Strong';
+            break;
+    }
+}
 </script>
 
-<!-- Styles -->
+<!-- Updated CSS Styles -->
 <style>
     .form-popup {
-        .form-popup {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 9; /* Sit on top */
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%); /* Center the popup */
-    width: 100%;
-    max-width: 500px; /* Limit width */
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-    box-sizing: border-box;
-}
-
+        display: none;
+        position: fixed;
+        z-index: 9;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        max-width: 500px;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+        box-sizing: border-box;
     }
 
     .form-container h2 {
@@ -320,8 +358,19 @@
 
     .form-control {
         border-radius: 5px;
-        padding: 10px;
+        padding: 12px;
+        font-size: 16px; 
+        line-height: 1.5; 
         box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 100%;
+    }
+
+    .forgot {
+        text-align: right; 
+        margin-left: 140px;
+        font-size: 10px;   
+        margin-top: -40px;
+
     }
 
     .btn {
@@ -347,13 +396,39 @@
         position: relative;
     }
 
+    /* Login button jumping issue fix */
+    .btn-primary {
+        transition: all 0.3s ease; /* Smooth transition */
+    }
+
     .btn-primary:hover {
         background-color: #0056b3;
     }
 
-    .btn-secondary:hover {
-        background-color: #6c757d;
+    .google-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
+
+    .google-logo {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+    .strength-meter {
+    height: 10px;
+    width: 0;
+    transition: width 0.3s;
+    margin-top: 5px;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+}
 </style>
 
 <!-- Bootstrap Icons -->
@@ -364,7 +439,7 @@
         <label class="theme-switch" for="checkbox">
             <input type="checkbox" id="checkbox">
             <div class="slider">
-                <img src="https://img.icons8.com/emoji/48/000000/sun-emoji.png" alt="Sun" class="icon sun-icon">
+                <img src="https://img.icons8.com/emoji/48/000000/sun-emoji.png" alt="Sun"  class="icon sun-icon">
                 <img src="https://img.icons8.com/emoji/48/000000/crescent-moon-emoji.png" alt="Moon" class="icon moon-icon">
             </div>
         </label>
