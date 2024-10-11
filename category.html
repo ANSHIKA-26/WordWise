@@ -50,10 +50,11 @@
     
     
     
-        <div class="logo">
-  
-            <h2>WordWise</h2>
-        </div>
+            <div class="logo" >
+                <a href="index.html">
+                  <h2>WordWise</h2>
+                </a>
+            </div>
         <div class="nav-links1">
             <a href="index.html">Home</a>
             <a href="blog.html">Leading Blog</a>
@@ -78,67 +79,51 @@
         </div>
      
         
-     
-
-  <!--  Login Form -->
-<div class="form-popup" id="loginForm">
-    <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
-        <span class="close-icon" onclick="closeForm('login')">&times;</span>
-        <h2 class="text-center">Login</h2>
-        <div class="form-group">
-            <label for="loginEmail"><b>Email</b></label>
-            <input type="email" class="form-control" id="loginEmail" placeholder="Enter Email" name="email" required>
+            <!-- Login Form -->
+        <div class="form-popup" id="loginForm">
+            <form class="form-container" onsubmit="return validateLoginForm()">
+                <h2>Login</h2>
+                <label for="loginEmail"><b>Email</b></label>
+                <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
+                <label for="loginPsw"><b>Password</b></label>
+                <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+                <div class="forgot">
+                    <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
+                  </div>
+                <button type="submit" class="btn">LOGIN</button>
+                <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
+            </form>
         </div>
-        <div class="form-group position-relative">
-            <label for="loginPsw"><b>Password</b></label>
-            <input type="password" class="form-control" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
-            <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
+        
+         <!-- Signup Form -->
+         <div class="form-popup" id="signupForm">
+            <form class="form-container" onsubmit="return validateSignupForm()">
+                <h2>Signup</h2>
+                <div class="form-group">
+                    <label for="name"><b>Full Name</b></label>
+                    <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail"><b>Email</b></label>
+                    <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPsw"><b>Password</b></label>
+                    <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+                    <span id="togglePassword" class="toggle-button">Show</span>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPsw"><b>Confirm Password</b></label>
+                    <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+                    <span id="toggleConfirmPassword" class="toggle-button">Show</span>
+                </div>
+                <button type="submit" class="btn">SIGNUP</button>
+                <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
+            </form>
         </div>
-        <div class="forgot">
-            <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
-        </div>
-        <button type="submit" class="btn btn-primary w-100 mb-3">LOGIN</button>
-        <!-- Google Sign-In Button -->
-        <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
-            <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
-            Sign in with Google
-        </button>
-    </form>
-</div>
-
-
-<!-- Signup Form -->
-<div class="form-popup" id="signupForm">
-    <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
-        <span class="close-icon" onclick="closeForm('signup')">&times;</span>
-        <h2 class="text-center">Signup</h2>
-        <div class="form-group">
-            <label for="name"><b>Full Name</b></label>
-            <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
-        </div>
-        <div class="form-group">
-            <label for="signupEmail"><b>Email</b></label>
-            <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required>
-        </div>
-        <div class="form-group position-relative">
-            <label for="signupPsw"><b>Password</b></label>
-            <input type="password" class="form-control" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
-            <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
-        </div>
-        <div class="form-group position-relative">
-            <label for="confirmPsw"><b>Confirm Password</b></label>
-            <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
-            <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
-        </div>
-        <button type="submit" class="btn btn-primary w-100 mb-3">SIGNUP</button>
-        <!-- Google Sign-In Button -->
-         <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
-          <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
-          Sign in with Google</button>
-    </form>
-</div>
-
-<!-- Forgot Password Modal -->
+        <script src="signup.js"></script> <!-- Link to your JavaScript file -->
+    
+        <!-- Forgot Password Modal -->
 <div id="forgot-password-modal" class="modal">
     <div class="form-container modal-content">
       <h2>Forgot Password</h2>

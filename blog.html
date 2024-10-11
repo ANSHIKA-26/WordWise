@@ -30,9 +30,10 @@
 
 
 
-    <div class="logo">
-
+    <div class="logo" >
+      <a href="index.html">
         <h2>WordWise</h2>
+      </a>
     </div>
     <div class="nav-links1">
         <a href="index.html">Home</a>
@@ -102,10 +103,12 @@
           <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required>
       </div>
       <div class="form-group position-relative">
-          <label for="signupPsw"><b>Password</b></label>
-          <input type="password" class="form-control" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
-          <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
-      </div>
+        <label for="signupPsw"><b>Password</b></label>
+        <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6" oninput="checkPasswordStrength()">
+        <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
+        <div id="passwordStrength" class="strength-meter"></div>
+    </div>
+
       <div class="form-group position-relative">
           <label for="confirmPsw"><b>Confirm Password</b></label>
           <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
@@ -258,9 +261,120 @@
           togglePassword.classList.remove('bi-eye-slash');
           togglePassword.classList.add('bi-eye');
       }
+      function checkPasswordStrength() {
+    var strengthMeter = document.getElementById('passwordStrength');
+    var password = document.getElementById('signupPsw').value;
+    var strength = 0;
+
+    if (password.length >= 6) strength++;
+    if (password.match(/[a-z]+/)) strength++;
+    if (password.match(/[A-Z]+/)) strength++;
+    if (password.match(/[0-9]+/)) strength++;
+    if (password.match(/[\W]+/)) strength++;
+
+    switch (strength) {
+        case 0:
+        case 1:
+            strengthMeter.style.width = '20%';
+            strengthMeter.style.backgroundColor = 'red';
+            strengthMeter.textContent = 'Weak';
+            break;
+        case 2:
+            strengthMeter.style.width = '40%';
+            strengthMeter.style.backgroundColor = 'orange';
+            strengthMeter.textContent = 'Fair';
+            break;
+        case 3:
+            strengthMeter.style.width = '60%';
+            strengthMeter.style.backgroundColor = 'yellow';
+            strengthMeter.textContent = 'Good';
+            break;
+        case 4:
+            strengthMeter.style.width = '80%';
+            strengthMeter.style.backgroundColor = 'blue';
+            strengthMeter.textContent = 'Strong';
+            break;
+        case 5:
+            strengthMeter.style.width = '100%';
+            strengthMeter.style.backgroundColor = 'green';
+            strengthMeter.textContent = 'Very Strong';
+            break;
+    }
+}
   }
 </script>
 
+<<<<<<< HEAD
+=======
+<style>
+  /* Form Container Styles */
+  .form-popup {
+      width: 400px;
+      margin: auto;
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+  }
+
+  .form-control {
+      border-radius: 5px;
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: border-color 0.3s;
+  }
+
+  .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+
+  .btn {
+      margin-top: 15px;
+      border-radius: 5px;
+  }
+
+  .eye-icon {
+      position: absolute;
+      right: 15px;
+      top: 38px; /* Adjust according to input field height */
+      cursor: pointer;
+      color: #007bff;
+  }
+
+  .position-relative {
+      position: relative;
+  }
+
+  .btn-block {
+      width: 100%;
+  }
+
+  /* Hover Effects */
+  .btn:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+  }
+
+  .btn.cancel:hover {
+      background-color: #6c757d;
+      border-color: #6c757d;
+  }
+  .strength-meter {
+    height: 10px;
+    width: 0;
+    transition: width 0.3s;
+    margin-top: 5px;
+    text-align: center;
+    color: black;
+    font-size: 12px;
+}
+</style>
+>>>>>>> 00916c52abd3b7169c720f2cd8cbcabc4b19ad25
 
 <script src="signup.js"></script> <!-- Link to your JavaScript file -->
 
