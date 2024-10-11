@@ -253,6 +253,9 @@
         <form id="blogForm" onsubmit="PostBlog(event)">
           <h2 style="margin-bottom: 15px">Start Writing</h2>
 
+        <!-- card 1 : Blog heading , topic and Image upload-->
+        <div class="card-container">
+          <div class="card">
           <label for="blogHeading">Blog Heading:</label>
           <input
             type="text"
@@ -272,12 +275,15 @@
 
           <label for="blogImage">Upload Image:</label>
           <input type="file" id="blogImage" name="image" accept="image/*" />
+        </div>
 
+         <!--card 2 : Blog content , writer name , submit button-->
+        <div class="card">
           <label for="blogContent">Blog Content:</label>
           <textarea
             id="blogContent"
             name="content"
-            rows="10"
+            rows="20"
             placeholder="Start writing your blog here..."
             required
           ></textarea>
@@ -292,6 +298,8 @@
           />
 
           <button type="submit">Submit Blog</button>
+        </div>
+        </div>
         </form>
       </div>
     </main>
