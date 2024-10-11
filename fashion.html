@@ -17,9 +17,102 @@
     p, h2 { line-height: 1.6; }
     img { width: 100%; border-radius: 10px; margin: 20px 0; }
     .footer { text-align: center; padding: 20px; background-color: #f8b5b5; color: white; }
+    body.dark-mode {
+  background-color: #333;
+  color: #f8f8f8;
+}
+
+body.dark-mode .container {
+  background-color: #444;
+  color: #f8f8f8;
+}
+body.dark-mode .container  p{
+  /* background-color: #444; */
+  color: #f8f8f8 !important;
+}
+
+body.dark-mode h1 {
+  color: #ff6666;
+}
+
+body.dark-mode .footer {
+  background-color: #444;
+  color: #f8f8f8;
+}
+
+body.dark-mode a {
+  color: #ff6666;
+}
+
+.theme-switch-wrapper {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.theme-switch .slider {
+  width: 50px;
+  height: 25px;
+  background-color: #ccc;
+  position: relative;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+.theme-switch .slider::before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  background-color: white;
+  border-radius: 50%;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.4s;
+}
+
+.theme-switch input:checked + .slider::before {
+  transform: translate(25px, -50%);
+}
+
+body.dark-mode .theme-switch .slider {
+  background-color: #666;
+}
+
+
   </style>
 </head>
 <body>
+    
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const toggleSwitch = document.getElementById('checkbox');
+      const currentTheme = localStorage.getItem('theme');
+    
+      if (currentTheme) {
+        document.body.classList.add(currentTheme);
+        if (currentTheme === 'dark-mode') {
+          toggleSwitch.checked = true;
+        }
+      }
+    
+      toggleSwitch.addEventListener('change', function () {
+        if (this.checked) {
+          document.body.classList.add('dark-mode');
+          localStorage.setItem('theme', 'dark-mode');
+        } else {
+          document.body.classList.remove('dark-mode');
+          localStorage.setItem('theme', 'light-mode');
+        }
+      });
+    });
+    </script>
+    
     <header>
     
     
