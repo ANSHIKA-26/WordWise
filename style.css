@@ -2730,6 +2730,7 @@ footer p {
   display: flex;
   justify-content: center; /* Horizontally center the button */
   width: 100%; /* Ensure it spans the width of the form */
+  
 }
 
 /* Style the button */
@@ -2827,4 +2828,22 @@ footer p {
           /* Show dropdown when triggered */
           .dropdown-menu.show {
               display: block; /* Display the dropdown when the 'show' class is toggled */
+          }
+
+          .submitbtn{
+            
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+          
+          }
+          .submitbtn:hover
+          {
+            background-color: #0056b3;
+            transform: scale(1.03);
           }
