@@ -430,7 +430,7 @@ body.dark-mode footer .phone{
 
 /* Dark mode form background */
 [data-theme="dark"] .form-popup {
-  background-color: var(--dark); /* Dark mode background */
+  background-color: #141414; /* Dark mode background */
 }
 
 [data-theme="dark"] .form-container h2{
@@ -461,6 +461,10 @@ body.dark-mode footer .phone{
   cursor: pointer;
   color: var(--dark); /* Color of the close "X" */
   transition: transform 0.5s;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 .close-icon:hover {
@@ -2093,7 +2097,7 @@ input:checked + .slider .moon-icon {
   text-align: center;
   font-size: 1.8rem;
   font-weight: 700;
-  color: #242e4c;
+  /* color: #242e4c; */
   margin-bottom: 2.5rem;
 }
 
@@ -2169,7 +2173,7 @@ input:checked + .slider .moon-icon {
 
 /*FAQ improvement for Dark Theme*/
 [data-theme="dark"] .faq .accordion__wrapper {
-  background-color: #f1f1f1;
+  background-color: #414141;
   color: #f1f1f1;
 }
 
