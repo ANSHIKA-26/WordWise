@@ -3,34 +3,9 @@
 
 ---
 
-<table align="center">
-    <thead align="center">
-        <tr border: 1px;>
-            <td><b>🌟 Stars</b></td>
-            <td><b>🍴 Forks</b></td>
-            <td><b>🐛 Issues</b></td>
-            <td><b>🔔 Open PRs</b></td>
-            <td><b>🔕 Close PRs</b></td>
-        </tr>
-     </thead>
-    <tbody>
-         <tr>
-            <td><img alt="Stars" src="https://img.shields.io/github/stars/say-het/WordWise?style=flat&logo=github"/></td>
-            <td><img alt="Forks" src="https://img.shields.io/github/forks/say-het/WordWise?style=flat&logo=github"/></td>
-            <td><img alt="Issues" src="https://img.shields.io/github/issues/say-het/WordWise?style=flat&logo=github"/></td>
-            <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/say-het/WordWise?style=flat&logo=github"/></td>
-           <td><img alt="Close Pull Requests" src="https://img.shields.io/github/issues-pr-closed/say-het/WordWise?style=flat&color=critical&logo=github"/></td>
-        </tr>
-    </tbody>
-</table>
-</div>
-
----
-
 ## Featured In
 
 <table>
-
    <tr>
       <th>Event Logo</th>
       <th>Event Name</th>
@@ -50,14 +25,13 @@
 - [How to Contribute](#-how-to-contribute-to-this-project-)
 - [Contribution](#contribution)
 - [Code of conduct](#code-of-conduct)
+- [Contribution Guidelines](#guidelines-for-contribution)
+- [PR Guidelines](#pull-request-guidelines)
 - [Contribution Points](#contribution-points)
 - [GSSoC Guidelines](#gssoc-guidelines)
 - [Ending Note](#-ending-note-)
 - [Join Us!](#-join-us-)
 - [Contributors](#our-valuable-contributors-️)
-- [Website Preview](#-website-preview)
-- [Stargazers](#stargazers)
-- [Forkers](#forkers)
 ---
 
 ## ✨ Key Features ✨
@@ -167,6 +141,61 @@ Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md) to foster an in
 If anyone violates these standards, they may be banned from the community.
 
 ---
+## Guidelines For Contribution
+
+Please follow these guidelines to help maintain the quality and organization of the project. This ensures that contributions and issues are effectively tracked, addressed, and resolved.
+
+### 1. Create an Issue (Use the Template Provided)
+- When creating an issue, kindly provide a description of how you plan to implement the solution.
+- **Make sure the issue has not been raised by someone else!**
+- If you raise a duplicate issue, it will be **closed**.
+- Review issues raised by other contributors before raising your own to avoid confusion related to duplicate issues. For example, if someone is working on the Navbar UI and you want to add a hover effect to navbar items, understand that this falls under the existing Navbar UI issue.
+
+### 2. Guidelines for opening an Issue
+1. **Search for Existing Issues**  
+   Before opening a new issue, search the repository to check if the issue already exists. If you find a similar or the same issue, comment on the existing issue and ask to be assigned to it instead of opening a new one.
+
+2. **Avoid Spamming Multiple Issues**  
+   If you have several changes related to the UI, such as footer updates, logo changes, etc., combine them into a single issue. Instead of opening separate issues for each minor adjustment, create one issue and name it appropriately, like "UI Changes". This keeps the issue tracker clean and focused.
+
+3. **Do Not Ask for a Level Label**  
+   Please **do not request a level label** (e.g., level 1, level 2, level 3). These labels will be assigned based on the issue content and review process.
+
+### 3. Wait for the Issue to Be Assigned
+- **Do not work on an issue unless it has been assigned to you!**
+- Once the issue is assigned, keep us updated on the changes you're making.
+
+### 4. Raise a Pull Request (PR)
+- **Follow the PR template** when raising a Pull Request.
+---
+## Pull Request Guidelines
+
+To ensure smooth collaboration and maintain the quality of the project, please follow these guidelines when creating a Pull Request (PR).
+
+### 1. Branching Strategy
+- Always create a new branch for your PR and avoid working directly on the `main` or `master` branch.
+- Use meaningful branch names that reflect the purpose of the changes (e.g., `feature/add-authentication`, `bugfix/fix-login-issue`).
+
+### 2. Keep PRs Focused
+- Ensure your PR addresses only **one issue** or **feature** at a time. Avoid combining unrelated changes in one PR.
+- Keep the size of the PR manageable. Large PRs are difficult to review and may cause delays.
+
+### 3. PR Checklist
+Before submitting a PR, ensure that:
+- You have synced your branch with the latest version of the main branch.
+- You have added necessary screenshots or videos to demonstrate the changes.
+- You have written or updated any necessary documentation (if applicable).
+- You have tested your changes to ensure they work as expected.
+
+### 4. Descriptive Title and Message
+- Use a clear and concise title for the PR that explains the change.
+- In the PR description, provide:
+  - A brief explanation of the problem being solved or the feature being implemented.
+  - A list of changes made.
+  - References to any related issues (e.g., "Fixes Does not visible 'Load More Post...' #123").
+  - Any specific areas where the reviewer should focus.
+
+---
 
 ## 🏆 Contribution Points
 All tasks will be assigned various levels based on complexity and required skills. Each level provides different points:
@@ -198,30 +227,6 @@ We encourage you to explore the website, share your thoughts, and get involved i
 
 [![Contributors](https://contrib.rocks/image?repo=say-het/WordWise)](https://github.com/say-het/WordWise/graphs/contributors)
 
----
-
-## 📸 Website Preview
-<img src="home.png" />
-<img src="faq.png" />
-
-🌐 **Visit our website:** [WordWise](https://wordwise-k9ho.onrender.com/#)
-
----
-## Stargazers
-
-<div align='center'>
-
-[![Stargazers repo roster for @ANSHIKA-26/WordWise](https://reporoster.com/stars/ANSHIKA-26/WordWise)](https://github.com/ANSHIKA-26/WordWise/stargazers)
-
-</div>
-
----
-## Forkers
-<div align='center'>
-
-[![Forkers repo roster for @ANSHIKA-26/WordWise](https://reporoster.com/forks/ANSHIKA-26/WordWise)](https://github.com/ANSHIKA-26/WordWise/network/members)
-
-</div>
 ---
 
 <div align="center">
