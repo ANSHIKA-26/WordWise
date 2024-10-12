@@ -19,21 +19,46 @@
 
       .input-box {
         width: 100%;
-        padding-right: 40px; /* Extra space for the eye icon */
+        padding-right: 40px; /* Extra space for icons */
         padding-left: 10px;
         height: 40px;
         box-sizing: border-box;
       }
 
-      .toggle-eye {
+      .toggle-eye,
+      .close-btn {
         cursor: pointer;
         position: absolute;
-        right: 10px;
         top: 50%;
         transform: translateY(-50%);
         color: black;
         font-size: 18px;
         margin-top: 15px;
+      }
+
+      .toggle-eye {
+        right: 40px; /* Space for close button */
+      }
+
+      .close-btn {
+        right: 10px;
+        font-size: 20px;
+        color: red;
+      }
+
+      .toggle-eye:hover,
+      .close-btn:hover {
+        color: #555; /* Change color on hover for better UX */
+      }
+
+      /* Animation for smooth transitions */
+      .input-box {
+        transition: all 0.3s ease;
+      }
+
+      .fa-eye,
+      .fa-eye-slash {
+        transition: all 0.3s ease;
       }
     </style>
   </head>
@@ -108,7 +133,7 @@
               <input type="text" class="input-box" placeholder="Enter Name" />
             </div>
 
-            <!-- Password field with eye icon -->
+            <!-- Password field with eye icon and cross button -->
             <div class="input-field">
               <label for="password">Password</label><br />
               <input
@@ -123,6 +148,8 @@
               >
                 <i id="eye-icon" class="fa fa-eye-slash"></i>
               </span>
+              <!-- Close button to clear input -->
+              <span class="close-btn" onclick="clearInput('password')">&times;</span>
             </div>
 
             <div class="remember">
@@ -161,6 +188,11 @@
           eyeIcon.classList.remove("fa-eye");
           eyeIcon.classList.add("fa-eye-slash");
         }
+      }
+
+      // Clear input field
+      function clearInput(inputId) {
+        document.getElementById(inputId).value = "";
       }
     </script>
   </body>

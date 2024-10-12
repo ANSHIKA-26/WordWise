@@ -388,6 +388,24 @@ html, body {
 }
 
 
+body.dark-mode footer a{
+ background-color: #333;
+  color: #f2dede;
+}
+
+body.dark-mode footer p{
+  color: #f2dede;
+}
+
+body.dark-mode footer h2{
+  color: #f2dede;
+}
+body.dark-mode footer address{
+  color: #f2dede;
+}
+body.dark-mode footer .phone{
+  color: #f2dede;
+}
 
 .form-popup {
   display: none;
@@ -524,15 +542,19 @@ header {
   color: rgb(59, 59, 88);
   white-space: nowrap; /* Prevent logo from breaking into two lines*/
 }
-
+ 
 /* Navigation Bar */
-.nav-links1 {
-  display: flex;
-  gap: 2.1rem;
-  margin: 0 0.5rem;
-  position: relative; /* Parent positioning */
-}
 
+.nav-links1 {
+
+  display:  flex;
+  gap:  2.1rem;
+  margin:  0 0.5rem;
+  margin-top:  8px;
+  position: relative; /* Parent positioning */
+
+}
+ 
 .nav-links1 a {
   color: #1C160C;
   text-decoration: none;
@@ -712,7 +734,10 @@ button {
 .toggle-icon {
   color: #1C160C;
 }
-
+.progress-container{
+  z-index: 900;
+  background: #f8b5b5;
+}
 .layout-container {
   
   padding: 0 3rem;
@@ -723,7 +748,7 @@ button {
   position: relative;
   top: 0;
   position: sticky;
-  z-index: 999;
+  z-index: 899;
 
 }
 
@@ -1077,12 +1102,16 @@ button {
 input[type="checkbox"] {
   transform: scale(1.2);
 }
+
 /* Dropdown button styles */
 .dropdown {
-  position: relative;
-  display: inline-block;
-}
 
+  position:  relative;
+  display:  inline-block;
+  margin-top:  9px;
+
+}
+ 
 .dropdown-content {
   display: none;
   position: absolute;
@@ -1294,31 +1323,40 @@ a {
    font-size: large;
   font-weight: 700;
 }
-#travel{
-  color: rgb(59, 59, 88);
-}
 
+#travel{
+
+  color: rgb(101 39 157);
+
+}
+ 
 * > * {
   box-sizing: border-box;
 }
-
+ 
 .text-light {
  
-  color: var(--text-color);
-}
+  color:  var(--text-color);
 
+}
+ 
 .text-secondary {
   margin-right: 20px;
   color: var(--text-color);
 
 }
+
 #fa{
+  
   margin: 4px;
+  color:  #f9b0b0;
+
 }
+
 .text-dark {
   color: var(--text-color);
 }
-
+ 
 .text-primary {
   color: var(--text-color);
 }
@@ -2406,68 +2444,121 @@ footer p {
 
 /*--------*/
 
-.commentform{
+/* Made changes to the Comment form */
+.commentform {
+
   margin-top: 50px;
-  margin-left: 30%;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 40%;
-  /* height: 500px; */
-  gap:10px;
-  
+  width: 60%;
+  gap: 20px;
+  padding: 20px;
+  background-color: none;
+  box-shadow: 0 0px 5px #cd61ff;
+  border-radius: 10px;
+
+}
+ 
+.commentform h3 {
+
+  width:  100%;
+  padding:  15px;
+  border-radius:  10px 10px 0 0;
+  margin-bottom:  20px;
+  font-size:  2rem;
+  color:  #6e279d;
+
 }
 
-.comment-box1{
+.comment-box1, .comment-box2 {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  width: 100%;
-} 
-.comment-input{
-  /* flex: 1; */
-  padding: 20px;
-  border-radius: 20px;
-  border: #000 solid 1px;
-  /* max-width: 500px; */
-}
-
-.comment-box2{
-  /* display: flex; */
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  height: auto;
-}
-
-.comment-input2,.comment-textarea{
-  padding: 20px;
-  border-radius: 20px;
-  border: #000 solid 1px;
+  gap: 15px;
   width: 100%;
 }
 
-.comment-textarea{
-  height: 200px;
-  resize: none;
+.form-floating {
+  position: relative;
+  width: 100%;
 }
-.commentbtn{
+
+.form-floating > .form-control {
+  padding: 1.5rem 0.75rem;
+}
+
+.form-floating > label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 1rem 0.75rem;
+  pointer-events: none;
+  transition: all 0.2s ease-in-out;
+  color: #6c757d;
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+  top: -1.25rem;
+  left: 0.75rem;
+  font-size: 0.75rem;
+  color: #495057;
+}
+
+.comment-input, .comment-input2, .comment-textarea {
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  width: 100%;
+  font-size: 16px;
+}
+ 
+.comment-textarea {
+
+  height:  110px;
+  resize:  none;
+
+}
+ 
+.commentbtn {
   margin-top: 20px;
-  
-  padding: 20px;
-  border-radius: 20px;
+  padding: 15px;
+  border-radius: 5px;
   color: white;
   background-color: #007bff;
-  border: #000 1px solid;
-  width: 200px;
+  border: none;
+  width: 150px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.comment-input,.comment-input2,.form-control::placeholder{
- text-align: center;
- font-size: 18px;
+.commentbtn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.commentbtn:active {
+  transform: scale(1.15);
+}
+
+.comment-input::placeholder, .comment-input2::placeholder, .comment-textarea::placeholder {
+  text-align: center;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .commentform {
+    width: 90%;
+  }
+
+  .commentbtn {
+    width: 100%;
+  }
 }
 /* Apply flexbox to the form container */
 .wordwise-newsletter-form {
