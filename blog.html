@@ -523,27 +523,23 @@
               </div>
             </div>
 
-            <!--comment form-->
-            <div class="commentform">
-              <h3 class="text-center display-1 bg-black text-black secondary-title py-2">
-                Leave Comments
-              </h3>
-              <div class="comment-box1">
-                <input id="nameInput" class="comment-input" type="text" class="form-control" placeholder="Name"
-                  required>
-                <input id="emailInput" class="comment-input" type="email" class="form-control" placeholder="Email"
-                  required>
-              </div>
-              <div class="comment-box2">
-                <input id="websiteInput" class="comment-input2" type="text" placeholder="Website (optional)">
-                <textarea id="messageInput" class="comment-textarea form-control mt-3" placeholder="Message"
-                  required></textarea>
-                <div class="text-center">
-                  <button class="commentbtn" onclick="submitComment()">Submit</button>
-                </div>
-              </div>
-
-            </div>
+                        <!--comment form-->
+<div class="commentform" style="margin-top: 80px; margin-bottom: 80px;">
+  <h3 class="text-center display-1 bg-black text-black secondary-title py-2">
+    Leave Comments
+  </h3>
+  <div class="comment-box1">
+    <input id="nameInput" class="comment-input" type="text" placeholder="Name" required>
+    <input id="emailInput" class="comment-input" type="email" placeholder="Email" required>
+  </div>
+  <div class="comment-box2">
+    <input id="websiteInput" class="comment-input2" type="text" placeholder="Website (optional)">
+    <textarea id="messageInput" class="comment-textarea form-control" placeholder="Message" required></textarea>
+    <div class="text-center">
+      <button class="commentbtn" onclick="submitComment()">Submit</button>
+    </div>
+  </div>
+</div>
 
             <!-- Toast Notification -->
             <div aria-live="polite" aria-atomic="true" style="position: relative;">
