@@ -2441,86 +2441,47 @@ footer p {
 
 /*--------*/
 
-/* Made changes to the Comment form */
 .commentform {
-
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 50px auto; /* Added margin to top and bottom */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60%;
+  width: 80%; /* Made the form broader */
   gap: 20px;
-  padding: 20px;
-  background-color: none;
+  padding: 30px; /* Added padding to separate it from other elements */
   box-shadow: 0 0px 5px #cd61ff;
   border-radius: 10px;
-
-}
- 
-.commentform h3 {
-
-  width:  100%;
-  padding:  15px;
-  border-radius:  10px 10px 0 0;
-  margin-bottom:  20px;
-  font-size:  2rem;
-  color:  #6e279d;
-
 }
 
 .comment-box1, .comment-box2 {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  flex-direction: row; /* Keep inputs horizontal */
+  gap: 20px; /* Increased gap between input fields */
   width: 100%;
+  align-items: flex-start; /* Align items to the top */
 }
 
-.form-floating {
-  position: relative;
-  width: 100%;
-}
-
-.form-floating > .form-control {
-  padding: 1.5rem 0.75rem;
-}
-
-.form-floating > label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  padding: 1rem 0.75rem;
-  pointer-events: none;
-  transition: all 0.2s ease-in-out;
-  color: #6c757d;
-}
-
-.form-floating > .form-control:focus ~ label,
-.form-floating > .form-control:not(:placeholder-shown) ~ label {
-  top: -1.25rem;
-  left: 0.75rem;
-  font-size: 0.75rem;
-  color: #495057;
-}
-
-.comment-input, .comment-input2, .comment-textarea {
+.comment-input, .comment-input2 {
+  flex: 1;
   padding: 15px;
   border-radius: 5px;
   border: 1px solid #ddd;
-  width: 100%;
   font-size: 16px;
+  width: 100%; /* Ensure full width usage */
 }
- 
+
 .comment-textarea {
-
-  height:  110px;
-  resize:  none;
-
+  flex: 2; /* Ensure the textarea is larger */
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  width: 100%;
+  resize: none;
+  height: 110px;
 }
- 
+
 .commentbtn {
   margin-top: 20px;
   padding: 15px;
@@ -2534,17 +2495,14 @@ footer p {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.commentbtn:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
-}
-
-.commentbtn:active {
-  transform: scale(1.15);
+.commentform h3 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #6e279d;
 }
 
 .comment-input::placeholder, .comment-input2::placeholder, .comment-textarea::placeholder {
-  text-align: center;
+  text-align: left; /* Align text to the left for readability */
   font-size: 16px;
 }
 
@@ -2553,10 +2511,15 @@ footer p {
     width: 90%;
   }
 
+  .comment-box1, .comment-box2 {
+    flex-direction: column; /* Stack fields vertically on smaller screens */
+  }
+
   .commentbtn {
     width: 100%;
   }
 }
+
 /* Apply flexbox to the form container */
 .wordwise-newsletter-form {
   display: flex;
