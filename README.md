@@ -1,23 +1,37 @@
-
-![GSSoC-Ext](https://github.com/sakshamsaraf23/WordWise/blob/main/images/Untitled%20design.png)
 # 📖 WordWise Blogging Website 📝 
-
-![WordWise Website Screenshot](https://github.com/sakshamsaraf23/WordWise/blob/main/images/website.png)
-).
-
+**WordWise** is a responsive, user-friendly blogging platform designed to enrich vocabulary and engage readers with insightful articles. Built using **HTML**, **CSS**, and **JavaScript**, the website offers an enjoyable experience with an interactive interface. Whether you're here to read blogs or explore topics, WordWise is for everyone.
 
 ---
 
+## Featured In
+
+<table>
+   <tr>
+      <th>Event Logo</th>
+      <th>Event Name</th>
+      <th>Event Description</th>
+   </tr>
+   <tr>
+      <td><img src="./images/Untitled design.png" width="200" height="auto" loading="lazy" alt="GSSoC 24"/></td>
+      <td>GirlScript Summer of Code 2024</td>
+      <td>GirlScript Summer of Code is a three-month-long Open Source Program conducted every summer by GirlScript Foundation. It is an initiative to bring more beginners to Open-Source Software Development.</td>
+   </tr>
+</table>
+
+---
 ## 🌟 Table of Contents
 - [Key Features](#-key-features-)
-- [Overview](#-overview-)
 - [Technologies Used](#-technologies-used-)
 - [How to Contribute](#-how-to-contribute-to-this-project-)
+- [Contribution](#contribution)
+- [Code of conduct](#code-of-conduct)
+- [Contribution Guidelines](#guidelines-for-contribution)
+- [PR Guidelines](#pull-request-guidelines)
 - [Contribution Points](#contribution-points)
 - [GSSoC Guidelines](#gssoc-guidelines)
 - [Ending Note](#-ending-note-)
 - [Join Us!](#-join-us-)
-
+- [Contributors](#our-valuable-contributors-️)
 ---
 
 ## ✨ Key Features ✨
@@ -30,11 +44,6 @@
 
 - **⭐ User Engagement**
   - Readers can share their thoughts and feedback directly on the Contact Us page.
-
----
-
-## 🌟 Overview 🌟
-**WordWise** is a responsive, user-friendly blogging platform designed to enrich vocabulary and engage readers with insightful articles. Built using **HTML**, **CSS**, and **JavaScript**, the website offers an enjoyable experience with an interactive interface. Whether you're here to read blogs or explore topics, WordWise is for everyone.
 
 ---
 
@@ -104,6 +113,90 @@ We’re excited to have you contribute to the **WordWise Blogging Website** proj
 - Use the search bar to find specific topics.
 - Click on any article to read in detail.
 
+---
+## <img src="https://github.com/Meetjain1/wanderlust/assets/133582566/90f3930e-5a12-4a4e-8ac9-0dc7d5396adb" width="35" height="35"> Contribution
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+- If you have any suggestions for the project, such as reporting a bug, improving the UI, or enhancing the README.md file, feel free to **open an issue** to discuss it or directly create a pull request with the necessary changes.
+- Please make sure to check your spelling and grammar.
+- Create individual pull requests for each suggestion to keep changes focused and manageable.
+
+Your involvement helps to improve the project and make it better for everyone. Thank you for your contributions!
+
+Kindly go through [CONTRIBUTING.md](CONTRIBUTING.md) to understand everything from setup to contributing guidelines.
+
+If you would like to contribute to the project, please follow our contribution guidelines.
+
+---
+## <h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="35" height="35"> Code of Conduct</h2>
+
+We are committed to fostering a welcoming and inclusive environment for everyone. All contributors and participants are expected to uphold the following values:
+
+- Be respectful of different viewpoints and experiences.
+- Show empathy toward others.
+- Use inclusive language.
+
+Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md) to foster an inclusive community.
+If anyone violates these standards, they may be banned from the community.
+
+---
+## Guidelines For Contribution
+
+Please follow these guidelines to help maintain the quality and organization of the project. This ensures that contributions and issues are effectively tracked, addressed, and resolved.
+
+### 1. Create an Issue (Use the Template Provided)
+- When creating an issue, kindly provide a description of how you plan to implement the solution.
+- **Make sure the issue has not been raised by someone else!**
+- If you raise a duplicate issue, it will be **closed**.
+- Review issues raised by other contributors before raising your own to avoid confusion related to duplicate issues. For example, if someone is working on the Navbar UI and you want to add a hover effect to navbar items, understand that this falls under the existing Navbar UI issue.
+
+### 2. Guidelines for opening an Issue
+1. **Search for Existing Issues**  
+   Before opening a new issue, search the repository to check if the issue already exists. If you find a similar or the same issue, comment on the existing issue and ask to be assigned to it instead of opening a new one.
+
+2. **Avoid Spamming Multiple Issues**  
+   If you have several changes related to the UI, such as footer updates, logo changes, etc., combine them into a single issue. Instead of opening separate issues for each minor adjustment, create one issue and name it appropriately, like "UI Changes". This keeps the issue tracker clean and focused.
+
+3. **Do Not Ask for a Level Label**  
+   Please **do not request a level label** (e.g., level 1, level 2, level 3). These labels will be assigned based on the issue content and review process.
+
+### 3. Wait for the Issue to Be Assigned
+- **Do not work on an issue unless it has been assigned to you!**
+- Once the issue is assigned, keep us updated on the changes you're making.
+
+### 4. Raise a Pull Request (PR)
+- **Follow the PR template** when raising a Pull Request.
+---
+## Pull Request Guidelines
+
+To ensure smooth collaboration and maintain the quality of the project, please follow these guidelines when creating a Pull Request (PR).
+
+### 1. Branching Strategy
+- Always create a new branch for your PR and avoid working directly on the `main` or `master` branch.
+- Use meaningful branch names that reflect the purpose of the changes (e.g., `feature/add-authentication`, `bugfix/fix-login-issue`).
+
+### 2. Keep PRs Focused
+- Ensure your PR addresses only **one issue** or **feature** at a time. Avoid combining unrelated changes in one PR.
+- Keep the size of the PR manageable. Large PRs are difficult to review and may cause delays.
+
+### 3. PR Checklist
+Before submitting a PR, ensure that:
+- You have synced your branch with the latest version of the main branch.
+- You have added necessary screenshots or videos to demonstrate the changes.
+- You have written or updated any necessary documentation (if applicable).
+- You have tested your changes to ensure they work as expected.
+
+### 4. Descriptive Title and Message
+- Use a clear and concise title for the PR that explains the change.
+- In the PR description, provide:
+  - A brief explanation of the problem being solved or the feature being implemented.
+  - A list of changes made.
+  - References to any related issues (e.g., "Fixes Does not visible 'Load More Post...' #123").
+  - Any specific areas where the reviewer should focus.
+
+---
+
 ## 🏆 Contribution Points
 All tasks will be assigned various levels based on complexity and required skills. Each level provides different points:
 - **🥇 Level 1**: 10 Points  
@@ -128,9 +221,18 @@ If you have any questions or need assistance, please feel free to reach out thro
 ## 🙌🏻 Join Us!
 We encourage you to explore the website, share your thoughts, and get involved in improving the project. Let’s make this blogging experience even better together!
 
+---
+
 ## Our Valuable Contributors ❤️✨
 
 [![Contributors](https://contrib.rocks/image?repo=say-het/WordWise)](https://github.com/say-het/WordWise/graphs/contributors)
 
+---
 
-Happy coding! 📝
+<div align="center">
+    <a href="#top">
+        <img src="https://img.shields.io/badge/Back%20to%20Top-000000?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top">
+    </a>
+</div>
+
+## Show some ❤️ by starring this awesome repository!

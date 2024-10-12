@@ -152,7 +152,7 @@ img {
 }
 
 .new-read-more-link:hover {
-  background: #f8b5b5;
+  background: #0e25cf;
 }
 
 /* Responsive Design */
@@ -287,7 +287,6 @@ img {
     transition: 0.4s;
     margin: 0 5px;
   }
-  
   
   .sliderr::before,
   .sliderr::after,
@@ -436,7 +435,7 @@ img {
     border-radius: 5px;
     padding: 5px 10px;
     margin: 5px;
-    color: #333; /* Default text color */
+    color: #fff; /* Default text color */
     text-decoration: none;
 }
 
@@ -600,4 +599,52 @@ img {
   .custom-footer .col-3 {
       flex: 0 0 100%; /* Each column takes up full width on mobile screens */
   }
+}
+/* Dark mode styling */
+[data-theme="dark"] {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --hover-background-color: #f8b5b5; /* Pink background on hover */
+  --hover-text-color: #ffffff;
+  --hover-border-color: #ffffff;
+  --box-shadow-color: rgba(255, 255, 255, 0.7); /* White shadow */
+}
+
+/* General dark mode styles */
+.category-container {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Remove background color from text */
+.new-category-title, .new-post-title, .new-post-excerpt {
+  background-color: transparent; /* Ensure text has no background */
+  color: var(--text-color); /* Keep text color */
+}
+
+
+.new-category-box {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Default shadow */
+  transition: box-shadow 0.3s ease;
+}
+
+/* Hover effects in dark mode */
+[data-theme="dark"] .new-category-box:hover {
+  background-color: var(--hover-background-color); /* Transparent background */
+  color: var(--hover-text-color);
+  border: 1px solid var(--hover-border-color); /* Remove the border */
+  box-shadow: 0 4px 15px var(--box-shadow-color); /* White shadow on hover */
+}
+
+[data-theme="dark"] .new-category-title,
+[data-theme="dark"] .new-post-title,
+[data-theme="dark"] .new-post-excerpt {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover text color transitions */
+[data-theme="dark"] .new-category-box:hover .new-category-title,
+[data-theme="dark"] .new-category-box:hover .new-post-title,
+[data-theme="dark"] .new-category-box:hover .new-post-excerpt {
+  color: var(--hover-text-color);
 }
