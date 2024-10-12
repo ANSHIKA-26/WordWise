@@ -2442,6 +2442,7 @@ footer p {
 /*--------*/
 
 
+
 .commentform {
   margin: 50px auto; /* Added margin to top and bottom */
   display: flex;
@@ -2463,13 +2464,25 @@ footer p {
   align-items: flex-start; /* Align items to the top */
 }
 
-.comment-input, .comment-input2 {
+.comment-input{
   flex: 1;
   padding: 15px;
   border-radius: 5px;
   border: 1px solid #ddd;
   font-size: 16px;
   width: 100%; /* Ensure full width usage */
+}
+
+.comment-input2 {
+  flex: 1; /* Make it flexible to take available space */
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  margin-right: 10px; /* Add some space to the right for the button */
+  /* Change width to a percentage to adapt to container */
+  width: 100%; /* Allow it to use the full width available */
+  max-width: 300px; /* Optional: Set a max-width to prevent it from getting too wide */
 }
 
 .comment-textarea {
@@ -2530,7 +2543,6 @@ footer p {
     width: 100%;
   }
 }
-
 /* Apply flexbox to the form container */
 .wordwise-newsletter-form {
   display: flex;
