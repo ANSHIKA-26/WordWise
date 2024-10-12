@@ -734,7 +734,10 @@ button {
 .toggle-icon {
   color: #1C160C;
 }
-
+.progress-container{
+  z-index: 900;
+  background: #f8b5b5;
+}
 .layout-container {
   
   padding: 0 3rem;
@@ -745,7 +748,7 @@ button {
   position: relative;
   top: 0;
   position: sticky;
-  z-index: 999;
+  z-index: 899;
 
 }
 
