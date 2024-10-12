@@ -448,6 +448,329 @@
                     color: white;
                     font-size: 12px;
                 }
+                /* Form Styles */
+                .form-popup {
+                    display: none;
+                    position: fixed;
+                    z-index: 9;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 100%;
+                    max-width: 500px;
+                    padding: 20px;
+                    background-color: white;
+                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+                    border-radius: 10px;
+                    box-sizing: border-box;
+                }
+
+                .form-container {
+                    max-width: 350px;
+                    padding: 20px;
+                }
+
+                .form-container h2 {
+                    margin-bottom: 20px;
+                    font-size: 24px;
+                    text-align: center;
+                    color: #333;
+                }
+
+                .form-group {
+                    margin-bottom: 15px;
+                }
+
+                .form-control, .form-group input {
+                    width: 100%;
+                    padding: 12px;
+                    font-size: 16px;
+                    line-height: 1.5;
+                    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+                    border-radius: 5px;
+                    border: 1px solid #ccc;
+                }
+
+                .forgot {
+                    text-align: right;
+                    margin-left: 140px;
+                    font-size: 10px;
+                    margin-top: -40px;
+                }
+
+                .btn {
+                    margin-top: 10px;
+                    border-radius: 5px;
+                    transition: all 0.3s ease;
+                }
+
+                .btn-primary:hover {
+                    background-color: #0056b3;
+                }
+
+                .google-btn {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .google-logo {
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 10px;
+                }
+
+                .strength-meter {
+                    height: 10px;
+                    width: 0;
+                    transition: width 0.3s;
+                    margin-top: 5px;
+                    text-align: center;
+                    color: white;
+                    font-size: 12px;
+                }
+
+                .eye-icon {
+                    position: absolute;
+                    right: 15px;
+                    top: 38px;
+                    cursor: pointer;
+                    color: #007bff;
+                }
+
+                .close-icon {
+                    font-size: 24px;
+                    cursor: pointer;
+                    float: right;
+                }
+
+                /* Footer Styles */
+                #footer {
+                    background-color: #f3f3f3;
+                    padding: 40px 20px;
+                    color: #3B3B58;
+                    font-family: Arial, sans-serif;
+                    font-size:  14px;
+                }
+
+                .footer-container {
+                    display: flex;
+                    flex-direction: row; /*Align items in row */
+                    justify-content: space-between; /*Space out coulmns evenly */
+                    flex-wrap: wrap; /*Allow wrapping for respnsiveness */
+                }
+
+                .col-3-main {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                }
+
+                .col-3 {
+                    flex: 1;
+                    min-width: 250px;
+                    padding: 8px;
+                }
+
+                h2.footer-title {
+                    font-size: 1.2em;
+                    margin-bottom: 8px;
+                }
+
+                .feature-post .flex-item {
+                    margin-bottom: 15px;
+                }
+
+                .feature-post img {
+                    width: 80px;
+                    height: 80px;
+                    object-fit: cover;
+                    border-radius: 8px;
+                }
+
+                .feature-post .text-title {
+                    font-size: 1em;
+                    font-weight: bold;
+                    text-decoration: none;
+                }
+
+                .feature-post .text-title:hover {
+                    color: #3B3B58;
+                }
+
+                .tags a {
+                    margin-right: 5px;
+                    margin-bottom: 5px;
+                    padding: 6px 12px;
+                    border-radius: 20px;
+                    background-color: #ececec;
+                    color: #3B3B58;
+                    font-weight: 400;
+                    font-size: 12px;
+                }
+
+                .tags.social a {
+                    padding: 8px;
+                    margin-right: 8px;
+                    border-radius: 50%;
+                    font-size: 1em;
+                }
+
+                .tags a:hover {
+                    background-color: #3B3B58;
+                    color: #fff;
+                }
+                
+                .wordwise-footer {
+                    background-color: #3B3B58;
+                    color: #ffffff;
+                    padding:  10px;
+                    text-align: center;
+                    font-size: 13px;
+                }
+
+                .contact-form-container {
+                    padding: 20px;
+                    background-color: #f9f9f9; /* Light background for contrast */
+                    border-radius: 8px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    margin-bottom: 20px;
+                }
+
+                .contact-form-container h2 {
+                    font-size: 20px;
+                    margin-bottom: 20px;
+                    color: #3B3B58;
+                    font-weight: 600;
+                    text-align: center;
+                }
+
+                .contact-form .form-group {
+                     margin-bottom: 15px;
+                }
+
+                .contact-form label {
+                    margin-bottom: 8px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #333;
+                }
+
+                .contact-form input,
+                .contact-form textarea {
+                    width: 100%;
+                    padding: 12px;
+                    font-size: 14px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    transition: all 0.3s ease;
+                    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+                }
+
+                .contact-form textarea {
+                    height: 100px; /* Set height for the textarea */
+                    resize: vertical; /* Allow resizing only vertically */
+                }
+
+                .contact-form input:focus,
+                .contact-form textarea:focus {
+                    border-color: #007bff;
+                    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+                    outline: none;
+                }
+
+                .contact-form .btn-submit {
+                    width: 100%;
+                    padding: 12px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #fff;
+                    background-color: #007bff;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+                }
+                
+                .contact-form .btn-submit:hover {
+                    background-color: #0056b3;
+                    box-shadow: 0 4px 8px rgba(0, 91, 179, 0.4);
+                }
+                .contact-form .btn-submit:focus {
+                    outline: none;
+                }
+
+                /* Social Links Styles */
+                #contact .tags.social a {
+                    font-size: 1.2em;
+                    padding: 10px;
+                    margin-right: 10px;
+                    border-radius: 50%;
+                    background-color: #ececec;
+                    color: #3B3B58;
+                }
+
+                #contact .tags.social a:hover {
+                    background-color: #3B3B58;
+                    color: white;
+                }
+
+                /* Responsive Media Queries */
+                @media (max-width: 1200px) {
+                    .footer-container {
+                        padding: 20px;
+                    }
+
+                    .col-3-main {
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                    }
+
+                    .col-3 {
+                        width: 33.33%;
+                    }
+                }
+
+                @media (max-width: 992px) {
+                    .col-3 {
+                        width: 50%;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .col-3 {
+                        width: 100%;
+                        margin-bottom: 20px;
+                    }
+
+                    .feature-post div {
+                        flex-direction: column;
+                    }
+
+                    .tags {
+                        text-align: center;
+                    }
+                }
+
+                @media (max-width: 576px) {
+                    .feature-post div {
+                        align-items: center;
+                    }
+
+                    .tags.social {
+                        justify-content: center;
+                    }
+
+                    .wordwise-footer-content {
+                        text-align: center;
+                    }
+                }
+
+                img.object-fit {
+                    max-width: 100%;
+                    height: auto;
+                }
+
             </style>
 
             <!-- Bootstrap Icons -->
@@ -1624,6 +1947,7 @@
     <footer id="footer">
         <div class="footer-container">
             <div class="row mb-3 col-3-main">
+                <!-- About Us Section -->
                 <div class="col-3">
                     <div id="about-us">
                         <h2 class="footer-title secondary-title">About Us</h2>
@@ -1659,6 +1983,7 @@
 
                         </div>
                     </div>
+                    <!-- Feature Post Section -->
                     <div class="col-3">
                         <h2 class="footer-title secondary-title">Feature Post</h2>
 
@@ -1722,6 +2047,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Popular Tags Section -->
                     <div class="col-3">
                         <h2 class="footer-title secondary-title">Popular Tags</h2>
 
@@ -1734,26 +2060,41 @@
                                 <a href="#" class="nav-link btn bg-light" style="font-weight: 400;">Fashion</a>
                             </div>
                         </div>
+                    </div>
 
-                        <h2 class="footer-title secondary-title mt-5">Connect with us</h2>
+                    <!-- Contact Us Form and Social Links Section -->
+                    <div class="col-3 contact-form-container">
+                        <h2 class="footer-title secondary-title">Contact Us</h2>
+                        <form class="contact-form" action="#" method="POST">
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message:</label>
+                                <textarea id="message" name="message" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit">Submit</button>
+                        </form>
+                    </div>
+                    <!-- Social Links Section -->
 
-                        <div class="tags social" id="contact">
+                   <div class="col-3 social-links-container">
+                        <h2 class="footer-title secondary-title mt-4">Our Social Handles..</h2>
+                        <div class="tags social">
                             <div class="d-flex-gap flex-wrap">
-                                <a href="https://www.facebook.com/" class="nav-link btn bg-light"><i
-                                        class="fab fa-facebook-f"></i></a>
-                                <a href="https://x.com/" class="nav-link btn bg-light"><i
-                                        class="fa-brands fa-x-twitter"></i></a>
-                                <a href="https://www.instagram.com/" class="nav-link btn bg-light"><i
-                                        class="fab fa-instagram"></i></a>
-                                <a href="https://dribbble.com/" class="nav-link btn bg-light"><i
-                                        class="fab fa-dribbble"></i></a>
+                                <a href="https://www.facebook.com/" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://x.com/" class="nav-link btn bg-light"><i class="fa-brands fa-x-twitter"></i></a>
+                                <a href="https://www.instagram.com/" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
+                                <a href="https://dribbble.com/" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
-
             </div>
             <!-- the authentication copyright -->
             <div class="wordwise-footer">
