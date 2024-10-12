@@ -430,7 +430,7 @@ body.dark-mode footer .phone{
 
 /* Dark mode form background */
 [data-theme="dark"] .form-popup {
-  background-color: var(--dark); /* Dark mode background */
+  background-color: #141414; /* Dark mode background */
 }
 
 [data-theme="dark"] .form-container h2{
@@ -461,6 +461,10 @@ body.dark-mode footer .phone{
   cursor: pointer;
   color: var(--dark); /* Color of the close "X" */
   transition: transform 0.5s;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 .close-icon:hover {
@@ -513,6 +517,170 @@ background: var(--light);
   fill: red;
 }
 
+
+/* Blog Card Design - Rushikesh Ghodke */
+
+/* --light: #f0e4d7;
+--secondary: #2d545e;
+--dark: #3b3b58;
+--primary-color: #f4978e;
+--secondary-color: #c1c8e4;
+--border: #ddbea9;
+--body-bg: #f5f5f5; */
+
+
+
+:root {
+  --card-background-light: #FFFFFF; /* Light theme card background */
+  --card-text-color-light: #000000; /* Light theme card text color */
+  --card-hover-background-light: #F9FAFB; /* Light theme hover background */
+  --card-hover-active-light: #fbdfe1; /* Light theme hover active */
+  
+  --card-background-dark: #444444; /* Dark theme card background */
+  --card-text-color-dark: #FFFFFF; /* Dark theme card text color */
+  --card-hover-background-dark: #555555; /* Dark theme hover background */
+  --card-hover-active-dark: #666666; /* Dark theme hover active */
+}
+
+/* Blog Card styles */
+.blog-card {
+  width: 100%;
+  border-radius: 20px;
+  background-color: var(--card-background-light);
+  color: var(--card-text-color-light);
+}
+
+.blog-card-image img {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  width: 100%;
+  height: 250px;
+}
+
+.blog-card-data {
+  padding: 20px;
+}
+
+.blog-card-content {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 10px;
+}
+
+.blog-card-author-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.blog-card-author-info img {
+  width: 35px;
+}
+
+.blog-card-author-name {
+  font-size: 16px;
+  color: var(--card-text-color-light);
+}
+
+.blog-card-like {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  background-color: var(--card-hover-background-light);
+  border-radius: 20px;
+  color: var(--card-text-color-light);
+}
+
+.blog-card-like:hover {
+  background-color: var(--card-hover-active-light);
+}
+
+.blog-card-title {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.blog-card-dot {
+  width: 4px;
+  height: 4px;
+  background-color: #6B7280;
+  border-radius: 2px;
+}
+
+.blog-card-date {
+  color: #6B7280;
+  font-size: 14px;
+}
+
+.blog-card-comments {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  background-color: var(--card-hover-background-light);
+  border-radius: 20px;
+  color: var(--card-text-color-light);
+}
+
+.blog-card-comments:hover {
+  background-color: #dde9f6;
+}
+
+.blog-card-sub-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.blog-card-save svg {
+  width: 20px;
+}
+
+.blog-card-save {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  background-color: var(--card-hover-background-light);
+  border-radius: 20px;
+  color: var(--card-text-color-light);
+}
+
+.blog-card-save:hover {
+  background-color: rgb(215, 252, 215);
+}
+
+/* Dark theme styles */
+[data-theme='dark'] .blog-card {
+  background-color: var(--card-background-dark);
+  color: var(--card-text-color-dark);
+}
+
+[data-theme='dark'] .blog-card-like {
+  background-color: var(--card-hover-background-dark);
+  color: var(--card-text-color-dark);
+}
+
+[data-theme='dark'] .blog-card-like:hover {
+  background-color: var(--card-hover-active-dark);
+}
+
+[data-theme='dark'] .blog-card-comments {
+  background-color: var(--card-hover-background-dark);
+  color: var(--card-text-color-dark);
+}
+
+[data-theme='dark'] .blog-card-save {
+  background-color: var(--card-hover-background-dark);
+  color: var(--card-text-color-dark);
+}
+
+[data-theme='dark'] .blog-card-save:hover {
+  background-color: var(--card-hover-active-dark);
+}
 
 
 
@@ -2093,7 +2261,7 @@ input:checked + .slider .moon-icon {
   text-align: center;
   font-size: 1.8rem;
   font-weight: 700;
-  color: #242e4c;
+  /* color: #242e4c; */
   margin-bottom: 2.5rem;
 }
 
@@ -2169,7 +2337,7 @@ input:checked + .slider .moon-icon {
 
 /*FAQ improvement for Dark Theme*/
 [data-theme="dark"] .faq .accordion__wrapper {
-  background-color: #f1f1f1;
+  background-color: #414141;
   color: #f1f1f1;
 }
 
