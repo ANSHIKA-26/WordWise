@@ -314,7 +314,11 @@
         <form id="blogForm" onsubmit="PostBlog(event)">
           <h2 style="margin-bottom: 15px">Start Writing</h2>
 
-          <label for="blogHeading">Blog Heading:</label>
+          <div class="card-container">
+          <!--card 1: Blog Heading , Topic and Image upload-->
+
+          <div class="card">
+          <label for="blogHeading">Blog Heading</label>
           <input
             type="text"
             id="blogHeading"
@@ -323,7 +327,7 @@
             required
           />
 
-          <label for="blogTopic">Select Topic:</label>
+          <label for="blogTopic">Select Topic</label>
           <select id="blogTopic" name="topic" required>
             <option value="" disabled selected>Select a topic</option>
             <option value="Travel">Travel</option>
@@ -331,15 +335,19 @@
             <option value="Lifestyle">Lifestyle</option>
           </select>
 
-          <label for="blogImage">Upload Image:</label>
+          <label for="blogImage">Upload Image</label>
           <input type="file" id="blogImage" name="image" accept="image/*" />
+          </div>
 
-          <label for="blogContent">Blog Content:</label>
-<div style="position: relative;">
+
+          <!--card 2 : Blog content , writer name , submit button-->
+          <div class = "card"> 
+          <label for="blogContent">Blog Content</label>
+        <div style="position: relative;">
     <textarea
         id="blogContent"
         name="content"
-        rows="10"
+        rows="20"
         placeholder="Start writing your blog here..."
         required
     ></textarea>
@@ -353,10 +361,10 @@
 
 <!-- Placeholder to show the suggestions -->
 <div id="suggestionsContainer" style="margin-top: 15px;">
-    <h4>Suggestions:</h4>
+    <h4>Suggestions</h4>
     <p id="suggestionsText">Your suggestions will appear here...</p>
 </div>
-          <label for="writerName">Your Name:</label>
+          <label for="writerName">Your Name</label>
           <input
             type="text"
             id="writerName"
@@ -366,6 +374,8 @@
           />
 
           <button type="submit">Submit Blog</button>
+          </div>
+          </div>
         </form>
       </div>
     </main>

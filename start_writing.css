@@ -1,26 +1,36 @@
-
-.blog-form-container {
-    background: url('/path-to-your-uploaded-image') no-repeat center center;
-    background-size: cover;
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 800px;
-    margin: 20px auto;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
+/* Center the heading and move it up */
+.blog-form-container h2 {
+  text-align: center; /* Center the text itself */
+  margin-top: 0; /* Remove any default top margin */
+  margin-bottom: 15px; /* Keep the bottom margin as is */
+  padding-bottom: 60px; /* Optional: Add some padding from the top */
+  padding-right: 120px;
 }
 
-/* Input, Textarea, and Select Styling */
-form input, form select, form textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0 20px;
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    font-size: 1rem;
+*{
+  box-sizing:border-box;
+  margin: 0;
+  padding: 0;
 }
 
+/*container for both cards */
+.card-container{
+  display:flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  max-width:1200px;
+  margin:20px auto;
+}
+.card {
+  background: url('/path-to-your-uploaded-image') no-repeat center center;
+  background-size: cover;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  width: 48%; /* Makes each card take 48% of the width */
+  box-sizing: border-box;
+}
 /* Theme-specific Adjustments */
 body.dark-mode .blog-form-container {
     background-color: rgba(34, 33, 33, 0.6);
@@ -29,6 +39,17 @@ body.dark-mode .blog-form-container {
 body.light-mode .blog-form-container {
     background-color: rgba(0, 0, 0, 0.6);
     color: #333;
+}
+/* Input, Textarea, and Select Styling */
+form input, form select, form textarea {
+  width: 450px;
+  max-height: 400px;
+  padding: 10px;
+  margin: 10px 0 20px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
 }
 
 /* Button Styling */
@@ -44,12 +65,18 @@ form button[type="submit"] {
 form button[type="submit"]:hover {
     background-color: #e65c00;
 }
-
 /* Placeholder for blog content */
-textarea#blogContent::placeholder {
-    content: "Write a sample blog to give an idea of size";
+textarea {
+    height: 400px;
+    width: calc(100%-24px);
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    font-size:1rem;
+    margin-bottom: 20px;
+    overflow-y: auto;
 }
-
 /* Popup styling for success */
 #popupMessage {
   display: block; /* Ensure it's set to block */
@@ -79,7 +106,6 @@ textarea#blogContent::placeholder {
   top: 10px;
 }
 
-
 #suggestionsContainer {
   background-color: #f9f9f9;
   padding: 15px;
@@ -87,20 +113,18 @@ textarea#blogContent::placeholder {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   display: none;  /* Initially hidden */
 }
-
 #suggestionsContainer h4 {
   margin-bottom: 10px;
 }
-
 #suggestionsText {
   font-size: 1rem;
   color: #333;
 }
-
 /* Show the suggestions when available */
 #suggestionsContainer.visible {
   display: block;
 }
+
 
 @keyframes fadeOut {
   0% {
@@ -112,6 +136,50 @@ textarea#blogContent::placeholder {
   100% {
       opacity: 0;
   }
+}
+/* specific height adjustments for each card */
+.card:nth-child(1){
+  width:500px;
+  height: 350px;
+}
+.card:nth-child(2){
+  height:700px;
+  width: auto;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .card {
+        width: 100%; /* Full width on smaller screens */
+        height: auto; /* Adjust height to auto */
+    }
+
+    form input, form select, form textarea {
+        width: calc(100% - 24px); /* Full width with padding */
+    }
+
+    .blog-form-container h2 {
+        padding-right: 0; /* Remove extra padding on smaller screens */
+    }
+
+    #suggestionsContainer {
+        width: calc(100% - 24px); /* Full width for suggestions on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further adjustments for mobile */
+    .card {
+        padding: 20px; /* Reduce padding */
+    }
+
+    form button[type="submit"] {
+        width: 100%; /* Full width for submit button */
+    }
+
+    textarea {
+        height: 300px; /* Adjust height for mobile */
+    }
 }
 
 
