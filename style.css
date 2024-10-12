@@ -1936,6 +1936,7 @@ a {
   --background-color: rgb(244, 237, 227);
   --text-color: rgb(59, 59, 88);
   --header-bg: lightgray;
+  --normal-text-col: black
 }
 
 h2 {
@@ -1946,6 +1947,7 @@ h2 {
   --background-color: #171717;
   --text-color:  #f2dede; 
   --header-bg: #1c1c1c;
+  --normal-text-col: white
 }
 p {
   color: var(--text-color);
