@@ -542,15 +542,19 @@ header {
   color: rgb(59, 59, 88);
   white-space: nowrap; /* Prevent logo from breaking into two lines*/
 }
-
+ 
 /* Navigation Bar */
-.nav-links1 {
-  display: flex;
-  gap: 2.1rem;
-  margin: 0 0.5rem;
-  position: relative; /* Parent positioning */
-}
 
+.nav-links1 {
+
+  display:  flex;
+  gap:  2.1rem;
+  margin:  0 0.5rem;
+  margin-top:  8px;
+  position: relative; /* Parent positioning */
+
+}
+ 
 .nav-links1 a {
   color: #1C160C;
   text-decoration: none;
@@ -730,7 +734,10 @@ button {
 .toggle-icon {
   color: #1C160C;
 }
-
+.progress-container{
+  z-index: 900;
+  background: #f8b5b5;
+}
 .layout-container {
   
   padding: 0 3rem;
@@ -741,7 +748,7 @@ button {
   position: relative;
   top: 0;
   position: sticky;
-  z-index: 999;
+  z-index: 899;
 
 }
 
@@ -1095,12 +1102,16 @@ button {
 input[type="checkbox"] {
   transform: scale(1.2);
 }
+
 /* Dropdown button styles */
 .dropdown {
-  position: relative;
-  display: inline-block;
-}
 
+  position:  relative;
+  display:  inline-block;
+  margin-top:  9px;
+
+}
+ 
 .dropdown-content {
   display: none;
   position: absolute;
@@ -1312,31 +1323,40 @@ a {
    font-size: large;
   font-weight: 700;
 }
-#travel{
-  color: rgb(59, 59, 88);
-}
 
+#travel{
+
+  color: rgb(101 39 157);
+
+}
+ 
 * > * {
   box-sizing: border-box;
 }
-
+ 
 .text-light {
  
-  color: var(--text-color);
-}
+  color:  var(--text-color);
 
+}
+ 
 .text-secondary {
   margin-right: 20px;
   color: var(--text-color);
 
 }
+
 #fa{
+  
   margin: 4px;
+  color:  #f9b0b0;
+
 }
+
 .text-dark {
   color: var(--text-color);
 }
-
+ 
 .text-primary {
   color: var(--text-color);
 }
@@ -2428,6 +2448,7 @@ footer p {
 
 /* Made changes to the Comment form */
 .commentform {
+
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
@@ -2438,18 +2459,21 @@ footer p {
   width: 60%;
   gap: 20px;
   padding: 20px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: none;
+  box-shadow: 0 0px 5px #cd61ff;
   border-radius: 10px;
-}
 
+}
+ 
 .commentform h3 {
-  width: 100%;
-  padding: 15px;
-  border-radius: 10px 10px 0 0;
-  margin-bottom: 20px;
-  font-size: 2rem;
-  color: #333;
+
+  width:  100%;
+  padding:  15px;
+  border-radius:  10px 10px 0 0;
+  margin-bottom:  20px;
+  font-size:  2rem;
+  color:  #6e279d;
+
 }
 
 .comment-box1, .comment-box2 {
@@ -2494,12 +2518,14 @@ footer p {
   width: 100%;
   font-size: 16px;
 }
-
+ 
 .comment-textarea {
-  height: 150px;
-  resize: none;
-}
 
+  height:  110px;
+  resize:  none;
+
+}
+ 
 .commentbtn {
   margin-top: 20px;
   padding: 15px;
