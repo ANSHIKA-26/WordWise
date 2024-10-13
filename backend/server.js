@@ -15,6 +15,7 @@ const fs = require("fs").promises;
 
 const ConnectDb = require("./Database");
 const { subscribeToNewsletter } = require("./controllers/NewsLetterController");
+const { saveContactForm } = require("./controllers/ContactController");
 
 app.use(bodyParser.json());
 const corsOptions = {
@@ -87,6 +88,7 @@ app.post("/subscribe", async (req, res) => {
 });
 
 app.post('/newsletter',subscribeToNewsletter);
+app.post("/submit-contact-form", saveContactForm);
 
 //create a blog Api
 
