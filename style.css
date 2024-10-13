@@ -548,6 +548,7 @@ background: var(--light);
   border-radius: 20px;
   background-color: var(--card-background-light);
   color: var(--card-text-color-light);
+  
 }
 
 .blog-card-image img {
@@ -2830,6 +2831,7 @@ footer p {
               display: block; /* Display the dropdown when the 'show' class is toggled */
           }
 
+<<<<<<< Updated upstream
           .submitbtn{
             
             background-color: #3498db;
@@ -2847,3 +2849,23 @@ footer p {
             background-color: #0056b3;
             transform: scale(1.03);
           }
+=======
+/*New load post button function */
+.blog-item {
+  opacity: 1; /* Default visibility */
+  /*transition: opacity 0.5s ease-in-out; /* Add animation */
+  visibility: visible; /* Ensure visibility is set */
+}
+
+.hidden {
+  opacity: 0; /* Fade out effect */
+  height: 0; /* Prevent interaction */
+  visibility: hidden; /* Hide from layout */
+  overflow: hidden; /* Prevent overflow during transition */
+}
+
+.reveal {
+  opacity: 1; /* Ensure visible */
+  transition: opacity 0.5s ease-in-out; /* Animation for newly revealed items */
+}
+>>>>>>> Stashed changes
