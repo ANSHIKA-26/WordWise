@@ -2831,7 +2831,6 @@ footer p {
               display: block; /* Display the dropdown when the 'show' class is toggled */
           }
 
-<<<<<<< Updated upstream
           .submitbtn{
             
             background-color: #3498db;
@@ -2849,7 +2848,6 @@ footer p {
             background-color: #0056b3;
             transform: scale(1.03);
           }
-=======
 /*New load post button function */
 .blog-item {
   opacity: 1; /* Default visibility */
@@ -2868,4 +2866,3 @@ footer p {
   opacity: 1; /* Ensure visible */
   transition: opacity 0.5s ease-in-out; /* Animation for newly revealed items */
 }
->>>>>>> Stashed changes
