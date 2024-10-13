@@ -2,9 +2,11 @@ async function SendEmail(event) {
   event.preventDefault();
   const firstName = document.getElementById("firstName").value;
   const lastName = document.getElementById("lastName").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
+  const email = document.getElementById("contact-email").value;
+  const phone = document.getElementById("contact-phone").value;
   const message = document.getElementById("message").value;
+
+  console.log(firstName,lastName,email,phone,message);
 
   if (message.length < 10) {
     alert("Message must be at least 10 characters long.");
@@ -20,7 +22,7 @@ async function SendEmail(event) {
   };
 
   try {
-    const response = await fetch("http://localhost:3000/send-email", {
+    const response = await fetch("http://127.0.0.1:3000/submit-contact-form", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

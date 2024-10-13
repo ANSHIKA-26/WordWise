@@ -197,7 +197,79 @@
 
 
     </style>
+    <style>
+/* Preloader styling */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  background: linear-gradient(to right, #f8b5b5, #f98b8b, #f8b5b5); /* Yellow gradient */
+}
 
+/* Text animation */
+.animate-stroke {
+  text-transform: uppercase;
+  animation: stroke 2.5s infinite alternate;
+  stroke-width: 4;
+  stroke: white;
+  font-size: 80px;
+  font-family: "Arial", sans-serif;
+}
+
+/* Keyframes for the stroke animation */
+@keyframes stroke {
+  0% {
+    fill: #fff;
+    stroke: #fd7878;
+    stroke-dashoffset: 25%;
+    stroke-dasharray: 0 50%;
+    stroke-width: 2;
+  }
+
+  70% {
+    fill: #fff;
+    stroke: #fc7e7e;
+  }
+
+  80% {
+    fill: #fff;
+    stroke: #fe8080;
+    stroke-width: 3;
+  }
+
+  100% {
+    fill: #fff;
+    stroke: #ff7e7e;
+    stroke-dashoffset: -25%;
+    stroke-dasharray: 50% 0;
+    stroke-width: 0;
+    text-shadow: 0 0 10px #fff, 0 0 15px whitesmoke;
+  }
+}
+
+/* Initially hide the main content */
+.hidden {
+  display: none;
+}
+
+/* When main content is shown */
+.main-content {
+  display: block;
+  padding: 20px;
+  width: 100vw;
+  min-height: 100vh; /* Ensure it covers at least the full height */
+  padding: 0; /* Reset any padding */
+  margin: 0; /* Remove margin */
+}
+
+
+    </style>
 
 <!-- Script for Navbar Toggle -->
  <script>
@@ -219,7 +291,25 @@
   <div id="square4"></div>
   <div id="square5"></div>
 </div>
+
+<body>
+    <!-- pre load -->
+    <div class="preloader">
+        <svg viewBox="0 0 1320 300">
+          <text
+            x="50%"
+            y="50%"
+            dy=".35em"
+            text-anchor="middle"
+            class="animate-stroke"
+            style="font-weight: bold;"
+          >
+            Word Wise
+          </text>
+        </svg>
     </div>
+      
+    <div class="main-content hidden">
     <div class="progress-container">
         <div class="progress-bar" id="progress-bar"></div>
       </div>
@@ -1275,7 +1365,6 @@
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
     <script>
-
 // For Loader Page
 const preloader = document.querySelector("#loader");
 function Finish_Loader(){
@@ -1318,3 +1407,79 @@ document.getElementById("backToTop").addEventListener("click", function() {
     <script src="profiledropdown.js"></script>
 </body>
 </html>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- the authentication copyright -->
+            <div class="wordwise-footer">
+                <div class="wordwise-footer-content">
+                    <p>&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
+                </div>
+            </div>
+    </footer>
+    </div>
+        <!-- .footer -->
+        <!-- this script is for twitter icon  starts -->
+        <script src="https://kit.fontawesome.com/856f4a44d7.js" crossorigin="anonymous"></script>
+        <!-- this script is for twitter icon  ends -->
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+        <script src="main.js"></script>
+        <script src="./backend/login-Auth/login.js"></script>
+        <script src="./backend/signUp/signup.js"></script>
+        <script src="SignIn_SignUp.js"></script>
+        <script src="darkMode.js"></script>
+
+
+        <!-- this script is to display the year in the copyright authentication in the footer -->
+        <script>
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        </script>
+        <script>
+        window.addEventListener('load', function() {
+          // Show the preloader for 5 seconds
+          setTimeout(function() {
+            document.querySelector('.preloader').style.display = 'none'; // Hide preloader
+            document.querySelector('.main-content').classList.remove('hidden'); // Show main content
+          }, 5000); // 5 seconds delay
+        });
+        </script>
+        <script src="script.js"></script>
+        <script src="faq.js"></script>
+        <script src="progress_bar.js"></script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script>
+            window.addEventListener("scroll", function () {
+                var scrollPosition = window.scrollY;
+                var height = document.body.offsetHeight - window.innerHeight;
+                if (scrollPosition > 90) {
+                    document.getElementById("backToTop").style.display = "block";
+                } else {
+                    document.getElementById("backToTop").style.display = "none";
+                }
+            });
+
+            document.getElementById("backToTop").addEventListener("click", function () {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        </script>
+
+        <script>
+            // Initialize ScrollReveal
+            ScrollReveal({
+                reset: true,
+                distance: '60px',
+                duration: 2500,
+                delay: 400
+            });
+            ScrollReveal().reveal('.revel1', { delay: 5, origin: 'left' });
+            ScrollReveal().reveal('.revel2', { delay: 5, origin: 'bottom' });
+            ScrollReveal().reveal('.revel3', { delay: 5, origin: 'right' });
+        </script>
+        <script src="google_signin.js"></script>
+        <script src="profiledropdown.js"></script>
+        
+    </body>
+
+    </html>
