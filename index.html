@@ -12,13 +12,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--swiper slider css-->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
     <!-- bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 
     <!-- for scroll reveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
+    
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" /> -->
 
     <!--css-->
     <link rel="stylesheet" href="style.css">
@@ -80,61 +81,6 @@
     height: auto;
   }
     </style>
-
-
-    <style>
-
-
-.form-container {
-    max-width: 350px;
-    padding: 20px;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 1px;
-
-    display: inline-block;
-    border: 1px solid #ccc;
-    /* box-sizing: border-box; */
-    font-size: 16px;
-}
-
-.form-container h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* .btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-} */
-
-.btn:hover {
-    opacity: 0.8;
-}
-
-.cancel {
-    background-color: #f44336;
-}
-
-.toggle-button {
-    cursor: pointer;
-    color: #007bff;
-    margin-left: 10px;
-}
-
-
-    </style>
-
-
 <!-- Script for Navbar Toggle -->
  <script>
     function toggleMenu() {
@@ -200,30 +146,67 @@
 
 
   <!--  Login Form -->
-<div class="form-popup" id="loginForm">
+  <div class="form-popup" id="loginForm">
     <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
-        <span class="close-icon" onclick="closeForm('login')">&times;</span>
-        <h2 class="text-center">Login</h2>
-        <div class="form-group">
-            <label for="loginEmail"><b>Email</b></label>
-            <input type="email" class="form-control" id="loginEmail" placeholder="Enter Email" name="email" required>
+      <span class="close-icon" onclick="closeForm('login')">&times;</span>
+      <h2 class="text-center">Login</h2>
+      <div class="form-group">
+        <label for="loginEmail"><b>Email</b></label>
+        <div class="input-group">
+          <span class="input-icon">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+          </span>
+          <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
         </div>
-        <div class="form-group position-relative">
-            <label for="loginPsw"><b>Password</b></label>
-            <input type="password" class="form-control" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
-            <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
+      </div>
+      <div class="form-group position-relative">
+        <label for="loginPsw"><b>Password</b></label>
+        <div class="input-group">
+            <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required>
+            <span class="password-toggle">
+                <i class="fas fa-lock" aria-hidden="true"></i>
+                <i class="fas fa-unlock" aria-hidden="true" style="display: none;"></i>
+            </span>
         </div>
-        <div class="forgot">
-            <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
-        </div>
-        <button type="submit" class="btn btn-primary w-100 mb-3">LOGIN</button>
-        <!-- Google Sign-In Button -->
-        <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
-            <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
-            Sign in with Google
-        </button>
+    </div>
+      <div class="forgot">
+        <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
+      </div>
+      <button type="submit" class="btn">LOGIN</button>
+      <span class="separator">or</span>
+      <!-- Social Icons -->
+      <div class="social-icons">
+        <a href="javascript:void(0);" onclick="handleGoogleLogin()">
+          <i class="fab fa-google" aria-hidden="true"></i>
+        </a>
+        <a href="javascript:void(0);" onclick="handleFacebookLogin()">
+          <i class="fab fa-facebook-f" aria-hidden="true"></i>
+        </a>
+        <a href="javascript:void(0);" onclick="handleTwitterLogin()">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </div>
     </form>
-</div>
+  </div>
+
+  <script>
+const passwordInput = document.getElementById('loginPsw');
+const togglePasswordIcon = document.querySelector('.password-toggle');
+const lockIcon = togglePasswordIcon.querySelector('.fa-lock');
+const unlockIcon = togglePasswordIcon.querySelector('.fa-unlock');
+
+togglePasswordIcon.addEventListener('click', () => {
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    lockIcon.style.display = 'none';
+    unlockIcon.style.display = 'block';
+  } else {
+    passwordInput.type = 'password';
+    lockIcon.style.display = 'block';
+    unlockIcon.style.display = 'none';
+  }
+});
+    </script>
 
 
 <!-- Signup Form -->
@@ -231,32 +214,97 @@
     <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
         <span class="close-icon" onclick="closeForm('signup')">&times;</span>
         <h2 class="text-center">Signup</h2>
-        <div class="form-group">
+        <div class="form-group position-relative">
             <label for="name"><b>Full Name</b></label>
-            <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
+            <input type="text" id="name" placeholder="Enter Full Name" name="name">
+            <i class="fas fa-user" aria-hidden="true"></i>
         </div>
-        <div class="form-group">
+        
+        <div class="form-group position-relative">
             <label for="signupEmail"><b>Email</b></label>
-            <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required>
+            <input type="email" id="signupEmail" placeholder="Enter Email" name="email">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
         </div>
+        
         <div class="form-group position-relative">
             <label for="signupPsw"><b>Password</b></label>
-            <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6" oninput="checkPasswordStrength()">
-            <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
+            <div class="input-group">
+                <input type="password" id="signupPsw" placeholder="Enter Password" name="psw">
+                <span class="password-icon toggle-password">
+                    <i class="fas fa-lock" aria-hidden="true"></i>
+                    <i class="fas fa-unlock" aria-hidden="true" style="display: none;"></i>
+                </span>
+            </div>
             <div id="passwordStrength" class="strength-meter"></div>
         </div>
+        
         <div class="form-group position-relative">
             <label for="confirmPsw"><b>Confirm Password</b></label>
-            <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
-            <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
+            <div class="input-group">
+                <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw">
+                <span class="password-icon toggle-password">
+                    <i class="fas fa-lock" aria-hidden="true"></i>
+                    <i class="fas fa-unlock" aria-hidden="true" style="display: none;"></i>
+                </span>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary w-100 mb-3">SIGNUP</button>
-        <!-- Google Sign-In Button -->
-         <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
-          <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
-          Sign in with Google</button>
+        <button type="submit" class="btn">SIGNUP</button>
+        <span class="separator">or</span>
+        <!-- Social Icons -->
+        <div class="social-icons">
+            <a href="javascript:void(0);" onclick="handleGoogleLogin()">
+                <i class="fab fa-google" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" onclick="handleFacebookLogin()">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" onclick="handleTwitterLogin()">
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+        </div>
     </form>
 </div>
+
+<script>
+const signupPasswordInput = document.getElementById('signupPsw');
+const confirmPasswordInput = document.getElementById('confirmPsw');
+
+const signupPasswordInputGroup = signupPasswordInput.parentNode;
+const confirmPasswordInputGroup = confirmPasswordInput.parentNode;
+
+const toggleSignupPasswordIcon = signupPasswordInputGroup.querySelector('.toggle-password');
+const toggleConfirmPasswordIcon = confirmPasswordInputGroup.querySelector('.toggle-password');
+
+const signupLockIcon = toggleSignupPasswordIcon.querySelector('.fa-lock');
+const signupUnlockIcon = toggleSignupPasswordIcon.querySelector('.fa-unlock');
+
+const confirmLockIcon = toggleConfirmPasswordIcon.querySelector('.fa-lock');
+const confirmUnlockIcon = toggleConfirmPasswordIcon.querySelector('.fa-unlock');
+
+toggleSignupPasswordIcon.addEventListener('click', () => {
+  if (signupPasswordInput.type === 'password') {
+    signupPasswordInput.type = 'text';
+    signupLockIcon.style.display = 'none';
+    signupUnlockIcon.style.display = 'block';
+  } else {
+    signupPasswordInput.type = 'password';
+    signupLockIcon.style.display = 'block';
+    signupUnlockIcon.style.display = 'none';
+  }
+});
+
+toggleConfirmPasswordIcon.addEventListener('click', () => {
+  if (confirmPasswordInput.type === 'password') {
+    confirmPasswordInput.type = 'text';
+    confirmLockIcon.style.display = 'none';
+    confirmUnlockIcon.style.display = 'block';
+  } else {
+    confirmPasswordInput.type = 'password';
+    confirmLockIcon.style.display = 'block';
+    confirmUnlockIcon.style.display = 'none';
+  }
+});
+</script>
 
 <!-- Forgot Password Modal -->
 <div id="forgot-password-modal" class="modal">
