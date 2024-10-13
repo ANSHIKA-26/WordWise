@@ -41,8 +41,10 @@ form button[type="submit"] {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+ 
 form button[type="submit"]:hover {
     background-color: #e65c00;
+    transform: scale(1.03);
 }
 
 /* Placeholder for blog content */
@@ -64,6 +66,42 @@ textarea#blogContent::placeholder {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 1000; /* Ensure it stays on top */
   animation: fadeOut 3s forwards;
+}
+
+#start-voice-input {
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+
+#suggestionsContainer {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  display: none;  /* Initially hidden */
+}
+
+#suggestionsContainer h4 {
+  margin-bottom: 10px;
+}
+
+#suggestionsText {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Show the suggestions when available */
+#suggestionsContainer.visible {
+  display: block;
 }
 
 @keyframes fadeOut {

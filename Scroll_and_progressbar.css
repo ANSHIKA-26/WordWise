@@ -42,7 +42,7 @@
 .progress-container {
     width: 100%;
     height: 10px; /* Height of the progress bar */
-    background-color: #f0f0f0; /* Background color matching scrollbar track */
+    background-color: #f8b5b5; /* Background color matching scrollbar track */
     border-radius: 10px; /* Rounded corners */
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for container */
     position: fixed;
