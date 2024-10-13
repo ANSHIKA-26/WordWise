@@ -50,10 +50,11 @@
     
     
     
-        <div class="logo">
-  
-            <h2>WordWise</h2>
-        </div>
+            <div class="logo" >
+                <a href="index.html">
+                  <h2>WordWise</h2>
+                </a>
+            </div>
         <div class="nav-links1">
             <a href="index.html">Home</a>
             <a href="blog.html">Leading Blog</a>
@@ -78,52 +79,68 @@
         </div>
      
         
-            <!-- Login Form -->
-        <div class="form-popup" id="loginForm">
-            <form class="form-container" onsubmit="return validateLoginForm()">
-                <h2>Login</h2>
-                <label for="loginEmail"><b>Email</b></label>
-                <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
-                <label for="loginPsw"><b>Password</b></label>
-                <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
-                <div class="forgot">
-                    <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
-                  </div>
-                <button type="submit" class="btn">LOGIN</button>
-                <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
-            </form>
+     
+      <!--  Login Form -->
+<div class="form-popup" id="loginForm">
+    <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
+        <span class="close-icon" onclick="closeForm('login')">&times;</span>
+        <h2 class="text-center">Login</h2>
+        <div class="form-group">
+            <label for="loginEmail"><b>Email</b></label>
+            <input type="email" class="form-control" id="loginEmail" placeholder="Enter Email" name="email" required>
         </div>
-        
-         <!-- Signup Form -->
-         <div class="form-popup" id="signupForm">
-            <form class="form-container" onsubmit="return validateSignupForm()">
-                <h2>Signup</h2>
-                <div class="form-group">
-                    <label for="name"><b>Full Name</b></label>
-                    <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="signupEmail"><b>Email</b></label>
-                    <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="signupPsw"><b>Password</b></label>
-                    <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
-                    <span id="togglePassword" class="toggle-button">Show</span>
-                </div>
-                <div class="form-group">
-                    <label for="confirmPsw"><b>Confirm Password</b></label>
-                    <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
-                    <span id="toggleConfirmPassword" class="toggle-button">Show</span>
-                </div>
-                <button type="submit" class="btn">SIGNUP</button>
-                <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
-            </form>
+        <div class="form-group position-relative">
+            <label for="loginPsw"><b>Password</b></label>
+            <input type="password" class="form-control" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+            <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
         </div>
-        <script src="signup.js"></script> <!-- Link to your JavaScript file -->
-    
-        <!-- Forgot Password Modal -->
-<div id="forgot-password-modal" class="modal">
+        <div class="forgot">
+            <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 mb-3">LOGIN</button>
+        <!-- Google Sign-In Button -->
+        <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+            <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
+            Sign in with Google
+        </button>
+    </form>
+  </div>
+ 
+<!-- Signup Form -->
+<div class="form-popup" id="signupForm">
+    <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
+        <span class="close-icon" onclick="closeForm('signup')">&times;</span>
+        <h2 class="text-center">Signup</h2>
+        <div class="form-group">
+            <label for="name"><b>Full Name</b></label>
+            <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="signupEmail"><b>Email</b></label>
+            <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required>
+        </div>
+        <div class="form-group position-relative">
+          <label for="signupPsw"><b>Password</b></label>
+          <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6" oninput="checkPasswordStrength()">
+          <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
+          <div id="passwordStrength" class="strength-meter"></div>
+      </div>
+  
+        <div class="form-group position-relative">
+            <label for="confirmPsw"><b>Confirm Password</b></label>
+            <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+            <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 mb-3">SIGNUP</button>
+        <!-- Google Sign-In Button -->
+         <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+          <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
+          Sign in with Google</button>
+    </form>
+  </div>
+  
+  <!-- Forgot Password Modal -->
+  <div id="forgot-password-modal" class="modal">
     <div class="form-container modal-content">
       <h2>Forgot Password</h2>
       <p>Please enter your email address to reset your password.</p>
@@ -135,7 +152,178 @@
       <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
     </div>
   </div>
-        
+  
+  <!-- Toggle Password Visibility Script -->
+  <script>
+    function togglePasswordVisibility(passwordFieldId, iconId) {
+        const passwordField = document.getElementById(passwordFieldId);
+        const togglePassword = document.getElementById(iconId);
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            togglePassword.classList.remove('bi-eye');
+            togglePassword.classList.add('bi-eye-slash');
+        } else {
+            passwordField.type = 'password';
+            togglePassword.classList.remove('bi-eye-slash');
+            togglePassword.classList.add('bi-eye');
+        }
+    }
+  </script>
+  
+  <!-- Updated CSS Styles -->
+  <style>
+    .form-popup {
+        display: none;
+        position: fixed;
+        z-index: 9;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        max-width: 500px;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+  
+    .form-container h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+  
+    .form-group {
+        margin-bottom: 15px;
+    }
+  
+    .form-control {
+        border-radius: 5px;
+        padding: 12px;
+        font-size: 16px; 
+        line-height: 1.5; 
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 100%;
+    }
+  
+    .forgot {
+        text-align: right; 
+        margin-left: 50px;
+        font-size: 10px;   
+        margin-top: -40px;
+  
+    }
+  
+    .btn {
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+  
+    .eye-icon {
+        position: absolute;
+        right: 15px;
+        top: 38px;
+        cursor: pointer;
+        color: #007bff;
+    }
+  
+    .close-icon {
+        font-size: 24px;
+        cursor: pointer;
+        float: right;
+    }
+  
+    .position-relative {
+        position: relative;
+    }
+  
+    /* Login button jumping issue fix */
+    .btn-primary {
+        transition: all 0.3s ease; /* Smooth transition */
+    }
+  
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+  
+    .google-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+  
+    .google-logo {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+  
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+  </style>
+<!-- Toggle Password Visibility Script -->
+<script>
+    function togglePasswordVisibility(passwordFieldId, iconId) {
+        const passwordField = document.getElementById(passwordFieldId);
+        const togglePassword = document.getElementById(iconId);
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            togglePassword.classList.remove('bi-eye');
+            togglePassword.classList.add('bi-eye-slash');
+        } else {
+            passwordField.type = 'password';
+            togglePassword.classList.remove('bi-eye-slash');
+            togglePassword.classList.add('bi-eye');
+        }
+    }
+    function checkPasswordStrength() {
+    var strengthMeter = document.getElementById('passwordStrength');
+    var password = document.getElementById('signupPsw').value;
+    var strength = 0;
+
+    if (password.length >= 6) strength++;
+    if (password.match(/[a-z]+/)) strength++;
+    if (password.match(/[A-Z]+/)) strength++;
+    if (password.match(/[0-9]+/)) strength++;
+    if (password.match(/[\W]+/)) strength++;
+
+    switch (strength) {
+        case 0:
+        case 1:
+            strengthMeter.style.width = '20%';
+            strengthMeter.style.backgroundColor = 'red';
+            strengthMeter.textContent = 'Weak';
+            break;
+        case 2:
+            strengthMeter.style.width = '40%';
+            strengthMeter.style.backgroundColor = 'orange';
+            strengthMeter.textContent = 'Fair';
+            break;
+        case 3:
+            strengthMeter.style.width = '60%';
+            strengthMeter.style.backgroundColor = 'yellow';
+            strengthMeter.textContent = 'Good';
+            break;
+        case 4:
+            strengthMeter.style.width = '80%';
+            strengthMeter.style.backgroundColor = 'blue';
+            strengthMeter.textContent = 'Strong';
+            break;
+        case 5:
+            strengthMeter.style.width = '100%';
+            strengthMeter.style.backgroundColor = 'green';
+            strengthMeter.textContent = 'Very Strong';
+            break;
+    }
+}
+</script>
+
+
+<script src="signup.js"></script> <!-- Link to your JavaScript file -->
+
+
+
         <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
                 <input type="checkbox" id="checkbox">
@@ -169,7 +357,7 @@
                                     <h3 class="new-post-title">Mouthwatering Memoirs</h3>
                                     <p class="new-post-excerpt">Mouth watering tales from all over the world...</p>
                                 </div>
-                                <button  class="new-read-more-link"><a href="#">Read More</a></button>
+                                <button  class="new-read-more-link"><a href="food.html">Read More</a></button>
                             </div>
                         </article>
                     </div>
@@ -189,7 +377,7 @@
                                     <h3 class="new-post-title">Roaming Routes</h3>
                                     <p class="new-post-excerpt">In the realm of mechanical marvels.</p>
                                 </div>
-                                <button  class="new-read-more-link"><a href="#">Read More</a></button>
+                                <button  class="new-read-more-link"><a href="travel.html">Read More</a></button>
                             </div>
                         </article>
                     </div>
@@ -209,7 +397,7 @@
                                     <h3 class="new-post-title">The Future of Tech</h3>
                                     <p class="new-post-excerpt">Exploring the innovations that are changing the world.</p>
                                 </div>
-                                <button  class="new-read-more-link"><a href="#">Read More</a></button>
+                                <button  class="new-read-more-link"><a href="tech.html">Read More</a></button>
                             </div>
                         </article>
                     </div>
@@ -229,7 +417,7 @@
                                     <h3 class="new-post-title">Living Well</h3>
                                     <p class="new-post-excerpt">Tips and tricks for a balanced life.</p>
                                 </div>
-                                <button  class="new-read-more-link"><a href="#">Read More</a></button>
+                                <button  class="new-read-more-link"><a href="life.html">Read More</a></button>
                             </div>
                         </article>
                     </div>
@@ -249,7 +437,7 @@
                                     <h3 class="new-post-title">Health Tips</h3>
                                     <p class="new-post-excerpt">Best practices for a healthier you.</p>
                                 </div>
-                                <button  class="new-read-more-link"><a href="#">Read More</a></button>
+                                <button  class="new-read-more-link"><a href="health.html">Read More</a></button>
                             </div>
                         </article>
                     </div>
@@ -269,7 +457,7 @@
                                     <h3 class="new-post-title">Fashion Trends</h3>
                                     <p class="new-post-excerpt">Stay stylish with the latest trends.</p>
                                 </div>
-                                <button  class="new-read-more-link"><a href="#">Read More</a></button>
+                                <button  class="new-read-more-link"><a href="fashion.html">Read More</a></button>
                             </div>
                         </article>
                     </div>
@@ -328,6 +516,7 @@
             <label for="radio6" class="manual-btn"></label>
         </div>
     </div>
+    
     <!-- Swiper end -->
     </main>
 
@@ -338,6 +527,7 @@
         <div class="footer-container">
             <div class="row mb-3 col-3-main">
                 <div class="col-3">
+
                     <div id="about-us">
                         <h2 class="footer-title secondary-title">About Us</h2>
 
@@ -447,6 +637,8 @@
                             <a href="#" class="nav-link btn bg-light"><i class="fa-brands fa-x-twitter"></i></a>
                             <a href="#" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
                             <a href="#" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
+                            <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" target="_blank"  class="nav-link btn bg-light"
+                            ><i class="fa-brands fa-github"></i></a>
                         </div>
                     </div>
 
@@ -459,6 +651,29 @@
         <div class="wordwise-footer">
             <div class="wordwise-footer-content">
                 <p>&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
+            </div>
+            <!-- Add the FAQ button here, outside the copyright div -->
+            <button id="faqButton" class="btn btn-primary">FAQ</button>
+        </div>
+
+        <!-- FAQ Modal -->
+        <div id="faqModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <h3>What categories does WordWise cover?</h3>
+                    <p>WordWise covers a wide range of categories including Food, Travel, Technology, Lifestyle, Health, and Fashion.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How can I browse articles in a specific category?</h3>
+                    <p>You can click on any category box on this page to view articles specific to that category.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I contribute to multiple categories?</h3>
+                    <p>Yes! You're welcome to contribute to any category that aligns with your expertise and interests.</p>
+                </div>
+                <!-- Add more FAQ items as needed -->
             </div>
         </div>
     </footer>
@@ -476,6 +691,70 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     <script src="profiledropdown.js"></script>
+
+    <style>
+        /* ... existing styles ... */
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var modal = document.getElementById("faqModal");
+            var btn = document.getElementById("faqButton");
+            var span = document.getElementsByClassName("close")[0];
+
+            btn.addEventListener('click', function() {
+                modal.style.display = "block";
+            });
+
+            span.addEventListener('click', function() {
+                modal.style.display = "none";
+            });
+
+            window.addEventListener('click', function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+
+            // Update the current year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
 </body>
 
 </html>

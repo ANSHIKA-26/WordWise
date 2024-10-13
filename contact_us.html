@@ -20,6 +20,13 @@
     <link rel="stylesheet" href="Scroll_and_progressbar.css" />
     <style>
       /* Custom popup styles */
+      .send-btn{
+        transition: background-color 0.3s ease;
+      }
+      .send-btn:hover {
+        background-color: #3498db; /* Darker shade on hover */
+      }
+
       .popup {
         display: none;
         position: fixed;
@@ -86,10 +93,11 @@
   
   
   
-      <div class="logo">
-
-          <h2>WordWise</h2>
-      </div>
+        <div class="logo" >
+          <a href="index.html">
+            <h2>WordWise</h2>
+          </a>
+        </div>
       <div class="nav-links1">
           <a href="index.html">Home</a>
           <a href="blog.html">Leading Blog</a>
@@ -115,58 +123,67 @@
     </div>
  
 
-        <!-- Login Form -->
+  
+  <!--  Login Form -->
 <div class="form-popup" id="loginForm">
-  <form class="form-container" onsubmit="return validateLoginForm()">
-      <h2>Login</h2>
-      <label for="loginEmail"><b>Email</b></label>
-      <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
-      
+  <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
+      <span class="close-icon" onclick="closeForm('login')">&times;</span>
+      <h2 class="text-center">Login</h2>
+      <div class="form-group">
+          <label for="loginEmail"><b>Email</b></label>
+          <input type="email" class="form-control" id="loginEmail" placeholder="Enter Email" name="email" required>
+      </div>
       <div class="form-group position-relative">
           <label for="loginPsw"><b>Password</b></label>
-          <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+          <input type="password" class="form-control" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
           <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
       </div>
       <div class="forgot">
-        <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
+          <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
       </div>
-
-      <button type="submit" class="btn">LOGIN</button>
-      <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
+      <button type="submit" class="btn btn-primary w-100 mb-3">LOGIN</button>
+      <!-- Google Sign-In Button -->
+      <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+          <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
+          Sign in with Google
+      </button>
   </form>
 </div>
+
 
 <!-- Signup Form -->
 <div class="form-popup" id="signupForm">
-  <form class="form-container" onsubmit="return validateSignupForm()">
-      <h2>Signup</h2>
-
+  <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
+      <span class="close-icon" onclick="closeForm('signup')">&times;</span>
+      <h2 class="text-center">Signup</h2>
       <div class="form-group">
           <label for="name"><b>Full Name</b></label>
-          <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
+          <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
       </div>
-
       <div class="form-group">
           <label for="signupEmail"><b>Email</b></label>
-          <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
+          <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required>
       </div>
-
       <div class="form-group position-relative">
-          <label for="signupPsw"><b>Password</b></label>
-          <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
-          <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
-      </div>
+        <label for="signupPsw"><b>Password</b></label>
+        <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6" oninput="checkPasswordStrength()">
+        <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
+        <div id="passwordStrength" class="strength-meter"></div>
+    </div>
 
       <div class="form-group position-relative">
           <label for="confirmPsw"><b>Confirm Password</b></label>
-          <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+          <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
           <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
       </div>
-
-      <button type="submit" class="btn">SIGNUP</button>
-      <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
+      <button type="submit" class="btn btn-primary w-100 mb-3">SIGNUP</button>
+      <!-- Google Sign-In Button -->
+       <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+        <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
+        Sign in with Google</button>
   </form>
 </div>
+
 <!-- Forgot Password Modal -->
 <div id="forgot-password-modal" class="modal">
   <div class="form-container modal-content">
@@ -181,8 +198,7 @@
   </div>
 </div>
 
-<!-- Bootstrap Icons and Script for Eye Icon Functionality -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<!-- Toggle Password Visibility Script -->
 <script>
   function togglePasswordVisibility(passwordFieldId, iconId) {
       const passwordField = document.getElementById(passwordFieldId);
@@ -197,67 +213,150 @@
           togglePassword.classList.add('bi-eye');
       }
   }
+  function checkPasswordStrength() {
+    var strengthMeter = document.getElementById('passwordStrength');
+    var password = document.getElementById('signupPsw').value;
+    var strength = 0;
+
+    if (password.length >= 6) strength++;
+    if (password.match(/[a-z]+/)) strength++;
+    if (password.match(/[A-Z]+/)) strength++;
+    if (password.match(/[0-9]+/)) strength++;
+    if (password.match(/[\W]+/)) strength++;
+
+    switch (strength) {
+        case 0:
+        case 1:
+            strengthMeter.style.width = '20%';
+            strengthMeter.style.backgroundColor = 'red';
+            strengthMeter.textContent = 'Weak';
+            break;
+        case 2:
+            strengthMeter.style.width = '40%';
+            strengthMeter.style.backgroundColor = 'orange';
+            strengthMeter.textContent = 'Fair';
+            break;
+        case 3:
+            strengthMeter.style.width = '60%';
+            strengthMeter.style.backgroundColor = 'yellow';
+            strengthMeter.textContent = 'Good';
+            break;
+        case 4:
+            strengthMeter.style.width = '80%';
+            strengthMeter.style.backgroundColor = 'blue';
+            strengthMeter.textContent = 'Strong';
+            break;
+        case 5:
+            strengthMeter.style.width = '100%';
+            strengthMeter.style.backgroundColor = 'green';
+            strengthMeter.textContent = 'Very Strong';
+            break;
+    }
+}
 </script>
 
+<!-- Updated CSS Styles -->
 <style>
-  /* Form Container Styles */
   .form-popup {
-      width: 400px;
-      margin: auto;
-      background-color: #ffffff;
-      border-radius: 10px;
+      display: none;
+      position: fixed;
+      z-index: 9;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      max-width: 500px;
       padding: 20px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      box-sizing: border-box;
   }
-
+  
   .form-container h2 {
       margin-bottom: 20px;
       color: #333;
   }
 
-  .form-control {
-      border-radius: 5px;
-      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: border-color 0.3s;
+  .form-group {
+      margin-bottom: 15px;
   }
 
-  .form-control:focus {
-      border-color: #007bff;
-      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  .form-control {
+      border-radius: 5px;
+      padding: 12px;
+      font-size: 16px; 
+      line-height: 1.5; 
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: 100%;
+  }
+
+  .forgot {
+      text-align: right; 
+      margin-left: 50px;
+      font-size: 10px;   
+      margin-top: -40px;
+
   }
 
   .btn {
-      margin-top: 15px;
+      margin-top: 10px;
       border-radius: 5px;
   }
 
   .eye-icon {
       position: absolute;
       right: 15px;
-      top: 38px; /* Adjust according to input field height */
+      top: 38px;
       cursor: pointer;
       color: #007bff;
+  }
+
+  .close-icon {
+      font-size: 24px;
+      cursor: pointer;
+      float: right;
   }
 
   .position-relative {
       position: relative;
   }
 
-  .btn-block {
-      width: 100%;
+  /* Login button jumping issue fix */
+  .btn-primary {
+      transition: all 0.3s ease; /* Smooth transition */
   }
 
-  /* Hover Effects */
-  .btn:hover {
+  .btn-primary:hover {
       background-color: #0056b3;
-      border-color: #0056b3;
   }
 
-  .btn.cancel:hover {
-      background-color: #6c757d;
-      border-color: #6c757d;
+  .google-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
   }
+
+  .google-logo {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+  }
+
+  .btn-primary:hover {
+      background-color: #0056b3;
+  }
+  .strength-meter {
+    height: 10px;
+    width: 0;
+    transition: width 0.3s;
+    margin-top: 5px;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+}
 </style>
+
 
       <script src="signup.js"></script>
       <!-- Link to your JavaScript file -->
@@ -279,7 +378,7 @@
           </div>
         </label>
         <span id="mode-label"></span>
-            
+        
       </div>
     </header>
     </div>
@@ -290,16 +389,17 @@
         max-width: 600px;
         margin: 50px auto;
         padding: 20px;
-        background-color: #f9f9f9;
+        /* background-color: #f9f9f9; */
+        background-color: var(--background-color);
         border-radius: 10px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 20px var(--text-color);
         text-align: center;
       "
     >
-      <h2 style="color: #3498db; font-size: 28px; margin-bottom: 10px">
+      <h2 style="color: var(--text-color); font-size: 28px; margin-bottom: 10px">
         Get in Touch
       </h2>
-      <p style="color: #777; font-size: 16px; margin-bottom: 20px">
+      <p style="color: var(--normal-text-col); font-size: 16px; margin-bottom: 20px">
         Whether you have questions, feedback, or need assistance, our team is
         here to help. Please fill out the form below, and we'll get back to you
         as soon as possible.
@@ -313,42 +413,44 @@
               display: block;
               text-align: left;
               margin-bottom: 5px;
-              color: #333;
+              color: var(--text-color);
               font-size: 14px;
             "
             >First Name</label
           >
           <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            required
-            style="
+          type="text"
+          id="firstName"
+          placeholder="Enter your first name"
+          name="firstName"
+          required
+          style="
               width: 100%;
               padding: 10px;
               font-size: 14px;
               border: 2px solid #ddd;
               border-radius: 5px;
-            "
+              "
           />
         </div>
-
+        
         <div class="form-group" style="margin-bottom: 15px">
           <label
-            for="lastName"
-            style="
+          for="lastName"
+          style="
               display: block;
               text-align: left;
               margin-bottom: 5px;
-              color: #333;
+              color: var(--text-color);
               font-size: 14px;
-            "
+              "
             >Last Name</label
           >
           <input
             type="text"
             id="lastName"
             name="lastName"
+            placeholder="Enter your last name"
             required
             style="
               width: 100%;
@@ -356,25 +458,26 @@
               font-size: 14px;
               border: 2px solid #ddd;
               border-radius: 5px;
-            "
+              "
           />
         </div>
-
+        
         <div class="form-group" style="margin-bottom: 15px">
           <label
-            for="email"
-            style="
+          for="email"
+          style="
               display: block;
               text-align: left;
               margin-bottom: 5px;
-              color: #333;
+              color: var(--text-color);
               font-size: 14px;
-            "
+              "
             >Email Address</label
-          >
-          <input
+            >
+            <input
             type="email"
-            id="email"
+            id="contact-email"
+            placeholder="Enter your email"
             name="email"
             required
             style="
@@ -383,25 +486,26 @@
               font-size: 14px;
               border: 2px solid #ddd;
               border-radius: 5px;
-            "
+              "
           />
         </div>
-
+        
         <div class="form-group" style="margin-bottom: 15px">
           <label
-            for="phone"
-            style="
+          for="phone"
+          style="
               display: block;
               text-align: left;
               margin-bottom: 5px;
-              color: #333;
+              color: var(--text-color);
               font-size: 14px;
-            "
+              "
             >Phone Number</label
-          >
-          <input
+            >
+            <input
             type="tel"
-            id="phone"
+            id="contact-phone"
+            placeholder="Enter your phone"
             name="phone"
             required
             style="
@@ -410,26 +514,27 @@
               font-size: 14px;
               border: 2px solid #ddd;
               border-radius: 5px;
-            "
+              "
           />
         </div>
-
+        
         <div class="form-group" style="margin-bottom: 15px">
           <label
-            for="message"
-            style="
+          for="message"
+          style="
               display: block;
               text-align: left;
               margin-bottom: 5px;
-              color: #333;
+              color: var(--text-color);
               font-size: 14px;
             "
             >Message</label
-          >
-          <textarea
+            >
+            <textarea
             id="message"
             name="message"
             rows="4"
+            placeholder="Enter your message"
             required
             style="
               width: 100%;
@@ -437,27 +542,19 @@
               font-size: 14px;
               border: 2px solid #ddd;
               border-radius: 5px;
-            "
+              "
           ></textarea>
         </div>
-
+        
         <button
-          type="button"
-          onclick="SendEmail(event)"
-          style="
-            background-color: #3498db;
-            color: white;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-          "
+        type="button"
+        onclick="SendEmail(event)"
+        class="submitbtn"
         >
           Send
         </button>
       </form>
-
+      
       <!-- Custom popup -->
       <div
         class="overlay"

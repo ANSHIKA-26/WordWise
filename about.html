@@ -73,10 +73,11 @@
 
 
 
-    <div class="logo">
-
+    <div class="logo" >
+     <a href="index.html">
         <h2>WordWise</h2>
-    </div>
+     </a>
+   </div>
     <div class="nav-links1">
         <a href="index.html">Home</a>
         <a href="blog.html">Leading Blog</a>
@@ -99,25 +100,69 @@
             <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
         </ul>
     </div>
- 
-    <!-- Login Form -->
+
+
+      <!--  Login Form -->
 <div class="form-popup" id="loginForm">
-    <form class="form-container" onsubmit="return validateLoginForm()">
-        <h2>Login</h2>
-        <label for="loginEmail"><b>Email</b></label>
-        <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
-        <label for="loginPsw"><b>Password</b></label>
-        <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+    <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
+        <span class="close-icon" onclick="closeForm('login')">&times;</span>
+        <h2 class="text-center">Login</h2>
+        <div class="form-group">
+            <label for="loginEmail"><b>Email</b></label>
+            <input type="email" class="form-control" id="loginEmail" placeholder="Enter Email" name="email" required>
+        </div>
+        <div class="form-group position-relative">
+            <label for="loginPsw"><b>Password</b></label>
+            <input type="password" class="form-control" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+            <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
+        </div>
         <div class="forgot">
             <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
-          </div>
-        <button type="submit" class="btn">LOGIN</button>
-        <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 mb-3">LOGIN</button>
+        <!-- Google Sign-In Button -->
+        <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+            <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
+            Sign in with Google
+        </button>
     </form>
-</div>
-
-<!-- Forgot Password Modal -->
-<div id="forgot-password-modal" class="modal">
+  </div>
+ 
+<!-- Signup Form -->
+<div class="form-popup" id="signupForm">
+    <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
+        <span class="close-icon" onclick="closeForm('signup')">&times;</span>
+        <h2 class="text-center">Signup</h2>
+        <div class="form-group">
+            <label for="name"><b>Full Name</b></label>
+            <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="signupEmail"><b>Email</b></label>
+            <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required>
+        </div>
+        <div class="form-group position-relative">
+          <label for="signupPsw"><b>Password</b></label>
+          <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6" oninput="checkPasswordStrength()">
+          <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
+          <div id="passwordStrength" class="strength-meter"></div>
+      </div>
+  
+        <div class="form-group position-relative">
+            <label for="confirmPsw"><b>Confirm Password</b></label>
+            <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+            <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 mb-3">SIGNUP</button>
+        <!-- Google Sign-In Button -->
+         <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+          <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
+          Sign in with Google</button>
+    </form>
+  </div>
+  
+  <!-- Forgot Password Modal -->
+  <div id="forgot-password-modal" class="modal">
     <div class="form-container modal-content">
       <h2>Forgot Password</h2>
       <p>Please enter your email address to reset your password.</p>
@@ -129,61 +174,117 @@
       <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
     </div>
   </div>
-
-   <!-- Login Form -->
-<div class="form-popup" id="loginForm">
-    <form class="form-container" onsubmit="return validateLoginForm()">
-        <h2>Login</h2>
-        <label for="loginEmail"><b>Email</b></label>
-        <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
-        
-        <div class="form-group position-relative">
-            <label for="loginPsw"><b>Password</b></label>
-            <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
-            <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
-        </div>
-        <div class="forgot">
-            <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
-          </div>
-        <button type="submit" class="btn">LOGIN</button>
-        <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
-    </form>
-</div>
-
-<!-- Signup Form -->
-<div class="form-popup" id="signupForm">
-    <form class="form-container" onsubmit="return validateSignupForm()">
-        <h2>Signup</h2>
-
-        <div class="form-group">
-            <label for="name"><b>Full Name</b></label>
-            <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
-        </div>
-
-        <div class="form-group">
-            <label for="signupEmail"><b>Email</b></label>
-            <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
-        </div>
-
-        <div class="form-group position-relative">
-            <label for="signupPsw"><b>Password</b></label>
-            <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
-            <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
-        </div>
-
-        <div class="form-group position-relative">
-            <label for="confirmPsw"><b>Confirm Password</b></label>
-            <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
-            <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
-        </div>
-
-        <button type="submit" class="btn">SIGNUP</button>
-        <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
-    </form>
-</div>
-
-<!-- Bootstrap Icons and Script for Eye Icon Functionality -->
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"> -->
+  
+  <!-- Toggle Password Visibility Script -->
+  <script>
+    function togglePasswordVisibility(passwordFieldId, iconId) {
+        const passwordField = document.getElementById(passwordFieldId);
+        const togglePassword = document.getElementById(iconId);
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            togglePassword.classList.remove('bi-eye');
+            togglePassword.classList.add('bi-eye-slash');
+        } else {
+            passwordField.type = 'password';
+            togglePassword.classList.remove('bi-eye-slash');
+            togglePassword.classList.add('bi-eye');
+        }
+    }
+  </script>
+  
+  <!-- Updated CSS Styles -->
+  <style>
+    .form-popup {
+        display: none;
+        position: fixed;
+        z-index: 9;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        max-width: 500px;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+  
+    .form-container h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+  
+    .form-group {
+        margin-bottom: 15px;
+    }
+  
+    .form-control {
+        border-radius: 5px;
+        padding: 12px;
+        font-size: 16px; 
+        line-height: 1.5; 
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 100%;
+    }
+  
+    .forgot {
+        text-align: right; 
+        margin-left: 50px;
+        font-size: 10px;   
+        margin-top: -40px;
+  
+    }
+  
+    .btn {
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+  
+    .eye-icon {
+        position: absolute;
+        right: 15px;
+        top: 38px;
+        cursor: pointer;
+        color: #007bff;
+    }
+  
+    .close-icon {
+        font-size: 24px;
+        cursor: pointer;
+        float: right;
+    }
+  
+    .position-relative {
+        position: relative;
+    }
+  
+    /* Login button jumping issue fix */
+    .btn-primary {
+        transition: all 0.3s ease; /* Smooth transition */
+    }
+  
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+  
+    .google-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+  
+    .google-logo {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+  
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+  </style>
+<!-- Toggle Password Visibility Script -->
 <script>
     function togglePasswordVisibility(passwordFieldId, iconId) {
         const passwordField = document.getElementById(passwordFieldId);
@@ -198,67 +299,48 @@
             togglePassword.classList.add('bi-eye');
         }
     }
+    function checkPasswordStrength() {
+    var strengthMeter = document.getElementById('passwordStrength');
+    var password = document.getElementById('signupPsw').value;
+    var strength = 0;
+
+    if (password.length >= 6) strength++;
+    if (password.match(/[a-z]+/)) strength++;
+    if (password.match(/[A-Z]+/)) strength++;
+    if (password.match(/[0-9]+/)) strength++;
+    if (password.match(/[\W]+/)) strength++;
+
+    switch (strength) {
+        case 0:
+        case 1:
+            strengthMeter.style.width = '20%';
+            strengthMeter.style.backgroundColor = 'red';
+            strengthMeter.textContent = 'Weak';
+            break;
+        case 2:
+            strengthMeter.style.width = '40%';
+            strengthMeter.style.backgroundColor = 'orange';
+            strengthMeter.textContent = 'Fair';
+            break;
+        case 3:
+            strengthMeter.style.width = '60%';
+            strengthMeter.style.backgroundColor = 'yellow';
+            strengthMeter.textContent = 'Good';
+            break;
+        case 4:
+            strengthMeter.style.width = '80%';
+            strengthMeter.style.backgroundColor = 'blue';
+            strengthMeter.textContent = 'Strong';
+            break;
+        case 5:
+            strengthMeter.style.width = '100%';
+            strengthMeter.style.backgroundColor = 'green';
+            strengthMeter.textContent = 'Very Strong';
+            break;
+    }
+}
 </script>
 
-<style>
-    /* Form Container Styles */
-    .form-popup {
-        width: 400px;
-        margin: auto;
-        background-color: #ffffff;
-        border-radius: 10px;
-        padding: 20px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .form-container h2 {
-        margin-bottom: 20px;
-        color: #333;
-    }
-
-    .form-control {
-        border-radius: 5px;
-        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
-        transition: border-color 0.3s;
-    }
-
-    .form-control:focus {
-        border-color: #007bff;
-        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    }
-
-    .btn {
-        margin-top: 15px;
-        border-radius: 5px;
-    }
-
-    .eye-icon {
-        position: absolute;
-        right: 15px;
-        top: 38px; /* Adjust according to input field height */
-        cursor: pointer;
-        color: #007bff;
-    }
-
-    .position-relative {
-        position: relative;
-    }
-
-    .btn-block {
-        width: 100%;
-    }
-
-    /* Hover Effects */
-    .btn:hover {
-        background-color: #0056b3;
-        border-color: #0056b3;
-    }
-
-    .btn.cancel:hover {
-        background-color: #6c757d;
-        border-color: #6c757d;
-    }
-</style>
 
 <script src="signup.js"></script> <!-- Link to your JavaScript file -->
 
@@ -279,563 +361,56 @@
     </div>
     
     <!--main-->
-    <main id="site-main" style="margin-top: 90px;margin-left: 50px;">
-        <!--blog post section-->
-        <section id="posts">
-            <div class="container" >
-                <div class="grid" >
-                    <!-- article-->
-                    <div class="grid-item" >
-                        <article class="article">
-                            <div class="card">
-                                <div class="overflow-img">
-                                    <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img1.jpg" class="img-fluid">
-
-
-                                    </a>
-                                </div>
-                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                    <a href="blog.html"  class="text-title display-1 text-dark">
-                                        Roaming Routes
-                                    </a>
-                                    <p class="secondary-title display-3" style="margin-top:3px;">
-                                        <span><i class="fa-regular fa-calendar"></i> Wed 01,2020 &nbsp;</span>
-                                        <span><i class="bi bi-chat-fill"></i> 13</span>
-                                    </p>
-                                </div>
-
-                            </div>
-                        </article>
-                    </div>
-                    <!-- article-->
-                    <!-- article-->
-                    <div class="grid-item">
-                        <article class="article">
-                            <div class="card">
-                                <div class="overflow-img">
-                                    <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img2.jpg" class="img-fluid">
-
-
-                                    </a>
-                                </div>
-                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                    <a href="#" class="text-title display-1 text-dark">
-                                        Gaming Chronicles
-
-
-                                    </a>
-                                    <p class="secondary-title display-3" style="margin-top:3px;">
-                                        <span><i class="fa-regular fa-calendar"></i> Mon 13,2023 &nbsp;</span>
-                                        <span><i class="bi bi-chat-fill"></i> 12</span>
-                                    </p>
-                                </div>
-
-                            </div>
-                        </article>
-                    </div>
-                    <!-- article-->
-                    <!-- article-->
-                    <div class="grid-item">
-                        <article class="article">
-                            <div class="card">
-                                <div class="overflow-img">
-                                    <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img3.jpg" class="img-fluid">
-
-
-                                    </a>
-                                </div>
-                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                    <a href="#" class="text-title display-1 text-dark">
-                                        Virtual Realms
-
-
-
-                                    </a>
-                                    <p class="secondary-title display-3" style="margin-top:3px;">
-                                        <span><i class="fa-regular fa-calendar"></i> Wed 09,2023 &nbsp;</span>
-                                        <span><i class="bi bi-chat-fill"></i> 19</span>
-                                    </p>
-                                </div>
-
-                            </div>
-                        </article>
-                    </div>
-                    <!-- article-->
-                    <!-- article-->
-                    <div class="grid-item">
-                        <article class="article">
-                            <div class="card">
-                                <div class="overflow-img">
-                                    <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img4.jpg" class="img-fluid">
-
-
-                                    </a>
-                                </div>
-                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                    <a href="#" class="text-title display-1 text-dark">
-                                        Laptop life
-
-
-
-                                    </a>
-                                    <p class="secondary-title display-3" style="margin-top:3px;">
-                                        <span><i class="fa-regular fa-calendar"></i> Tue 07,2019 &nbsp;</span>
-                                        <span><i class="bi bi-chat-fill"></i> 6</span>
-                                    </p>
-                                </div>
-
-                            </div>
-                        </article>
-                    </div>
-                    <!-- article-->
-                    <!-- article-->
-                    <div class="grid-item">
-                        <article class="article">
-                            <div class="card">
-                                <div class="overflow-img">
-                                    <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img5.jpg" class="img-fluid">
-
-
-                                    </a>
-                                </div>
-                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                    <a href="#" class="text-title display-1 text-dark">
-                                        Mouthwatering Memoirs
-
-
-
-                                    </a>
-                                    <p class="secondary-title display-3" style="margin-top:3px;">
-                                        <span><i class="fa-regular fa-calendar"></i> Tue 02,2021 &nbsp;</span>
-                                        <span><i class="bi bi-chat-fill"></i> 10</span>
-                                    </p>
-                                </div>
-
-                            </div>
-                        </article>
-                    </div>
-                    <!-- article-->
-
-                    <!-- article-->
-                    <div class="grid-item">
-                        <article class="article">
-
-                            <div class="card">
-                                <div class="overflow-img">
-                                    <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img6.jpg" class="img-fluid">
-
-
-                                    </a>
-                                </div>
-                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                    <a href="#" class="text-title display-1 text-dark">
-                                      Tech travels
-
-
-
-                                    </a>
-                                    <p class="secondary-title display-3" style="margin-top:3px;">
-                                        <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                        <span><i class="bi bi-chat-fill"></i> 12</span>
-                                    </p>
-                                </div>
-
-                            </div>
-                        </article>
-                    </div>
-                    <!-- article-->
-                    <!-- article-->
-                    <div class="grid-item">
-                        <article class="article">
-                            <div class="card">
-                                <div class="overflow-img">
-                                    <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img7.jpg" class="img-fluid">
-
-
-                                    </a>
-                                </div>
-                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                    <a href="#" class="text-title display-1 text-dark">
-                                        Culinary Delights
-
-
-
-                                    </a>
-                                    <p class="secondary-title display-3" style="margin-top:3px;">
-                                        <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                        <span><i class="bi bi-chat-fill"></i> 12</span>
-                                    </p>
-                                </div>
-
-                            </div>
-                        </article>
-                    </div>
-                    <!-- article-->
-                    <!-- article-->
-                    <div class="grid-item">
-                        <article class="article">
-                            <div class="card">
-                                <div class="overflow-img">
-                                    <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img8.jpg" class="img-fluid">
-
-
-                                    </a>
-                                </div>
-                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                    <a href="#" class="text-title display-1 text-dark">
-                                      Voyage Vista: Where Travel Dreams Take Flight
-
-
-
-                                    </a>
-                                    <p class="secondary-title display-3" style="margin-top:3px;">
-                                        <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                        <span><i class="bi bi-chat-fill"></i> 12</span>
-                                    </p>
-                                </div>
-
-                            </div>
-                        </article>
-                    </div>
-                    <!-- article-->
-                    <!-- article-->
-                    <div class="grid-item">
-                        <article class="article">
-                            <div class="card">
-                                <div class="overflow-img">
-                                    <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img9.jpg" class="img-fluid">
-
-
-                                    </a>
-                                </div>
-                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                    <a href="#" class="text-title display-1 text-dark">
-                                      Beak & Claw: A Chronicle of Birds in the Wild
-
-
-
-                                    </a>
-                                    <p class="secondary-title display-3" style="margin-top:3px;">
-                                        <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                        <span><i class="bi bi-chat-fill"></i> 12</span>
-                                    </p>
-                                </div>
-
-                            </div>
-                        </article>
-                    </div>
-                    <!-- article-->
-                    <!-- article-->
-                    <div class="grid-item">
-                      <article class="article">
-                          <div class="card">
-                              <div class="overflow-img">
-                                  <a href="#">
-                                      <img style="height: 250px;width:300px" src="./assets/img10.jpg" class="img-fluid">
-
-
-                                  </a>
-                              </div>
-                              <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                  <a href="#" class="text-title display-1 text-dark">
-                                    Wild Whispers: Listening to Nature's Creatures
-
-
-
-                                  </a>
-                                  <p class="secondary-title display-3" style="margin-top:3px;">
-                                      <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                      <span><i class="bi bi-chat-fill"></i> 12</span>
-                                  </p>
-                              </div>
-
-                          </div>
-                      </article>
-                  </div>
-                  <!-- article-->
-                  <!-- article-->
-                  <div class="grid-item">
-                    <article class="article">
-                        <div class="card">
-                            <div class="overflow-img">
-                                <a href="#">
-                                    <img style="height: 250px;width:300px" src="./assets/img11.jpg" class="img-fluid">
-
-
-                                </a>
-                            </div>
-                            <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                <a href="#" class="text-title display-1 text-dark">
-                                  Aesthetic Abodes: Inspirations from Architectural Design
-
-
-
-                                </a>
-                                <p class="secondary-title display-3" style="margin-top:3px;">
-                                    <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                    <span><i class="bi bi-chat-fill"></i> 12</span>
-                                </p>
-                            </div>
-
-                        </div>
-                    </article>
-                </div>
-                <!-- article-->
-                <!-- article-->
-                <div class="grid-item">
-                  <article class="article">
-                      <div class="card">
-                          <div class="overflow-img">
-                              <a href="#">
-                                  <img style="height: 250px;width:300px" src="./assets/img12.jpg" class="img-fluid">
-
-
-                              </a>
-                          </div>
-                          <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                              <a href="#" class="text-title display-1 text-dark">
-                                Nature's Kaleidoscope: A Symphony of Colors and Life
-
-
-
-
-                              </a>
-                              <p class="secondary-title display-3" style="margin-top:3px;">
-                                  <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                  <span><i class="bi bi-chat-fill"></i> 12</span>
-                              </p>
-                          </div>
-
-                      </div>
-                  </article>
-              </div>
-              <!-- article-->
-              <!-- article-->
-              <div class="grid-item">
-                <article class="article">
-                    <div class="card">
-                        <div class="overflow-img">
-                            <a href="#">
-                                <img style="height: 250px;width:300px" src="./assets/img13.jpg" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                            <a href="#" class="text-title display-1 text-dark">
-                              Chirp & Flutter: Tales from the Aviary
-
-
-
-                            </a>
-                            <p class="secondary-title display-3" style="margin-top:3px;">
-                                <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                <span><i class="bi bi-chat-fill"></i> 12</span>
-                            </p>
-                        </div>
-
-                    </div>
-                </article>
-            </div>
-            <!-- article-->
-            <!-- article-->
-            <div class="grid-item">
-              <article class="article">
-                  <div class="card">
-                      <div class="overflow-img">
-                          <a href="#">
-                              <img style="height: 250px;width:300px" src="./assets/img14.jpg" class="img-fluid">
-
-
-                          </a>
-                      </div>
-                      <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                          <a href="#" class="text-title display-1 text-dark">
-                            Unlocking the Power of the Mind: A Journey to Self-Discovery
-
-
-
-                          </a>
-                          <p class="secondary-title display-3" style="margin-top:3px;">
-                              <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                              <span><i class="bi bi-chat-fill"></i> 12</span>
-                          </p>
-                      </div>
-
-                  </div>
-              </article>
-          </div>
-          <!-- article-->
-
-                </div>
-                <div style="display: flex;justify-content: center;">
-                    <button class="btn load-posts-btn secondary-title text-light" style="height:50px;width:200px;font-size: large;border-radius: 20px;">Load More Posts...</button>
-              </div>
-            </div>
-
-
-
-
-        </section>
-        <!--blog post section-->
-        <div class="sliderr">
-            <div class="slides">
-                <!-- Radio buttons for navigation -->
-                <input type="radio" name="radio-btn" id="radio1" checked>
-                <input type="radio" name="radio-btn" id="radio2">
-                <input type="radio" name="radio-btn" id="radio3">
-                <input type="radio" name="radio-btn" id="radio4">
-                <input type="radio" name="radio-btn" id="radio5">
-                <input type="radio" name="radio-btn" id="radio6">
-    
-                <!-- Slide images -->
-                <div class="slide first">
-                    <img src="./assets/slider/img1.jpg" alt="Slide 1">
-                </div>
-                <div class="slide">
-                    <img src="./assets/slider/img2.jpg" alt="Slide 2">
-                </div>
-                <div class="slide">
-                    <img src="./assets/slider/img3.jpg" alt="Slide 3">
-                </div>
-                <div class="slide">
-                    <img src="./assets/slider/img4.jpg" alt="Slide 4">
-                </div>
-                <div class="slide">
-                    <img src="./assets/slider/img5.jpg" alt="Slide 5">
-                </div>
-                <div class="slide">
-                    <img src="./assets/slider/img6.jpg" alt="Slide 6">
-                </div>
-    
-                <!-- Automatic navigation -->
-                <div class="navigation-auto">
-                    <div class="auto-btn1"></div>
-                    <div class="auto-btn2"></div>
-                    <div class="auto-btn3"></div>
-                    <div class="auto-btn4"></div>
-                    <div class="auto-btn5"></div>
-                    <div class="auto-btn6"></div>
-                </div>
-            </div>
-    
-            <!-- Manual navigation -->
-            <div class="navigation-manual">
-                <label for="radio1" class="manual-btn"></label>
-                <label for="radio2" class="manual-btn"></label>
-                <label for="radio3" class="manual-btn"></label>
-                <label for="radio4" class="manual-btn"></label>
-                <label for="radio5" class="manual-btn"></label>
-                <label for="radio6" class="manual-btn"></label>
-            </div>
-        </div>
-</section>
-<section class="faq" id="faq">
-    
-<!-- </section> -->
-    <div class="container_1">
-        <div class="accordion__wrapper">
-            <h1 class="accordion__title">Frequently Asked Questions</h1>
-            <br>
-            <div class="accordion">
-                <div class="accordion__header">
-                    <h2 class="accordion__question">How do I switch between dark and light themes?</h2>
-                    <span class="accordion__icon">
-                        <i id="accordion-icon" class="fa-solid fa-plus"></i>
-                    </span>
-                </div>
-                <div class="accordion__content">
-                    <!-- <i class="fa-solid fa-comments"></i> -->
-                    <p class="accordion__answer">You can easily switch between dark and light themes by clicking the theme toggle button located in the website header. This allows you to customize your viewing experience according to your preference.</p>
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion__header">
-                    <h2 class="accordion__question">How do I use the 'Start Writing' page?</h2>
-                    <span class="accordion__icon">
-                        <i id="accordion-icon" class="fa-solid fa-plus"></i>
-                    </span>
-                </div>
-                <div class="accordion__content">
-                    <!-- <i class="fa-solid fa-comments"></i> -->
-                    <p class="accordion__answer">The 'Start Writing' page provides a simple interface for quickly creating and publishing blog posts. Just click "Start Writing" from the navigation bar, fill in your title, content, and tags, and publish your blog with a single click.</p>
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion__header">
-                    <h2 class="accordion__question">How does the sliding bar with latest blogs work?</h2>
-                    <span class="accordion__icon">
-                        <i id="accordion-icon" class="fa-solid fa-plus"></i>
-                    </span>
-                </div>
-                <div class="accordion__content">
-                    <!-- <i class="fa-solid fa-comments"></i> -->
-                    <p class="accordion__answer">The sliding bar on the home page features the latest blogs published on the platform. It updates automatically and allows users to easily scroll through and click on any blog that catches their attention.</p>
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion__header">
-                    <h2 class="accordion__question">How are top picks chosen for the leading blog page?</h2>
-                    <span class="accordion__icon">
-                        <i id="accordion-icon" class="fa-solid fa-plus"></i>
-                    </span>
-                </div>
-                <div class="accordion__content">
-                    <!-- <i class="fa-solid fa-comments"></i> -->
-                    <p class="accordion__answer">Top picks are curated by a combination of editor recommendations and user engagement metrics, such as views, likes, and comments, to highlight the best content available on Word Wise.</p>
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion__header">
-                    <h2 class="accordion__question">How can I stay updated with new blog posts?</h2>
-                    <span class="accordion__icon">
-                        <i id="accordion-icon" class="fa-solid fa-plus"></i>
-                    </span>
-                </div>
-                <div class="accordion__content">
-                    <!-- <i class="fa-solid fa-comments"></i> -->
-                    <p class="accordion__answer">You can stay updated by following your favorite authors or topics, and by checking the sliding bar for the latest blog posts. You can also subscribe to newsletters or enable notifications for real-time updates.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Newsletter Section -->
-<section id="wordwise-newsletter" class="wordwise-newsletter-section">
-    <div class="wordwise-newsletter-container">
-      <h2>Subscribe to Our Newsletter</h2>
-      <p>Stay updated with the latest articles and insights from WordWise.</p>
-      <form class="wordwise-newsletter-form" id="newsletterForm" novalidate>
-        <input type="email" id="emailInput" placeholder="Enter your email address" required>
-        <div id="sub"><button type="submit" id="">Subscribe</button></div>
-      </form>
-    </div>
-    
-    <!-- Toast Popup -->
-    <div id="toast" class="toast hidden"></div>
-</section>
-
-<!-- Include the Newsletter.js script file -->
-<script src="./backend/newsLetter.js"></script>
-
-  
-
-
-    </main>
+  </main>
 
     <!--mainn-->
+    <div class="about">
+        <div class="about-content">
+            <h1>About Us</h1>
+            <p>WordWise is a responsive, user-friendly blogging platform designed to enrich vocabulary and engage readers with insightful articles.<br>Built using HTML, CSS, and JavaScript, the website offers an enjoyable experience with an interactive interface. <br>Whether you're here to read blogs or explore topics, WordWise is for everyone.</p>
+            <h2>Key Features</h2>
+            <p> <strong><u>Responsive Design</u></strong><br>
+
+                Thoughtful layout with sections like Home, Leading Blogs, About, and Contact Us for a dedicated navigation experience.<br>
+                <strong><u>Blog Functionality</u></strong><br>
+                Category exploration for easier navigation through organized blogs.
+                User Interface designed with appealing graphics to engage viewers.<br>
+                <strong><u>User Engagement</u></strong><br>Readers can share their thoughts and feedback directly on the Contact Us page.
+            </p>
+            <h2>Technologies Used</h2>
+            <p><strong><u>HTML (HyperText Markup Language)</u></strong><br>
+
+                Provides structure to the website, organizing content into various elements such as headings, paragraphs, buttons, and images.<br>
+                <strong><u>CSS (Cascading Style Sheets)</u></strong><br>
+                
+                Responsible for the aesthetics, enhancing visual appeal, and ensuring responsiveness across all devices.<br>
+                <strong><u>JavaScript</u></strong><br>
+                
+                Adds interactivity and dynamic features, enriching user engagement through blog navigation, comment sections, and form validations.
+                </p>
+        </div>
+    </div>
+ 
+    <style>
+        .about-content h1{
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .about-content h2{
+            text-align: center;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .about-content p{
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+    </style>
     <!-- footer -->
     <footer id="footer">
       <div class="footer-container">
@@ -950,6 +525,8 @@
                            <a href="https://x.com/" class="nav-link btn bg-light"><i class="fa-brands fa-x-twitter"></i></a>
                            <a href="https://www.instagram.com/" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
                            <a href="https://dribbble.com/" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
+                           <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" target="_blank"  class="nav-link btn bg-light"
+                           ><i class="fa-brands fa-github"></i></a>
                        </div>
                    </div>
 
@@ -996,17 +573,6 @@
       </div>
       </div>
       <script src="share.js"></script>
-  
-          <div class="text-center">
-            <button class="btn btn-primary secondary-title text-light" 
-            style="
-                  color: rgb(6, 2, 2);  
-                  background-color: aqua;    
-                  height: 40px;  
-                  border-radius: 4px solid black;  
-                  font-family: sans-serif; "
-                  > <b>Load More Posts...</b></button>
-        </div>
       </div>
           </section>
     <script src="share.js"></script>
