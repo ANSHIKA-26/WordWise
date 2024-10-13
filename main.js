@@ -1,5 +1,6 @@
 let toggle = document.querySelector("#header .toggle-button");
 let collapse = document.querySelectorAll("#header .collapse");
+document.getElementById("backToTop").style.display = "none";
 
 if (toggle) {
     toggle.addEventListener('click', function () {
@@ -28,6 +29,20 @@ document.addEventListener('DOMContentLoaded', function () {
   });
        detectColorScheme();
  });
+
+ window.addEventListener("scroll", function () {
+  var scrollPosition = window.scrollY;
+  var height = document.body.offsetHeight - window.innerHeight;
+  if (scrollPosition > 90) {
+      document.getElementById("backToTop").style.display = "block";
+  } else {
+      document.getElementById("backToTop").style.display = "none";
+  }
+});
+
+document.getElementById("backToTop").addEventListener("click", function () {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
 window.onscroll = function () { myFunction() };
 

@@ -714,7 +714,7 @@
 
 
   </main>
-
+  <button id="backToTop">⬆️</button>
   <!--mainn-->
   <!-- footer -->
   <!-- footer -->
@@ -768,8 +768,8 @@
                     <img src="./assets/img9.jpg" class="object-fit" alt="">
                     <div class="px-1" style="width: 300px;">
                       <a href="#" class="text-title display-2 text-dark">
-                        Embrace the beauty of nature through our enchanting blog, where we celebrate the wonders of the
-                        natural world
+                        Embrace the beauty of nature through our enchanting blog, where we celebrate the wonders of
+                        the natural world
                       </a>
                       <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                         <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
@@ -851,8 +851,32 @@
       <div class="wordwise-footer-content">
         <p>&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
       </div>
+      <!-- Add the FAQ button here -->
+      <div class="faq-button-container">
+        <button id="faqButton" class="btn btn-primary">FAQ</button>
+      </div>
     </div>
 
+    <!-- FAQ Modal -->
+    <div id="faqModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+          <h3>What is WordWise?</h3>
+          <p>WordWise is a blogging platform that covers various topics including travel, technology, lifestyle, and more.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How can I create an account?</h3>
+          <p>You can create an account by clicking on the "Sign Up" button in the navigation bar and filling out the registration form.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can I contribute to WordWise?</h3>
+          <p>Yes! We welcome guest contributions. Please contact us through the "Contact Us" page for more information.</p>
+        </div>
+        <!-- Add more FAQ items as needed -->
+      </div>
+    </div>
 
   </footer>
   <!-- Script for Navbar Toggle -->
@@ -891,6 +915,85 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
   <script src="profiledropdown.js"></script>
-</body>
 
+  <!-- Add this script at the end of your body tag -->
+  <script>
+    // Get the modal
+    var modal = document.getElementById("faqModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("faqButton");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+
+  <style>
+    .faq-button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 600px;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .faq-item {
+      margin-bottom: 20px;
+    }
+
+    .faq-item h3 {
+      margin-bottom: 10px;
+    }
+  </style>
+
+</body>
 </html>
