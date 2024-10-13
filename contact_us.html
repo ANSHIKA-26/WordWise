@@ -378,7 +378,7 @@
           </div>
         </label>
         <span id="mode-label"></span>
-            
+        
       </div>
     </header>
     </div>
@@ -389,16 +389,17 @@
         max-width: 600px;
         margin: 50px auto;
         padding: 20px;
-        background-color: #f9f9f9;
+        /* background-color: #f9f9f9; */
+        background-color: var(--background-color);
         border-radius: 10px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 10px 20px var(--text-color);
         text-align: center;
       "
     >
-      <h2 style="color: #3498db; font-size: 28px; margin-bottom: 10px">
+      <h2 style="color: var(--text-color); font-size: 28px; margin-bottom: 10px">
         Get in Touch
       </h2>
-      <p style="color: #777; font-size: 16px; margin-bottom: 20px">
+      <p style="color: var(--normal-text-col); font-size: 16px; margin-bottom: 20px">
         Whether you have questions, feedback, or need assistance, our team is
         here to help. Please fill out the form below, and we'll get back to you
         as soon as possible.
@@ -412,42 +413,44 @@
               display: block;
               text-align: left;
               margin-bottom: 5px;
-              color: #333;
+              color: var(--text-color);
               font-size: 14px;
             "
             >First Name</label
           >
           <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            required
-            style="
+          type="text"
+          id="firstName"
+          placeholder="Enter your first name"
+          name="firstName"
+          required
+          style="
               width: 100%;
               padding: 10px;
               font-size: 14px;
               border: 2px solid #ddd;
               border-radius: 5px;
-            "
+              "
           />
         </div>
-
+        
         <div class="form-group" style="margin-bottom: 15px">
           <label
-            for="lastName"
-            style="
+          for="lastName"
+          style="
               display: block;
               text-align: left;
               margin-bottom: 5px;
-              color: #333;
+              color: var(--text-color);
               font-size: 14px;
-            "
+              "
             >Last Name</label
           >
           <input
             type="text"
             id="lastName"
             name="lastName"
+            placeholder="Enter your last name"
             required
             style="
               width: 100%;
@@ -455,25 +458,26 @@
               font-size: 14px;
               border: 2px solid #ddd;
               border-radius: 5px;
-            "
+              "
           />
         </div>
-
+        
         <div class="form-group" style="margin-bottom: 15px">
           <label
-            for="email"
-            style="
+          for="email"
+          style="
               display: block;
               text-align: left;
               margin-bottom: 5px;
-              color: #333;
+              color: var(--text-color);
               font-size: 14px;
-            "
+              "
             >Email Address</label
-          >
-          <input
+            >
+            <input
             type="email"
             id="email"
+            placeholder="Enter your email"
             name="email"
             required
             style="
@@ -482,25 +486,26 @@
               font-size: 14px;
               border: 2px solid #ddd;
               border-radius: 5px;
-            "
+              "
           />
         </div>
-
+        
         <div class="form-group" style="margin-bottom: 15px">
           <label
-            for="phone"
-            style="
+          for="phone"
+          style="
               display: block;
               text-align: left;
               margin-bottom: 5px;
-              color: #333;
+              color: var(--text-color);
               font-size: 14px;
-            "
+              "
             >Phone Number</label
-          >
-          <input
+            >
+            <input
             type="tel"
             id="phone"
+            placeholder="Enter your phone"
             name="phone"
             required
             style="
@@ -509,26 +514,27 @@
               font-size: 14px;
               border: 2px solid #ddd;
               border-radius: 5px;
-            "
+              "
           />
         </div>
-
+        
         <div class="form-group" style="margin-bottom: 15px">
           <label
-            for="message"
-            style="
+          for="message"
+          style="
               display: block;
               text-align: left;
               margin-bottom: 5px;
-              color: #333;
+              color: var(--text-color);
               font-size: 14px;
             "
             >Message</label
-          >
-          <textarea
+            >
+            <textarea
             id="message"
             name="message"
             rows="4"
+            placeholder="Enter your message"
             required
             style="
               width: 100%;
@@ -536,22 +542,14 @@
               font-size: 14px;
               border: 2px solid #ddd;
               border-radius: 5px;
-            "
+              "
           ></textarea>
         </div>
-
+        
         <button
-          type="button"
-          class="send-btn"
-          onclick="SendEmail(event)"
-          style="
-            color: white;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-          "
+        type="button"
+        onclick="SendEmail(event)"
+        class="submitbtn"
         >
           Send
         </button>
