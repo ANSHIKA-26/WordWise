@@ -28,7 +28,7 @@ ConnectDb();
 
 app.post("/send-email", async (req, res) => {
   const { Name, email, phone, message } = req.body;
-
+  //console.log("Received email:",  Name, email, phone, message); 
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -39,7 +39,7 @@ app.post("/send-email", async (req, res) => {
 
   let mailOptions = {
     from: email,
-    to: "arora.anshika.26@gmail.com", // add email where you want to send the message
+    to: "vinaylodhi1712@gmail.com", // add email where you want to send the message
     subject: `Contact Us Form Submission from ${Name} `,
     text: `You have received a new message from your website contact form.
 

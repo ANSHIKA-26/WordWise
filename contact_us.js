@@ -1,7 +1,13 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const sendEmailButton = document.getElementById("sendEmailButton"); // Assuming your button has this ID
+
+  sendEmailButton.addEventListener("click", SendEmail);
+});
+
 async function SendEmail(event) {
   event.preventDefault();
   const Name = document.getElementById("Name").value;
-  const email = document.getElementById("email").value;
+  const email = document.getElementById("email2").value;
   const phone = document.getElementById("phone").value;
   const message = document.getElementById("message").value;
 
@@ -9,7 +15,7 @@ async function SendEmail(event) {
     alert("Message must be at least 10 characters long.");
     return;
   }
-
+  //console.log("Email value:", email , Name, phone, message); 
   const data = {
     Name: Name,
     email: email,
