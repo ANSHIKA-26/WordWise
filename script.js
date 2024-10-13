@@ -41,7 +41,7 @@ document.getElementById('newsletterForm').addEventListener('submit', function(e)
 
 
 // LOAD POSTS 
-const initialVisibleItems = 3; // Number of items to show initially
+const initialVisibleItems = 6; // Number of items to show initially
 const blogItems = document.querySelectorAll('.blog-item'); // Get all blog items
 const loadMoreBtn = document.querySelector('.load-posts-btn'); // Load more button
 
@@ -57,7 +57,7 @@ loadMoreBtn.addEventListener('click', function () {
   const hiddenItems = Array.from(blogItems).filter(item => item.classList.contains('hidden')); // Find hidden items
 
   // Show a certain number of hidden items (e.g., the next 3)
-  hiddenItems.slice(0, initialVisibleItems).forEach((item, index) => {
+  hiddenItems.slice(0, 3).forEach((item, index) => {
     // Delay for each item's reveal to create a staggered effect
     setTimeout(() => {
       item.classList.remove('hidden'); // Remove hidden class
