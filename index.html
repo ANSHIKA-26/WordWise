@@ -33,7 +33,7 @@
                             </span>
                         </p>
                         <!-- Share Buttons -->
-                        
+                        z
                     </div>
                 </div>
             </article>
@@ -42,10 +42,33 @@
     </section>
 
     <!-- Share Modal -->
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMjsS7X7F2F9fME5F0AMlQQDbn+rtP/1kwdQ5h" crossorigin="anonymous">
+
 <!-- Share Modal -->
+<div id="share-modal" style="display: none;">
+    <div class="modal-content">
+        <span id="close-modal">&times;</span>
+        <a id="share-facebook" href="#" target="_blank">
+            <i class="fab fa-facebook"></i> 
+        </a>
+        <a id="share-twitter" href="#" target="_blank">
+            <i class="fab fa-twitter"></i> Share on Twitter
+        </a>
+        <a id="share-linkedin" href="#" target="_blank">
+            <i class="fab fa-linkedin"></i> Share on LinkedIn
+        </a>
+        <a id="share-pinterest" href="#" target="_blank">
+            <i class="fab fa-pinterest"></i> Share on Pinterest
+        </a>
+    </div>
+</div>
 
-
+    <script src="share.js">const websiteUrl = encodeURIComponent(window.location.href);
+        const shareTitle = encodeURIComponent(document.title);
+    
+        document.getElementById('share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${websiteUrl}`;
+        document.getElementById('share-twitter').href = `https://twitter.com/intent/tweet?url=${websiteUrl}&text=${shareTitle}`;
+        document.getElementById('share-linkedin').href = `https://www.linkedin.com/shareArticle?mini=true&url=${websiteUrl}&title=${shareTitle}`;
         document.getElementById('share-pinterest').href = `https://pinterest.com/pin/create/button/?url=${websiteUrl}&description=${shareTitle}`;</script>
 </body>
 </html>
