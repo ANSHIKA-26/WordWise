@@ -12,6 +12,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!--swiper slider css-->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <!--css-->
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -471,84 +472,259 @@
           </div>
         </div>
         <!--comments-->
-        <div class="post-comments py-2">
-          <h2 class="text-center display-1 secondary-title">Comments</h2>
+<!-- Premium Comments Section -->
+<div class="comments-section bg-gradient-to-br from-indigo-100 to-purple-100 py-16 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-4xl font-extrabold text-center text-gray-900 mb-12">
+      <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600">
+        Join the Conversation
+      </span>
+    </h2>
+    
+    <!-- Comment Form -->
+    <div class="comment-form mb-16 bg-white p-6 rounded-xl shadow-lg transform transition-all duration-300 hover:shadow-2xl">
+      <h3 class="text-2xl font-bold text-gray-800 mb-6">Share Your Thoughts</h3>
+      <form id="commentForm" class="space-y-6">
+        <div class="relative">
+          <input type="text" id="commenterName" class="peer w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 transition-colors" placeholder=" " required>
+          <label for="commenterName" class="absolute left-4 top-3 text-gray-500 transition-all duration-300 pointer-events-none peer-focus:text-sm peer-focus:-top-2 peer-focus:text-purple-500 peer-valid:text-sm peer-valid:-top-2 peer-valid:text-purple-500">Your Name</label>
         </div>
-        <div class="comment-details">
-          <div class="comment-item py-2">
-            <div class="d-flex">
-              <div class="avatar px-2">
-                <img src="./assets/face/face1.jpg" class="rounded">
+        <div class="relative">
+          <textarea id="commentText" class="peer w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 transition-colors" rows="4" placeholder=" " required></textarea>
+          <label for="commentText" class="absolute left-4 top-3 text-gray-500 transition-all duration-300 pointer-events-none peer-focus:text-sm peer-focus:-top-2 peer-focus:text-purple-500 peer-valid:text-sm peer-valid:-top-2 peer-valid:text-purple-500">Your Comment</label>
+        </div>
+        <input type="hidden" id="parentCommentId" value="">
+        <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-purple-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105">
+          Post Comment
+        </button>
+      </form>
+    </div>
 
-              </div>
-              <div class="comment-content">
-                <h5 class="display-2 m-0">Brandon Kelly</h5>
-                <p class="title-seoncdary text-dark">
-                  This website is a treasure trove of diverse content! From fashion and travel to nature and book
-                  reviews, there's something for everyone. Loving the variety!
+    <!-- Comment List -->
+    <div id="commentList" class="space-y-8">
+      <!-- Existing comments will be loaded here -->
+    </div>
+  </div>
+</div>
 
-                </p>
-              </div>
-            </div>
+<script>
+// Comment data structure
+let comments = [
+  {
+    id: 1,
+    name: "Brandon Kelly",
+    text: "This website is a treasure trove of diverse content! From fashion and travel to nature and book reviews, there's something for everyone. Loving the variety!",
+    likes: 15,
+    replies: [
+      {
+        id: 3,
+        name: "Stephen",
+        text: "What an insightful and thought-provoking post! Your writing never fails to captivate me. Can't wait to read more from your blog!",
+        likes: 7,
+        replies: []
+      }
+    ]
+  },
+  {
+    id: 2,
+    name: "Anshika",
+    text: "I stumbled upon your blog today, and I'm already hooked! Your content is engaging and well-written. Keep up the fantastic work!",
+    likes: 22,
+    replies: []
+  }
+];
 
-            <div class="comment-item py-2">
-              <div class="d-flex">
-                <div class="avatar px-2">
-                  <img src="./assets/face/face3.jpg" class="rounded">
+// Function to generate a unique color based on name
+function generateColor(name) {
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) {
+    hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const hue = hash % 360;
+  return `hsl(${hue}, 70%, 60%)`;
+}
 
-                </div>
-                <div class="comment-content">
-                  <h5 class="display-2 m-0">anshika</h5>
-                  <p class="title-seoncdary text-dark">
-                    I stumbled upon your blog today, and I'm already hooked! Your content is engaging and well-written.
-                    Keep up the fantastic work!
-
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!--comment reply-->
-            <div class="reply py-2">
-              <div class="d-flex">
-                <div class="avatar px-2">
-                  <img src="./assets/face/face2.jpg" class="rounded">
-                </div>
-                <div class="comment-content">
-                  <h5 class="display-2 m-0">Stephen</h5>
-                  <p class="title-seoncdary text-dark">
-                    What an insightful and thought-provoking post! Your writing never fails to captivate me. Can't wait
-                    to read more from your blog!
-
-                  </p>
-                </div>
-              </div>
-            </div>
-
-           <!-- Comment form -->
-          <div class="commentform" style="margin-top: 80px; margin-bottom: 80px;">
-              <h3 class="text-center display-1 bg-black text-black secondary-title py-2">Leave Comments</h3>
-                <div class="comment-box1">
-                  <input id="nameInput" class="comment-input" type="text" placeholder="Name" required style="box-shadow: 0 2px 5px rgba(128, 0, 128, 0.3);"> <!-- Purple shadow -->
-                  <input id="emailInput" class="comment-input" type="email" placeholder="Email" required style="box-shadow: 0 2px 5px rgba(128, 0, 128, 0.3);"> <!-- Purple shadow -->
-                </div>
-            <div class="comment-box2">
-              <textarea id="messageInput" class="comment-textarea form-control" placeholder="Message" required style="width: 100%; height: 125px; box-shadow: 0 2px 5px rgba(128, 0, 128, 0.3);"></textarea> <!-- Purple shadow -->
-              
-              <!-- Stacking Website and Submit button vertically -->
-              <div class="website-submit" style="margin-top: 10px; display: flex; flex-direction: column; align-items: flex-start;">
-                <input id="websiteInput" class="comment-input2" type="text" placeholder="Website (optional)" style="width: 100%; box-shadow: 0 2px 5px rgba(128, 0, 128, 0.3);"> <!-- Purple shadow -->
-                <button class="commentbtn" onclick="submitComment()" style="width: 100%; margin-top: 10px; box-shadow: 0 2px 5px rgba(0, 0, 255, 0.3);">Submit</button> <!-- Blue shadow -->
-              </div>
+// Function to render comments
+function renderComments(commentList, parentElement, level = 0) {
+  commentList.forEach(comment => {
+    const commentElement = document.createElement('div');
+    commentElement.classList.add('comment', `ml-${level * 8}`);
+    const avatarColor = generateColor(comment.name);
+    commentElement.innerHTML = `
+      <div class="bg-white p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg">
+        <div class="flex items-start space-x-4">
+          <div class="flex-shrink-0">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg" style="background-color: ${avatarColor}">
+              ${comment.name.charAt(0).toUpperCase()}
             </div>
           </div>
+          <div class="flex-grow">
+            <h5 class="font-semibold text-gray-900">${comment.name}</h5>
+            <p class="text-gray-700 mt-1">${comment.text}</p>
+            <div class="mt-4 flex items-center space-x-4">
+              <button class="like-btn flex items-center text-gray-500 hover:text-purple-500 transition-colors" data-comment-id="${comment.id}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
+                </svg>
+                <span class="like-count">${comment.likes}</span>
+              </button>
+              <button class="reply-btn text-gray-500 hover:text-purple-500 transition-colors flex items-center" data-comment-id="${comment.id}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M7.707 3.293a1 1 0 010 1.414L5.414 7H11a7 7 0 017 7v2a1 1 0 11-2 0v-2a5 5 0 00-5-5H5.414l2.293 2.293a1 1 0 11-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                Reply
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    parentElement.appendChild(commentElement);
 
+    if (comment.replies && comment.replies.length > 0) {
+      const repliesElement = document.createElement('div');
+      repliesElement.classList.add('replies', 'mt-4', 'space-y-4');
+      commentElement.appendChild(repliesElement);
+      renderComments(comment.replies, repliesElement, level + 1);
+    }
+  });
+}
 
+// Function to add a new comment
+function addComment(name, text, parentId = null) {
+  const newComment = {
+    id: Date.now(),
+    name: name,
+    text: text,
+    likes: 0,
+    replies: []
+  };
 
+  if (parentId) {
+    function addReply(commentList) {
+      for (let comment of commentList) {
+        if (comment.id == parentId) {
+          comment.replies.push(newComment);
+          return true;
+        }
+        if (comment.replies && addReply(comment.replies)) {
+          return true;
+        }
+      }
+      return false;
+    }
+    addReply(comments);
+  } else {
+    comments.push(newComment);
+  }
 
+  const commentList = document.getElementById('commentList');
+  commentList.innerHTML = '';
+  renderComments(comments, commentList);
+}
 
+// Event listener for form submission
+document.getElementById('commentForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('commenterName').value;
+  const text = document.getElementById('commentText').value;
+  const parentId = document.getElementById('parentCommentId').value;
+  
+  addComment(name, text, parentId || null);
+  
+  this.reset();
+  document.getElementById('parentCommentId').value = '';
+});
 
+// Event delegation for reply and like buttons
+document.getElementById('commentList').addEventListener('click', function(e) {
+  if (e.target.closest('.reply-btn')) {
+    const replyBtn = e.target.closest('.reply-btn');
+    const commentId = replyBtn.getAttribute('data-comment-id');
+    document.getElementById('parentCommentId').value = commentId;
+    document.getElementById('commentForm').scrollIntoView({ behavior: 'smooth' });
+  } else if (e.target.closest('.like-btn')) {
+    const likeBtn = e.target.closest('.like-btn');
+    const commentId = likeBtn.getAttribute('data-comment-id');
+    const likeCount = likeBtn.querySelector('.like-count');
+    likeCount.textContent = parseInt(likeCount.textContent) + 1;
+    likeBtn.classList.add('text-purple-500');
+  }
+});
 
+// Initial render
+renderComments(comments, document.getElementById('commentList'));
+
+// Add smooth scroll behavior to all anchors
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.comment {
+  transition: all 0.3s ease;
+}
+
+.comment:hover {
+  transform: translateY(-2px);
+}
+
+.like-btn, .reply-btn {
+  transition: all 0.2s ease;
+}
+
+.like-btn:hover, .reply-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Animated background */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.comments-section {
+  animation: gradient 15s ease infinite;
+  background-size: 400% 400%;
+}
+</style>
 
 
             <!-- Toast Notification -->
@@ -707,7 +883,7 @@
     <!--post content-->
 
 
-    </section>
+</section>
 
 
 
