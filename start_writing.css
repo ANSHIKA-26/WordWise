@@ -41,8 +41,10 @@ form button[type="submit"] {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+ 
 form button[type="submit"]:hover {
     background-color: #e65c00;
+    transform: scale(1.03);
 }
 
 /* Placeholder for blog content */

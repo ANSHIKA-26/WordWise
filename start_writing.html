@@ -6,13 +6,7 @@
     <title>WordWise</title>
     <link rel="shortcut icon" type="image/x-icon" href="/images/favi.png" />
     <!--font awesome-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--swiper slider css-->
     <link
       rel="stylesheet"
@@ -30,6 +24,26 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+      }
+
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+
+      main {
+        flex: 1 0 auto;
+      }
+
+      footer {
+        flex-shrink: 0;
       }
     </style>
     <!-- Script for Navbar Toggle -->
@@ -343,7 +357,7 @@
         placeholder="Start writing your blog here..."
         required
     ></textarea>
-    <button type="button" id="start-voice-input" style="position: absolute; top: 5px; right: 5px;">
+    <button type="button" id="start-voice-input" style="position: absolute; top: 10.5px; right: 0px;">
         🎤
     </button>
 </div>
@@ -369,6 +383,8 @@
         </form>
       </div>
     </main>
+
+    <button id="backToTop">⬆️</button>
 
     <!-- main -->
 
@@ -496,14 +512,15 @@
                   ><i class="fab fa-facebook-f"></i
                 ></a>
                 <a href="#" class="nav-link btn bg-light"
-                  ><i class="fa-brands fa-x-twitter"></i
-                ></a>
+                  ><i class="fa-brands fa-x-twitter"></i></a>
                 <a href="#" class="nav-link btn bg-light"
                   ><i class="fab fa-instagram"></i
                 ></a>
                 <a href="#" class="nav-link btn bg-light"
                   ><i class="fab fa-dribbble"></i
                 ></a>
+                <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" target="_blank" class="nav-link btn bg-light"
+                  ><i class="fa-brands fa-github"></i></a>
               </div>
             </div>
           </div>
@@ -516,6 +533,29 @@
             &copy; <span id="current-year"></span> WordWise. All rights
             reserved.
           </p>
+          <!-- Add the FAQ button here -->
+          <button id="faqButton" class="btn btn-primary">FAQ</button>
+        </div>
+      </div>
+
+      <!-- FAQ Modal -->
+      <div id="faqModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-item">
+            <h3>What is WordWise?</h3>
+            <p>WordWise is a blogging platform that covers various topics including travel, technology, lifestyle, and more.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How can I start writing?</h3>
+            <p>You can start writing by filling out the form on this page. Make sure to provide a catchy heading, select a topic, and write your content in the text area provided.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Can I upload images with my blog post?</h3>
+            <p>Yes, you can upload an image to accompany your blog post using the "Upload Image" field in the form.</p>
+          </div>
+          <!-- Add more FAQ items as needed -->
         </div>
       </div>
     </footer>
@@ -534,5 +574,94 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     <script src="profiledropdown.js"></script>
+
+    <!-- Add this script at the end of your body tag -->
+    <script>
+      // Get the modal
+      var modal = document.getElementById("faqModal");
+
+      // Get the button that opens the modal
+      var btn = document.getElementById("faqButton");
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+
+      // When the user clicks the button, open the modal 
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    </script>
+
+    <style>
+      .wordwise-footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      #faqButton {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+      }
+
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 600px;
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+      }
+
+      .faq-item {
+        margin-bottom: 20px;
+      }
+
+      .faq-item h3 {
+        margin-bottom: 10px;
+      }
+    </style>
   </body>
 </html>

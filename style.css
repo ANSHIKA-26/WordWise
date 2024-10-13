@@ -430,7 +430,7 @@ body.dark-mode footer .phone{
 
 /* Dark mode form background */
 [data-theme="dark"] .form-popup {
-  background-color: var(--dark); /* Dark mode background */
+  background-color: #141414; /* Dark mode background */
 }
 
 [data-theme="dark"] .form-container h2{
@@ -461,6 +461,10 @@ body.dark-mode footer .phone{
   cursor: pointer;
   color: var(--dark); /* Color of the close "X" */
   transition: transform 0.5s;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 .close-icon:hover {
@@ -513,6 +517,171 @@ background: var(--light);
   fill: red;
 }
 
+
+/* Blog Card Design - Rushikesh Ghodke */
+
+/* --light: #f0e4d7;
+--secondary: #2d545e;
+--dark: #3b3b58;
+--primary-color: #f4978e;
+--secondary-color: #c1c8e4;
+--border: #ddbea9;
+--body-bg: #f5f5f5; */
+
+
+
+:root {
+  --card-background-light: #FFFFFF; /* Light theme card background */
+  --card-text-color-light: #000000; /* Light theme card text color */
+  --card-hover-background-light: #F9FAFB; /* Light theme hover background */
+  --card-hover-active-light: #fbdfe1; /* Light theme hover active */
+  
+  --card-background-dark: #444444; /* Dark theme card background */
+  --card-text-color-dark: #FFFFFF; /* Dark theme card text color */
+  --card-hover-background-dark: #555555; /* Dark theme hover background */
+  --card-hover-active-dark: #666666; /* Dark theme hover active */
+}
+
+/* Blog Card styles */
+.blog-card {
+  width: 100%;
+  border-radius: 20px;
+  background-color: var(--card-background-light);
+  color: var(--card-text-color-light);
+  
+}
+
+.blog-card-image img {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  width: 100%;
+  height: 250px;
+}
+
+.blog-card-data {
+  padding: 20px;
+}
+
+.blog-card-content {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 10px;
+}
+
+.blog-card-author-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.blog-card-author-info img {
+  width: 35px;
+}
+
+.blog-card-author-name {
+  font-size: 16px;
+  color: var(--card-text-color-light);
+}
+
+.blog-card-like {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  background-color: var(--card-hover-background-light);
+  border-radius: 20px;
+  color: var(--card-text-color-light);
+}
+
+.blog-card-like:hover {
+  background-color: var(--card-hover-active-light);
+}
+
+.blog-card-title {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.blog-card-dot {
+  width: 4px;
+  height: 4px;
+  background-color: #6B7280;
+  border-radius: 2px;
+}
+
+.blog-card-date {
+  color: #6B7280;
+  font-size: 14px;
+}
+
+.blog-card-comments {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  background-color: var(--card-hover-background-light);
+  border-radius: 20px;
+  color: var(--card-text-color-light);
+}
+
+.blog-card-comments:hover {
+  background-color: #dde9f6;
+}
+
+.blog-card-sub-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.blog-card-save svg {
+  width: 20px;
+}
+
+.blog-card-save {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  background-color: var(--card-hover-background-light);
+  border-radius: 20px;
+  color: var(--card-text-color-light);
+}
+
+.blog-card-save:hover {
+  background-color: rgb(215, 252, 215);
+}
+
+/* Dark theme styles */
+[data-theme='dark'] .blog-card {
+  background-color: var(--card-background-dark);
+  color: var(--card-text-color-dark);
+}
+
+[data-theme='dark'] .blog-card-like {
+  background-color: var(--card-hover-background-dark);
+  color: var(--card-text-color-dark);
+}
+
+[data-theme='dark'] .blog-card-like:hover {
+  background-color: var(--card-hover-active-dark);
+}
+
+[data-theme='dark'] .blog-card-comments {
+  background-color: var(--card-hover-background-dark);
+  color: var(--card-text-color-dark);
+}
+
+[data-theme='dark'] .blog-card-save {
+  background-color: var(--card-hover-background-dark);
+  color: var(--card-text-color-dark);
+}
+
+[data-theme='dark'] .blog-card-save:hover {
+  background-color: var(--card-hover-active-dark);
+}
 
 
 
@@ -2077,6 +2246,7 @@ a {
   --background-color: rgb(244, 237, 227);
   --text-color: rgb(59, 59, 88);
   --header-bg: lightgray;
+  --normal-text-col: black
 }
 
 h2 {
@@ -2087,6 +2257,7 @@ h2 {
   --background-color: #171717;
   --text-color:  #f2dede; 
   --header-bg: #1c1c1c;
+  --normal-text-col: white
 }
 p {
   color: var(--text-color);
@@ -2232,7 +2403,7 @@ input:checked + .slider .moon-icon {
   text-align: center;
   font-size: 1.8rem;
   font-weight: 700;
-  color: #242e4c;
+  /* color: #242e4c; */
   margin-bottom: 2.5rem;
 }
 
@@ -2308,7 +2479,7 @@ input:checked + .slider .moon-icon {
 
 /*FAQ improvement for Dark Theme*/
 [data-theme="dark"] .faq .accordion__wrapper {
-  background-color: #f1f1f1;
+  background-color: #414141;
   color: #f1f1f1;
 }
 
@@ -2585,86 +2756,61 @@ footer p {
 
 /*--------*/
 
-/* Made changes to the Comment form */
-.commentform {
 
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
+
+.commentform {
+  margin: 50px auto; /* Added margin to top and bottom */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60%;
+  width: 80%; /* Made the form broader */
   gap: 20px;
-  padding: 20px;
-  background-color: none;
+  padding: 30px; /* Added padding to separate it from other elements */
   box-shadow: 0 0px 5px #cd61ff;
   border-radius: 10px;
-
-}
- 
-.commentform h3 {
-
-  width:  100%;
-  padding:  15px;
-  border-radius:  10px 10px 0 0;
-  margin-bottom:  20px;
-  font-size:  2rem;
-  color:  #6e279d;
-
 }
 
 .comment-box1, .comment-box2 {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  flex-direction: row; /* Keep inputs horizontal */
+  gap: 20px; /* Increased gap between input fields */
   width: 100%;
+  align-items: flex-start; /* Align items to the top */
 }
 
-.form-floating {
-  position: relative;
-  width: 100%;
-}
-
-.form-floating > .form-control {
-  padding: 1.5rem 0.75rem;
-}
-
-.form-floating > label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  padding: 1rem 0.75rem;
-  pointer-events: none;
-  transition: all 0.2s ease-in-out;
-  color: #6c757d;
-}
-
-.form-floating > .form-control:focus ~ label,
-.form-floating > .form-control:not(:placeholder-shown) ~ label {
-  top: -1.25rem;
-  left: 0.75rem;
-  font-size: 0.75rem;
-  color: #495057;
-}
-
-.comment-input, .comment-input2, .comment-textarea {
+.comment-input{
+  flex: 1;
   padding: 15px;
   border-radius: 5px;
   border: 1px solid #ddd;
-  width: 100%;
   font-size: 16px;
+  width: 100%; /* Ensure full width usage */
 }
- 
+
+.comment-input2 {
+  flex: 1; /* Make it flexible to take available space */
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  margin-right: 10px; /* Add some space to the right for the button */
+  /* Change width to a percentage to adapt to container */
+  width: 100%; /* Allow it to use the full width available */
+  max-width: 300px; /* Optional: Set a max-width to prevent it from getting too wide */
+}
+
 .comment-textarea {
-
-  height:  110px;
-  resize:  none;
-
+  flex: 2; /* Ensure the textarea is larger */
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  width: 100%;
+  resize: none;
+  height: 110px;
 }
- 
+
 .commentbtn {
   margin-top: 20px;
   padding: 15px;
@@ -2678,23 +2824,34 @@ footer p {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+/* Hover effect */
 .commentbtn:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
+  background-color: #0056b3; /* Darker background on hover */
+  transform: scale(1.05); /* Slightly increase the size */
 }
 
 .commentbtn:active {
-  transform: scale(1.15);
+  transform: scale(0.95); /* Slightly decrease the size when active */
+}
+
+.commentform h3 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #6e279d;
 }
 
 .comment-input::placeholder, .comment-input2::placeholder, .comment-textarea::placeholder {
-  text-align: center;
+  text-align: left; /* Align text to the left for readability */
   font-size: 16px;
 }
 
 @media (max-width: 768px) {
   .commentform {
     width: 90%;
+  }
+
+  .comment-box1, .comment-box2 {
+    flex-direction: column; /* Stack fields vertically on smaller screens */
   }
 
   .commentbtn {
@@ -2715,6 +2872,7 @@ footer p {
   display: flex;
   justify-content: center; /* Horizontally center the button */
   width: 100%; /* Ensure it spans the width of the form */
+  
 }
 
 /* Style the button */
@@ -2813,3 +2971,39 @@ footer p {
           .dropdown-menu.show {
               display: block; /* Display the dropdown when the 'show' class is toggled */
           }
+
+          .submitbtn{
+            
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+          
+          }
+          .submitbtn:hover
+          {
+            background-color: #0056b3;
+            transform: scale(1.03);
+          }
+/*New load post button function */
+.blog-item {
+  opacity: 1; /* Default visibility */
+  /*transition: opacity 0.5s ease-in-out; /* Add animation */
+  visibility: visible; /* Ensure visibility is set */
+}
+
+.hidden {
+  opacity: 0; /* Fade out effect */
+  height: 0; /* Prevent interaction */
+  visibility: hidden; /* Hide from layout */
+  overflow: hidden; /* Prevent overflow during transition */
+}
+
+.reveal {
+  opacity: 1; /* Ensure visible */
+  transition: opacity 0.5s ease-in-out; /* Animation for newly revealed items */
+}
