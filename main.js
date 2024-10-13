@@ -149,7 +149,7 @@ function detectColorScheme() {
     document.documentElement.setAttribute("data-theme", "dark");
     toggleSwitch.checked = true;
   }
-}
+}  
 
 
 //identify the toggle switch HTML element

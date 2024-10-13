@@ -725,6 +725,844 @@
     <script src="./backend/signup-Auth/signup.js"></script>
     <script src="progress_bar.js"></script>
     <!--swiper slider cdn-->
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordWise</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favi.png" />
+    <!--fotn awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--swiper slider css-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!--css-->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Scroll_and_progressbar.css">
+
+
+  </head>
+
+
+</head>
+<body>
+  <div class="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+  <div class="layout-container" style="margin-bottom: 4rem;">
+
+    <header>
+
+
+
+    <div class="logo">
+
+        <h2>WordWise</h2>
+    </div>
+    <div class="nav-links1">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Leading Blog</a>
+        <a href="start_writing.html">Start Writing</a>
+        <a href="category.html">Categories</a>
+        <a href="about.html">About</a>
+        <a href="contact_us.html">Contact Us</a>
+        <a href="contact_us.html">Give Feedback</a>
+    </div>
+   
+              
+    <div class="dropdown">
+      <!-- Profile Icon -->
+      <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
+          <i class="fas fa-user-circle"></i>
+      </a>
+  
+      <!-- Dropdown Menu -->
+      <ul class="dropdown-menu" id="dropdownMenu">
+          <li><a href="#login" onclick="openForm('login')">Login</a></li>
+          <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
+      </ul>
+  </div>
+
+
+      <!-- Login Form -->
+<div class="form-popup" id="loginForm">
+  <form class="form-container" onsubmit="return validateLoginForm()">
+      <h2>Login</h2>
+      <label for="loginEmail"><b>Email</b></label>
+      <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
+      
+      <div class="form-group position-relative">
+          <label for="loginPsw"><b>Password</b></label>
+          <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+          <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
+      </div>
+      <div class="forgot">
+        <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
+      </div>
+
+      <button type="submit" class="btn">LOGIN</button>
+      <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
+  </form>
+</div>
+
+<!-- Signup Form -->
+<div class="form-popup" id="signupForm">
+  <form class="form-container" onsubmit="return validateSignupForm()">
+      <h2>Signup</h2>
+
+      <div class="form-group">
+          <label for="name"><b>Full Name</b></label>
+          <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
+      </div>
+
+      <div class="form-group">
+          <label for="signupEmail"><b>Email</b></label>
+          <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
+      </div>
+
+      <div class="form-group position-relative">
+          <label for="signupPsw"><b>Password</b></label>
+          <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+          <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
+      </div>
+
+      <div class="form-group position-relative">
+          <label for="confirmPsw"><b>Confirm Password</b></label>
+          <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+          <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
+      </div>
+
+      <button type="submit" class="btn">SIGNUP</button>
+      <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
+  </form>
+</div>
+
+<!-- Forgot Password Modal -->
+<div id="forgot-password-modal" class="modal">
+  <div class="form-container modal-content">
+    <h2>Forgot Password</h2>
+    <p>Please enter your email address to reset your password.</p>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" placeholder="Enter your email" required />
+
+    <button class="btn" onclick="submitForgotPassword()">Submit</button>
+    <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
+  </div>
+</div>
+
+<!-- Bootstrap Icons and Script for Eye Icon Functionality -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<script>
+  function togglePasswordVisibility(passwordFieldId, iconId) {
+      const passwordField = document.getElementById(passwordFieldId);
+      const togglePassword = document.getElementById(iconId);
+      if (passwordField.type === 'password') {
+          passwordField.type = 'text';
+          togglePassword.classList.remove('bi-eye');
+          togglePassword.classList.add('bi-eye-slash');
+      } else {
+          passwordField.type = 'password';
+          togglePassword.classList.remove('bi-eye-slash');
+          togglePassword.classList.add('bi-eye');
+      }
+  }
+</script>
+
+<style>
+  /* Form Container Styles */
+  .form-popup {
+      width: 400px;
+      margin: auto;
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+  }
+
+  .form-control {
+      border-radius: 5px;
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: border-color 0.3s;
+  }
+
+  .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+
+  .btn {
+      margin-top: 15px;
+      border-radius: 5px;
+  }
+
+  .eye-icon {
+      position: absolute;
+      right: 15px;
+      top: 38px; /* Adjust according to input field height */
+      cursor: pointer;
+      color: #007bff;
+  }
+
+  .position-relative {
+      position: relative;
+  }
+
+  .btn-block {
+      width: 100%;
+  }
+
+  /* Hover Effects */
+  .btn:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+  }
+
+  .btn.cancel:hover {
+      background-color: #6c757d;
+      border-color: #6c757d;
+  }
+</style>
+
+<script src="signup.js"></script> <!-- Link to your JavaScript file -->
+
+
+
+<div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox">
+        <div class="slider">
+            <img src="https://img.icons8.com/emoji/48/000000/sun-emoji.png" alt="Sun" class="icon sun-icon">
+            <img src="https://img.icons8.com/emoji/48/000000/crescent-moon-emoji.png" alt="Moon" class="icon moon-icon">
+        </div>
+    </label>
+    <span id="mode-label"></span>
+    </div>
+
+</header>
+</div>
+
+  <!--header-->
+    <!--mainn-->
+    <main id="site-main">
+      <!--post content-->
+      <section class="container">
+        <!-- <div class="layout-2 row"> -->
+          <!-- <div class="col-8"> -->
+            <article id="post">
+              <!--article heading-->
+              <div class="heading text-center">
+                <div class="Category">
+                  <a href="#" class="nav-link" id="travel">Travel</a></div>
+                  <div class="title">
+                    <h2 class="text-title text-dark display-1"looking for feedback></h2>
+                  </div>
+                  <div class="meta">
+                    <a href="#" class="link display-2 text-secondary px-1">
+                      <i class="fa-solid fa-user" style="color: #1a1919;" id="fa"></i>anshika arora
+                    </a>
+                    <a href="#" class="link display-2 text-secondary px-1">
+                      <i class="fa-solid fa-clock" style="color: #1a1919;" id="fa"></i>feb 12, 2021
+                    </a>
+                    <a href="#" class="link display-2 text-secondary px-1">
+                      <i class="fa-solid fa-comments" style="color: #1a1919;" id="fa"></i>3
+                    </a>
+                  </div>
+
+              </div>
+              <!--thumbnail-->
+              <div class="thumbnail mt-3">
+                <img src="./assets/img1.jpg" class="thumbnail" alt="">
+              </div>
+              <!--content-->
+              <div class="content text-dark display-1 secondary-title mt-3">
+                <p>
+                  In the realm of mechanical marvels, our journey begins  an odyssey of speed, freedom, and human ingenuity: the automobile. A symphony of gears and pistons, it has reshaped the world, granting us the power to traverse great distances with unparalleled ease. Join me as we delve into the rich history, exhilarating innovations, and unforgettable memories that revolve around the ever-evolving wonder that is the car.
+
+                 At the dawn of the 19th century, the world witnessed the birth of the automobile, a contraption that combined the visions of brilliant minds like Karl Benz, Gottlieb Daimler, and Henry Ford. In these early days, the car was a novelty, a wondrous oddity with a top speed of a brisk trotting horse. Yet, it laid the groundwork for an automotive revolution that would forever change the landscape of our existence. Fast forward to today, and the automobile stands as a symbol of progress, blending elegance and performance, as we race forward into the future.
+                </p>
+
+              </div>
+
+
+            </article>
+            <!--post footer-->
+            <div class="post-footer mb-3">
+              <div class="post-tags d-flex flex-wrap justify-content-center">
+                <a href="#" class="nav-link btn bg-light">Travel</a>
+                <a href="#" class="nav-link btn bg-light">Food</a>
+                <a href="#" class="nav-link btn bg-light">Lifestyle</a>
+                <a href="#" class="nav-link btn bg-light">Technology</a>
+                <a href="#" class="nav-link btn bg-light">Fashion</a>
+
+              </div>
+              <div class="post-author text-center">
+                <div class="author-avatar">
+                  <img src="./assets/face/face1.jpg" class="rounded">
+
+                </div>
+                <div class="author-info py-2">
+                  <h3 class="text-dark">Amy Tan</h3>
+                  <p class="text-secondary secondary-title">
+                    Author Info
+                  </p>
+                  <div class="post-tags d-flex flex-wrap justify-content-center">
+                    <a href="#" class="nav-link btn bg-light"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="nav-link btn bg-light"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="nav-link btn bg-light"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="nav-link btn bg-light"><i class="fa-brands fa-dribbble"></i></a>
+
+
+                  </div>
+                </div>
+              </div>
+            <!--post related -->
+            <!-- post related -->
+            <div class="post-realted py-2">
+              <div class="row justify-content-center">
+                  <div class="prev">
+                      <div class="py-2">
+                          <a href="#" class="display-2 text-dark">
+                              <i class="fas fa-chevron-left"></i>
+                              Previous Post
+                          </a>
+                      </div>
+                      <article class="article text-center">
+                          <div class="d-flex">
+                              <a href="#">
+                                  <img src="./assets/img9.jpg" class="object-fit" alt="">
+                              </a>
+                              <div class="cart-body px-1">
+                                  <div class="category">
+                                      <a href="#" class="link text-primary text-secondary">Fashion</a>
+                                  </div>
+                                  <a href="#" class="text-title display-1 text-dark">
+                                    Unleash your style and embrace the artistry of fashion in every stride
+                                  </a>
+                              </div>
+                          </div>
+                      </article>
+                  </div>
+                  <div class="next text-right">
+                      <div class="py-2">
+                          <a href="#" class="display-2 text-dark">
+                              Next Post
+                              <i class="fas fa-chevron-right"></i>
+                          </a>
+                      </div>
+                      <article class="article text-center">
+                          <div class="d-flex">
+                              <div class="cart-body px-1">
+                                  <div class="category">
+                                      <a href="#" class="link text-primary text-secondary">Technology</a>
+                                  </div>
+                                  <a href="#" class="text-title display-1 text-dark">
+                                    Discover the ever-evolving landscape of technology, where innovation shapes the future and possibilities are limitless
+
+                                  </a>
+                              </div>
+                              <a href="#">
+                                  <img src="./assets/img8.jpg" class="object-fit" alt="">
+                              </a>
+                          </div>
+                      </article>
+                  </div>
+              </div>
+          </div>
+          <!--comments-->
+          <div class="post-comments py-2">
+            <h2 class="text-center display-1 secondary-title">Comments</h2>
+          </div>
+          <div class="comment-details">
+            <div class="comment-item py-2">
+              <div class="d-flex">
+                <div class="avatar px-2">
+                  <img src="./assets/face/face1.jpg" class="rounded">
+
+                </div>
+                <div class="comment-content">
+                  <h5 class="display-2 m-0">Brandon Kelly</h5>
+                  <p class="title-seoncdary text-dark">
+                    This website is a treasure trove of diverse content! From fashion and travel to nature and book reviews, there's something for everyone. Loving the variety!
+
+                  </p>
+                </div>
+              </div>
+
+              <div class="comment-item py-2">
+                <div class="d-flex">
+                  <div class="avatar px-2">
+                    <img src="./assets/face/face3.jpg" class="rounded">
+
+                  </div>
+                  <div class="comment-content">
+                    <h5 class="display-2 m-0">anshika</h5>
+                    <p class="title-seoncdary text-dark">
+                      I stumbled upon your blog today, and I'm already hooked! Your content is engaging and well-written. Keep up the fantastic work!
+
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!--comment reply-->
+              <div class="reply py-2">
+                <div class="d-flex">
+                  <div class="avatar px-2">
+                    <img src="./assets/face/face2.jpg" class="rounded">
+                  </div>
+                  <div class="comment-content">
+                    <h5 class="display-2 m-0">Stephen</h5>
+                    <p class="title-seoncdary text-dark">
+                      What an insightful and thought-provoking post! Your writing never fails to captivate me. Can't wait to read more from your blog!
+
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!--comment form-->
+              <div class="commentform">
+                <h3 class="text-center display-1 bg-black text-black secondary-title py-2">
+                    Leave Comments
+                </h3>
+                <div class="comment-box1">
+                    <input id="nameInput" class="comment-input" type="text" class="form-control" placeholder="Name">
+                    <input id="emailInput" class="comment-input" type="email" class="form-control" placeholder="Email">
+                </div>
+                <div class="comment-box2">
+                    <input id="websiteInput" class="comment-input2" type="text" placeholder="Website">
+                    <textarea id="messageInput" class="comment-textarea form-control mt-3" placeholder="Message"></textarea>
+                    <div class="text-center">
+                      <button class="commentbtn" onclick="submitComment()">Submit</button>
+                    </div>
+                </div>
+
+                </div>
+                
+                
+            </div>
+
+              </div>
+            </div>
+
+          </div>
+
+            <!--post footer-->
+          </div>
+          <div class="col-4">
+            <aside id="sidebar" class="px-1">
+
+              <!--categories-->
+              <section class="categories">
+                <h2 class="text-center text-dark">Categories</h2>
+                <a href="#" class="d-flex justify-content-between text-dark">
+                  <span>Design</span>
+                  <span>5</span>
+
+                </a>
+                <a href="#" class="d-flex justify-content-between text-dark">
+                  <span>Design</span>
+                  <span>15</span>
+
+                </a>
+                <a href="#" class="d-flex justify-content-between text-dark">
+                  <span>Illustrations</span>
+                  <span>10</span>
+
+                </a>
+                <a href="#" class="d-flex justify-content-between text-dark">
+                  <span>Fashion</span>
+                  <span>5</span>
+
+                </a>
+                <a href="#" class="d-flex justify-content-between text-dark">
+                  <span>Graphic</span>
+                  <span>4</span>
+
+                </a>
+              </section>
+
+              <!--trending post-->
+              <section class="trending-post mt-3">
+                <h2 class="text-center text-dark py-2">Trending Post</h2>
+              <!--post items-->
+              <div class="post-item py-1">
+                <article class="article">
+                  <div class="d-fles">
+                    <a href="#">
+                      <img src="./assets/img10.jpg" class="rounded px-1">
+                    </a>
+                    <div class="cart-body">
+                      <div class="trending-category">
+                        <a href="#" class="link text-primary">
+                          Fashion
+                        </a>
+                      </div>
+                      <a href="#" class="text-title display-2text-dark ">
+                        Elevate your styles with..
+                      </a>
+                      <p class="secondary-title text-secondary display-3">
+                        <span>
+                          <i class="fa-regular fa-clock"></i>
+                           Wed 21,2020
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="post-item py-1">
+                <article class="article">
+                  <div class="d-fles">
+                    <a href="#">
+                      <img src="./assets/img12.jpg" class="rounded px-1">
+                    </a>
+                    <div class="cart-body">
+                      <div class="trending-category">
+                        <a href="#" class="link text-primary">
+                          Nature
+                        </a>
+                      </div>
+                      <a href="#" class="text-title display-2text-dark ">
+                        Immerse yourself in the beauty of nature as we unravel its wonders and celebrate the harmony of the natural world
+                      </a>
+                      <p class="secondary-title text-secondary display-3">
+                        <span>
+                          <i class="fa-regular fa-clock"></i>
+                           Wed 05,2021
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="post-item py-1">
+                <article class="article">
+                  <div class="d-fles">
+                    <a href="#">
+                      <img src="./assets/img11.jpg" class="rounded px-1">
+                    </a>
+                    <div class="cart-body">
+                      <div class="trending-category">
+                        <a href="#" class="link text-primary">
+                          Architecture
+                        </a>
+                      </div>
+                      <a href="#" class="text-title display-2text-dark ">
+                        Embark on a journey through architectural wonders, where form meets function and innovation reshapes our world                      </a>
+                      <p class="secondary-title text-secondary display-3">
+                        <span>
+                          <i class="fa-regular fa-clock"></i>
+                           Wed 05,2021
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              </section>
+            </aside>
+          <!-- </div> -->
+        <!-- </div> -->
+
+
+      </section>
+
+
+      <!--post content-->
+
+
+</section>
+
+
+
+
+
+    </main>
+
+    <!--mainn-->
+    <!-- footer -->
+    <!-- footer -->
+    <footer id="footer">
+      <div class="footer-container">
+          <div class="row mb-3 col-3-main">
+              <div class="col-3">
+                 <div id = "about-us">
+                  <h2 class="footer-title secondary-title">About Us</h2>
+
+                    <div class="secondary-title text-secondary">
+                       <p class="mt-2 ">
+                        We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the world.
+                       </p>
+
+                       <address>
+                           <i class="fas fa-map-marker-alt text-primary"></i>
+                           5 South Main Street Los Angeles, ZZ-9611 USA
+                       </address>
+
+                       <div class="phone">
+                           <i class="fas fa-mobile text-primary"></i>
+                           125-896-485
+                       </div>
+
+                      <div class="email">
+                            <a href="mailto: dailysupport@gmail.com" style="color: 3B3B58;"><i class="fas fa-envelope text-primary"></i>
+                           <span>dailysupport@gmail.com</span>
+                        </a>
+                       </div>
+
+                       <div>
+                        <img src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5" alt="Web views" style="height: 20px;width: 150px;margin-top: 40px;">
+                       </div>
+                    </div>
+
+                 </div>
+              </div>
+              <div class="col-3">
+                  <h2 class="footer-title secondary-title">Feature Post</h2>
+
+                  <div class="feature-post">
+                      <div class="flex-item">
+                          <article class="article">
+                              <div class="d-flex ">
+                                  <a class="d-flex" href="#">
+                                      <img src="./assets/img9.jpg" class="object-fit" alt="">
+                                      <div class="px-1" style="width: 300px;">
+                                          <a href="#" class="text-title display-2 text-dark">
+                                            Embrace the beauty of nature through our enchanting blog, where we celebrate the wonders of the natural world
+                                          </a>
+                                          <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                               <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
+                                          </p>
+                                      </div>
+                                  </a>
+                              </div>
+                          </article>
+                      </div>
+                      <div class="flex-item">
+                       <article class="article">
+                           <div class="d-flex">
+                               <a class="d-flex" href="#">
+                                   <img src="./assets/img1.jpg" class="object-fit" alt="">
+                                   <div class="px-1" style="width: 300px;">
+                                       <a href="#" class="text-title display-2 text-dark">
+                                        Embark on unforgettable journeys through our travel blog, where wanderlust meets inspiration
+                                       </a>
+                                       <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                            <span><i class="far fa-clock text-primary"></i> Wed 05, 2020 </span>
+                                       </p>
+                                   </div>
+                               </a>
+                           </div>
+                       </article>
+                        </div>
+                        <div class="flex-item">
+                           <article class="article">
+                               <div class="d-flex">
+                                   <a class="d-flex" href="#">
+                                       <img src="./assets/img2.jpg" class="object-fit" alt="">
+                                       <div class="px-1" style="width: 300px;">
+                                           <a href="#" class="text-title display-2 text-dark">
+                                            Gaming Adventures Unleashed
+                                           </a>
+                                           <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                                <span><i class="far fa-clock text-primary"></i> Wed 02, 2021 </span>
+                                           </p>
+                                       </div>
+                                   </a>
+                               </div>
+                           </article>
+                       </div>
+                  </div>
+              </div>
+              <div class="col-3">
+                   <h2 class="footer-title secondary-title">Popular Tags</h2>
+
+                   <div class="tags">
+                       <div class="d-flex-gap flex-wrap">
+                           <a href="#" class="nav-link btn bg-light">Travel</a>
+                           <a href="#" class="nav-link btn bg-light">Food</a>
+                           <a href="#" class="nav-link btn bg-light">Lifestyle</a>
+                           <a href="#" class="nav-link btn bg-light">Techonogy</a>
+                           <a href="#" class="nav-link btn bg-light">Fashion</a>
+                       </div>
+                   </div>
+                   <!DOCTYPE html>
+                   <html lang="en">
+                   <head>
+                       <meta charset="UTF-8">
+                       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                       <title>Share Button with Icons</title>
+                       <!-- Updated Font Awesome Link -->
+                       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+                       <style>
+                           .share-btn {
+                               display: flex;
+                               align-items: center;
+                               background-color: #facc15; /* Yellow background */
+                               color: #19151c; /* Purple text */
+                               padding: 0.5rem 1rem;
+                               border-radius: 0.5rem;
+                               font-weight: 600;
+                               cursor: pointer;
+                               transition: box-shadow 0.3s;
+                           }
+                   
+                           .share-btn:hover {
+                               box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                           }
+                   
+                           .share-options {
+                               display: none; /* Initially hidden */
+                               position: absolute;
+                               gap: 1rem;
+                               background-color: #bbb7be; /* Dark purple background */
+                               color: white;
+                               padding: 1rem;
+                               border-radius: 0.5rem;
+                               margin-top: 3rem;
+                               box-shadow: 0 2px 8px rgba(205, 203, 203, 0.15);
+                           }
+                   
+                           .show-share-options {
+                               display: flex;
+                           }
+                   
+                           .share-icon {
+                               font-size: 24px;
+                               transition: color 0.3s;
+                               color:#19151c;
+                           }
+                   
+                           .share-icon:hover {
+                               color: #f7f4ea; /* Yellow on hover */
+                           }
+                       </style>
+                   </head>
+                   <body>
+                   
+                       <div style="display: flex; justify-content: center; margin-top: 2rem;">
+                           <button id="shareBtn" class="share-btn">
+                               <i class="fas fa-share-alt" style="margin-right: 0.5rem;"></i> Share
+                           </button>
+                   
+                           <div id="shareOptions" class="share-options">
+                               <a href="#" id="whatsappShare" target="_blank" class="share-icon">
+                                   <i class="fab fa-whatsapp"></i> <!-- WhatsApp Icon -->
+                               </a>
+                               <a href="#" id="facebookShare" target="_blank" class="share-icon">
+                                   <i class="fab fa-facebook"></i> <!-- Facebook Icon -->
+                               </a>
+                               <a href="#" id="emailShare" class="share-icon">
+                                   <i class="fas fa-envelope"></i> <!-- Email Icon -->
+                               </a>
+                           </div>
+                       </div>
+                   
+                       <script>
+                           const shareBtn = document.getElementById("shareBtn");
+                           const shareOptions = document.getElementById("shareOptions");
+                   
+                           // Toggle visibility of share options
+                           shareBtn.onclick = () => {
+                               shareOptions.classList.toggle("show-share-options");
+                           };
+                   
+                           // Update share links dynamically
+                           const urlToShare = encodeURIComponent(window.location.href);
+                           document.getElementById("whatsappShare").href = `https://api.whatsapp.com/send?text=${urlToShare}`;
+                           document.getElementById("facebookShare").href = `https://www.facebook.com/sharer/sharer.php?u=${urlToShare}`;
+                           document.getElementById("emailShare").href = `mailto:?subject=Check this out!&body=${urlToShare}`;
+                       </script>
+                   
+            
+              
+                   <h2 class="footer-title secondary-title mt-2">Connect with us</h2>
+
+                   <div class="tags social" id="contact">
+                       <div class="d-flex-gap flex-wrap">
+                           <a href="https://www.facebook.com/" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
+                           <a href="https://x.com/" class="nav-link btn bg-light"><i class="fa-brands fa-x-twitter"></i></a>
+                           <a href="https://www.instagram.com/" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
+                           <a href="https://dribbble.com/" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
+                       </div>
+                   </div>
+
+              </div>
+          </div>
+
+
+      </div>
+       <!-- the authentication copyright -->
+       <div class="wordwise-footer">
+        <div class="wordwise-footer-content">
+          <p>&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
+        </div>
+    </div>
+      
+      
+  </footer>
+  <!-- Script for Navbar Toggle -->
+ <script>
+  function toggleMenu() {
+  const menu = document.getElementById('nav-menu');
+  menu.classList.toggle('active');
+}
+</script>
+<!-- .footer -->
+<!-- this script is for twitter icon  starts -->
+ <script src="https://kit.fontawesome.com/856f4a44d7.js" crossorigin="anonymous"></script>
+<!-- this script is for twitter icon  ends -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    <script src="./backend/login-Auth/login.js"></script>
+    <script src="./backend/signup-Auth/signup.js"></script>
+    <script src="SignIn_SignUp.js"></script>
+    <script src="darkMode.js"></script>
+
+
+    <!-- this script is to display the year in the copyright authentication in the footer -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+    
+
+    <script src="main.js"></script>
+    <script src="darkMode.js"></script>
+    <script src="./backend/login-Auth/login.js"></script>
+    <script src="./backend/signup-Auth/signup.js"></script>
+    <script src="progress_bar.js"></script>
+    <!--swiper slider cdn-->
+    
+      <!-- WhatsApp Share Button -->
+     
+  <script>
+
+      // Function to clear the form
+      function clearForm() {
+          document.getElementById('nameInput').value = '';
+          document.getElementById('emailInput').value = '';
+          document.getElementById('websiteInput').value = '';
+          document.getElementById('messageInput').value = '';
+      }
+      
+      // Function to retrieve all comments (useful for displaying comments)
+      function getAllComments() {
+          return JSON.parse(localStorage.getItem('comments') || '[]');
+      }
+      </script>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+   <script src="profiledropdown.js"></script>
+
 
     <script>
       // Load saved comments when the page loads

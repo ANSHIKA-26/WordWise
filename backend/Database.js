@@ -1,15 +1,27 @@
 const mongoose = require("mongoose");
+require('dotenv').config();
 
 async function ConnectDb() {
   try {
-    // const DatabaseConnect = process.env.DatabaseConnect;
-    await mongoose.connect(
-      "Your MongoDb Connection String" //establish database connection   // mongodb+srv://username:Password@cluster0.8ysl0ky.mongodb.net/DatabseName
-    );
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("Connected to MongoDB");
 
-    console.log("connected to database");
+    // Event listeners for connection errors and disconnections
+    mongoose.connection.on('error', (err) => {
+      console.error(`MongoDB connection error: ${err}`);
+    });
+
+    mongoose.connection.on('disconnected', () => {
+      console.warn('MongoDB connection lost. Trying to reconnect...');
+      ConnectDb(); // Attempt to reconnect
+    });
+
   } catch (error) {
-    console.log("error :", error);
+    console.error("Error connecting to MongoDB:", error.message);
+    process.exit(1); // Exit the process with failure
   }
 }
 

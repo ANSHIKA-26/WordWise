@@ -32,6 +32,19 @@ document.getElementById('newsletterForm').addEventListener('submit', function(e)
   const toast = document.getElementById('toast');
   toast.textContent = "Subscription Successful!";
   toast.classList.add('show');
+// Toggle display of share options
+const shareBtn = document.getElementById("shareBtn");
+const shareOptions = document.getElementById("shareOptions");
+
+shareBtn.onclick = () => {
+    shareOptions.classList.toggle("show-share-options");
+};
+
+// Update share links
+const urlToShare = encodeURIComponent(window.location.href);
+document.getElementById("whatsappShare").href = `https://api.whatsapp.com/send?text=${urlToShare}`;
+document.getElementById("facebookShare").href = `https://www.facebook.com/sharer/sharer.php?u=${urlToShare}`;
+document.getElementById("emailShare").href = `mailto:?subject=Check this out!&body=${urlToShare}`;
 
   // Hide toast after 3 seconds
   setTimeout(() => {
