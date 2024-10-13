@@ -18,7 +18,7 @@ const { subscribeToNewsletter } = require("./controllers/NewsLetterController");
 
 app.use(bodyParser.json());
 const corsOptions = {
-  origin: 'http://localhost:5501',
+  origin: ['http://localhost:5501', 'http://127.0.0.1:5501'],
   methods: ['GET', 'POST', 'HEAD', 'OPTIONS'], // Allow POST method
   credentials: true
 };
