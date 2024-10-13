@@ -14,9 +14,16 @@ const formidable = require("express-formidable");
 const fs = require("fs").promises;
 
 const ConnectDb = require("./Database");
+const { subscribeToNewsletter } = require("./controllers/NewsLetterController");
 
 app.use(bodyParser.json());
-app.use(cors());
+const corsOptions = {
+  origin: 'http://localhost:5501',
+  methods: ['GET', 'POST', 'HEAD', 'OPTIONS'], // Allow POST method
+  credentials: true
+};
+
+app.use(cors(corsOptions));
 ConnectDb();
 
 app.post("/send-email", async (req, res) => {
@@ -78,6 +85,8 @@ app.post("/subscribe", async (req, res) => {
       .send({ message: "Error sending subscription email", error });
   }
 });
+
+app.post('/newsletter',subscribeToNewsletter);
 
 //create a blog Api
 

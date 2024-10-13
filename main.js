@@ -187,3 +187,39 @@ if (aboutSection) {
     document.querySelector('#about-us').scrollIntoView({ behavior: 'smooth' });
     });
 }
+
+function submitNewsletter() {
+  const emailInput = document.getElementById('emailInput');
+  const errorMessage = document.getElementById('error-message');
+  const email = emailInput.value;
+
+  // Simple email validation check
+  if (!email.includes('@')) {
+    errorMessage.style.display = 'block';
+    return;
+  } else {
+    errorMessage.style.display = 'none';
+  }
+
+  // Send POST request
+  fetch('http://127.0.0.1:3000/newsletter', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email })
+  })
+  .then(response => {
+    if (response.ok) {
+      alert('Subscribed successfully!');
+      emailInput.value = ''; // Clear the input field
+    } else {
+      alert('Failed to subscribe. Please try again later.');
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('An error occurred. Please try again later.');
+  });
+}
+
