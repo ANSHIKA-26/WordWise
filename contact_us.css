@@ -377,3 +377,28 @@
   background-color: #c82333;
 
 }
+
+.center-icons {
+  display: flex; /* Enable flexbox */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  flex-wrap: wrap; /* Allow items to wrap if necessary */
+  gap: 15px; /* Space between the icons */
+}
+.circle-icon {
+  display: flex; /* Use flexbox for centering */
+  align-items: center; /* Center the icon vertically */
+  justify-content: center; /* Center the icon horizontally */
+  width: 50px; /* Set width of the circle */
+  height: 50px; /* Set height of the circle */
+  border-radius: 50%; /* Make the icon circular */
+  background-color: #ffffff; /* Initial background color of the circle */
+  color: #333; /* Icon color */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover */
+  text-align: center; /* Center text */
+}
+
+
+.circle-icon i {
+  font-size: 20px; /* Adjust icon size */
+}

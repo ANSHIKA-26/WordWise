@@ -1,7 +1,6 @@
 async function SendEmail(event) {
   event.preventDefault();
-  const firstName = document.getElementById("firstName").value;
-  const lastName = document.getElementById("lastName").value;
+  const Name = document.getElementById("Name").value;
   const email = document.getElementById("email").value;
   const phone = document.getElementById("phone").value;
   const message = document.getElementById("message").value;
@@ -12,8 +11,7 @@ async function SendEmail(event) {
   }
 
   const data = {
-    firstName: firstName,
-    lastName: lastName,
+    Name: Name,
     email: email,
     phone: phone,
     message: message,
