@@ -238,3 +238,15 @@ function submitNewsletter() {
   });
 }
 
+// Get hamburger and nav links
+var hamburger = document.getElementById('hamburger');
+var navLinks1 = document.getElementById('nav-links1');
+
+// Only add event listener if both elements exist on the page
+if (hamburger && navLinks1) {
+    hamburger.addEventListener('click', () => {
+        navLinks1.classList.toggle('active');
+    });
+} else {
+    console.warn('Hamburger or Nav Links not found on this page.');
+}
