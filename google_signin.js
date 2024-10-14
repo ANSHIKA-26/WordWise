@@ -41,3 +41,4 @@ function handleCredentialResponse(response) {
             alert('Google login failed. Please try again.');
         });
 }
+
