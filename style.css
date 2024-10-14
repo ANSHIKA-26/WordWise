@@ -809,6 +809,9 @@ header {
   border: none;
   cursor: pointer;
 }
+.theme-switch-wrapper {
+  margin-left: 20px; /* Adjust as needed */
+}
 
 /* Responsive Design */
 @media (max-width: 992px) {
