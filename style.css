@@ -3007,3 +3007,60 @@ footer p {
   opacity: 1; /* Ensure visible */
   transition: opacity 0.5s ease-in-out; /* Animation for newly revealed items */
 }
+
+
+/*hamburger menu styling */
+.hamburger {
+  display: flex;
+  flex-direction:column;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 4px;
+  visibility: hidden;
+  /* border:1px solid black; */
+}
+
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 5px;
+  background-color: grey;
+  margin-bottom:3px;
+  border-radius:4px;
+}
+
+
+@media (max-width: 768px) {
+  .hamburger {
+      display: flex;
+      visibility: visible;
+  }
+
+  .nav-links1 {
+      display: none;
+      flex-direction: column;
+      background-color: var(--primary-color);
+      position: absolute;
+      top: 0;
+      margin-top: 90px;
+      width: 100%; 
+  }
+
+  
+  .nav-links1.active {
+      display: flex;
+  }
+
+  .nav-links1 a {
+      padding: 5px;
+      color: var(--card-background-dark); 
+      text-align: center; 
+      text-decoration: none; 
+  }
+
+  .nav-menu ul {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+  }
+}
