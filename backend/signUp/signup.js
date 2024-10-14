@@ -77,7 +77,8 @@ async function createUser(user) {
 
 async function login() {
   // Get email and password from request body
-  const { email, password } = req.body;
+  const email = document.querySelector(".name").value;
+	const password = document.querySelector(".pass").value;
 
   // Find user exist or not for this email
   const user = await User.findOne({ email });
