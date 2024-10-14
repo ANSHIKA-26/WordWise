@@ -253,6 +253,123 @@
         .btn-primary:hover {
             background-color: #0056b3;
         }
+
+        .post-navigation {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .social-icons a {
+      color: #3B3B58;
+      font-size: 1.2rem;
+    }
+    .post-links {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+    .post-link {
+      max-width: 45%;
+    }
+    .post-link a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #3B3B58;
+    }
+    .post-link img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-right: 1rem;
+    }
+    .post-link.next {
+      text-align: right;
+    }
+    .post-link.next a {
+      flex-direction: row-reverse;
+    }
+    .post-link.next img {
+      margin-right: 0;
+      margin-left: 1rem;
+    }
+    .post-link .category {
+      font-size: 0.9rem;
+      color: #f9b0b0;
+    }
+    .post-link .title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin: 0.5rem 0;
+    }
+    .comments-header {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .post-navigation {
+  font-family: Arial, sans-serif;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.prev-button, .next-button {
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.prev-button:hover, .next-button:hover {
+  background-color: #e0e0e0;
+}
+
+.post-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-link {
+  width: 48%;
+}
+
+.post-link a {
+  display: flex;
+  text-decoration: none;
+  color: inherit;
+}
+
+.post-link img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.category {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 5px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: bold;
+}
       </style>
     <!-- Toggle Password Visibility Script -->
     <script>
@@ -424,7 +541,7 @@
         </div>
         <!--post related -->
         <!-- post related -->
-        <div class="post-realted py-2">
+        <!-- <div class="post-realted py-2">
           <div class="row justify-content-center">
             <div class="prev">
               <div class="py-2">
@@ -475,10 +592,40 @@
               </article>
             </div>
           </div>
+        </div> -->
+        
+        <div class="post-navigation">
+          <div class="navigation-buttons">
+            <button class="prev-button">← Previous Post</button>
+            <button class="next-button">Next Post →</button>
+          </div>
+          
+          <div class="post-links">
+            <div class="post-link prev">
+              <a href="#">
+                <img src="./assets/img9.jpg" alt="Previous post">
+                <div>
+                  <div class="category">Fashion</div>
+                  <div class="title">Unleash your style and embrace the artistry of fashion in every stride</div>
+                </div>
+              </a>
+            </div>
+            <div class="post-link next">
+              <a href="#">
+                <img src="./assets/img8.jpg" alt="Next post">
+                <div>
+                  <div class="category">Technology</div>
+                  <div class="title">Discover the ever-evolving landscape of technology, where innovation shapes the future and possibilities are limitless</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+         
         </div>
         <!--comments-->
         <div class="post-comments py-2">
-          <h2 class="text-center display-1 secondary-title">Comments</h2>
+          <h2 class="comments-header">Comments</h2>
         </div>
         <div class="comment-details">
           <div class="comment-item py-2">
