@@ -1,4 +1,9 @@
-function validateSignupForm() {
+const bcrypt = require("bcrypt");
+const User = require("../model/User");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
+
+async function validateSignupForm() {
   const name = document.getElementById("name").value;
   const email = document.getElementById("signupEmail").value;
   const password = document.getElementById("signupPsw").value;
@@ -35,12 +40,67 @@ function validateSignupForm() {
       return false;
   }
 
-  // Store user data including password
-  const user = { name, email, password }; // Store password securely
-  localStorage.setItem("user", JSON.stringify(user));
+ 
+  // check user present in database or not
+  const existingUser = await User.find({ email });
+  if (existingUser) {
+    alert("User already exist!");
+    openLogin();
+    return false;
+  }
+
+  await createUser();
+
   alert("Signup successful!");
   closeForm("signup");
+   // Store user data including password
+  const user = { name, email, password }; // Store password securely
+  localStorage.setItem("user", JSON.stringify(user));
   return true;
+}
+
+async function createUser(user) {
+	const { name, email, password } = user;
+	// Hash the password
+	const hashedPassword = await bcrypt.hash(password, 10);
+
+	// create user in db
+	const newUser = await User.create({
+		name,
+		email,
+		password: hashedPassword,
+		image: `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`,
+  });
+  
+  return;
+}
+
+async function login() {
+  // Get email and password from request body
+  const { email, password } = req.body;
+
+  // Find user exist or not for this email
+  const user = await User.findOne({ email });
+
+  // If user not found
+  if (!user) {
+    alert("User not exist!");
+    return;
+  }
+
+  // Generate JWT token and Compare Password
+  if (await bcrypt.compare(password, user.password)) {
+    const token = jwt.sign(
+      {
+        email: user.email,
+        id: user._id,
+      },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "24h",
+      }
+    );
+  }
 }
 
 // Function to toggle password visibility
