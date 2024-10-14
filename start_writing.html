@@ -277,6 +277,41 @@
   .btn-primary:hover {
       background-color: #0056b3;
   }
+
+        /* Styles for collaborative writing feature */
+        #collaborators {
+        margin-bottom: 15px;
+      }
+
+      #collaboratorsList {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      #collaboratorsList li {
+        display: inline-block;
+        margin-right: 10px;
+        padding: 5px 10px;
+        background-color: #f0f0f0;
+        border-radius: 15px;
+      }
+
+      #addCollaborator {
+        margin-top: 10px;
+      }
+
+      #collaborativeSection {
+        border: 1px solid #ccc;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+      }
+
+      #collaborativeContent {
+        width: 100%;
+        min-height: 200px;
+        margin-bottom: 10px;
+      }
 </style>
 
 <!-- Bootstrap Icons and Script for Eye Icon Functionality -->
@@ -348,19 +383,31 @@
           <label for="blogImage">Upload Image:</label>
           <input type="file" id="blogImage" name="image" accept="image/*" />
 
-          <label for="blogContent">Blog Content:</label>
-<div style="position: relative;">
-    <textarea
-        id="blogContent"
-        name="content"
-        rows="10"
-        placeholder="Start writing your blog here..."
-        required
-    ></textarea>
-    <button type="button" id="start-voice-input" style="position: absolute; top: 10.5px; right: 0px;">
-        🎤
-    </button>
-</div>
+          <!-- Collaborative Writing Section -->
+          <div id="collaborativeSection">
+            <h3>Collaborative Writing</h3>
+            <div id="collaborators">
+              <label>Collaborators:</label>
+              <ul id="collaboratorsList"></ul>
+              <input type="text" id="newCollaborator" placeholder="Enter collaborator's email">
+              <button type="button" id="addCollaborator">Add Collaborator</button>
+            </div>
+            <label for="collaborativeContent">Collaborative Content:</label>
+            <textarea id="collaborativeContent" placeholder="Start collaborative writing here..."></textarea>
+          </div>
+
+          <label for="blogContent">Additional Content:</label>
+          <div style="position: relative;">
+            <textarea
+              id="blogContent"
+              name="content"
+              rows="10"
+              placeholder="Add any additional content here..."
+            ></textarea>
+            <button type="button" id="start-voice-input" style="position: absolute; top: 10.5px; right: 0px;">
+              🎤
+            </button>
+          </div>
 
 <!-- Add a button to get writing suggestions -->
 <button type="button" id="getSuggestions" style="margin-top: 10px;">Get Suggestions</button>
@@ -562,49 +609,130 @@
     </footer>
     <!-- .footer -->
      <!-- this script is to display the year in the copyright authentication in the footer -->
-    <script>
+     <script>
       document.getElementById('current-year').textContent = new Date().getFullYear();
-  </script>
-
+    </script>
+    
     <script src="start_writing.js"></script>
     <script src="main.js"></script>
     <script src="./darkMode.js"></script>
     <script src="progress_bar.js"></script>
-
+    
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     <script src="profiledropdown.js"></script>
-
-    <!-- Add this script at the end of your body tag -->
+    
+    <!-- Updated script including collaborative writing feature -->
     <script>
-      // Get the modal
-      var modal = document.getElementById("faqModal");
-
-      // Get the button that opens the modal
-      var btn = document.getElementById("faqButton");
-
-      // Get the <span> element that closes the modal
-      var span = document.getElementsByClassName("close")[0];
-
-      // When the user clicks the button, open the modal 
-      btn.onclick = function() {
-        modal.style.display = "block";
-      }
-
-      // When the user clicks on <span> (x), close the modal
-      span.onclick = function() {
-        modal.style.display = "none";
-      }
-
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-        if (event.target == modal) {
+      document.addEventListener('DOMContentLoaded', function() {
+        // FAQ Modal functionality
+        var modal = document.getElementById("faqModal");
+        var btn = document.getElementById("faqButton");
+        var span = document.getElementsByClassName("close")[0];
+    
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+    
+        span.onclick = function() {
           modal.style.display = "none";
         }
-      }
+    
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+    
+        // Collaborative writing feature
+        const addCollaboratorBtn = document.getElementById('addCollaborator');
+        const newCollaboratorInput = document.getElementById('newCollaborator');
+        const collaboratorsList = document.getElementById('collaboratorsList');
+        const collaborativeContent = document.getElementById('collaborativeContent');
+    
+        let collaborators = [];
+    
+        addCollaboratorBtn.addEventListener('click', function() {
+          const email = newCollaboratorInput.value.trim();
+          if (email && !collaborators.includes(email)) {
+            collaborators.push(email);
+            updateCollaboratorsList();
+            newCollaboratorInput.value = '';
+          }
+        });
+    
+        function updateCollaboratorsList() {
+          collaboratorsList.innerHTML = '';
+          collaborators.forEach(email => {
+            const li = document.createElement('li');
+            li.textContent = email;
+            collaboratorsList.appendChild(li);
+          });
+        }
+    
+        // Simulating real-time collaboration (for demonstration purposes)
+        setInterval(() => {
+          if (collaborators.length > 0) {
+            const randomCollaborator = collaborators[Math.floor(Math.random() * collaborators.length)];
+            const simulatedContent = `\n[${randomCollaborator}]: ${generateRandomSentence()}`;
+            collaborativeContent.value += simulatedContent;
+          }
+        }, 10000); // Simulate a new contribution every 10 seconds
+    
+        function generateRandomSentence() {
+          const sentences = [
+            "This is an interesting point.",
+            "I think we should elaborate on this idea.",
+            "Let's consider a different perspective here.",
+            "We could add some examples to support this.",
+            "I suggest we rephrase this part for clarity."
+          ];
+          return sentences[Math.floor(Math.random() * sentences.length)];
+        }
+    
+        // Update PostBlog function to include collaborative content
+        window.PostBlog = function(event) {
+          event.preventDefault();
+          
+          const blogHeading = document.getElementById('blogHeading').value;
+          const blogTopic = document.getElementById('blogTopic').value;
+          const blogImage = document.getElementById('blogImage').files[0];
+          const blogContent = document.getElementById('blogContent').value;
+          const writerName = document.getElementById('writerName').value;
+    
+          // Include collaborative content in the blog post
+          const fullContent = `Collaborative Content:\n${collaborativeContent.value}\n\nAdditional Content:\n${blogContent}`;
+    
+          console.log("Blog Heading:", blogHeading);
+          console.log("Blog Topic:", blogTopic);
+          console.log("Blog Image:", blogImage ? blogImage.name : "No image uploaded");
+          console.log("Full Blog Content:", fullContent);
+          console.log("Writer Name:", writerName);
+          console.log("Collaborators:", collaborators);
+    
+          // Here you would typically send this data to your server
+          // For now, we'll just show an alert
+          alert("Blog post submitted successfully!");
+    
+          // Reset the form
+          document.getElementById('blogForm').reset();
+          collaborativeContent.value = '';
+          collaborators = [];
+          updateCollaboratorsList();
+        };
+    
+        // Voice input functionality (assuming it's part of start_writing.js)
+        const startVoiceInputBtn = document.getElementById('start-voice-input');
+        if (startVoiceInputBtn) {
+          startVoiceInputBtn.addEventListener('click', function() {
+            // Implement voice input functionality here
+            console.log("Voice input button clicked");
+            // You would typically start voice recognition here
+          });
+        }
+      });
     </script>
-
     <style>
       .wordwise-footer-content {
         display: flex;
