@@ -1108,22 +1108,24 @@ button {
   display: flex;
   flex-direction: column;
   align-items: left;
-  padding: 5% 15%;
+  padding: 5% 2%;
 }
 
 .form-container h1 {
   font-family: "Courier New", Courier, monospace;
 }
+
 .form-container h2 {
   font-family: "Courier New", Courier, monospace;
   font-size: 24px;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
 
 .form-container label {
   width: 100%;
   text-align: left;
+  margin-bottom: 5px;
 }
 
 .form-container h3 {
@@ -1138,14 +1140,13 @@ button {
   font-family: "Courier New", Courier, monospace;
   padding-bottom: 5px;
   margin: 10px 0;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   border: none;
   border-bottom: 2px solid var(--text-color);
   background-color: transparent;
   outline: none;
   color: var(--text-color);
   font-size: 18px;
-  
 }
 
 .form-container input::placeholder {
@@ -1166,43 +1167,15 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.2s ease-in-out;
 }
-
-
-.form-container .google-btn {
-  background-color: white; /* Google Red */
-  color: black;
-  border: none;
-  padding: 10px 15px;
-  width: 100%;
-  cursor: pointer;
-  margin-top: 10px; /* space between buttons */
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
 
 .form-container .btn:hover {
-  background-color: #333333;
-  color: var(--body-bg);
-}
-
-
-.form-container .google-btn:hover {
-  background-color: rgb(235, 207, 207); /* Darker shade on hover */
-  color: #000;
-}
-
-.form-container .cancel {
   background-color: white;
-  color: #060606;
-  border: 1px solid #ccc;
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  transform: scale(1.05);
 }
-
-.form-container .cancel:hover {
-  background-color: #f5f5f5;
-}
-
 .form-container .btn.cancel {
   margin-top: 10px;
   background-color: #ec6371;
@@ -1217,7 +1190,7 @@ button {
 .form-container .divider {
   position: relative;
   width: 100%;
-  margin: 20px 0;
+  margin: 30px 0;
 }
 
 .form-container .divider::before {
@@ -1257,7 +1230,175 @@ button {
   margin-right: 10px;
 }
 
-.toggle-mode {
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 80px; 
+  margin-bottom: 5px;
+}
+
+.form-group input[type="email"], .form-group input[type="password"],.form-group input[type="text"] {
+  height: 40px; 
+  padding: 10px;
+  border: none;
+  border-bottom: 1.5px solid  var(--text-color);
+  border-radius: 5px;
+}
+
+.input-group {
+  position: relative;
+  padding: 0px 0;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #ccc;
+}
+
+.input-group input[type="email"], .input-group input[type="password"] {
+  padding-left: 40px;
+}
+
+
+.password-toggle {
+  position: absolute;
+  left: 3px;
+  top: 5%;
+  bottom: 2px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.password-toggle i {
+  font-size: 18px;
+  color: #666;
+}
+
+.password-toggle .fa-lock {
+  display: block;
+}
+
+.password-toggle .fa-unlock {
+  display: none;
+}
+
+.form-group.position-relative i {
+  position: absolute;
+  top: 52px;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #ccc;
+}
+
+.form-group.position-relative input[type="text"],
+.form-group.position-relative input[type="email"]{
+  padding-left: 40px; /* Space for the icon */
+}
+
+/* Style the locker icons */
+.password-icon {
+  position: absolute;
+  left: 4px; 
+  top: 10px; 
+  bottom: -20px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.password-icon i {
+  font-size: 18px;
+  color: #666;
+}
+
+.password-icon .fa-lock {
+  display: block;
+}
+
+.password-icon .fa-unlock {
+  display: none;
+}
+
+/* Toggle the locker icons on click */
+.password-icon.toggle-password {
+  cursor: pointer;
+}
+
+.password-icon.toggle-password:hover {
+  color: #333;
+}
+
+.password-icon.toggle-password.active .fa-lock {
+  display: none;
+}
+
+.password-icon.toggle-password.active .fa-unlock {
+  display: block;
+}
+/* <!-- Social Icons --> */
+
+.social-icons {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  margin: 5% 25%;
+}
+
+.social-icons a {
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0% 5%;
+  width: 40px;
+  height: 40px;
+  color: var(--text-color);
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.1); 
+  border-color: var(--text-color);
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 10px 0; 
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ccc; 
+  margin: 0 10px; 
+}
+
+.forgot a {
+  font-size: 14px;
+  color: #666;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-weight: bold;
+  display: block;
+  margin: 1.5rem auto -10px; 
+  margin-left: 32%;
+}
+
+.forgot a:hover {
+  color: var(--text-color);
+}
+
+/* .toggle-mode {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -1266,7 +1407,7 @@ button {
 .toggle-mode label {
   font-size: 1rem;
   color: var(--text-color);
-}
+} */
 
 input[type="checkbox"] {
   transform: scale(1.2);
