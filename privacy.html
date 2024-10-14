@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordWise</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favi.png" />
+
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--swiper slider css-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!--css-->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* CSS for uniform image layout */
+        .grid {
+            display: flex;
+            flex-wrap: wrap; /* Allows items to wrap onto the next line */
+            gap: 30px; /* Space between grid items */
+        }
+
+        .grid-item {
+            flex: 1 1 calc(33.33% - 20px); /* 3 items per row */
+            max-width: calc(33.33% - 20px); /* Ensures grid items do not exceed container */
+            box-sizing: border-box; /* Includes padding in width calculations */
+        }
+
+        .card {
+            border-radius: 8px; /* Optional: rounded corners */
+            overflow: hidden; /* Hides overflow for better aesthetics */
+        }
+
+        .overflow-img img {
+            width: 100%;
+            height: 250px; /* Set a fixed height */
+            object-fit: cover; /* Cover to maintain aspect ratio */
+        }
+
+        .text-title {
+            font-size: 1.25rem; /* Adjust size as needed */
+        }
+
+        .secondary-title {
+            font-size: 0.875rem; /* Adjust size as needed */
+        }
+    </style>
+    <script>
+    function toggleMenu() {
+    const menu = document.getElementById('nav-menu');
+    menu.classList.toggle('active');
+}
+    </script>
+    <!--favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="manifest" href="../images/site.webmanifest">
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon"> 
+    <link rel="stylesheet" href="Scroll_and_progressbar.css">
+  </head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+     </div>
+ <!-- Navigation Bar  -->
+ <div class="layout-container" style="margin-bottom: 4rem;">
+
+    <header>
+
+
+
+    <div class="logo" >
+     <a href="index.html">
+        <h2>WordWise</h2>
+     </a>
+   </div>
+    <div class="nav-links1">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Leading Blog</a>
+        <a href="start_writing.html">Start Writing</a>
+        <a href="category.html">Categories</a>
+        <a href="about.html">About</a>
+        <a href="contact_us.html">Contact Us</a>
+        <a href="contact_us.html">Give Feedback</a>
+    </div>
+     
+    <div class="dropdown">
+        <!-- Profile Icon -->
+        <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
+            <i class="fas fa-user-circle"></i>
+        </a>
+    
+        <!-- Dropdown Menu -->
+        <ul class="dropdown-menu" id="dropdownMenu">
+            <li><a href="#login" onclick="openForm('login')">Login</a></li>
+            <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
+        </ul>
+    </div>
+
+
+      <!--  Login Form -->
+<div class="form-popup" id="loginForm">
+    <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
+        <span class="close-icon" onclick="closeForm('login')">&times;</span>
+        <h2 class="text-center">Login</h2>
+        <div class="form-group">
+            <label for="loginEmail"><b>Email</b></label>
+            <input type="email" class="form-control" id="loginEmail" placeholder="Enter Email" name="email" required>
+        </div>
+        <div class="form-group position-relative">
+            <label for="loginPsw"><b>Password</b></label>
+            <input type="password" class="form-control" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+            <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
+        </div>
+        <div class="forgot">
+            <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 mb-3">LOGIN</button>
+        <!-- Google Sign-In Button -->
+        <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+            <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
+            Sign in with Google
+        </button>
+    </form>
+  </div>
+ 
+<!-- Signup Form -->
+<div class="form-popup" id="signupForm">
+    <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
+        <span class="close-icon" onclick="closeForm('signup')">&times;</span>
+        <h2 class="text-center">Signup</h2>
+        <div class="form-group">
+            <label for="name"><b>Full Name</b></label>
+            <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="signupEmail"><b>Email</b></label>
+            <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required>
+        </div>
+        <div class="form-group position-relative">
+          <label for="signupPsw"><b>Password</b></label>
+          <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6" oninput="checkPasswordStrength()">
+          <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
+          <div id="passwordStrength" class="strength-meter"></div>
+      </div>
+  
+        <div class="form-group position-relative">
+            <label for="confirmPsw"><b>Confirm Password</b></label>
+            <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+            <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 mb-3">SIGNUP</button>
+        <!-- Google Sign-In Button -->
+         <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+          <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
+          Sign in with Google</button>
+    </form>
+  </div>
+  
+  <!-- Forgot Password Modal -->
+  <div id="forgot-password-modal" class="modal">
+    <div class="form-container modal-content">
+      <h2>Forgot Password</h2>
+      <p>Please enter your email address to reset your password.</p>
+  
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email" required />
+  
+      <button class="btn" onclick="submitForgotPassword()">Submit</button>
+      <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
+    </div>
+  </div>
+  
+  <!-- Toggle Password Visibility Script -->
+  <script>
+    function togglePasswordVisibility(passwordFieldId, iconId) {
+        const passwordField = document.getElementById(passwordFieldId);
+        const togglePassword = document.getElementById(iconId);
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            togglePassword.classList.remove('bi-eye');
+            togglePassword.classList.add('bi-eye-slash');
+        } else {
+            passwordField.type = 'password';
+            togglePassword.classList.remove('bi-eye-slash');
+            togglePassword.classList.add('bi-eye');
+        }
+    }
+  </script>
+  
+  <!-- Updated CSS Styles -->
+  <style>
+    .form-popup {
+        display: none;
+        position: fixed;
+        z-index: 9;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        max-width: 500px;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+  
+    .form-container h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+  
+    .form-group {
+        margin-bottom: 15px;
+    }
+  
+    .form-control {
+        border-radius: 5px;
+        padding: 12px;
+        font-size: 16px; 
+        line-height: 1.5; 
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 100%;
+    }
+  
+    .forgot {
+        text-align: right; 
+        margin-left: 50px;
+        font-size: 10px;   
+        margin-top: -40px;
+  
+    }
+  
+    .btn {
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+  
+    .eye-icon {
+        position: absolute;
+        right: 15px;
+        top: 38px;
+        cursor: pointer;
+        color: #007bff;
+    }
+  
+    .close-icon {
+        font-size: 24px;
+        cursor: pointer;
+        float: right;
+    }
+  
+    .position-relative {
+        position: relative;
+    }
+  
+    /* Login button jumping issue fix */
+    .btn-primary {
+        transition: all 0.3s ease; /* Smooth transition */
+    }
+  
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+  
+    .google-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+  
+    .google-logo {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+  
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+  </style>
+<!-- Toggle Password Visibility Script -->
+<script>
+    function togglePasswordVisibility(passwordFieldId, iconId) {
+        const passwordField = document.getElementById(passwordFieldId);
+        const togglePassword = document.getElementById(iconId);
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            togglePassword.classList.remove('bi-eye');
+            togglePassword.classList.add('bi-eye-slash');
+        } else {
+            passwordField.type = 'password';
+            togglePassword.classList.remove('bi-eye-slash');
+            togglePassword.classList.add('bi-eye');
+        }
+    }
+    function checkPasswordStrength() {
+    var strengthMeter = document.getElementById('passwordStrength');
+    var password = document.getElementById('signupPsw').value;
+    var strength = 0;
+
+    if (password.length >= 6) strength++;
+    if (password.match(/[a-z]+/)) strength++;
+    if (password.match(/[A-Z]+/)) strength++;
+    if (password.match(/[0-9]+/)) strength++;
+    if (password.match(/[\W]+/)) strength++;
+
+    switch (strength) {
+        case 0:
+        case 1:
+            strengthMeter.style.width = '20%';
+            strengthMeter.style.backgroundColor = 'red';
+            strengthMeter.textContent = 'Weak';
+            break;
+        case 2:
+            strengthMeter.style.width = '40%';
+            strengthMeter.style.backgroundColor = 'orange';
+            strengthMeter.textContent = 'Fair';
+            break;
+        case 3:
+            strengthMeter.style.width = '60%';
+            strengthMeter.style.backgroundColor = 'yellow';
+            strengthMeter.textContent = 'Good';
+            break;
+        case 4:
+            strengthMeter.style.width = '80%';
+            strengthMeter.style.backgroundColor = 'blue';
+            strengthMeter.textContent = 'Strong';
+            break;
+        case 5:
+            strengthMeter.style.width = '100%';
+            strengthMeter.style.backgroundColor = 'green';
+            strengthMeter.textContent = 'Very Strong';
+            break;
+    }
+}
+</script>
+
+
+<script src="signup.js"></script> <!-- Link to your JavaScript file -->
+
+
+
+<div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox">
+        <div class="slider">
+            <img src="https://img.icons8.com/emoji/48/000000/sun-emoji.png" alt="Sun" class="icon sun-icon">
+            <img src="https://img.icons8.com/emoji/48/000000/crescent-moon-emoji.png" alt="Moon" class="icon moon-icon">
+        </div>
+    </label>
+    <span id="mode-label"></span>
+    </div>
+
+</header>
+    </div>
+    
+    <!--main-->
+  </main>
+   <!--mainn-->
+   <div class="about">
+    <div class="privacy-content">
+    <h1>Privacy Policy</h1><br>
+    <p><strong>Effective Date:</strong> October 2024</p>
+
+    <p>Welcome to WordWise. We are committed to protecting your privacy and ensuring that your personal information is handled safely and responsibly. This Privacy Policy outlines the types of information we collect, how we use it, and your rights regarding your personal data.</p>
+
+    <h2>1. Information We Collect</h2>
+    <p>We may collect the following types of information:</p>
+    <ul>
+        <li><strong>Personal Information:</strong> Information that can be used to identify you as an individual, such as your name, email address, phone number, postal address, and payment information.</li>
+        <li><strong>Non-Personal Information:</strong> Information that does not identify you personally, such as browser type, device type, IP address, and usage data.</li>
+        <li><strong>Cookies and Tracking Technologies:</strong> We may use cookies, web beacons, and similar technologies to collect information about your online activities.</li>
+    </ul>
+
+    <h2>2. How We Use Your Information</h2>
+    <p>We may use your information for the following purposes:</p>
+    <ul>
+        <li>To provide and maintain our services</li>
+        <li>To personalize your experience on our platform</li>
+        <li>To improve our website, products, and services</li>
+        <li>To communicate with you about updates, promotions, and other relevant information</li>
+        <li>To process transactions and manage payments</li>
+        <li>To comply with legal obligations and protect the safety and security of our users</li>
+    </ul>
+
+    <h2>3. How We Share Your Information</h2>
+    <p>We do not sell, trade, or rent your personal information to third parties. However, we may share your information with trusted third-party service providers for the following reasons:</p>
+    <ul>
+        <li>To process payments and manage financial transactions</li>
+        <li>To analyze website traffic and user behavior</li>
+        <li>To provide customer support and manage communications</li>
+        <li>To comply with legal requirements and protect our rights</li>
+    </ul>
+
+    <h2>4. Data Security</h2>
+    <p>We take data security seriously and implement a variety of measures to protect your personal information from unauthorized access, use, or disclosure. However, no method of transmission over the internet or electronic storage is completely secure. While we strive to protect your data, we cannot guarantee its absolute security.</p>
+
+    <h2>5. Your Data Rights</h2>
+    <p>You have the following rights concerning your personal information:</p>
+    <ul>
+        <li><strong>Access:</strong> You have the right to request access to the personal information we hold about you.</li>
+        <li><strong>Correction:</strong> You may request corrections to any inaccurate or incomplete personal information.</li>
+        <li><strong>Deletion:</strong> You can request the deletion of your personal information, subject to certain exceptions.</li>
+        <li><strong>Objection:</strong> You may object to the processing of your personal data under certain circumstances.</li>
+        <li><strong>Data Portability:</strong> You have the right to request the transfer of your personal data to another service provider.</li>
+    </ul>
+    <p>To exercise any of these rights, please contact us at [Insert Contact Information].</p>
+
+    <h2>6. Cookies Policy</h2>
+    <p>We use cookies and similar tracking technologies to enhance your experience on our website. Cookies are small data files stored on your device that help us understand how you interact with our services. You may choose to disable cookies through your browser settings, but this may limit your ability to use certain features of our website.</p>
+
+    <h2>7. Third-Party Links</h2>
+    <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices or the content of these websites. Please review the privacy policies of any third-party sites before providing your personal information.</p>
+
+    <h2>8. Children’s Privacy</h2>
+    <p>Our services are not directed to individuals under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that we have inadvertently collected such information, we will take steps to delete it as soon as possible.</p>
+
+    <h2>9. Changes to This Privacy Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page, and we will notify you of any significant updates by posting a prominent notice on our website or by email. Your continued use of our services after the changes become effective constitutes your acceptance of the updated policy.</p>
+
+    <h2>10. Contact Us</h2>
+    <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:</p>
+    <p>WordWise<br>
+    Contact Information<br>
+    Email: dailysupport@gmail.com<br>
+    Phone: 125-896-485</p>
+</div>
+</div>
+<style>
+    .privacy-content h1{
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        margin-left: 1rem;
+    }
+    .privacy-content h2{
+        
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        margin-left: 1rem;
+    }
+    .privacy-content p{
+        
+        font-size: 1.25rem;
+        font-weight: 400;
+        margin-bottom: 1rem;
+        margin-left: 1rem;
+    }
+    .privacy-content ul {
+            list-style-type: none;
+        }
+    .privacy-content ul li::before {
+            content: "\2022";
+            color: #666;
+            font-weight: bold;
+            display: inline-block; 
+            width: 1em;
+            margin-bottom: 1em;
+            margin-left: 1rem;
+        }
+    </style>   
+ <!-- footer -->
+ <footer id="footer">
+    <div class="footer-container">
+        <div class="row mb-3 col-3-main">
+            <div class="col-3">
+               <div id = "about-us">
+                <h2 class="footer-title secondary-title">About Us</h2>
+
+                  <div class="secondary-title">
+                     <p class="mt-2 ">
+                      We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the world.
+                     </p>
+
+                     <address style="margin-bottom: 0;">
+                         <i class="fas fa-map-marker-alt" ></i>
+                         5 South Main Street Los Angeles, ZZ-9611 USA
+                     </address>
+
+                     <div class="phone">
+                         <i class="fas fa-mobile text-primary"></i>
+                         125-896-485
+                     </div>
+
+                    <div class="email">
+                          <a href="mailto: dailysupport@gmail.com" style="color: 3B3B58;"><i class="fas fa-envelope text-primary"></i>
+                         <span>dailysupport@gmail.com</span>
+                      </a>
+                     </div>
+                     <div> <a href="privacy.html" style="color: #520be1e7;">Privacy Policy</a> </div> 
+                     <div>
+                      <img src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5" alt="Web views" style="height: 20px;width: 150px;margin-top: 40px;">
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+            <div class="col-3">
+                <h2 class="footer-title secondary-title">Feature Post</h2>
+
+                <div class="feature-post">
+                    <div class="flex-item">
+                        <article class="article">
+                            <div class="d-flex ">
+                                <a class="d-flex" href="#">
+                                    <img src="./assets/img9.jpg" class="object-fit" alt="">
+                                    <div class="px-1" style="width: 300px;">
+                                        <a href="#" class="text-title display-2 text-dark">
+                                          Embrace the beauty of nature through our enchanting blog, where we celebrate the wonders of the natural world
+                                        </a>
+                                        <p class="secondary-title display-3" style="margin-top:3px;">
+                                             <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="flex-item">
+                     <article class="article">
+                         <div class="d-flex">
+                             <a class="d-flex" href="#">
+                                 <img src="./assets/img1.jpg" class="object-fit" alt="">
+                                 <div class="px-1" style="width: 300px;">
+                                     <a href="#" class="text-title display-2 text-dark">
+                                      Embark on unforgettable journeys through our travel blog, where wanderlust meets inspiration
+                                     </a>
+                                     <p class="secondary-title display-3" style="margin-top:3px;">
+                                          <span><i class="far fa-clock text-primary"></i> Wed 05, 2020 </span>
+                                     </p>
+                                 </div>
+                             </a>
+                         </div>
+                     </article>
+                      </div>
+                      <div class="flex-item">
+                         <article class="article">
+                             <div class="d-flex">
+                                 <a class="d-flex" href="#">
+                                     <img src="./assets/img2.jpg" class="object-fit" alt="">
+                                     <div class="px-1" style="width: 300px;">
+                                         <a href="#" class="text-title display-2 text-dark">
+                                          Gaming Adventures Unleashed
+                                         </a>
+                                         <p class="secondary-title display-3" style="margin-top:3px;">
+                                              <span><i class="far fa-clock text-primary"></i> Wed 02, 2021 </span>
+                                         </p>
+                                     </div>
+                                 </a>
+                             </div>
+                         </article>
+                     </div>
+                </div>
+            </div>
+            <div class="col-3">
+                 <h2 class="footer-title secondary-title">Popular Tags</h2>
+
+                 <div class="tags">
+                     <div class="d-flex-gap flex-wrap">
+                         <a href="#" class="nav-link btn bg-light">Travel</a>
+                         <a href="#" class="nav-link btn bg-light">Food</a>
+                         <a href="#" class="nav-link btn bg-light">Lifestyle</a>
+                         <a href="#" class="nav-link btn bg-light">Techonogy</a>
+                         <a href="#" class="nav-link btn bg-light">Fashion</a>
+                     </div>
+                 </div>
+
+                 <h2 class="footer-title secondary-title mt-2">Connect with us</h2>
+
+                 <div class="tags social" id="contact">
+                     <div class="d-flex-gap flex-wrap">
+                         <a href="https://www.facebook.com/" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
+                         <a href="https://x.com/" class="nav-link btn bg-light"><i class="fa-brands fa-x-twitter"></i></a>
+                         <a href="https://www.instagram.com/" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
+                         <a href="https://dribbble.com/" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
+                         <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" target="_blank"  class="nav-link btn bg-light"
+                         ><i class="fa-brands fa-github"></i></a>
+                     </div>
+                 </div>
+
+            </div>
+        </div>
+
+
+    </div>
+     <!-- the authentication copyright -->
+     <div class="wordwise-footer">
+      <div class="wordwise-footer-content">
+        <p>&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
+      </div>
+  </div>
+    
+    
+</footer>
+<!-- .footer -->
+<!-- this script is for twitter icon  starts -->
+<script src="https://kit.fontawesome.com/856f4a44d7.js" crossorigin="anonymous"></script>
+<!-- this script is for twitter icon  ends -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="main.js"></script>
+  <script src="./backend/login-Auth/login.js"></script>
+  <script src="./backend/signup-Auth/signup.js"></script>
+  <script src="SignIn_SignUp.js"></script>
+  <script src="darkMode.js"></script>
+
+
+  <!-- this script is to display the year in the copyright authentication in the footer -->
+  <script>
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+  
+<!-- Share Modal -->
+<div id="share-modal">
+  <div class="modal-content">
+      <h4>Share this post:</h4>
+      <a href="#" id="share-facebook">Facebook</a>
+      <a href="#" id="share-twitter">Twitter</a>
+      <a href="#" id="share-linkedin">LinkedIn</a>
+      <a href="#" id="share-pinterest">Pinterest</a>
+      <span class="close-modal" id="close-modal">Close</span>
+    </div>
+    </div>
+    <script src="share.js"></script>
+    </div>
+        </section>
+  <script src="share.js"></script>
+  <script src="main.js"></script>
+  <script src="darkMode.js"></script>
+  <script src="progress_bar.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <script src="profiledropdown.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
