@@ -2,57 +2,70 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const rateLimit = require("express-rate-limit"); // Import express-rate-limit
 const app = express();
+const { login } = require("./signUp/signup"); // Imported login function
 const PORT = process.env.PORT || 3000;
-//blog modal
+
+// Blog modal
 const BlogModal = require("./modal/BlogModal");
 
-//middleware
+// Middleware
 const formidable = require("express-formidable");
-
-//to process image
 const fs = require("fs").promises;
+const cookieParser = require("cookie-parser");
 
 const ConnectDb = require("./Database");
 const { subscribeToNewsletter } = require("./controllers/NewsLetterController");
 const { saveContactForm } = require("./controllers/ContactController");
 
+// Middleware setup
 app.use(bodyParser.json());
 const corsOptions = {
-  origin: ['http://localhost:5501', 'http://127.0.0.1:5501', 'http://127.0.0.1:5500'],
-  methods: ['GET', 'POST', 'HEAD', 'OPTIONS'], // Allow POST method
-  credentials: true
+  origin: [
+    "http://localhost:5501",
+    "http://127.0.0.1:5501",
+    "http://127.0.0.1:5500",
+  ],
+  methods: ["GET", "POST", "HEAD", "OPTIONS"], // Allow POST method
+  credentials: true,
 };
 
 app.use(cors(corsOptions));
-// Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 ConnectDb();
 
+// Create a rate limiter for the login route
+const loginLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 5 minutes
+  max: 5, // Limit each IP to 5 requests per windowMs
+  message: "Too many login attempts, please try again later after 5 minutes.",
+});
+
+// Email sending logic
 app.post("/send-email", async (req, res) => {
   const { Name, email, phone, message } = req.body;
-  //console.log("Received email:",  Name, email, phone, message); 
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.EMAIL_USER, // add you email
-      pass: process.env.EMAIL_PASS, // add your password
+      user: process.env.EMAIL_USER, // Add your email
+      pass: process.env.EMAIL_PASS, // Add your password
     },
   });
 
   let mailOptions = {
     from: email,
-    to: "arora.anshika.26@gmail.com", // add email where you want to send the message
-    subject: `Contact Us Form Submission from ${Name} `,
+    to: "arora.anshika.26@gmail.com", // Add email where you want to send the message
+    subject: `Contact Us Form Submission from ${Name}`,
     text: `You have received a new message from your website contact form.
-
-        Name: ${Name} 
-        Email: ${email}
-        Phone: ${phone}
-        Message: ${message}`,
+    
+    Name: ${Name}
+    Email: ${email}
+    Phone: ${phone}
+    Message: ${message}`,
   };
 
   try {
@@ -70,14 +83,14 @@ app.post("/subscribe", async (req, res) => {
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "your-email@gmail.com",
-      pass: "your-email-password",
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
     },
   });
 
   let mailOptions = {
-    from: "your-email@gmail.com",
-    to: "your-email@gmail.com",
+    from: process.env.EMAIL_USER,
+    to: process.env.EMAIL_USER,
     subject: "New Newsletter Subscription",
     text: `You have a new subscriber! Email: ${email}`,
   };
@@ -92,11 +105,10 @@ app.post("/subscribe", async (req, res) => {
   }
 });
 
-app.post('/newsletter',subscribeToNewsletter);
+app.post("/newsletter", subscribeToNewsletter);
 app.post("/submit-contact-form", saveContactForm);
 
-//create a blog Api
-
+// Create a blog API
 app.post("/post_blog", formidable(), async (req, resp) => {
   try {
     const { heading, topic, content, writerName } = req.fields;
@@ -117,11 +129,11 @@ app.post("/post_blog", formidable(), async (req, resp) => {
 
     const blog = await new BlogModal(blogdata).save();
 
-    // process the image if it exists
+    // Process the image if it exists
     if (req.files && req.files.image) {
       blog.image.data = await fs.readFile(req.files.image.path);
       blog.image.contentType = req.files.image.type;
-      await fs.unlink(req.files.image.path); // delete the file after saving
+      await fs.unlink(req.files.image.path); // Delete the file after saving
       await blog.save();
     }
 
@@ -140,6 +152,10 @@ app.post("/post_blog", formidable(), async (req, resp) => {
   }
 });
 
+// Add login route with rate limiter
+app.post("/login", loginLimiter, login);
+
+// Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
