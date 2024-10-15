@@ -3,6 +3,7 @@ const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
+const cookieParser = require('cookie-parser');
 const PORT = process.env.PORT || 3000;
 //blog modal
 const BlogModal = require("./modal/BlogModal");
