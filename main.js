@@ -1,10 +1,13 @@
 let toggle = document.querySelector("#header .toggle-button");
 let collapse = document.querySelectorAll("#header .collapse");
+document.getElementById("backToTop").style.display = "none";
 
+if (toggle) {
+    toggle.addEventListener('click', function () {
+    collapse.forEach(col => col.classList.toggle("collapse-toggle"));
+    })
+}
 
-toggle.addEventListener('click', function () {
-  collapse.forEach(col => col.classList.toggle("collapse-toggle"));
-})
 //swiper library
 // main.js
 document.addEventListener('DOMContentLoaded', function () {
@@ -27,19 +30,31 @@ document.addEventListener('DOMContentLoaded', function () {
        detectColorScheme();
  });
 
+ window.addEventListener("scroll", function () {
+  var scrollPosition = window.scrollY;
+  var height = document.body.offsetHeight - window.innerHeight;
+  if (scrollPosition > 90) {
+      document.getElementById("backToTop").style.display = "block";
+  } else {
+      document.getElementById("backToTop").style.display = "none";
+  }
+});
+
+document.getElementById("backToTop").addEventListener("click", function () {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
 window.onscroll = function () { myFunction() };
 
 
 // get the current value
 let navbar = document.getElementById("header");
 
-
-// get the navbar position
-let sticky = navbar.offsetTop;
-
-
 // sticky function
 function myFunction() {
+  // get the navbar position
+  let sticky = navbar.offsetTop;
+
   if (window.pageYOffset >= sticky) {
     navbar.classList.add("sticky");
   } else {
@@ -65,41 +80,38 @@ function closeForm(formType) {
   }
 }
 
+//Active Nav bar
 function openForgotPassword() {
-  document.getElementById('loginForm').style.display = 'none';
-  document.getElementById('email').value = '';
-  document.getElementById('forgot-password-modal').style.display = 'block';
-}
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('email').value = '';
+    document.getElementById('forgot-password-modal').style.display = 'block';
+  }
 
 // Close Forgot Password Modal
 function closeForgotPasswordModal() {
-  document.getElementById('email').value = '';
-  document.getElementById('forgot-password-modal').style.display = 'none';
+    document.getElementById('email').value = '';
+    document.getElementById('forgot-password-modal').style.display = 'none';
 }
 
 // Simulate form submission for Forgot Password
 function submitForgotPassword() {
-  const email = document.getElementById('email').value;
-  if (email) {
-    alert("Password reset instructions have been sent to " + email);
-    closeForgotPasswordModal(); // Close modal after submission
-  } else {
-    alert("Please enter your email.");
-  }
+    const email = document.getElementById('email').value;
+    if (email) {
+        alert("Password reset instructions have been sent to " + email);
+        closeForgotPasswordModal(); // Close modal after submission
+    } else {
+        alert("Please enter your email.");
+}
 }
 
 // Close modal when clicking outside of it
 window.onclick = function(event) {
-  const modal = document.getElementById('forgot-password-modal');
-  if (event.target == modal) {
-    modal.style.display = 'none';
-  }
+    const modal = document.getElementById('forgot-password-modal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+}
 };
 
-
-
-
-//Active Nav bar 
 const navLinks = document.querySelectorAll('.nav-link');
 const setActiveLink = () => {
   const activePath = localStorage.getItem('activeLink');
@@ -129,7 +141,7 @@ navLinks.forEach(link => {
 
 
 function detectColorScheme() {
-  var theme = "light";   
+  var theme = "light";
 
 
   //local storage is used to override OS theme settings
@@ -172,9 +184,9 @@ function switchTheme(e) {
   }
 }
 
-
-//listener for changing themes
-toggleSwitch.addEventListener('change', switchTheme, false);
+if (toggleSwitch)
+  //listener for changing themes
+  toggleSwitch.addEventListener('change', switchTheme, false);
 
 
 //pre-check the dark-theme checkbox if dark-theme is set
@@ -182,7 +194,59 @@ if (document.documentElement.getAttribute("data-theme") == "dark") {
   toggleSwitch.checked = true;
 }
 
-document.querySelector('#about').addEventListener('click', function(event) {
-  event.preventDefault();
-  document.querySelector('#about-us').scrollIntoView({ behavior: 'smooth' });
-});
+let aboutSection = document.querySelector('#about');
+
+if (aboutSection) {
+    document.querySelector('#about').addEventListener('click', function(event) {
+    event.preventDefault();
+    document.querySelector('#about-us').scrollIntoView({ behavior: 'smooth' });
+    });
+}
+
+function submitNewsletter() {
+  const emailInput = document.getElementById('emailInput');
+  const errorMessage = document.getElementById('error-message');
+  const email = emailInput.value;
+
+  // Simple email validation check
+  if (!email.includes('@')) {
+    errorMessage.style.display = 'block';
+    return;
+  } else {
+    errorMessage.style.display = 'none';
+  }
+
+  // Send POST request
+  fetch('http://127.0.0.1:3000/newsletter', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email })
+  })
+  .then(response => {
+    if (response.ok) {
+      alert('Subscribed successfully!');
+      emailInput.value = ''; // Clear the input field
+    } else {
+      alert('Failed to subscribe. Please try again later.');
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('An error occurred. Please try again later.');
+  });
+}
+
+// Get hamburger and nav links
+var hamburger = document.getElementById('hamburger');
+var navLinks1 = document.getElementById('nav-links1');
+
+// Only add event listener if both elements exist on the page
+if (hamburger && navLinks1) {
+    hamburger.addEventListener('click', () => {
+        navLinks1.classList.toggle('active');
+    });
+} else {
+    console.warn('Hamburger or Nav Links not found on this page.');
+}

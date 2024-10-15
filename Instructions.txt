@@ -1,0 +1,3 @@
+First Install all the requirements.
+Then run app.py
+Then run index.html

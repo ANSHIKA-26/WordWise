@@ -12,19 +12,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--swiper slider css-->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
     <!-- bootstrap icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 
     <!-- for scroll reveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
+    
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" /> -->
 
     <!--css-->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="Scroll_and_progressbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-    
+
          @media (max-width: 1200px) {
     .footer-container {
       padding: 20px;
@@ -79,61 +81,6 @@
     height: auto;
   }
     </style>
-
-
-    <style>
-       
-
-.form-container {
-    max-width: 350px;
-    padding: 20px;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 1px;
-    
-    display: inline-block;
-    border: 1px solid #ccc;
-    /* box-sizing: border-box; */
-    font-size: 16px;
-}
-
-.form-container h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* .btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-} */
-
-.btn:hover {
-    opacity: 0.8;
-}
-
-.cancel {
-    background-color: #f44336;
-}
-
-.toggle-button {
-    cursor: pointer;
-    color: #007bff;
-    margin-left: 10px;
-}
-
-
-    </style>
-
-
 <!-- Script for Navbar Toggle -->
  <script>
     function toggleMenu() {
@@ -157,102 +104,222 @@
     </div>
     <div class="progress-container">
         <div class="progress-bar" id="progress-bar"></div>
-      </div>
+    </div>
 <!-- Navigation Bar  -->
-    <header class="navbar">
-        <div class="logo">
-            <h2><a class="home-link" href="index.html">WordWise</a></h2>
-        </div>
-    
-        <button class="toggle-button" onclick="toggleMenu()">
-            &#9776; <!-- Hamburger icon -->
-        </button>
-    
-        <nav class="nav-menu" id="nav-menu">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="blog.html">Leading Blog</a></li>
-                <li><a href="start_writing.html">Start Writing</a></li>
-                <li><a href="category.html">Categories</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact_us.html">Contact Us</a></li>
-                <li><a href="contact_us.html">Give Feedback</a></li>
-            </ul>
-        </nav>
-<!-- Navigation Bar Ends -->
-        <div class="auth-buttons">
-            <a href="#login" class="login-btn" onclick="openForm('login')">Login</a>
-            <a href="#signup" class="signup-btn" onclick="openForm('signup')">Signup</a>
-        </div> 
-    
-        <!-- Login Form -->
-<!-- Login Form -->
-<div class="form-popup" id="loginForm">
+<div class="layout-container" style="margin-bottom: 4rem;">
+
+    <header>
+
+
+
+    <div class="logo" >
+        <a href="index.html">
+          <h2>WordWise</h2>
+        </a>
+    </div>
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="nav-links1" id="nav-links1">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Leading Blog</a>
+        <a href="start_writing.html">Start Writing</a>
+        <a href="category.html">Categories</a>
+        <a href="about.html">About</a>
+        <a href="contact_us.html">Contact Us</a>
+        <a href="give_feedback.html">Give Feedback</a>
+    </div>
+
+
+
+
+              <div class="dropdown">
+                <!-- Profile Icon -->
+                <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
+                    <i class="fas fa-user-circle"></i>
+                </a>
+
+                <!-- Dropdown Menu -->
+                <ul class="dropdown-menu" id="dropdownMenu">
+                    <li><a href="#login" onclick="openForm('login')">Login</a></li>
+                    <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
+                </ul>
+            </div>
+
+
+
+  <!--  Login Form -->
+  <div class="form-popup" id="loginForm">
     <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
-        <span class="close-icon" onclick="closeForm('login')">&times;</span>
-        <h2 class="text-center">Login</h2>
-        <div class="form-group">
-            <label for="loginEmail"><b>Email</b></label>
-            <input type="email" class="form-control" id="loginEmail" placeholder="Enter Email" name="email" required>
+      <span class="close-icon" onclick="closeForm('login')">&times;</span>
+      <h2 class="text-center">Login</h2>
+      <div class="form-group">
+        <label for="loginEmail"><b>Email</b></label>
+        <div class="input-group">
+          <span class="input-icon">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+          </span>
+          <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
         </div>
-        <div class="form-group position-relative">
-            <label for="loginPsw"><b>Password</b></label>
-            <input type="password" class="form-control" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
-            <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
+      </div>
+      <div class="form-group position-relative">
+        <label for="loginPsw"><b>Password</b></label>
+        <div class="input-group">
+            <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required>
+            <span class="password-toggle">
+                <i class="fas fa-lock" aria-hidden="true"></i>
+                <i class="fas fa-unlock" aria-hidden="true" style="display: none;"></i>
+            </span>
         </div>
-        <div class="forgot">
-            <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
-          </div>
-        <button type="submit" class="btn btn-primary w-100 mb-3">LOGIN</button>
-       <!-- Google Sign-In Button -->
-             <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
-                <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
-                Sign in with Google</button>
-        <button type="button" class="btn btn-secondary w-100" onclick="closeForm('login')">CLOSE</button>
+    </div>
+      <div class="forgot">
+        <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
+      </div>
+      <button type="submit" class="btn">LOGIN</button>
+      <span class="separator">or</span>
+      <!-- Social Icons -->
+      <div class="social-icons">
+        <a href="javascript:void(0);" onclick="handleGoogleLogin()">
+          <i class="fab fa-google" aria-hidden="true"></i>
+        </a>
+        <a href="javascript:void(0);" onclick="handleFacebookLogin()">
+          <i class="fab fa-facebook-f" aria-hidden="true"></i>
+        </a>
+        <a href="javascript:void(0);" onclick="handleTwitterLogin()">
+          <i class="fab fa-twitter" aria-hidden="true"></i>
+        </a>
+      </div>
     </form>
-</div>
+  </div>
+
+  <script>
+const passwordInput = document.getElementById('loginPsw');
+const togglePasswordIcon = document.querySelector('.password-toggle');
+const lockIcon = togglePasswordIcon.querySelector('.fa-lock');
+const unlockIcon = togglePasswordIcon.querySelector('.fa-unlock');
+
+togglePasswordIcon.addEventListener('click', () => {
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    lockIcon.style.display = 'none';
+    unlockIcon.style.display = 'block';
+  } else {
+    passwordInput.type = 'password';
+    lockIcon.style.display = 'block';
+    unlockIcon.style.display = 'none';
+  }
+});
+    </script>
+
 
 <!-- Signup Form -->
 <div class="form-popup" id="signupForm">
     <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
         <span class="close-icon" onclick="closeForm('signup')">&times;</span>
         <h2 class="text-center">Signup</h2>
-        <div class="form-group">
+        <div class="form-group position-relative">
             <label for="name"><b>Full Name</b></label>
-            <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
+            <input type="text" id="name" placeholder="Enter Full Name" name="name">
+            <i class="fas fa-user" aria-hidden="true"></i>
         </div>
-        <div class="form-group">
+        
+        <div class="form-group position-relative">
             <label for="signupEmail"><b>Email</b></label>
-            <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required>
+            <input type="email" id="signupEmail" placeholder="Enter Email" name="email">
+            <i class="fas fa-envelope" aria-hidden="true"></i>
         </div>
+        
         <div class="form-group position-relative">
             <label for="signupPsw"><b>Password</b></label>
-            <input type="password" class="form-control" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
-            <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
+            <div class="input-group">
+                <input type="password" id="signupPsw" placeholder="Enter Password" name="psw">
+                <span class="password-icon toggle-password">
+                    <i class="fas fa-lock" aria-hidden="true"></i>
+                    <i class="fas fa-unlock" aria-hidden="true" style="display: none;"></i>
+                </span>
+            </div>
+            <div id="passwordStrength" class="strength-meter"></div>
         </div>
+        
         <div class="form-group position-relative">
             <label for="confirmPsw"><b>Confirm Password</b></label>
-            <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
-            <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
+            <div class="input-group">
+                <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw">
+                <span class="password-icon toggle-password">
+                    <i class="fas fa-lock" aria-hidden="true"></i>
+                    <i class="fas fa-unlock" aria-hidden="true" style="display: none;"></i>
+                </span>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary w-100 mb-3">SIGNUP</button>
-        <!-- Google Sign-In Button -->
-         <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
-          <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
-          Sign in with Google</button>
-        <button type="button" class="btn btn-secondary w-100" onclick="closeForm('signup')">CLOSE</button>
+        <button type="submit" class="btn">SIGNUP</button>
+        <span class="separator">or</span>
+        <!-- Social Icons -->
+        <div class="social-icons">
+            <a href="javascript:void(0);" onclick="handleGoogleLogin()">
+                <i class="fab fa-google" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" onclick="handleFacebookLogin()">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            </a>
+            <a href="javascript:void(0);" onclick="handleTwitterLogin()">
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+        </div>
     </form>
 </div>
+
+<script>
+const signupPasswordInput = document.getElementById('signupPsw');
+const confirmPasswordInput = document.getElementById('confirmPsw');
+
+const signupPasswordInputGroup = signupPasswordInput.parentNode;
+const confirmPasswordInputGroup = confirmPasswordInput.parentNode;
+
+const toggleSignupPasswordIcon = signupPasswordInputGroup.querySelector('.toggle-password');
+const toggleConfirmPasswordIcon = confirmPasswordInputGroup.querySelector('.toggle-password');
+
+const signupLockIcon = toggleSignupPasswordIcon.querySelector('.fa-lock');
+const signupUnlockIcon = toggleSignupPasswordIcon.querySelector('.fa-unlock');
+
+const confirmLockIcon = toggleConfirmPasswordIcon.querySelector('.fa-lock');
+const confirmUnlockIcon = toggleConfirmPasswordIcon.querySelector('.fa-unlock');
+
+toggleSignupPasswordIcon.addEventListener('click', () => {
+  if (signupPasswordInput.type === 'password') {
+    signupPasswordInput.type = 'text';
+    signupLockIcon.style.display = 'none';
+    signupUnlockIcon.style.display = 'block';
+  } else {
+    signupPasswordInput.type = 'password';
+    signupLockIcon.style.display = 'block';
+    signupUnlockIcon.style.display = 'none';
+  }
+});
+
+toggleConfirmPasswordIcon.addEventListener('click', () => {
+  if (confirmPasswordInput.type === 'password') {
+    confirmPasswordInput.type = 'text';
+    confirmLockIcon.style.display = 'none';
+    confirmUnlockIcon.style.display = 'block';
+  } else {
+    confirmPasswordInput.type = 'password';
+    confirmLockIcon.style.display = 'block';
+    confirmUnlockIcon.style.display = 'none';
+  }
+});
+</script>
 
 <!-- Forgot Password Modal -->
 <div id="forgot-password-modal" class="modal">
     <div class="form-container modal-content">
       <h2>Forgot Password</h2>
       <p>Please enter your email address to reset your password.</p>
-  
+
       <label for="email">Email Address</label>
       <input type="email" id="email" placeholder="Enter your email" required />
-  
+
       <button class="btn" onclick="submitForgotPassword()">Submit</button>
       <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
     </div>
@@ -273,27 +340,64 @@
             togglePassword.classList.add('bi-eye');
         }
     }
+    function checkPasswordStrength() {
+    var strengthMeter = document.getElementById('passwordStrength');
+    var password = document.getElementById('signupPsw').value;
+    var strength = 0;
+
+    if (password.length >= 6) strength++;
+    if (password.match(/[a-z]+/)) strength++;
+    if (password.match(/[A-Z]+/)) strength++;
+    if (password.match(/[0-9]+/)) strength++;
+    if (password.match(/[\W]+/)) strength++;
+
+    switch (strength) {
+        case 0:
+        case 1:
+            strengthMeter.style.width = '20%';
+            strengthMeter.style.backgroundColor = 'red';
+            strengthMeter.textContent = 'Weak';
+            break;
+        case 2:
+            strengthMeter.style.width = '40%';
+            strengthMeter.style.backgroundColor = 'orange';
+            strengthMeter.textContent = 'Fair';
+            break;
+        case 3:
+            strengthMeter.style.width = '60%';
+            strengthMeter.style.backgroundColor = 'yellow';
+            strengthMeter.textContent = 'Good';
+            break;
+        case 4:
+            strengthMeter.style.width = '80%';
+            strengthMeter.style.backgroundColor = 'blue';
+            strengthMeter.textContent = 'Strong';
+            break;
+        case 5:
+            strengthMeter.style.width = '100%';
+            strengthMeter.style.backgroundColor = 'green';
+            strengthMeter.textContent = 'Very Strong';
+            break;
+    }
+}
 </script>
 
-<!-- Styles -->
+<!-- Updated CSS Styles -->
 <style>
     .form-popup {
-        .form-popup {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 9; /* Sit on top */
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%); /* Center the popup */
-    width: 100%;
-    max-width: 500px; /* Limit width */
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
-    box-sizing: border-box;
-}
-
+        display: none;
+        position: fixed;
+        z-index: 9;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        max-width: 500px;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+        box-sizing: border-box;
     }
 
     .form-container h2 {
@@ -307,8 +411,19 @@
 
     .form-control {
         border-radius: 5px;
-        padding: 10px;
+        padding: 12px;
+        font-size: 16px; 
+        line-height: 1.5; 
         box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 100%;
+    }
+
+    .forgot {
+        text-align: right; 
+        margin-left: 140px;
+        font-size: 10px;   
+        margin-top: -40px;
+
     }
 
     .btn {
@@ -334,30 +449,56 @@
         position: relative;
     }
 
+    /* Login button jumping issue fix */
+    .btn-primary {
+        transition: all 0.3s ease; /* Smooth transition */
+    }
+
     .btn-primary:hover {
         background-color: #0056b3;
     }
 
-    .btn-secondary:hover {
-        background-color: #6c757d;
+    .google-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
+
+    .google-logo {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+    .strength-meter {
+    height: 10px;
+    width: 0;
+    transition: width 0.3s;
+    margin-top: 5px;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+}
 </style>
 
 <!-- Bootstrap Icons -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <script src="signup.js"></script> <!-- Link to your JavaScript file -->
+    <script src="backend/signup/signup.js"></script> <!-- Link to your JavaScript file -->
 
       <div class="theme-switch-wrapper">
         <label class="theme-switch" for="checkbox">
             <input type="checkbox" id="checkbox">
             <div class="slider">
-                <img src="https://img.icons8.com/emoji/48/000000/sun-emoji.png" alt="Sun" class="icon sun-icon">
+                <img src="https://img.icons8.com/emoji/48/000000/sun-emoji.png" alt="Sun"  class="icon sun-icon">
                 <img src="https://img.icons8.com/emoji/48/000000/crescent-moon-emoji.png" alt="Moon" class="icon moon-icon">
             </div>
         </label>
         <span id="mode-label"></span>
     </div>
-    
+
     </header>
 </div>
 <!--Header Ends-->
@@ -385,6 +526,13 @@
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 01,2020 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 13</span>
+                                        <span class="heart-container">
+                                            <button class="heart-btn">
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                </svg>
+                                            </button>
+                                        </span>
                                     </p>
                                 </div>
 
@@ -412,6 +560,12 @@
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Mon 13,2023 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 12</span>
+                                        <span  class="heart-btn">
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                </svg>
+                                            </button>
+                                        </span>
                                     </p>
                                 </div>
 
@@ -440,6 +594,13 @@
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 09,2023 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 19</span>
+                                        <span class="heart-container">
+                                            <button  class="heart-btn">
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                </svg>
+                                            </button>
+                                        </span>
                                     </p>
                                 </div>
 
@@ -468,6 +629,13 @@
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Tue 07,2019 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 6</span>
+                                        <span class="heart-container">
+                                            <button class="heart-btn">
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                </svg>
+                                            </button>
+                                        </span>
                                     </p>
                                 </div>
 
@@ -496,6 +664,13 @@
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Tue 02,2021 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 10</span>
+                                        <span class="heart-container">
+                                            <button  class="heart-btn">
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                </svg>
+                                            </button>
+                                        </span>
                                     </p>
                                 </div>
 
@@ -526,6 +701,13 @@
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 12</span>
+                                        <span class="heart-container">
+                                            <button class="heart-btn">
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                </svg>
+                                            </button>
+                                        </span>
                                     </p>
                                 </div>
 
@@ -554,6 +736,13 @@
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 12</span>
+                                        <span class="heart-container">
+                                            <button class="heart-btn">
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                </svg>
+                                            </button>
+                                        </span>
                                     </p>
                                 </div>
 
@@ -582,6 +771,13 @@
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 12</span>
+                                        <span class="heart-container">
+                                            <button class="heart-btn">
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                </svg>
+                                            </button>
+                                        </span>
                                     </p>
                                 </div>
 
@@ -610,6 +806,13 @@
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 12</span>
+                                        <span class="heart-container">
+                                            <button  class="heart-btn">
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                </svg>
+                                            </button>
+                                        </span>
                                     </p>
                                 </div>
 
@@ -638,6 +841,13 @@
                                   <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                       <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
                                       <span><i class="bi bi-chat-fill"></i> 12</span>
+                                      <span class="heart-container">
+                                        <button  class="heart-btn">
+                                            <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                            </svg>
+                                        </button>
+                                    </span>
                                   </p>
                               </div>
 
@@ -666,7 +876,13 @@
                                 <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                     <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
                                     <span><i class="bi bi-chat-fill"></i> 12</span>
-                                </p>
+                                    <span class="heart-container">
+                                        <button  class="heart-btn">
+                                            <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                            </svg>
+                                        </button>
+                                    </span>
                             </div>
 
                         </div>
@@ -695,6 +911,13 @@
                               <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                   <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
                                   <span><i class="bi bi-chat-fill"></i> 12</span>
+                                  <span class="heart-container">
+                                    <button class="heart-btn">
+                                        <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                        </svg>
+                                    </button>
+                                </span>
                               </p>
                           </div>
 
@@ -721,6 +944,13 @@
                             <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                 <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
                                 <span><i class="bi bi-chat-fill"></i> 12</span>
+                                <span class="heart-container">
+                                    <button class="heart-btn">
+                                        <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                        </svg>
+                                    </button>
+                                </span>
                             </p>
                         </div>
 
@@ -749,6 +979,13 @@
                           <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                               <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
                               <span><i class="bi bi-chat-fill"></i> 12</span>
+                              <span class="heart-container">
+                                <button class="heart-btn">
+                                    <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+                                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
+                                </button>
+                            </span>
                           </p>
                       </div>
 
@@ -762,9 +999,21 @@
                     <button class="btn load-posts-btn secondary-title text-light" style="height:50px;width:200px;font-size: large;border-radius: 20px;">Load More Posts...</button>
               </div>
             </div>
-
-
-
+            <script>
+                
+                const heartButtons = document.querySelectorAll('.heart-btn');
+            
+            
+                heartButtons.forEach(function(button) {
+                    button.addEventListener('click', function() {
+                       
+                        const heartIcon = this.querySelector('.heart-icon');
+                       
+                        heartIcon.classList.toggle('red');
+                    });
+                });
+            </script>
+            
 
         </section>
         <!--blog post section-->
@@ -777,7 +1026,7 @@
                 <input type="radio" name="radio-btn" id="radio4">
                 <input type="radio" name="radio-btn" id="radio5">
                 <input type="radio" name="radio-btn" id="radio6">
-    
+
                 <!-- Slide images -->
                 <div class="slide first">
                     <img src="./assets/slider/img1.jpg" alt="Slide 1">
@@ -797,7 +1046,7 @@
                 <div class="slide">
                     <img src="./assets/slider/img6.jpg" alt="Slide 6">
                 </div>
-    
+
                 <!-- Automatic navigation -->
                 <div class="navigation-auto">
                     <div class="auto-btn1"></div>
@@ -808,7 +1057,7 @@
                     <div class="auto-btn6"></div>
                 </div>
             </div>
-    
+
             <!-- Manual navigation -->
             <div class="navigation-manual">
                 <label for="radio1" class="manual-btn"></label>
@@ -821,7 +1070,7 @@
         </div>
 </section>
 <section class="faq" id="faq">
-    
+
 <!-- </section> -->
     <div class="container_1">
         <div class="accordion__wrapper">
@@ -906,7 +1155,7 @@
         <div id="sub"><button type="submit">Subscribe</button></div>
     </form>
     </div>
-    
+
     <!-- Toast Popup -->
     <div id="toast" class="toast hidden"></div>
 </section>
@@ -914,11 +1163,15 @@
 <!-- Include the Newsletter.js script file -->
 <script src="./backend/newsLetter.js"></script>
 
-  
+
 
 
     </main>
-    <button id="backToTop">⬆️</button>
+    <!-- <button id="backToTop">⬆️</button> -->
+    <div id="backToTop" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
     <!--mainn-->
     <!-- footer -->
     <footer id="footer">
@@ -929,11 +1182,11 @@
                   <h2 class="footer-title secondary-title" >About Us</h2>
 
                     <div class="secondary-title text-secondary " >
-                       <p class="mt-2 text-lg" style="text-align: left;" >
+                       <p class="mt-2 " style="text-align: left;  color: #a0a0a0" >
                         We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the world.
-                       </p>
+                       </p> 
 
-                       <address class="mt-2">
+                       <address class="address mt-2" style="padding-top: 20px;">
                            <i class="fas fa-map-marker-alt text-primary"></i>
                            5 South Main Street Los Angeles, ZZ-9611 USA
                        </address>
@@ -948,14 +1201,14 @@
                            <span>dailysupport@gmail.com</span>
                         </a>
                        </div>
-
-                       <div>
-                        <img src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5" alt="Web views" style="height: 20px;width: 150px;margin-top: 40px;">
+                        <div>
+                        <img src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5" alt="Web views" style="height: 22px;width: 150px;margin-top: 40px;">
                        </div>
                     </div>
 
                  </div>
               </div>
+              
               <div class="col-3">
                   <h2 class="footer-title secondary-title">Feature Post</h2>
 
@@ -965,7 +1218,7 @@
                             <div class="d-flex" style="align-items: flex-start; ">
                                 <a class="d-flex" href="#">
                                     <img src="./assets/img9.jpg" class="object-fit" alt="">
-                                    <div class="px-1" style="width: 300px; ">
+                                    <div class="px-1" style="width: 400px; ">
                                         <a href="#" class="text-title display-2 text-dark">
                                             Embrace the beauty of nature through our enchanting blog, where we celebrate the wonders of the natural world
                                         </a>
@@ -976,14 +1229,14 @@
                                 </a>
                             </div>
                         </article>
-                        
+
                       </div>
                       <div class="flex-item">
                        <article class="article">
                            <div class="d-flex" style="align-items: flex-start; ">
                                <a class="d-flex" href="#">
                                    <img src="./assets/img1.jpg" class="object-fit" alt="">
-                                   <div class="px-1" style="width: 300px;">
+                                   <div class="px-1" style="width: 400px;">
                                        <a href="#" class="text-title display-2 text-dark">
                                         Embark on unforgettable journeys through our travel blog, where wanderlust meets inspiration
                                        </a>
@@ -997,10 +1250,10 @@
                         </div>
                         <div class="flex-item">
                            <article class="article">
-                               <div class="d-flex" style="align-items: flex-start; ">
+                               <div class="d-flex" style="align-items: flex-start;">
                                    <a class="d-flex " href="#" >
                                        <img src="./assets/img2.jpg" class="object-fit" alt="">
-                                       <div class="px-1" style="width: 300px;">
+                                       <div class="px-1" style="width: 400px;">
                                            <a href="#" class="text-title display-2 text-dark">
                                             Gaming Adventures Unleashed
                                            </a>
@@ -1018,26 +1271,35 @@
                    <h2 class="footer-title secondary-title">Popular Tags</h2>
 
                    <div class="tags">
-                       <div class="d-flex-gap flex-wrap">
-                           <a href="#" class="nav-link btn bg-light " style="font-weight: 400;">Travel</a>
-                           <a href="#" class="nav-link btn bg-light" style="font-weight: 400;">Food</a>
-                           <a href="#" class="nav-link btn bg-light" style="font-weight: 400;">Lifestyle</a>
-                           <a href="#" class="nav-link btn bg-light" style="font-weight: 400;">Techonogy</a>
+                       <div class="d-flex-gap flex-wrap ">
+                           <a href="#" class="nav-link btn bg-light px-1" style="font-weight: 400;">Travel</a>
+                           <a href="#" class="nav-link btn bg-light px-1" style="font-weight: 400;">Food</a>
+                           <a href="#" class="nav-link btn bg-light " style="font-weight: 400;">Lifestyle</a>
+                           <a href="#" class="nav-link btn bg-light px-1" style="font-weight: 400;">Techonogy</a>
                            <a href="#" class="nav-link btn bg-light" style="font-weight: 400;">Fashion</a>
                        </div>
                    </div>
 
-                   <h2 class="footer-title secondary-title mt-5">Connect with us</h2>
+                 
+                   <div class="signup-container">
+                    <form class="signup-form">
+                      <input type="email" placeholder="Email Address" required />
+                      <button type="submit"><a href="signup.html">Sign me up</a></button>
+                    </form> 
+                    <p class="privacy-text">
+                        By signing up you agree to our <a href="privacy.html">Privacy Policy</a>.
+                      </p> 
+                  </div>
+                  <h2 class="footer-title secondary-title mt-2">Connect with us</h2>
 
-                   <div class="tags social" id="contact">
-                       <div class="d-flex-gap flex-wrap">
-                           <a href="https://www.facebook.com/" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
-                           <a href="https://x.com/" class="nav-link btn bg-light"><i class="fa-brands fa-x-twitter"></i></a>
-                           <a href="https://www.instagram.com/" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
-                           <a href="https://dribbble.com/" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
-                       </div>
-                   </div>
-
+                  <div class="tags social px-1" id="contact">
+                      <div class="d-flex-gap flex-wrap">
+                          <a href="https://www.facebook.com/" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
+                          <a href="https://x.com/" class="nav-link btn bg-light"><i class="fa-brands fa-x-twitter"></i></a>
+                          <a href="https://www.instagram.com/" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
+                          <a href="https://dribbble.com/" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
+                      </div>
+                    </div>
               </div>
           </div>
 
@@ -1050,6 +1312,8 @@
         </div>
     </div>
   </footer>
+
+  
 <!-- .footer -->
 <!-- this script is for twitter icon  starts -->
  <script src="https://kit.fontawesome.com/856f4a44d7.js" crossorigin="anonymous"></script>
@@ -1057,7 +1321,7 @@
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="main.js"></script>
     <script src="./backend/login-Auth/login.js"></script>
-    <script src="./backend/signup-Auth/signup.js"></script>
+    <script src="./backend/signup/signup.js"></script>
     <script src="SignIn_SignUp.js"></script>
     <script src="darkMode.js"></script>
 
@@ -1067,7 +1331,7 @@
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
     <script>
-       
+
 // For Loader Page
 const preloader = document.querySelector("#loader");
 function Finish_Loader(){
@@ -1095,6 +1359,7 @@ document.getElementById("backToTop").addEventListener("click", function() {
       </script>
 
 <script>
+    
     // Initialize ScrollReveal
     ScrollReveal({
         reset:true,
@@ -1107,5 +1372,6 @@ document.getElementById("backToTop").addEventListener("click", function() {
        ScrollReveal().reveal('.revel3',{ delay:5,origin:'right'});
 </script>
     <script src="google_signin.js"></script>
+    <script src="profiledropdown.js"></script>
 </body>
 </html>

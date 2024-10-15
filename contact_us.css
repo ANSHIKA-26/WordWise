@@ -115,7 +115,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
-  
+/*   
   h2 {
     text-align: center;
     color: #333;
@@ -126,10 +126,10 @@
     display: block;
     width: 130px;
     height: 5px;
-    background-color: #ea5541; /* Color for the line below the heading */
+    background-color: #ea5541; Color for the line below the heading
     margin: 10px auto;
   }
-  
+   */
   .container p {
     font-size: small;
     margin-left: 60px;
@@ -376,4 +376,29 @@
 .form-container .cancel:hover {
   background-color: #c82333;
 
+}
+
+.center-icons {
+  display: flex; /* Enable flexbox */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  flex-wrap: wrap; /* Allow items to wrap if necessary */
+  gap: 15px; /* Space between the icons */
+}
+.circle-icon {
+  display: flex; /* Use flexbox for centering */
+  align-items: center; /* Center the icon vertically */
+  justify-content: center; /* Center the icon horizontally */
+  width: 50px; /* Set width of the circle */
+  height: 50px; /* Set height of the circle */
+  border-radius: 50%; /* Make the icon circular */
+  background-color: #ffffff; /* Initial background color of the circle */
+  color: #333; /* Icon color */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover */
+  text-align: center; /* Center text */
+}
+
+
+.circle-icon i {
+  font-size: 20px; /* Adjust icon size */
 }

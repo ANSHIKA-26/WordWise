@@ -6,13 +6,7 @@
     <title>WordWise</title>
     <link rel="shortcut icon" type="image/x-icon" href="/images/favi.png" />
     <!--font awesome-->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--swiper slider css-->
     <link
       rel="stylesheet"
@@ -20,6 +14,7 @@
     />
 
     <!--css-->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="start_writing.css" />
     <link rel="stylesheet" href="Scroll_and_progressbar.css" />
@@ -29,6 +24,26 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+      }
+
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+
+      main {
+        flex: 1 0 auto;
+      }
+
+      footer {
+        flex-shrink: 0;
       }
     </style>
     <!-- Script for Navbar Toggle -->
@@ -45,84 +60,103 @@
       <div class="progress-bar" id="progress-bar"></div>
     </div>
     <!--header-->
-
     <div class="layout-container" style="margin-bottom: 4rem;">
 
-        <header class="navbar">
-            <div class="logo">
-                <h2><a class="home-link" href="index.html">WordWise</a></h2>
-            </div>
-        
-            <button class="toggle-button" onclick="toggleMenu()">
-                &#9776; <!-- Hamburger icon -->
-            </button>
-        
-            <nav class="nav-menu" id="nav-menu">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="blog.html">Leading Blog</a></li>
-                    <li><a href="start_writing.html">Start Writing</a></li>
-                    <li><a href="category.html">Categories</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact_us.html">Contact Us</a></li>
-                    <li><a href="contact_us.html">Give Feedback</a></li>
-                </ul>
-            </nav>
-    <!-- Navigation Bar Ends -->
-            <div class="auth-buttons">
-                <a href="#login" class="login-btn" onclick="openForm('login')">Login</a>
-                <a href="#signup" class="signup-btn" onclick="openForm('signup')">Signup</a>
-            </div> 
-        
-             <!-- Login Form -->
-<div class="form-popup" id="loginForm">
-  <form class="form-container" onsubmit="return validateLoginForm()">
-      <h2>Login</h2>
-      <label for="loginEmail"><b>Email</b></label>
-      <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
+      <header>
+  
+  
+  
+      <div class="logo" >
+        <a href="index.html">
+          <h2>WordWise</h2>
+        </a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links1">
+          <a href="index.html">Home</a>
+          <a href="blog.html">Leading Blog</a>
+          <a href="start_writing.html">Start Writing</a>
+          <a href="category.html">Categories</a>
+          <a href="about.html">About</a>
+          <a href="contact_us.html">Contact Us</a>
+          <a href="contact_us.html">Give Feedback</a>
+      </div>
       
+      <div class="dropdown">
+        <!-- Profile Icon -->
+        <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
+            <i class="fas fa-user-circle"></i>
+        </a>
+    
+        <!-- Dropdown Menu -->
+        <ul class="dropdown-menu" id="dropdownMenu">
+            <li><a href="#login" onclick="openForm('login')">Login</a></li>
+            <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
+        </ul>
+    </div>
+ 
+        
+ 
+
+  <!--  Login Form -->
+<div class="form-popup" id="loginForm">
+  <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
+      <span class="close-icon" onclick="closeForm('login')">&times;</span>
+      <h2 class="text-center">Login</h2>
+      <div class="form-group">
+          <label for="loginEmail"><b>Email</b></label>
+          <input type="email" class="form-control" id="loginEmail" placeholder="Enter Email" name="email" required>
+      </div>
       <div class="form-group position-relative">
           <label for="loginPsw"><b>Password</b></label>
-          <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+          <input type="password" class="form-control" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
           <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
       </div>
       <div class="forgot">
-        <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
+          <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
       </div>
-      <button type="submit" class="btn">LOGIN</button>
-      <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
+      <button type="submit" class="btn btn-primary w-100 mb-3">LOGIN</button>
+      <!-- Google Sign-In Button -->
+      <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+          <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
+          Sign in with Google
+      </button>
   </form>
 </div>
 
+
 <!-- Signup Form -->
 <div class="form-popup" id="signupForm">
-  <form class="form-container" onsubmit="return validateSignupForm()">
-      <h2>Signup</h2>
-
+  <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
+      <span class="close-icon" onclick="closeForm('signup')">&times;</span>
+      <h2 class="text-center">Signup</h2>
       <div class="form-group">
           <label for="name"><b>Full Name</b></label>
-          <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
+          <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
       </div>
-
       <div class="form-group">
           <label for="signupEmail"><b>Email</b></label>
-          <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
+          <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required>
       </div>
-
       <div class="form-group position-relative">
           <label for="signupPsw"><b>Password</b></label>
-          <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+          <input type="password" class="form-control" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
           <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
       </div>
-
       <div class="form-group position-relative">
           <label for="confirmPsw"><b>Confirm Password</b></label>
-          <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+          <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
           <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
       </div>
-
-      <button type="submit" class="btn">SIGNUP</button>
-      <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
+      <button type="submit" class="btn btn-primary w-100 mb-3">SIGNUP</button>
+      <!-- Google Sign-In Button -->
+       <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+        <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
+        Sign in with Google</button>
   </form>
 </div>
 
@@ -139,6 +173,152 @@
     <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
   </div>
 </div>
+
+<!-- Toggle Password Visibility Script -->
+<script>
+  function togglePasswordVisibility(passwordFieldId, iconId) {
+      const passwordField = document.getElementById(passwordFieldId);
+      const togglePassword = document.getElementById(iconId);
+      if (passwordField.type === 'password') {
+          passwordField.type = 'text';
+          togglePassword.classList.remove('bi-eye');
+          togglePassword.classList.add('bi-eye-slash');
+      } else {
+          passwordField.type = 'password';
+          togglePassword.classList.remove('bi-eye-slash');
+          togglePassword.classList.add('bi-eye');
+      }
+  }
+</script>
+
+<!-- CSS Styles -->
+<style>
+  .form-popup {
+      display: none;
+      position: fixed;
+      z-index: 9;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      max-width: 500px;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      box-sizing: border-box;
+  }
+
+  .form-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+  }
+
+  .form-group {
+      margin-bottom: 15px;
+  }
+
+  .form-control {
+      border-radius: 5px;
+      padding: 12px;
+      font-size: 16px; 
+      line-height: 1.5; 
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: 100%;
+  }
+
+  .forgot {
+      text-align: right; 
+      margin-left: 50px;
+      font-size: 10px;   
+      margin-top: -40px;
+
+  }
+
+  .btn {
+      margin-top: 10px;
+      border-radius: 5px;
+  }
+
+  .eye-icon {
+      position: absolute;
+      right: 15px;
+      top: 38px;
+      cursor: pointer;
+      color: #007bff;
+  }
+
+  .close-icon {
+      font-size: 24px;
+      cursor: pointer;
+      float: right;
+  }
+
+  .position-relative {
+      position: relative;
+  }
+
+  /* Login button jumping issue fix */
+  .btn-primary {
+      transition: all 0.3s ease; /* Smooth transition */
+  }
+
+  .btn-primary:hover {
+      background-color: #0056b3;
+  }
+
+  .google-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .google-logo {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+  }
+
+  .btn-primary:hover {
+      background-color: #0056b3;
+  }
+
+        /* Styles for collaborative writing feature */
+        #collaborators {
+        margin-bottom: 15px;
+      }
+
+      #collaboratorsList {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      #collaboratorsList li {
+        display: inline-block;
+        margin-right: 10px;
+        padding: 5px 10px;
+        background-color: #f0f0f0;
+        border-radius: 15px;
+      }
+
+      #addCollaborator {
+        margin-top: 10px;
+      }
+
+      #collaborativeSection {
+        border: 1px solid #ccc;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+      }
+
+      #collaborativeContent {
+        width: 100%;
+        min-height: 200px;
+        margin-bottom: 10px;
+      }
+</style>
+
 <!-- Bootstrap Icons and Script for Eye Icon Functionality -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 <script>
@@ -157,65 +337,6 @@
   }
 </script>
 
-<style>
-  /* Form Container Styles */
-  .form-popup {
-      width: 400px;
-      margin: auto;
-      background-color: #ffffff;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  }
-
-  .form-container h2 {
-      margin-bottom: 20px;
-      color: #333;
-  }
-
-  .form-control {
-      border-radius: 5px;
-      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: border-color 0.3s;
-  }
-
-  .form-control:focus {
-      border-color: #007bff;
-      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  }
-
-  .btn {
-      margin-top: 15px;
-      border-radius: 5px;
-  }
-
-  .eye-icon {
-      position: absolute;
-      right: 15px;
-      top: 38px; /* Adjust according to input field height */
-      cursor: pointer;
-      color: #007bff;
-  }
-
-  .position-relative {
-      position: relative;
-  }
-
-  .btn-block {
-      width: 100%;
-  }
-
-  /* Hover Effects */
-  .btn:hover {
-      background-color: #0056b3;
-      border-color: #0056b3;
-  }
-
-  .btn.cancel:hover {
-      background-color: #6c757d;
-      border-color: #6c757d;
-  }
-</style>
 
 
         <div class="theme-switch-wrapper">
@@ -267,15 +388,40 @@
           <label for="blogImage">Upload Image:</label>
           <input type="file" id="blogImage" name="image" accept="image/*" />
 
-          <label for="blogContent">Blog Content:</label>
-          <textarea
-            id="blogContent"
-            name="content"
-            rows="10"
-            placeholder="Start writing your blog here..."
-            required
-          ></textarea>
+          <!-- Collaborative Writing Section -->
+          <div id="collaborativeSection">
+            <h3>Collaborative Writing</h3>
+            <div id="collaborators">
+              <label>Collaborators:</label>
+              <ul id="collaboratorsList"></ul>
+              <input type="text" id="newCollaborator" placeholder="Enter collaborator's email">
+              <button type="button" id="addCollaborator">Add Collaborator</button>
+            </div>
+            <label for="collaborativeContent">Collaborative Content:</label>
+            <textarea id="collaborativeContent" placeholder="Start collaborative writing here..."></textarea>
+          </div>
 
+          <label for="blogContent">Additional Content:</label>
+          <div style="position: relative;">
+            <textarea
+              id="blogContent"
+              name="content"
+              rows="10"
+              placeholder="Add any additional content here..."
+            ></textarea>
+            <button type="button" id="start-voice-input" style="position: absolute; top: 10.5px; right: 0px;">
+              🎤
+            </button>
+          </div>
+
+<!-- Add a button to get writing suggestions -->
+<button type="button" id="getSuggestions" style="margin-top: 10px;">Get Suggestions</button>
+
+<!-- Placeholder to show the suggestions -->
+<div id="suggestionsContainer" style="margin-top: 15px;">
+    <h4>Suggestions:</h4>
+    <p id="suggestionsText">Your suggestions will appear here...</p>
+</div>
           <label for="writerName">Your Name:</label>
           <input
             type="text"
@@ -289,6 +435,8 @@
         </form>
       </div>
     </main>
+
+    <button id="backToTop">⬆️</button>
 
     <!-- main -->
 
@@ -323,6 +471,7 @@
                     <span>dailysupport@gmail.com</span>
                   </a>
                 </div>
+                <div> <a href="privacy.html" style="color: #520be1e7;">Privacy Policy</a> </div> 
               </div>
             </div>
           </div>
@@ -416,14 +565,15 @@
                   ><i class="fab fa-facebook-f"></i
                 ></a>
                 <a href="#" class="nav-link btn bg-light"
-                  ><i class="fa-brands fa-x-twitter"></i
-                ></a>
+                  ><i class="fa-brands fa-x-twitter"></i></a>
                 <a href="#" class="nav-link btn bg-light"
                   ><i class="fab fa-instagram"></i
                 ></a>
                 <a href="#" class="nav-link btn bg-light"
                   ><i class="fab fa-dribbble"></i
                 ></a>
+                <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" target="_blank" class="nav-link btn bg-light"
+                  ><i class="fa-brands fa-github"></i></a>
               </div>
             </div>
           </div>
@@ -436,20 +586,216 @@
             &copy; <span id="current-year"></span> WordWise. All rights
             reserved.
           </p>
+          <!-- Add the FAQ button here -->
+          <button id="faqButton" class="btn btn-primary">FAQ</button>
+        </div>
+      </div>
+
+      <!-- FAQ Modal -->
+      <div id="faqModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-item">
+            <h3>What is WordWise?</h3>
+            <p>WordWise is a blogging platform that covers various topics including travel, technology, lifestyle, and more.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How can I start writing?</h3>
+            <p>You can start writing by filling out the form on this page. Make sure to provide a catchy heading, select a topic, and write your content in the text area provided.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Can I upload images with my blog post?</h3>
+            <p>Yes, you can upload an image to accompany your blog post using the "Upload Image" field in the form.</p>
+          </div>
+          <!-- Add more FAQ items as needed -->
         </div>
       </div>
     </footer>
     <!-- .footer -->
      <!-- this script is to display the year in the copyright authentication in the footer -->
-    <script>
+     <script>
       document.getElementById('current-year').textContent = new Date().getFullYear();
-  </script>
-
+    </script>
+    
     <script src="start_writing.js"></script>
     <script src="main.js"></script>
     <script src="./darkMode.js"></script>
     <script src="progress_bar.js"></script>
-
+    
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="profiledropdown.js"></script>
+    
+    <!-- Updated script including collaborative writing feature -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // FAQ Modal functionality
+        var modal = document.getElementById("faqModal");
+        var btn = document.getElementById("faqButton");
+        var span = document.getElementsByClassName("close")[0];
+    
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+    
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+    
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+    
+        // Collaborative writing feature
+        const addCollaboratorBtn = document.getElementById('addCollaborator');
+        const newCollaboratorInput = document.getElementById('newCollaborator');
+        const collaboratorsList = document.getElementById('collaboratorsList');
+        const collaborativeContent = document.getElementById('collaborativeContent');
+    
+        let collaborators = [];
+    
+        addCollaboratorBtn.addEventListener('click', function() {
+          const email = newCollaboratorInput.value.trim();
+          if (email && !collaborators.includes(email)) {
+            collaborators.push(email);
+            updateCollaboratorsList();
+            newCollaboratorInput.value = '';
+          }
+        });
+    
+        function updateCollaboratorsList() {
+          collaboratorsList.innerHTML = '';
+          collaborators.forEach(email => {
+            const li = document.createElement('li');
+            li.textContent = email;
+            collaboratorsList.appendChild(li);
+          });
+        }
+    
+        // Simulating real-time collaboration (for demonstration purposes)
+        setInterval(() => {
+          if (collaborators.length > 0) {
+            const randomCollaborator = collaborators[Math.floor(Math.random() * collaborators.length)];
+            const simulatedContent = `\n[${randomCollaborator}]: ${generateRandomSentence()}`;
+            collaborativeContent.value += simulatedContent;
+          }
+        }, 10000); // Simulate a new contribution every 10 seconds
+    
+        function generateRandomSentence() {
+          const sentences = [
+            "This is an interesting point.",
+            "I think we should elaborate on this idea.",
+            "Let's consider a different perspective here.",
+            "We could add some examples to support this.",
+            "I suggest we rephrase this part for clarity."
+          ];
+          return sentences[Math.floor(Math.random() * sentences.length)];
+        }
+    
+        // Update PostBlog function to include collaborative content
+        window.PostBlog = function(event) {
+          event.preventDefault();
+          
+          const blogHeading = document.getElementById('blogHeading').value;
+          const blogTopic = document.getElementById('blogTopic').value;
+          const blogImage = document.getElementById('blogImage').files[0];
+          const blogContent = document.getElementById('blogContent').value;
+          const writerName = document.getElementById('writerName').value;
+    
+          // Include collaborative content in the blog post
+          const fullContent = `Collaborative Content:\n${collaborativeContent.value}\n\nAdditional Content:\n${blogContent}`;
+    
+          console.log("Blog Heading:", blogHeading);
+          console.log("Blog Topic:", blogTopic);
+          console.log("Blog Image:", blogImage ? blogImage.name : "No image uploaded");
+          console.log("Full Blog Content:", fullContent);
+          console.log("Writer Name:", writerName);
+          console.log("Collaborators:", collaborators);
+    
+          // Here you would typically send this data to your server
+          // For now, we'll just show an alert
+          alert("Blog post submitted successfully!");
+    
+          // Reset the form
+          document.getElementById('blogForm').reset();
+          collaborativeContent.value = '';
+          collaborators = [];
+          updateCollaboratorsList();
+        };
+    
+        // Voice input functionality (assuming it's part of start_writing.js)
+        const startVoiceInputBtn = document.getElementById('start-voice-input');
+        if (startVoiceInputBtn) {
+          startVoiceInputBtn.addEventListener('click', function() {
+            // Implement voice input functionality here
+            console.log("Voice input button clicked");
+            // You would typically start voice recognition here
+          });
+        }
+      });
+    </script>
+    <style>
+      .wordwise-footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      #faqButton {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+      }
+
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 600px;
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+      }
+
+      .faq-item {
+        margin-bottom: 20px;
+      }
+
+      .faq-item h3 {
+        margin-bottom: 10px;
+      }
+    </style>
   </body>
 </html>
