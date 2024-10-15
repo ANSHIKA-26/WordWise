@@ -406,6 +406,73 @@ body.dark-mode footer address{
 body.dark-mode footer .phone{
   color: #f2dede;
 }
+/* Signup input bar in footer*/
+.signup-container {
+  width: 90%;
+  max-width: 400px;
+  margin: 10px;
+  margin-top: 20px;
+  text-align: center;
+} 
+.signup-form {
+  display: flex;
+  background-color: white; 
+  border: 2px solid #e5e5e5;
+  border-radius: 50px; 
+  overflow: hidden;
+}
+
+.signup-form input {
+  flex: 1;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  outline: none;
+  border-radius: 50px 0 0 50px;
+}
+
+.signup-form button {
+  background-color: #c74b3b;
+  color: white !important; 
+  border: none;
+  padding: 12px 25px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 50px 50px 50px 50px;
+  transition: background-color 0.3s ease;
+}
+
+.signup-form button:hover {
+  background-color: #a43d31;
+}
+
+.privacy-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.privacy-text a {
+  color: #c74b3b;
+  text-decoration: none;
+}
+.feature-post .text-title {
+  color: #b0b0b0; /* Light grey color for titles */
+}
+
+.feature-post .secondary-title {
+  color: #a0a0a0; /* Slightly lighter grey for secondary text */
+}
+
+.feature-post .text-secondary {
+  color: #9e9e9e; /* Light grey for date/time text */
+}
+
+.feature-post a {
+  text-decoration: none; /* Remove underline for links */
+} 
+
+
 
 .form-popup {
   display: none;
@@ -1510,10 +1577,10 @@ body.dark .support a {
 }
 
 .d-flex {
-  margin-top: 5px;
+  margin-top: 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   gap: 10px;
 }
 
@@ -1691,8 +1758,9 @@ a {
 }
 
 .secondary-title {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "poppins", sans-serif;
   margin-left: 18px;
+  margin-top: 22px;
   color: var(--text-color);
 }
 
