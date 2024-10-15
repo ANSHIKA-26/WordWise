@@ -406,6 +406,73 @@ body.dark-mode footer address{
 body.dark-mode footer .phone{
   color: #f2dede;
 }
+/* Signup input bar in footer*/
+.signup-container {
+  width: 90%;
+  max-width: 400px;
+  margin: 10px;
+  margin-top: 20px;
+  text-align: center;
+} 
+.signup-form {
+  display: flex;
+  background-color: white; 
+  border: 2px solid #e5e5e5;
+  border-radius: 50px; 
+  overflow: hidden;
+}
+
+.signup-form input {
+  flex: 1;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  outline: none;
+  border-radius: 50px 0 0 50px;
+}
+
+.signup-form button {
+  background-color: #c74b3b;
+  color: white !important; 
+  border: none;
+  padding: 12px 25px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 50px 50px 50px 50px;
+  transition: background-color 0.3s ease;
+}
+
+.signup-form button:hover {
+  background-color: #a43d31;
+}
+
+.privacy-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.privacy-text a {
+  color: #c74b3b;
+  text-decoration: none;
+}
+.feature-post .text-title {
+  color: #b0b0b0; /* Light grey color for titles */
+}
+
+.feature-post .secondary-title {
+  color: #a0a0a0; /* Slightly lighter grey for secondary text */
+}
+
+.feature-post .text-secondary {
+  color: #9e9e9e; /* Light grey for date/time text */
+}
+
+.feature-post a {
+  text-decoration: none; /* Remove underline for links */
+} 
+
+
 
 .form-popup {
   display: none;
@@ -430,7 +497,7 @@ body.dark-mode footer .phone{
 
 /* Dark mode form background */
 [data-theme="dark"] .form-popup {
-  background-color: var(--dark); /* Dark mode background */
+  background-color: #141414; /* Dark mode background */
 }
 
 [data-theme="dark"] .form-container h2{
@@ -461,6 +528,10 @@ body.dark-mode footer .phone{
   cursor: pointer;
   color: var(--dark); /* Color of the close "X" */
   transition: transform 0.5s;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 .close-icon:hover {
@@ -471,18 +542,35 @@ body.dark-mode footer .phone{
 [data-theme="dark"] .close-icon{
 background: var(--light);
 }
-
 #backToTop {
   position: fixed;
   bottom: 30px;
   right: 10px;
-  font-size: 50px;
+  width: 60px;
+  height: 60px;
+  font-size: 30px; /* Adjust icon size */
   cursor: pointer;
   text-align: center;
-  background-color: transparent;
+  background-color: var(--primary-color); /* Dark Pink */
+  color: var(--light); /* Light text color */
+  border-radius: 50%; /* Make it round */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  transition: all 0.3s ease-in-out; /* Smooth transition */
   z-index: 1000;
-  
 }
+
+#backToTop:hover {
+  background-color: var(--dark); /* Dark background on hover */
+  color: var(--primary-color); /* Pink text color on hover */
+  transform: scale(1.1); /* Slight zoom effect */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* More shadow on hover */
+}
+
+#backToTop i {
+  line-height: 60px; /* Center icon vertically */
+  font-size: 24px; /* Adjust icon size */
+}
+
 .heart-container {
   display: flex;
   justify-content: center;
@@ -513,6 +601,171 @@ background: var(--light);
   fill: red;
 }
 
+
+/* Blog Card Design - Rushikesh Ghodke */
+
+/* --light: #f0e4d7;
+--secondary: #2d545e;
+--dark: #3b3b58;
+--primary-color: #f4978e;
+--secondary-color: #c1c8e4;
+--border: #ddbea9;
+--body-bg: #f5f5f5; */
+
+
+
+:root {
+  --card-background-light: #FFFFFF; /* Light theme card background */
+  --card-text-color-light: #000000; /* Light theme card text color */
+  --card-hover-background-light: #F9FAFB; /* Light theme hover background */
+  --card-hover-active-light: #fbdfe1; /* Light theme hover active */
+  
+  --card-background-dark: #444444; /* Dark theme card background */
+  --card-text-color-dark: #FFFFFF; /* Dark theme card text color */
+  --card-hover-background-dark: #555555; /* Dark theme hover background */
+  --card-hover-active-dark: #666666; /* Dark theme hover active */
+}
+
+/* Blog Card styles */
+.blog-card {
+  width: 100%;
+  border-radius: 20px;
+  background-color: var(--card-background-light);
+  color: var(--card-text-color-light);
+  
+}
+
+.blog-card-image img {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  width: 100%;
+  height: 250px;
+}
+
+.blog-card-data {
+  padding: 20px;
+}
+
+.blog-card-content {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 10px;
+}
+
+.blog-card-author-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.blog-card-author-info img {
+  width: 35px;
+}
+
+.blog-card-author-name {
+  font-size: 16px;
+  color: var(--card-text-color-light);
+}
+
+.blog-card-like {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  background-color: var(--card-hover-background-light);
+  border-radius: 20px;
+  color: var(--card-text-color-light);
+}
+
+.blog-card-like:hover {
+  background-color: var(--card-hover-active-light);
+}
+
+.blog-card-title {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.blog-card-dot {
+  width: 4px;
+  height: 4px;
+  background-color: #6B7280;
+  border-radius: 2px;
+}
+
+.blog-card-date {
+  color: #6B7280;
+  font-size: 14px;
+}
+
+.blog-card-comments {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  background-color: var(--card-hover-background-light);
+  border-radius: 20px;
+  color: var(--card-text-color-light);
+}
+
+.blog-card-comments:hover {
+  background-color: #dde9f6;
+}
+
+.blog-card-sub-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.blog-card-save svg {
+  width: 20px;
+}
+
+.blog-card-save {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  background-color: var(--card-hover-background-light);
+  border-radius: 20px;
+  color: var(--card-text-color-light);
+}
+
+.blog-card-save:hover {
+  background-color: rgb(215, 252, 215);
+}
+
+/* Dark theme styles */
+[data-theme='dark'] .blog-card {
+  background-color: var(--card-background-dark);
+  color: var(--card-text-color-dark);
+}
+
+[data-theme='dark'] .blog-card-like {
+  background-color: var(--card-hover-background-dark);
+  color: var(--card-text-color-dark);
+}
+
+[data-theme='dark'] .blog-card-like:hover {
+  background-color: var(--card-hover-active-dark);
+}
+
+[data-theme='dark'] .blog-card-comments {
+  background-color: var(--card-hover-background-dark);
+  color: var(--card-text-color-dark);
+}
+
+[data-theme='dark'] .blog-card-save {
+  background-color: var(--card-hover-background-dark);
+  color: var(--card-text-color-dark);
+}
+
+[data-theme='dark'] .blog-card-save:hover {
+  background-color: var(--card-hover-active-dark);
+}
 
 
 
@@ -939,22 +1192,24 @@ button {
   display: flex;
   flex-direction: column;
   align-items: left;
-  padding: 5% 15%;
+  padding: 5% 2%;
 }
 
 .form-container h1 {
   font-family: "Courier New", Courier, monospace;
 }
+
 .form-container h2 {
   font-family: "Courier New", Courier, monospace;
   font-size: 24px;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
 
 .form-container label {
   width: 100%;
   text-align: left;
+  margin-bottom: 5px;
 }
 
 .form-container h3 {
@@ -969,14 +1224,13 @@ button {
   font-family: "Courier New", Courier, monospace;
   padding-bottom: 5px;
   margin: 10px 0;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   border: none;
   border-bottom: 2px solid var(--text-color);
   background-color: transparent;
   outline: none;
   color: var(--text-color);
   font-size: 18px;
-  
 }
 
 .form-container input::placeholder {
@@ -997,43 +1251,15 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.2s ease-in-out;
 }
-
-
-.form-container .google-btn {
-  background-color: white; /* Google Red */
-  color: black;
-  border: none;
-  padding: 10px 15px;
-  width: 100%;
-  cursor: pointer;
-  margin-top: 10px; /* space between buttons */
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
 
 .form-container .btn:hover {
-  background-color: #333333;
-  color: var(--body-bg);
-}
-
-
-.form-container .google-btn:hover {
-  background-color: rgb(235, 207, 207); /* Darker shade on hover */
-  color: #000;
-}
-
-.form-container .cancel {
   background-color: white;
-  color: #060606;
-  border: 1px solid #ccc;
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  transform: scale(1.05);
 }
-
-.form-container .cancel:hover {
-  background-color: #f5f5f5;
-}
-
 .form-container .btn.cancel {
   margin-top: 10px;
   background-color: #ec6371;
@@ -1048,7 +1274,7 @@ button {
 .form-container .divider {
   position: relative;
   width: 100%;
-  margin: 20px 0;
+  margin: 30px 0;
 }
 
 .form-container .divider::before {
@@ -1088,7 +1314,175 @@ button {
   margin-right: 10px;
 }
 
-.toggle-mode {
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 80px; 
+  margin-bottom: 5px;
+}
+
+.form-group input[type="email"], .form-group input[type="password"],.form-group input[type="text"] {
+  height: 40px; 
+  padding: 10px;
+  border: none;
+  border-bottom: 1.5px solid  var(--text-color);
+  border-radius: 5px;
+}
+
+.input-group {
+  position: relative;
+  padding: 0px 0;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #ccc;
+}
+
+.input-group input[type="email"], .input-group input[type="password"] {
+  padding-left: 40px;
+}
+
+
+.password-toggle {
+  position: absolute;
+  left: 3px;
+  top: 5%;
+  bottom: 2px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.password-toggle i {
+  font-size: 18px;
+  color: #666;
+}
+
+.password-toggle .fa-lock {
+  display: block;
+}
+
+.password-toggle .fa-unlock {
+  display: none;
+}
+
+.form-group.position-relative i {
+  position: absolute;
+  top: 52px;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #ccc;
+}
+
+.form-group.position-relative input[type="text"],
+.form-group.position-relative input[type="email"]{
+  padding-left: 40px; /* Space for the icon */
+}
+
+/* Style the locker icons */
+.password-icon {
+  position: absolute;
+  left: 4px; 
+  top: 10px; 
+  bottom: -20px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.password-icon i {
+  font-size: 18px;
+  color: #666;
+}
+
+.password-icon .fa-lock {
+  display: block;
+}
+
+.password-icon .fa-unlock {
+  display: none;
+}
+
+/* Toggle the locker icons on click */
+.password-icon.toggle-password {
+  cursor: pointer;
+}
+
+.password-icon.toggle-password:hover {
+  color: #333;
+}
+
+.password-icon.toggle-password.active .fa-lock {
+  display: none;
+}
+
+.password-icon.toggle-password.active .fa-unlock {
+  display: block;
+}
+/* <!-- Social Icons --> */
+
+.social-icons {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  margin: 5% 25%;
+}
+
+.social-icons a {
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0% 5%;
+  width: 40px;
+  height: 40px;
+  color: var(--text-color);
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.1); 
+  border-color: var(--text-color);
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 10px 0; 
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ccc; 
+  margin: 0 10px; 
+}
+
+.forgot a {
+  font-size: 14px;
+  color: #666;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-weight: bold;
+  display: block;
+  margin: 1.5rem auto -10px; 
+  margin-left: 32%;
+}
+
+.forgot a:hover {
+  color: var(--text-color);
+}
+
+/* .toggle-mode {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -1097,7 +1491,7 @@ button {
 .toggle-mode label {
   font-size: 1rem;
   color: var(--text-color);
-}
+} */
 
 input[type="checkbox"] {
   transform: scale(1.2);
@@ -1200,10 +1594,10 @@ body.dark .support a {
 }
 
 .d-flex {
-  margin-top: 5px;
+  margin-top: 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   gap: 10px;
 }
 
@@ -1381,8 +1775,9 @@ a {
 }
 
 .secondary-title {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "poppins", sans-serif;
   margin-left: 18px;
+  margin-top: 22px;
   color: var(--text-color);
 }
 
@@ -2093,7 +2488,7 @@ input:checked + .slider .moon-icon {
   text-align: center;
   font-size: 1.8rem;
   font-weight: 700;
-  color: #242e4c;
+  /* color: #242e4c; */
   margin-bottom: 2.5rem;
 }
 
@@ -2169,7 +2564,7 @@ input:checked + .slider .moon-icon {
 
 /*FAQ improvement for Dark Theme*/
 [data-theme="dark"] .faq .accordion__wrapper {
-  background-color: #f1f1f1;
+  background-color: #414141;
   color: #f1f1f1;
 }
 
@@ -2562,6 +2957,7 @@ footer p {
   display: flex;
   justify-content: center; /* Horizontally center the button */
   width: 100%; /* Ensure it spans the width of the form */
+  
 }
 
 /* Style the button */
@@ -2660,3 +3056,96 @@ footer p {
           .dropdown-menu.show {
               display: block; /* Display the dropdown when the 'show' class is toggled */
           }
+
+          .submitbtn{
+            
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+          
+          }
+          .submitbtn:hover
+          {
+            background-color: #0056b3;
+            transform: scale(1.03);
+          }
+/*New load post button function */
+.blog-item {
+  opacity: 1; /* Default visibility */
+  /*transition: opacity 0.5s ease-in-out; /* Add animation */
+  visibility: visible; /* Ensure visibility is set */
+}
+
+.hidden {
+  opacity: 0; /* Fade out effect */
+  height: 0; /* Prevent interaction */
+  visibility: hidden; /* Hide from layout */
+  overflow: hidden; /* Prevent overflow during transition */
+}
+
+.reveal {
+  opacity: 1; /* Ensure visible */
+  transition: opacity 0.5s ease-in-out; /* Animation for newly revealed items */
+}
+
+
+/*hamburger menu styling */
+.hamburger {
+  display: flex;
+  flex-direction:column;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 4px;
+  visibility: hidden;
+  /* border:1px solid black; */
+}
+
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 5px;
+  background-color: grey;
+  margin-bottom:3px;
+  border-radius:4px;
+}
+
+
+@media (max-width: 768px) {
+  .hamburger {
+      display: flex;
+      visibility: visible;
+  }
+
+  .nav-links1 {
+      display: none;
+      flex-direction: column;
+      background-color: var(--primary-color);
+      position: absolute;
+      top: 0;
+      margin-top: 90px;
+      width: 100%; 
+  }
+
+  
+  .nav-links1.active {
+      display: flex;
+  }
+
+  .nav-links1 a {
+      padding: 5px;
+      color: var(--card-background-dark); 
+      text-align: center; 
+      text-decoration: none; 
+  }
+
+  .nav-menu ul {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+  }
+}

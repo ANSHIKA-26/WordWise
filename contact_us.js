@@ -1,5 +1,12 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const sendEmailButton = document.getElementById("sendEmailButton"); // Assuming your button has this ID
+
+  sendEmailButton.addEventListener("click", SendEmail);
+});
+
 async function SendEmail(event) {
   event.preventDefault();
+<<<<<<< HEAD
 
   const firstName = document.getElementById("firstName").value.trim();
   const lastName = document.getElementById("lastName").value.trim();
@@ -17,11 +24,20 @@ async function SendEmail(event) {
     alert("Please enter a valid email address.");
     return;
   }
+=======
+  const Name = document.getElementById("Name").value;
+  const email = document.getElementById("email2").value;
+  const phone = document.getElementById("phone").value;
+  const message = document.getElementById("message").value;
+>>>>>>> 0203b56f2d4e0b05cb8cc09a606fc346248d059e
+
+  console.log(Name,email,phone,message);
 
   if (message.length < 10) {
     alert("Message must be at least 10 characters long.");
     return;
   }
+<<<<<<< HEAD
 
   const data = { firstName, lastName, email, phone, message };
   
@@ -29,6 +45,18 @@ async function SendEmail(event) {
   
   try {
     const response = await fetch(API_URL, {
+=======
+  //console.log("Email value:", email , Name, phone, message); 
+  const data = {
+    Name: Name,
+    email: email,
+    phone: phone,
+    message: message,
+  };
+
+  try {
+    const response = await fetch("http://127.0.0.1:3000/send-email", {
+>>>>>>> 0203b56f2d4e0b05cb8cc09a606fc346248d059e
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

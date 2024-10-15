@@ -1,5 +1,6 @@
 let toggle = document.querySelector("#header .toggle-button");
 let collapse = document.querySelectorAll("#header .collapse");
+document.getElementById("backToTop").style.display = "none";
 
 if (toggle) {
     toggle.addEventListener('click', function () {
@@ -28,6 +29,20 @@ document.addEventListener('DOMContentLoaded', function () {
   });
        detectColorScheme();
  });
+
+ window.addEventListener("scroll", function () {
+  var scrollPosition = window.scrollY;
+  var height = document.body.offsetHeight - window.innerHeight;
+  if (scrollPosition > 90) {
+      document.getElementById("backToTop").style.display = "block";
+  } else {
+      document.getElementById("backToTop").style.display = "none";
+  }
+});
+
+document.getElementById("backToTop").addEventListener("click", function () {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
 window.onscroll = function () { myFunction() };
 
@@ -186,4 +201,52 @@ if (aboutSection) {
     event.preventDefault();
     document.querySelector('#about-us').scrollIntoView({ behavior: 'smooth' });
     });
+}
+
+function submitNewsletter() {
+  const emailInput = document.getElementById('emailInput');
+  const errorMessage = document.getElementById('error-message');
+  const email = emailInput.value;
+
+  // Simple email validation check
+  if (!email.includes('@')) {
+    errorMessage.style.display = 'block';
+    return;
+  } else {
+    errorMessage.style.display = 'none';
+  }
+
+  // Send POST request
+  fetch('http://127.0.0.1:3000/newsletter', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email })
+  })
+  .then(response => {
+    if (response.ok) {
+      alert('Subscribed successfully!');
+      emailInput.value = ''; // Clear the input field
+    } else {
+      alert('Failed to subscribe. Please try again later.');
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('An error occurred. Please try again later.');
+  });
+}
+
+// Get hamburger and nav links
+var hamburger = document.getElementById('hamburger');
+var navLinks1 = document.getElementById('nav-links1');
+
+// Only add event listener if both elements exist on the page
+if (hamburger && navLinks1) {
+    hamburger.addEventListener('click', () => {
+        navLinks1.classList.toggle('active');
+    });
+} else {
+    console.warn('Hamburger or Nav Links not found on this page.');
 }
