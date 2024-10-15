@@ -1,63 +1,81 @@
 async function SendEmail(event) {
   event.preventDefault();
-  const firstName = document.getElementById("firstName").value;
-  const lastName = document.getElementById("lastName").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
-  const message = document.getElementById("message").value;
+
+  const firstName = document.getElementById("firstName").value.trim();
+  const lastName = document.getElementById("lastName").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  // Input validation
+  if (!firstName || !lastName || !email || !phone || !message) {
+    alert("All fields are required.");
+    return;
+  }
+
+  if (!validateEmail(email)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
 
   if (message.length < 10) {
     alert("Message must be at least 10 characters long.");
     return;
   }
 
-  const data = {
-    firstName: firstName,
-    lastName: lastName,
-    email: email,
-    phone: phone,
-    message: message,
-  };
-
+  const data = { firstName, lastName, email, phone, message };
+  
+  const API_URL = "http://localhost:3000/send-email";
+  
   try {
-    const response = await fetch("http://localhost:3000/send-email", {
+    const response = await fetch(API_URL, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
 
     const result = await response.json();
+    
     if (response.ok) {
-      const form = document.getElementById("contactForm");
-      const popup = document.getElementById("popupMessage");
-      const overlay = document.getElementById("overlay");
-      const closePopup = document.getElementById("closePopup");
-
-      // Show popup
-      overlay.style.display = "block";
-      popup.style.display = "block";
-
-      // Clear the form
-      form.reset();
-
-      // Close the popup
-      closePopup.addEventListener("click", function () {
-        popup.style.display = "none";
-        overlay.style.display = "none";
-      });
-
-      // Close the popup when clicking outside of it
-      overlay.addEventListener("click", function () {
-        popup.style.display = "none";
-        overlay.style.display = "none";
-      });
+      showPopup();
+      document.getElementById("contactForm").reset();
     } else {
-      alert(`Error: ${result.message}`);
+      handleErrorResponse(result);
     }
+    
   } catch (error) {
     console.error("Error sending email:", error);
     alert("Error sending email. Please try again later.");
   }
+}
+
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(String(email).toLowerCase());
+}
+
+function showPopup() {
+  const popup = document.getElementById("popupMessage");
+  const overlay = document.getElementById("overlay");
+  
+  overlay.style.display = "block";
+  popup.style.display = "block";
+
+  // Close the popup
+  document.getElementById("closePopup").addEventListener("click", hidePopup);
+  
+  // Close when clicking outside
+  overlay.addEventListener("click", hidePopup);
+}
+
+function hidePopup() {
+  const popup = document.getElementById("popupMessage");
+  const overlay = document.getElementById("overlay");
+  
+  popup.style.display = "none";
+  overlay.style.display = "none";
+}
+
+function handleErrorResponse(result) {
+  alert(`Error: ${result.message || 'An unexpected error occurred.'}`);
 }
