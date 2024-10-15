@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-  <link rel="stylesheet" href="./contact_us.css" />
+  <link rel="stylesheet" href="./give_feedback.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -90,18 +90,10 @@
   <div class="layout-container" style="margin-bottom: 4rem;">
 
     <header>
-
-
-
       <div class="logo">
         <a href="index.html">
           <h2>WordWise</h2>
         </a>
-      </div>
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
       </div>
       <div class="nav-links1">
         <a href="index.html">Home</a>
@@ -400,89 +392,44 @@
         text-align: center;
       ">
     <h2 style="color: var(--text-color); font-size: 28px; margin-bottom: 10px">
-      Get in Touch
+      Feedback Form
     </h2>
-    <h2 style="color: var(--text-color); font-size: 24px; margin-bottom: 20px">
-      We are here for you. How can we help?
+    <h2 style="color: var(--text-color); font-size: 18px; margin-bottom: 20px">
+      Help Us Improve!
     </h2>
 
-    <form id="contactForm">
-      <div class="form-group" style="margin-bottom: 15px">
-        <label for="Name" style="
-              display: block;
-              text-align: left;
-              margin-bottom: 5px;
-              color: var(--text-color);
-              font-size: 14px;
-            ">Name</label>
-        <input type="text" id="Name" placeholder="Enter your Name" name="Name" required style="
-              width: 100%;
-              padding: 10px;
-              font-size: 14px;
-              border: 2px solid #ddd;
-              border-radius: 5px;
-              " />
-      </div>
-      <div class="form-group" style="margin-bottom: 15px">
-        <label for="email2"
-          style="display: block; text-align: left; margin-bottom: 5px; color: var(--text-color); font-size: 14px;">
-          Email Address
-        </label>
-        <input type="email2" id="email2" placeholder="Enter your Email" name="email2" required
-          style="width: 100%; padding: 10px; font-size: 14px; border: 2px solid #ddd; border-radius: 5px;" />
-      </div>
-      <div class="form-group" style="margin-bottom: 15px">
-        <label for="phone" style="
-              display: block;
-              text-align: left;
-              margin-bottom: 5px;
-              color: var(--text-color);
-              font-size: 14px;
-              ">Phone Number</label>
-        <input type="tel" id="phone" placeholder="Enter your Phone" name="phone" required style="
-              width: 100%;
-              padding: 10px;
-              font-size: 14px;
-              border: 2px solid #ddd;
-              border-radius: 5px;
-              " />
-      </div>
+    <div class="container">
+        <form id="feedbackForm">
+            <div class="input-container">
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+            </div>
 
-      <div class="form-group" style="margin-bottom: 15px">
-        <label for="message" style="
-              display: block;
-              text-align: left;
-              margin-bottom: 5px;
-              color: var(--text-color);
-              font-size: 14px;
-            ">Message</label>
-        <textarea id="message" name="message" rows="4" placeholder="Go Ahead! We are listening..." required style="
-              width: 100%;
-              padding: 10px;
-              font-size: 14px;
-              border: 2px solid #ddd;
-              border-radius: 5px;
-              "></textarea>
-      </div>
+            <div class="input-container">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
 
-      <button type="button" onclick="SendEmail(event)" class="submitbtn">
-        Send
-      </button>
-    </form>
+            <div class="input-container">
+                <label for="feedback">Feedback</label>
+                <textarea id="feedback" required></textarea>  
+            </div>
 
-    <div class="tags social" id="contact">
-      <div class="d-flex-gap flex-wrap center-icons">
-        <a href="https://www.facebook.com/" class="nav-link btn bg-light circle-icon"><i
-            class="fab fa-facebook-f"></i></a>
-        <a href="https://x.com/" class="nav-link btn bg-light circle-icon"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="https://www.instagram.com/" class="nav-link btn bg-light circle-icon"><i
-            class="fab fa-instagram"></i></a>
-        <a href="https://dribbble.com/" class="nav-link btn bg-light circle-icon"><i class="fab fa-dribbble"></i></a>
-        <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" target="_blank"
-          class="nav-link btn bg-light circle-icon"><i class="fa-brands fa-github"></i></a>
-      </div>
+            <div class="input-container">
+                <label for="rating">Rating</label>
+                <select id="rating" required>
+                    <option value="" disabled selected>Select your rating</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
     </div>
-    <h2 class="footer-title secondary-title">Connect with us</h2>
 
 
 
@@ -510,7 +457,7 @@
           z-index: 1000;
         ">
       <h3 style="color: #3498db">Message Sent</h3>
-      <p>Thank you for contacting us! We will get back to you soon.</p>
+      <p>Thank you for your valuable feedback and time.</p>
       <button id="closePopup" style="
             background-color: #3498db;
             color: white;
@@ -682,7 +629,7 @@
 
   <!-- added script for contact form  -->
 
-  <script src="contact_us.js"></script>
+  <script src="give_feedback.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
   <script src="profiledropdown.js"></script>
