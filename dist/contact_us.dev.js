@@ -1,7 +1,13 @@
 "use strict";
 
+document.addEventListener("DOMContentLoaded", function () {
+  var sendEmailButton = document.getElementById("sendEmailButton"); // Assuming your button has this ID
+
+  sendEmailButton.addEventListener("click", SendEmail);
+});
+
 function SendEmail(event) {
-  var firstName, lastName, email, phone, message, data, API_URL, response, result;
+  var firstName, lastName, email, phone, message, data, response, result;
   return regeneratorRuntime.async(function SendEmail$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
@@ -31,26 +37,27 @@ function SendEmail(event) {
           return _context.abrupt("return");
 
         case 12:
+          console.log(Name, email, phone, message);
+
           if (!(message.length < 10)) {
-            _context.next = 15;
+            _context.next = 16;
             break;
           }
 
           alert("Message must be at least 10 characters long.");
           return _context.abrupt("return");
 
-        case 15:
+        case 16:
+          //console.log("Email value:", email , Name, phone, message); 
           data = {
-            firstName: firstName,
-            lastName: lastName,
+            Name: Name,
             email: email,
             phone: phone,
             message: message
           };
-          API_URL = "http://localhost:3000/send-email";
           _context.prev = 17;
           _context.next = 20;
-          return regeneratorRuntime.awrap(fetch(API_URL, {
+          return regeneratorRuntime.awrap(fetch("http://127.0.0.1:3000/send-email", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
