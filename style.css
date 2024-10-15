@@ -406,6 +406,73 @@ body.dark-mode footer address{
 body.dark-mode footer .phone{
   color: #f2dede;
 }
+/* Signup input bar in footer*/
+.signup-container {
+  width: 90%;
+  max-width: 400px;
+  margin: 10px;
+  margin-top: 20px;
+  text-align: center;
+} 
+.signup-form {
+  display: flex;
+  background-color: white; 
+  border: 2px solid #e5e5e5;
+  border-radius: 50px; 
+  overflow: hidden;
+}
+
+.signup-form input {
+  flex: 1;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  outline: none;
+  border-radius: 50px 0 0 50px;
+}
+
+.signup-form button {
+  background-color: #c74b3b;
+  color: white !important; 
+  border: none;
+  padding: 12px 25px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 50px 50px 50px 50px;
+  transition: background-color 0.3s ease;
+}
+
+.signup-form button:hover {
+  background-color: #a43d31;
+}
+
+.privacy-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.privacy-text a {
+  color: #c74b3b;
+  text-decoration: none;
+}
+.feature-post .text-title {
+  color: #b0b0b0; /* Light grey color for titles */
+}
+
+.feature-post .secondary-title {
+  color: #a0a0a0; /* Slightly lighter grey for secondary text */
+}
+
+.feature-post .text-secondary {
+  color: #9e9e9e; /* Light grey for date/time text */
+}
+
+.feature-post a {
+  text-decoration: none; /* Remove underline for links */
+} 
+
+
 
 .form-popup {
   display: none;
@@ -475,18 +542,35 @@ body.dark-mode footer .phone{
 [data-theme="dark"] .close-icon{
 background: var(--light);
 }
-
 #backToTop {
   position: fixed;
   bottom: 30px;
   right: 10px;
-  font-size: 50px;
+  width: 60px;
+  height: 60px;
+  font-size: 30px; /* Adjust icon size */
   cursor: pointer;
   text-align: center;
-  background-color: transparent;
+  background-color: var(--primary-color); /* Dark Pink */
+  color: var(--light); /* Light text color */
+  border-radius: 50%; /* Make it round */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  transition: all 0.3s ease-in-out; /* Smooth transition */
   z-index: 1000;
-  
 }
+
+#backToTop:hover {
+  background-color: var(--dark); /* Dark background on hover */
+  color: var(--primary-color); /* Pink text color on hover */
+  transform: scale(1.1); /* Slight zoom effect */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* More shadow on hover */
+}
+
+#backToTop i {
+  line-height: 60px; /* Center icon vertically */
+  font-size: 24px; /* Adjust icon size */
+}
+
 .heart-container {
   display: flex;
   justify-content: center;
@@ -1510,10 +1594,10 @@ body.dark .support a {
 }
 
 .d-flex {
-  margin-top: 5px;
+  margin-top: 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   gap: 10px;
 }
 
@@ -1691,8 +1775,9 @@ a {
 }
 
 .secondary-title {
-  font-family: "Ubuntu", sans-serif;
+  font-family: "poppins", sans-serif;
   margin-left: 18px;
+  margin-top: 22px;
   color: var(--text-color);
 }
 
@@ -3006,4 +3091,61 @@ footer p {
 .reveal {
   opacity: 1; /* Ensure visible */
   transition: opacity 0.5s ease-in-out; /* Animation for newly revealed items */
+}
+
+
+/*hamburger menu styling */
+.hamburger {
+  display: flex;
+  flex-direction:column;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 4px;
+  visibility: hidden;
+  /* border:1px solid black; */
+}
+
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 5px;
+  background-color: grey;
+  margin-bottom:3px;
+  border-radius:4px;
+}
+
+
+@media (max-width: 768px) {
+  .hamburger {
+      display: flex;
+      visibility: visible;
+  }
+
+  .nav-links1 {
+      display: none;
+      flex-direction: column;
+      background-color: var(--primary-color);
+      position: absolute;
+      top: 0;
+      margin-top: 90px;
+      width: 100%; 
+  }
+
+  
+  .nav-links1.active {
+      display: flex;
+  }
+
+  .nav-links1 a {
+      padding: 5px;
+      color: var(--card-background-dark); 
+      text-align: center; 
+      text-decoration: none; 
+  }
+
+  .nav-menu ul {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+  }
 }
