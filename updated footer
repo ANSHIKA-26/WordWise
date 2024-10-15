@@ -1,0 +1,234 @@
+<html>
+ <head>
+  <title>
+   Web Page
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+            background-color: #1a1a1a;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .about-us, .feature-post, .popular-tags {
+            width: 30%;
+        }
+        h2 {
+            color: #f4a261;
+            font-size: 24px;
+        }
+        .about-us p, .feature-post p, .popular-tags p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .about-us i, .feature-post i {
+            margin-right: 10px;
+        }
+        .about-us .contact-info {
+            margin-top: 10px;
+        }
+        .about-us .contact-info p {
+            margin: 5px 0;
+        }
+        .about-us .contact-info a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .about-us .website-views {
+            background-color: #333;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+        }
+        .about-us .website-views span {
+            background-color: #444;
+            border-radius: 5px;
+            display: inline-block;
+            margin-left: 10px;
+            padding: 5px 10px;
+        }
+        .feature-post .post {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .feature-post .post img {
+            border-radius: 10px;
+            height: 50px;
+            margin-right: 10px;
+            width: 50px;
+        }
+        .feature-post .post p {
+            font-size: 14px;
+            margin: 0;
+        }
+        .feature-post .post .date {
+            color: #bbb;
+            font-size: 12px;
+        }
+        .popular-tags a {
+            color: #fff;
+            display: inline-block;
+            margin: 5px 10px 5px 0;
+            text-decoration: none;
+        }
+        .connect-with-us {
+            margin-top: 20px;
+        }
+        .connect-with-us i {
+            color: #fff;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        .connect-with-us .social-media {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .connect-with-us .social-media i {
+            margin-right: 10px;
+        }
+  </style>
+ </head>
+ <body>
+  <div class="container">
+   <div class="about-us">
+    <h2>
+     About Us
+    </h2>
+    <p>
+     We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the world.
+    </p>
+    <div class="contact-info">
+     <p>
+      <i class="fas fa-map-marker-alt">
+      </i>
+      5 South Main Street Los Angeles, ZZ-9611 USA
+     </p>
+     <p>
+      <i class="fas fa-phone">
+      </i>
+      125-896-485
+     </p>
+     <p>
+      <i class="fas fa-envelope">
+      </i>
+      <a href="mailto:dailysupport@gmail.com">
+       dailysupport@gmail.com
+      </a>
+     </p>
+    </div>
+    <div class="website-views">
+     Website Views
+     <span>
+      14,831
+     </span>
+    </div>
+   </div>
+   <div class="feature-post">
+    <h2>
+     Feature Post
+    </h2>
+    <div class="post">
+     <img alt="Nature image" height="50" src="https://storage.googleapis.com/a1aa/image/NCNkGSMpi7qBJ5ASDowlDuWJVXwnWB4AT8qUfZ0pV1WGrkzJA.jpg" width="50"/>
+     <div>
+      <p>
+       Embrace the beauty of nature through our enchanting blog, where we celebrate the wonders of the natural world
+      </p>
+      <p class="date">
+       <i class="fas fa-calendar-alt">
+       </i>
+       Wed 02, 2022
+      </p>
+     </div>
+    </div>
+    <div class="post">
+     <img alt="Travel image" height="50" src="https://storage.googleapis.com/a1aa/image/Q2INqbjBmTY5BBQqJf4QThgNAkVFme2O68R1vOnCR9qPWJnTA.jpg" width="50"/>
+     <div>
+      <p>
+       Embark on unforgettable journeys through our travel blog, where wanderlust meets inspiration
+      </p>
+      <p class="date">
+       <i class="fas fa-calendar-alt">
+       </i>
+       Wed 05, 2020
+      </p>
+     </div>
+    </div>
+    <div class="post">
+     <img alt="Gaming image" height="50" src="https://storage.googleapis.com/a1aa/image/LzhlvEMZDsJCGhE2pmxCrmGedjM9jQ4T2AMiqJFShzJHrkzJA.jpg" width="50"/>
+     <div>
+      <p>
+       Gaming Adventures Unleashed
+      </p>
+      <p class="date">
+       <i class="fas fa-calendar-alt">
+       </i>
+       Wed 02, 2021
+      </p>
+     </div>
+    </div>
+   </div>
+   <div class="popular-tags">
+    <h2>
+     Popular Tags
+    </h2>
+    <a href="#">
+     Travel
+    </a>
+    <a href="#">
+     Food
+    </a>
+    <a href="#">
+     Lifestyle
+    </a>
+    <a href="#">
+     Techonogy
+    </a>
+    <a href="#">
+     Fashion
+    </a>
+    <div class="connect-with-us">
+     <h2>
+      Connect with us
+     </h2>
+     <div class="social-media">
+      <i class="fab fa-facebook">
+      </i>
+      <span>
+       @facebookuser
+      </span>
+     </div>
+     <div class="social-media">
+      <i class="fab fa-twitter">
+      </i>
+      <span>
+       @twitteruser
+      </span>
+     </div>
+     <div class="social-media">
+      <i class="fab fa-instagram">
+      </i>
+      <span>
+       @instagramuser
+      </span>
+     </div>
+     <div class="social-media">
+      <i class="fab fa-dribbble">
+      </i>
+      <span>
+       @dribbbleuser
+      </span>
+     </div>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>
