@@ -2,9 +2,11 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const bcrypt = require("bcrypt");
+const User = require("./model/User");
+const jwt = require("jsonwebtoken");
 const rateLimit = require("express-rate-limit"); // Import express-rate-limit
 const app = express();
-const { login } = require("./signUp/signup"); // Imported login function
 const PORT = process.env.PORT || 3000;
 
 // Blog modal
@@ -153,7 +155,43 @@ app.post("/post_blog", formidable(), async (req, resp) => {
 });
 
 // Add login route with rate limiter
-app.post("/login", loginLimiter, login);
+app.post("/login", loginLimiter, async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).send({ message: "User does not exist!" });
+    }
+
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+
+    if (!isPasswordValid) {
+      return res.status(401).send({ message: "Invalid password!" });
+    }
+
+    // Generate JWT token
+    const token = jwt.sign(
+      {
+        email: user.email,
+        id: user._id,
+      },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "24h",
+      }
+    );
+
+    // Send back the token and user information
+    return res
+      .status(200)
+      .send({ message: "Login successful!", token, userId: user._id });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send({ message: "Internal server error", error });
+  }
+});
 
 // Start the server
 app.listen(PORT, () => {
