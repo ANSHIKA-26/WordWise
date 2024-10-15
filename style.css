@@ -475,18 +475,35 @@ body.dark-mode footer .phone{
 [data-theme="dark"] .close-icon{
 background: var(--light);
 }
-
 #backToTop {
   position: fixed;
   bottom: 30px;
   right: 10px;
-  font-size: 50px;
+  width: 60px;
+  height: 60px;
+  font-size: 30px; /* Adjust icon size */
   cursor: pointer;
   text-align: center;
-  background-color: transparent;
+  background-color: var(--primary-color); /* Dark Pink */
+  color: var(--light); /* Light text color */
+  border-radius: 50%; /* Make it round */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  transition: all 0.3s ease-in-out; /* Smooth transition */
   z-index: 1000;
-  
 }
+
+#backToTop:hover {
+  background-color: var(--dark); /* Dark background on hover */
+  color: var(--primary-color); /* Pink text color on hover */
+  transform: scale(1.1); /* Slight zoom effect */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* More shadow on hover */
+}
+
+#backToTop i {
+  line-height: 60px; /* Center icon vertically */
+  font-size: 24px; /* Adjust icon size */
+}
+
 .heart-container {
   display: flex;
   justify-content: center;
