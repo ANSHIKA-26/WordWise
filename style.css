@@ -330,6 +330,8 @@ body {
   background: var(--body-bg);
   font-family: Arial, sans-serif;
   background-color: var(--background-color);
+  max-width: 100%; /* Ensure container does not overflow */
+  overflow: hidden;
 }
 
 /* Hide scrollbar for main body */
@@ -347,8 +349,15 @@ html, body {
   /* overflow-x: hidden;  Prevent horizontal scroll */
   margin: 0;
   padding: 0;
-}
+  overflow-x: hidden;
+} 
 
+.header, .footer, .main-content {
+  max-width: 100%; /* Prevent overflow */
+  overflow: hidden; /* Prevent inner overflow */
+  margin: 0 auto; /* Center the element */
+  padding: 0; /* Remove default padding */
+}
 
 /* Light Mode Scrollbar - Vertical Scroll Styling */
 ::-webkit-scrollbar {
