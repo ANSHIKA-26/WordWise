@@ -25,6 +25,11 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+// Middlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+
 ConnectDb();
 
 app.post("/send-email", async (req, res) => {
