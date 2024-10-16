@@ -89,3 +89,78 @@ loadMoreBtn.addEventListener('click', function () {
 });
 
 
+document.getElementById('sendBtn').addEventListener('click', function() {
+  const userInput = document.getElementById('userInput');
+  const message = userInput.value;
+  if (message) {
+      appendMessage('User: ' + message);
+      userInput.value = '';
+      generateResponse(message);
+  }
+});
+
+// Close chatbot functionality
+document.getElementById('closeBtn').addEventListener('click', function() {
+  const chatbot = document.getElementById('chatbot');
+  chatbot.style.display = 'none'; // Hide the chatbot
+});
+
+function appendMessage(message) {
+  const messagesDiv = document.getElementById('messages');
+  const newMessage = document.createElement('div');
+  newMessage.textContent = message;
+  messagesDiv.appendChild(newMessage);
+}
+
+function generateResponse(userMessage) {
+  const messagesDiv = document.getElementById('messages');
+  let botResponse = "Sorry, I don't understand.";
+  
+  if (userMessage.toLowerCase().includes('hello')) {
+      botResponse = "Welcome! How can I assist you?";
+      appendButtonOptions(['Learn more about WordWise', 'View latest blogs'], messagesDiv);
+  } else if (userMessage.toLowerCase().includes('help')) {
+      botResponse = "Sure! What do you need help with?";
+      appendButtonOptions(['Features', 'Contact Us'], messagesDiv);
+  }
+
+  appendMessage('Bot: ' + botResponse);
+}
+
+function appendButtonOptions(options, messagesDiv) {
+  const buttonContainer = document.createElement('div');
+  
+  options.forEach(option => {
+      const button = document.createElement('button');
+      button.textContent = option;
+      button.style.margin = '5px';
+      button.addEventListener('click', () => {
+          appendMessage('User: ' + option);
+          handleButtonResponse(option);
+      });
+      buttonContainer.appendChild(button);
+  });
+
+  messagesDiv.appendChild(buttonContainer);
+}
+
+function handleButtonResponse(option) {
+  let botResponse;
+  switch (option) {
+      case 'Learn more about WordWise':
+          botResponse = "WordWise is a blogging platform focused on enriching your vocabulary and providing insightful content.";
+          break;
+      case 'View latest blogs':
+          botResponse = "You can check the latest blogs on our homepage!";
+          break;
+      case 'Features':
+          botResponse = "Our features include responsive design, user engagement, and an intuitive UI.";
+          break;
+      case 'Contact Us':
+          botResponse = "You can reach us at support@wordwise.com.";
+          break;
+      default:
+          botResponse = "Sorry, I don't have information on that.";
+  }
+  appendMessage('Bot: ' + botResponse);
+}
