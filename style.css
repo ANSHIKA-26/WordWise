@@ -841,12 +841,12 @@ header {
   /* gap: 1.0rem; */
   color: #1C160C;
   margin-top: 15px;
-  margin-left: -5%;
-  padding-left: 5%;
+  margin-left: 0%;
+  padding-left: 2%;
 }
 
 .logo h2 {
-  font-size: 2.9rem;
+  font-size: 2.5rem;
   /* Adjusted font size for better visibility */
   font-weight: bold;
   line-height: 1.5;
@@ -3389,7 +3389,7 @@ footer p {
   height: 60px;
   display: flex;
   padding-top: 17px;
-  padding-bottom: 0px;
+  padding-bottom: 3px;
   justify-content: space-between;
 
 }
@@ -3400,7 +3400,7 @@ footer p {
 
 .nav-links1 {
   /* margin-right: 20%; */
-  margin-left: -120px;
+  margin-left: -150px;
   gap: 35px;
   margin-top: 15px;
   font-size: 18px;
@@ -3408,18 +3408,18 @@ footer p {
 }
 
 .nav-links1 a {
-  font-size: 99%;
+  font-size: 89%;
 }
 
 .theme-switch-wrapper {
   margin-top: 7px;
-  padding-left: 50px;
+  margin-left: 80px;
 }
 
 .profile-icon {
   height: 10px;
   margin-right: -3px;
-  margin-left: 20px
+  margin-left: 30px
 }
 
 #load-posts:hover {
