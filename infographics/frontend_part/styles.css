@@ -1,0 +1,36 @@
+body {
+    /* Set the font family for the entire document */
+    font-family: Arial, sans-serif;
+    /* Add margin around the body for spacing */
+    margin: 20px;
+}
+
+textarea {
+    /* Set the width to 100% of its parent container */
+    width: 100%;
+    /* Set a fixed height for the textarea */
+    height: 100px;
+    /* Add margin below the textarea for spacing */
+    margin-bottom: 10px;
+}
+
+#infographics {
+    /* Add margin above the infographics section for spacing */
+    margin-top: 20px;
+}
+
+.infographic {
+    /* Define border style for each infographic box */
+    border: 1px solid #ccc;
+    /* Add padding inside the infographic box */
+    padding: 10px;
+    /* Add margin around the infographic box for separation */
+    margin: 10px 0;
+    /* Round the corners of the infographic box */
+    border-radius: 5px;
+}
+
+.infographic h2 {
+    /* Remove margin from the heading inside infographic boxes */
+    margin: 0;
+}
