@@ -1301,6 +1301,41 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
                           <a href="https://dribbble.com/" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
                       </div>
                     </div>
+
+                    <div class="rateus-model">
+                        <button id="rateButton">Rate Us</button>
+                    </div>
+    
+    
+    
+                    <div class="rating-model">
+                        <div class="rating-body">
+                            <h2 class="head">Rate Us</h2>
+                            <fieldset class="starability-grow" id="rating-fieldset">
+                                <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+                                <input type="radio" id="first-rate1" name="rating" value="1" />
+                                <label for="first-rate1" title="Terrible">1 star</label>
+                                <input type="radio" id="first-rate2" name="rating" value="2" />
+                                <label for="first-rate2" title="Not good">2 stars</label>
+                                <input type="radio" id="first-rate3" name="rating" value="3" />
+                                <label for="first-rate3" title="Average">3 stars</label>
+                                <input type="radio" id="first-rate4" name="rating" value="4" />
+                                <label for="first-rate4" title="Very good">4 stars</label>
+                                <input type="radio" id="first-rate5" name="rating" value="5" />
+                                <label for="first-rate5" title="Amazing">5 stars</label>
+                            </fieldset>
+                            
+                            <textarea class="flex textarea" name="" id="" rows="8" cols="35" placeholder="Write your comments here..."></textarea>
+                            <div class="flex flexx">
+                                <button class="sub">Submit</button>
+                                <button class="can">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
               </div>
           </div>
 
@@ -1331,6 +1366,30 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
+
+<script>
+    const ratingModel = document.querySelector(".rating-model");
+    const textarea = document.querySelector(".textarea");
+    const submit = document.querySelector(".sub");
+
+    document.getElementById("rateButton").addEventListener('click', () => {
+        ratingModel.style.display = 'block';
+    });
+
+    document.querySelector(".can").addEventListener('click', () => {
+        ratingModel.style.display = 'none';
+    });
+
+    submit.addEventListener("click", () => {
+        const rating = document.querySelector('input[name="rating"]:checked').value;
+        const comment = textarea.value;
+        alert(`Thanks for giving us ${rating} out of 5. Your comment: ${comment}`);
+        ratingModel.style.display = "none";
+
+    });
+
+</script>
+
     <script>
 
 // For Loader Page
