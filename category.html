@@ -787,6 +787,37 @@
             document.getElementById('current-year').textContent = new Date().getFullYear();
         });
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkbox = document.querySelector('input[type="checkbox"]');
+            const modeLabel = document.getElementById('mode-label');
+
+            // Check localStorage for saved mode
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'dark') {
+                document.body.classList.add('dark-mode');
+                checkbox.checked = true;
+                modeLabel.textContent = 'Dark Mode';
+            } else {
+                modeLabel.textContent = 'Light Mode';
+            }
+
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('darkMode', 'dark');
+                    modeLabel.textContent = 'Dark Mode';
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    localStorage.setItem('darkMode', 'light');
+                    modeLabel.textContent = 'Light Mode';
+                }
+            });
+
+            // ... existing FAQ modal code ...
+        });
+    </script>
 </body>
 
 </html>
