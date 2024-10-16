@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-  <link rel="stylesheet" href="./give_feedback.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -399,36 +398,86 @@
     </h2>
 
     <div class="container">
-        <form id="feedbackForm">
-            <div class="input-container">
-                <label for="name">Name</label>
-                <input type="text" id="name" required>
-            </div>
+      <form id="feedbackForm">
+        <div class="form-group" style="margin-bottom: 15px">
+          <label for="Name" style="
+                display: block;
+                text-align: left;
+                margin-bottom: 5px;
+                color: var(--text-color);
+                font-size: 14px;
+                margin-left: 5px;
+              "><i class="fas fa-user"></i>&nbsp;Name</label>
+          <input type="text" id="Name" placeholder="Enter your Name" name="Name" required style="
+                width: 100%;
+                padding: 10px;
+                font-size: 14px;
+                border: 2px solid #ddd;
+                border-radius: 5px;
+                " />
+        </div>
+        <div class="form-group" style="margin-bottom: 15px">
+          <label for="email2"
+            style="display: block; text-align: left; margin-bottom: 5px; color: var(--text-color); font-size: 14px; margin-left: 5px;">
+            <i class="fas fa-envelope"></i>&nbsp;
+            Email Address
+          </label>
+          <input type="email2" id="email2" placeholder="Enter your Email" name="email2" required
+            style="width: 100%; padding: 10px; font-size: 14px; border: 2px solid #ddd; border-radius: 5px;" />
+        </div>
 
-            <div class="input-container">
-                <label for="email">Email</label>
-                <input type="email" id="email" required>
-            </div>
+        <div class="form-group" style="margin-bottom: 15px">
+          <label for="message" style="
+                display: block;
+                text-align: left;
+                margin-bottom: 5px;
+                color: var(--text-color);
+                font-size: 14px;
+                margin-left: 5px;
+              ">
+            <i class="fas fa-pen"></i>&nbsp;Feedback</label>
+          <textarea id="message" name="message" rows="4" placeholder="We are eager to learn about your experience..."
+            required style="
+                width: 100%;
+                padding: 10px;
+                font-size: 14px;
+                border: 2px solid #ddd;
+                border-radius: 5px;
+                "></textarea>
+        </div>
 
-            <div class="input-container">
-                <label for="feedback">Feedback</label>
-                <textarea id="feedback" required></textarea>  
-            </div>
+        <div class="form-group">
+          <label for="message" style="
+                padding-top: 13px;
+                display: block;
+                text-align: left;
+                margin-bottom: 5px;
+                color: var(--text-color);
+                font-size: 14px;
+                margin-left: 5px;
+              ">
+            <i class="fas fa-star"></i>&nbsp;Rating</label>
 
-            <div class="input-container">
-                <label for="rating">Rating</label>
-                <select id="rating" required>
-                    <option value="" disabled selected>Select your rating</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
+          <select id="rating" required style="
+          width: 100%;
+          padding: 10px;
+          font-size: 14px;
+          border: 2px solid #ddd;
+          border-radius: 5px;
+          ">
+            <option value="" disabled selected style="color: #333; font-weight: bold;">Select your rating</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
 
-            <button type="submit" class="submit-btn">Submit</button>
-        </form>
+        <button type="button" class="submitbtn" style="width: 100%;">
+          Send
+        </button>
+      </form>
     </div>
 
 
@@ -502,7 +551,7 @@
                   <span>dailysupport@gmail.com</span>
                 </a>
               </div>
-              <div> <a href="privacy.html" style="color: #520be1e7;">Privacy Policy</a> </div> 
+              <div> <a href="privacy.html" style="color: #520be1e7;">Privacy Policy</a> </div>
               <div>
                 <img
                   src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5"
