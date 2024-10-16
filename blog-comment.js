@@ -133,7 +133,7 @@ function showToast(message, type) {
   toast.style.transform = "translateX(-50%)";
   toast.style.padding = "15px 20px";
   toast.style.borderRadius = "8px";
-  toast.style.color = "#fff";
+  toast.style.color = "#00000";
   toast.style.zIndex = "9999";
   toast.style.opacity = "0";
   toast.style.transition = "opacity 0.5s, transform 0.5s";

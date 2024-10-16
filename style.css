@@ -795,7 +795,10 @@ header {
   color: rgb(59, 59, 88);
   white-space: nowrap; /* Prevent logo from breaking into two lines*/
 }
- 
+.logo h2:hover {
+  color: rgb(29, 29, 68); /* Change color on hover */
+  transform: scale(1.05); /* Slightly scale up the text */
+}
 /* Navigation Bar */
 
 .nav-links1 {
