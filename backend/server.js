@@ -1,6 +1,7 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
+const bcrypt = require("bcrypt")
 const cors = require("cors");
 const app = express();
 const cookieParser = require("cookie-parser");
@@ -18,6 +19,8 @@ const fs = require("fs").promises;
 const ConnectDb = require("./Database");
 const { subscribeToNewsletter } = require("./controllers/NewsLetterController");
 const { saveContactForm } = require("./controllers/ContactController");
+const User = require("./model/User");
+const { sendOtp } = require("./config/nodemailer");
 
 app.use(bodyParser.json());
 const corsOptions = {
@@ -190,6 +193,74 @@ app.post("/login", loginLimiter, async (req, res) => {
     return res.status(500).send({ message: "Internal server error", error });
   }
 });
+
+app.post("/send-otp", async (req, res) => {
+  const { email } = req.body;
+  console.log("hii");
+  
+  const user = await User.findOne({ email });
+
+  if(!user){
+    return res.status(404).json({
+      success: false,
+      data: "User not found"
+    })
+  }
+
+  const verifyCode = Math.floor(100000 + Math.random() * 900000).toString();
+
+  user.otp = verifyCode;
+  await user.save();
+
+  sendOtp(email, verifyCode)
+
+  try {
+    res.status(201).json({ success: true });
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error!!" });
+  }
+})
+
+app.post("/verify_otp", async(req, res)=>{
+  try {
+    const { id, otp } = req.body;
+
+    const existingCustomer = await User.findOne({ _id: id });
+
+    if (!existingCustomer) {
+        return res.status(404).json({ error: "User not found" });
+    }
+
+    if(existingCustomer.otp !== otp){
+        return res.status(400).json({ error: "Invalid verification code", success: false });
+    }
+
+    existingCustomer.otp = ""
+    await existingCustomer.save();
+
+    return res.status(200).json({ message: "verified", success: true})
+  } catch (error) {
+    return res.status(500).json({ message: "Internal server error", success: false})
+  }
+
+})
+
+app.post("/reset_password", async(req, res)=>{
+  try {
+    const {id, password} = req.body
+  
+    const customer = await User.findOne({ _id: id });
+    if (!customer) {
+      return res.status(401).json({ error: "User not found" });
+    }
+    const hashedPassword = await bcrypt.hash(password, 10);
+    customer.password = hashedPassword;
+    await customer.save();
+    res.json({ message: "Password reset successful" });
+  } catch (error) {
+    res.status(501).json({ error: "Internal server error" });
+  }
+})
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

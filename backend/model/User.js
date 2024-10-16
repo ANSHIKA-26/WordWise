@@ -31,6 +31,9 @@ const userSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
+		otp: {
+			type: String,
+		}
 		// Add timestamps for when the document is created and last modified
 	},
 	{ timestamps: true }
