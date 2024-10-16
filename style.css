@@ -2351,14 +2351,17 @@ p {
 }
 
 body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  transition: background-color 0.3s, color 0.3s;
-}
 
+  background-color:  var(--background-color);
+  color:  var(--text-color);
+  font-family:  Arial, sans-serif;
+  margin:  0;
+  padding:  0;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+
+}
+ 
 
 /* header {
   background-color: var(--header-bg);
