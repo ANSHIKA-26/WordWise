@@ -9,6 +9,7 @@ const rateLimit = require("express-rate-limit"); // Import express-rate-limit
 const PORT = process.env.PORT || 3000;
 //blog modal
 const BlogModal = require("./modal/BlogModal");
+const jwt =  require("jsonwebtoken")
 
 //middleware
 const formidable = require("express-formidable");
@@ -24,11 +25,12 @@ const { sendOtp } = require("./config/nodemailer");
 
 app.use(bodyParser.json());
 const corsOptions = {
-  origin: [
-    "http://localhost:5501",
-    "http://127.0.0.1:5501",
-    "http://127.0.0.1:5500",
-  ],
+  // origin: [
+  //   "http://localhost:5501",
+  //   "http://127.0.0.1:5501",
+  //   "http://127.0.0.1:5500",
+  // ],
+  origin: "*",
   methods: ["GET", "POST", "HEAD", "OPTIONS"], // Allow POST method
   credentials: true,
 };
@@ -194,9 +196,40 @@ app.post("/login", loginLimiter, async (req, res) => {
   }
 });
 
+app.post("/signup", async (req, res) => {
+  const { name, email, password, image } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+
+    if (user) {
+      return res.status(404).send({ message: "User already exist!" });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const customer = new User({
+      name: name,
+      email: email,
+      password: hashedPassword,
+      image: image
+    });
+
+    await customer.save();
+    res.status(201).json({ message: "Customer created successfully" });
+
+    return res
+      .status(200)
+      .send({ message: "Login successful!", userId: user._id });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send({ message: "Internal server error", error });
+  }
+});
+
+
 app.post("/send-otp", async (req, res) => {
   const { email } = req.body;
-  console.log("hii");
   
   const user = await User.findOne({ email });
 
