@@ -826,23 +826,23 @@ body.dark-mode footer .phone {
 
 
 header {
-  display: inline-block;
+  display: flex;
   justify-content: space-around;
   align-items: center;
   border-bottom: 0px solid #feb9ae;
-  padding: 0rem 0rem;
-  padding-top: 0.9rem;
-  padding-bottom: 0rem;
+  margin-top: 0.1rem;
+  margin-bottom: 1.1rem;
   width: 100%;
 }
 
 .logo {
   display: flex;
   align-items: start;
-  gap: 1.2rem;
+  /* gap: 1.0rem; */
   color: #1C160C;
-  margin-bottom: 3px;
-  margin-left: 42%;
+  margin-top: 15px;
+  margin-left: -5%;
+  padding-left: 5%;
 }
 
 .logo h2 {
@@ -857,8 +857,10 @@ header {
 }
 
 .logo h2:hover {
-  color: rgb(29, 29, 68); /* Change color on hover */
-  transform: scale(1.05); /* Slightly scale up the text */
+  color: rgb(29, 29, 68);
+  /* Change color on hover */
+  transform: scale(1.05);
+  /* Slightly scale up the text */
 }
 
 /* Navigation Bar */
@@ -867,7 +869,7 @@ header {
 
   display: flex;
   gap: 2.1rem;
-  margin: 0 0.5rem;
+  margin: 0 0rem;
   margin-top: 8px;
   position: relative;
   /* Parent positioning */
@@ -3227,11 +3229,11 @@ footer p {
   display: flex;
   align-items: center;
   text-decoration: none;
-  font-size: 37px;
+  font-size: 45px;
   color: #333;
   cursor: pointer;
   margin-bottom: 7px;
-  margin-top: 2px;
+  margin-top: 7px;
   position: relative;
   /* Position relative for dropdown alignment */
 }
@@ -3383,13 +3385,13 @@ footer p {
 }
 
 .nav-below {
-  background-color: #f39494;
+  /* background-color: #f39494; */
   height: 60px;
   display: flex;
-  padding-left: 100px;
-  padding-top: 9px;
-  padding-bottom: 15px;
+  padding-top: 17px;
+  padding-bottom: 0px;
   justify-content: space-between;
+
 }
 
 .layout-container {
@@ -3397,12 +3399,12 @@ footer p {
 }
 
 .nav-links1 {
-  margin-right: 40px;
-  margin-left: 40px;
-  gap: 70px;
-  margin-top: 11px;
-  font-size: 17px;
-  /* width: 100% */
+  /* margin-right: 20%; */
+  margin-left: -120px;
+  gap: 35px;
+  margin-top: 15px;
+  font-size: 18px;
+  width: 100%
 }
 
 .nav-links1 a {
@@ -3410,14 +3412,14 @@ footer p {
 }
 
 .theme-switch-wrapper {
-  padding-top: 5px;
-  padding-left: 30px;
+  margin-top: 7px;
+  padding-left: 50px;
 }
 
 .profile-icon {
-  height: 20px;
-  margin-right: 30px;
-  margin-left: 15px
+  height: 10px;
+  margin-right: -3px;
+  margin-left: 20px
 }
 
 #load-posts:hover {
@@ -3425,9 +3427,6 @@ footer p {
   transition: all 0.3s;
 }
 
-.nav-above {
-  margin-bottom: -25px;
-}
 
 /* Travel section */
 #travel {
@@ -3465,64 +3464,91 @@ footer p {
   background-color: #f4978e;
   margin: 10px auto 0;
 }
+
 /* button hover effect */
 
 
 
 
-.section-btn ul{
+.section-btn ul {
   list-style: none;
-  
+
 }
-.section-btn li{
+
+.section-btn li {
   display: flex;
   justify-content: center;
 }
+
 .section-btn a {
-  color: white; /* Text color for the link */
-  font-weight: normal; /* Normal font weight */
-  line-height: 45px; /* Line height for vertical centering */
-  perspective: 1000px; /* Perspective for 3D effect */
-  
+  color: white;
+  /* Text color for the link */
+  font-weight: normal;
+  /* Normal font weight */
+  line-height: 45px;
+  /* Line height for vertical centering */
+  perspective: 1000px;
+  /* Perspective for 3D effect */
+
 }
 
 .section-btn a span {
-  position: relative; /* Positioning context for the span */
-  display: inline-block; /* Allow block-like behavior */
-  font-size: 18px; /* Font size for the text */
-  font-weight: normal; /* Normal font weight */
-  letter-spacing: 0.5px; /* Slightly increased letter spacing */
-  padding: 2px 27px; /* Padding around the text */
-  background: #2076D9; /* Background color of the span */
-  border-radius: 1px; /* Rounded corners */
-  transition: transform 0.3s; /* Smooth transition for transformation */
-  transform-origin: 50% 0; /* Set transform origin to the center top */
-  transform-style: preserve-3d; /* Preserve 3D transformations */
+  position: relative;
+  /* Positioning context for the span */
+  display: inline-block;
+  /* Allow block-like behavior */
+  font-size: 18px;
+  /* Font size for the text */
+  font-weight: normal;
+  /* Normal font weight */
+  letter-spacing: 0.5px;
+  /* Slightly increased letter spacing */
+  padding: 2px 27px;
+  /* Padding around the text */
+  background: #2076D9;
+  /* Background color of the span */
+  border-radius: 1px;
+  /* Rounded corners */
+  transition: transform 0.3s;
+  /* Smooth transition for transformation */
+  transform-origin: 50% 0;
+  /* Set transform origin to the center top */
+  transform-style: preserve-3d;
+  /* Preserve 3D transformations */
 }
 
 .section-btn a span::before {
-  position: absolute; /* Position the pseudo-element */
-  top: 100%; /* Position it just below the span */
-  left: 0; /* Align to the left */
-  height: 100%; /* Match the height of the span */
-  width: 100%; /* Match the width of the span */
-  color: white; /* Text color for the pseudo-element */
-  background: black; /* Background color for the hover text */
-  border-radius: 1px; /* Match rounded corners */
+  position: absolute;
+  /* Position the pseudo-element */
+  top: 100%;
+  /* Position it just below the span */
+  left: 0;
+  /* Align to the left */
+  height: 100%;
+  /* Match the height of the span */
+  width: 100%;
+  /* Match the width of the span */
+  color: white;
+  /* Text color for the pseudo-element */
+  background: black;
+  /* Background color for the hover text */
+  border-radius: 1px;
+  /* Match rounded corners */
   /* padding: 2px 27px; Padding for the pseudo-element */
-/* padding-left: 10px; */
-text-align: center;
-  transition: background 0.3s; /* Smooth transition for background color */
-  transform: rotateX(-90deg); /* Hide it initially by rotating */
-  content: attr(data-hover); /* Set content to the value of data-hover attribute */
-  transform-origin: 50% 0; /* Set transform origin for the rotation */
+  /* padding-left: 10px; */
+  text-align: center;
+  transition: background 0.3s;
+  /* Smooth transition for background color */
+  transform: rotateX(-90deg);
+  /* Hide it initially by rotating */
+  content: attr(data-hover);
+  /* Set content to the value of data-hover attribute */
+  transform-origin: 50% 0;
+  /* Set transform origin for the rotation */
 }
 
-.section-btn a:hover span, .section-btn a:focus span {
-  transform: rotateX(90deg) translateY(-22px); /* Flip the text on hover */
+.section-btn a:hover span,
+.section-btn a:focus span {
+  transform: rotateX(90deg) translateY(-22px);
+  /* Flip the text on hover */
 }
-
-
-
-
-
