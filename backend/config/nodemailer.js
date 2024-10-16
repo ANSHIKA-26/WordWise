@@ -83,3 +83,38 @@ exports.sendContactConfirmation = async (email, firstName) => {
         }
     }
 };
+
+exports.sendOtp = async (email, OTP) => {
+    // Construct the email content
+    const emailText = `
+    Dear User,
+
+    Thank you for reaching out to us!
+    We appreciate you contacting WordWise. Your OTP for resetting password is : ${OTP}.
+
+    If you have any urgent queries, please don't hesitate to contact us again.
+
+    Best regards,
+    WordWise Team
+  `;
+
+    try {
+        await transporter.sendMail({
+            from: process.env.EMAIL_USER,
+            to: email,
+            subject: "Password reset code!",
+            text: emailText,
+        });
+
+    } catch (error) {
+        if (error.code === "ECONNREFUSED") {
+            throw new Error(
+                "Failed to connect to email server. Please try again later.",
+            );
+        } else {
+            throw new Error(
+                `Failed to send contact confirmation email: ${error.message}`,
+            );
+        }
+    }
+};
