@@ -91,7 +91,7 @@
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 </head>
-<body onload="Finish_Loader()">
+<body style="overflow-x: hidden;" onload="Finish_Loader()">
  <!-- pre load -->
     <div id="loader">
 <div class="loadingspinner">
@@ -129,8 +129,14 @@
         <a href="category.html">Categories</a>
         <a href="about.html">About</a>
         <a href="contact_us.html">Contact Us</a>
+
         <a href="contact_us.html">Give Feedback</a>
-    </div> 
+    </div>  
+        <a href="give_feedback.html">Give Feedback</a>
+    </div>
+
+
+ 
               <div class="dropdown">
                 <!-- Profile Icon -->
                 <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
@@ -1163,7 +1169,11 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
 
 
     </main>
-    <button id="backToTop">⬆️</button>
+    <!-- <button id="backToTop">⬆️</button> -->
+    <div id="backToTop" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
     <!--mainn-->
     <!-- footer -->
     <footer id="footer">
