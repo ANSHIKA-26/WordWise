@@ -784,7 +784,8 @@ header {
   display: flex;
   align-items: start;
   gap: 1.2rem;
-  color: #1C160C;
+  color: white;
+  background-color: whitesmoke;
   /* margin: 0 3rem; */
 }
 .logo h2 {
