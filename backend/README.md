@@ -1,4 +1,3 @@
-md
 # Wordwise API Documentation
 
 ## Overview
