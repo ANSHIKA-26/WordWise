@@ -400,49 +400,54 @@
 
     <div class="container">
         <form id="feedbackForm">
+          
             <div class="input-container">
                 <label for="name">Name</label>
                 <input type="text" id="name" required>
             </div>
-
+ 
             <div class="input-container">
                 <label for="email">Email</label>
                 <input type="email" id="email" required>
             </div>
-
+ 
             <div class="input-container">
                 <label for="feedback">Feedback</label>
                 <textarea id="feedback" required></textarea>  
             </div>
 
-            <div class="input-container">
-                <label for="rating">Rating</label>
-                <select id="rating" required>
-                    <option value="" disabled selected>Select your rating</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
-
-            <button type="submit" class="submit-btn">Submit</button>
+          
+          <!-- Star Rating Section -->
+          <div class="star-rating" aria-label="Rating" role="radiogroup">
+              <input type="radio" id="star5" name="rating" value="5">
+              <label for="star5" title="5 stars">★</label>
+              <input type="radio" id="star4" name="rating" value="4">
+              <label for="star4" title="4 stars">★</label>
+              <input type="radio" id="star3" name="rating" value="3">
+              <label for="star3" title="3 stars">★</label>
+              <input type="radio" id="star2" name="rating" value="2">
+              <label for="star2" title="2 stars">★</label>
+              <input type="radio" id="star1" name="rating" value="1">
+              <label for="star1" title="1 star">★</label>
+          </div>
+          
+          <button type="submit" class="submit-btn">Submit</button>
+          
         </form>
     </div>
 
 
-
+ 
     <!-- Custom popup -->
     <div class="overlay" id="overlay" style="
-          display: none;
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: rgba(0, 0, 0, 0.7);
-          z-index: 999;
+          display:  none;
+          position:  fixed;
+          top:  0;
+          left:  0;
+          width:  100%;
+          height:  100%;
+          background:  rgba(0, 0, 0, 0.7);
+          z-index:  999;
         "></div>
     <div class="popup" id="popupMessage" style="
           display: none;

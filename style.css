@@ -2132,6 +2132,7 @@ a {
   max-width: 1200px;
   padding: 0 15px;
   margin: auto auto;
+  background-color: transparent;
 }
 /* For making content responsive on smaller devices <768 pixels */
 
@@ -3248,5 +3249,30 @@ text-align: center;
 
 
 
+.star-rating {
+  display: flex;
+  justify-content: center; 
+  margin-top: -35px;
+  flex-direction: row-reverse;
+}
 
+.star-rating input {
+  display: none; 
+}
+
+.star-rating label {
+  font-size: 46px; 
+  color: #ddd; 
+  cursor: pointer; 
+  transition: color 0.2s;
+}
+
+.star-rating input:checked ~ label {
+  color: #ffca28; 
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #ffca28; 
+}
 
