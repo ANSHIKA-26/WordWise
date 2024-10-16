@@ -55,11 +55,11 @@
           <div class="input-group">
             <div class="input-field">
               <label for="Name">Name</label><br />
-              <input type="text" class="input-box" placeholder="Enter Name" />
+              <input type="text" id="name" class="input-box" placeholder="Enter Name" />
             </div>
             <div class="input-field">
               <label for="Mail">Email</label><br />
-              <input type="text" class="input-box" placeholder="Enter Email" />
+              <input type="text" id="email" class="input-box" placeholder="Enter Email" />
             </div>
 
             <!-- Password Field with Toggle Eye Icon inside -->
@@ -153,10 +153,32 @@
       }
 
       // Handle form submission
-      function submitForm(event) {
+      async function submitForm(event) {
+        event.preventDefault()
+        
         if (!validatePassword()) {
           event.preventDefault(); // Prevent form submission if validation fails
         }
+        const password = document.getElementById("password").value;
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+
+        const data = {
+          name: name,
+          email: email,
+          password: password
+        };
+
+        const options = {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        };
+
+        await fetch("http://localhost:3000/signup", options)
+         
       }
     </script>
   </body>
