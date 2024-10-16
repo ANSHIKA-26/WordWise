@@ -3246,7 +3246,29 @@ text-align: center;
   transform: rotateX(90deg) translateY(-22px); /* Flip the text on hover */
 }
 
+.star-rating {
+  display: flex;
+  justify-content: center; 
+  flex-direction: row-reverse;
+}
 
+.star-rating input {
+  display: none; 
+}
 
+.star-rating label {
+  font-size: 46px; 
+  color: #ddd; 
+  cursor: pointer; 
+  transition: color 0.2s;
+  margin: 0 5px; /* Add margin for gaps between stars */
+}
 
+.star-rating input:checked ~ label {
+  color: #ffca28; 
+}
 
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #ffca28; 
+}
