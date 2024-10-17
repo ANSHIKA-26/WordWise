@@ -339,6 +339,8 @@ body {
   background: var(--body-bg);
   font-family: Arial, sans-serif;
   background-color: var(--background-color);
+  max-width: 100%; /* Ensure container does not overflow */
+  overflow: hidden;
 }
 
 /* Hide scrollbar for main body */
@@ -357,8 +359,15 @@ body {
   /* overflow-x: hidden;  Prevent horizontal scroll */
   margin: 0;
   padding: 0;
-}
+  overflow-x: hidden;
+} 
 
+.header, .footer, .main-content {
+  max-width: 100%; /* Prevent overflow */
+  overflow: hidden; /* Prevent inner overflow */
+  margin: 0 auto; /* Center the element */
+  padding: 0; /* Remove default padding */
+}
 
 /* Light Mode Scrollbar - Vertical Scroll Styling */
 ::-webkit-scrollbar {
@@ -3534,20 +3543,43 @@ footer p {
   border-radius: 1px;
   /* Match rounded corners */
   /* padding: 2px 27px; Padding for the pseudo-element */
-  /* padding-left: 10px; */
-  text-align: center;
-  transition: background 0.3s;
-  /* Smooth transition for background color */
-  transform: rotateX(-90deg);
-  /* Hide it initially by rotating */
-  content: attr(data-hover);
-  /* Set content to the value of data-hover attribute */
-  transform-origin: 50% 0;
-  /* Set transform origin for the rotation */
+
+/* padding-left: 10px; */
+text-align: center;
+  transition: background 0.3s; /* Smooth transition for background color */
+  transform: rotateX(-90deg); /* Hide it initially by rotating */
+  content: attr(data-hover); /* Set content to the value of data-hover attribute */
+  transform-origin: 50% 0; /* Set transform origin for the rotation */
 }
 
-.section-btn a:hover span,
-.section-btn a:focus span {
-  transform: rotateX(90deg) translateY(-22px);
-  /* Flip the text on hover */
+.section-btn a:hover span, .section-btn a:focus span {
+  transform: rotateX(90deg) translateY(-22px); /* Flip the text on hover */
 }
+
+.star-rating {
+  display: flex;
+  justify-content: center; 
+  flex-direction: row-reverse;
+}
+
+.star-rating input {
+  display: none; 
+}
+
+.star-rating label {
+  font-size: 46px; 
+  color: #ddd; 
+  cursor: pointer; 
+  transition: color 0.2s;
+  margin: 0 5px; /* Add margin for gaps between stars */
+}
+
+.star-rating input:checked ~ label {
+  color: #ffca28; 
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #ffca28; 
+}
+
