@@ -1,0 +1,415 @@
+
+.blog-form-container {
+    background: url('/path-to-your-uploaded-image') no-repeat center center;
+    background-size: cover;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+/* Input, Textarea, and Select Styling */
+form input, form select, form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0 20px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+}
+
+/* Theme-specific Adjustments */
+body.dark-mode .blog-form-container {
+    background-color: rgba(34, 33, 33, 0.6);
+    color: #fff;
+}
+body.light-mode .blog-form-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #333;
+}
+
+/* Button Styling */
+form button[type="submit"] {
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+ 
+form button[type="submit"]:hover {
+    background-color: #e65c00;
+    transform: scale(1.03);
+}
+
+/* Placeholder for blog content */
+textarea#blogContent::placeholder {
+    content: "Write a sample blog to give an idea of size";
+}
+
+/* Popup styling for success */
+#popupMessage {
+  display: block; /* Ensure it's set to block */
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure it stays on top */
+  animation: fadeOut 3s forwards;
+}
+
+#start-voice-input {
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+
+#suggestionsContainer {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  display: none;  /* Initially hidden */
+}
+
+#suggestionsContainer h4 {
+  margin-bottom: 10px;
+}
+
+#suggestionsText {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Show the suggestions when available */
+#suggestionsContainer.visible {
+  display: block;
+}
+
+@keyframes fadeOut {
+  0% {
+      opacity: 1;
+  }
+  80% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Footer Styles */
+#custom-footer {
+    background-color: #f8f9fa; /* Light background color */
+    padding: 20px 0;
+    color: #333; /* Default text color */
+}
+
+.footer-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-col {
+    flex: 1;
+    padding: 10px;
+    min-width: 250px; /* Minimum width for responsive design */
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #3B3B58; /* Title color */
+}
+
+.footer-content {
+    font-size: 0.9rem;
+}
+
+.footer-description {
+    margin: 10px 0;
+}
+
+.footer-address, .footer-phone, .footer-email {
+    margin: 5px 0;
+}
+
+.footer-icon {
+    color: #007bff; /* Primary color for icons */
+    margin-right: 5px;
+}
+
+.footer-email-link {
+    color: #3B3B58; /* Email link color */
+    text-decoration: none;
+}
+
+.footer-email-link:hover {
+    text-decoration: underline;
+}
+
+.feature-post {
+    margin-top: 15px;
+}
+
+.post-item {
+    margin-bottom: 10px;
+}
+
+.post-flex {
+    display: flex;
+    align-items: center;
+}
+
+.post-image {
+    width: 80px; /* Fixed width for images */
+    height: 80px; /* Fixed height for images */
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.post-title {
+    font-size: 1rem;
+    color: #333; /* Title color */
+}
+
+.post-date {
+    font-size: 0.8rem;
+    color: #6c757d; /* Secondary text color */
+}
+
+.footer-tags, .footer-social {
+    margin-top: 10px;
+}
+
+.tags-wrapper, .social-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-tag, .footer-social-link {
+    background-color: #e9ecef; /* Light button color */
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px;
+    color: #333; /* Default text color */
+    text-decoration: none;
+}
+
+.footer-tag:hover, .footer-social-link:hover {
+    background-color: #d5d9db; /* Darker button color on hover */
+}
+
+
+/* Footer */
+
+/* Footer container */
+.custom-footer {
+  background: transparent ;
+
+  padding: 40px 0;
+  color: #333;
+}
+
+.custom-footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.custom-footer .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Footer columns */
+.custom-footer .col-3 {
+  flex: 0 0 30%; /* Takes up about 30% of width per column */
+  padding: 15px;
+  min-width: 280px; /* Ensures better minimum size on small screens */
+  box-sizing: border-box;
+}
+
+/* Footer Titles */
+.custom-footer .footer-title {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  color: #3B3B58;
+  font-weight: bold;
+}
+
+/* About Us content */
+.custom-footer p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #6c757d;
+}
+
+.custom-footer address {
+  font-style: normal;
+  margin-bottom: 15px;
+  color: #6c757d;
+}
+
+.custom-footer i {
+  margin-right: 10px;
+  color: #007bff;
+}
+
+.custom-footer .phone, 
+.custom-footer .email {
+  margin-bottom: 15px;
+}
+
+.custom-footer .email a {
+  color: #3B3B58;
+  text-decoration: none;
+}
+
+.custom-footer .email a:hover {
+  text-decoration: underline;
+}
+
+/* Feature Post section */
+.custom-footer .feature-post {
+  margin-top: 20px;
+}
+
+.custom-footer .article {
+  margin-bottom: 20px;
+}
+
+.custom-footer .article .d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.custom-footer .article img {
+  width: 90px; /* Larger image for better balance */
+  height: 90px;
+  object-fit: cover;
+  margin-right: 15px; /* Increased spacing between image and text */
+  border-radius: 8px;
+}
+
+.custom-footer .text-title {
+  font-size: 1.1rem; /* Slightly larger text for better readability */
+  color: #333;
+  text-decoration: none;
+}
+
+.custom-footer .text-title:hover {
+  text-decoration: underline;
+}
+
+.custom-footer .secondary-title {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.custom-footer .display-3 {
+  font-size: 0.85rem;
+}
+
+/* Tags section */
+.custom-footer .tags {
+  margin-top: 20px;
+}
+
+.custom-footer .tags .nav-link {
+  background-color: #e9ecef;
+  border-radius: 5px;
+  padding: 8px 12px; /* More padding for better button size */
+  margin: 5px;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.custom-footer .tags .nav-link:hover {
+  background-color: #d5d9db;
+}
+
+/* Social media section */
+.custom-footer .social .nav-link {
+  padding: 10px;
+  font-size: 1.2rem;
+  background-color: #e9ecef;
+  border-radius: 50%;
+  margin: 5px;
+  color: #333;
+}
+
+.custom-footer .social .nav-link:hover {
+  background-color: #d5d9db;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .custom-footer .col-3 {
+      flex: 0 0 45%; /* Each column takes up 45% on tablet screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-footer .col-3 {
+      flex: 0 0 100%; /* Each column takes up full width on mobile screens */
+  }
+}

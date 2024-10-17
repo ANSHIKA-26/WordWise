@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordWise</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favi.png" />
+    <!--fotn awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--swiper slider css-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--css-->
+    <link rel="stylesheet" href="/src/stles/style.css">
+    <link rel="stylesheet" href="/src/stles/Scroll_and_progressbar.css">
+
+    <style>
+      .secondary-title {
+        color: white;
+      }
+    </style>
+  </head>
+
+
+</head>
+<body>
+  <div class="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+   <!--header-->
+   <header class="navbar">
+    <div class="logo">
+        <h2><a class="home-link" href="/index.html">WordWise</a></h2>
+    </div>
+
+    <nav class="nav-menu">
+        
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/src/blog.html">Leading Blog</a></li>
+            <li><a href="/src/start-writing.html">Start Writing</a></li>
+            <li><a href="/src/category.html">Categories</a></li>
+            <li><a href="/src/about.html">About</a></li>
+            <li><a href="/src/contact_us.html">Contact Us</a></li>
+            <li><a href="/src/give_feedback.html">Give Feedback</a></li>
+        </ul>
+    </nav>
+
+    <div class="auth-buttons">
+        <a href="#login" class="login-btn" onclick="openForm('login')">Login</a>
+        <a href="#signup" class="signup-btn" onclick="openForm('signup')">Signup</a>
+    </div>
+
+     <!-- Login Form -->
+<div class="form-popup" id="loginForm">
+  <form class="form-container" onsubmit="return validateLoginForm()">
+      <h2>Login</h2>
+      <label for="loginEmail"><b>Email</b></label>
+      <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
+      
+      <div class="form-group position-relative">
+          <label for="loginPsw"><b>Password</b></label>
+          <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+          <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
+      </div>
+      <div class="forgot">
+        <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
+      </div>
+      <button type="submit" class="btn">LOGIN</button>
+      <button type="button" class="btn cancel" onclick="closeForm('login')">CLOSE</button>
+  </form>
+</div>
+
+<!-- Signup Form -->
+<div class="form-popup" id="signupForm">
+  <form class="form-container" onsubmit="return validateSignupForm()">
+      <h2>Signup</h2>
+
+      <div class="form-group">
+          <label for="name"><b>Full Name</b></label>
+          <input type="text" id="name" placeholder="Enter Full Name" name="name" required>
+      </div>
+
+      <div class="form-group">
+          <label for="signupEmail"><b>Email</b></label>
+          <input type="email" id="signupEmail" placeholder="Enter Email" name="email" required>
+      </div>
+
+      <div class="form-group position-relative">
+          <label for="signupPsw"><b>Password</b></label>
+          <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+          <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
+      </div>
+
+      <div class="form-group position-relative">
+          <label for="confirmPsw"><b>Confirm Password</b></label>
+          <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+          <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
+      </div>
+
+      <button type="submit" class="btn">SIGNUP</button>
+      <button type="button" class="btn cancel" onclick="closeForm('signup')">CLOSE</button>
+  </form>
+</div>
+<!-- Forgot Password Modal -->
+<div id="forgot-password-modal" class="modal">
+  <div class="form-container modal-content">
+    <h2>Forgot Password</h2>
+    <p>Please enter your email address to reset your password.</p>
+
+    <label for="email">Email Address</label>
+    <input type="email" id="email" placeholder="Enter your email" required />
+
+    <button class="btn" onclick="submitForgotPassword()">Submit</button>
+    <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
+  </div>
+</div>
+<!-- Bootstrap Icons and Script for Eye Icon Functionality -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<script>
+  function togglePasswordVisibility(passwordFieldId, iconId) {
+      const passwordField = document.getElementById(passwordFieldId);
+      const togglePassword = document.getElementById(iconId);
+      if (passwordField.type === 'password') {
+          passwordField.type = 'text';
+          togglePassword.classList.remove('bi-eye');
+          togglePassword.classList.add('bi-eye-slash');
+      } else {
+          passwordField.type = 'password';
+          togglePassword.classList.remove('bi-eye-slash');
+          togglePassword.classList.add('bi-eye');
+      }
+  }
+</script>
+
+<style>
+  /* Form Container Styles */
+  .form-popup {
+      width: 400px;
+      margin: auto;
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+  }
+
+  .form-control {
+      border-radius: 5px;
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: border-color 0.3s;
+  }
+
+  .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+
+  .btn {
+      margin-top: 15px;
+      border-radius: 5px;
+  }
+
+  .eye-icon {
+      position: absolute;
+      right: 15px;
+      top: 38px; /* Adjust according to input field height */
+      cursor: pointer;
+      color: #007bff;
+  }
+
+  .position-relative {
+      position: relative;
+  }
+
+  .btn-block {
+      width: 100%;
+  }
+
+  /* Hover Effects */
+  .btn:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+  }
+
+  .btn.cancel:hover {
+      background-color: #6c757d;
+      border-color: #6c757d;
+  }
+</style>
+
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox">
+            <div class="slider"></div>
+        </label>
+        <span id="mode-label">Light Mode</span>
+    </div> 
+
+</header>
+<!--header-->
+
+        <div class="container2 px-3 py-4">
+            <div class="row light-blue">
+                <div class="column-title">
+                  <p>
+                    <br>
+                    <br>
+
+
+                    Discover,
+                    <br>expand,
+                    <br>
+                    and monetize,
+                    <br>
+                    all within a single platform.
+                    <br>
+                    <br>
+
+                  </p>
+                </div>
+                <div class="column3 px-3 py-4">
+                  <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmxvZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60">
+
+
+                </div>
+                <div class="column4 column-title py-4 px-3">
+                  <p>
+                    Explore and
+
+                    expand your audience effortlessly.
+                    <br>
+                    <br>
+                    <br>
+
+                     Utilize user-friendly tools and features to connect with
+                     <br>
+                      more than 100 million inquisitive readers.
+                  </p>
+
+                </div>
+            </div>
+            <div class="row violet">
+                <div class="column5">
+
+                </div>
+                <div class="column6">
+                  <div class="column centered">
+                    <button class="start-writing">Start Writing</button>
+                </div>
+
+
+                </div>
+                <div class="column"></div>
+            </div>
+
+        <section class="section1">
+          <div class="sec1d flexone">
+            <p class="p1">
+              Audience insights.
+
+            </p>
+            <br>
+            <br>
+
+            <p class="p2">
+              Use data to learn what resonates with your readers so you can keep growing your audience
+            </p>
+
+          <div class="bgimg" coloumn>
+            <img src="../../assets/start.PNG">
+
+          </div>
+        </div>
+          <div class="sec1d flextwo">
+            <p class="p1">
+              Social connectivity.
+            </p>
+            <br><br>
+            <p class="p2">
+              Find people you're already connected with on Twitter and easily share your stories across platforms.
+            </p>
+
+          </div>
+          <div class="sec1d flexthree">
+            <p class="p1">
+              Powerful network.
+            </p>
+            <br><br>
+            <p class="p2">
+              Readers can discover and follow you easily with tailored feeds and recommendations.
+            </p>
+
+          </div>
+
+        </section>
+
+        <section class="section1">
+          <div class="sec1d flexfour">
+            <p class="p1">
+              Email subscriptions.
+            </p>
+            <br><br>
+            <p class="p2">
+              Reach readers by having your stories delivered straight to their inboxes.
+            </p>
+          </div>
+          <div class="sec1d flexfive">
+            <p class="p1">
+              Interactive discussions.
+            </p>
+            <br><br>
+            <p class="p2">
+              Build relationships with your readers through a threaded comments section.
+            </p>
+          </div>
+          <div class="sec1d flexsix">
+            <p class="p1">
+              Custom design.
+            </p>
+            <br><br>
+            <p class="p2">
+              Easily customize your page to stand out and build your brand.
+            </p>
+          </div>
+
+        </section>
+
+
+
+
+    <!--mainn-->
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="../../assets/slider/img1.jpg" class="img-fluid" alt=""></div>
+        <div class="swiper-slide"><img src="../../assets/slider/img2.jpg" class="img-fluid" alt=""></div>
+        <div class="swiper-slide"><img src="../../assets/slider/img3.jpg" class="img-fluid" alt=""></div>
+        <div class="swiper-slide"><img src="../../assets/slider/img4.jpg" class="img-fluid" alt=""></div>
+        <div class="swiper-slide"><img src="../../assets/slider/img5.jpg" class="img-fluid" alt=""></div>
+        <div class="swiper-slide"><img src="../../assets/slider/img6.jpg" class="img-fluid" alt=""></div>
+
+
+        <!-- Add more slides as needed -->
+      </div>
+
+
+
+      
+      
+</div>
+      <!-- footer -->
+      <footer id="footer">
+        <div class="container">
+          <div class="row mb-3">
+            <div class="col-3">
+              <div id = "about-us"></div>
+              <h2 class="footer-title secondary-title">About Us</h2>
+              
+              <div class="secondary-title text-secondary">
+                <p class="mt-2 style="text-align: left;">
+                  We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the world.
+                </p>
+                
+                <address>
+                  <i class="fas fa-map-marker-alt text-primary"></i>
+                  5 South Main Street Los Angeles, ZZ-9611 USA
+                </address>
+                
+                <div class="phone">
+                  
+                  <i class="fas fa-mobile text-primary"></i>
+                  125-896-485
+                </div>
+                
+                <div class="email">
+                            <a href="mailto: dailysupport@gmail.com" style="color:black;"><i class="fas fa-envelope text-primary"></i>
+                              <span>dailysupport@gmail.com</span>
+                        </a>
+                      </div>
+                      <div> <a href="privacy.html" style="color:black;">Privacy Policy</a> </div> 
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <h2 class="footer-title secondary-title">Feature Post</h2>
+                    
+                    <div class="feature-post">
+                      <div class="flex-item">
+                        <article class="article">
+                                <div class="d-flex">
+                                  <a href="#">
+                                        <img src="../../assets/img9.jpg" class="object-fit px-1" alt="">
+                                        <div class="px-1">
+                                          <a href="#" class="text-title display-2 text-dark">
+                                              Embrace the beauty of nature through our enchanting blog, where we celebrate the wonders of the natural world
+                                            </a>
+                                            <p class="secondary-title text-secondary display-3">
+                                                 <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
+                                                </p>
+                                              </div>
+                                    </a>
+                                  </div>
+                            </article>
+                        </div>
+                        <div class="flex-item">
+                         <article class="article">
+                             <div class="d-flex">
+                                 <a href="#">
+                                     <img src="../../assets/img1.jpg" class="object-fit px-1" alt="">
+                                     <div class="px-1">
+                                         <a href="#" class="text-title display-2 text-dark">
+                                          Embark on unforgettable journeys through our travel blog, where wanderlust meets inspiration
+                                        </a>
+                                         <p class="secondary-title text-secondary display-3">
+                                              <span><i class="far fa-clock text-primary"></i> Wed 05, 2020 </span>
+                                         </p>
+                                     </div>
+                                    </a>
+                                  </div>
+                         </article>
+                          </div>
+                          <div class="flex-item">
+                            <article class="article">
+                              <div class="d-flex">
+                                     <a href="#">
+                                         <img src="../../assets/img2.jpg" class="object-fit px-1" alt="">
+                                         <div class="px-1">
+                                             <a href="#" class="text-title display-2 text-dark">
+                                               Gaming Adventures Unleashed
+                                             </a>
+                                             <p class="secondary-title text-secondary display-3">
+                                               <span><i class="far fa-clock text-primary"></i> Wed 02, 2021 </span>
+                                              </p>
+                                            </div>
+                                     </a>
+                                 </div>
+                                </article>
+                         </div>
+                    </div>
+                  </div>
+                <div class="col-3">
+                     <h2 class="footer-title secondary-title">Tags</h2>
+
+                     <div class="tags">
+                       <div class="d-flex flex-wrap">
+                             <a href="#" class="nav-link btn bg-light">Travel</a>
+                             <a href="#" class="nav-link btn bg-light">Food</a>
+                             <a href="#" class="nav-link btn bg-light">Lifestyle</a>
+                             <a href="#" class="nav-link btn bg-light">Technology</a>
+                             <a href="#" class="nav-link btn bg-light">Fashion</a>
+                            </div>
+                     </div>
+
+                     <h2 class="footer-title secondary-title mt-2">Social</h2>
+
+                     <div class="tags social" id="contact">
+                       <div class="d-flex flex-wrap">
+                             <a href="#" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
+                             <a href="#" class="nav-link btn bg-light"><i class="fab fa-twitter"></i></a>
+                             <a href="#" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
+                             <a href="#" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
+                             <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" target="_blank"  class="nav-link btn bg-light"
+                             ><i class="fa-brands fa-github"></i></a>
+                         </div>
+                     </div>
+
+                    </div>
+            </div>
+
+            
+        </div>
+    </footer>
+  <!-- .footer -->
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <script src="/backend/login-Auth/login.js"></script>
+  <script src="/backend/signup-Auth/signup.js"></script>
+  <script src="/src/javascripts/progress_bar.js"></script>
+  <script src="/src/javascripts/main.js"></script>
+  <script src="/src/javascripts/darkMode.js"></script>
+  <script src="/src/javascripts/main.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <!--swiper slider cdn-->
+  
+</body>
+</html>

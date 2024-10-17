@@ -1,6 +1,7 @@
 <!-- Before creating the backend for the google signin checkout the google_signin.js file to get idea of how the frontend is sensding the req to the backend -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,9 @@
     <link rel="shortcut icon" type="image/x-icon" href="/images/favi.png" />
 
     <!--font awesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--swiper slider css-->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <!-- bootstrap icons -->
@@ -18,509 +21,520 @@
 
     <!-- for scroll reveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
-    
+
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" /> -->
 
     <!--css-->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="Scroll_and_progressbar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/src/styles/style.css">
+    <link rel="stylesheet" href="/src/styles/styles.css">
+    <link rel="stylesheet" href="/src/styles/Scroll_and_progressbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        @media (max-width: 1200px) {
+            .footer-container {
+                padding: 20px;
+            }
 
-         @media (max-width: 1200px) {
-    .footer-container {
-      padding: 20px;
-    }
-    .col-3-main {
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
-    .col-3 {
-      width: 33.33%;
-    }
-  }
+            .col-3-main {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
 
-  @media (max-width: 992px) {
-    .col-3 {
-      width: 50%; /* Stack 2 columns side by side on medium screens */
-    }
-  }
+            .col-3 {
+                width: 33.33%;
+            }
+        }
 
-  @media (max-width: 768px) {
-    .col-3 {
-      width: 100%; /* Stack all columns vertically on small screens */
-      margin-bottom: 20px;
-    }
+        @media (max-width: 992px) {
+            .col-3 {
+                width: 50%;
+                /* Stack 2 columns side by side on medium screens */
+            }
+        }
 
-    .feature-post div {
-      flex-direction: column;
-    }
+        @media (max-width: 768px) {
+            .col-3 {
+                width: 100%;
+                /* Stack all columns vertically on small screens */
+                margin-bottom: 20px;
+            }
 
-    .tags {
-      text-align: center;
-    }
-  }
+            .feature-post div {
+                flex-direction: column;
+            }
 
-  @media (max-width: 576px) {
-    .feature-post div {
-      align-items: center;
-    }
+            .tags {
+                text-align: center;
+            }
+        }
 
-    .tags.social {
-      justify-content: center;
-    }
+        @media (max-width: 576px) {
+            .feature-post div {
+                align-items: center;
+            }
 
-    .wordwise-footer-content {
-      text-align: center;
-    }
-  }
+            .tags.social {
+                justify-content: center;
+            }
 
-  /* Optional: You can also set max-width for images */
-  img.object-fit {
-    max-width: 100%; /* Makes images responsive */
-    height: auto;
-  }
+            .wordwise-footer-content {
+                text-align: center;
+            }
+        }
+
+        /* Optional: You can also set max-width for images */
+        img.object-fit {
+            max-width: 100%;
+            /* Makes images responsive */
+            height: auto;
+        }
     </style>
-<!-- Script for Navbar Toggle -->
- <script>
-    function toggleMenu() {
-    const menu = document.getElementById('nav-menu');
-    menu.classList.toggle('active');
-}
- </script>
+    <!-- Script for Navbar Toggle -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 </head>
+
 <body style="overflow-x: hidden;" onload="Finish_Loader()">
- <!-- pre load -->
+    <!-- pre load -->
     <div id="loader">
-<div class="loadingspinner">
-  <div id="square1"></div>
-  <div id="square2"></div>
-  <div id="square3"></div>
-  <div id="square4"></div>
-  <div id="square5"></div>
-</div>
+        <div class="loadingspinner">
+            <div id="square1"></div>
+            <div id="square2"></div>
+            <div id="square3"></div>
+            <div id="square4"></div>
+            <div id="square5"></div>
+        </div>
     </div>
     <div class="progress-container">
         <div class="progress-bar" id="progress-bar"></div>
     </div>
-<!-- Navigation Bar  -->
-<div class="layout-container" style="margin-bottom: 4rem;">
+    <!-- Navigation Bar  -->
+    <div class="layout-container" style="margin-bottom: 4rem;">
 
-    <header>
-
-
-
-    <div class="logo" >
-        <a href="index.html">
-          <h2>WordWise</h2>
-        </a>
-    </div>
-    <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <div class="nav-links1" id="nav-links1">
-        <a href="index.html">Home</a>
-        <a href="blog.html">Leading Blog</a>
-        <a href="start_writing.html">Start Writing</a>
-        <a href="category.html">Categories</a>
-        <a href="about.html">About</a>
-        <a href="contact_us.html">Contact Us</a>
-
-        <a href="contact_us.html">Give Feedback</a>
-    </div>  
-        <a href="give_feedback.html">Give Feedback</a>
-    </div>
+        <header>
 
 
- 
-              <div class="dropdown">
-                <!-- Profile Icon -->
-                <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
-                    <i class="fas fa-user-circle"></i>
+
+            <div class="logo">
+                <a href="index.html">
+                    <h2>WordWise</h2>
                 </a>
-
-                <!-- Dropdown Menu -->
-                <ul class="dropdown-menu" id="dropdownMenu">
-                    <li><a href="#login" onclick="openForm('login')">Login</a></li>
-                    <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
-                </ul>
             </div>
-
-
-
-  <!--  Login Form -->
-  <div class="form-popup" id="loginForm">
-    <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
-      <span class="close-icon" onclick="closeForm('login')">&times;</span>
-      <h2 class="text-center">Login</h2>
-      <div class="form-group">
-        <label for="loginEmail"><b>Email</b></label>
-        <div class="input-group">
-          <span class="input-icon">
-            <i class="fas fa-envelope" aria-hidden="true"></i>
-          </span>
-          <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
-        </div>
-      </div>
-      <div class="form-group position-relative">
-        <label for="loginPsw"><b>Password</b></label>
-        <div class="input-group">
-            <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required>
-            <span class="password-toggle">
-                <i class="fas fa-lock" aria-hidden="true"></i>
-                <i class="fas fa-unlock" aria-hidden="true" style="display: none;"></i>
-            </span>
-        </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links1" id="nav-links1">
+                <a href="index.html">Home</a>
+                <a href="/src/blog.html">Leading Blog</a>
+                <a href="/src/start_writing.html">Start Writing</a>
+                <a href="/src/category.html">Categories</a>
+                <a href="/src/about.html">About</a>
+                <a href="/src/contact_us.html">Contact Us</a>
+                <a href="/src/give_feedback.html">Give Feedback</a>
+            </div>
     </div>
-      <div class="forgot">
-        <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
-      </div>
-      <button type="submit" class="btn">LOGIN</button>
-      <span class="separator">or</span>
-      <!-- Social Icons -->
-      <div class="social-icons">
-        <a href="javascript:void(0);" onclick="handleGoogleLogin()">
-          <i class="fab fa-google" aria-hidden="true"></i>
-        </a>
-        <a href="javascript:void(0);" onclick="handleFacebookLogin()">
-          <i class="fab fa-facebook-f" aria-hidden="true"></i>
-        </a>
-        <a href="javascript:void(0);" onclick="handleTwitterLogin()">
-          <i class="fab fa-twitter" aria-hidden="true"></i>
-        </a>
-      </div>
-    </form>
-  </div>
 
-  <script>
-const passwordInput = document.getElementById('loginPsw');
-const togglePasswordIcon = document.querySelector('.password-toggle');
-const lockIcon = togglePasswordIcon.querySelector('.fa-lock');
-const unlockIcon = togglePasswordIcon.querySelector('.fa-unlock');
 
-togglePasswordIcon.addEventListener('click', () => {
-  if (passwordInput.type === 'password') {
-    passwordInput.type = 'text';
-    lockIcon.style.display = 'none';
-    unlockIcon.style.display = 'block';
-  } else {
-    passwordInput.type = 'password';
-    lockIcon.style.display = 'block';
-    unlockIcon.style.display = 'none';
-  }
-});
+
+    <div class="dropdown">
+        <!-- Profile Icon -->
+        <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
+            <i class="fas fa-user-circle"></i>
+        </a>
+
+        <!-- Dropdown Menu -->
+        <ul class="dropdown-menu" id="dropdownMenu">
+            <li><a href="#login" onclick="openForm('login')">Login</a></li>
+            <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
+        </ul>
+    </div>
+
+
+
+    <!--  Login Form -->
+    <div class="form-popup" id="loginForm">
+        <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
+            <span class="close-icon" onclick="closeForm('login')">&times;</span>
+            <h2 class="text-center">Login</h2>
+            <div class="form-group">
+                <label for="loginEmail"><b>Email</b></label>
+                <div class="input-group">
+                    <span class="input-icon">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                    </span>
+                    <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
+                </div>
+            </div>
+            <div class="form-group position-relative">
+                <label for="loginPsw"><b>Password</b></label>
+                <div class="input-group">
+                    <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required>
+                    <span class="password-toggle">
+                        <i class="fas fa-lock" aria-hidden="true"></i>
+                        <i class="fas fa-unlock" aria-hidden="true" style="display: none;"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="forgot">
+                <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
+            </div>
+            <button type="submit" class="btn">LOGIN</button>
+            <span class="separator">or</span>
+            <!-- Social Icons -->
+            <div class="social-icons">
+                <a href="javascript:void(0);" onclick="handleGoogleLogin()">
+                    <i class="fab fa-google" aria-hidden="true"></i>
+                </a>
+                <a href="javascript:void(0);" onclick="handleFacebookLogin()">
+                    <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                </a>
+                <a href="javascript:void(0);" onclick="handleTwitterLogin()">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const passwordInput = document.getElementById('loginPsw');
+        const togglePasswordIcon = document.querySelector('.password-toggle');
+        const lockIcon = togglePasswordIcon.querySelector('.fa-lock');
+        const unlockIcon = togglePasswordIcon.querySelector('.fa-unlock');
+
+        togglePasswordIcon.addEventListener('click', () => {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                lockIcon.style.display = 'none';
+                unlockIcon.style.display = 'block';
+            } else {
+                passwordInput.type = 'password';
+                lockIcon.style.display = 'block';
+                unlockIcon.style.display = 'none';
+            }
+        });
     </script>
 
 
-<!-- Signup Form -->
-<div class="form-popup" id="signupForm">
-    <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
-        <span class="close-icon" onclick="closeForm('signup')">&times;</span>
-        <h2 class="text-center">Signup</h2>
-        <div class="form-group position-relative">
-            <label for="name"><b>Full Name</b></label>
-            <input type="text" id="name" placeholder="Enter Full Name" name="name">
-            <i class="fas fa-user" aria-hidden="true"></i>
-        </div>
-        
-        <div class="form-group position-relative">
-            <label for="signupEmail"><b>Email</b></label>
-            <input type="email" id="signupEmail" placeholder="Enter Email" name="email">
-            <i class="fas fa-envelope" aria-hidden="true"></i>
-        </div>
-        
-        <div class="form-group position-relative">
-            <label for="signupPsw"><b>Password</b></label>
-            <div class="input-group">
-                <input type="password" id="signupPsw" placeholder="Enter Password" name="psw">
-                <span class="password-icon toggle-password">
-                    <i class="fas fa-lock" aria-hidden="true"></i>
-                    <i class="fas fa-unlock" aria-hidden="true" style="display: none;"></i>
-                </span>
+    <!-- Signup Form -->
+    <div class="form-popup" id="signupForm">
+        <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
+            <span class="close-icon" onclick="closeForm('signup')">&times;</span>
+            <h2 class="text-center">Signup</h2>
+            <div class="form-group position-relative">
+                <label for="name"><b>Full Name</b></label>
+                <input type="text" id="name" placeholder="Enter Full Name" name="name">
+                <i class="fas fa-user" aria-hidden="true"></i>
             </div>
-            <div id="passwordStrength" class="strength-meter"></div>
-        </div>
-        
-        <div class="form-group position-relative">
-            <label for="confirmPsw"><b>Confirm Password</b></label>
-            <div class="input-group">
-                <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw">
-                <span class="password-icon toggle-password">
-                    <i class="fas fa-lock" aria-hidden="true"></i>
-                    <i class="fas fa-unlock" aria-hidden="true" style="display: none;"></i>
-                </span>
+
+            <div class="form-group position-relative">
+                <label for="signupEmail"><b>Email</b></label>
+                <input type="email" id="signupEmail" placeholder="Enter Email" name="email">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
             </div>
-        </div>
-        <button type="submit" class="btn">SIGNUP</button>
-        <span class="separator">or</span>
-        <!-- Social Icons -->
-        <div class="social-icons">
-            <a href="javascript:void(0);" onclick="handleGoogleLogin()">
-                <i class="fab fa-google" aria-hidden="true"></i>
-            </a>
-            <a href="javascript:void(0);" onclick="handleFacebookLogin()">
-                <i class="fab fa-facebook-f" aria-hidden="true"></i>
-            </a>
-            <a href="javascript:void(0);" onclick="handleTwitterLogin()">
-                <i class="fab fa-twitter" aria-hidden="true"></i>
-            </a>
-        </div>
-    </form>
-</div>
 
-<script>
-const signupPasswordInput = document.getElementById('signupPsw');
-const confirmPasswordInput = document.getElementById('confirmPsw');
+            <div class="form-group position-relative">
+                <label for="signupPsw"><b>Password</b></label>
+                <div class="input-group">
+                    <input type="password" id="signupPsw" placeholder="Enter Password" name="psw">
+                    <span class="password-icon toggle-password">
+                        <i class="fas fa-lock" aria-hidden="true"></i>
+                        <i class="fas fa-unlock" aria-hidden="true" style="display: none;"></i>
+                    </span>
+                </div>
+                <div id="passwordStrength" class="strength-meter"></div>
+            </div>
 
-const signupPasswordInputGroup = signupPasswordInput.parentNode;
-const confirmPasswordInputGroup = confirmPasswordInput.parentNode;
-
-const toggleSignupPasswordIcon = signupPasswordInputGroup.querySelector('.toggle-password');
-const toggleConfirmPasswordIcon = confirmPasswordInputGroup.querySelector('.toggle-password');
-
-const signupLockIcon = toggleSignupPasswordIcon.querySelector('.fa-lock');
-const signupUnlockIcon = toggleSignupPasswordIcon.querySelector('.fa-unlock');
-
-const confirmLockIcon = toggleConfirmPasswordIcon.querySelector('.fa-lock');
-const confirmUnlockIcon = toggleConfirmPasswordIcon.querySelector('.fa-unlock');
-
-toggleSignupPasswordIcon.addEventListener('click', () => {
-  if (signupPasswordInput.type === 'password') {
-    signupPasswordInput.type = 'text';
-    signupLockIcon.style.display = 'none';
-    signupUnlockIcon.style.display = 'block';
-  } else {
-    signupPasswordInput.type = 'password';
-    signupLockIcon.style.display = 'block';
-    signupUnlockIcon.style.display = 'none';
-  }
-});
-
-toggleConfirmPasswordIcon.addEventListener('click', () => {
-  if (confirmPasswordInput.type === 'password') {
-    confirmPasswordInput.type = 'text';
-    confirmLockIcon.style.display = 'none';
-    confirmUnlockIcon.style.display = 'block';
-  } else {
-    confirmPasswordInput.type = 'password';
-    confirmLockIcon.style.display = 'block';
-    confirmUnlockIcon.style.display = 'none';
-  }
-});
-</script>
-
-<!-- Forgot Password Modal -->
-<div id="forgot-password-modal" class="modal">
-    <div class="form-container modal-content">
-      <h2>Forgot Password</h2>
-      <p>Please enter your email address to reset your password.</p>
-
-      <label for="email">Email Address</label>
-      <input type="email" id="email" placeholder="Enter your email" required />
-
-      <button class="btn" onclick="submitForgotPassword()">Submit</button>
-      <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
+            <div class="form-group position-relative">
+                <label for="confirmPsw"><b>Confirm Password</b></label>
+                <div class="input-group">
+                    <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw">
+                    <span class="password-icon toggle-password">
+                        <i class="fas fa-lock" aria-hidden="true"></i>
+                        <i class="fas fa-unlock" aria-hidden="true" style="display: none;"></i>
+                    </span>
+                </div>
+            </div>
+            <button type="submit" class="btn">SIGNUP</button>
+            <span class="separator">or</span>
+            <!-- Social Icons -->
+            <div class="social-icons">
+                <a href="javascript:void(0);" onclick="handleGoogleLogin()">
+                    <i class="fab fa-google" aria-hidden="true"></i>
+                </a>
+                <a href="javascript:void(0);" onclick="handleFacebookLogin()">
+                    <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                </a>
+                <a href="javascript:void(0);" onclick="handleTwitterLogin()">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </div>
+        </form>
     </div>
-  </div>
 
-<!-- Toggle Password Visibility Script -->
-<script>
-    function togglePasswordVisibility(passwordFieldId, iconId) {
-        const passwordField = document.getElementById(passwordFieldId);
-        const togglePassword = document.getElementById(iconId);
-        if (passwordField.type === 'password') {
-            passwordField.type = 'text';
-            togglePassword.classList.remove('bi-eye');
-            togglePassword.classList.add('bi-eye-slash');
-        } else {
-            passwordField.type = 'password';
-            togglePassword.classList.remove('bi-eye-slash');
-            togglePassword.classList.add('bi-eye');
+    <script>
+        const signupPasswordInput = document.getElementById('signupPsw');
+        const confirmPasswordInput = document.getElementById('confirmPsw');
+
+        const signupPasswordInputGroup = signupPasswordInput.parentNode;
+        const confirmPasswordInputGroup = confirmPasswordInput.parentNode;
+
+        const toggleSignupPasswordIcon = signupPasswordInputGroup.querySelector('.toggle-password');
+        const toggleConfirmPasswordIcon = confirmPasswordInputGroup.querySelector('.toggle-password');
+
+        const signupLockIcon = toggleSignupPasswordIcon.querySelector('.fa-lock');
+        const signupUnlockIcon = toggleSignupPasswordIcon.querySelector('.fa-unlock');
+
+        const confirmLockIcon = toggleConfirmPasswordIcon.querySelector('.fa-lock');
+        const confirmUnlockIcon = toggleConfirmPasswordIcon.querySelector('.fa-unlock');
+
+        toggleSignupPasswordIcon.addEventListener('click', () => {
+            if (signupPasswordInput.type === 'password') {
+                signupPasswordInput.type = 'text';
+                signupLockIcon.style.display = 'none';
+                signupUnlockIcon.style.display = 'block';
+            } else {
+                signupPasswordInput.type = 'password';
+                signupLockIcon.style.display = 'block';
+                signupUnlockIcon.style.display = 'none';
+            }
+        });
+
+        toggleConfirmPasswordIcon.addEventListener('click', () => {
+            if (confirmPasswordInput.type === 'password') {
+                confirmPasswordInput.type = 'text';
+                confirmLockIcon.style.display = 'none';
+                confirmUnlockIcon.style.display = 'block';
+            } else {
+                confirmPasswordInput.type = 'password';
+                confirmLockIcon.style.display = 'block';
+                confirmUnlockIcon.style.display = 'none';
+            }
+        });
+    </script>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgot-password-modal" class="modal">
+        <div class="form-container modal-content">
+            <h2>Forgot Password</h2>
+            <p>Please enter your email address to reset your password.</p>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email" required />
+
+            <button class="btn" onclick="submitForgotPassword()">Submit</button>
+            <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Toggle Password Visibility Script -->
+    <script>
+        function togglePasswordVisibility(passwordFieldId, iconId) {
+            const passwordField = document.getElementById(passwordFieldId);
+            const togglePassword = document.getElementById(iconId);
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                togglePassword.classList.remove('bi-eye');
+                togglePassword.classList.add('bi-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                togglePassword.classList.remove('bi-eye-slash');
+                togglePassword.classList.add('bi-eye');
+            }
         }
-    }
-    function checkPasswordStrength() {
-    var strengthMeter = document.getElementById('passwordStrength');
-    var password = document.getElementById('signupPsw').value;
-    var strength = 0;
+        function checkPasswordStrength() {
+            var strengthMeter = document.getElementById('passwordStrength');
+            var password = document.getElementById('signupPsw').value;
+            var strength = 0;
 
-    if (password.length >= 6) strength++;
-    if (password.match(/[a-z]+/)) strength++;
-    if (password.match(/[A-Z]+/)) strength++;
-    if (password.match(/[0-9]+/)) strength++;
-    if (password.match(/[\W]+/)) strength++;
+            if (password.length >= 6) strength++;
+            if (password.match(/[a-z]+/)) strength++;
+            if (password.match(/[A-Z]+/)) strength++;
+            if (password.match(/[0-9]+/)) strength++;
+            if (password.match(/[\W]+/)) strength++;
 
-    switch (strength) {
-        case 0:
-        case 1:
-            strengthMeter.style.width = '20%';
-            strengthMeter.style.backgroundColor = 'red';
-            strengthMeter.textContent = 'Weak';
-            break;
-        case 2:
-            strengthMeter.style.width = '40%';
-            strengthMeter.style.backgroundColor = 'orange';
-            strengthMeter.textContent = 'Fair';
-            break;
-        case 3:
-            strengthMeter.style.width = '60%';
-            strengthMeter.style.backgroundColor = 'yellow';
-            strengthMeter.textContent = 'Good';
-            break;
-        case 4:
-            strengthMeter.style.width = '80%';
-            strengthMeter.style.backgroundColor = 'blue';
-            strengthMeter.textContent = 'Strong';
-            break;
-        case 5:
-            strengthMeter.style.width = '100%';
-            strengthMeter.style.backgroundColor = 'green';
-            strengthMeter.textContent = 'Very Strong';
-            break;
-    }
-}
-</script>
+            switch (strength) {
+                case 0:
+                case 1:
+                    strengthMeter.style.width = '20%';
+                    strengthMeter.style.backgroundColor = 'red';
+                    strengthMeter.textContent = 'Weak';
+                    break;
+                case 2:
+                    strengthMeter.style.width = '40%';
+                    strengthMeter.style.backgroundColor = 'orange';
+                    strengthMeter.textContent = 'Fair';
+                    break;
+                case 3:
+                    strengthMeter.style.width = '60%';
+                    strengthMeter.style.backgroundColor = 'yellow';
+                    strengthMeter.textContent = 'Good';
+                    break;
+                case 4:
+                    strengthMeter.style.width = '80%';
+                    strengthMeter.style.backgroundColor = 'blue';
+                    strengthMeter.textContent = 'Strong';
+                    break;
+                case 5:
+                    strengthMeter.style.width = '100%';
+                    strengthMeter.style.backgroundColor = 'green';
+                    strengthMeter.textContent = 'Very Strong';
+                    break;
+            }
+        }
+    </script>
 
-<!-- Updated CSS Styles -->
-<style>
-    .form-popup {
-        display: none;
-        position: fixed;
-        z-index: 9;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        max-width: 500px;
-        padding: 20px;
-        background-color: white;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
-        border-radius: 10px;
-        box-sizing: border-box;
-    }
+    <!-- Updated CSS Styles -->
+    <style>
+        .form-popup {
+            display: none;
+            position: fixed;
+            z-index: 9;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
 
-    .form-container h2 {
-        margin-bottom: 20px;
-        color: #333;
-    }
+        .form-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
 
-    .form-group {
-        margin-bottom: 15px;
-    }
+        .form-group {
+            margin-bottom: 15px;
+        }
 
-    .form-control {
-        border-radius: 5px;
-        padding: 12px;
-        font-size: 16px; 
-        line-height: 1.5; 
-        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
-        width: 100%;
-    }
+        .form-control {
+            border-radius: 5px;
+            padding: 12px;
+            font-size: 16px;
+            line-height: 1.5;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
 
-    .forgot {
-        text-align: right; 
-        margin-left: 140px;
-        font-size: 10px;   
-        margin-top: -40px;
+        .forgot {
+            text-align: right;
+            margin-left: 140px;
+            font-size: 10px;
+            margin-top: -40px;
 
-    }
+        }
 
-    .btn {
-        margin-top: 10px;
-        border-radius: 5px;
-    }
+        .btn {
+            margin-top: 10px;
+            border-radius: 5px;
+        }
 
-    .eye-icon {
-        position: absolute;
-        right: 15px;
-        top: 38px;
-        cursor: pointer;
-        color: #007bff;
-    }
+        .eye-icon {
+            position: absolute;
+            right: 15px;
+            top: 38px;
+            cursor: pointer;
+            color: #007bff;
+        }
 
-    .close-icon {
-        font-size: 24px;
-        cursor: pointer;
-        float: right;
-    }
+        .close-icon {
+            font-size: 24px;
+            cursor: pointer;
+            float: right;
+        }
 
-    .position-relative {
-        position: relative;
-    }
+        .position-relative {
+            position: relative;
+        }
 
-    /* Login button jumping issue fix */
-    .btn-primary {
-        transition: all 0.3s ease; /* Smooth transition */
-    }
+        /* Login button jumping issue fix */
+        .btn-primary {
+            transition: all 0.3s ease;
+            /* Smooth transition */
+        }
 
-    .btn-primary:hover {
-        background-color: #0056b3;
-    }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
 
-    .google-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+        .google-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .google-logo {
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-    }
+        .google-logo {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
 
-    .btn-primary:hover {
-        background-color: #0056b3;
-    }
-    .strength-meter {
-    height: 10px;
-    width: 0;
-    transition: width 0.3s;
-    margin-top: 5px;
-    text-align: center;
-    color: white;
-    font-size: 12px;
-}
-</style>
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
 
-<!-- Bootstrap Icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+        .strength-meter {
+            height: 10px;
+            width: 0;
+            transition: width 0.3s;
+            margin-top: 5px;
+            text-align: center;
+            color: white;
+            font-size: 12px;
+        }
+    </style>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <script src="backend/signup/signup.js"></script> <!-- Link to your JavaScript file -->
 
-      <div class="theme-switch-wrapper">
+    <div class="theme-switch-wrapper">
         <label class="theme-switch" for="checkbox">
             <input type="checkbox" id="checkbox">
             <div class="slider">
-                <img src="https://img.icons8.com/emoji/48/000000/sun-emoji.png" alt="Sun"  class="icon sun-icon">
-                <img src="https://img.icons8.com/emoji/48/000000/crescent-moon-emoji.png" alt="Moon" class="icon moon-icon">
+                <img src="https://img.icons8.com/emoji/48/000000/sun-emoji.png" alt="Sun" class="icon sun-icon">
+                <img src="https://img.icons8.com/emoji/48/000000/crescent-moon-emoji.png" alt="Moon"
+                    class="icon moon-icon">
             </div>
         </label>
         <span id="mode-label"></span>
-    </div>
+    </div>
 
     </header>
-</div>
-<!--Header Ends-->
+    </div>
+    <!--Header Ends-->
     <!--Main Section Starts-->
     <main id="site-main" style="margin-top: 90px;margin-left: 50px;">
         <!--blog post section-->
         <section id="posts">
-            <div class="container" >
-                <div class="grid" >
+            <div class="container">
+                <div class="grid">
                     <!-- article-->
-                    <div class="grid-item revel1" >
+                    <div class="grid-item revel1">
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
-                                    <a href="blog.html">
-                                        <img style="height: 250px;width:300px" src="./assets/img1.jpg" class="img-fluid ">
+                                    <a href="/src/blog.html">
+                                        <img style="height: 250px;width:300px" src="./assets/img1.jpg"
+                                            class="img-fluid ">
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                    <a href="blog.html"  class="text-title display-1 text-dark">
+                                <div class="card-body text-center px-1"
+                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                    <a href="/src/blog.html" class="text-title display-1 text-dark">
                                         Roaming Routes
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
@@ -528,8 +542,10 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
                                         <span><i class="bi bi-chat-fill"></i> 13</span>
                                         <span class="heart-container">
                                             <button class="heart-btn">
-                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
-                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" width="48" height="48">
+                                                    <path
+                                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                                                 </svg>
                                             </button>
                                         </span>
@@ -545,14 +561,16 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
-                                    <a href="blog.html">
-                                        <img style="height: 250px;width:300px" src="./assets/img2.jpg" class="img-fluid ">
+                                    <a href="/src/blog.html">
+                                        <img style="height: 250px;width:300px" src="./assets/img2.jpg"
+                                            class="img-fluid ">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                    <a href="blog.html" class="text-title display-1 text-dark">
+                                <div class="card-body text-center px-1"
+                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                    <a href="/src/blog.html" class="text-title display-1 text-dark">
                                         Gaming Chronicles
 
 
@@ -561,11 +579,13 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
                                         <span><i class="fa-regular fa-calendar"></i> Mon 13,2023 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 12</span>
                                         <span class="heart-container" style="vertical-align: middle;">
-                                        <button class="heart-btn">
-                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
-                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                            <button class="heart-btn">
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" width="48" height="48">
+                                                    <path
+                                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                                                 </svg>
-                                        </button>
+                                            </button>
                                         </span>
                                     </p>
                                 </div>
@@ -579,14 +599,16 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
-                                    <a href="blog.html">
-                                        <img style="height: 250px;width:300px" src="./assets/img3.jpg" class="img-fluid ">
+                                    <a href="/src/blog.html">
+                                        <img style="height: 250px;width:300px" src="./assets/img3.jpg"
+                                            class="img-fluid ">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                    <a href="blog.html" class="text-title display-1 text-dark">
+                                <div class="card-body text-center px-1"
+                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                    <a href="/src/blog.html" class="text-title display-1 text-dark">
                                         Virtual Realms
 
 
@@ -596,9 +618,11 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
                                         <span><i class="fa-regular fa-calendar"></i> Wed 09,2023 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 19</span>
                                         <span class="heart-container">
-                                            <button  class="heart-btn">
-                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
-                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                            <button class="heart-btn">
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" width="48" height="48">
+                                                    <path
+                                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                                                 </svg>
                                             </button>
                                         </span>
@@ -614,14 +638,16 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
-                                    <a href="blog.html">
-                                        <img style="height: 250px;width:300px" src="./assets/img4.jpg" class="img-fluid">
+                                    <a href="/src/blog.html">
+                                        <img style="height: 250px;width:300px" src="./assets/img4.jpg"
+                                            class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                    <a href="blog.html" class="text-title display-1 text-dark">
+                                <div class="card-body text-center px-1"
+                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                    <a href="/src/blog.html" class="text-title display-1 text-dark">
                                         Laptop life
 
 
@@ -632,8 +658,10 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
                                         <span><i class="bi bi-chat-fill"></i> 6</span>
                                         <span class="heart-container">
                                             <button class="heart-btn">
-                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
-                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" width="48" height="48">
+                                                    <path
+                                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                                                 </svg>
                                             </button>
                                         </span>
@@ -649,14 +677,16 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
-                                    <a href="blog.html">
-                                        <img style="height: 250px;width:300px" src="./assets/img5.jpg" class="img-fluid">
+                                    <a href="/src/blog.html">
+                                        <img style="height: 250px;width:300px" src="./assets/img5.jpg"
+                                            class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                    <a href="blog.html" class="text-title display-1 text-dark">
+                                <div class="card-body text-center px-1"
+                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                    <a href="/src/blog.html" class="text-title display-1 text-dark">
                                         Mouthwatering Memoirs
 
 
@@ -666,9 +696,11 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
                                         <span><i class="fa-regular fa-calendar"></i> Tue 02,2021 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 10</span>
                                         <span class="heart-container">
-                                            <button  class="heart-btn">
-                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
-                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                            <button class="heart-btn">
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" width="48" height="48">
+                                                    <path
+                                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                                                 </svg>
                                             </button>
                                         </span>
@@ -686,15 +718,17 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
 
                             <div class="card">
                                 <div class="overflow-img">
-                                    <a href="blog.html">
-                                        <img style="height: 250px;width:300px" src="./assets/img6.jpg" class="img-fluid">
+                                    <a href="/src/blog.html">
+                                        <img style="height: 250px;width:300px" src="./assets/img6.jpg"
+                                            class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                    <a href="blog.html" class="text-title display-1 text-dark">
-                                      Tech travels
+                                <div class="card-body text-center px-1"
+                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                    <a href="/src/blog.html" class="text-title display-1 text-dark">
+                                        Tech travels
 
 
 
@@ -704,8 +738,10 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
                                         <span><i class="bi bi-chat-fill"></i> 12</span>
                                         <span class="heart-container">
                                             <button class="heart-btn">
-                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
-                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" width="48" height="48">
+                                                    <path
+                                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                                                 </svg>
                                             </button>
                                         </span>
@@ -721,14 +757,16 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
-                                    <a href="blog.html">
-                                        <img style="height: 250px;width:300px" src="./assets/img7.jpg" class="img-fluid">
+                                    <a href="/src/blog.html">
+                                        <img style="height: 250px;width:300px" src="./assets/img7.jpg"
+                                            class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                    <a href="blog.html" class="text-title display-1 text-dark">
+                                <div class="card-body text-center px-1"
+                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                    <a href="/src/blog.html" class="text-title display-1 text-dark">
                                         Culinary Delights
 
 
@@ -739,8 +777,10 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
                                         <span><i class="bi bi-chat-fill"></i> 12</span>
                                         <span class="heart-container">
                                             <button class="heart-btn">
-                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
-                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" width="48" height="48">
+                                                    <path
+                                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                                                 </svg>
                                             </button>
                                         </span>
@@ -756,15 +796,17 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
-                                    <a href="blog.html">
-                                        <img style="height: 250px;width:300px" src="./assets/img8.jpg" class="img-fluid">
+                                    <a href="/src/blog.html">
+                                        <img style="height: 250px;width:300px" src="./assets/img8.jpg"
+                                            class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                    <a href="blog.html" class="text-title display-1 text-dark">
-                                      Voyage Vista: Where Travel Dreams Take Flight
+                                <div class="card-body text-center px-1"
+                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                    <a href="/src/blog.html" class="text-title display-1 text-dark">
+                                        Voyage Vista: Where Travel Dreams Take Flight
 
 
 
@@ -774,8 +816,10 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
                                         <span><i class="bi bi-chat-fill"></i> 12</span>
                                         <span class="heart-container">
                                             <button class="heart-btn">
-                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
-                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" width="48" height="48">
+                                                    <path
+                                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                                                 </svg>
                                             </button>
                                         </span>
@@ -791,15 +835,17 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
                         <article class="article">
                             <div class="card">
                                 <div class="overflow-img">
-                                    <a href="blog.html">
-                                        <img style="height: 250px;width:300px" src="./assets/img9.jpg" class="img-fluid">
+                                    <a href="/src/blog.html">
+                                        <img style="height: 250px;width:300px" src="./assets/img9.jpg"
+                                            class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                    <a href="blog.html" class="text-title display-1 text-dark">
-                                      Beak & Claw: A Chronicle of Birds in the Wild
+                                <div class="card-body text-center px-1"
+                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                    <a href="/src/blog.html" class="text-title display-1 text-dark">
+                                        Beak & Claw: A Chronicle of Birds in the Wild
 
 
 
@@ -808,9 +854,11 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 12</span>
                                         <span class="heart-container">
-                                            <button  class="heart-btn">
-                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
-                                                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                            <button class="heart-btn">
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" width="48" height="48">
+                                                    <path
+                                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                                                 </svg>
                                             </button>
                                         </span>
@@ -823,198 +871,220 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
                     <!-- article-->
                     <!-- article-->
                     <div class="grid-item revel1">
-                      <article class="article">
-                          <div class="card">
-                              <div class="overflow-img">
-                                  <a href="blog.html">
-                                      <img style="height: 250px;width:300px" src="./assets/img10.jpg" class="img-fluid">
+                        <article class="article">
+                            <div class="card">
+                                <div class="overflow-img">
+                                    <a href="/src/blog.html">
+                                        <img style="height: 250px;width:300px" src="./assets/img10.jpg"
+                                            class="img-fluid">
 
 
-                                  </a>
-                              </div>
-                              <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                  <a href="blog.html" class="text-title display-1 text-dark">
-                                    Wild Whispers: Listening to Nature's Creatures
+                                    </a>
+                                </div>
+                                <div class="card-body text-center px-1"
+                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                    <a href="/src/blog.html" class="text-title display-1 text-dark">
+                                        Wild Whispers: Listening to Nature's Creatures
 
 
 
-                                  </a>
-                                  <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
-                                      <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                      <span><i class="bi bi-chat-fill"></i> 12</span>
-                                      <span class="heart-container">
-                                        <button  class="heart-btn">
-                                            <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
-                                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                                            </svg>
-                                        </button>
-                                    </span>
-                                  </p>
-                              </div>
+                                    </a>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 12</span>
+                                        <span class="heart-container">
+                                            <button class="heart-btn">
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" width="48" height="48">
+                                                    <path
+                                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                </svg>
+                                            </button>
+                                        </span>
+                                    </p>
+                                </div>
 
-                          </div>
-                      </article>
-                  </div>
-                  <!-- article-->
-                  <!-- article-->
-                  <div class="grid-item revel2">
-                    <article class="article">
-                        <div class="card">
-                            <div class="overflow-img">
-                                <a href="blog.html">
-                                    <img style="height: 250px;width:300px" src="./assets/img11.jpg" class="img-fluid">
-
-
-                                </a>
                             </div>
-                            <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                <a href="blog.html" class="text-title display-1 text-dark">
-                                  Aesthetic Abodes: Inspirations from Architectural Design
-
-
-
-                                </a>
-                                <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
-                                    <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                    <span><i class="bi bi-chat-fill"></i> 12</span>
-                                    <span class="heart-container">
-                                        <button  class="heart-btn">
-                                            <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
-                                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                                            </svg>
-                                        </button>
-                                    </span>
-                            </div>
-
-                        </div>
-                    </article>
-                </div>
-                <!-- article-->
-                <!-- article-->
-                <div class="grid-item revel3">
-                  <article class="article">
-                      <div class="card">
-                          <div class="overflow-img">
-                              <a href="blog.html">
-                                  <img style="height: 250px;width:300px" src="./assets/img12.jpg" class="img-fluid">
-
-
-                              </a>
-                          </div>
-                          <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                              <a href="blog.html" class="text-title display-1 text-dark">
-                                Nature's Kaleidoscope: A Symphony of Colors and Life
-
-
-
-
-                              </a>
-                              <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
-                                  <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                  <span><i class="bi bi-chat-fill"></i> 12</span>
-                                  <span class="heart-container">
-                                    <button class="heart-btn">
-                                        <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
-                                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                                        </svg>
-                                    </button>
-                                </span>
-                              </p>
-                          </div>
-
-                      </div>
-                  </article>
-              </div>
-              <!-- article-->
-              <!-- article-->
-              <div class="grid-item revel1">
-                <article class="article">
-                    <div class="card">
-                        <div class="overflow-img">
-                            <a href="blog.html">
-                                <img style="height: 250px;width:300px" src="./assets/img13.jpg" class="img-fluid">
-                            </a>
-                        </div>
-                        <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                            <a href="blog.html" class="text-title display-1 text-dark">
-                              Chirp & Flutter: Tales from the Aviary
-
-
-
-                            </a>
-                            <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
-                                <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                <span><i class="bi bi-chat-fill"></i> 12</span>
-                                <span class="heart-container">
-                                    <button class="heart-btn">
-                                        <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
-                                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                                        </svg>
-                                    </button>
-                                </span>
-                            </p>
-                        </div>
-
+                        </article>
                     </div>
-                </article>
-            </div>
-            <!-- article-->
-            <!-- article-->
-            <div class="grid-item revel2">
-              <article class="article">
-                  <div class="card">
-                      <div class="overflow-img">
-                          <a href="blog.html">
-                              <img style="height: 250px;width:300px" src="./assets/img14.jpg" class="img-fluid">
+                    <!-- article-->
+                    <!-- article-->
+                    <div class="grid-item revel2">
+                        <article class="article">
+                            <div class="card">
+                                <div class="overflow-img">
+                                    <a href="/src/blog.html">
+                                        <img style="height: 250px;width:300px" src="./assets/img11.jpg"
+                                            class="img-fluid">
 
 
-                          </a>
-                      </div>
-                      <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                          <a href="blog.html" class="text-title display-1 text-dark">
-                            Unlocking the Power of the Mind: A Journey to Self-Discovery
+                                    </a>
+                                </div>
+                                <div class="card-body text-center px-1"
+                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                    <a href="/src/blog.html" class="text-title display-1 text-dark">
+                                        Aesthetic Abodes: Inspirations from Architectural Design
 
 
 
-                          </a>
-                          <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
-                              <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                              <span><i class="bi bi-chat-fill"></i> 12</span>
-                              <span class="heart-container">
-                                <button class="heart-btn">
-                                    <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
-                                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                                    </svg>
-                                </button>
-                            </span>
-                          </p>
-                      </div>
+                                    </a>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 12</span>
+                                        <span class="heart-container">
+                                            <button class="heart-btn">
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" width="48" height="48">
+                                                    <path
+                                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                </svg>
+                                            </button>
+                                        </span>
+                                </div>
 
-                  </div>
-              </article>
-          </div>
-          <!-- article-->
+                            </div>
+                        </article>
+                    </div>
+                    <!-- article-->
+                    <!-- article-->
+                    <div class="grid-item revel3">
+                        <article class="article">
+                            <div class="card">
+                                <div class="overflow-img">
+                                    <a href="/src/blog.html">
+                                        <img style="height: 250px;width:300px" src="./assets/img12.jpg"
+                                            class="img-fluid">
+
+
+                                    </a>
+                                </div>
+                                <div class="card-body text-center px-1"
+                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                    <a href="/src/blog.html" class="text-title display-1 text-dark">
+                                        Nature's Kaleidoscope: A Symphony of Colors and Life
+
+
+
+
+                                    </a>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 12</span>
+                                        <span class="heart-container">
+                                            <button class="heart-btn">
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" width="48" height="48">
+                                                    <path
+                                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                </svg>
+                                            </button>
+                                        </span>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </article>
+                    </div>
+                    <!-- article-->
+                    <!-- article-->
+                    <div class="grid-item revel1">
+                        <article class="article">
+                            <div class="card">
+                                <div class="overflow-img">
+                                    <a href="/src/blog.html">
+                                        <img style="height: 250px;width:300px" src="./assets/img13.jpg"
+                                            class="img-fluid">
+                                    </a>
+                                </div>
+                                <div class="card-body text-center px-1"
+                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                    <a href="/src/blog.html" class="text-title display-1 text-dark">
+                                        Chirp & Flutter: Tales from the Aviary
+
+
+
+                                    </a>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 12</span>
+                                        <span class="heart-container">
+                                            <button class="heart-btn">
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" width="48" height="48">
+                                                    <path
+                                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                </svg>
+                                            </button>
+                                        </span>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </article>
+                    </div>
+                    <!-- article-->
+                    <!-- article-->
+                    <div class="grid-item revel2">
+                        <article class="article">
+                            <div class="card">
+                                <div class="overflow-img">
+                                    <a href="/src/blog.html">
+                                        <img style="height: 250px;width:300px" src="./assets/img14.jpg"
+                                            class="img-fluid">
+
+
+                                    </a>
+                                </div>
+                                <div class="card-body text-center px-1"
+                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                    <a href="/src/blog.html" class="text-title display-1 text-dark">
+                                        Unlocking the Power of the Mind: A Journey to Self-Discovery
+
+
+
+                                    </a>
+                                    <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                                        <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
+                                        <span><i class="bi bi-chat-fill"></i> 12</span>
+                                        <span class="heart-container">
+                                            <button class="heart-btn">
+                                                <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24" width="48" height="48">
+                                                    <path
+                                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                </svg>
+                                            </button>
+                                        </span>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </article>
+                    </div>
+                    <!-- article-->
 
                 </div>
                 <div style="display: flex;justify-content: center;">
-                    <button class="btn load-posts-btn secondary-title text-light" style="height:50px;width:200px;font-size: large;border-radius: 20px;">Load More Posts...</button>
-              </div>
+                    <button class="btn load-posts-btn secondary-title text-light"
+                        style="height:50px;width:200px;font-size: large;border-radius: 20px;">Load More
+                        Posts...</button>
+                </div>
             </div>
             <script>
-                
+
                 const heartButtons = document.querySelectorAll('.heart-btn');
-            
-            
-                heartButtons.forEach(function(button) {
-                    button.addEventListener('click', function() {
-                       
+
+
+                heartButtons.forEach(function (button) {
+                    button.addEventListener('click', function () {
+
                         const heartIcon = this.querySelector('.heart-icon');
-                       
+
                         heartIcon.classList.toggle('red');
                     });
                 });
             </script>
-            
+
 
         </section>
         <!--blog post section-->
@@ -1069,100 +1139,112 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
                 <label for="radio6" class="manual-btn"></label>
             </div>
         </div>
-</section>
-<section class="faq" id="faq">
+        </section>
+        <section class="faq" id="faq">
 
-<!-- </section> -->
-    <div class="container_1">
-        <div class="accordion__wrapper">
-            <h1 class="accordion__title">Frequently Asked Questions</h1>
-            <br>
-            <div class="accordion">
-                <div class="accordion__header">
-                    <h2 class="accordion__question">How do I switch between dark and light themes?</h2>
-                    <span class="accordion__icon">
-                        <i id="accordion-icon" class="fa-solid fa-plus"></i>
-                    </span>
-                </div>
-                <div class="accordion__content">
-                    <!-- <i class="fa-solid fa-comments"></i> -->
-                    <p class="accordion__answer">You can easily switch between dark and light themes by clicking the theme toggle button located in the website header. This allows you to customize your viewing experience according to your preference.</p>
+            <!-- </section> -->
+            <div class="container_1">
+                <div class="accordion__wrapper">
+                    <h1 class="accordion__title">Frequently Asked Questions</h1>
+                    <br>
+                    <div class="accordion">
+                        <div class="accordion__header">
+                            <h2 class="accordion__question">How do I switch between dark and light themes?</h2>
+                            <span class="accordion__icon">
+                                <i id="accordion-icon" class="fa-solid fa-plus"></i>
+                            </span>
+                        </div>
+                        <div class="accordion__content">
+                            <!-- <i class="fa-solid fa-comments"></i> -->
+                            <p class="accordion__answer">You can easily switch between dark and light themes by clicking
+                                the theme toggle button located in the website header. This allows you to customize your
+                                viewing experience according to your preference.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion__header">
+                            <h2 class="accordion__question">How do I use the 'Start Writing' page?</h2>
+                            <span class="accordion__icon">
+                                <i id="accordion-icon" class="fa-solid fa-plus"></i>
+                            </span>
+                        </div>
+                        <div class="accordion__content">
+                            <!-- <i class="fa-solid fa-comments"></i> -->
+                            <p class="accordion__answer">The 'Start Writing' page provides a simple interface for
+                                quickly creating and publishing blog posts. Just click "Start Writing" from the
+                                navigation bar, fill in your title, content, and tags, and publish your blog with a
+                                single click.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion__header">
+                            <h2 class="accordion__question">How does the sliding bar with latest blogs work?</h2>
+                            <span class="accordion__icon">
+                                <i id="accordion-icon" class="fa-solid fa-plus"></i>
+                            </span>
+                        </div>
+                        <div class="accordion__content">
+                            <!-- <i class="fa-solid fa-comments"></i> -->
+                            <p class="accordion__answer">The sliding bar on the home page features the latest blogs
+                                published on the platform. It updates automatically and allows users to easily scroll
+                                through and click on any blog that catches their attention.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion__header">
+                            <h2 class="accordion__question">How are top picks chosen for the leading blog page?</h2>
+                            <span class="accordion__icon">
+                                <i id="accordion-icon" class="fa-solid fa-plus"></i>
+                            </span>
+                        </div>
+                        <div class="accordion__content">
+                            <!-- <i class="fa-solid fa-comments"></i> -->
+                            <p class="accordion__answer">Top picks are curated by a combination of editor
+                                recommendations and user engagement metrics, such as views, likes, and comments, to
+                                highlight the best content available on Word Wise.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion">
+                        <div class="accordion__header">
+                            <h2 class="accordion__question">How can I stay updated with new blog posts?</h2>
+                            <span class="accordion__icon">
+                                <i id="accordion-icon" class="fa-solid fa-plus"></i>
+                            </span>
+                        </div>
+                        <div class="accordion__content">
+                            <!-- <i class="fa-solid fa-comments"></i> -->
+                            <p class="accordion__answer">You can stay updated by following your favorite authors or
+                                topics, and by checking the sliding bar for the latest blog posts. You can also
+                                subscribe to newsletters or enable notifications for real-time updates.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="accordion">
-                <div class="accordion__header">
-                    <h2 class="accordion__question">How do I use the 'Start Writing' page?</h2>
-                    <span class="accordion__icon">
-                        <i id="accordion-icon" class="fa-solid fa-plus"></i>
-                    </span>
-                </div>
-                <div class="accordion__content">
-                    <!-- <i class="fa-solid fa-comments"></i> -->
-                    <p class="accordion__answer">The 'Start Writing' page provides a simple interface for quickly creating and publishing blog posts. Just click "Start Writing" from the navigation bar, fill in your title, content, and tags, and publish your blog with a single click.</p>
-                </div>
+        <!-- Newsletter Section -->
+        <section id="wordwise-newsletter" class="wordwise-newsletter-section">
+            <div class="wordwise-newsletter-container">
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Stay updated with the latest articles and insights from WordWise.</p>
+                <form class="wordwise-newsletter-form" id="newsletterForm" novalidate>
+                    <input type="email" id="emailInput" placeholder="Enter your email address" required>
+                    <div id="error-message" style="color: red; display: none;">Please include '@' in your email address.
+                    </div>
+                    <div id="sub"><button type="submit">Subscribe</button></div>
+                </form>
             </div>
 
-            <div class="accordion">
-                <div class="accordion__header">
-                    <h2 class="accordion__question">How does the sliding bar with latest blogs work?</h2>
-                    <span class="accordion__icon">
-                        <i id="accordion-icon" class="fa-solid fa-plus"></i>
-                    </span>
-                </div>
-                <div class="accordion__content">
-                    <!-- <i class="fa-solid fa-comments"></i> -->
-                    <p class="accordion__answer">The sliding bar on the home page features the latest blogs published on the platform. It updates automatically and allows users to easily scroll through and click on any blog that catches their attention.</p>
-                </div>
-            </div>
+            <!-- Toast Popup -->
+            <div id="toast" class="toast hidden"></div>
+        </section>
 
-            <div class="accordion">
-                <div class="accordion__header">
-                    <h2 class="accordion__question">How are top picks chosen for the leading blog page?</h2>
-                    <span class="accordion__icon">
-                        <i id="accordion-icon" class="fa-solid fa-plus"></i>
-                    </span>
-                </div>
-                <div class="accordion__content">
-                    <!-- <i class="fa-solid fa-comments"></i> -->
-                    <p class="accordion__answer">Top picks are curated by a combination of editor recommendations and user engagement metrics, such as views, likes, and comments, to highlight the best content available on Word Wise.</p>
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div class="accordion__header">
-                    <h2 class="accordion__question">How can I stay updated with new blog posts?</h2>
-                    <span class="accordion__icon">
-                        <i id="accordion-icon" class="fa-solid fa-plus"></i>
-                    </span>
-                </div>
-                <div class="accordion__content">
-                    <!-- <i class="fa-solid fa-comments"></i> -->
-                    <p class="accordion__answer">You can stay updated by following your favorite authors or topics, and by checking the sliding bar for the latest blog posts. You can also subscribe to newsletters or enable notifications for real-time updates.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Newsletter Section -->
-<section id="wordwise-newsletter" class="wordwise-newsletter-section">
-    <div class="wordwise-newsletter-container">
-      <h2>Subscribe to Our Newsletter</h2>
-      <p>Stay updated with the latest articles and insights from WordWise.</p>
-      <form class="wordwise-newsletter-form" id="newsletterForm" novalidate>
-        <input type="email" id="emailInput" placeholder="Enter your email address" required>
-        <div id="error-message" style="color: red; display: none;">Please include '@' in your email address.</div>
-        <div id="sub"><button type="submit">Subscribe</button></div>
-    </form>
-    </div>
-
-    <!-- Toast Popup -->
-    <div id="toast" class="toast hidden"></div>
-</section>
-
-<!-- Include the Newsletter.js script file -->
-<script src="./backend/newsLetter.js"></script>
+        <!-- Include the Newsletter.js script file -->
+        <script src="./backend/newsLetter.js"></script>
 
 
 
@@ -1172,207 +1254,221 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
     <div id="backToTop" title="Back to Top">
         <i class="fas fa-arrow-up"></i>
     </div>
-    
+
     <!--mainn-->
     <!-- footer -->
     <footer id="footer">
-      <div class="footer-container">
-          <div class="row mb-3 col-3-main">
-              <div class="col-3">
-                 <div id = "about-us">
-                  <h2 class="footer-title secondary-title" >About Us</h2>
+        <div class="footer-container">
+            <div class="row mb-3 col-3-main">
+                <div class="col-3">
+                    <div id="about-us">
+                        <h2 class="footer-title secondary-title">About Us</h2>
 
-                    <div class="secondary-title text-secondary " >
-                       <p class="mt-2 " style="text-align: left;  color: #a0a0a0" >
-                        We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the world.
-                       </p> 
+                        <div class="secondary-title text-secondary ">
+                            <p class="mt-2 " style="text-align: left;  color: #a0a0a0">
+                                We are a close-knit team of passionate storytellers dedicated to sharing captivating
+                                content with the world.
+                            </p>
 
-                       <address class="address mt-2" style="padding-top: 20px;">
-                           <i class="fas fa-map-marker-alt text-primary"></i>
-                           5 South Main Street Los Angeles, ZZ-9611 USA
-                       </address>
+                            <address class="address mt-2" style="padding-top: 20px;">
+                                <i class="fas fa-map-marker-alt text-primary"></i>
+                                5 South Main Street Los Angeles, ZZ-9611 USA
+                            </address>
 
-                       <div class="phone mt-2">
-                           <i class="fas fa-mobile text-primary"></i>
-                           125-896-485
-                       </div>
+                            <div class="phone mt-2">
+                                <i class="fas fa-mobile text-primary"></i>
+                                125-896-485
+                            </div>
 
-                      <div class="email mt-2">
-                            <a href="mailto: dailysupport@gmail.com" style="color: 3B3B58;"><i class="fas fa-envelope text-primary"></i>
-                           <span>dailysupport@gmail.com</span>
-                        </a>
-                       </div>
-                        <div>
-                        <img src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5" alt="Web views" style="height: 22px;width: 150px;margin-top: 40px;">
-                       </div>
-                    </div>
-
-                 </div>
-              </div>
-              
-              <div class="col-3">
-                  <h2 class="footer-title secondary-title">Feature Post</h2>
-
-                  <div class="feature-post">
-                      <div class="flex-item">
-                        <article class="article">
-                            <div class="d-flex" style="align-items: flex-start; ">
-                                <a class="d-flex" href="blog.html">
-                                    <img src="./assets/img9.jpg" class="object-fit" alt="">
-                                    <div class="px-1" style="width: 400px; ">
-                                        <a href="blog.html" class="text-title display-2 text-dark">
-                                            Embrace the beauty of nature through our enchanting blog, where we celebrate the wonders of the natural world
-                                        </a>
-                                        <p class="secondary-title text-secondary " style="margin-top:3px;margin-left:0px; text-align: left; ">
-                                            <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
-                                        </p>
-                                    </div>
+                            <div class="email mt-2">
+                                <a href="mailto: dailysupport@gmail.com" style="color: 3B3B58;"><i
+                                        class="fas fa-envelope text-primary"></i>
+                                    <span>dailysupport@gmail.com</span>
                                 </a>
                             </div>
-                        </article>
+                            <div>
+                                <img src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5"
+                                    alt="Web views" style="height: 22px;width: 150px;margin-top: 40px;">
+                            </div>
+                        </div>
 
-                      </div>
-                      <div class="flex-item">
-                       <article class="article">
-                           <div class="d-flex" style="align-items: flex-start; ">
-                               <a class="d-flex" href="blog.html">
-                                   <img src="./assets/img1.jpg" class="object-fit" alt="">
-                                   <div class="px-1" style="width: 400px;">
-                                       <a href="blog.html" class="text-title display-2 text-dark">
-                                        Embark on unforgettable journeys through our travel blog, where wanderlust meets inspiration
-                                       </a>
-                                       <p class="secondary-title text-secondary display-3" style="margin-top:3px;margin-left:0px; text-align: left;">
-                                            <span><i class="far fa-clock text-primary"></i> Wed 05, 2020 </span>
-                                       </p>
-                                   </div>
-                               </a>
-                           </div>
-                       </article>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <h2 class="footer-title secondary-title">Feature Post</h2>
+
+                    <div class="feature-post">
+                        <div class="flex-item">
+                            <article class="article">
+                                <div class="d-flex" style="align-items: flex-start; ">
+                                    <a class="d-flex" href="/src/blog.html">
+                                        <img src="./assets/img9.jpg" class="object-fit" alt="">
+                                        <div class="px-1" style="width: 400px; ">
+                                            <a href="/src/blog.html" class="text-title display-2 text-dark">
+                                                Embrace the beauty of nature through our enchanting blog, where we
+                                                celebrate the wonders of the natural world
+                                            </a>
+                                            <p class="secondary-title text-secondary "
+                                                style="margin-top:3px;margin-left:0px; text-align: left; ">
+                                                <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </article>
+
                         </div>
                         <div class="flex-item">
-                           <article class="article">
-                               <div class="d-flex" style="align-items: flex-start;">
-                                   <a class="d-flex " href="blog.html" >
-                                       <img src="./assets/img2.jpg" class="object-fit" alt="">
-                                       <div class="px-1" style="width: 400px;">
-                                           <a href="blog.html" class="text-title display-2 text-dark">
-                                            Gaming Adventures Unleashed
-                                           </a>
-                                           <p class="secondary-title text-secondary display-3" style="margin-top:3px;margin-left:0px; text-align: left;">
+                            <article class="article">
+                                <div class="d-flex" style="align-items: flex-start; ">
+                                    <a class="d-flex" href="/src/blog.html">
+                                        <img src="./assets/img1.jpg" class="object-fit" alt="">
+                                        <div class="px-1" style="width: 400px;">
+                                            <a href="/src/blog.html" class="text-title display-2 text-dark">
+                                                Embark on unforgettable journeys through our travel blog, where
+                                                wanderlust meets inspiration
+                                            </a>
+                                            <p class="secondary-title text-secondary display-3"
+                                                style="margin-top:3px;margin-left:0px; text-align: left;">
+                                                <span><i class="far fa-clock text-primary"></i> Wed 05, 2020 </span>
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="flex-item">
+                            <article class="article">
+                                <div class="d-flex" style="align-items: flex-start;">
+                                    <a class="d-flex " href="/src/blog.html">
+                                        <img src="./assets/img2.jpg" class="object-fit" alt="">
+                                        <div class="px-1" style="width: 400px;">
+                                            <a href="/src/blog.html" class="text-title display-2 text-dark">
+                                                Gaming Adventures Unleashed
+                                            </a>
+                                            <p class="secondary-title text-secondary display-3"
+                                                style="margin-top:3px;margin-left:0px; text-align: left;">
                                                 <span><i class="far fa-clock text-primary"></i> Wed 02, 2021 </span>
-                                           </p>
-                                       </div>
-                                   </a>
-                               </div>
-                           </article>
-                       </div>
-                  </div>
-              </div>
-              <div class="col-3">
-                   <h2 class="footer-title secondary-title">Popular Tags</h2>
-
-                   <div class="tags">
-                       <div class="d-flex-gap flex-wrap ">
-                           <a href="blog.html" class="nav-link btn bg-light px-1" style="font-weight: 400;">Travel</a>
-                           <a href="blog.html" class="nav-link btn bg-light px-1" style="font-weight: 400;">Food</a>
-                           <a href="blog.html" class="nav-link btn bg-light " style="font-weight: 400;">Lifestyle</a>
-                           <a href="blog.html" class="nav-link btn bg-light px-1" style="font-weight: 400;">Techonogy</a>
-                           <a href="blog.html" class="nav-link btn bg-light" style="font-weight: 400;">Fashion</a>
-                       </div>
-                   </div>
-
-                 
-                   <div class="signup-container">
-                    <form class="signup-form">
-                      <input type="email" placeholder="Email Address" required />
-                      <button type="submit"><a href="signup.html">Sign me up</a></button>
-                    </form> 
-                    <p class="privacy-text">
-                        By signing up you agree to our <a href="privacy.html">Privacy Policy</a>.
-                      </p> 
-                  </div>
-                  <h2 class="footer-title secondary-title mt-2">Connect with us</h2>
-
-                  <div class="tags social px-1" id="contact">
-                      <div class="d-flex-gap flex-wrap">
-                          <a href="https://www.facebook.com/" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
-                          <a href="https://x.com/" class="nav-link btn bg-light"><i class="fa-brands fa-x-twitter"></i></a>
-                          <a href="https://www.instagram.com/" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
-                          <a href="https://dribbble.com/" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
-                      </div>
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
                     </div>
-              </div>
-          </div>
+                </div>
+                <div class="col-3">
+                    <h2 class="footer-title secondary-title">Popular Tags</h2>
+
+                    <div class="tags">
+                        <div class="d-flex-gap flex-wrap ">
+                            <a href="/src/blog.html" class="nav-link btn bg-light px-1"
+                                style="font-weight: 400;">Travel</a>
+                            <a href="/src/blog.html" class="nav-link btn bg-light px-1"
+                                style="font-weight: 400;">Food</a>
+                            <a href="/src/blog.html" class="nav-link btn bg-light "
+                                style="font-weight: 400;">Lifestyle</a>
+                            <a href="/src/blog.html" class="nav-link btn bg-light px-1"
+                                style="font-weight: 400;">Techonogy</a>
+                            <a href="/src/blog.html" class="nav-link btn bg-light" style="font-weight: 400;">Fashion</a>
+                        </div>
+                    </div>
 
 
-      </div>
-       <!-- the authentication copyright -->
-       <div class="wordwise-footer">
-        <div class="wordwise-footer-content">
-          <p>&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
+                    <div class="signup-container">
+                        <form class="signup-form">
+                            <input type="email" placeholder="Email Address" required />
+                            <button type="submit"><a href="/src/utils/signup.html">Sign me up</a></button>
+                        </form>
+                        <p class="privacy-text">
+                            By signing up you agree to our <a href="/src/utils/privacy.html">Privacy Policy</a>.
+                        </p>
+                    </div>
+                    <h2 class="footer-title secondary-title mt-2">Connect with us</h2>
+
+                    <div class="tags social px-1" id="contact">
+                        <div class="d-flex-gap flex-wrap">
+                            <a href="https://www.facebook.com/" class="nav-link btn bg-light"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="https://x.com/" class="nav-link btn bg-light"><i
+                                    class="fa-brands fa-x-twitter"></i></a>
+                            <a href="https://www.instagram.com/" class="nav-link btn bg-light"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="https://dribbble.com/" class="nav-link btn bg-light"><i
+                                    class="fab fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
-    </div>
-  </footer>
-
-  
-<!-- .footer -->
-<!-- this script is for twitter icon  starts -->
- <script src="https://kit.fontawesome.com/856f4a44d7.js" crossorigin="anonymous"></script>
-<!-- this script is for twitter icon  ends -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
-    <script src="./backend/login-Auth/login.js"></script>
-    <script src="./backend/signup/signup.js"></script>
-    <script src="SignIn_SignUp.js"></script>
-    <script src="darkMode.js"></script>
+        <!-- the authentication copyright -->
+        <div class="wordwise-footer">
+            <div class="wordwise-footer-content">
+                <p>&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
 
-    <!-- this script is to display the year in the copyright authentication in the footer -->
+    <!-- .footer -->
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
     <script>
 
-// For Loader Page
-const preloader = document.querySelector("#loader");
-function Finish_Loader(){
-    preloader.style.display = "none";
-}
+        // For Loader Page
+        const preloader = document.querySelector("#loader");
+        function Finish_Loader() {
+            preloader.style.display = "none";
+        }
     </script>
-    <script src="script.js"></script>
-    <script src="faq.js"></script>
-    <script src="progress_bar.js"></script>
+    <script>
+        window.addEventListener("scroll", function () {
+            var scrollPosition = window.scrollY;
+            var height = document.body.offsetHeight - window.innerHeight;
+            if (scrollPosition > 90) {
+                document.getElementById("backToTop").style.display = "block";
+            } else {
+                document.getElementById("backToTop").style.display = "none";
+            }
+        });
+
+        document.getElementById("backToTop").addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
+
+    <script>
+
+        // Initialize ScrollReveal
+        ScrollReveal({
+            reset: true,
+            distance: '60px',
+            duration: 2500,
+            delay: 400
+        });
+        ScrollReveal().reveal('.revel1', { delay: 5, origin: 'left' });
+        ScrollReveal().reveal('.revel2', { delay: 5, origin: 'bottom' });
+        ScrollReveal().reveal('.revel3', { delay: 5, origin: 'right' });
+    </script>
+    <script src="/src/javascripts/google_signin.js"></script>
+    <script src="/src/javascripts/profiledropdown.js"></script>
+    <script src="/src/javascripts/script.js"></script>
+    <script src="/src/javascripts/faq.js"></script>
+    <script src="/src/javascripts/progress_bar.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-      <script>
-        window.addEventListener("scroll", function() {
-  var scrollPosition = window.scrollY;
-  var height = document.body.offsetHeight - window.innerHeight;
-  if (scrollPosition > 90) {
-    document.getElementById("backToTop").style.display = "block";
-  } else {
-    document.getElementById("backToTop").style.display = "none";
-  }
-});
 
-document.getElementById("backToTop").addEventListener("click", function() {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-      </script>
+    <script src="https://kit.fontawesome.com/856f4a44d7.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-<script>
-    
-    // Initialize ScrollReveal
-    ScrollReveal({
-        reset:true,
-        distance:'60px',
-        duration:2500,
-        delay:400
-       }) ;
-       ScrollReveal().reveal('.revel1',{ delay:5,origin:'left'});
-       ScrollReveal().reveal('.revel2',{ delay:5,origin:'bottom'});
-       ScrollReveal().reveal('.revel3',{ delay:5,origin:'right'});
-</script>
-    <script src="google_signin.js"></script>
-    <script src="profiledropdown.js"></script>
+    <script src="/src/javascripts/main.js"></script>
+    <script src="./backend/login-Auth/login.js"></script>
+    <script src="./backend/signup/signup.js"></script>
+    <script src="/src/javascripts/SignIn_SignUp.js"></script>
+    <script src="/src/javascripts/darkMode.js"></script>
 </body>
+
 </html>
