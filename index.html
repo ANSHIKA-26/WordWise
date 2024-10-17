@@ -1146,21 +1146,142 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
 </section>
 
 <!-- Newsletter Section -->
-<section id="wordwise-newsletter" class="wordwise-newsletter-section">
-    <div class="wordwise-newsletter-container">
-      <h2>Subscribe to Our Newsletter</h2>
-      <p>Stay updated with the latest articles and insights from WordWise.</p>
-      <form class="wordwise-newsletter-form" id="newsletterForm" novalidate>
-        <input type="email" id="emailInput" placeholder="Enter your email address" required>
-        <div id="error-message" style="color: red; display: none;">Please include '@' in your email address.</div>
-        <div id="sub"><button type="submit">Subscribe</button></div>
-    </form>
+<style>
+    #contact .card {
+        width: 75%; 
+        max-width: 850px; 
+        margin: 20px auto; 
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    #contact .card-header {
+        
+        color: #0d0d0d;
+        padding: 10px;
+        margin-bottom: 15px;
+        text-align: center;
+        border-radius: 6px;
+        align-items: center;
+    }
+    
+    #contact .card-body {
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    
+    #contact .image-section {
+        flex: 1; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+        margin-left: 20px;
+    }
+    
+    #contact .image-section img {
+        max-width: 100%;
+        height: auto;
+        max-height: 400px;
+    }
+    
+    #contact .form-section {
+        flex: 1; 
+        min-width: 250px;
+    }
+    
+    #contact .form-group {
+       margin-top: 150px;
+
+    }
+    
+    #contact input, #contact textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 15px;
+    }
+    
+    #contact button[type="submit"] {
+        background-color: #ff8b99;
+        color: #100f0f;
+        padding: 10px 20px;
+        margin-left: 130px;
+        margin-top: 1px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    #contact button[type="submit"]:hover {
+        background-color: #ee7c89;
+        transform: scale(1.1);
+    }
+    /* Typewriter effect for Contact Us heading */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  @keyframes blink {
+    50% { border-color: transparent; }
+  }
+  
+  /* Apply typewriter effect */
+  .effect h2 {
+     /* Monospace font for the typewriter feel */
+    overflow: hidden; /* Ensures that the text is hidden initially */
+    border-right: 2px solid; /* A blinking cursor effect */
+    white-space: nowrap; /* Prevent text from wrapping */
+    margin: 0 auto; /* Center the text */
+    letter-spacing: 2px; /* Add some space between letters */
+    animation: typing 3.5s steps(30, end) forwards, blink 0.75s step-end infinite; /* Text typing effect */
+    width: 1000%; /* Ensures the width grows as text types out */
+  }
+  
+    
+</style>
+<!-- Newsletter Section -->
+<section id="contact" data-aos="fade-right">
+                
+    <div class="card pb-5 pt-1">
+        <div class="card-header">
+            <div class="effect">
+                <h2 >Subscribe to Our Newsletter</h2>
+            </div>
+          
+        </div>
+        <div class="card-body">
+            
+            <div class="form-section">
+                <form id="contactForm">
+                     
+                    <p style="margin-top: 100px;line-height: 1.6">Stay Updated with latest articles and insights from WordWsie</p>
+                    <div class="form-group" style="margin-top:40px;margin-bottom:1px">
+                        
+                        <input type="email" id="message" name="message" placeholder="Enter Your email address"/>
+                    </div>
+                    <button type="submit"  >Subscribe</button>
+                </form>
+                
+              
+                
+                       
+                    
+            </div>
+            <div class="image-section">
+                <img src="image.png" alt="Contact Image"style="max-width: 90%; height: auto; max-height: 500px;">
+            </div>
+           
+        </div>
     </div>
-
-    <!-- Toast Popup -->
-    <div id="toast" class="toast hidden"></div>
 </section>
-
 <!-- Include the Newsletter.js script file -->
 <script src="./backend/newsLetter.js"></script>
 
