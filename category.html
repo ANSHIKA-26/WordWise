@@ -46,10 +46,7 @@
 
     <div class="layout-container" style="margin-bottom: 4rem;">
 
-        <header>
-    
-    
-    
+        <header> 
             <div class="logo" >
                 <a href="index.html">
                   <h2>WordWise</h2>
@@ -363,7 +360,11 @@
                                     <h3 class="new-post-title">Mouthwatering Memoirs</h3>
                                     <p class="new-post-excerpt">Mouth watering tales from all over the world...</p>
                                 </div>
-                                <button  class="new-read-more-link"><a href="food.html">Read More</a></button>
+                                <ul class="section-btn">
+                                    <li>
+                                        <a href="food.html"><span data-hover="Read More">Read More</span></a>
+                                    </li>
+                                </ul>
                             </div>
                         </article>
                     </div>
@@ -383,7 +384,11 @@
                                     <h3 class="new-post-title">Roaming Routes</h3>
                                     <p class="new-post-excerpt">In the realm of mechanical marvels.</p>
                                 </div>
-                                <button  class="new-read-more-link"><a href="travel.html">Read More</a></button>
+                                <ul class="section-btn">
+                                    <li>
+                                        <a href="travel.html"><span data-hover="Read More">Read More</span></a>
+                                    </li>
+                                </ul>
                             </div>
                         </article>
                     </div>
@@ -403,7 +408,11 @@
                                     <h3 class="new-post-title">The Future of Tech</h3>
                                     <p class="new-post-excerpt">Exploring the innovations that are changing the world.</p>
                                 </div>
-                                <button  class="new-read-more-link"><a href="tech.html">Read More</a></button>
+                                <ul class="section-btn">
+                                    <li>
+                                        <a href="tech.html"><span data-hover="Read More">Read More</span></a>
+                                    </li>
+                                </ul>
                             </div>
                         </article>
                     </div>
@@ -423,7 +432,11 @@
                                     <h3 class="new-post-title">Living Well</h3>
                                     <p class="new-post-excerpt">Tips and tricks for a balanced life.</p>
                                 </div>
-                                <button  class="new-read-more-link"><a href="life.html">Read More</a></button>
+                                <ul class="section-btn">
+                                    <li>
+                                        <a href="life.html"><span data-hover="Read More">Read More</span></a>
+                                    </li>
+                                </ul>
                             </div>
                         </article>
                     </div>
@@ -443,7 +456,11 @@
                                     <h3 class="new-post-title">Health Tips</h3>
                                     <p class="new-post-excerpt">Best practices for a healthier you.</p>
                                 </div>
-                                <button  class="new-read-more-link"><a href="health.html">Read More</a></button>
+                                <ul class="section-btn">
+                                    <li>
+                                        <a href="health.html"><span data-hover="Read More">Read More</span></a>
+                                    </li>
+                                </ul>
                             </div>
                         </article>
                     </div>
@@ -463,7 +480,12 @@
                                     <h3 class="new-post-title">Fashion Trends</h3>
                                     <p class="new-post-excerpt">Stay stylish with the latest trends.</p>
                                 </div>
-                                <button  class="new-read-more-link"><a href="fashion.html">Read More</a></button>
+                                <ul class="section-btn">
+                                    <li>
+                                        <a href="fashion.html"><span data-hover="Read More">Read More</span></a>
+                                    </li>
+                                </ul>
+                                <!-- <button  class="new-read-more-link"><a href="fashion.html">Read More</a></button> -->
                             </div>
                         </article>
                     </div>
@@ -640,11 +662,11 @@
 
                     <div class="tags social" id="contact">
                         <div class="d-flex-gap flex-wrap">
-                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="nav-link btn bg-light"><i class="fa-brands fa-x-twitter"></i></a>
-                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
-                            <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" target="_blank"  class="nav-link btn bg-light"
+                            <a href="https://www.facebook.com/" id="facebook" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://x.com/" id="twitter" class="nav-link btn bg-light"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="https://www.instagram.com/"  id="instagram" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
+                            <a href="https://dribbble.com/" id="dribbble" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
+                            <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" id="github" target="_blank"  class="nav-link btn bg-light"
                             ><i class="fa-brands fa-github"></i></a>
                         </div>
                     </div>
@@ -760,6 +782,37 @@
 
             // Update the current year
             document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkbox = document.querySelector('input[type="checkbox"]');
+            const modeLabel = document.getElementById('mode-label');
+
+            // Check localStorage for saved mode
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'dark') {
+                document.body.classList.add('dark-mode');
+                checkbox.checked = true;
+                modeLabel.textContent = 'Dark Mode';
+            } else {
+                modeLabel.textContent = 'Light Mode';
+            }
+
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('darkMode', 'dark');
+                    modeLabel.textContent = 'Dark Mode';
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    localStorage.setItem('darkMode', 'light');
+                    modeLabel.textContent = 'Light Mode';
+                }
+            });
+
+            // ... existing FAQ modal code ...
         });
     </script>
 </body>
