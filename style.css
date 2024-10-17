@@ -1396,7 +1396,6 @@ button {
 .form-group.position-relative i {
   position: absolute;
   top: 52px;
-  left: 10px;
   transform: translateY(-50%);
   font-size: 18px;
   color: #ccc;
@@ -1404,7 +1403,7 @@ button {
 
 .form-group.position-relative input[type="text"],
 .form-group.position-relative input[type="email"]{
-  padding-left: 40px; /* Space for the icon */
+  padding-left: 10px; /* Space for the icon */
 }
 
 /* Style the locker icons */
