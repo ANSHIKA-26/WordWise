@@ -339,7 +339,8 @@ body {
   background: var(--body-bg);
   font-family: Arial, sans-serif;
   background-color: var(--background-color);
-  max-width: 100%; /* Ensure container does not overflow */
+  max-width: 100%;
+  /* Ensure container does not overflow */
   overflow: hidden;
 }
 
@@ -360,13 +361,19 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-} 
+}
 
-.header, .footer, .main-content {
-  max-width: 100%; /* Prevent overflow */
-  overflow: hidden; /* Prevent inner overflow */
-  margin: 0 auto; /* Center the element */
-  padding: 0; /* Remove default padding */
+.header,
+.footer,
+.main-content {
+  max-width: 100%;
+  /* Prevent overflow */
+  overflow: hidden;
+  /* Prevent inner overflow */
+  margin: 0 auto;
+  /* Center the element */
+  padding: 0;
+  /* Remove default padding */
 }
 
 /* Light Mode Scrollbar - Vertical Scroll Styling */
@@ -2980,6 +2987,7 @@ footer p {
 .toast.error {
   background-color: red;
 }
+
 /* 
 for facebook
 .flex-wrap .fa-facebook-f {
@@ -3020,33 +3028,38 @@ for facebook
   color:#ea4c89;
   transform:scale(1.1);
 } */
-.flex-wrap a{
+.flex-wrap a {
   margin-right: 10px;
   transition: all .38s ease-in-out;
 }
 
-.flex-wrap a:hover{
+.flex-wrap a:hover {
   transform: scale(1.1);
   padding: 2px 4px;
   border-radius: 4px;
 }
-#facebook:hover{
+
+#facebook:hover {
   color: white;
-  background-color:rgb(62, 62, 255) ;
+  background-color: rgb(62, 62, 255);
 }
-#dribbble:hover{
+
+#dribbble:hover {
   color: white;
-  background-color:#ea4c89;
+  background-color: #ea4c89;
 }
-#instagram:hover{
+
+#instagram:hover {
   color: white;
   background-color: #e1306c;
 }
-#twitter:hover{
+
+#twitter:hover {
   color: white;
   background-color: #14171A;
 }
-#github:hover{
+
+#github:hover {
   color: white;
   background-color: #14171A;
 
@@ -3575,42 +3588,48 @@ for facebook
   /* Match rounded corners */
   /* padding: 2px 27px; Padding for the pseudo-element */
 
-/* padding-left: 10px; */
-text-align: center;
-  transition: background 0.3s; /* Smooth transition for background color */
-  transform: rotateX(-90deg); /* Hide it initially by rotating */
-  content: attr(data-hover); /* Set content to the value of data-hover attribute */
-  transform-origin: 50% 0; /* Set transform origin for the rotation */
+  /* padding-left: 10px; */
+  text-align: center;
+  transition: background 0.3s;
+  /* Smooth transition for background color */
+  transform: rotateX(-90deg);
+  /* Hide it initially by rotating */
+  content: attr(data-hover);
+  /* Set content to the value of data-hover attribute */
+  transform-origin: 50% 0;
+  /* Set transform origin for the rotation */
 }
 
-.section-btn a:hover span, .section-btn a:focus span {
-  transform: rotateX(90deg) translateY(-22px); /* Flip the text on hover */
+.section-btn a:hover span,
+.section-btn a:focus span {
+  transform: rotateX(90deg) translateY(-22px);
+  /* Flip the text on hover */
 }
 
 .star-rating {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   flex-direction: row-reverse;
 }
 
 .star-rating input {
-  display: none; 
+  display: none;
 }
 
 .star-rating label {
-  font-size: 46px; 
-  color: #ddd; 
-  cursor: pointer; 
+  font-size: 46px;
+  color: #ddd;
+  cursor: pointer;
   transition: color 0.2s;
-  margin: 0 5px; /* Add margin for gaps between stars */
+  margin: 0 5px;
+  /* Add margin for gaps between stars */
 }
 
-.star-rating input:checked ~ label {
-  color: #ffca28; 
+.star-rating input:checked~label {
+  color: #ffca28;
 }
 
 .star-rating label:hover,
-.star-rating label:hover ~ label {
-  color: #ffca28; 
+.star-rating label:hover~label {
+  color: #ffca28;
 }
-
