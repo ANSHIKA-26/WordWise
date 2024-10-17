@@ -982,7 +982,7 @@ body {
             :root {
                 --light: #f0e4d7;
                 --secondary: #2d545e;
-                --dark: #3b3b58;
+                --dark: #fb5869;
                 --primary-color: #f4978e;
                 --secondary-color: #c1c8e4;
                 --border: #ddbea9;
@@ -1016,7 +1016,7 @@ body {
             .category-heading:hover {
                 background-color: var(--primary-color);
                 color: white;
-            }
+              }
         
             .category-item {
                 padding: 15px 0;
@@ -1033,7 +1033,14 @@ body {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+               
             }
+
+            .category-item a:hover {
+            box-shadow: 15px 5px 20px rgba(255, 0, 0, 0.4); /* Larger shadow on hover */
+            border-color: #ff4000; /* Darker border color on hover */
+        }
+
         
             .category-item span {
                 font-weight: 500;
