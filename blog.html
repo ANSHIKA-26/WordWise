@@ -25,9 +25,11 @@
 </head>
 
 <body>
+TranslationTool
 
   <div class= "progress-container">
     <div class= "progress-bar" id="progress-bar"></div>
+ main
   </div>
   <div class= "layout-container" style="margin-bottom: 4rem;">
 
@@ -47,6 +49,7 @@
         <span></span>
       </div>
       <div class="nav-links1">
+TranslationTool
         <a href= "index.html">Home</a>
         <a href= "blog.html">Leading Blog</a>
         <a href= "start_writing.html">Start Writing</a>
@@ -54,6 +57,7 @@
         <a href= "about.html">About</a>
         <a href= "contact_us.html">Contact Us</a>
         <a href= "contact_us.html">Give Feedback</a>
+main
       </div>
 
 
@@ -334,11 +338,12 @@
 
     </header>
   </div>
+</nav>
  
   <!--header-->
   
     <!--mainn-->
-    <main id="site-main">
+    <main id="site-main" style="margin-top: 8rem;">
       <!--post content-->
       <section class="container">
         <!-- <div class="layout-2 row"> -->
@@ -491,7 +496,9 @@
       <h3 class="form-title">Share Your Thoughts</h3>
       <form id="commentForm" class="form-content">
         <div class="input-container">
-          <input type="text" id="commenterName" class="input-field" placeholder=" " required>
+          <input type="text" id="commenterName" class="input-field" placeholder=" " required pattern="[a-zA-Z ]+"
+                                oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')"
+                                oninput="this.setCustomValidity('')">
           <label for="commenterName" class="input-label">Your Name</label>
         </div>
         <div class="input-container">
@@ -764,7 +771,7 @@ body {
 
 .input-label {
   position: absolute;
-  left: 16px;
+  left: 8px;
   top: 12px;
   color: #6b7280;
   transition: all 0.3s;
@@ -774,7 +781,7 @@ body {
 .input-field:focus + .input-label,
 .input-field:not(:placeholder-shown) + .input-label {
   font-size: 0.875rem;
-  top: -10px;
+  top: -17px;
   color: #f4978e;
 }
  
@@ -1117,8 +1124,12 @@ body {
 
 
   </main>
-  <button id="backToTop">⬆️</button>
   <!--mainn-->
+  <!-- <button id="backToTop">⬆️</button> -->
+  <div id="backToTop" title="Back to Top">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+  
   <!-- footer -->
   <!-- footer -->
   <footer id="footer">
