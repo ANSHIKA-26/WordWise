@@ -1090,9 +1090,9 @@ button {
   justify-content: center;
   align-items: center;
   background-color: #f8b5b5;
-  top: 0;
-  position: sticky;
-  z-index: 899;
+  top: 0 !important;
+  position: sticky !important;
+  z-index: 899 !important;
 
 }
 
@@ -2311,6 +2311,7 @@ a {
 .overflow-img img {
   width: 100%;
   height: auto;
+  object-fit: cover;
 }
 
 .overflow-img:hover {
@@ -2907,14 +2908,7 @@ for facebook
   transform:scale(1.1);
  } */
 
-/* for dribble 
-.flex-wrap .fa-dribbble {
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-.flex-wrap .fa-dribbble:hover{
-  color:#ea4c89;
-  transform:scale(1.1);
-} */
+
 .flex-wrap a{
   margin-right: 10px;
   transition: all .38s ease-in-out;
@@ -3389,4 +3383,12 @@ text-align: center;
 .star-rating label:hover,
 .star-rating label:hover ~ label {
   color: #ffca28; 
+}
+nav{
+ width: 100%;
+  position: fixed;
+  top:0;
+  margin-bottom: 4rem;
+  z-index: 999;
+  
 }
