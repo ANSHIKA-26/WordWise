@@ -1021,9 +1021,9 @@ button {
   justify-content: center;
   align-items: center;
   background-color: #f8b5b5;
-  top: 0;
-  position: sticky;
-  z-index: 899;
+  top: 0 !important;
+  position: sticky !important;
+  z-index: 899 !important;
 
 }
 
@@ -3321,4 +3321,12 @@ text-align: center;
 .star-rating label:hover,
 .star-rating label:hover ~ label {
   color: #ffca28; 
+}
+nav{
+ width: 100%;
+  position: fixed;
+  top:0;
+  margin-bottom: 4rem;
+  z-index: 999;
+  
 }
