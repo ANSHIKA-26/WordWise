@@ -492,7 +492,9 @@
       <h3 class="form-title">Share Your Thoughts</h3>
       <form id="commentForm" class="form-content">
         <div class="input-container">
-          <input type="text" id="commenterName" class="input-field" placeholder=" " required>
+          <input type="text" id="commenterName" class="input-field" placeholder=" " required pattern="[a-zA-Z ]+"
+                                oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')"
+                                oninput="this.setCustomValidity('')">
           <label for="commenterName" class="input-label">Your Name</label>
         </div>
         <div class="input-container">
@@ -765,7 +767,7 @@ body {
 
 .input-label {
   position: absolute;
-  left: 16px;
+  left: 8px;
   top: 12px;
   color: #6b7280;
   transition: all 0.3s;
@@ -775,7 +777,7 @@ body {
 .input-field:focus + .input-label,
 .input-field:not(:placeholder-shown) + .input-label {
   font-size: 0.875rem;
-  top: -10px;
+  top: -17px;
   color: #f4978e;
 }
  
