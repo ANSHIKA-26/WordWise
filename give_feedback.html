@@ -83,6 +83,102 @@
 </head>
 
 <body>
+ main
+  <div class="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+  <div class="layout-container" style="margin-bottom: 4rem;">
+
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <h2>WordWise</h2>
+        </a>
+      </div>
+      <div class="nav-links1">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Leading Blog</a>
+        <a href="start_writing.html">Start Writing</a>
+        <a href="category.html">Categories</a>
+        <a href="about.html">About</a>
+        <a href="contact_us.html">Contact Us</a>
+        <a href="give_feedback.html">Give Feedback</a>
+      </div>
+
+
+      <div class="dropdown">
+        <!-- Profile Icon -->
+        <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
+          <i class="fas fa-user-circle"></i>
+        </a>
+
+        <!-- Dropdown Menu -->
+        <ul class="dropdown-menu" id="dropdownMenu">
+          <li><a href="#login" onclick="openForm('login')">Login</a></li>
+          <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
+        </ul>
+      </div>
+
+
+
+      <!--  Login Form -->
+      <div class="form-popup" id="loginForm">
+        <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
+          <span class="close-icon" onclick="closeForm('login')">&times;</span>
+          <h2 class="text-center">Login</h2>
+          <div class="form-group">
+            <label for="loginEmail"><b>Email</b></label>
+            <input type="email" class="form-control" id="loginEmail" placeholder="Enter Email" name="email" required>
+          </div>
+          <div class="form-group position-relative">
+            <label for="loginPsw"><b>Password</b></label>
+            <input type="password" class="form-control" id="loginPsw" aria-label="password" placeholder="Enter Password" name="psw" required
+              minlength="6">
+            <i class="bi bi-eye eye-icon" id="toggleLoginPassword"
+              onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
+          </div>
+          <div class="forgot">
+            <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
+          </div>
+          <button type="submit" class="btn btn-primary w-100 mb-3" aria-label="submit">LOGIN</button>
+          <!-- Google Sign-In Button -->
+          <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+            <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
+            Sign in with Google
+          </button>
+        </form>
+      </div>
+
+
+      <!-- Signup Form -->
+      <div class="form-popup" id="signupForm">
+        <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
+          <span class="close-icon" onclick="closeForm('signup')">&times;</span>
+          <h2 class="text-center">Signup</h2>
+          <div class="form-group">
+            <label for="name"><b>Full Name</b></label>
+            <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="signupEmail"><b>Email</b></label>
+            <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required>
+          </div>
+          <div class="form-group position-relative">
+            <label for="signupPsw"><b>Password</b></label>
+            <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6"
+              oninput="checkPasswordStrength()">
+            <i class="bi bi-eye eye-icon" id="toggleSignupPassword"
+              onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
+            <div id="passwordStrength" class="strength-meter"></div>
+          </div>
+
+          <div class="form-group position-relative">
+            <label for="confirmPsw"><b>Confirm Password</b></label>
+            <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw"
+              required minlength="6">
+            <i class="bi bi-eye eye-icon" id="toggleConfirmPassword"
+              onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
+=======
   <nav>
     <div class="progress-container">
       <div class="progress-bar" id="progress-bar"></div>
@@ -198,6 +294,7 @@
   
             <button class="btn" onclick="submitForgotPassword()">Submit</button>
             <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
+ main
           </div>
         </div>
   
@@ -509,6 +606,11 @@
         Close
       </button>
     </div>
+  </div>
+
+  <!-- <button id="backToTop">⬆️</button> -->
+  <div id="backToTop" title="Back to Top">
+    <i class="fas fa-arrow-up"></i>
   </div>
 
   <!-- footer -->

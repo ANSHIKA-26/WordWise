@@ -55,7 +55,7 @@
           <div class="input-group">
             <div class="input-field">
               <label for="Name">Name</label><br />
-              <input type="text" id="name" class="input-box" placeholder="Enter Name" />
+              <input type="text" id="name" class="input-box" aria-label="name" placeholder="Enter Name" />
             </div>
             <div class="input-field">
               <label for="Mail">Email</label><br />
@@ -70,6 +70,7 @@
                 id="password"
                 class="input-box"
                 placeholder="Enter Password"
+                aria-label="password"
                 oninput="validatePassword()"
               />
               <span
@@ -88,6 +89,7 @@
                 type="password"
                 id="confirm-password"
                 class="input-box"
+                aria-label="confirm password"
                 placeholder="Confirm Password"
               />
               <span
@@ -103,6 +105,7 @@
                 type="submit"
                 class="Input-submit"
                 value="SIGN UP"
+                aria-label="submit"
                 onclick="submitForm(event)"
               />
             </div>
