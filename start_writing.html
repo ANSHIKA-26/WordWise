@@ -56,314 +56,316 @@
 </head>
 
   <body>
-    <div class="progress-container">
-      <div class="progress-bar" id="progress-bar"></div>
-    </div>
-    <!--header-->
-    <div class="layout-container" style="margin-bottom: 4rem;">
-
-      <header>
-  
-  
-  
-      <div class="logo" >
-        <a href="index.html">
-          <h2>WordWise</h2>
-        </a>
+    <nav>
+      <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
       </div>
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="nav-links1">
-          <a href="index.html">Home</a>
-          <a href="blog.html">Leading Blog</a>
-          <a href="start_writing.html">Start Writing</a>
-          <a href="category.html">Categories</a>
-          <a href="about.html">About</a>
-          <a href="contact_us.html">Contact Us</a>
-          <a href="contact_us.html">Give Feedback</a>
-      </div>
-      
-      <div class="dropdown">
-        <!-- Profile Icon -->
-        <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
-            <i class="fas fa-user-circle"></i>
-        </a>
+      <!--header-->
+      <div class="layout-container" style="margin-bottom: 4rem;">
+  
+        <header>
     
-        <!-- Dropdown Menu -->
-        <ul class="dropdown-menu" id="dropdownMenu">
-            <li><a href="#login" onclick="openForm('login')">Login</a></li>
-            <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
-        </ul>
-    </div>
- 
-        
- 
-
-  <!--  Login Form -->
-<div class="form-popup" id="loginForm">
-  <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
-      <span class="close-icon" onclick="closeForm('login')">&times;</span>
-      <h2 class="text-center">Login</h2>
-      <div class="form-group">
-          <label for="loginEmail"><b>Email</b></label>
-          <input type="email" class="form-control" id="loginEmail" placeholder="Enter Email" name="email" required>
-      </div>
-      <div class="form-group position-relative">
-          <label for="loginPsw"><b>Password</b></label>
-          <input type="password" class="form-control" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
-          <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
-      </div>
-      <div class="forgot">
-          <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
-      </div>
-      <button type="submit" class="btn btn-primary w-100 mb-3">LOGIN</button>
-      <!-- Google Sign-In Button -->
-      <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
-          <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
-          Sign in with Google
-      </button>
-  </form>
-</div>
-
-
-<!-- Signup Form -->
-<div class="form-popup" id="signupForm">
-  <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
-      <span class="close-icon" onclick="closeForm('signup')">&times;</span>
-      <h2 class="text-center">Signup</h2>
-      <div class="form-group">
-          <label for="name"><b>Full Name</b></label>
-          <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
-      </div>
-      <div class="form-group">
-          <label for="signupEmail"><b>Email</b></label>
-          <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required>
-      </div>
-      <div class="form-group position-relative">
-          <label for="signupPsw"><b>Password</b></label>
-          <input type="password" class="form-control" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
-          <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
-      </div>
-      <div class="form-group position-relative">
-          <label for="confirmPsw"><b>Confirm Password</b></label>
-          <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
-          <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
-      </div>
-      <button type="submit" class="btn btn-primary w-100 mb-3">SIGNUP</button>
-      <!-- Google Sign-In Button -->
-       <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
-        <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
-        Sign in with Google</button>
-  </form>
-</div>
-
-<!-- Forgot Password Modal -->
-<div id="forgot-password-modal" class="modal">
-  <div class="form-container modal-content">
-    <h2>Forgot Password</h2>
-    <p>Please enter your email address to reset your password.</p>
-
-    <label for="email">Email Address</label>
-    <input type="email" id="email" placeholder="Enter your email" required />
-
-    <button class="btn" onclick="submitForgotPassword()">Submit</button>
-    <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
-  </div>
-</div>
-
-<!-- Toggle Password Visibility Script -->
-<script>
-  function togglePasswordVisibility(passwordFieldId, iconId) {
-      const passwordField = document.getElementById(passwordFieldId);
-      const togglePassword = document.getElementById(iconId);
-      if (passwordField.type === 'password') {
-          passwordField.type = 'text';
-          togglePassword.classList.remove('bi-eye');
-          togglePassword.classList.add('bi-eye-slash');
-      } else {
-          passwordField.type = 'password';
-          togglePassword.classList.remove('bi-eye-slash');
-          togglePassword.classList.add('bi-eye');
-      }
-  }
-</script>
-
-<!-- CSS Styles -->
-<style>
-  .form-popup {
-      display: none;
-      position: fixed;
-      z-index: 9;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 100%;
-      max-width: 500px;
-      padding: 20px;
-      background-color: white;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
-      border-radius: 10px;
-      box-sizing: border-box;
-  }
-
-  .form-container h2 {
-      margin-bottom: 20px;
-      color: #333;
-  }
-
-  .form-group {
-      margin-bottom: 15px;
-  }
-
-  .form-control {
-      border-radius: 5px;
-      padding: 12px;
-      font-size: 16px; 
-      line-height: 1.5; 
-      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
-      width: 100%;
-  }
-
-  .forgot {
-      text-align: right; 
-      margin-left: 50px;
-      font-size: 10px;   
-      margin-top: -40px;
-
-  }
-
-  .btn {
-      margin-top: 10px;
-      border-radius: 5px;
-  }
-
-  .eye-icon {
-      position: absolute;
-      right: 15px;
-      top: 38px;
-      cursor: pointer;
-      color: #007bff;
-  }
-
-  .close-icon {
-      font-size: 24px;
-      cursor: pointer;
-      float: right;
-  }
-
-  .position-relative {
-      position: relative;
-  }
-
-  /* Login button jumping issue fix */
-  .btn-primary {
-      transition: all 0.3s ease; /* Smooth transition */
-  }
-
-  .btn-primary:hover {
-      background-color: #0056b3;
-  }
-
-  .google-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-  }
-
-  .google-logo {
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
-  }
-
-  .btn-primary:hover {
-      background-color: #0056b3;
-  }
-
-        /* Styles for collaborative writing feature */
-        #collaborators {
-        margin-bottom: 15px;
-      }
-
-      #collaboratorsList {
-        list-style-type: none;
-        padding: 0;
-      }
-
-      #collaboratorsList li {
-        display: inline-block;
-        margin-right: 10px;
-        padding: 5px 10px;
-        background-color: #f0f0f0;
-        border-radius: 15px;
-      }
-
-      #addCollaborator {
-        margin-top: 10px;
-      }
-
-      #collaborativeSection {
-        border: 1px solid #ccc;
-        padding: 15px;
-        margin-bottom: 15px;
-        border-radius: 5px;
-      }
-
-      #collaborativeContent {
-        width: 100%;
-        min-height: 200px;
-        margin-bottom: 10px;
-      }
-</style>
-
-<!-- Bootstrap Icons and Script for Eye Icon Functionality -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-<script>
-  function togglePasswordVisibility(passwordFieldId, iconId) {
-      const passwordField = document.getElementById(passwordFieldId);
-      const togglePassword = document.getElementById(iconId);
-      if (passwordField.type === 'password') {
-          passwordField.type = 'text';
-          togglePassword.classList.remove('bi-eye');
-          togglePassword.classList.add('bi-eye-slash');
-      } else {
-          passwordField.type = 'password';
-          togglePassword.classList.remove('bi-eye-slash');
-          togglePassword.classList.add('bi-eye');
-      }
-  }
-</script>
-
-
-
-        <div class="theme-switch-wrapper">
-          <label class="theme-switch" for="checkbox">
-            <input type="checkbox" id="checkbox" />
-            <div class="slider">
-              <img
-                src="https://img.icons8.com/emoji/48/000000/sun-emoji.png"
-                alt="Sun"
-                class="icon sun-icon"
-              />
-              <img
-                src="https://img.icons8.com/emoji/48/000000/crescent-moon-emoji.png"
-                alt="Moon"
-                class="icon moon-icon"
-              />
-            </div>
-          </label>
-          <span id="mode-label"></span>
-              
+    
+    
+        <div class="logo" >
+          <a href="index.html">
+            <h2>WordWise</h2>
+          </a>
         </div>
-      </header>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="nav-links1">
+            <a href="index.html">Home</a>
+            <a href="blog.html">Leading Blog</a>
+            <a href="start_writing.html">Start Writing</a>
+            <a href="category.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="contact_us.html">Contact Us</a>
+            <a href="give_feedback.html">Give Feedback</a>
+        </div>
+        
+        <div class="dropdown">
+          <!-- Profile Icon -->
+          <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
+              <i class="fas fa-user-circle"></i>
+          </a>
+      
+          <!-- Dropdown Menu -->
+          <ul class="dropdown-menu" id="dropdownMenu">
+              <li><a href="#login" onclick="openForm('login')">Login</a></li>
+              <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
+          </ul>
+      </div>
+   
+          
+   
+  
+    <!--  Login Form -->
+  <div class="form-popup" id="loginForm">
+    <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
+        <span class="close-icon" onclick="closeForm('login')">&times;</span>
+        <h2 class="text-center">Login</h2>
+        <div class="form-group">
+            <label for="loginEmail"><b>Email</b></label>
+            <input type="email" class="form-control" id="loginEmail" placeholder="Enter Email" name="email" required>
+        </div>
+        <div class="form-group position-relative">
+            <label for="loginPsw"><b>Password</b></label>
+            <input type="password" class="form-control" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+            <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
+        </div>
+        <div class="forgot">
+            <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 mb-3">LOGIN</button>
+        <!-- Google Sign-In Button -->
+        <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+            <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
+            Sign in with Google
+        </button>
+    </form>
+  </div>
+  
+  
+  <!-- Signup Form -->
+  <div class="form-popup" id="signupForm">
+    <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
+        <span class="close-icon" onclick="closeForm('signup')">&times;</span>
+        <h2 class="text-center">Signup</h2>
+        <div class="form-group">
+            <label for="name"><b>Full Name</b></label>
+            <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="signupEmail"><b>Email</b></label>
+            <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required>
+        </div>
+        <div class="form-group position-relative">
+            <label for="signupPsw"><b>Password</b></label>
+            <input type="password" class="form-control" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+            <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
+        </div>
+        <div class="form-group position-relative">
+            <label for="confirmPsw"><b>Confirm Password</b></label>
+            <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+            <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 mb-3">SIGNUP</button>
+        <!-- Google Sign-In Button -->
+         <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+          <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
+          Sign in with Google</button>
+    </form>
+  </div>
+  
+  <!-- Forgot Password Modal -->
+  <div id="forgot-password-modal" class="modal">
+    <div class="form-container modal-content">
+      <h2>Forgot Password</h2>
+      <p>Please enter your email address to reset your password.</p>
+  
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email" required />
+  
+      <button class="btn" onclick="submitForgotPassword()">Submit</button>
+      <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
     </div>
+  </div>
+  
+  <!-- Toggle Password Visibility Script -->
+  <script>
+    function togglePasswordVisibility(passwordFieldId, iconId) {
+        const passwordField = document.getElementById(passwordFieldId);
+        const togglePassword = document.getElementById(iconId);
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            togglePassword.classList.remove('bi-eye');
+            togglePassword.classList.add('bi-eye-slash');
+        } else {
+            passwordField.type = 'password';
+            togglePassword.classList.remove('bi-eye-slash');
+            togglePassword.classList.add('bi-eye');
+        }
+    }
+  </script>
+  
+  <!-- CSS Styles -->
+  <style>
+    .form-popup {
+        display: none;
+        position: fixed;
+        z-index: 9;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        max-width: 500px;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+  
+    .form-container h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+  
+    .form-group {
+        margin-bottom: 15px;
+    }
+  
+    .form-control {
+        border-radius: 5px;
+        padding: 12px;
+        font-size: 16px; 
+        line-height: 1.5; 
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 100%;
+    }
+  
+    .forgot {
+        text-align: right; 
+        margin-left: 50px;
+        font-size: 10px;   
+        margin-top: -40px;
+  
+    }
+  
+    .btn {
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+  
+    .eye-icon {
+        position: absolute;
+        right: 15px;
+        top: 38px;
+        cursor: pointer;
+        color: #007bff;
+    }
+  
+    .close-icon {
+        font-size: 24px;
+        cursor: pointer;
+        float: right;
+    }
+  
+    .position-relative {
+        position: relative;
+    }
+  
+    /* Login button jumping issue fix */
+    .btn-primary {
+        transition: all 0.3s ease; /* Smooth transition */
+    }
+  
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+  
+    .google-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+  
+    .google-logo {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+  
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+  
+          /* Styles for collaborative writing feature */
+          #collaborators {
+          margin-bottom: 15px;
+        }
+  
+        #collaboratorsList {
+          list-style-type: none;
+          padding: 0;
+        }
+  
+        #collaboratorsList li {
+          display: inline-block;
+          margin-right: 10px;
+          padding: 5px 10px;
+          background-color: #f0f0f0;
+          border-radius: 15px;
+        }
+  
+        #addCollaborator {
+          margin-top: 10px;
+        }
+  
+        #collaborativeSection {
+          border: 1px solid #ccc;
+          padding: 15px;
+          margin-bottom: 15px;
+          border-radius: 5px;
+        }
+  
+        #collaborativeContent {
+          width: 100%;
+          min-height: 200px;
+          margin-bottom: 10px;
+        }
+  </style>
+  
+  <!-- Bootstrap Icons and Script for Eye Icon Functionality -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <script>
+    function togglePasswordVisibility(passwordFieldId, iconId) {
+        const passwordField = document.getElementById(passwordFieldId);
+        const togglePassword = document.getElementById(iconId);
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            togglePassword.classList.remove('bi-eye');
+            togglePassword.classList.add('bi-eye-slash');
+        } else {
+            passwordField.type = 'password';
+            togglePassword.classList.remove('bi-eye-slash');
+            togglePassword.classList.add('bi-eye');
+        }
+    }
+  </script>
+  
+  
+  
+          <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+              <input type="checkbox" id="checkbox" />
+              <div class="slider">
+                <img
+                  src="https://img.icons8.com/emoji/48/000000/sun-emoji.png"
+                  alt="Sun"
+                  class="icon sun-icon"
+                />
+                <img
+                  src="https://img.icons8.com/emoji/48/000000/crescent-moon-emoji.png"
+                  alt="Moon"
+                  class="icon moon-icon"
+                />
+              </div>
+            </label>
+            <span id="mode-label"></span>
+                
+          </div>
+        </header>
+      </div>
+    </nav>
     <!--header-->
     <!-- main -->
     <!-- main -->
-    <main>
+    <main style="margin-top: 8rem;">
       <div class="blog-form-container">
         <form id="blogForm" onsubmit="PostBlog(event)">
           <h2 style="margin-bottom: 15px">Start Writing</h2>
