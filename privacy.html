@@ -16,6 +16,23 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
+          .gtranslate_wrapper {
+      position: fixed;
+      bottom: 40px;
+      left: 20px;
+      z-index: 1000;
+      max-width: 20px;
+      max-height:20px ;
+      display: block;
+    }
+    .gt_float_switcher {
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .gt_float_switcher:hover {
+      opacity: 1;
+    }
         /* CSS for uniform image layout */
         .grid {
             display: flex;
@@ -87,7 +104,20 @@
         <a href="contact_us.html">Contact Us</a>
         <a href="contact_us.html">Give Feedback</a>
     </div>
-     
+    <div class="gtranslate_wrapper"></div>
+    <script>
+          window.gtranslateSettings = {
+  "default_language": "en",
+  "detect_browser_language": true,
+  "wrapper_selector": ".gtranslate_wrapper",
+  "float_switcher_open_direction": "top",
+  "float_switching_attributes": ["alt", "title", "placeholder", "aria-label"],
+"flags": false
+};
+    </script>
+      <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
+
+
     <div class="dropdown">
         <!-- Profile Icon -->
         <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">

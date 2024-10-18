@@ -26,7 +26,23 @@
     <link rel="stylesheet" href="Scroll_and_progressbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+    .gtranslate_wrapper {
+      position: fixed;
+      bottom: 40px;
+      left: 20px;
+      z-index: 1000;
+      max-width: 20px;
+      max-height:20px ;
+      display: block;
+    }
+    .gt_float_switcher {
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
 
+    .gt_float_switcher:hover {
+      opacity: 1;
+    }
          @media (max-width: 1200px) {
     .footer-container {
       padding: 20px;
@@ -39,6 +55,7 @@
       width: 33.33%;
     }
   }
+
 
   @media (max-width: 992px) {
     .col-3 {
@@ -133,7 +150,20 @@
           <a href="give_feedback.html">Give Feedback</a>
         </div>
   
-  
+        <div class="gtranslate_wrapper"></div>
+        <script>
+              window.gtranslateSettings = {
+      "default_language": "en",
+      "detect_browser_language": true,
+      "wrapper_selector": ".gtranslate_wrapper",
+      "float_switcher_open_direction": "top",
+      "float_switching_attributes": ["alt", "title", "placeholder", "aria-label"],
+    "flags": false
+    };
+        </script>
+          <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
+
+
         <div class="dropdown">
           <!-- Profile Icon -->
           <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
@@ -146,9 +176,7 @@
             <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
           </ul>
         </div>
-  
-  
-   
+
   
         <!--  Login Form -->
         <div class="form-popup" id="loginForm">
