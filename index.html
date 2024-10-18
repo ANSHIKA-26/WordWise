@@ -485,31 +485,7 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
     font-size: 12px;
 }
 
-.search-container {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-    margin-top: 50px;
-    margin-left: 230px;
-    
-}
 
-#searchInput {
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px 0 0 4px;
-    font-size: 16px;
-    width: 200px;
-}
-
-.search-container button {
-    padding: 8px 12px;
-    background: #F88379;
-    color: white;
-    border: 1px solid #F88379;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
-}
 
 </style>
 
@@ -530,10 +506,7 @@ toggleConfirmPasswordIcon.addEventListener('click', () => {
         <span id="mode-label"></span>
     </div>
 
-<div class="search-container">
-    <input type="text" id="searchInput" placeholder="Search blogs...">
-    <button onclick="performSearch()"><i class="fas fa-search"></i></button>
-</div>
+
 
     </header>
 </div>
@@ -1408,42 +1381,6 @@ document.getElementById("backToTop").addEventListener("click", function() {
 
 
 
-// Function to perform the search
-function performSearch() {
-    const searchQuery = document.getElementById('searchInput').value.toLowerCase();
-    const blogPosts = document.querySelectorAll('.grid-item');
-    
-    blogPosts.forEach(post => {
-        const title = post.querySelector('.text-title').textContent.toLowerCase();
-        const date = post.querySelector('.secondary-title').textContent.toLowerCase();
-        
-        if (title.includes(searchQuery) || date.includes(searchQuery)) {
-            post.style.display = 'block';
-        } else {
-            post.style.display = 'none';
-        }
-    });
-}
-
-// Event listener for real-time search
-document.getElementById('searchInput').addEventListener('input', performSearch);
-
-// Function to reset the search
-function resetSearch() {
-    document.getElementById('searchInput').value = '';
-    const blogPosts = document.querySelectorAll('.grid-item');
-    blogPosts.forEach(post => {
-        post.style.display = 'block';
-    });
-}
-
-// Add reset button next to search bar
-const searchContainer = document.querySelector('.search-container');
-const resetButton = document.createElement('button');
-resetButton.innerHTML = '<i class="fas fa-times"></i>';
-resetButton.onclick = resetSearch;
-resetButton.style.marginLeft = '5px';
-searchContainer.appendChild(resetButton);
 </script>
     <script src="google_signin.js"></script>
     <script src="profiledropdown.js"></script>
