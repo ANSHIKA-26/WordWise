@@ -2839,14 +2839,7 @@ for facebook
   transform:scale(1.1);
  } */
 
-/* for dribble 
-.flex-wrap .fa-dribbble {
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-.flex-wrap .fa-dribbble:hover{
-  color:#ea4c89;
-  transform:scale(1.1);
-} */
+
 .flex-wrap a{
   margin-right: 10px;
   transition: all .38s ease-in-out;
