@@ -160,361 +160,304 @@
                 </div>
 
 
-                <div class="dropdown">
-                    <!-- Profile Icon -->
-                    <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
-                        <i class="fas fa-user-circle"></i>
-                    </a>
-
-                    <!-- Dropdown Menu -->
-                    <ul class="dropdown-menu" id="dropdownMenu">
-                        <li><a href="#login" onclick="openForm('login')">Log-in</a></li>
-                        <li><a href="#signup" onclick="openForm('signup')">Sign-up</a></li>
-                    </ul>
-                </div>
-
-
-                <!--  Login Form -->
-                <div class="form-popup" id="loginForm">
-                    <form class="form-container" onsubmit="return validateLoginForm()"
-                        style="max-width: 400px; margin: auto;">
-                        <span class="close-icon" onclick="closeForm('login')">&times;</span>
-                        <h2 class="text-center">Login</h2>
-                        <div class="form-group">
-                            <label for="loginEmail"><b>Email</b></label>
-                            <div class="input-group">
-                                <span class="input-icon">
-                                    <i class="fas fa-envelope" aria-hidden="true"></i>
-                                </span>
-                                <input type="email" id="loginEmail" placeholder="Enter Email" name="email" required>
-                            </div>
-                        </div>
-                        <div class="form-group position-relative">
-                            <label for="loginPsw"><b>Password</b></label>
-                            <div class="input-group">
-                                <input type="password" id="loginPsw" placeholder="Enter Password" name="psw" required>
-                                <span class="password-toggle">
-                                    <i class="fas fa-lock" aria-hidden="true"></i>
-                                    <i class="fas fa-unlock" aria-hidden="true" style="display: none;"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="forgot">
-                            <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
-                        </div>
-                        <button type="submit" class="btn">LOGIN</button>
-                        <span class="separator">or</span>
-                        <!-- Social Icons -->
-                        <div class="social-icons">
-                            <a href="javascript:void(0);" onclick="handleGoogleLogin()">
-                                <i class="fab fa-google" aria-hidden="true"></i>
-                            </a>
-                            <a href="javascript:void(0);" onclick="handleFacebookLogin()">
-                                <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                            </a>
-                            <a href="javascript:void(0);" onclick="handleTwitterLogin()">
-                                <i class="fab fa-twitter" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </form>
-                </div>
-
-                <script>
-                    const passwordInput = document.getElementById('loginPsw');
-                    const togglePasswordIcon = document.querySelector('.password-toggle');
-                    const lockIcon = togglePasswordIcon.querySelector('.fa-lock');
-                    const unlockIcon = togglePasswordIcon.querySelector('.fa-unlock');
-
-                    togglePasswordIcon.addEventListener('click', () => {
-                        if (passwordInput.type === 'password') {
-                            passwordInput.type = 'text';
-                            lockIcon.style.display = 'none';
-                            unlockIcon.style.display = 'block';
-                        } else {
-                            passwordInput.type = 'password';
-                            lockIcon.style.display = 'block';
-                            unlockIcon.style.display = 'none';
-                        }
-                    });
-                </script>
-
-
-                <!-- Signup Form -->
-                <div class="form-popup" id="signupForm">
-                    <form class="form-container" onsubmit="return validateSignupForm()"
-                        style="max-width: 400px; margin: auto;">
-                        <span class="close-icon" onclick="closeForm('signup')">&times;</span>
-                        <h2 class="text-center">Signup</h2>
-                        <div class="form-group position-relative">
-                            <label for="name"><b>Full Name</b></label>
-                            <input type="text" id="name" placeholder="Enter Full Name" name="name">
-                            <i class="fas fa-user" aria-hidden="true"></i>
-                        </div>
-
-                        <div class="form-group position-relative">
-                            <label for="signupEmail"><b>Email</b></label>
-                            <input type="email" id="signupEmail" placeholder="Enter Email" name="email">
-                            <i class="fas fa-envelope" aria-hidden="true"></i>
-                        </div>
-
-                        <div class="form-group position-relative">
-                            <label for="signupPsw"><b>Password</b></label>
-                            <div class="input-group">
-                                <input type="password" id="signupPsw" placeholder="Enter Password" name="psw">
-                                <span class="password-icon toggle-password">
-                                    <i class="fas fa-lock" aria-hidden="true"></i>
-                                    <i class="fas fa-unlock" aria-hidden="true" style="display: none;"></i>
-                                </span>
-                            </div>
-                            <div id="passwordStrength" class="strength-meter"></div>
-                        </div>
-
-                        <div class="form-group position-relative">
-                            <label for="confirmPsw"><b>Confirm Password</b></label>
-                            <div class="input-group">
-                                <input type="password" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw">
-                                <span class="password-icon toggle-password">
-                                    <i class="fas fa-lock" aria-hidden="true"></i>
-                                    <i class="fas fa-unlock" aria-hidden="true" style="display: none;"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn">SIGNUP</button>
-                        <span class="separator">or</span>
-                        <!-- Social Icons -->
-                        <div class="social-icons">
-                            <a href="javascript:void(0);" onclick="handleGoogleLogin()">
-                                <i class="fab fa-google" aria-hidden="true"></i>
-                            </a>
-                            <a href="javascript:void(0);" onclick="handleFacebookLogin()">
-                                <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                            </a>
-                            <a href="javascript:void(0);" onclick="handleTwitterLogin()">
-                                <i class="fab fa-twitter" aria-hidden="true"></i>
-                            </a>
-                        </div>
-                    </form>
-                </div>
-
-                <script>
-                    const signupPasswordInput = document.getElementById('signupPsw');
-                    const confirmPasswordInput = document.getElementById('confirmPsw');
-
-                    const signupPasswordInputGroup = signupPasswordInput.parentNode;
-                    const confirmPasswordInputGroup = confirmPasswordInput.parentNode;
-
-                    const toggleSignupPasswordIcon = signupPasswordInputGroup.querySelector('.toggle-password');
-                    const toggleConfirmPasswordIcon = confirmPasswordInputGroup.querySelector('.toggle-password');
-
-                    const signupLockIcon = toggleSignupPasswordIcon.querySelector('.fa-lock');
-                    const signupUnlockIcon = toggleSignupPasswordIcon.querySelector('.fa-unlock');
-
-                    const confirmLockIcon = toggleConfirmPasswordIcon.querySelector('.fa-lock');
-                    const confirmUnlockIcon = toggleConfirmPasswordIcon.querySelector('.fa-unlock');
-
-                    toggleSignupPasswordIcon.addEventListener('click', () => {
-                        if (signupPasswordInput.type === 'password') {
-                            signupPasswordInput.type = 'text';
-                            signupLockIcon.style.display = 'none';
-                            signupUnlockIcon.style.display = 'block';
-                        } else {
-                            signupPasswordInput.type = 'password';
-                            signupLockIcon.style.display = 'block';
-                            signupUnlockIcon.style.display = 'none';
-                        }
-                    });
-
-                    toggleConfirmPasswordIcon.addEventListener('click', () => {
-                        if (confirmPasswordInput.type === 'password') {
-                            confirmPasswordInput.type = 'text';
-                            confirmLockIcon.style.display = 'none';
-                            confirmUnlockIcon.style.display = 'block';
-                        } else {
-                            confirmPasswordInput.type = 'password';
-                            confirmLockIcon.style.display = 'block';
-                            confirmUnlockIcon.style.display = 'none';
-                        }
-                    });
-                </script>
-
-                <!-- Forgot Password Modal -->
-                <div id="forgot-password-modal" class="modal">
-                    <div class="form-container modal-content">
-                        <h2>Forgot Password</h2>
-                        <p>Please enter your email address to reset your password.</p>
-
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" placeholder="Enter your email" required />
-
-                        <button class="btn" onclick="submitForgotPassword()">Submit</button>
-                        <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
-                    </div>
-                </div>
-
-                <!-- Toggle Password Visibility Script -->
-                <script>
-                    function togglePasswordVisibility(passwordFieldId, iconId) {
-                        const passwordField = document.getElementById(passwordFieldId);
-                        const togglePassword = document.getElementById(iconId);
-                        if (passwordField.type === 'password') {
-                            passwordField.type = 'text';
-                            togglePassword.classList.remove('bi-eye');
-                            togglePassword.classList.add('bi-eye-slash');
-                        } else {
-                            passwordField.type = 'password';
-                            togglePassword.classList.remove('bi-eye-slash');
-                            togglePassword.classList.add('bi-eye');
-                        }
-                    }
-                    function checkPasswordStrength() {
-                        var strengthMeter = document.getElementById('passwordStrength');
-                        var password = document.getElementById('signupPsw').value;
-                        var strength = 0;
-
-                        if (password.length >= 6) strength++;
-                        if (password.match(/[a-z]+/)) strength++;
-                        if (password.match(/[A-Z]+/)) strength++;
-                        if (password.match(/[0-9]+/)) strength++;
-                        if (password.match(/[\W]+/)) strength++;
-
-                        switch (strength) {
-                            case 0:
-                            case 1:
-                                strengthMeter.style.width = '20%';
-                                strengthMeter.style.backgroundColor = 'red';
-                                strengthMeter.textContent = 'Weak';
-                                break;
-                            case 2:
-                                strengthMeter.style.width = '40%';
-                                strengthMeter.style.backgroundColor = 'orange';
-                                strengthMeter.textContent = 'Fair';
-                                break;
-                            case 3:
-                                strengthMeter.style.width = '60%';
-                                strengthMeter.style.backgroundColor = 'yellow';
-                                strengthMeter.textContent = 'Good';
-                                break;
-                            case 4:
-                                strengthMeter.style.width = '80%';
-                                strengthMeter.style.backgroundColor = 'blue';
-                                strengthMeter.textContent = 'Strong';
-                                break;
-                            case 5:
-                                strengthMeter.style.width = '100%';
-                                strengthMeter.style.backgroundColor = 'green';
-                                strengthMeter.textContent = 'Very Strong';
-                                break;
-                        }
-                    }
-                </script>
-
-                <!-- Updated CSS Styles -->
-                <style>
-                    .form-popup {
-                        display: none;
-                        position: fixed;
-                        z-index: 9;
-                        left: 50%;
-                        top: 50%;
-                        transform: translate(-50%, -50%);
-                        width: 100%;
-                        max-width: 500px;
-                        padding: 20px;
-                        background-color: white;
-                        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
-                        border-radius: 10px;
-                        box-sizing: border-box;
-                    }
-
-                    .form-container h2 {
-                        margin-bottom: 20px;
-                        color: #333;
-                    }
-
-                    .form-group {
-                        margin-bottom: 15px;
-                    }
-
-                    .form-control {
-                        border-radius: 5px;
-                        padding: 12px;
-                        font-size: 16px;
-                        line-height: 1.5;
-                        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
-                        width: 100%;
-                    }
-
-                    .forgot {
-                        text-align: right;
-                        margin-left: 140px;
-                        font-size: 10px;
-                        margin-top: -40px;
-
-                    }
-
-                    .btn {
-                        margin-top: 10px;
-                        border-radius: 5px;
-                    }
-
-                    .eye-icon {
-                        position: absolute;
-                        right: 15px;
-                        top: 38px;
-                        cursor: pointer;
-                        color: #007bff;
-                    }
-
-                    .close-icon {
-                        font-size: 24px;
-                        cursor: pointer;
-                        float: right;
-                    }
-
-                    .position-relative {
-                        position: relative;
-                    }
-
-                    /* Login button jumping issue fix */
-                    .btn-primary {
-                        transition: all 0.3s ease;
-                        /* Smooth transition */
-                    }
-
-                    .btn-primary:hover {
-                        background-color: #0056b3;
-                    }
-
-                    .google-btn {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    }
-
-                    .google-logo {
-                        width: 20px;
-                        height: 20px;
-                        margin-right: 10px;
-                    }
-
-                    .btn-primary:hover {
-                        background-color: #0056b3;
-                    }
-
-                    .strength-meter {
-                        height: 10px;
-                        width: 0;
-                        transition: width 0.3s;
-                        margin-top: 5px;
-                        text-align: center;
-                        color: white;
-                        font-size: 12px;
-                    }
-                </style>
+        <div class="logo">
+          <a href="index.html">
+            <h2>WordWise</h2>
+          </a>
+        </div>
+  
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="nav-links1">
+          <a href="index.html">Home</a>
+          <a href="blog.html">Leading Blog</a>
+          <a href="start_writing.html">Start Writing</a>
+          <a href="category.html">Categories</a>
+          <a href="about.html">About</a>
+          <a href="contact_us.html">Contact Us</a>
+          <a href="give_feedback.html">Give Feedback</a>
+        </div>
+  
+  
+        <div class="theme-switch-wrapper">
+          <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox">
+            <div class="slider">
+              <img src="https://img.icons8.com/emoji/48/000000/sun-emoji.png" alt="Sun" class="icon sun-icon">
+              <img src="https://img.icons8.com/emoji/48/000000/crescent-moon-emoji.png" alt="Moon" class="icon moon-icon">
             </div>
-        </header>
-    </div>
-    <!--Header Ends-->
+          </label>
+          <span id="mode-label">Light Mode</span>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+  
+      </header>
+</div>
+  
+        <div class="dropdown">
+          <!-- Profile Icon -->
+          <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
+            <i class="fas fa-user-circle"></i>
+          </a>
+  
+          <!-- Dropdown Menu -->
+          <ul class="dropdown-menu" id="dropdownMenu">
+            <li><a href="#login" onclick="openForm('login')">Login</a></li>
+            <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
+          </ul>
+        </div>
+  
+  
+   
+  
+        <!--  Login Form -->
+        <div class="form-popup" id="loginForm">
+          <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
+              <span class="close-icon" onclick="closeForm('login')">×</span>
+              <h2 class="text-center">Login</h2>
+              <div class="form-group">
+                  <label for="loginEmail"><b>Email</b></label>
+                  <input type="email" class="form-control" id="loginEmail" placeholder="Enter Email" name="email" required="">
+              </div>
+              <div class="form-group position-relative">
+                  <label for="loginPsw"><b>Password</b></label>
+                  <input type="password" class="form-control" id="loginPsw" placeholder="Enter Password" name="psw" required="" minlength="6">
+                  <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
+              </div>
+              <div class="forgot">
+                  <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
+              </div>
+              <button type="submit" class="btn btn-primary w-100 mb-3">LOGIN</button>
+              <!-- Google Sign-In Button -->
+              <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+                  <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
+                  Sign in with Google
+              </button>
+          </form>
+        </div>
+       
+      <!-- Signup Form -->
+      <div class="form-popup" id="signupForm">
+          <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
+              <span class="close-icon" onclick="closeForm('signup')">×</span>
+              <h2 class="text-center">Signup</h2>
+              <div class="form-group">
+                  <label for="name"><b>Full Name</b></label>
+                  <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required="">
+              </div>
+              <div class="form-group">
+                  <label for="signupEmail"><b>Email</b></label>
+                  <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required="">
+              </div>
+              <div class="form-group position-relative">
+                <label for="signupPsw"><b>Password</b></label>
+                <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required="" minlength="6" oninput="checkPasswordStrength()">
+                <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
+                <div id="passwordStrength" class="strength-meter"></div>
+            </div>
+        
+              <div class="form-group position-relative">
+                  <label for="confirmPsw"><b>Confirm Password</b></label>
+                  <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required="" minlength="6">
+                  <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
+              </div>
+              <button type="submit" class="btn btn-primary w-100 mb-3">SIGNUP</button>
+              <!-- Google Sign-In Button -->
+               <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+                <img src="./assets/google_icon.jpg" alt="Google Logo" class="google-logo">
+                Sign in with Google</button>
+          </form>
+        </div>
+        
+        <!-- Forgot Password Modal -->
+        <div id="forgot-password-modal" class="modal">
+          <div class="form-container modal-content">
+            <h2>Forgot Password</h2>
+            <p>Please enter your email address to reset your password.</p>
+        
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email" required="">
+        
+            <button class="btn" onclick="submitForgotPassword()">Submit</button>
+            <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
+          </div>
+        </div>
+        
+        <!-- Toggle Password Visibility Script -->
+        <script>
+          function togglePasswordVisibility(passwordFieldId, iconId) {
+              const passwordField = document.getElementById(passwordFieldId);
+              const togglePassword = document.getElementById(iconId);
+              if (passwordField.type === 'password') {
+                  passwordField.type = 'text';
+                  togglePassword.classList.remove('bi-eye');
+                  togglePassword.classList.add('bi-eye-slash');
+              } else {
+                  passwordField.type = 'password';
+                  togglePassword.classList.remove('bi-eye-slash');
+                  togglePassword.classList.add('bi-eye');
+              }
+          }
+        </script>
+        
+        <!-- Updated CSS Styles -->
+        <style>
+          .form-popup {
+              display: none;
+              position: fixed;
+              z-index: 9;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+              width: 100%;
+              max-width: 500px;
+              padding: 20px;
+              background-color: white;
+              box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+              border-radius: 10px;
+              box-sizing: border-box;
+          }
+        
+          .form-container h2 {
+              margin-bottom: 20px;
+              color: #333;
+          }
+        
+          .form-group {
+              margin-bottom: 15px;
+          }
+        
+          .form-control {
+              border-radius: 5px;
+              padding: 12px;
+              font-size: 16px; 
+              line-height: 1.5; 
+              box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+              width: 100%;
+          }
+        
+          .forgot {
+              text-align: right; 
+              margin-left: 50px;
+              font-size: 10px;   
+              margin-top: -40px;
+        
+          }
+        
+          .btn {
+              margin-top: 10px;
+              border-radius: 5px;
+          }
+        
+          .eye-icon {
+              position: absolute;
+              right: 15px;
+              top: 38px;
+              cursor: pointer;
+              color: #007bff;
+          }
+        
+          .close-icon {
+              font-size: 24px;
+              cursor: pointer;
+              float: right;
+          }
+        
+          .position-relative {
+              position: relative;
+          }
+        
+          /* Login button jumping issue fix */
+          .btn-primary {
+              transition: all 0.3s ease; /* Smooth transition */
+          }
+        
+          .btn-primary:hover {
+              background-color: #0056b3;
+          }
+        
+          .google-btn {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+          }
+        
+          .google-logo {
+              width: 20px;
+              height: 20px;
+              margin-right: 10px;
+          }
+        
+          .btn-primary:hover {
+              background-color: #0056b3;
+          }
+        </style>
+      <!-- Toggle Password Visibility Script -->
+      <script>
+          function togglePasswordVisibility(passwordFieldId, iconId) {
+              const passwordField = document.getElementById(passwordFieldId);
+              const togglePassword = document.getElementById(iconId);
+              if (passwordField.type === 'password') {
+                  passwordField.type = 'text';
+                  togglePassword.classList.remove('bi-eye');
+                  togglePassword.classList.add('bi-eye-slash');
+              } else {
+                  passwordField.type = 'password';
+                  togglePassword.classList.remove('bi-eye-slash');
+                  togglePassword.classList.add('bi-eye');
+              }
+          }
+          function checkPasswordStrength() {
+          var strengthMeter = document.getElementById('passwordStrength');
+          var password = document.getElementById('signupPsw').value;
+          var strength = 0;
+      
+          if (password.length >= 6) strength++;
+          if (password.match(/[a-z]+/)) strength++;
+          if (password.match(/[A-Z]+/)) strength++;
+          if (password.match(/[0-9]+/)) strength++;
+          if (password.match(/[\W]+/)) strength++;
+      
+          switch (strength) {
+              case 0:
+              case 1:
+                  strengthMeter.style.width = '20%';
+                  strengthMeter.style.backgroundColor = 'red';
+                  strengthMeter.textContent = 'Weak';
+                  break;
+              case 2:
+                  strengthMeter.style.width = '40%';
+                  strengthMeter.style.backgroundColor = 'orange';
+                  strengthMeter.textContent = 'Fair';
+                  break;
+              case 3:
+                  strengthMeter.style.width = '60%';
+                  strengthMeter.style.backgroundColor = 'yellow';
+                  strengthMeter.textContent = 'Good';
+                  break;
+              case 4:
+                  strengthMeter.style.width = '80%';
+                  strengthMeter.style.backgroundColor = 'blue';
+                  strengthMeter.textContent = 'Strong';
+                  break;
+              case 5:
+                  strengthMeter.style.width = '100%';
+                  strengthMeter.style.backgroundColor = 'green';
+                  strengthMeter.textContent = 'Very Strong';
+                  break;
+          }
+      }
+      </script>
+      
+      
+      <script src="signup.js"></script> <!-- Link to your JavaScript file -->
+      
+
+<!--Header Ends-->
+
     <!--Main Section Starts-->
     <main id="site-main" style="margin-top: 90px;margin-left: 50px;">
         <!--blog post section-->

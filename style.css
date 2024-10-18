@@ -839,7 +839,18 @@ body.dark-mode footer .phone {
   background-color: var(--card-hover-active-dark);
 }
 
+header {
 
+  display:  flex;
+  justify-content:  space-around;
+  align-items:  center;
+  border-bottom:  1px solid #F4EFE6;
+  padding:  0rem 1rem;
+  padding-top:  1rem;
+  padding-bottom:  1rem;
+  width:  100%;
+
+}
 
 header {
   display: flex;
@@ -1506,17 +1517,17 @@ button {
 .form-group.position-relative i {
   position: absolute;
   top: 52px;
-  left: 10px;
   transform: translateY(-50%);
   font-size: 18px;
   color: #ccc;
 }
 
 .form-group.position-relative input[type="text"],
+
 .form-group.position-relative input[type="email"] {
   padding-left: 40px;
   /* Space for the icon */
-}
+
 
 /* Style the locker icons */
 .password-icon {
@@ -2387,6 +2398,7 @@ a {
 .overflow-img img {
   width: 100%;
   height: auto;
+  object-fit: cover;
 }
 
 .overflow-img:hover {
