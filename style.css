@@ -776,7 +776,18 @@ background: var(--light);
   background-color: var(--card-hover-active-dark);
 }
 
+header {
 
+  display:  flex;
+  justify-content:  space-around;
+  align-items:  center;
+  border-bottom:  1px solid #F4EFE6;
+  padding:  0rem 1rem;
+  padding-top:  1rem;
+  padding-bottom:  1rem;
+  width:  100%;
+
+}
 
 header {
 
@@ -1626,7 +1637,7 @@ body.dark .support a {
 
 .d-flex-gap a i {
   font-size: 24px;
-  padding-right: 15px;
+  /* padding-right: 15px; */
 }
 
 .flex-column {
@@ -2801,8 +2812,8 @@ footer p {
 .toast.error {
     background-color: red;
 }
-
-/* for facebook */
+/* 
+for facebook
 .flex-wrap .fa-facebook-f {
   transition: color 0.3s ease, transform 0.3s ease;
 }
@@ -2811,7 +2822,7 @@ footer p {
   transform:scale(1.1);
 }
 
-/* for twitter */
+/* for twitter 
 .flex-wrap .fa-x-twitter {
   transition: color 0.3s ease, transform 0.3s ease;
 }
@@ -2819,22 +2830,52 @@ footer p {
   color:black;
   transform:scale(1.1);
 }
-/* for instagram */
+/* for instagram 
 .flex-wrap .fa-instagram {
   transition: color 0.3s ease, transform 0.3s ease;
 }
 .flex-wrap .fa-instagram:hover{
   color:#c32aa3;
   transform:scale(1.1);
-}
+ } */
 
-/* for dribble */
+/* for dribble 
 .flex-wrap .fa-dribbble {
   transition: color 0.3s ease, transform 0.3s ease;
 }
 .flex-wrap .fa-dribbble:hover{
   color:#ea4c89;
   transform:scale(1.1);
+} */
+.flex-wrap a{
+  margin-right: 10px;
+  transition: all .38s ease-in-out;
+}
+
+.flex-wrap a:hover{
+  transform: scale(1.1);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+#facebook:hover{
+  color: white;
+  background-color:rgb(62, 62, 255) ;
+}
+#dribbble:hover{
+  color: white;
+  background-color:#ea4c89;
+}
+#instagram:hover{
+  color: white;
+  background-color: #e1306c;
+}
+#twitter:hover{
+  color: white;
+  background-color: #14171A;
+}
+#github:hover{
+  color: white;
+  background-color: #14171A;
 }
 
 .issue-303{
