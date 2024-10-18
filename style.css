@@ -330,6 +330,8 @@ body {
   background: var(--body-bg);
   font-family: Arial, sans-serif;
   background-color: var(--background-color);
+  max-width: 100%; /* Ensure container does not overflow */
+  overflow: hidden;
 }
 
 /* Hide scrollbar for main body */
@@ -347,8 +349,15 @@ html, body {
   /* overflow-x: hidden;  Prevent horizontal scroll */
   margin: 0;
   padding: 0;
-}
+  overflow-x: hidden;
+} 
 
+.header, .footer, .main-content {
+  max-width: 100%; /* Prevent overflow */
+  overflow: hidden; /* Prevent inner overflow */
+  margin: 0 auto; /* Center the element */
+  padding: 0; /* Remove default padding */
+}
 
 /* Light Mode Scrollbar - Vertical Scroll Styling */
 ::-webkit-scrollbar {
@@ -767,7 +776,18 @@ background: var(--light);
   background-color: var(--card-hover-active-dark);
 }
 
+header {
 
+  display:  flex;
+  justify-content:  space-around;
+  align-items:  center;
+  border-bottom:  1px solid #F4EFE6;
+  padding:  0rem 1rem;
+  padding-top:  1rem;
+  padding-bottom:  1rem;
+  width:  100%;
+
+}
 
 header {
 
@@ -1376,7 +1396,6 @@ button {
 .form-group.position-relative i {
   position: absolute;
   top: 52px;
-  left: 10px;
   transform: translateY(-50%);
   font-size: 18px;
   color: #ccc;
@@ -1384,7 +1403,7 @@ button {
 
 .form-group.position-relative input[type="text"],
 .form-group.position-relative input[type="email"]{
-  padding-left: 40px; /* Space for the icon */
+  padding-left: 10px; /* Space for the icon */
 }
 
 /* Style the locker icons */
@@ -1617,7 +1636,7 @@ body.dark .support a {
 
 .d-flex-gap a i {
   font-size: 24px;
-  padding-right: 15px;
+  /* padding-right: 15px; */
 }
 
 .flex-column {
@@ -2223,6 +2242,7 @@ a {
 .overflow-img img {
   width: 100%;
   height: auto;
+  object-fit: cover;
 }
 
 .overflow-img:hover {
@@ -2792,8 +2812,8 @@ footer p {
 .toast.error {
     background-color: red;
 }
-
-/* for facebook */
+/* 
+for facebook
 .flex-wrap .fa-facebook-f {
   transition: color 0.3s ease, transform 0.3s ease;
 }
@@ -2802,7 +2822,7 @@ footer p {
   transform:scale(1.1);
 }
 
-/* for twitter */
+/* for twitter 
 .flex-wrap .fa-x-twitter {
   transition: color 0.3s ease, transform 0.3s ease;
 }
@@ -2810,22 +2830,52 @@ footer p {
   color:black;
   transform:scale(1.1);
 }
-/* for instagram */
+/* for instagram 
 .flex-wrap .fa-instagram {
   transition: color 0.3s ease, transform 0.3s ease;
 }
 .flex-wrap .fa-instagram:hover{
   color:#c32aa3;
   transform:scale(1.1);
-}
+ } */
 
-/* for dribble */
+/* for dribble 
 .flex-wrap .fa-dribbble {
   transition: color 0.3s ease, transform 0.3s ease;
 }
 .flex-wrap .fa-dribbble:hover{
   color:#ea4c89;
   transform:scale(1.1);
+} */
+.flex-wrap a{
+  margin-right: 10px;
+  transition: all .38s ease-in-out;
+}
+
+.flex-wrap a:hover{
+  transform: scale(1.1);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+#facebook:hover{
+  color: white;
+  background-color:rgb(62, 62, 255) ;
+}
+#dribbble:hover{
+  color: white;
+  background-color:#ea4c89;
+}
+#instagram:hover{
+  color: white;
+  background-color: #e1306c;
+}
+#twitter:hover{
+  color: white;
+  background-color: #14171A;
+}
+#github:hover{
+  color: white;
+  background-color: #14171A;
 }
 
 .issue-303{
@@ -3246,7 +3296,29 @@ text-align: center;
   transform: rotateX(90deg) translateY(-22px); /* Flip the text on hover */
 }
 
+.star-rating {
+  display: flex;
+  justify-content: center; 
+  flex-direction: row-reverse;
+}
 
+.star-rating input {
+  display: none; 
+}
 
+.star-rating label {
+  font-size: 46px; 
+  color: #ddd; 
+  cursor: pointer; 
+  transition: color 0.2s;
+  margin: 0 5px; /* Add margin for gaps between stars */
+}
 
+.star-rating input:checked ~ label {
+  color: #ffca28; 
+}
 
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #ffca28; 
+}

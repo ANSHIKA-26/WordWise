@@ -46,10 +46,7 @@
 
     <div class="layout-container" style="margin-bottom: 4rem;">
 
-        <header>
-    
-    
-    
+        <header> 
             <div class="logo" >
                 <a href="index.html">
                   <h2>WordWise</h2>
@@ -665,11 +662,11 @@
 
                     <div class="tags social" id="contact">
                         <div class="d-flex-gap flex-wrap">
-                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="nav-link btn bg-light"><i class="fa-brands fa-x-twitter"></i></a>
-                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
-                            <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" target="_blank"  class="nav-link btn bg-light"
+                            <a href="https://www.facebook.com/" id="facebook" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://x.com/" id="twitter" class="nav-link btn bg-light"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="https://www.instagram.com/"  id="instagram" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
+                            <a href="https://dribbble.com/" id="dribbble" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
+                            <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" id="github" target="_blank"  class="nav-link btn bg-light"
                             ><i class="fa-brands fa-github"></i></a>
                         </div>
                     </div>
@@ -785,6 +782,37 @@
 
             // Update the current year
             document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkbox = document.querySelector('input[type="checkbox"]');
+            const modeLabel = document.getElementById('mode-label');
+
+            // Check localStorage for saved mode
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'dark') {
+                document.body.classList.add('dark-mode');
+                checkbox.checked = true;
+                modeLabel.textContent = 'Dark Mode';
+            } else {
+                modeLabel.textContent = 'Light Mode';
+            }
+
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('darkMode', 'dark');
+                    modeLabel.textContent = 'Dark Mode';
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    localStorage.setItem('darkMode', 'light');
+                    modeLabel.textContent = 'Light Mode';
+                }
+            });
+
+            // ... existing FAQ modal code ...
         });
     </script>
 </body>
