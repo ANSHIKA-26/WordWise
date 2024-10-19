@@ -2691,6 +2691,7 @@ footer p {
   margin-top: 20px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   position: relative;
+  margin-right: 30px;
 }
 
 .wordwise-newsletter-container h2 {
