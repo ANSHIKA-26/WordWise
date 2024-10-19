@@ -157,7 +157,10 @@
           <h2 class="text-center">Signup</h2>
           <div class="form-group">
             <label for="name"><b>Full Name</b></label>
-            <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
+            <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name"
+                            required pattern="[a-zA-Z ]+"
+                        oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')"
+                        oninput="this.setCustomValidity('')">
           </div>
           <div class="form-group">
             <label for="signupEmail"><b>Email</b></label>
@@ -253,7 +256,10 @@
             <h2 class="text-center">Signup</h2>
             <div class="form-group">
               <label for="name"><b>Full Name</b></label>
-              <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
+              <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name"
+                            required pattern="[a-zA-Z ]+"
+                        oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')"
+                        oninput="this.setCustomValidity('')">
             </div>
             <div class="form-group">
               <label for="signupEmail"><b>Email</b></label>
