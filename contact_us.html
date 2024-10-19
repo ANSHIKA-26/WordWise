@@ -283,27 +283,27 @@
       </div>
     </header>
     </div>
-
+    <div class="parent_container" style="height: 100vh;
+    display: flex; ">
     <div
       class="container"
       style="
-        max-width: 600px;
-        margin: 50px auto;
-        padding: 20px;
-        background-color: #f9f9f9;
+        width: 38%;
+        margin-left: 12%;
+        margin-right: 2px;
+        background-color: #faf8ef;
         border-radius: 10px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 18px 20px 15px rgba(0, 0, 0, 0.1);
         text-align: center;
+        height: 83.6%;
+        padding-top: 1%;
       "
     >
-      <h2 style="color: #3498db; font-size: 28px; margin-bottom: 10px">
+    
+      <h2 style="color: #1685cf; font-size: 34px; margin-bottom: 8px;">
         Get in Touch
       </h2>
-      <p style="color: #777; font-size: 16px; margin-bottom: 20px">
-        Whether you have questions, feedback, or need assistance, our team is
-        here to help. Please fill out the form below, and we'll get back to you
-        as soon as possible.
-      </p>
+      
 
       <form id="contactForm">
         <div class="form-group" style="margin-bottom: 15px">
@@ -312,9 +312,10 @@
             style="
               display: block;
               text-align: left;
-              margin-bottom: 5px;
-              color: #333;
+              margin-bottom: 3px;
+              color: #1f1e1e;
               font-size: 14px;
+              margin-left: 10px;
             "
             >First Name</label
           >
@@ -324,11 +325,11 @@
             name="firstName"
             required
             style="
-              width: 100%;
-              padding: 10px;
-              font-size: 14px;
-              border: 2px solid #ddd;
-              border-radius: 5px;
+              width: 98%;
+              padding: 8px;
+              font-size: 12px;
+              border: 3px solid #ddd;
+              border-radius: 10px;
             "
           />
         </div>
@@ -339,9 +340,10 @@
             style="
               display: block;
               text-align: left;
-              margin-bottom: 5px;
-              color: #333;
+              margin-bottom: 3px;
+              color: #1f1e1e;
               font-size: 14px;
+              margin-left: 10px;
             "
             >Last Name</label
           >
@@ -351,11 +353,11 @@
             name="lastName"
             required
             style="
-              width: 100%;
-              padding: 10px;
-              font-size: 14px;
-              border: 2px solid #ddd;
-              border-radius: 5px;
+              width: 98%;
+              padding: 8px;
+              font-size: 12px;
+              border: 3px solid #ddd;
+              border-radius: 10px;
             "
           />
         </div>
@@ -366,9 +368,10 @@
             style="
               display: block;
               text-align: left;
-              margin-bottom: 5px;
-              color: #333;
+              margin-bottom: 3px;
+              color: #1f1e1e;
               font-size: 14px;
+              margin-left: 10px;
             "
             >Email Address</label
           >
@@ -378,11 +381,11 @@
             name="email"
             required
             style="
-              width: 100%;
-              padding: 10px;
-              font-size: 14px;
-              border: 2px solid #ddd;
-              border-radius: 5px;
+              width: 98%;
+              padding: 8px;
+              font-size: 12px;
+              border: 3px solid #ddd;
+              border-radius: 10px;
             "
           />
         </div>
@@ -393,9 +396,10 @@
             style="
               display: block;
               text-align: left;
-              margin-bottom: 5px;
-              color: #333;
+              margin-bottom: 3px;
+              color: #1f1e1e;
               font-size: 14px;
+              margin-left: 10px;
             "
             >Phone Number</label
           >
@@ -405,11 +409,11 @@
             name="phone"
             required
             style="
-              width: 100%;
-              padding: 10px;
-              font-size: 14px;
-              border: 2px solid #ddd;
-              border-radius: 5px;
+              width: 98%;
+              padding: 8px;
+              font-size: 12px;
+              border: 3px solid #ddd;
+              border-radius: 10px;
             "
           />
         </div>
@@ -420,9 +424,10 @@
             style="
               display: block;
               text-align: left;
-              margin-bottom: 5px;
-              color: #333;
+              margin-bottom: 3px;
+              color: #1f1e1e;
               font-size: 14px;
+              margin-left: 10px;
             "
             >Message</label
           >
@@ -432,11 +437,11 @@
             rows="4"
             required
             style="
-              width: 100%;
-              padding: 10px;
-              font-size: 14px;
-              border: 2px solid #ddd;
-              border-radius: 5px;
+               width: 98%;
+              padding: 8px;
+              font-size: 12px;
+              border: 3px solid #ddd;
+              border-radius: 10px;
             "
           ></textarea>
         </div>
@@ -447,17 +452,41 @@
           style="
             background-color: #3498db;
             color: white;
-            padding: 10px 20px;
+            padding: 10px 10px;
             font-size: 16px;
             border: none;
-            border-radius: 5px;
+            border-radius: 15px;
             cursor: pointer;
-          "
+            width: 30%;
+            transition: transform 0.3s ease, background-color 0.3s ease;"
+         
+         onmouseover="this.style.backgroundColor='#0374c0'; this.style.transform='translateY(-5px)';"
+         onmouseout="this.style.backgroundColor='#3498db'; this.style.transform='translateY(0)';"
         >
           Send
         </button>
       </form>
-
+    </div>
+      <div class="form_pic"
+      style="
+      background-image: url('pexels-n-voitkevich-5554656.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      width: 38%;
+     height:83.6%;
+     margin-top: 4%;
+     border-radius: 10px;
+     box-shadow: 0 18px 20px 15px rgba(0, 0, 0, 0.1);
+      "><p style="color: #fff;height: 250px;width: 300px;margin-bottom: 48%;margin-right: 28%; font-size: 20px; font-weight: 600;"> Whether you have questions, feedback, or need assistance, our team is
+        here to help. Please fill out the form below, and we'll get back to you
+        as soon as possible.</p>
+      </div>
+    </div>
       <!-- Custom popup -->
       <div
         class="overlay"
@@ -506,6 +535,7 @@
           Close
         </button>
       </div>
+    </div>
     </div>
     <div class="wordwise-footer">
       <div class="wordwise-footer-content">

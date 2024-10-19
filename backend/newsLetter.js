@@ -10,7 +10,10 @@ document.getElementById('newsletterForm').addEventListener('submit', async funct
     }
 
     function showToast(message, isSuccess) {
-        toast.innerText = message;
+        const icon = isSuccess ? '<i class="fa-solid fa-circle-check"></i>' : '<i class="fa-regular fa-circle-xmark"></i>';
+
+
+        toast.innerHTML = `${icon} ${message}`;
         toast.className = `toast show ${isSuccess ? 'success' : 'error'}`;
         setTimeout(() => {
             toast.className = 'toast';
