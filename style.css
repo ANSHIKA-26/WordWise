@@ -802,8 +802,8 @@ header {
 }
 .logo {
   display: flex;
-  align-items: start;
-  gap: 1.2rem;
+  align-items: flex-start;
+  gap: 1.1rem;
   color: #1C160C;
   /* margin: 0 3rem; */
 }
@@ -824,7 +824,8 @@ header {
 /* Parent container for nav links */
 .nav-links1 {
   display: flex;
-  gap: 2.1rem;
+  width: 70%;
+  gap: 1.1rem;
   margin: 0 0.5rem;
   margin-top: 8px;
   position: relative;
@@ -861,14 +862,14 @@ header {
 
 /* Hover effect for links (updated as per admin's request) */
 .nav-links1 a:hover {
-  font-size: 1.2rem; /* Increase font size on hover */
+  font-size: 1.1rem; /* Increase font size on hover */
   font-weight: bold; /* Make text bold on hover */
   color: black; /* Change color to black on hover */
   transform: scale(1.02); /* Very subtle increase on hover */
 }
 
 .nav-links1 a:hover::after {
-  transform: scaleX(1); /* Underline expands */
+  transform: scaleX(0.5); /* Underline expands */
 }
 
 /* Animation for links on page load */
@@ -2334,7 +2335,7 @@ a {
 .nav-link:hover{
  /* Change background color on hover */
         color: #f8b5b5;
-        scale: 1.1; /* Change text color on hover */
+        scale: 0.5; /* Change text color on hover */
       /* Optional: Change border color on hover */
         transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
@@ -2465,6 +2466,7 @@ h1 {
 }
 
 .theme-switch-wrapper {
+  margin-left: 10px;
   display: flex;
   align-items: center;
 }
