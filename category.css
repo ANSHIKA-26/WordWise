@@ -477,7 +477,7 @@ img {
 .custom-footer .footer-title {
   font-size: 1.6rem;
   margin-bottom: 20px;
-  color: #3B3B58;
+  color: black;
   font-weight: bold;
 }
 
@@ -548,7 +548,8 @@ img {
 
 .custom-footer .secondary-title {
   font-size: 0.9rem;
-  color: #6c757d;
+  color : black;
+
 }
 
 .custom-footer .display-3 {
