@@ -1,0 +1,109 @@
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+}
+
+body.dark-mode nav {
+    background-color: #222;
+}
+
+body.dark-mode nav a {
+    color: #fff;
+}
+
+.form-popup {
+    display: none;
+    position: fixed;
+    z-index: 9;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    border-radius: 5px;
+    padding: 12px;
+    font-size: 16px; 
+    line-height: 1.5; 
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.forgot {
+    text-align: right; 
+    margin-left: 50px;
+    font-size: 10px;   
+    margin-top: -40px;
+
+}
+
+.btn {
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 15px;
+    top: 38px;
+    cursor: pointer;
+    color: #007bff;
+}
+
+.close-icon {
+    font-size: 24px;
+    cursor: pointer;
+    float: right;
+}
+
+.position-relative {
+    position: relative;
+}
+
+/* Login button jumping issue fix */
+.btn-primary {
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.google-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
