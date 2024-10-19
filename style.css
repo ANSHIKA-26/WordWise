@@ -821,25 +821,32 @@ header {
 }
 /* Navigation Bar */
 
+/* Parent container for nav links */
 .nav-links1 {
-
-  display:  flex;
-  gap:  2.1rem;
-  margin:  0 0.5rem;
-  margin-top:  8px;
-  position: relative; /* Parent positioning */
-
+  display: flex;
+  gap: 2.1rem;
+  margin: 0 0.5rem;
+  margin-top: 8px;
+  position: relative;
+  opacity: 0; /* Start hidden for animation */
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: 0.3s; /* Start the parent container animation */
 }
- 
+
+/* Individual link styles */
 .nav-links1 a {
   color: #1C160C;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1rem; /* Original size */
   font-weight: 500;
   padding-bottom: 5px;
-  position: relative; /* For underline effect */
+  position: relative;
+  opacity: 0; /* Start hidden for animation */
+  transform: translateY(-20px); /* Start above the position */
+  transition: color 0.3s ease, transform 0.3s ease, font-size 0.3s ease, font-weight 0.3s ease;
 }
 
+/* Gradient underline effect */
 .nav-links1 a::after {
   content: '';
   position: absolute;
@@ -847,14 +854,74 @@ header {
   bottom: 0;
   width: 100%;
   height: 3px;
-  background-color: #4A4A4A;
+  background-image: linear-gradient(90deg, #4b749f, #243748); /* New gradient for underline */
   transform: scaleX(0);
-  transition: transform 0.2s ease;
+  transition: transform 0.4s ease, background-color 0.3s ease;
+}
+
+/* Hover effect for links (updated as per admin's request) */
+.nav-links1 a:hover {
+  font-size: 1.2rem; /* Increase font size on hover */
+  font-weight: bold; /* Make text bold on hover */
+  color: black; /* Change color to black on hover */
+  transform: scale(1.02); /* Very subtle increase on hover */
 }
 
 .nav-links1 a:hover::after {
-  transform: scaleX(1);
+  transform: scaleX(1); /* Underline expands */
 }
+
+/* Animation for links on page load */
+.nav-links1 a:nth-child(1) {
+  animation: slideIn 0.5s ease forwards;
+  animation-delay: 0.5s; /* First link delay */
+}
+
+.nav-links1 a:nth-child(2) {
+  animation: slideIn 0.5s ease forwards;
+  animation-delay: 0.6s; /* Second link delay */
+}
+
+.nav-links1 a:nth-child(3) {
+  animation: slideIn 0.5s ease forwards;
+  animation-delay: 0.7s; /* Third link delay */
+}
+
+.nav-links1 a:nth-child(4) {
+  animation: slideIn 0.5s ease forwards;
+  animation-delay: 0.8s; /* Fourth link delay */
+}
+
+.nav-links1 a:nth-child(5) {
+  animation: slideIn 0.5s ease forwards;
+  animation-delay: 0.9s; /* Fifth link delay */
+}
+
+.nav-links1 a:nth-child(6) {
+  animation: slideIn 0.5s ease forwards;
+  animation-delay: 1s; /* Sixth link delay */
+}
+
+.nav-links1 a:nth-child(7) {
+  animation: slideIn 0.5s ease forwards;
+  animation-delay: 1.1s; /* Seventh link delay */
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Keyframes for sliding in from above */
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Final position */
+  }
+}
+
 
 /* Navbar and Menu Styles */
 .navbar {
