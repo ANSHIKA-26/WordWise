@@ -859,14 +859,12 @@ header {
   transition: transform 0.4s ease, background-color 0.3s ease;
 }
 
-/* Hover effect for links */
+/* Hover effect for links (updated as per admin's request) */
 .nav-links1 a:hover {
-  font-size: 1.1rem; /* Slightly bigger on hover */
+  font-size: 1.2rem; /* Increase font size on hover */
   font-weight: bold; /* Make text bold on hover */
+  color: black; /* Change color to black on hover */
   transform: scale(1.02); /* Very subtle increase on hover */
-  background-image: linear-gradient(90deg, #4b749f, #243748); /* Gradient for text on hover */
-  -webkit-background-clip: text; 
-  -webkit-text-fill-color: transparent; /* Make the gradient fill the text */
 }
 
 .nav-links1 a:hover::after {
@@ -923,6 +921,7 @@ header {
     transform: translateY(0); /* Final position */
   }
 }
+
 
 
 /* Navbar and Menu Styles */
