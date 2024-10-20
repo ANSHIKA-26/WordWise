@@ -56,13 +56,14 @@
             display: none; /* Hide by default */
             position: absolute;
             bottom: 100%; /* Position above the button */
-            right: 50%;
+            right: 90px;
             transform: translateX(50%);
             background-color: #333; /* Background color for tooltip */
             color: #fff; /* Tooltip text color */
             padding: 5px;
             border-radius: 5px;
             white-space: nowrap; /* Prevent text from wrapping */
+            line-height: 20px
         }
 
         /* Show Tooltip on Hover */
@@ -78,7 +79,7 @@
             width: 400px; /* Smaller width */
             height: 500px; /* Fixed height for compactness */
             border: 1px solid #ccc;
-            background-color: white;
+            background-image: url(./images/background.jpg);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             display: none; /* Hidden by default */
             z-index: 1000; /* Ensure it appears above other elements */
@@ -1104,7 +1105,7 @@
         <button class="chatbot-button group" id="chatbot-toggle">
             <img class="h-20" src="chatbot.gif" alt="chatbot">
             <span class="tooltip-text">
-                Welcome to Word Wise! <br>
+                Welcome to Word Wise ! <br>
                 How can I help You? ^_^ 
             </span>
         </button>
