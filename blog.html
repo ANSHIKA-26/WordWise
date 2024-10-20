@@ -22,9 +22,6 @@
 
 </head>
 
-
-</head>
-
 <body>
 
   <div class= "progress-container">
@@ -168,7 +165,7 @@
       </script>
       
       <!-- Updated CSS Styles -->
-      <style>
+      <style>    
         .form-popup {
             display: none;
             position: fixed;
@@ -314,15 +311,43 @@
                 break;
         }
     }
-    </script>
-    
-    
+    document.addEventListener("DOMContentLoaded", function() {
+      const bookmarkBtn = document.getElementById("bookmark");
+      const bookmarkText = document.getElementById("bookmark-text");
+      const articleTitle = document.querySelector(".title h2").innerText;
+      loadBookmarks();
+
+      bookmarkBtn.addEventListener("click", function(event) {
+          event.preventDefault();
+          let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
+
+          if (bookmarkText.textContent === "Bookmark") {
+              if (!bookmarks.includes(articleTitle)) {
+                  bookmarks.push(articleTitle);
+                  localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+                  bookmarkText.textContent = "Bookmarked";
+                  alert("Article bookmarked!");
+              }
+          } else {
+              const confirmRemove = confirm("Do you want to remove this bookmark?");
+              if (confirmRemove) {
+                  bookmarks = bookmarks.filter(item => item !== articleTitle);
+                  localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+                  bookmarkText.textContent = "Bookmark"; 
+                  alert("Bookmark removed!");
+              }
+          }
+      });
+
+      function loadBookmarks() {
+          let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
+          if (bookmarks.includes(articleTitle)) {
+              bookmarkText.textContent = "Bookmarked"; 
+          }
+      }
+  });
+    </script>   
     <script src="signup.js"></script> <!-- Link to your JavaScript file -->
-    
-    
-
-
-
 
       <div class="theme-switch-wrapper">
         <label class="theme-switch" for="checkbox">
@@ -341,7 +366,6 @@
 </nav>
  
   <!--header-->
-  
     <!--mainn-->
     <main id="site-main" style="margin-top: 8rem;">
       <!--post content-->
@@ -353,6 +377,7 @@
               <div class="heading text-center">
                 <div class="Category">
                   <a href="#" class="nav-link" id="travel">Travel</a></div>
+                  <a href="bookmarks.html" class="nav-link" style="float: right; margin-left: auto; color: #f9b0b0;">My Reading List</a>
                   <div class="title">
                     <h2 class="text-title text-dark display-1"looking for feedback></h2>
                   </div>
@@ -366,6 +391,10 @@
                     <a href="#" class="link display-2 text-secondary px-1">
                       <i class="fa-solid fa-comments" style="color:  #f9b0b0;" id="fa"></i>3
                     </a>
+                    <a href="#" class="link display-2 text-secondary px-1 bookmark-btn" id="bookmark">
+                      <i class="fa-solid fa-bookmark" style="color: #f9b0b0;" id="bookmark-icon"></i>
+                      <span id="bookmark-text" style="color: f9b0b0;">Bookmark</span>
+                  </a>                  
                   </div>
  
  
@@ -1130,7 +1159,6 @@ body {
     <i class="fas fa-arrow-up"></i>
   </div>
   
-  <!-- footer -->
   <!-- footer -->
   <footer id="footer">
     <div class="footer-container">
