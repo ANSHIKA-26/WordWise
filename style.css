@@ -330,8 +330,6 @@ body {
   background: var(--body-bg);
   font-family: Arial, sans-serif;
   background-color: var(--background-color);
-  max-width: 100%; /* Ensure container does not overflow */
-  overflow: hidden;
 }
 
 /* Hide scrollbar for main body */
@@ -349,15 +347,8 @@ html, body {
   /* overflow-x: hidden;  Prevent horizontal scroll */
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-} 
-
-.header, .footer, .main-content {
-  max-width: 100%; /* Prevent overflow */
-  overflow: hidden; /* Prevent inner overflow */
-  margin: 0 auto; /* Center the element */
-  padding: 0; /* Remove default padding */
 }
+
 
 /* Light Mode Scrollbar - Vertical Scroll Styling */
 ::-webkit-scrollbar {
@@ -415,73 +406,6 @@ body.dark-mode footer address{
 body.dark-mode footer .phone{
   color: #f2dede;
 }
-/* Signup input bar in footer*/
-.signup-container {
-  width: 90%;
-  max-width: 400px;
-  margin: 10px;
-  margin-top: 20px;
-  text-align: center;
-} 
-.signup-form {
-  display: flex;
-  background-color: white; 
-  border: 2px solid #e5e5e5;
-  border-radius: 50px; 
-  overflow: hidden;
-}
-
-.signup-form input {
-  flex: 1;
-  border: none;
-  padding: 12px 20px;
-  font-size: 16px;
-  outline: none;
-  border-radius: 50px 0 0 50px;
-}
-
-.signup-form button {
-  background-color: #c74b3b;
-  color: white !important; 
-  border: none;
-  padding: 12px 25px;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 50px 50px 50px 50px;
-  transition: background-color 0.3s ease;
-}
-
-.signup-form button:hover {
-  background-color: #a43d31;
-}
-
-.privacy-text {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #aaa;
-}
-
-.privacy-text a {
-  color: #c74b3b;
-  text-decoration: none;
-}
-.feature-post .text-title {
-  color: #b0b0b0; /* Light grey color for titles */
-}
-
-.feature-post .secondary-title {
-  color: #a0a0a0; /* Slightly lighter grey for secondary text */
-}
-
-.feature-post .text-secondary {
-  color: #9e9e9e; /* Light grey for date/time text */
-}
-
-.feature-post a {
-  text-decoration: none; /* Remove underline for links */
-} 
-
-
 
 .form-popup {
   display: none;
@@ -551,35 +475,18 @@ body.dark-mode footer .phone{
 [data-theme="dark"] .close-icon{
 background: var(--light);
 }
+
 #backToTop {
   position: fixed;
   bottom: 30px;
   right: 10px;
-  width: 60px;
-  height: 60px;
-  font-size: 30px; /* Adjust icon size */
+  font-size: 50px;
   cursor: pointer;
   text-align: center;
-  background-color: var(--primary-color); /* Dark Pink */
-  color: var(--light); /* Light text color */
-  border-radius: 50%; /* Make it round */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
-  transition: all 0.3s ease-in-out; /* Smooth transition */
+  background-color: transparent;
   z-index: 1000;
+  
 }
-
-#backToTop:hover {
-  background-color: var(--dark); /* Dark background on hover */
-  color: var(--primary-color); /* Pink text color on hover */
-  transform: scale(1.1); /* Slight zoom effect */
-  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* More shadow on hover */
-}
-
-#backToTop i {
-  line-height: 60px; /* Center icon vertically */
-  font-size: 24px; /* Adjust icon size */
-}
-
 .heart-container {
   display: flex;
   justify-content: center;
@@ -776,18 +683,7 @@ background: var(--light);
   background-color: var(--card-hover-active-dark);
 }
 
-header {
 
-  display:  flex;
-  justify-content:  space-around;
-  align-items:  center;
-  border-bottom:  1px solid #F4EFE6;
-  padding:  0rem 1rem;
-  padding-top:  1rem;
-  padding-bottom:  1rem;
-  width:  100%;
-
-}
 
 header {
 
@@ -815,38 +711,28 @@ header {
   color: rgb(59, 59, 88);
   white-space: nowrap; /* Prevent logo from breaking into two lines*/
 }
-.logo h2:hover {
-  color: rgb(29, 29, 68); /* Change color on hover */
-  transform: scale(1.05); /* Slightly scale up the text */
-}
+ 
 /* Navigation Bar */
 
-/* Parent container for nav links */
 .nav-links1 {
-  display: flex;
-  gap: 2.1rem;
-  margin: 0 0.5rem;
-  margin-top: 8px;
-  position: relative;
-  opacity: 0; /* Start hidden for animation */
-  animation: fadeIn 0.5s ease forwards;
-  animation-delay: 0.3s; /* Start the parent container animation */
-}
 
-/* Individual link styles */
+  display:  flex;
+  gap:  2.1rem;
+  margin:  0 0.5rem;
+  margin-top:  8px;
+  position: relative; /* Parent positioning */
+
+}
+ 
 .nav-links1 a {
   color: #1C160C;
   text-decoration: none;
-  font-size: 1rem; /* Original size */
+  font-size: 1rem;
   font-weight: 500;
   padding-bottom: 5px;
-  position: relative;
-  opacity: 0; /* Start hidden for animation */
-  transform: translateY(-20px); /* Start above the position */
-  transition: color 0.3s ease, transform 0.3s ease, font-size 0.3s ease, font-weight 0.3s ease;
+  position: relative; /* For underline effect */
 }
 
-/* Gradient underline effect */
 .nav-links1 a::after {
   content: '';
   position: absolute;
@@ -854,74 +740,14 @@ header {
   bottom: 0;
   width: 100%;
   height: 3px;
-  background-image: linear-gradient(90deg, #4b749f, #243748); /* New gradient for underline */
+  background-color: #4A4A4A;
   transform: scaleX(0);
-  transition: transform 0.4s ease, background-color 0.3s ease;
-}
-
-/* Hover effect for links (updated as per admin's request) */
-.nav-links1 a:hover {
-  font-size: 1.2rem; /* Increase font size on hover */
-  font-weight: bold; /* Make text bold on hover */
-  color: black; /* Change color to black on hover */
-  transform: scale(1.02); /* Very subtle increase on hover */
+  transition: transform 0.2s ease;
 }
 
 .nav-links1 a:hover::after {
-  transform: scaleX(1); /* Underline expands */
+  transform: scaleX(1);
 }
-
-/* Animation for links on page load */
-.nav-links1 a:nth-child(1) {
-  animation: slideIn 0.5s ease forwards;
-  animation-delay: 0.5s; /* First link delay */
-}
-
-.nav-links1 a:nth-child(2) {
-  animation: slideIn 0.5s ease forwards;
-  animation-delay: 0.6s; /* Second link delay */
-}
-
-.nav-links1 a:nth-child(3) {
-  animation: slideIn 0.5s ease forwards;
-  animation-delay: 0.7s; /* Third link delay */
-}
-
-.nav-links1 a:nth-child(4) {
-  animation: slideIn 0.5s ease forwards;
-  animation-delay: 0.8s; /* Fourth link delay */
-}
-
-.nav-links1 a:nth-child(5) {
-  animation: slideIn 0.5s ease forwards;
-  animation-delay: 0.9s; /* Fifth link delay */
-}
-
-.nav-links1 a:nth-child(6) {
-  animation: slideIn 0.5s ease forwards;
-  animation-delay: 1s; /* Sixth link delay */
-}
-
-.nav-links1 a:nth-child(7) {
-  animation: slideIn 0.5s ease forwards;
-  animation-delay: 1.1s; /* Seventh link delay */
-}
-
-/* Keyframes for fade-in effect */
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-/* Keyframes for sliding in from above */
-@keyframes slideIn {
-  to {
-    opacity: 1;
-    transform: translateY(0); /* Final position */
-  }
-}
-
 
 /* Navbar and Menu Styles */
 .navbar {
@@ -1088,9 +914,10 @@ button {
   justify-content: center;
   align-items: center;
   background-color: #f8b5b5;
-  top: 0 !important;
-  position: sticky !important;
-  z-index: 899 !important;
+  position: relative;
+  top: 0;
+  position: sticky;
+  z-index: 899;
 
 }
 
@@ -1271,14 +1098,12 @@ button {
   border: 1px solid #ccc;
   border-radius: 10px;
   z-index: 9;
-  width:  100%;
-  max-width:  560px;
-  padding:  20px;
+  width: 100%;
+  max-width: 560px;
+  padding: 20px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  height: 550px;
-
 }
- 
+
 .form-container {
   display: flex;
   flex-direction: column;
@@ -1409,12 +1234,10 @@ button {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  height:  80px; 
-  margin-bottom:  5px;
-  margin-top:  9px;
-
+  height: 80px; 
+  margin-bottom: 5px;
 }
- 
+
 .form-group input[type="email"], .form-group input[type="password"],.form-group input[type="text"] {
   height: 40px; 
   padding: 10px;
@@ -1467,6 +1290,7 @@ button {
 .form-group.position-relative i {
   position: absolute;
   top: 52px;
+  left: 10px;
   transform: translateY(-50%);
   font-size: 18px;
   color: #ccc;
@@ -1474,7 +1298,7 @@ button {
 
 .form-group.position-relative input[type="text"],
 .form-group.position-relative input[type="email"]{
-  padding-left: 10px; /* Space for the icon */
+  padding-left: 40px; /* Space for the icon */
 }
 
 /* Style the locker icons */
@@ -1686,10 +1510,10 @@ body.dark .support a {
 }
 
 .d-flex {
-  margin-top: 10px;
+  margin-top: 5px;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
   gap: 10px;
 }
 
@@ -1707,7 +1531,7 @@ body.dark .support a {
 
 .d-flex-gap a i {
   font-size: 24px;
-  /* padding-right: 15px; */
+  padding-right: 15px;
 }
 
 .flex-column {
@@ -1867,9 +1691,8 @@ a {
 }
 
 .secondary-title {
-  font-family: "poppins", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   margin-left: 18px;
-  margin-top: 22px;
   color: var(--text-color);
 }
 
@@ -2313,7 +2136,6 @@ a {
 .overflow-img img {
   width: 100%;
   height: auto;
-  object-fit: cover;
 }
 
 .overflow-img:hover {
@@ -2691,7 +2513,6 @@ footer p {
   margin-top: 20px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   position: relative;
-  margin-right: 30px;
 }
 
 .wordwise-newsletter-container h2 {
@@ -2884,8 +2705,8 @@ footer p {
 .toast.error {
     background-color: red;
 }
-/* 
-for facebook
+
+/* for facebook */
 .flex-wrap .fa-facebook-f {
   transition: color 0.3s ease, transform 0.3s ease;
 }
@@ -2894,53 +2715,30 @@ for facebook
   transform:scale(1.1);
 }
 
-/* for twitter 
+/* for twitter */
 .flex-wrap .fa-x-twitter {
   transition: color 0.3s ease, transform 0.3s ease;
 }
 .flex-wrap .fa-x-twitter:hover{
-  color:black;
-  transform:scale(1.1);
+  color: #c32aa3;
+  transform: scale(1.1);
 }
-/* for instagram 
+/* for instagram */
 .flex-wrap .fa-instagram {
   transition: color 0.3s ease, transform 0.3s ease;
 }
 .flex-wrap .fa-instagram:hover{
   color:#c32aa3;
   transform:scale(1.1);
- } */
-
-
-.flex-wrap a{
-  margin-right: 10px;
-  transition: all .38s ease-in-out;
 }
 
-.flex-wrap a:hover{
-  transform: scale(1.1);
-  padding: 2px 4px;
-  border-radius: 4px;
+/* for dribble */
+.flex-wrap .fa-dribbble {
+  transition: color 0.3s ease, transform 0.3s ease;
 }
-#facebook:hover{
-  color: white;
-  background-color:rgb(62, 62, 255) ;
-}
-#dribbble:hover{
-  color: white;
-  background-color:#ea4c89;
-}
-#instagram:hover{
-  color: white;
-  background-color: #e1306c;
-}
-#twitter:hover{
-  color: white;
-  background-color: #14171A;
-}
-#github:hover{
-  color: white;
-  background-color: #14171A;
+.flex-wrap .fa-dribbble:hover{
+  color:#ea4c89;
+  transform:scale(1.1);
 }
 
 .issue-303{
@@ -3265,133 +3063,4 @@ for facebook
       justify-content: flex-start;
       align-items: center;
   }
-}
-
-
-/* Travel section */
-#travel {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #f4978e;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 5px 10px;
-  border: 2px solid #f4978e;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-#travel:hover {
-  background-color: #f4978e;
-  color: white;
-}
-
-/* Join the Conversation section */
-.comments-section .section-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #333;
-  text-align: center;
-  margin-bottom: 2rem;
-  position: relative;
-}
-
-.comments-section .section-title::after {
-  content: '';
-  display: block;
-  width: 50px;
-  height: 3px;
-  background-color: #f4978e;
-  margin: 10px auto 0;
-}
-/* button hover effect */
-
-
-
-
-.section-btn ul{
-  list-style: none;
-  
-}
-.section-btn li{
-  display: flex;
-  justify-content: center;
-}
-.section-btn a {
-  color: white; /* Text color for the link */
-  font-weight: normal; /* Normal font weight */
-  line-height: 45px; /* Line height for vertical centering */
-  perspective: 1000px; /* Perspective for 3D effect */
-  
-}
-
-.section-btn a span {
-  position: relative; /* Positioning context for the span */
-  display: inline-block; /* Allow block-like behavior */
-  font-size: 18px; /* Font size for the text */
-  font-weight: normal; /* Normal font weight */
-  letter-spacing: 0.5px; /* Slightly increased letter spacing */
-  padding: 2px 27px; /* Padding around the text */
-  background: #2076D9; /* Background color of the span */
-  border-radius: 1px; /* Rounded corners */
-  transition: transform 0.3s; /* Smooth transition for transformation */
-  transform-origin: 50% 0; /* Set transform origin to the center top */
-  transform-style: preserve-3d; /* Preserve 3D transformations */
-}
-
-.section-btn a span::before {
-  position: absolute; /* Position the pseudo-element */
-  top: 100%; /* Position it just below the span */
-  left: 0; /* Align to the left */
-  height: 100%; /* Match the height of the span */
-  width: 100%; /* Match the width of the span */
-  color: white; /* Text color for the pseudo-element */
-  background: black; /* Background color for the hover text */
-  border-radius: 1px; /* Match rounded corners */
-  /* padding: 2px 27px; Padding for the pseudo-element */
-/* padding-left: 10px; */
-text-align: center;
-  transition: background 0.3s; /* Smooth transition for background color */
-  transform: rotateX(-90deg); /* Hide it initially by rotating */
-  content: attr(data-hover); /* Set content to the value of data-hover attribute */
-  transform-origin: 50% 0; /* Set transform origin for the rotation */
-}
-
-.section-btn a:hover span, .section-btn a:focus span {
-  transform: rotateX(90deg) translateY(-22px); /* Flip the text on hover */
-}
-
-.star-rating {
-  display: flex;
-  justify-content: center; 
-  flex-direction: row-reverse;
-}
-
-.star-rating input {
-  display: none; 
-}
-
-.star-rating label {
-  font-size: 46px; 
-  color: #ddd; 
-  cursor: pointer; 
-  transition: color 0.2s;
-  margin: 0 5px; /* Add margin for gaps between stars */
-}
-
-.star-rating input:checked ~ label {
-  color: #ffca28; 
-}
-
-.star-rating label:hover,
-.star-rating label:hover ~ label {
-  color: #ffca28; 
-}
-nav{
- width: 100%;
-  position: fixed;
-  top:0;
-  margin-bottom: 4rem;
-  z-index: 999;
-  
 }
