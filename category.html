@@ -38,6 +38,7 @@
 </head>
 
 <body>
+   <nav>
     <div class="progress-container">
         <div class="progress-bar" id="progress-bar"></div>
       </div>
@@ -46,10 +47,7 @@
 
     <div class="layout-container" style="margin-bottom: 4rem;">
 
-        <header>
-    
-    
-    
+        <header> 
             <div class="logo" >
                 <a href="index.html">
                   <h2>WordWise</h2>
@@ -66,9 +64,9 @@
             <a href="blog.html">Leading Blog</a>
             <a href="start_writing.html">Start Writing</a>
             <a href="category.html">Categories</a>
-            <a href="about.html">About</a>
+
             <a href="contact_us.html">Contact Us</a>
-            <a href="contact_us.html">Give Feedback</a>
+            <a href="give_feedback.html">Give Feedback</a>
         </div>
        
         <div class="dropdown">
@@ -119,7 +117,10 @@
         <h2 class="text-center">Signup</h2>
         <div class="form-group">
             <label for="name"><b>Full Name</b></label>
-            <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
+            <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name"
+                            required pattern="[a-zA-Z ]+"
+                        oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')"
+                        oninput="this.setCustomValidity('')">
         </div>
         <div class="form-group">
             <label for="signupEmail"><b>Email</b></label>
@@ -343,10 +344,11 @@
         
         </header>
     </div>
+   </nav>
     <!--header-->
 
 
-    <main>
+    <main style="margin-top: 8rem;">
         <section class="category-container">
             <div class="category-row">
                 <div class="new-category-box">
@@ -363,7 +365,11 @@
                                     <h3 class="new-post-title">Mouthwatering Memoirs</h3>
                                     <p class="new-post-excerpt">Mouth watering tales from all over the world...</p>
                                 </div>
-                                <button  class="new-read-more-link"><a href="food.html">Read More</a></button>
+                                <ul class="section-btn">
+                                    <li>
+                                        <a href="food.html"><span data-hover="Read More">Read More</span></a>
+                                    </li>
+                                </ul>
                             </div>
                         </article>
                     </div>
@@ -383,7 +389,11 @@
                                     <h3 class="new-post-title">Roaming Routes</h3>
                                     <p class="new-post-excerpt">In the realm of mechanical marvels.</p>
                                 </div>
-                                <button  class="new-read-more-link"><a href="travel.html">Read More</a></button>
+                                <ul class="section-btn">
+                                    <li>
+                                        <a href="travel.html"><span data-hover="Read More">Read More</span></a>
+                                    </li>
+                                </ul>
                             </div>
                         </article>
                     </div>
@@ -403,7 +413,11 @@
                                     <h3 class="new-post-title">The Future of Tech</h3>
                                     <p class="new-post-excerpt">Exploring the innovations that are changing the world.</p>
                                 </div>
-                                <button  class="new-read-more-link"><a href="tech.html">Read More</a></button>
+                                <ul class="section-btn">
+                                    <li>
+                                        <a href="tech.html"><span data-hover="Read More">Read More</span></a>
+                                    </li>
+                                </ul>
                             </div>
                         </article>
                     </div>
@@ -423,7 +437,11 @@
                                     <h3 class="new-post-title">Living Well</h3>
                                     <p class="new-post-excerpt">Tips and tricks for a balanced life.</p>
                                 </div>
-                                <button  class="new-read-more-link"><a href="life.html">Read More</a></button>
+                                <ul class="section-btn">
+                                    <li>
+                                        <a href="life.html"><span data-hover="Read More">Read More</span></a>
+                                    </li>
+                                </ul>
                             </div>
                         </article>
                     </div>
@@ -443,7 +461,11 @@
                                     <h3 class="new-post-title">Health Tips</h3>
                                     <p class="new-post-excerpt">Best practices for a healthier you.</p>
                                 </div>
-                                <button  class="new-read-more-link"><a href="health.html">Read More</a></button>
+                                <ul class="section-btn">
+                                    <li>
+                                        <a href="health.html"><span data-hover="Read More">Read More</span></a>
+                                    </li>
+                                </ul>
                             </div>
                         </article>
                     </div>
@@ -463,7 +485,12 @@
                                     <h3 class="new-post-title">Fashion Trends</h3>
                                     <p class="new-post-excerpt">Stay stylish with the latest trends.</p>
                                 </div>
-                                <button  class="new-read-more-link"><a href="fashion.html">Read More</a></button>
+                                <ul class="section-btn">
+                                    <li>
+                                        <a href="fashion.html"><span data-hover="Read More">Read More</span></a>
+                                    </li>
+                                </ul>
+                                <!-- <button  class="new-read-more-link"><a href="fashion.html">Read More</a></button> -->
                             </div>
                         </article>
                     </div>
@@ -526,7 +553,10 @@
     <!-- Swiper end -->
     </main>
 
-
+    <!-- <button id="backToTop">⬆️</button> -->
+    <div id="backToTop" title="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
     <!-- footer -->
 
     <footer id="footer" style="margin-top: 30px;">
@@ -538,7 +568,7 @@
                         <h2 class="footer-title secondary-title">About Us</h2>
 
                         <div class="secondary-title text-secondary">
-                            <p class="mt-2 ">
+                            <p class="mt-2" style="text-align: left;">
                                 We are a close-knit team of passionate storytellers dedicated to sharing captivating
                                 content with the world.
                             </p>
@@ -640,14 +670,15 @@
 
                     <div class="tags social" id="contact">
                         <div class="d-flex-gap flex-wrap">
-                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="nav-link btn bg-light"><i class="fa-brands fa-x-twitter"></i></a>
-                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
-                            <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" target="_blank"  class="nav-link btn bg-light"
-                            ><i class="fa-brands fa-github"></i></a>
+                          <a href="https://www.facebook.com/" id="facebook" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
+                          <a href="https://www.x.com/" id="twitter" class="nav-link btn bg-light circle-icon"><i class="fa-brands fa-x-twitter"></i></a>
+                          <a href="https://www.instagram.com/"  id="instagram" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
+                          <a href="https://dribbble.com/" id="dribbble" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
+                          <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" id="github" target="_blank" " class="nav-link btn bg-light"
+                          ><i class="fa-brands fa-github"></i></a>
                         </div>
-                    </div>
+                      </div>
+            
 
                 </div>
             </div>
@@ -690,14 +721,14 @@
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 
-    <script src="main.js"></script>
-    <script src="./darkMode.js"></script>
-    <script src="progress_bar.js"></script>
+    <script src= "main.js"></script>
+    <script src= "./darkMode.js"></script>
+    <script src= "progress_bar.js"></script>
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-    <script src="profiledropdown.js"></script>
+    <script src= "https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src= "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src= "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src= "profiledropdown.js"></script>
 
     <style>
         /* ... existing styles ... */
@@ -762,6 +793,43 @@
             document.getElementById('current-year').textContent = new Date().getFullYear();
         });
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkbox = document.querySelector('input[type="checkbox"]');
+            const modeLabel = document.getElementById('mode-label');
+
+            // Check localStorage for saved mode
+            const savedMode = localStorage.getItem('darkMode');
+            if (savedMode === 'dark') {
+                document.body.classList.add('dark-mode');
+                checkbox.checked = true;
+                modeLabel.textContent = 'Dark Mode';
+            } else {
+                modeLabel.textContent = 'Light Mode';
+            }
+
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('darkMode', 'dark');
+                    modeLabel.textContent = 'Dark Mode';
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    localStorage.setItem('darkMode', 'light');
+                    modeLabel.textContent = 'Light Mode';
+                }
+            });
+
+            // ... existing FAQ modal code ...
+        });
+    </script>
+
+<div class="gtranslate_wrapper"></div>
+<script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+
 </body>
 
 </html>
