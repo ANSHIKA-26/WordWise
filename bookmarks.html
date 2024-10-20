@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Readling List</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favi.webp" />
+  <!--fotn awesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!--swiper slider css-->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+  <!--css-->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  
+  <link rel="stylesheet" href="Scroll_and_progressbar.css">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const bookmarkMessage = document.getElementById("bookmark-message");
+        const bookmarkedArticles = document.getElementById("bookmarked-articles");
+        const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
+    
+        if (bookmarks.length > 0) {
+            bookmarkMessage.textContent = `${bookmarks.length} bookmark(s) found!`;
+            document.getElementById("fixed-message").style.display = 'flex'; 
+        } else {
+            bookmarkMessage.textContent = "No bookmarks found.";
+            document.getElementById("fixed-message").style.display = 'none'; 
+        }
+    
+        bookmarks.forEach(bookmark => {
+            const articleDiv = document.createElement('div');
+            articleDiv.style.border = '1px solid #ddd'; 
+            articleDiv.style.borderRadius = '8px'; 
+            articleDiv.style.padding = '15px';
+            articleDiv.style.marginBottom = '15px';
+            articleDiv.style.display = 'flex'; 
+    
+            const articleImage = document.createElement('img');
+            articleImage.src = './assets/img1.webp'; 
+            articleImage.alt = 'Article Image';
+            articleImage.style.width = '150px'; 
+            articleImage.style.height = 'auto'; 
+            articleImage.style.borderRadius = '8px';
+            articleImage.style.marginRight = '15px'; 
+    
+            // Article content
+            const articleContent = document.createElement('div');
+            articleContent.style.flex = '1'; 
+            articleContent.innerHTML = `
+                <h4 style="margin: 0; color: #007bff; font-size: 1.5rem;">In the realm of mechanical marvels...</h4>
+                <div style="color: #555; margin: 5px 0;">
+                <strong>Category:</strong> <span style="color: #007bff;">Travel</span> <br>
+                <strong>By:</strong> <span style="color: #007bff;">Anshika Arora</span> <br>
+                <strong>On:</strong> <span style="color: #007bff;">Feb 12, 2021</span>
+                </div>
+                <a href="blog.html" style="color: #007bff; text-decoration: none; border-bottom: 1px solid #007bff; transition: color 0.3s;">Read more
+                </a>
+            `;
+    
+            articleDiv.appendChild(articleImage);
+            articleDiv.appendChild(articleContent);
+            bookmarkedArticles.appendChild(articleDiv);
+        });
+    });
+    
+
+</script>
+</head>
+
+<body>
+  <div class= "progress-container">
+    <div class= "progress-bar" id="progress-bar"></div>
+  </div>
+  <div class= "layout-container" style="margin-bottom: 4rem;">
+    <header>
+
+      <div class= "logo">
+        <a href= "index.html">
+          <h2>WordWise</h2>
+        </a>
+      </div>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links1">
+        <a href= "index.html">Home</a>
+        <a href= "blog.html">Leading Blog</a>
+        <a href= "start_writing.html">Start Writing</a>
+        <a href= "category.html">Categories</a>
+        <a href= "contact_us.html">Contact Us</a>
+        <a href= "give_feedback.html">Give Feedback</a>
+      </div>
+
+
+      <div class="dropdown">
+        <!-- Profile Icon -->
+        <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
+          <i class="fas fa-user-circle"></i>
+        </a>
+
+        <!-- Dropdown Menu -->
+        <ul class="dropdown-menu" id="dropdownMenu">
+          <li><a href="#login" onclick="openForm('login')">Login</a></li>
+          <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
+        </ul>
+      </div>
+
+    <script src="signup.js"></script> <!-- Link to your JavaScript file -->
+
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+          <input type="checkbox" id="checkbox">
+          <div class="slider">
+            <img src="https://img.icons8.com/emoji/48/000000/sun-emoji.png" alt="Sun" class="icon sun-icon">
+            <img src="https://img.icons8.com/emoji/48/000000/crescent-moon-emoji.png" alt="Moon" class="icon moon-icon">
+          </div>
+        </label>
+        <span id="mode-label"></span>
+      </div>
+
+    </header>
+  </div>
+</nav>
+<h1 style="text-align: center; color: #333; margin: 20px 0;">My Reading List</h1>
+<main id="reading-list" style="max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f8f9fa; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
+    <div id="bookmark-message" style="text-align: center; margin-bottom: 20px; font-size: 1.2em; color: #555;">
+        <!-- Dynamic message will be displayed here -->
+    </div>
+    <div id="bookmarks-container" style="margin-top: 20px;">
+        <!-- Fixed message for bookmarks -->
+        <div id="fixed-message" style="border: 1px solid #007bff; border-radius: 8px; padding: 15px; display: flex; align-items: center; background-color: #e8f4ff; margin-bottom: 20px;">
+            <div style="flex: 1;">
+                <h3 style="margin: 0; color: #007bff;">Your Bookmarks</h3>
+                <p style="margin: 5px 0; color: #555;">Click here to explore your saved articles!</p>
+            </div>
+        </div>
+
+        <!-- Bookmarked articles will be displayed here -->
+        <div id="bookmarked-articles"></div>
+    </div>
+</main>
+<footer style="text-align: center; margin-top: 30px; padding: 10px;">
+    <p style="font-size: 1em; color: #666;">
+        <a href="index.html" style="color: #007bff; text-decoration: none;">Browse</a> through articles to create your own reading list for future easy use.
+    </p>
+</footer>
+
+
+    <footer id="footer">
+        <div class="footer-container">
+          <div class="row mb-3 col-3-main">
+            <div class="col-3">
+              <div id="about-us">
+                <h2 class="footer-title secondary-title">About Us</h2>
+    
+                <div class="secondary-title text-secondary">
+                  <p class="mt-2 style="text-align: left;">
+                    We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the
+                    world.
+                  </p>
+    
+                  <address>
+                    <i class="fas fa-map-marker-alt text-primary"></i>
+                    5 South Main Street Los Angeles, ZZ-9611 USA
+                  </address>
+    
+                  <div class="phone">
+                    <i class="fas fa-mobile text-primary"></i>
+                    125-896-485
+                  </div>
+    
+                  <div class="email">
+                    <a href="mailto: dailysupport@gmail.com" style="color: 3B3B58;"><i
+                        class="fas fa-envelope text-primary"></i>
+                      <span>dailysupport@gmail.com</span>
+                    </a>
+                  </div>
+                  <div> <a href="privacy.html" style="color: #520be1e7;">Privacy Policy</a> </div> 
+                  <div>
+                    <img
+                      src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5"
+                      alt="Web views" style="height: 20px;width: 150px;margin-top: 40px;">
+                  </div>
+                </div>
+    
+              </div>
+            </div>
+            <div class="col-3">
+              <h2 class="footer-title secondary-title">Feature Post</h2>
+    
+              <div class="feature-post">
+                <div class="flex-item">
+                  <article class="article">
+                    <div class="d-flex ">
+                      <a class="d-flex" href="#">
+                        <img src="./assets/img9.webp" class="object-fit" alt="">
+                        <div class="px-1" style="width: 300px;">
+                          <a href="#" class="text-title display-2 text-dark">
+                            Embrace the beauty of nature through our enchanting blog, where we celebrate the wonders of
+                            the natural world
+                          </a>
+                          <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                            <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </article>
+                </div>
+                <div class="flex-item">
+                  <article class="article">
+                    <div class="d-flex">
+                      <a class="d-flex" href="#">
+                        <img src="./assets/img1.webp" class="object-fit" alt="">
+                        <div class="px-1" style="width: 300px;">
+                          <a href="#" class="text-title display-2 text-dark">
+                            Embark on unforgettable journeys through our travel blog, where wanderlust meets inspiration
+                          </a>
+                          <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                            <span><i class="far fa-clock text-primary"></i> Wed 05, 2020 </span>
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </article>
+                </div>
+                <div class="flex-item">
+                  <article class="article">
+                    <div class="d-flex">
+                      <a class="d-flex" href="#">
+                        <img src="./assets/img2.webp" class="object-fit" alt="">
+                        <div class="px-1" style="width: 300px;">
+                          <a href="#" class="text-title display-2 text-dark">
+                            Gaming Adventures Unleashed
+                          </a>
+                          <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
+                            <span><i class="far fa-clock text-primary"></i> Wed 02, 2021 </span>
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <h2 class="footer-title secondary-title">Popular Tags</h2>
+    
+              <div class="tags">
+                <div class="d-flex-gap flex-wrap">
+                  <a href="#" class="nav-link btn bg-light">Travel</a>
+                  <a href="#" class="nav-link btn bg-light">Food</a>
+                  <a href="#" class="nav-link btn bg-light">Lifestyle</a>
+                  <a href="#" class="nav-link btn bg-light">Techonogy</a>
+                  <a href="#" class="nav-link btn bg-light">Fashion</a>
+                </div>
+              </div>
+    
+              <h2 class="footer-title secondary-title mt-2">Connect with us</h2>
+    
+              <div class="tags social" id="contact">
+                <div class="d-flex-gap flex-wrap">
+                  <a href="https://www.facebook.com/" id="facebook" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://www.x.com/" id="twitter" class="nav-link btn bg-light"><i class="fa-brands fa-twitter"></i></a>
+                  <a href="https://www.instagram.com/"  id="instagram" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
+                  <a href="https://dribbble.com/" id="dribbble" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
+                  <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" id="github" target="_blank" " class="nav-link btn bg-light"
+                  ><i class="fa-brands fa-github"></i></a>
+                </div>
+              </div>
+    
+            </div>
+          </div>
+    
+    
+        </div>
+        <!-- the authentication copyright -->
+        <div class="wordwise-footer">
+          <div class="wordwise-footer-content">
+            <p>&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
+          </div>
+        </div>
+    
+      </footer>
+</body>
+</html>
