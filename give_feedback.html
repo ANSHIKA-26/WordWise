@@ -556,6 +556,15 @@ main
       const message = document.getElementById('message').value;
       const rating = document.querySelector('input[name="rating"]:checked')?.value;
 
+
+       // Email validation regex
+       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Validate email
+if (!emailPattern.test(email)) {
+    alert('Please enter a valid email address.');
+    return; // Stop execution if email is invalid
+}
       
       // Display feedback result in popup
       feedbackResult.innerHTML = `Thank you, ${name}!<br>Your feedback: ${message}<br>Rating: ${rating} stars`;
