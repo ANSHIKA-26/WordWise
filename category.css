@@ -13,8 +13,11 @@
   gap: 60px;
 }
 
-.new-category-box {
-  /*background: #f9f9f9;*/
+.new-post-data h2{
+  color: rgb(47, 49, 77);
+}
+.new-category-box { 
+  background: #eca5a5;
   border-radius: .75rem;
   box-shadow: 0 10px 20px rgb(0, 0, 0);
   transition: transform 0.3s, box-shadow 0.3s;
