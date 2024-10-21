@@ -530,12 +530,12 @@ body.dark-mode footer .phone{
 
 .close-icon {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 15px;
+  left: 500px;
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
-  color: var(--dark); /* Color of the close "X" */
+  color:red;
   transition: transform 0.5s;
   height: 30px;
   width: 30px;
