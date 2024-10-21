@@ -1871,7 +1871,7 @@ a {
   font-weight: bold;
 }
 
-.text-title:hover {
+.card:hover .text-title {
   color: var(--primary-color);
 }
 
@@ -1959,13 +1959,15 @@ a {
   overflow: hidden;
   position: relative;
   margin: 0 auto;
+  border-radius: 20px;
 }
 
 .sliderr .slides {
   display: flex;
-  width: 600%;
+  width: 700%;
   height: 400px;
   position: relative; 
+  transition: transform 0.5s ease-in-out;
 }
 
 .sliderr .slides input[type="radio"] {
@@ -2004,45 +2006,9 @@ a {
   background: #fff;
 }
 
-#radio1:checked ~ .first {
-  margin-left: 0;
-}
-
-#radio2:checked ~ .first {
-  margin-left: -16.66%;
-}
-
-#radio3:checked ~ .first {
-  margin-left: -33.32%;
-}
-
-#radio4:checked ~ .first {
-  margin-left: -49.98%;
-}
-
-#radio5:checked ~ .first {
-  margin-left: -66.64%;
-}
-
-#radio6:checked ~ .first {
-  margin-left: -83.3%;
-}
-
-
-.sliderr .navigation-auto {
-  position: absolute;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.sliderr .navigation-auto div {
-  border: 2px solid #fff;
-  padding: 5px;
-  border-radius: 10px;
-  transition: 0.4s;
-  margin: 0 5px;
+.sliderr .manual-btn.active {
+    background-color: #40D3DC;
+    color: white;
 }
 
 
@@ -2055,39 +2021,6 @@ a {
   content: none;
 }
 
-@keyframes slider {
-  0% {margin-left: 0;}
-  16.66% {margin-left: -16.66%;}
-  33.32% {margin-left: -33.32%;}
-  49.98% {margin-left: -49.98%;}
-  66.64% {margin-left: -66.64%;}
-  83.3% {margin-left: -83.3%;}
-}
-
-#radio1:checked ~ .first {
-  margin-left: 0;
-  animation: slider 36s infinite;
-}
-
-#radio2:checked ~ .first {
-  animation: slider 36s infinite;
-}
-
-#radio3:checked ~ .first {
-  animation: slider 36s infinite;
-}
-
-#radio4:checked ~ .first {
-  animation: slider 36s infinite;
-}
-
-#radio5:checked ~ .first {
-  animation: slider 36s infinite;
-}
-
-#radio6:checked ~ .first {
-  animation: slider 36s infinite;
-}
 
 .social-sharing {
   margin-top: 10px;
@@ -2325,7 +2258,7 @@ a {
   object-fit: cover;
 }
 
-.overflow-img:hover {
+.card:hover .overflow-img {
   transform: scale(1.1);
   box-shadow: 7px 7px 10px rgb(184, 0, 0);
   transition: all 0.2s ease-in-out;
