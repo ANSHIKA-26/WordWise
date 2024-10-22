@@ -3339,3 +3339,23 @@ nav{
   z-index: 999;
   
 }
+.flex-item {
+  transition: transform 0.3s ease;
+  margin: 10px;
+}
+
+.flex-item:hover {
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.article {
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px transparent;
+  transition: box-shadow 0.3s ease;
+}
+
+.flex-item:hover .article {
+  box-shadow: 0 4px 12px transparent;
+}
