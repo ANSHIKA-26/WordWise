@@ -232,12 +232,43 @@ We encourage you to explore the website, share your thoughts, and get involved i
 
 [![Contributors](https://contrib.rocks/image?repo=say-het/WordWise)](https://github.com/say-het/WordWise/graphs/contributors)
 
----
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+
+
+## Stargazers ❤️✨
+
+<div align='left'>
+
+[![Stargazers repo roster for @ANSHIKA-26/WordWise](https://reporoster.com/stars/ANSHIKA-26/WordWise)](https://github.com/ANSHIKA-26/WordWise/stargazers)
+
+</div>
+
+## Forkers ❤️✨
+
+[![Forkers repo roster for @ANSHIKA-26/WordWise](https://reporoster.com/forks/ANSHIKA-26/WordWise)](https://github.com/ANSHIKA-26/WordWise/network/members)
+
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+
+
+
+
+
+
+
+
 
 <div align="center">
     <a href="#top">
         <img src="https://img.shields.io/badge/Back%20to%20Top-000000?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top">
     </a>
 </div>
+
+
+
+
 
 ## Show some ❤️ by starring this awesome repository!
