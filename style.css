@@ -1858,6 +1858,10 @@ a {
 
 .bg-light {
   background-color: var(--background-color);
+  color: var(--text-color);
+}
+.bg-light2{
+  color: var(--text-color);
 }
 
 
