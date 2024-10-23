@@ -396,6 +396,7 @@ html, body {
 }
 
 
+
 body.dark-mode footer a{
  background-color: #333;
   color: #f2dede;
@@ -406,7 +407,7 @@ body.dark-mode footer p{
 }
 
 body.dark-mode footer h2{
-  color: #f2dede;
+  color: #ee9797;
 }
 body.dark-mode footer address{
   color: #f2dede;
@@ -414,6 +415,54 @@ body.dark-mode footer address{
 body.dark-mode footer .phone{
   color: #f2dede;
 }
+body.dark-mode footer p{
+  color: #f2dede;
+}
+body.dark-mode .text-title{
+  color:#f2dede ;
+}
+.footer-title {
+    position: relative; /* Allows for positioning */
+    display: inline-block; /* Fits the text content */
+    color: #333; /* Text color */
+    font-size: 24px; /* Adjust font size as needed */
+    text-decoration: none; /* Remove default underline */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.footer-title:hover {
+    color: #f8b5b5; /* Change color on hover (optional) */
+    text-decoration: none; /* Remove default underline to customize */
+}
+
+.footer-title:hover::after {
+    content: ''; /* Pseudo-element for custom underline */
+    position: absolute; /* Position relative to the title */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
+    bottom: -2px; /* Position just below the text */
+    height: 2px; /* Thickness of the underline */
+    background: #f8b5b5; /* Underline color */
+    transform: scaleX(1); /* Show underline */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.footer-title::after {
+    content: ''; /* Create a pseudo-element */
+    position: absolute; /* Position it relative to the title */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
+    bottom: -2px; /* Position below the text */
+    height: 2px; /* Thickness of the underline */
+    background: #f8b5b5; /* Underline color */
+    transform: scaleX(0); /* Initially hide it */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.footer-title:hover::after {
+    transform: scaleX(1); /* Show underline on hover */
+}
+
 /* Signup input bar in footer*/
 .signup-container {
   width: 90%;
@@ -464,18 +513,10 @@ body.dark-mode footer .phone{
   color: #c74b3b;
   text-decoration: none;
 }
-.feature-post .text-title {
-  color: #b0b0b0; /* Light grey color for titles */
-}
 
-.feature-post .secondary-title {
-  color: #a0a0a0; /* Slightly lighter grey for secondary text */
+.footer-title{
+  color:#f8b5b5 ;
 }
-
-.feature-post .text-secondary {
-  color: #9e9e9e; /* Light grey for date/time text */
-}
-
 .feature-post a {
   text-decoration: none; /* Remove underline for links */
 } 
@@ -2861,7 +2902,7 @@ for facebook
 }
 
 .flex-wrap a:hover{
-  transform: scale(2.1);
+  transform: scale(1.1);
   padding: 2px 4px;
   border-radius: 4px;
 }
