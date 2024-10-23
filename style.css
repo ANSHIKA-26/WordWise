@@ -2623,7 +2623,7 @@ input:checked + .slider .moon-icon {
 
 footer p {
   margin: 10px 0 0 0;
-  text-align: center;
+  text-align: left;
 }
 /* WordWise Newsletter Section Styling */
 .wordwise-newsletter-section {
