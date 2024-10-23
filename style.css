@@ -331,7 +331,6 @@ body {
   font-family: Arial, sans-serif;
   background-color: var(--background-color);
   max-width: 100%; /* Ensure container does not overflow */
-  overflow: hidden;
 }
 
 /* Hide scrollbar for main body */
