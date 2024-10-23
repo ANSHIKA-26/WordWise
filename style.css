@@ -2276,7 +2276,7 @@ a {
 .nav-link:hover{
  /* Change background color on hover */
         color: #f8b5b5;
-        scale: 0.5; /* Change text color on hover */
+        scale: 1.2; /* Change text color on hover */
       /* Optional: Change border color on hover */
         transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
