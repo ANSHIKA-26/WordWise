@@ -382,7 +382,7 @@
     </div>
   </nav>
 
-  <div class="contact-container" style="
+  <div class="container" style="
     display: flex;
     flex-direction: row;
     height: auto;
@@ -439,7 +439,7 @@
       </div>
 
       <div class="form-group" style="margin-bottom: 20px">
-        <input type="email" id="email" placeholder="Email Address" name="email" required style="
+        <input type="email2" id="email2" placeholder="Email Address" name="email2" required style="
           width: 100%;
           padding: 10px 0;
           font-size: 16px;
@@ -480,18 +480,13 @@
         "></textarea>
       </div>
 
-      <button type="button" onclick="SendEmail(event)" style="
-        background-color: white;
-        color: black;
-        padding: 10px 20px;
-        font-size: 16px;
-        border: 1px solid var(--text-color);
-        border-radius: 5px;
-        cursor: pointer;
-      ">
+      <button type="button" onclick="SendEmail(event)" class="submitbtn">
         Send
       </button>
     </form>
+    <div id="backToTop" title="Back to Top">
+      <i class="fas fa-arrow-up"></i>
+    </div>
   </div>
 </div>
 

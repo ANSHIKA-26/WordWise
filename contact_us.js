@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const sendEmailButton = document.getElementById("sendEmailButton"); // Assuming your button has this ID
+  const sendEmailButton = document.getElementById("sendEmailButton");
 
   sendEmailButton.addEventListener("click", SendEmail);
 });
@@ -7,14 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
 async function SendEmail(event) {
   event.preventDefault();
 
-  const firstName = document.getElementById("firstName").value.trim();
-  const lastName = document.getElementById("lastName").value.trim();
-  const email = document.getElementById("email").value.trim();
+  const Name = document.getElementById("Name").value.trim(); // Corrected ID
+  const email = document.getElementById("email2").value.trim(); // Corrected ID
   const phone = document.getElementById("phone").value.trim();
   const message = document.getElementById("message").value.trim();
 
   // Input validation
-  if (!firstName || !lastName || !email || !phone || !message) {
+  if (!Name || !email || !phone || !message) {
     alert("All fields are required.");
     return;
   }
@@ -24,13 +23,13 @@ async function SendEmail(event) {
     return;
   }
 
-  console.log(Name,email,phone,message);
+  console.log(Name, email, phone, message); // Corrected variable name
 
   if (message.length < 10) {
     alert("Message must be at least 10 characters long.");
     return;
   }
-  //console.log("Email value:", email , Name, phone, message); 
+
   const data = {
     Name: Name,
     email: email,
@@ -46,7 +45,7 @@ async function SendEmail(event) {
     });
 
     const result = await response.json();
-    
+
     if (response.ok) {
       showPopup();
       document.getElementById("contactForm").reset();
