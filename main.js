@@ -62,6 +62,22 @@ function myFunction() {
   }
 }
 
+function validateSignupForm() {
+  var password = document.getElementById("signupPsw").value;
+  var confirmPassword = document.getElementById("confirmPsw").value;
+
+  // Check if passwords match
+  if (password !== confirmPassword) {
+      alert("Passwords do not match. Please try again.");
+      return false; // Prevent form submission
+  }
+
+  // Additional validation (if any)
+  // You can add further checks here, e.g., email format validation, password strength, etc.
+
+  return true; // Allow form submission if everything is valid
+}
+
 // Open the specific form (login or signup)
 function openForm(formType) {
   // Hide both forms first
