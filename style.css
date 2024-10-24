@@ -1947,9 +1947,12 @@ a {
 
 
 .sliderr * {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sliderr {
@@ -1959,6 +1962,12 @@ a {
   position: relative;
   margin: 0 auto;
   border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .sliderr {
+    margin-left: -6%
+  }
 }
 
 .sliderr .slides {
@@ -2500,10 +2509,21 @@ input:checked + .slider .moon-icon {
   width: 100%;
   margin: auto;
   min-height: 100vh;
-  padding: 2rem;
-  display: grid;
-  place-items: center;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 60px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+  .container_1 {
+    padding: 1rem;
+    margin-top: 30px;
+    margin-left: -5%;
+  }
 }
 
 .accordion__wrapper {
