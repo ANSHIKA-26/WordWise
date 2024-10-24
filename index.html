@@ -253,6 +253,9 @@
             <div id="square5"></div>
         </div>
     </div>
+   <nav>
+
+
     <div class="progress-container">
         <div class="progress-bar" id="progress-bar"></div>
     </div>
@@ -264,6 +267,7 @@
 
 
             <div class="logo">
+
 
                 <h2 href="index.html">WordWise</h2>
             </div>
@@ -279,6 +283,27 @@
 
             </div>
             <div class="dropdown">
+
+        <h2 href="index.html">WordWise</h2>
+    </div>
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    <div class="nav-links1">
+        <a href="index.html">Home</a>
+        <a href="blog.html">Leading Blog</a>
+        <a href="start_writing.html">Start Writing</a>
+        <a href="category.html">Categories</a>
+
+        <a href="contact_us.html">Contact Us</a>
+        
+        <a href="give_feedback.html">Give Feedback</a>
+        
+    </div>
+              <div class="dropdown" >
+
                 <!-- Profile Icon -->
                 <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
                     <i class="fas fa-user-circle"></i>
@@ -484,10 +509,18 @@
             </div>
     </div>
     </header>
+
     </div>
     <!--Header Ends-->
+
+</div>
+
+
+   </nav>
+<!--Header Ends-->
+
     <!--Main Section Starts-->
-    <main id="site-main" style="margin-top: 90px;margin-left: 50px;">
+    <main id="site-main" style="margin-top: 10rem;margin-left: 50px;">
         <!--blog post section-->
         <section id="posts">
             <div class="container">
@@ -1210,6 +1243,31 @@
         </div>
 
 
+    </div>
+</section>
+<!-- Word of the Day Section -->
+<div id="word-of-the-day" style="background-color: rgb(248, 181, 181); padding: 20px; margin-right: 35px; border-radius: 5px; color: black;">
+    <h2>Word of the Day</h2>
+    <p id="word"></p>
+    <p id="definition"></p>
+</div>
+
+
+
+<!-- Newsletter Section -->
+<section id="wordwise-newsletter" class="wordwise-newsletter-section">
+    <div class="wordwise-newsletter-container">
+      <h2>Subscribe to Our Newsletter</h2>
+      <p>Stay updated with the latest articles and insights from WordWise.</p>
+      <form class="wordwise-newsletter-form" id="newsletterForm" novalidate>
+        <input type="email" id="emailInput" placeholder="Enter your email address" required>
+        <div id="error-message" style="color: red; display: none;">Please include '@' in your email address.</div>
+        <div id="sub"><button type="submit">Subscribe</button></div>
+    </form>
+    </div>
+
+
+
 
         <!-- Newsletter Section -->
         <section id="wordwise-newsletter" class="wordwise-newsletter-section">
@@ -1462,6 +1520,14 @@
                 </div>
             </div>
 
+
+
+
+      </div>
+       <!-- the authentication copyright -->
+       <div class="wordwise-footer">
+        <div class="wordwise-footer-content">
+          <p class="last">&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
 
         </div>
         <!-- the authentication copyright -->
