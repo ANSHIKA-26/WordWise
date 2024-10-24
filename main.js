@@ -64,12 +64,18 @@ function myFunction() {
 
 // Open the specific form (login or signup)
 function openForm(formType) {
+  // Hide both forms first
+  document.getElementById('loginForm').style.display = 'none';
+  document.getElementById('signupForm').style.display = 'none';
+
+  // Display the requested form
   if (formType === 'login') {
       document.getElementById('loginForm').style.display = 'block';
   } else if (formType === 'signup') {
       document.getElementById('signupForm').style.display = 'block';
   }
 }
+
 
 // Close the specific form
 function closeForm(formType) {
