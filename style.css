@@ -2405,7 +2405,7 @@ h1 {
 }
 
 
-footer p {
+footer .text-lg {
   margin: 10px 0 0 0;
   text-align: left;
 }
