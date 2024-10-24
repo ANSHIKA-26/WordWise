@@ -171,6 +171,10 @@ textarea#blogContent::placeholder {
   color: #3B3B58;
 }
 
+[data-theme="dark"] .footer-title {
+  color: #D3D3D3; /* Light grey color for dark mode */
+}
+
 .footer-content {
   font-size: 0.9rem;
 }
