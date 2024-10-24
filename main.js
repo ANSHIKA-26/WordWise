@@ -62,14 +62,36 @@ function myFunction() {
   }
 }
 
+function validateSignupForm() {
+  var password = document.getElementById("signupPsw").value;
+  var confirmPassword = document.getElementById("confirmPsw").value;
+
+  // Check if passwords match
+  if (password !== confirmPassword) {
+      alert("Passwords do not match. Please try again.");
+      return false; // Prevent form submission
+  }
+
+  // Additional validation (if any)
+  // You can add further checks here, e.g., email format validation, password strength, etc.
+
+  return true; // Allow form submission if everything is valid
+}
+
 // Open the specific form (login or signup)
 function openForm(formType) {
+  // Hide both forms first
+  document.getElementById('loginForm').style.display = 'none';
+  document.getElementById('signupForm').style.display = 'none';
+
+  // Display the requested form
   if (formType === 'login') {
       document.getElementById('loginForm').style.display = 'block';
   } else if (formType === 'signup') {
       document.getElementById('signupForm').style.display = 'block';
   }
 }
+
 
 // Close the specific form
 function closeForm(formType) {
