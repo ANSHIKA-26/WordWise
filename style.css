@@ -2654,7 +2654,7 @@ for facebook
 }
 
 .flex-wrap a:hover{
-  transform: scale(2.1);
+  transform: scale(1.1);
   padding: 2px 4px;
   border-radius: 4px;
 }
