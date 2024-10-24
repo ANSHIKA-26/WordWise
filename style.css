@@ -775,144 +775,7 @@ background: var(--light);
   background-color: var(--card-hover-active-dark);
 }
 
-header {
 
-  display:  flex;
-  justify-content:  space-around;
-  align-items:  center;
-  border-bottom:  1px solid #F4EFE6;
-  padding:  0rem 1rem;
-  padding-top:  1rem;
-  padding-bottom:  1rem;
-  width:  100%;
-
-}
-
-header {
-
-  position: fixed;
-  margin-top: 1rem;
-  background-color: #f8b5b5;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-bottom: 1px solid #F4EFE6;
-  padding: 0rem 1rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  width: 100%;
-}
-.logo {
-  padding-top: 2rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 1.1rem;
-  color: #1C160C;
-  /* margin: 0 3rem; */
-}
-.logo h2 {
-  font-size: 2.5rem; /* Adjusted font size for better visibility */
-  font-weight: bold;
-  line-height: 1.5;
-  letter-spacing: 0.2rem;
-  color: rgb(59, 59, 88);
-  white-space: nowrap; /* Prevent logo from breaking into two lines*/
-}
-.logo h2:hover {
-  color: rgb(29, 29, 68); /* Change color on hover */
-  transform: scale(1.05); /* Slightly scale up the text */
-}
-/* Navigation Bar */
-
-/* Parent container for nav links */
-.nav-links1 {
-  /* position: fixed;
-  top: 0; */
-  padding-top: 2rem;
-  display: flex;
-  width: 80%;
-  gap: 1.1rem;
-  margin-left:1.3rem ;
-  margin-top: 8px;
-  position: relative;
-  opacity: 0; /* Start hidden for animation */
-  animation: fadeIn 0.5s ease forwards;
-  animation-delay: 0.3s; /* Start the parent container animation */
-}
-
-/* Individual link styles */
-.nav-links1 a {
-  color: #1C160C;
-  text-decoration: none;
-  font-size: 1rem; /* Original size */
-  font-weight: 600;
-  padding-bottom: 5px;
-  position: relative;
-  opacity: 0; /* Start hidden for animation */
-  transform: translateY(-20px); /* Start above the position */
-  transition: color 0.3s ease, transform 0.3s ease, font-size 0.3s ease, font-weight 0.3s ease;
-}
-
-/* Gradient underline effect */
-.nav-links1 a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 3px;
-  background-image: linear-gradient(90deg, #4b749f, #243748); /* New gradient for underline */
-  transform: scaleX(0);
-  transition: transform 0.4s ease, background-color 0.3s ease;
-}
-
-/* Hover effect for links (updated as per admin's request) */
-.nav-links1 a:hover {
-  font-size: 1.1rem; /* Increase font size on hover */
-  font-weight: bold; /* Make text bold on hover */
-  color: black; /* Change color to black on hover */
-  transform: scale(1.02); /* Very subtle increase on hover */
-}
-
-.nav-links1 a:hover::after {
-  transform: scaleX(0.5); /* Underline expands */
-}
-
-/* Animation for links on page load */
-.nav-links1 a:nth-child(1) {
-  animation: slideIn 0.5s ease forwards;
-  animation-delay: 0.5s; /* First link delay */
-}
-
-.nav-links1 a:nth-child(2) {
-  animation: slideIn 0.5s ease forwards;
-  animation-delay: 0.6s; /* Second link delay */
-}
-
-.nav-links1 a:nth-child(3) {
-  animation: slideIn 0.5s ease forwards;
-  animation-delay: 0.7s; /* Third link delay */
-}
-
-.nav-links1 a:nth-child(4) {
-  animation: slideIn 0.5s ease forwards;
-  animation-delay: 0.8s; /* Fourth link delay */
-}
-
-.nav-links1 a:nth-child(5) {
-  animation: slideIn 0.5s ease forwards;
-  animation-delay: 0.9s; /* Fifth link delay */
-}
-
-.nav-links1 a:nth-child(6) {
-  animation: slideIn 0.5s ease forwards;
-  animation-delay: 1s; /* Sixth link delay */
-}
-
-.nav-links1 a:nth-child(7) {
-  animation: slideIn 0.5s ease forwards;
-  animation-delay: 1.1s; /* Seventh link delay */
-}
 
 /* Keyframes for fade-in effect */
 @keyframes fadeIn {
@@ -921,13 +784,7 @@ header {
   }
 }
 
-/* Keyframes for sliding in from above */
-@keyframes slideIn {
-  to {
-    opacity: 1;
-    transform: translateY(0); /* Final position */
-  }
-}
+
 
 
 /* Navbar and Menu Styles */
@@ -1088,18 +945,7 @@ button {
   z-index: 900;
   background: #f8b5b5;
 }
-.layout-container {
-  
-  padding: 0 3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f8b5b5;
-  top: 0 !important;
-  position: sticky !important;
-  z-index: 899 !important;
 
-}
 
 /* hover effect */
 .signup-button:hover{
@@ -1174,11 +1020,6 @@ button {
 
 
 
-.dropdown{
-  padding-top: 2rem;
-  float: left;
-  color: black;
-}
 
 .dropbtn{
   padding-right: 13px;
@@ -1597,14 +1438,7 @@ input[type="checkbox"] {
   transform: scale(1.2);
 }
 
-/* Dropdown button styles */
-.dropdown {
 
-  position:  relative;
-  display:  inline-block;
-  margin-top:  9px;
-
-}
  
 .dropdown-content {
   display: none;
@@ -2401,76 +2235,20 @@ body {
 }
 
 
-/* header {
-  background-color: var(--header-bg);
 
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-} */
 
 h1 {
   margin: 0;
 }
 
-.theme-switch-wrapper {
-  padding-top: 2rem;
-  margin-left: 10px;
-  display: flex;
-  align-items: center;
-}
+
 
 #mode-label {
   margin-left: 10px;
   font-size: 1rem;
 }
 
-/* Toggle Switch */
-.theme-switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 30px;
-}
 
-.theme-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to right, #ffecb3, #ffcc80); /* Gradient for light mode */
-  transition: 0.4s;
-  border-radius: 30px;
-}
-
-input:checked + .slider {
-  background: linear-gradient(to right, #283e51, #4b79a1); 
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 24px;
-  width: 24px;
-  border-radius: 50%;
-  background-color: white;
-  transition: 0.4s;
-  top: 3px;
-  left: 3px;
-}
-
-input:checked + .slider:before {
-  transform: translateX(16px); 
-}
 
 .icon {
   position: absolute;
@@ -2481,23 +2259,9 @@ input:checked + .slider:before {
   transition: opacity 0.3s ease;
 }
 
-.sun-icon {
-  left: 5px;
-  opacity: 1;
-}
 
-.moon-icon {
-  right: 3px;
-  opacity: 0;
-}
 
-input:checked + .slider .sun-icon {
-  opacity: 0;
-}
 
-input:checked + .slider .moon-icon {
-  opacity: 1; 
-}
 
 #mode-label {
   font-size: 14px;
@@ -2650,7 +2414,7 @@ input:checked + .slider .moon-icon {
 
 
 
-footer p {
+footer .text-lg {
   margin: 10px 0 0 0;
   text-align: left;
 }
@@ -3185,6 +2949,7 @@ for facebook
 
 /*hamburger menu styling */
 .hamburger {
+   position: absolute; /*temporary */
   display: flex;
   flex-direction:column;
   cursor: pointer;
@@ -3386,4 +3151,203 @@ nav{
 
 .flex-item:hover .article {
   box-shadow: 0 4px 12px transparent;
+}
+
+
+/* Navbar */
+
+.layout-container {
+  padding: 0 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8b5b5;
+  top: 0;
+  position: sticky;
+  z-index: 899;
+}
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid #F4EFE6;
+  padding: 0rem 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  width: 100%;
+}
+.nav-links1 {
+  display: flex;
+  gap: 2.1rem;
+  margin: 0 0.5rem;
+  margin-top: 8px;
+  position: relative;
+}
+.nav-links1 a {
+  color: #1C160C;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding-bottom: 5px;
+  position: relative;
+}
+.logo h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1.5;
+  letter-spacing: 0.2rem;
+  color: rgb(59, 59, 88);
+  white-space: nowrap;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-top: 9px;
+}
+.dropdown {
+  float: left;
+  color: black;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, #ffecb3, #ffcc80);
+  transition: 0.4s;
+  border-radius: 30px;
+}
+input:checked + .slider {
+  background: linear-gradient(to right, #283e51, #4b79a1);
+}
+input:checked + .slider .sun-icon {
+  opacity: 0;
+}
+
+input:checked + .slider .moon-icon {
+  opacity: 1; 
+}
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+}
+input:checked + .slider:before {
+  transform: translateX(30px); 
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background-color: white;
+  transition: 0.4s;
+  top: 3px;
+  left: 3px;
+} 
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+#mode-label {
+  margin-left: 10px;
+  font-size: 1rem;
+}
+#mode-label {
+  font-size: 14px;
+  margin-left: 10px;
+  color: #333;
+}
+input:checked + .slider .moon-icon {
+  opacity: 1;
+}
+.sun-icon {
+  left: 5px;
+  opacity: 1;
+}
+
+.moon-icon {
+  right: 5px;
+  opacity: 0;
+}
+nav{
+  top: 0;
+  position: fixed;
+  z-index: 999;
+}
+.nav-links1 a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #4A4A4A;
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.nav-links1 a:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-links1 a {
+  opacity: 0; /* Set initial opacity */
+  transform: translateY(-20px); /* Move links above their final position */
+}
+
+.nav-links1 a:nth-child(1) {
+  animation: slideIn 0.5s ease forwards;
+  animation-delay: 0.5s; 
+}
+
+.nav-links1 a:nth-child(2) {
+  animation: slideIn 0.5s ease forwards;
+  animation-delay: 0.6s; 
+}
+
+.nav-links1 a:nth-child(3) {
+  animation: slideIn 0.5s ease forwards;
+  animation-delay: 0.7s; 
+}
+
+.nav-links1 a:nth-child(4) {
+  animation: slideIn 0.5s ease forwards;
+  animation-delay: 0.8s; 
+}
+
+.nav-links1 a:nth-child(5) {
+  animation: slideIn 0.5s ease forwards;
+  animation-delay: 0.9s; 
+}
+
+.nav-links1 a:nth-child(6) {
+  animation: slideIn 0.5s ease forwards;
+  animation-delay: 1s; 
+}
+
+.nav-links1 a:nth-child(7) {
+  animation: slideIn 0.5s ease forwards;
+  animation-delay: 1.1s; 
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0; /* Start hidden */
+    transform: translateY(-20px); /* Start above */
+  }
+  to {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Final position */
+  }
 }
