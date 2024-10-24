@@ -2,55 +2,73 @@
 .blog-form-container {
   background: url('/path-to-your-uploaded-image') no-repeat center center;
   background-size: cover;
-  padding: 30px;
-  border-radius: 10px;
-  max-width: 800px;
-  margin: 20px auto;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
+  padding: 40px; /* Increased padding for more breathing space */
+  border-radius: 20px; /* More rounded corners for a softer look */
+  max-width: 900px; /* Slightly larger for better visibility */
+  margin: 30px auto;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+}
+
+.blog-form-container:hover {
+  transform: scale(1.05); /* More noticeable scale-up on hover */
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
 }
 
 /* Input, Textarea, and Select Styling */
 form input, form select, form textarea {
   width: 100%;
-  padding: 12px;
-  margin: 10px 0 20px;
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  font-size: 1rem;
+  padding: 14px;
+  margin: 15px 0 25px;
+  border: 2px solid #ccc;
+  border-radius: 12px; /* Softer, rounded inputs */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); /* Slightly more intense shadow */
+  font-size: 1.1rem;
+  transition: box-shadow 0.4s ease, background-color 0.4s ease, border-color 0.4s ease;
+}
+
+form input:focus, form select:focus, form textarea:focus {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25); /* More intense focus shadow */
+  background-color: #fafafa;
+  border-color: #ff6600; /* Stronger border on focus */
 }
 
 /* Theme-specific Adjustments */
 body.dark-mode .blog-form-container {
-  background-color: rgba(34, 33, 33, 0.6);
+  background-color: rgba(34, 33, 33, 0.8); /* Darker tone for contrast */
   color: #fff;
+  border: 2px solid #666; /* Subtle border in dark mode */
 }
 
 body.light-mode .blog-form-container {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(255, 255, 255, 0.8); /* Lighter tone for better contrast */
   color: #333;
+  border: 2px solid #ddd; /* Light border in light mode */
 }
 
 /* Button Styling */
 form button[type="submit"] {
   background-color: #ff6600;
   color: #fff;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
+  padding: 14px 24px; /* Slightly larger padding */
+  border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: background-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 form button[type="submit"]:hover {
   background-color: #e65c00;
-  transform: scale(1.03);
+  transform: scale(1.1); /* Larger scale effect on hover */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
 }
 
 /* Placeholder for blog content */
 textarea#blogContent::placeholder {
-  content: "Write a sample blog to give an idea of size";
+  font-style: italic;
+  color: #aaa;
+  opacity: 1;
 }
 
 /* Popup styling for success */
@@ -58,57 +76,68 @@ textarea#blogContent::placeholder {
   display: block;
   background-color: #4CAF50;
   color: white;
-  padding: 15px;
-  border-radius: 5px;
+  padding: 20px; /* Increased padding for visibility */
+  border-radius: 10px; /* Larger, rounder corners */
   position: fixed;
-  top: 10%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow for emphasis */
   z-index: 1000;
-  animation: fadeOut 3s forwards;
+  animation: fadeOut 5s forwards;
 }
 
 @keyframes fadeOut {
   0% { opacity: 1; }
-  80% { opacity: 1; }
+  90% { opacity: 1; }
   100% { opacity: 0; }
 }
 
 /* Collaborator Section Styling */
 .collaborator-section {
-  padding: 20px;
-  border-radius: 10px;
+  padding: 30px;
+  border-radius: 15px;
   background-color: #f0f0f0;
-  margin: 20px auto;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  margin-bottom: 60px; /* Increased bottom margin */
+  margin: 30px auto;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow for visibility */
+  max-width: 900px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.collaborator-section:hover {
+  transform: scale(1.03); /* Slight scaling on hover */
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
 }
 
 /* Collaborator List Styling */
 .collaborator-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px; /* Adds spacing between collaborators */
-  margin-bottom: 20px;
+  gap: 20px; /* Increased gap for more breathing room */
+  margin-bottom: 25px;
 }
 
 .collaborator-item {
   background-color: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 12px; /* Softer, rounder collaborator items */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%; /* Full width by default */
+  width: 100%;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.collaborator-item:hover {
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+  transform: translateY(-5px); /* More noticeable lift on hover */
 }
 
 /* Responsive Collaborator Item for Larger Screens */
 @media (min-width: 768px) {
   .collaborator-item {
-      width: calc(50% - 15px); /* Two items per row with gap */
+      width: calc(50% - 20px); /* Two items per row with gap */
   }
 }
 
@@ -116,28 +145,25 @@ textarea#blogContent::placeholder {
 .add-collaborator-btn {
   background-color: #ff6600;
   color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
+  padding: 14px 24px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  display: inline-block;
-  margin-top: 10px;
+  transition: background-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
   text-align: center;
-  width: 100%; /* Full width on mobile screens */
+  width: 100%;
 }
 
-/* Hover effect for the button */
 .add-collaborator-btn:hover {
   background-color: #e65c00;
-  transform: scale(1.03);
+  transform: scale(1.05); /* Slightly bigger scale effect */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
 }
 
 /* Adjust button for larger screens */
 @media (min-width: 768px) {
   .add-collaborator-btn {
-      width: auto; /* Allows button to shrink on larger screens */
-      margin-top: 0; /* Remove margin on larger screens */
+      width: auto;
+      margin-top: 0;
   }
 }
 
