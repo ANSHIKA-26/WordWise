@@ -9,7 +9,7 @@ const applyTheme = (theme) => {
     checkbox.checked = (theme === 'dark');
 
     // Update the label text based on the current theme
-    modeLabel.textContent = theme === 'dark' ? 'Dark Mode' : 'Light Mode';
+    modeLabel.textContent = theme === 'dark' ? '' : '';
 };
 
 // Check for saved theme in localStorage or use system preference
