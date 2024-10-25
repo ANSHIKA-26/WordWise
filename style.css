@@ -1528,11 +1528,12 @@ body.dark .support a {
 }
 
 .d-flex {
+  /* padding: 5px 5px; */
   margin-top: 10px;
   display: flex;
   align-items: center;
-  justify-content: start;
-  gap: 10px;
+  justify-content: space-around;
+  /* gap: 10px; */
 }
 
 .d-flex-gap {
@@ -1540,9 +1541,12 @@ body.dark .support a {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  
+   /* justify-content: space-around; */
 }
 
 .d-flex-gap a {
+  transition: all 0.2s ease;
   font-weight: 600;
   color: var(--text-color);
 }
@@ -1818,7 +1822,7 @@ a {
 
 .sliderr .slide {
   width: 16.66%;
-  transition: 0.6s ease;
+  transition: 0.3s ease;
 }
 
 .sliderr .slide img {
@@ -2141,10 +2145,10 @@ a {
 
 .nav-link:hover{
  /* Change background color on hover */
-        color: #f8b5b5;
-        scale: 1.2; /* Change text color on hover */
-      /* Optional: Change border color on hover */
-        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+        /* color: #f8b5b5;
+        scale: 1.01; Change text color on hover
+      Optional: Change border color on hover
+        transition: background-color 0.3s ease, color 0.3s ease; Smooth transition */
 }
 .search-box {
   border-right: none;
@@ -2672,16 +2676,17 @@ for facebook
  } */
 
 
-.flex-wrap a{
-  margin-right: 10px;
-  transition: all .38s ease-in-out;
-}
 
 .flex-wrap a:hover{
   transform: scale(1.05);
-  padding: 2px 4px;
-  border-radius: 4px;
+
+  /* padding: 2px 4px; */
+  border-radius: 2px;
+  /* transition: all 0.2s ease-in-out; */
+
 }
+
+
 #facebook:hover{
   color: white;
   background-color:rgb(62, 62, 255) ;
@@ -3375,3 +3380,23 @@ nav{
     transform: translateY(0); /* Final position */
   }
 }
+ .flex-wrap a{
+  margin-right: 10px;
+  transition: 0.1s ease-in !important;
+  size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+
+}/*
+.flex-wrap a i{
+  size: 1rem;
+  transition:all 0.2s ease ;
+} */
+nav1{
+  width: 100%;
+   position: fixed;
+   top:0;
+   margin-bottom: 4rem;
+   z-index: 999;
+   
+ }
