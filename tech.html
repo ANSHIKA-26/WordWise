@@ -1,82 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favi.webp" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="category.css">
-  <link rel="stylesheet" href="Scroll_and_progressbar.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Future of Technology</title>
-  <style>
-    body {  background-color: #f8b5b5; color: #333; font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    .container {  max-width: 900px; margin: 40px auto;margin-top: 10rem; background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
-    h1 { color: #d9534f; text-align: center; }
-    p, h2 { line-height: 1.6; }
-    img { width: 100%; border-radius: 10px; margin: 20px 0; }
-    .footer { text-align: center; padding: 20px; background-color: #f8b5b5; color: white; }
-    body.dark-mode {
-  background-color: #333;
-  color: #f8f8f8;
-}
-body.dark-mode .container {
-  background-color: #444;
-  color: #f8f8f8;
-}
-body.dark-mode .container  p{
-  /* background-color: #444; */
-  color: #f8f8f8 !important;
-}
-.icon{
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    top: -15px;
-    transition: opacity 0.3s ease;
-}
-body.dark-mode h1 {
-  color: #ff6666;
-}
-body.dark-mode  header{
-  background-color: #f8b5b5;
-  color: #f8f8f8;
-}
-
-
-body.dark-mode .footer {
-  background-color: #444;
-  color: #f8f8f8;
-}
-
-</style>
-
-<script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-      const toggleSwitch = document.getElementById('checkbox');
-      const currentTheme = localStorage.getItem('theme');
-    
-      if (currentTheme) {
-        document.body.classList.add(currentTheme);
-        if (currentTheme === 'dark-mode') {
-          toggleSwitch.checked = true;
-        }
-      }
-    
-      toggleSwitch.addEventListener('change', function () {
-        if (this.checked) {
-          document.body.classList.add('dark-mode');
-          localStorage.setItem('theme', 'dark-mode');
-        } else {
-          document.body.classList.remove('dark-mode');
-          localStorage.setItem('theme', 'light-mode');
-        }
-      });
-    });
-    </script>
-  
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+        <!-- Title with Keywords -->
+        <title>The Future of Technology - Innovations & Trends</title>
+      
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="/images/favi.webp" />
+      
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="category.css">
+        <link rel="stylesheet" href="Scroll_and_progressbar.css">
+      
+        <!-- SEO Metadata -->
+        <meta name="description" content="Explore the latest innovations and trends in technology. Discover how technology shapes our future with insightful articles and updates." />
+        <meta name="keywords" content="technology, future, innovations, trends, tech news" />
+      
+        <style>
+          body { background-color: #f8b5b5; color: #333; font-family: Arial, sans-serif; margin: 0; padding: 0; }
+          .container { max-width: 900px; margin: 40px auto; margin-top: 10rem; background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+          h1 { color: #d9534f; text-align: center; }
+          p, h2 { line-height: 1.6; }
+          img { width: 100%; border-radius: 10px; margin: 20px 0; }
+          .footer { text-align: center; padding: 20px; background-color: #f8b5b5; color: white; }
+          body.dark-mode { background-color: #333; color: #f8f8f8; }
+          body.dark-mode .container { background-color: #444; color: #f8f8f8; }
+          body.dark-mode .container p { color: #f8f8f8 !important; }
+          .icon { position: absolute; width: 18px; height: 18px; top: -15px; transition: opacity 0.3s ease; }
+          body.dark-mode h1 { color: #ff6666; }
+          body.dark-mode header { background-color: #f8b5b5; color: #f8f8f8; }
+          body.dark-mode .footer { background-color: #444; color: #f8f8f8; }
+        </style>
+      
+        <script>
+          document.addEventListener('DOMContentLoaded', (event) => {
+            const toggleSwitch = document.getElementById('checkbox');
+            const currentTheme = localStorage.getItem('theme');
+          
+            if (currentTheme) {
+              document.body.classList.add(currentTheme);
+              if (currentTheme === 'dark-mode') {
+                toggleSwitch.checked = true;
+              }
+            }
+          
+            toggleSwitch.addEventListener('change', function () {
+              if (this.checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark-mode');
+              } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light-mode');
+              }
+            });
+          });
+        </script>
+      </head>
+      
 <body>
     <header style="top: -4rem ;">
     

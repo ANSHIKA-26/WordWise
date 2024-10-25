@@ -1,215 +1,169 @@
 <!-- Before creating the backend for the google signin checkout the google_signin.js file to get idea of how the frontend is sensding the req to the backend -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WordWise</title>
-    <!--favicon-->
-    <link rel="shortcut icon" type="image/x-icon" href="/images/favi.webp" />
-
-    <!--font awesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!--swiper slider css-->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
-    <!-- bootstrap icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-
-    <!-- for scroll reveal -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-
-    <!--css-->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="Scroll_and_progressbar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-          /* Chatbot Container */
-        .chatbot-container {
-            position: fixed;
-            bottom: 20px; /* Adjust as needed */
-            right: 20px; /* Adjust as needed */
-            z-index: 1000; /* Ensure it appears above other elements */
-        }
-
-        /* Chatbot Button */
-        .chatbot-button {
-            background-color: #007bff; /* Change to your preferred color */
-            border: none;
-            border-radius: 50%;
-            padding: 5px; /* Smaller padding */
-            cursor: pointer;
-            position: relative;
-            width: 50px; /* Adjusted size */
-            height: 50px; /* Adjusted size */
-        }
-
-        /* Button Image */
-        .chatbot-button img {
-            width: 30px; /* Adjusted image size */
-            height: 30px; /* Adjusted image size */
-        }
-
-        /* Tooltip Text */
-        .tooltip-text {
-            display: none; /* Hide by default */
-            position: absolute;
-            bottom: 100%; /* Position above the button */
-            right: 90px;
-            transform: translateX(50%);
-            background-color: #333; /* Background color for tooltip */
-            color: #fff; /* Tooltip text color */
-            padding: 5px;
-            border-radius: 5px;
-            white-space: nowrap; /* Prevent text from wrapping */
-            line-height: 20px
-        }
-
-        /* Show Tooltip on Hover */
-        .chatbot-button:hover .tooltip-text {
-            display: block; /* Show on hover */
-        }
-
-        /* Chat Window Styles */
-        .chat-window {
-            position: fixed;
-            bottom: 90px; /* Adjust based on the button size */
-            right: 20px; /* Same as the button */
-            width: 400px; /* Smaller width */
-            height: 500px; /* Fixed height for compactness */
-            border: 1px solid #ccc;
-            background-image: url(./images/background.jpg);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: none; /* Hidden by default */
-            z-index: 1000; /* Ensure it appears above other elements */
-        }
-
-        /* Iframe for Chatbot HTML */
-        #chat-iframe {
-            width: 100%; /* Full width of the chat window */
-            height: calc(100% - 40px); /* Height minus header */
-            border: none; /* Remove border */
-        }
-         @media (max-width: 1200px) {
-    .footer-container {
-      padding: 20px;
-    }
-    .col-3-main {
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
-    .col-3 {
-      width: 33.33%;
-    }
-  }
-
-  @media (max-width: 992px) {
-    .col-3 {
-      width: 50%; /* Stack 2 columns side by side on medium screens */
-    }
-  }
-
-  @media (max-width: 768px) {
-    .col-3 {
-      width: 100%; /* Stack all columns vertically on small screens */
-      margin-bottom: 20px;
-    }
-
-    .feature-post div {
-      flex-direction: column;
-    }
-
-    .tags {
-      text-align: center;
-    }
-  }
-
-  @media (max-width: 576px) {
-    .feature-post div {
-      align-items: center;
-    }
-
-    .tags.social {
-      justify-content: center;
-    }
-
-    .wordwise-footer-content {
-      text-align: center;
-    }
-  }
-
-  /* Optional: You can also set max-width for images */
-  img.object-fit {
-    max-width: 100%; /* Makes images responsive */
-    height: auto;
-  }
-    </style>
-
-
-    <style>
-
-
-.form-container {
-    max-width: 350px;
-    padding: 20px;
-}
-
-.form-group input {
-    width: 100%;
-    padding: 1px;
-
-    display: inline-block;
-    border: 1px solid #ccc;
-    /* box-sizing: border-box; */
-    font-size: 16px;
-}
-
-.form-container h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* .btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-} */
-
-.btn:hover {
-    opacity: 0.8;
-}
-
-.cancel {
-    background-color: #f44336;
-}
-
-.toggle-button {
-    cursor: pointer;
-    color: #007bff;
-    margin-left: 10px;
-}
-
-
-    </style>
-
-
-<!-- Script for Navbar Toggle -->
- <script>
-    function toggleMenu() {
-    const menu = document.getElementById('nav-menu');
-    menu.classList.toggle('active');
-}
- </script>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>WordWise - Enhance Your Vocabulary and Language Skills</title>
+        
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="/images/favi.webp" />
+    
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+        <!-- Swiper Slider CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        
+        <!-- Bootstrap Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        
+        <!-- Scroll Reveal -->
+        <script src="https://unpkg.com/scrollreveal"></script>
+    
+        <!-- CSS -->
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="Scroll_and_progressbar.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+        <meta name="description" content="WordWise helps you enhance your vocabulary and language skills. Explore a wide range of articles, tips, and resources to improve your communication." />
+        <meta name="keywords" content="vocabulary, language skills, WordWise, language learning, communication, grammar, writing tips" />
+        
+        <style>
+            /* Chatbot Container */
+            .chatbot-container {
+                position: fixed;
+                bottom: 20px; /* Adjust as needed */
+                right: 20px; /* Adjust as needed */
+                z-index: 1000; /* Ensure it appears above other elements */
+            }
+    
+            /* Chatbot Button */
+            .chatbot-button {
+                background-color: #007bff; /* Change to your preferred color */
+                border: none;
+                border-radius: 50%;
+                padding: 5px; /* Smaller padding */
+                cursor: pointer;
+                position: relative;
+                width: 50px; /* Adjusted size */
+                height: 50px; /* Adjusted size */
+            }
+    
+            /* Button Image */
+            .chatbot-button img {
+                width: 30px; /* Adjusted image size */
+                height: 30px; /* Adjusted image size */
+            }
+    
+            /* Tooltip Text */
+            .tooltip-text {
+                display: none; /* Hide by default */
+                position: absolute;
+                bottom: 100%; /* Position above the button */
+                right: 90px;
+                transform: translateX(50%);
+                background-color: #333; /* Background color for tooltip */
+                color: #fff; /* Tooltip text color */
+                padding: 5px;
+                border-radius: 5px;
+                white-space: nowrap; /* Prevent text from wrapping */
+                line-height: 20px
+            }
+    
+            /* Show Tooltip on Hover */
+            .chatbot-button:hover .tooltip-text {
+                display: block; /* Show on hover */
+            }
+    
+            /* Chat Window Styles */
+            .chat-window {
+                position: fixed;
+                bottom: 90px; /* Adjust based on the button size */
+                right: 20px; /* Same as the button */
+                width: 400px; /* Smaller width */
+                height: 500px; /* Fixed height for compactness */
+                border: 1px solid #ccc;
+                background-image: url(./images/background.jpg);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                display: none; /* Hidden by default */
+                z-index: 1000; /* Ensure it appears above other elements */
+            }
+    
+            /* Iframe for Chatbot HTML */
+            #chat-iframe {
+                width: 100%; /* Full width of the chat window */
+                height: calc(100% - 40px); /* Height minus header */
+                border: none; /* Remove border */
+            }
+            
+            /* Media Queries for Responsive Design */
+            @media (max-width: 1200px) {
+                .footer-container {
+                    padding: 20px;
+                }
+                .col-3-main {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                }
+                .col-3 {
+                    width: 33.33%;
+                }
+            }
+    
+            @media (max-width: 992px) {
+                .col-3 {
+                    width: 50%; /* Stack 2 columns side by side on medium screens */
+                }
+            }
+    
+            @media (max-width: 768px) {
+                .col-3 {
+                    width: 100%; /* Stack all columns vertically on small screens */
+                    margin-bottom: 20px;
+                }
+    
+                .feature-post div {
+                    flex-direction: column;
+                }
+    
+                .tags {
+                    text-align: center;
+                }
+            }
+    
+            @media (max-width: 576px) {
+                .feature-post div {
+                    align-items: center;
+                }
+    
+                .tags.social {
+                    justify-content: center;
+                }
+    
+                .wordwise-footer-content {
+                    text-align: center;
+                }
+            }
+    
+            /* Optional: You can also set max-width for images */
+            img.object-fit {
+                max-width: 100%; /* Makes images responsive */
+                height: auto;
+            }
+        </style>
+    
+        <!-- Script for Navbar Toggle -->
+        <script>
+            function toggleMenu() {
+                const menu = document.getElementById('nav-menu');
+                menu.classList.toggle('active');
+            }
+        </script>
+        
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
+    </head>
+    
 <body onload="Finish_Loader()">
  <!-- pre load -->
     <div id="loader">

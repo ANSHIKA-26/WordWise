@@ -4,73 +4,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Readling List</title>
+  <title>My Reading List - WordWise</title>
+  <meta name="description" content="Explore your reading list with WordWise. Save and manage your bookmarks easily. Discover articles that enhance your vocabulary and knowledge!">
+  <meta name="keywords" content="reading list, bookmarks, WordWise, vocabulary enhancement, article management">
   <link rel="shortcut icon" type="image/x-icon" href="/images/favi.webp" />
-  <!--fotn awesome-->
+  
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!--swiper slider css-->
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Swiper Slider CSS -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-  <!--css-->
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-  
+  <!-- CSS -->
   <link rel="stylesheet" href="Scroll_and_progressbar.css">
   <link rel="stylesheet" href="style.css">
+  
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const bookmarkMessage = document.getElementById("bookmark-message");
-        const bookmarkedArticles = document.getElementById("bookmarked-articles");
-        const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
-    
-        if (bookmarks.length > 0) {
-            bookmarkMessage.textContent = `${bookmarks.length} bookmark(s) found!`;
-            document.getElementById("fixed-message").style.display = 'flex'; 
-        } else {
-            bookmarkMessage.textContent = "No bookmarks found.";
-            document.getElementById("fixed-message").style.display = 'none'; 
-        }
-    
-        bookmarks.forEach(bookmark => {
-            const articleDiv = document.createElement('div');
-            articleDiv.style.border = '1px solid #ddd'; 
-            articleDiv.style.borderRadius = '8px'; 
-            articleDiv.style.padding = '15px';
-            articleDiv.style.marginBottom = '15px';
-            articleDiv.style.display = 'flex'; 
-    
-            const articleImage = document.createElement('img');
-            articleImage.src = './assets/img1.webp'; 
-            articleImage.alt = 'Article Image';
-            articleImage.style.width = '150px'; 
-            articleImage.style.height = 'auto'; 
-            articleImage.style.borderRadius = '8px';
-            articleImage.style.marginRight = '15px'; 
-    
-            // Article content
-            const articleContent = document.createElement('div');
-            articleContent.style.flex = '1'; 
-            articleContent.innerHTML = `
-                <h4 style="margin: 0; color: #007bff; font-size: 1.5rem;">In the realm of mechanical marvels...</h4>
-                <div style="color: #555; margin: 5px 0;">
-                <strong>Category:</strong> <span style="color: #007bff;">Travel</span> <br>
-                <strong>By:</strong> <span style="color: #007bff;">Anshika Arora</span> <br>
-                <strong>On:</strong> <span style="color: #007bff;">Feb 12, 2021</span>
-                </div>
-                <a href="blog.html" style="color: #007bff; text-decoration: none; border-bottom: 1px solid #007bff; transition: color 0.3s;">Read more
-                </a>
-            `;
-    
-            articleDiv.appendChild(articleImage);
-            articleDiv.appendChild(articleContent);
-            bookmarkedArticles.appendChild(articleDiv);
-        });
-    });
-    
+      document.addEventListener("DOMContentLoaded", function() {
+          const bookmarkMessage = document.getElementById("bookmark-message");
+          const bookmarkedArticles = document.getElementById("bookmarked-articles");
+          const bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
 
-</script>
+          if (bookmarks.length > 0) {
+              bookmarkMessage.textContent = `${bookmarks.length} bookmark(s) found!`;
+              document.getElementById("fixed-message").style.display = 'flex'; 
+          } else {
+              bookmarkMessage.textContent = "No bookmarks found.";
+              document.getElementById("fixed-message").style.display = 'none'; 
+          }
+
+          bookmarks.forEach(bookmark => {
+              const articleDiv = document.createElement('div');
+              articleDiv.style.border = '1px solid #ddd'; 
+              articleDiv.style.borderRadius = '8px'; 
+              articleDiv.style.padding = '15px';
+              articleDiv.style.marginBottom = '15px';
+              articleDiv.style.display = 'flex'; 
+
+              const articleImage = document.createElement('img');
+              articleImage.src = './assets/img1.webp'; 
+              articleImage.alt = 'Article Image';
+              articleImage.style.width = '150px'; 
+              articleImage.style.height = 'auto'; 
+              articleImage.style.borderRadius = '8px';
+              articleImage.style.marginRight = '15px'; 
+
+              // Article content
+              const articleContent = document.createElement('div');
+              articleContent.style.flex = '1'; 
+              articleContent.innerHTML = `
+                  <h4 style="margin: 0; color: #007bff; font-size: 1.5rem;">In the realm of mechanical marvels...</h4>
+                  <div style="color: #555; margin: 5px 0;">
+                  <strong>Category:</strong> <span style="color: #007bff;">Travel</span> <br>
+                  <strong>By:</strong> <span style="color: #007bff;">Anshika Arora</span> <br>
+                  <strong>On:</strong> <span style="color: #007bff;">Feb 12, 2021</span>
+                  </div>
+                  <a href="blog.html" style="color: #007bff; text-decoration: none; border-bottom: 1px solid #007bff; transition: color 0.3s;">Read more
+                  </a>
+              `;
+
+              articleDiv.appendChild(articleImage);
+              articleDiv.appendChild(articleContent);
+              bookmarkedArticles.appendChild(articleDiv);
+          });
+      });
+  </script>
 </head>
+
 
 <body>
   <div class= "progress-container">

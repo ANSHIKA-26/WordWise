@@ -1,155 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - WordWise</title>
-    <link rel="shortcut icon" type="image/x-icon" href="/images/favi.webp" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Add custom styles for the popup */
-        
-        .secondary-title {
-            color: white;
-        }
-        .popup {
-            display: none;
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            border-radius: 8px;
-        }
-
-        .popup.show {
-            display: block;
-        }
-
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-        }
-
-        .overlay.show {
-            display: block;
-        }
- 
-        .btn-close {
-
-            background:  none;
-            border:  none;
-            font-size:  20px;
-            cursor: pointer;
-            position:  absolute;
-            top:  10px;
-            right:  10px;
-
-        }
- 
-        /* Improved styles for the contact section */
-        .contact-section {
-            max-width: 500px; /* Adjusted width for better alignment */
-            margin: 120px auto; /* Increased top margin for more space from the top */
-            padding: 20px;
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            margin-bottom: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Optional: Adjust header margin if needed */
-        #header {
-            margin-bottom: 0; /* Ensure no margin at the bottom to avoid extra space */
-        }
-
-        /* Additional spacing for the heading and paragraph */
-        .contact-section h1 {
-            font-size: 32px;
-            margin-bottom: 15px;
-            color: #e72d2d;
-        }
-
-        .contact-section p {
-            font-size: 20px;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            color: #360d73;
-            font-weight: bold;
-        }
-
-        .contact-form {
-            display: flex;
-            margin-top: 4px;
-            padding-top: 4px;
-            flex-direction: column;
-            gap: 15px; /* Adjusted gap for better spacing */
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 3px; /* Slightly reduced padding for better fit */
-            font-size: 16px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: border-color 0.3s ease;
-            margin-top: 1px;
-            color:#2a1885;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: #30cfd0;
-            outline: none;
-        }
-
-        .contact-form button {
-            background-color: #30cfd0;
-            color: white;
-            border: none;
-            padding: 12px; /* Slightly reduced padding for better fit */
-            border-radius: 55px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .contact-form button:hover {
-            background-color: #28b7b5;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            .contact-section {
-                padding: 15px;
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Us - WordWise | Get in Touch</title>
+        <meta name="description" content="Reach out to WordWise for inquiries, feedback, or support. We're here to assist you in your learning journey." />
+        <meta name="keywords" content="Contact Us, WordWise, support, inquiries, educational platform, feedback" />
+        <link rel="shortcut icon" type="image/x-icon" href="/images/favi.webp" />
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- CSS -->
+        <link rel="stylesheet" href="style.css">
+        <style>
+            /* Add custom styles for the popup */
+            
+            .secondary-title {
+                color: white;
             }
-
+            .popup {
+                display: none;
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                padding: 20px;
+                background-color: white;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+                border-radius: 8px;
+            }
+    
+            .popup.show {
+                display: block;
+            }
+    
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+    
+            .overlay.show {
+                display: block;
+            }
+     
+            .btn-close {
+                background: none;
+                border: none;
+                font-size: 20px;
+                cursor: pointer;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+     
+            /* Improved styles for the contact section */
+            .contact-section {
+                max-width: 500px; /* Adjusted width for better alignment */
+                margin: 120px auto; /* Increased top margin for more space from the top */
+                padding: 20px;
+                text-align: center;
+                background-color: rgba(255, 255, 255, 0.9);
+                border-radius: 10px;
+                margin-bottom: 5px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+    
+            /* Optional: Adjust header margin if needed */
+            #header {
+                margin-bottom: 0; /* Ensure no margin at the bottom to avoid extra space */
+            }
+    
+            /* Additional spacing for the heading and paragraph */
+            .contact-section h1 {
+                font-size: 32px;
+                margin-bottom: 15px;
+                color: #e72d2d;
+            }
+    
+            .contact-section p {
+                font-size: 20px;
+                line-height: 1.6;
+                margin-bottom: 30px;
+                color: #360d73;
+                font-weight: bold;
+            }
+    
+            .contact-form {
+                display: flex;
+                margin-top: 4px;
+                padding-top: 4px;
+                flex-direction: column;
+                gap: 15px; /* Adjusted gap for better spacing */
+            }
+    
             .contact-form input,
             .contact-form textarea {
-                padding: 10px; /* Further reduced padding for smaller screens */
+                width: 100%;
+                padding: 3px; /* Slightly reduced padding for better fit */
+                font-size: 16px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                transition: border-color 0.3s ease;
+                margin-top: 1px;
+                color: #2a1885;
             }
-
+    
+            .contact-form input:focus,
+            .contact-form textarea:focus {
+                border-color: #30cfd0;
+                outline: none;
+            }
+    
             .contact-form button {
-                padding: 10px; /* Further reduced padding for smaller screens */
+                background-color: #30cfd0;
+                color: white;
+                border: none;
+                padding: 12px; /* Slightly reduced padding for better fit */
+                border-radius: 55px;
+                font-size: 18px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
             }
-        }
-    </style>
-</head>
+    
+            .contact-form button:hover {
+                background-color: #28b7b5;
+            }
+    
+            /* Responsive adjustments */
+            @media (max-width: 600px) {
+                .contact-section {
+                    padding: 15px;
+                }
+    
+                .contact-form input,
+                .contact-form textarea {
+                    padding: 10px; /* Further reduced padding for smaller screens */
+                }
+    
+                .contact-form button {
+                    padding: 10px; /* Further reduced padding for smaller screens */
+                }
+            }
+        </style>
+    </head>
+    
 <body>
 
 
