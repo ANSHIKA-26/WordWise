@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const slides = document.querySelector('.slides');
     const radioButtons = document.querySelectorAll('input[name="radio-btn"]');
     const labels = document.querySelectorAll('.manual-btn');
+    const prevButton = document.getElementById('prevSlide');
+    const nextButton = document.getElementById('nextSlide');
     let currentSlide = 0;
 
     function showSlide(index) {
@@ -24,6 +26,10 @@ document.addEventListener('DOMContentLoaded', function () {
         currentSlide = (currentSlide + 1) % radioButtons.length;
         showSlide(currentSlide);
     }
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + radioButtons.length) % radioButtons.length;
+        showSlide(currentSlide);
+    }
 
     // Add click event listeners to radio buttons
     radioButtons.forEach((radio, index) => {
@@ -32,6 +38,10 @@ document.addEventListener('DOMContentLoaded', function () {
             showSlide(currentSlide);
         });
     });
+
+     // Add click event listeners to Prev and Next buttons
+     prevButton.addEventListener('click', prevSlide);
+     nextButton.addEventListener('click', nextSlide);
 
     // Show first slide initially
     showSlide(0);
