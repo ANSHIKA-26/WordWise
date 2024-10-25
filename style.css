@@ -2404,6 +2404,15 @@ h1 {
   border: none;
 }
 
+/* Word of the Day Dark Mode Styles */
+[data-theme="dark"] #word-of-the-day,
+[data-theme="dark"] #word-of-the-day h2,
+[data-theme="dark"] #word-of-the-day #word,
+[data-theme="dark"] #word-of-the-day #definition {
+    color: black;
+}
+
+
 
 footer .text-lg {
   margin: 10px 0 0 0;
