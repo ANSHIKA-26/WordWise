@@ -511,6 +511,13 @@ body.dark-mode footer .phone{
 [data-theme="dark"] .form-container h2{
   color: var(--light);/*form heading made light-colored in dark theme*/
 }
+body.dark-mode .bookmark-section { 
+  background-color: #141414; /* Dark background for the bookmark section */
+  color: #ffffff; /* Optional: Change text color to white for better contrast */
+}
+body.dark-mode .bookmark-section h1{ 
+  color: #ffffff; /* Optional: Change text color to white for better contrast */
+}
 
 #headings{
     color: var(--dark);
