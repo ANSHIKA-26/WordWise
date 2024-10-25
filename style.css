@@ -1867,6 +1867,30 @@ a {
   content: none;
 }
 
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 16px;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 18px;
+}
+
+#prevSlide {
+  left: 10px;
+}
+
+#nextSlide {
+  right: 10px;
+}
+
+#prevSlide:hover, #nextSlide:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
 
 .social-sharing {
   margin-top: 10px;
@@ -2655,9 +2679,11 @@ for facebook
 
 .flex-wrap a:hover{
   transform: scale(1.05);
+
   /* padding: 2px 4px; */
   border-radius: 2px;
   /* transition: all 0.2s ease-in-out; */
+
 }
 
 
