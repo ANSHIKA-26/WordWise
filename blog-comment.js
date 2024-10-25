@@ -139,7 +139,7 @@ function showToast(message, type) {
   toast.style.transition = "opacity 0.5s, transform 0.5s";
   toast.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.2)";
 
-   // Apply different styles based on the type of toast
+  // Apply different styles based on the type of toast
   if (type === "success") {
     toast.style.backgroundColor = "rgba(40, 167, 69, 0.75)"; // Slightly transparent green
   } else if (type === "error") {
@@ -164,4 +164,46 @@ function showToast(message, type) {
       document.body.removeChild(toast);
     }, 500);
   }, 3000);
+}
+async function saveComment(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Get values from the form inputs
+  const name = document.getElementById("commenterName").value.trim();
+  const comment = document.getElementById("commentText").value.trim();
+
+  // Check if both name and comment fields are filled
+  if (!name || !comment) {
+    alert("All fields are required.");
+    return;
+  }
+
+  // Prepare data to send to the server
+  const data = { name, comment };
+
+  try {
+    // Make the API request to save the comment
+    const response = await fetch(
+      "http://localhost:5000/api/blogs/savecomment",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
+
+    // Handle the response
+    const result = await response.json();
+    if (result.success) {
+      alert(result.message); // Show success message
+      document.getElementById("commentForm").reset(); // Clear the form
+    } else {
+      alert(result.message); // Show error message from server
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    alert("An error occurred. Please try again later.");
+  }
 }
