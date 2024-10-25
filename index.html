@@ -250,25 +250,26 @@
     height: 3px;
     background-color: #333;
     }
-    
-    @media (max-width: 768px) {
-        .logo {
-            margin-left: -60px;
-        }
+
+    @media (max-width: 1024px) {
         .logo h1 a{
-        font-size: 30px;
-       
+        font-size: 30px;   
     }
- 
-    /* nav{
-        margin: 0 10px;
-    } */
+    .nav-links1 {
+    gap: 10px;
+    }
+.nav-links1 a{
+    font-size: 16px;
+}
+    }
+    @media (max-width: 768px) {
     .hamburger {
         display: flex;
-      
-        
+        align-items: center;
+        justify-content: center;
+        /* Add styling for visibility, like color, size, etc. */
     }
-    
+
     .nav-links1 {
         display: none;
         flex-direction: column;
@@ -281,19 +282,42 @@
         padding: 20px;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     }
-    
+
     .nav-links1.active {
         display: flex;
     }
-    
+
     .dropdown {
         position: relative;
-        padding-left: 40px;
+       margin-left: 200px;
     }
-    .theme-switch-wrapper{
+}
+
+/* Additional styling for smaller screens */
+@media (max-width: 576px) {
+    .logo {
+        margin-left: -75px;
+    }
+    .logo h1 a {
+        font-size: 30px;
+    }
+    .dropdown {
+        position: relative;
+       margin-left: 60px;
+    }
+    .theme-switch-wrapper {
         margin-right: -80px;
     }
+}
+
+@media (max-width: 345px) {
+    .logo {
+        margin-left: -65px;
     }
+    .logo h1 a {
+        font-size: 24px;
+    }
+}
     
     
     .dropdown-menu {
