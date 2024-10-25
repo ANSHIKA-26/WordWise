@@ -221,55 +221,160 @@
   <div id="square5"></div>
 </div>
     </div>
-   <nav>
 
+    <!-- Styles -->
+<style>
+    /* General Styles */
+    
+    .logo h1 a{
+        font-size: 40px;
+    
+    }
+    
+    .nav-links1 {
+    display: flex;
+    gap: 30px;
+    }
+    
+    .hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 22px;
+    }
+    
+    .hamburger span {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    }
 
-    <div class="progress-container">
-        <div class="progress-bar" id="progress-bar"></div>
-      </div>
-<!-- Navigation Bar  -->
-<div class="layout-container" style="margin-bottom: 4rem;">
+    @media (max-width: 1024px) {
+        .logo h1 a{
+        font-size: 30px;   
+    }
+    .nav-links1 {
+    gap: 10px;
+    }
+.nav-links1 a{
+    font-size: 16px;
+}
+    }
+    @media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* Add styling for visibility, like color, size, etc. */
+    }
 
-    <header >
+    .nav-links1 {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
+    .nav-links1.active {
+        display: flex;
+    }
 
+    .dropdown {
+        position: relative;
+       margin-left: 200px;
+    }
+}
 
-    <div class="logo">
+/* Additional styling for smaller screens */
+@media (max-width: 576px) {
+    .logo {
+        margin-left: -75px;
+    }
+    .logo h1 a {
+        font-size: 30px;
+    }
+    .dropdown {
+        position: relative;
+       margin-left: 60px;
+    }
+    .theme-switch-wrapper {
+        margin-right: -80px;
+    }
+}
 
-        <h2 href="index.html">WordWise</h2>
-    </div>
-    <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    <div class="nav-links1">
-        <a href="index.html">Home</a>
-        <a href="blog.html">Leading Blog</a>
-        <a href="start_writing.html">Start Writing</a>
-        <a href="category.html">Categories</a>
+@media (max-width: 345px) {
+    .logo {
+        margin-left: -65px;
+    }
+    .logo h1 a {
+        font-size: 24px;
+    }
+}
+    
+    
+    .dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    }
+    
+    .dropdown:hover .dropdown-menu {
+    display: block;
+    }
+    
+    
+    
+    </style>
+    <nav>
 
-        <a href="contact_us.html">Contact Us</a>
-        
-        <a href="give_feedback.html">Give Feedback</a>
-        
-    </div>
-              <div class="dropdown" >
-                <!-- Profile Icon -->
-                <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
-                    <i class="fas fa-user-circle"></i>
-                </a>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <!-- Navigation Bar  -->
+        <div class="layout-container">
+    
+            <header>
+    
+                <div class="logo">
+                    <h1><a href="index.html">WordWise</a></h1>
+                </div>
+                <div class="hamburger" id="hamburger" onclick="toggleHamburgerMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="nav-links1" id="navLinks">
+                    <a href="index.html">Home</a>
+                    <a href="blog.html">Leading Blog</a>
+                    <a href="start_writing.html">Start Writing</a>
+                    <a href="category.html">Categories</a>
+                    <a href="contact_us.html">Contact Us</a>
+                    <a href="give_feedback.html">Give Feedback</a>
+                </div>
+                <div class="dropdown">
+                    <!-- Profile Icon -->
+                    <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
+    
+                    <!-- Dropdown Menu -->
+                    <ul class="dropdown-menu" id="dropdownMenu">
+                        <li><a href="#login" onclick="openForm('login')">Login</a></li>
+                        <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
+                    </ul>
+                </div>
 
-                <!-- Dropdown Menu -->
-                <ul class="dropdown-menu" id="dropdownMenu">
-                    <li><a href="#login" onclick="openForm('login')">Login</a></li>
-                    <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
-                </ul>
-            </div>
-
-
-
-        <!-- Login Form -->
 <!-- Login Form -->
 <div class="form-popup" id="loginForm">
     <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
@@ -439,7 +544,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <script src="backend/signup/signup.js"></script> <!-- Link to your JavaScript file -->
 
-      <div class="theme-switch-wrapper" >
+       <!-- Theme Switch -->
+       <div class="theme-switch-wrapper">
         <label class="theme-switch" for="checkbox">
             <input type="checkbox" id="checkbox">
             <div class="slider">
@@ -449,12 +555,21 @@
         </label>
         <span id="mode-label"></span>
     </div>
-</div>
-    </header>
+
+</header>
 </div>
 
+</nav>
 
-   </nav>
+<!-- JavaScript for Hamburger Menu Toggle -->
+<script>
+function toggleHamburgerMenu() {
+const navLinks = document.getElementById('navLinks');
+navLinks.classList.toggle('active');
+}
+</script>
+
+
 <!--Header Ends-->
     <!--Main Section Starts-->
     <main id="site-main" style="margin-top: 10rem;margin-left: 50px;">
