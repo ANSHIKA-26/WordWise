@@ -5,6 +5,7 @@ import {
   deleteBlog,
   getAllBlogs,
   getSingleBlog,
+  saveComment,
 } from "../controllers/blogController.js";
 import authMiddleware from "../middlewares/authMiddleware.js";
 import adminMiddleware from "../middlewares/adminMiddleware.js";
@@ -22,5 +23,8 @@ router.put("/:id", authMiddleware, blogValidation, updateBlog);
 
 // Admin-only routes
 router.delete("/:id", authMiddleware, adminMiddleware, deleteBlog);
+
+// save user comments
+router.post("/savecomment", saveComment);
 
 export default router;
