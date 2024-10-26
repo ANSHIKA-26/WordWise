@@ -397,7 +397,6 @@ html, body {
 
 
 body.dark-mode footer a{
- background-color: #333;
   color: #f2dede;
 }
 
@@ -1528,12 +1527,11 @@ body.dark .support a {
 }
 
 .d-flex {
-  /* padding: 5px 5px; */
   margin-top: 10px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  /* gap: 10px; */
+  justify-content: start;
+  gap: 10px;
 }
 
 .d-flex-gap {
@@ -1541,12 +1539,9 @@ body.dark .support a {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  
-   /* justify-content: space-around; */
 }
 
 .d-flex-gap a {
-  transition: all 0.2s ease;
   font-weight: 600;
   color: var(--text-color);
 }
@@ -1697,7 +1692,41 @@ a {
   background-color: var(--background-color);
 }
 
+.social-link{
+  padding: 3px;
+  transition: 0.5s ease-in !important;
+}
+#facebook {
+  /* Default light background */
+  color: #3b5998; /* Default Facebook blue for the icon */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+#facebook:hover {
+  background-color: #3b5998; /* Facebook blue on hover */
+  color: #fff; /* White icon on hover */
+}
+#instagram {
+  /* background-color: #f0f0f0; Default light background */
+  color: #e1306c; /* Default Instagram pink for the icon */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
+#instagram:hover {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Instagram gradient */
+  color: #ffffff; /* White icon on hover */
+}
+
+
+#dribbble{
+  /* background-color: #f0f0f0; Default light background */
+  color: #ea4c89; /* Default Dribbble pink for the icon */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#dribbble:hover {
+  background-color: #ea4c89; /* Dribbble pink on hover */
+  color: #ffffff; /* White icon on hover */
+}
 
 .img-fluid {
   width: 93%;
@@ -1822,7 +1851,7 @@ a {
 
 .sliderr .slide {
   width: 16.66%;
-  transition: 0.3s ease;
+  transition: 0.6s ease;
 }
 
 .sliderr .slide img {
@@ -2145,10 +2174,10 @@ a {
 
 .nav-link:hover{
  /* Change background color on hover */
-        /* color: #f8b5b5;
-        scale: 1.01; Change text color on hover
-      Optional: Change border color on hover
-        transition: background-color 0.3s ease, color 0.3s ease; Smooth transition */
+        color: #f8b5b5;
+        scale: 1.2; /* Change text color on hover */
+      /* Optional: Change border color on hover */
+        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
 .search-box {
   border-right: none;
@@ -2676,17 +2705,16 @@ for facebook
  } */
 
 
+.flex-wrap a{
+  margin-right: 10px;
+  transition: all .38s ease-in-out;
+}
 
 .flex-wrap a:hover{
   transform: scale(1.05);
-
-  /* padding: 2px 4px; */
-  border-radius: 2px;
-  /* transition: all 0.2s ease-in-out; */
-
+  padding: 2px 4px;
+  border-radius: 4px;
 }
-
-
 #facebook:hover{
   color: white;
   background-color:rgb(62, 62, 255) ;
@@ -3380,23 +3408,3 @@ nav{
     transform: translateY(0); /* Final position */
   }
 }
- .flex-wrap a{
-  margin-right: 10px;
-  transition: 0.1s ease-in !important;
-  size: 1rem;
-  font-weight: 600;
-  color: var(--text-color);
-
-}/*
-.flex-wrap a i{
-  size: 1rem;
-  transition:all 0.2s ease ;
-} */
-nav1{
-  width: 100%;
-   position: fixed;
-   top:0;
-   margin-bottom: 4rem;
-   z-index: 999;
-   
- }
