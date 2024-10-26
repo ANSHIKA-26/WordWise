@@ -3400,3 +3400,23 @@ nav1{
    z-index: 999;
    
  }
+
+ .newsletter-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+}
+
+.newsletter-input:hover {
+  transform: translateZ(5px) scale(1.02); /* 3D scaling and lift effect */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
+}
+
+.newsletter-input:focus {
+  border-color: #4a90e2; /* Optional: Changes border color on focus */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Slightly more intense shadow */
+}
