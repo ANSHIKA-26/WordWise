@@ -3420,3 +3420,15 @@ nav1{
   border-color: #4a90e2; /* Optional: Changes border color on focus */
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Slightly more intense shadow */
 }
+
+/* Basic styling for the Twitter logo */
+.fa-brands fa-x-twitter {
+  transition: background-color 0.3s ease;
+  border-radius: 50%; /* Optional: Makes the background round */
+  padding: 5px; /* Adds space around the logo */
+}
+
+/* Dark mode styling */
+.dark-mode .fa-brands fa-x-twitter {
+  background-color: #ffffff; /* White background for visibility */
+}
