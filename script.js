@@ -126,3 +126,42 @@ function updateWord(wordData) {
 
 // Call the function to load the word of the day
 loadWordOfTheDay();
+//hamburger (Responsive)
+
+// function toggleHamburgerMenu() {
+//   const navLinks = document.getElementById('navLinks');
+//   navLinks.classList.toggle('active');
+//   }
+
+function toggleHamburgerMenu() {
+
+  
+  const navLinks = document.getElementById('navLinks');
+  const isActive = navLinks.classList.toggle('active'); // Toggle 'active' class
+
+  if (isActive) {
+    console.log("active");
+    
+    // Close the menu when clicking outside
+    document.addEventListener('click', closeOnOutsideClick);
+  } else {
+    console.log("inactive");
+    
+    // Remove the event listener when menu is closed
+    document.removeEventListener('click', closeOnOutsideClick);
+  }
+}
+
+function closeOnOutsideClick(event) {
+  
+  
+  const navLinks = document.getElementById('navLinks');
+  const hamburger = document.getElementById('hamburger');
+  
+  if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+    console.log("menu close");
+    
+    navLinks.classList.remove('active'); // Close the menu
+    document.removeEventListener('click', closeOnOutsideClick); // Remove the listener
+  }
+}

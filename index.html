@@ -31,7 +31,10 @@
             bottom: 20px; /* Adjust as needed */
             right: 20px; /* Adjust as needed */
             z-index: 1000; /* Ensure it appears above other elements */
+            
         }
+        
+
 
         /* Chatbot Button */
         .chatbot-button {
@@ -201,12 +204,7 @@
 
 
 <!-- Script for Navbar Toggle -->
- <script>
-    function toggleMenu() {
-    const menu = document.getElementById('nav-menu');
-    menu.classList.toggle('active');
-}
- </script>
+
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 </head>
@@ -231,12 +229,12 @@
     
     }
     
-    .nav-links1 {
+    /* .nav-links1 {
     display: flex;
     gap: 30px;
-    }
+    } */
     
-    .hamburger {
+    /* .hamburger {
     display: none;
     cursor: pointer;
     flex-direction: column;
@@ -252,7 +250,7 @@
     }
 
     @media (max-width: 1024px) {
-        .logo h1 a{
+        .logo a h2{
         font-size: 30px;   
     }
     .nav-links1 {
@@ -267,7 +265,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        /* Add styling for visibility, like color, size, etc. */
+        Add styling for visibility, like color, size, etc.
     }
 
     .nav-links1 {
@@ -281,6 +279,7 @@
         background-color: #fff;
         padding: 20px;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 2px;
     }
 
     .nav-links1.active {
@@ -290,21 +289,27 @@
     .dropdown {
         position: relative;
        margin-left: 200px;
+       
     }
 }
 
-/* Additional styling for smaller screens */
+Additional styling for smaller screens
 @media (max-width: 576px) {
     .logo {
         margin-left: -75px;
     }
-    .logo h1 a {
+    .logo a h2 {
         font-size: 30px;
     }
     .dropdown {
         position: relative;
        margin-left: 60px;
+       
     }
+    ul.dropdown-menu{
+        border-radius: 2px;
+    }
+    
     .theme-switch-wrapper {
         margin-right: -80px;
     }
@@ -314,10 +319,10 @@
     .logo {
         margin-left: -65px;
     }
-    .logo h1 a {
+    .logo a h2 {
         font-size: 24px;
     }
-}
+} */
     
     
     .dropdown-menu {
@@ -347,7 +352,9 @@
             <header>
     
                 <div class="logo">
-                    <h1><a href="index.html">WordWise</a></h1>
+                    <a href="index.html">
+                        <h2>WordWise</h2>
+                      </a>
                 </div>
                 <div class="hamburger" id="hamburger" onclick="toggleHamburgerMenu()">
                     <span></span>
@@ -392,7 +399,12 @@
         <div class="forgot">
             <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
           </div>
-        <button type="submit" class="btn btn-primary w-100 mb-3">LOGIN</button>
+        <button type="submit" class="btn btn-secondary w-100 mb-3">LOGIN</button>
+        <style>
+            .btn:hover{
+                transition: 0.5s ease;
+            }
+        </style>
        <!-- Google Sign-In Button -->
              <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
                 <img src="./assets/google_icon.webp" alt="Google Logo" class="google-logo">
@@ -471,6 +483,8 @@
         }
     }
 </script>
+
+
 
 <!-- Styles -->
 <style>
@@ -563,10 +577,7 @@
 
 <!-- JavaScript for Hamburger Menu Toggle -->
 <script>
-function toggleHamburgerMenu() {
-const navLinks = document.getElementById('navLinks');
-navLinks.classList.toggle('active');
-}
+
 </script>
 
 
@@ -1524,6 +1535,9 @@ document.getElementById("backToTop").addEventListener("click", function() {
 <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
 <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 <script src="script.js"></script>
+
+
+
 
 
 
