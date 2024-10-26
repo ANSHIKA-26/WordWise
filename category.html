@@ -56,12 +56,12 @@
                 </a>
             </div>
 
-            <div class="hamburger" id="hamburger">
+            <div class="hamburger" id="hamburger" onclick="toggleHamburgerMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-        <div class="nav-links1">
+        <div class="nav-links1" id="navLinks">
             <a href="index.html">Home</a>
             <a href="blog.html">Leading Blog</a>
             <a href="start_writing.html">Start Writing</a>
@@ -808,20 +808,20 @@
             if (savedMode === 'dark') {
                 document.body.classList.add('dark-mode');
                 checkbox.checked = true;
-                modeLabel.textContent = 'Dark Mode';
+                modeLabel.textContent = '';
             } else {
-                modeLabel.textContent = 'Light Mode';
+                modeLabel.textContent = '';
             }
 
             checkbox.addEventListener('change', function() {
                 if (this.checked) {
                     document.body.classList.add('dark-mode');
                     localStorage.setItem('darkMode', 'dark');
-                    modeLabel.textContent = 'Dark Mode';
+                    modeLabel.textContent = '';
                 } else {
                     document.body.classList.remove('dark-mode');
                     localStorage.setItem('darkMode', 'light');
-                    modeLabel.textContent = 'Light Mode';
+                    modeLabel.textContent = '';
                 }
             });
 
@@ -886,7 +886,7 @@
 <div class="gtranslate_wrapper"></div>
 <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
 <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
-
+<script src="script.js"></script>
 
 </body>
 
