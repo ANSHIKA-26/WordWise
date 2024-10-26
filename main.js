@@ -66,8 +66,10 @@ function myFunction() {
 function openForm(formType) {
   if (formType === 'login') {
       document.getElementById('loginForm').style.display = 'block';
+      document.getElementById('signupForm').style.display = 'none';
   } else if (formType === 'signup') {
       document.getElementById('signupForm').style.display = 'block';
+      document.getElementById('loginForm').style.display = 'none';
   }
 }
 
