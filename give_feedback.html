@@ -84,6 +84,7 @@
 </head>
 
 <body>
+  <nav1>
   <div class="progress-container">
     <div class="progress-bar" id="progress-bar"></div>
   </div>
@@ -98,12 +99,12 @@
           <h2>WordWise</h2>
         </a>
       </div>
-      <div class="hamburger" id="hamburger">
+      <div class="hamburger" id="hamburger" onclick="toggleHamburgerMenu()">
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <div class= "nav-links1">
+      <div class= "nav-links1" id="navLinks">
         <a href= "index.html">Home</a>
         <a href= "blog.html">Leading Blog</a>
         <a href= "start_writing.html">Start Writing</a>
@@ -352,7 +353,7 @@ main
           .star-rating {
       text-align: left;
       display: flex;
-      justify-content: flex-start;
+      justify-content: flex-end;
     }
 
     .star-rating label {
@@ -438,7 +439,7 @@ main
         </div>
       </header>
     </div>
-  </nav>
+  </nav1>
 
  
 
@@ -556,6 +557,15 @@ main
       const message = document.getElementById('message').value;
       const rating = document.querySelector('input[name="rating"]:checked')?.value;
 
+
+       // Email validation regex
+       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Validate email
+if (!emailPattern.test(email)) {
+    alert('Please enter a valid email address.');
+    return; // Stop execution if email is invalid
+}
       
       // Display feedback result in popup
       feedbackResult.innerHTML = `Thank you, ${name}!<br>Your feedback: ${message}<br>Rating: ${rating} stars`;
@@ -678,11 +688,11 @@ main
 
           <div class="tags">
             <div class="d-flex-gap flex-wrap">
-              <a href="#" class="nav-link btn bg-light " style="font-weight: 400;">Travel</a>
-              <a href="#" class="nav-link btn bg-light" style="font-weight: 400;">Food</a>
-              <a href="#" class="nav-link btn bg-light" style="font-weight: 400;">Lifestyle</a>
-              <a href="#" class="nav-link btn bg-light" style="font-weight: 400;">Techonogy</a>
-              <a href="#" class="nav-link btn bg-light" style="font-weight: 400;">Fashion</a>
+              <a href="#" class="nav-link btn bg-light ">Travel</a>
+              <a href="#" class="nav-link btn bg-light">Food</a>
+              <a href="#" class="nav-link btn bg-light">Lifestyle</a>
+              <a href="#" class="nav-link btn bg-light">Techonogy</a>
+              <a href="#" class="nav-link btn bg-light">Fashion</a>
             </div>
           </div>
 
@@ -735,7 +745,7 @@ main
   <div class="gtranslate_wrapper"></div>
 <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
 <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
-
+<script src="script.js"></script>
 
 </body>
 

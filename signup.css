@@ -11,8 +11,13 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100%;
+    max-height: 900px;
+    overflow-y: auto;
 }
+header div h2 a.home-link{
+    text-align: center;
+}
+
 .box-login{
     background-color: rgba(238, 216, 187, 0.849);
     color: white;

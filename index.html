@@ -31,7 +31,10 @@
             bottom: 20px; /* Adjust as needed */
             right: 20px; /* Adjust as needed */
             z-index: 1000; /* Ensure it appears above other elements */
+            
         }
+        
+
 
         /* Chatbot Button */
         .chatbot-button {
@@ -56,13 +59,14 @@
             display: none; /* Hide by default */
             position: absolute;
             bottom: 100%; /* Position above the button */
-            right: 50%;
+            right: 90px;
             transform: translateX(50%);
             background-color: #333; /* Background color for tooltip */
             color: #fff; /* Tooltip text color */
             padding: 5px;
             border-radius: 5px;
             white-space: nowrap; /* Prevent text from wrapping */
+            line-height: 20px
         }
 
         /* Show Tooltip on Hover */
@@ -78,7 +82,7 @@
             width: 400px; /* Smaller width */
             height: 500px; /* Fixed height for compactness */
             border: 1px solid #ccc;
-            background-color: white;
+            background-image: url(./images/background.jpg);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             display: none; /* Hidden by default */
             z-index: 1000; /* Ensure it appears above other elements */
@@ -200,12 +204,7 @@
 
 
 <!-- Script for Navbar Toggle -->
- <script>
-    function toggleMenu() {
-    const menu = document.getElementById('nav-menu');
-    menu.classList.toggle('active');
-}
- </script>
+
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 </head>
@@ -220,49 +219,169 @@
   <div id="square5"></div>
 </div>
     </div>
-    <div class="progress-container">
-        <div class="progress-bar" id="progress-bar"></div>
-      </div>
-<!-- Navigation Bar  -->
-<div class="layout-container" style="margin-bottom: 4rem;">
 
-    <header >
+    <!-- Styles -->
+<style>
+    /* General Styles */
+    
+    .logo h1 a{
+        font-size: 40px;
+    
+    }
+    
+    /* .nav-links1 {
+    display: flex;
+    gap: 30px;
+    } */
+    
+    /* .hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 22px;
+    }
+    
+    .hamburger span {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    }
 
+    @media (max-width: 1024px) {
+        .logo a h2{
+        font-size: 30px;   
+    }
+    .nav-links1 {
+    gap: 10px;
+    }
+.nav-links1 a{
+    font-size: 16px;
+}
+    }
+    @media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        Add styling for visibility, like color, size, etc.
+    }
 
+    .nav-links1 {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 2px;
+    }
 
-    <div class="logo">
+    .nav-links1.active {
+        display: flex;
+    }
 
-        <h2 href="index.html">WordWise</h2>
-    </div>
-    <div class="nav-links1">
-        <a href="index.html">Home</a>
-        <a href="blog.html">Leading Blog</a>
-        <a href="start_writing.html">Start Writing</a>
-        <a href="category.html">Categories</a>
+    .dropdown {
+        position: relative;
+       margin-left: 200px;
+       
+    }
+}
 
-        <a href="contact_us.html">Contact Us</a>
-        <a href="contact_us.html">Give Feedback</a>
-    </div>
+Additional styling for smaller screens
+@media (max-width: 576px) {
+    .logo {
+        margin-left: -75px;
+    }
+    .logo a h2 {
+        font-size: 30px;
+    }
+    .dropdown {
+        position: relative;
+       margin-left: 60px;
+       
+    }
+    ul.dropdown-menu{
+        border-radius: 2px;
+    }
+    
+    .theme-switch-wrapper {
+        margin-right: -80px;
+    }
+}
 
+@media (max-width: 345px) {
+    .logo {
+        margin-left: -65px;
+    }
+    .logo a h2 {
+        font-size: 24px;
+    }
+} */
+    
+    
+    .dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    }
+    
+    .dropdown:hover .dropdown-menu {
+    display: block;
+    }
+    
+    
+    
+    </style>
+    <nav>
 
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <!-- Navigation Bar  -->
+        <div class="layout-container">
+    
+            <header>
+    
+                <div class="logo">
+                    <a href="index.html">
+                        <h2>WordWise</h2>
+                      </a>
+                </div>
+                <div class="hamburger" id="hamburger" onclick="toggleHamburgerMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="nav-links1" id="navLinks">
+                    <a href="index.html">Home</a>
+                    <a href="blog.html">Leading Blog</a>
+                    <a href="start_writing.html">Start Writing</a>
+                    <a href="category.html">Categories</a>
+                    <a href="contact_us.html">Contact Us</a>
+                    <a href="give_feedback.html">Give Feedback</a>
+                </div>
+                <div class="dropdown">
+                    <!-- Profile Icon -->
+                    <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
+    
+                    <!-- Dropdown Menu -->
+                    <ul class="dropdown-menu" id="dropdownMenu">
+                        <li><a href="#login" onclick="openForm('login')">Login</a></li>
+                        <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
+                    </ul>
+                </div>
 
-
-              <div class="dropdown" >
-                <!-- Profile Icon -->
-                <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
-                    <i class="fas fa-user-circle"></i>
-                </a>
-
-                <!-- Dropdown Menu -->
-                <ul class="dropdown-menu" id="dropdownMenu">
-                    <li><a href="#login" onclick="openForm('login')">Login</a></li>
-                    <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
-                </ul>
-            </div>
-
-
-
-        <!-- Login Form -->
 <!-- Login Form -->
 <div class="form-popup" id="loginForm">
     <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
@@ -280,12 +399,21 @@
         <div class="forgot">
             <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
           </div>
-        <button type="submit" class="btn btn-primary w-100 mb-3">LOGIN</button>
+        <button type="submit" class="btn btn-secondary w-100 mb-3">LOGIN</button>
+        <style>
+            .btn:hover{
+                transition: 0.5s ease;
+            }
+        </style>
        <!-- Google Sign-In Button -->
              <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
                 <img src="./assets/google_icon.webp" alt="Google Logo" class="google-logo">
                 Sign in with Google</button>
         <button type="button" class="btn btn-secondary w-100" onclick="closeForm('login')">CLOSE</button>
+         <!-- Link to Signup Page -->
+         <div class="new">
+            <p>Don't have an account? <a href="javascript:void(0);" onclick="openForm('signup')">Sign up here</a></p>
+        </div>
     </form>
 </div>
 
@@ -318,6 +446,10 @@
           <img src="./assets/google_icon.webp" alt="Google Logo" class="google-logo">
           Sign in with Google</button>
         <button type="button" class="btn btn-secondary w-100" onclick="closeForm('signup')">CLOSE</button>
+         <!-- Link to Login Page -->
+         <div class="new">
+            <p>Already have an account? <a href="javascript:void(0);" onclick="openForm('login')">Login here</a></p>
+        </div>
     </form>
 </div>
 
@@ -351,6 +483,8 @@
         }
     }
 </script>
+
+
 
 <!-- Styles -->
 <style>
@@ -424,7 +558,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <script src="backend/signup/signup.js"></script> <!-- Link to your JavaScript file -->
 
-      <div class="theme-switch-wrapper" >
+       <!-- Theme Switch -->
+       <div class="theme-switch-wrapper">
         <label class="theme-switch" for="checkbox">
             <input type="checkbox" id="checkbox">
             <div class="slider">
@@ -434,12 +569,21 @@
         </label>
         <span id="mode-label"></span>
     </div>
+
+</header>
 </div>
-    </header>
-</div>
+
+</nav>
+
+<!-- JavaScript for Hamburger Menu Toggle -->
+<script>
+
+</script>
+
+
 <!--Header Ends-->
     <!--Main Section Starts-->
-    <main id="site-main" style="margin-top: 90px;margin-left: 50px;">
+    <main id="site-main" style="margin-top: 10rem;margin-left: 50px;">
         <!--blog post section-->
         <section id="posts">
             <div class="container" >
@@ -488,7 +632,7 @@
                                     </a>
                                 </div>
                                 <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
-                                    <a href="#" class="text-title display-1 text-dark">
+                                    <a href="gaming_chronicles.html" class="text-title display-1 text-dark">
                                         Gaming Chronicles
 
 
@@ -496,12 +640,14 @@
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Mon 13,2023 &nbsp;</span>
                                         <span><i class="bi bi-chat-fill"></i> 12</span>
-                                        <span  class="heart-btn">
+                                        <span class="heart-container">
+                                        <button  class="heart-btn">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
                                                     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                                                 </svg>
                                             </button>
                                         </span>
+                                        
                                     </p>
                                 </div>
 
@@ -564,7 +710,7 @@
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Tue 07,2019 &nbsp;</span>
-                                        <span><i class="bi bi-chat-fill"></i> 6</span>
+                                        <span><i class="bi bi-chat-fill"></i> 06</span>
                                         <span class="heart-container">
                                             <button class="heart-btn">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
@@ -956,12 +1102,13 @@
         <div class="sliderr">
             <div class="slides">
                 <!-- Radio buttons for navigation -->
-                <input type="radio" name="radio-btn" id="radio1" checked>
+                <input type="radio" name="radio-btn" id="radio1">
                 <input type="radio" name="radio-btn" id="radio2">
                 <input type="radio" name="radio-btn" id="radio3">
                 <input type="radio" name="radio-btn" id="radio4">
                 <input type="radio" name="radio-btn" id="radio5">
                 <input type="radio" name="radio-btn" id="radio6">
+                <input type="radio" name="radio-btn" id="radio7">
 
                 <!-- Slide images -->
                 <div class="slide first">
@@ -982,15 +1129,8 @@
                 <div class="slide">
                     <img src="./assets/slider/img6.webp" alt="Slide 6">
                 </div>
-
-                <!-- Automatic navigation -->
-                <div class="navigation-auto">
-                    <div class="auto-btn1"></div>
-                    <div class="auto-btn2"></div>
-                    <div class="auto-btn3"></div>
-                    <div class="auto-btn4"></div>
-                    <div class="auto-btn5"></div>
-                    <div class="auto-btn6"></div>
+                <div class="slide">
+                    <img src="./assets/slider/img7.webp" alt="Slide 7">
                 </div>
             </div>
 
@@ -1002,7 +1142,11 @@
                 <label for="radio4" class="manual-btn"></label>
                 <label for="radio5" class="manual-btn"></label>
                 <label for="radio6" class="manual-btn"></label>
+                <label for="radio7" class="manual-btn"></label>
             </div>
+             <!-- Prev and Next buttons -->
+            <button id="prevSlide" class="slider-btn prev">&#10094;</button>
+            <button id="nextSlide" class="slider-btn next">&#10095;</button>
         </div>
 </section>
 <section class="faq" id="faq">
@@ -1081,7 +1225,7 @@
     </div>
 </section>
 <!-- Word of the Day Section -->
-<div id="word-of-the-day" style="background-color: rgb(248, 181, 181); padding: 20px; border-radius: 5px; color: black;">
+<div id="word-of-the-day" style="background-color: rgb(248, 181, 181); padding: 20px; margin-right: 35px; border-radius: 5px; color: black;">
     <h2>Word of the Day</h2>
     <p id="word"></p>
     <p id="definition"></p>
@@ -1113,7 +1257,7 @@
         <button class="chatbot-button group" id="chatbot-toggle">
             <img class="h-20" src="chatbot.gif" alt="chatbot">
             <span class="tooltip-text">
-                Welcome to Word Wise! <br>
+                Welcome to Word Wise ! <br>
                 How can I help You? ^_^ 
             </span>
         </button>
@@ -1162,7 +1306,13 @@
 
                       <div class="email mt-2">
                             <a href="mailto: dailysupport@gmail.com" style="color: 3B3B58;"><i class="fas fa-envelope text-primary"></i>
-                           <span>dailysupport@gmail.com</span>
+                           <span id="mailhover">dailysupport@gmail.com</span>
+                           <style>
+                            #mailhover:hover{
+                                color: #f44336;
+                                transition: color 0.5s ease-out;
+                            }
+                           </style>
                         </a>
                        </div>
 
@@ -1236,12 +1386,18 @@
 
                    <div class="tags">
                        <div class="d-flex-gap flex-wrap">
-                           <a href="#" class="nav-link btn bg-light " style="font-weight: 400;">Travel</a>
-                           <a href="#" class="nav-link btn bg-light" style="font-weight: 400;">Food</a>
-                           <a href="#" class="nav-link btn bg-light" style="font-weight: 400;">Lifestyle</a>
-                           <a href="#" class="nav-link btn bg-light" style="font-weight: 400;">Techonogy</a>
-                           <a href="#" class="nav-link btn bg-light" style="font-weight: 400;">Fashion</a>
+                           <a href="#" class="nav-link btn bg-light pop-link">Travel</a>
+                           <a href="#" class="nav-link btn bg-light pop-link">Food</a>
+                           <a href="#" class="nav-link btn bg-light pop-link">Lifestyle</a>
+                           <a href="#" class="nav-link btn bg-light pop-link">Techonogy</a>
+                           <a href="#" class="nav-link btn bg-light pop-link">Fashion</a>
                        </div>
+                       <style>
+                        .pop-link{
+                            transition: 1.0s ease !important;
+                        }
+
+                       </style>
                    </div>
 
                    <h2 class="footer-title secondary-title mt-5">Connect with us</h2>
@@ -1249,11 +1405,11 @@
                    <div class="tags social" id="contact">
                     <div class="d-flex-gap flex-wrap">
                       <a href="https://www.facebook.com/" id="facebook" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
-                      <a href="https://www.x.com/" id="twitter" class="nav-link btn bg-light"><i class="fa-brands fa-twitter"></i></a>
+                      <a href="https://x.com/" id="twitter" class="nav-link btn bg-light"><i class="fa-brands fa-x-twitter"></i></a>
                       <a href="https://www.instagram.com/"  id="instagram" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
                       <a href="https://dribbble.com/" id="dribbble" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
-                      <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" id="github" target="_blank" " class="nav-link btn bg-light"
-                      ><i class="fa-brands fa-github"></i></a>
+                      <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" id="github" target="_blank"
+                        class="nav-link btn bg-light"><i class="fa-brands fa-github"></i></a>
                     </div>
                   </div>
         
@@ -1265,7 +1421,7 @@
        <!-- the authentication copyright -->
        <div class="wordwise-footer">
         <div class="wordwise-footer-content">
-          <p>&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
+          <p class="last">&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
         </div>
     </div>
   </footer>
@@ -1328,11 +1484,16 @@ document.getElementById("backToTop").addEventListener("click", function() {
     <script src="google_signin.js"></script>
     <script src="profiledropdown.js"></script>
 
+    <script src="Carousel.js"></script>
+
     
 <div class="gtranslate_wrapper"></div>
 <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
 <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 <script src="script.js"></script>
+
+
+
 
 
 

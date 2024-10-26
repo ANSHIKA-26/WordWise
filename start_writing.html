@@ -76,12 +76,12 @@
             <h2>WordWise</h2>
           </a>
         </div>
-        <div class="hamburger" id="hamburger">
+        <div class="hamburger" id="hamburger" onclick="toggleHamburgerMenu()">
           <span></span>
           <span></span>
           <span></span>
         </div>
-        <div class="nav-links1">
+        <div class="nav-links1" id="navLinks">
             <a href="index.html">Home</a>
             <a href="blog.html">Leading Blog</a>
             <a href="start_writing.html">Start Writing</a>
@@ -404,7 +404,7 @@
               <label>Collaborators:</label>
               <ul id="collaboratorsList"></ul>
               <input type="text" id="newCollaborator" placeholder="Enter collaborator's email">
-              <button type="button" id="addCollaborator">Add Collaborator</button>
+              <button type="button" id="addCollaborator" class="add-collaborator">Add Collaborator</button>
             </div>
             <label for="collaborativeContent">Collaborative Content:</label>
             <textarea id="collaborativeContent" placeholder="Start collaborative writing here..."></textarea>
@@ -418,13 +418,19 @@
               rows="10"
               placeholder="Add any additional content here..."
             ></textarea>
-            <button type="button" id="start-voice-input" style="position: absolute; top: 10.5px; right: 0px;">
+            <button type="button" id="start-voice-input" 
+            style="position: absolute; 
+            top: 10.5px; 
+            right: 0px;
+            margin: 10px;
+            font-size: 20px; 
+            padding: 7px;">
               🎤
             </button>
           </div>
 
 <!-- Add a button to get writing suggestions -->
-<button type="button" id="getSuggestions" style="margin-top: 10px;">Get Suggestions</button>
+<button type="button" id="getSuggestions" style="margin-top: 10px;" class="get-suggestions">Get Suggestions</button>
 
 <!-- Placeholder to show the suggestions -->
 <div id="suggestionsContainer" style="margin-top: 15px;">
@@ -810,7 +816,7 @@
 <div class="gtranslate_wrapper"></div>
 <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
 <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
-
+<script src="script.js"></script>
 
   </body>
 </html>

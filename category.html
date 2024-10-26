@@ -19,8 +19,9 @@
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
     
     <link rel="stylesheet" href="category.css">
-    <link rel="stylesheet" href="Scroll_and_progressbar.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Scroll_and_progressbar.css">
+    
 
     <style>
         * {
@@ -55,12 +56,12 @@
                 </a>
             </div>
 
-            <div class="hamburger" id="hamburger">
+            <div class="hamburger" id="hamburger" onclick="toggleHamburgerMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-        <div class="nav-links1">
+        <div class="nav-links1" id="navLinks">
             <a href="index.html">Home</a>
             <a href="blog.html">Leading Blog</a>
             <a href="start_writing.html">Start Writing</a>
@@ -371,6 +372,7 @@
                                         <a href="food.html"><span data-hover="Read More">Read More</span></a>
                                     </li>
                                 </ul>
+                                
                             </div>
                         </article>
                     </div>
@@ -549,6 +551,9 @@
             <label for="radio5" class="manual-btn"></label>
             <label for="radio6" class="manual-btn"></label>
         </div>
+        <!-- Prev and Next buttons -->
+        <button id="prevSlide" class="slider-btn prev">&#10094;</button>
+        <button id="nextSlide" class="slider-btn next">&#10095;</button>
     </div>
     
     <!-- Swiper end -->
@@ -690,9 +695,7 @@
         <div class="wordwise-footer">
             <div class="wordwise-footer-content">
                 <p>&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
-            </div>
-            <!-- Add the FAQ button here, outside the copyright div -->
-            <button id="faqButton" class="btn btn-primary">FAQ</button>
+            </div> 
         </div>
 
         <!-- FAQ Modal -->
@@ -805,31 +808,85 @@
             if (savedMode === 'dark') {
                 document.body.classList.add('dark-mode');
                 checkbox.checked = true;
-                modeLabel.textContent = 'Dark Mode';
+                modeLabel.textContent = '';
             } else {
-                modeLabel.textContent = 'Light Mode';
+                modeLabel.textContent = '';
             }
 
             checkbox.addEventListener('change', function() {
                 if (this.checked) {
                     document.body.classList.add('dark-mode');
                     localStorage.setItem('darkMode', 'dark');
-                    modeLabel.textContent = 'Dark Mode';
+                    modeLabel.textContent = '';
                 } else {
                     document.body.classList.remove('dark-mode');
                     localStorage.setItem('darkMode', 'light');
-                    modeLabel.textContent = 'Light Mode';
+                    modeLabel.textContent = '';
                 }
             });
 
             // ... existing FAQ modal code ...
         });
     </script>
+     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelector('.slides');
+    const radioButtons = document.querySelectorAll('input[name="radio-btn"]');
+    const labels = document.querySelectorAll('.manual-btn');
+    const prevButton = document.getElementById('prevSlide');
+    const nextButton = document.getElementById('nextSlide');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slides.style.transform = `translateX(-${index * 16.67}%)`;
+        radioButtons[index].checked = true;
+        updateActiveLabel(index);
+    }
+
+    function updateActiveLabel(index) {
+        labels.forEach((label, i) => {
+            if (i === index) {
+                label.classList.add('active');
+            } else {
+                label.classList.remove('active');
+            }
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % radioButtons.length;
+        showSlide(currentSlide);
+    }
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + radioButtons.length) % radioButtons.length;
+        showSlide(currentSlide);
+    }
+
+    // Add click event listeners to radio buttons
+    radioButtons.forEach((radio, index) => {
+        radio.addEventListener('click', () => {
+            currentSlide = index;
+            showSlide(currentSlide);
+        });
+    });
+
+     // Add click event listeners to Prev and Next buttons
+     prevButton.addEventListener('click', prevSlide);
+     nextButton.addEventListener('click', nextSlide);
+
+    // Show first slide initially
+    showSlide(0);
+
+    // Automatic slide change
+    setInterval(nextSlide, 5000);
+});
+
+     </script>
 
 <div class="gtranslate_wrapper"></div>
 <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
 <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
-
+<script src="script.js"></script>
 
 </body>
 
