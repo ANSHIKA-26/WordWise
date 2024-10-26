@@ -397,7 +397,6 @@ html, body {
 
 
 body.dark-mode footer a{
- background-color: #333;
   color: #f2dede;
 }
 
@@ -1704,6 +1703,38 @@ a {
   background-color: var(--background-color);
 }
 
+.social-link{
+  transition: 0.2s ease-in !important;
+}
+#facebook {
+  color: #3b5998; /* Default Facebook blue for the icon */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+#facebook:hover {
+  background-color: #3b5998; /* Facebook blue on hover */
+  color: #ffffff; /* White icon on hover */
+}
+
+#instagram {
+  color: #e1306c; /* Default Instagram pink for the icon */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#instagram:hover {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Instagram gradient */
+  color: #ffffff; /* White icon on hover */
+}
+
+
+#dribbble{
+  color: #ea4c89; /* Default Dribbble pink for the icon */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#dribbble:hover {
+  background-color: #ea4c89; /* Dribbble pink on hover */
+  color: #ffffff; /* White icon on hover */
+}
 
 
 .img-fluid {
