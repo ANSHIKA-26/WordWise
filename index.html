@@ -1235,19 +1235,37 @@ Additional styling for smaller screens
 
 <!-- Newsletter Section -->
 <section id="wordwise-newsletter" class="wordwise-newsletter-section">
-    <div class="wordwise-newsletter-container">
-      <h2>Subscribe to Our Newsletter</h2>
-      <p>Stay updated with the latest articles and insights from WordWise.</p>
-      <form class="wordwise-newsletter-form" id="newsletterForm" novalidate>
-        <input type="email" id="emailInput" placeholder="Enter your email address" required>
-        <div id="error-message" style="color: red; display: none;">Please include '@' in your email address.</div>
-        <div id="sub"><button type="submit">Subscribe</button></div>
+  <div class="wordwise-newsletter-container">
+    <h2>Subscribe to Our Newsletter</h2>
+    <p>Stay updated with the latest articles and insights from WordWise.</p>
+    <form class="wordwise-newsletter-form" id="newsletterForm" novalidate>
+      <input type="email" id="emailInput" placeholder="Enter your email address" required
+        style="border: 1px solid pink; transition: transform 0.2s ease, box-shadow 0.2s ease;"
+        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 8px 2px pink';"
+        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+      <div id="error-message" style="color: red; display: none;">Please include '@' in your email address.</div>
+      <div id="sub"><button type="submit">Subscribe</button></div>
     </form>
-    </div>
+  </div>
 
-    <!-- Toast Popup -->
-    <div id="toast" class="toast hidden"></div>
+  <!-- Toast Popup -->
+  <div id="toast" class="toast hidden"></div>
 </section>
+
+<style>
+  /* Style the email input field */
+  #emailInput {
+    border: 1px solid pink; 
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  /* Hover effect for glow */
+  #emailInput:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 8px 2px pink; 
+  }
+</style>
+
 
 <!-- Include the Newsletter.js script file -->
 <script src="./backend/newsLetter.js"></script>
@@ -1404,56 +1422,12 @@ Additional styling for smaller screens
 
                    <div class="tags social" id="contact">
                     <div class="d-flex-gap flex-wrap">
-                      <a href="https://www.facebook.com/" id="facebook" class="nav-link btn bg-light social-link" style="transition: all 0.2s ease;"><i class="fab fa-facebook-f"></i></a>
-                      <a href="https://www.x.com/" id="twitter" class="nav-link btn bg-light social-link"><i class="fa-brands fa-x-twitter"></i></a>
-                      <a href="https://www.instagram.com/"  id="instagram" class="nav-link btn bg-light social-link"><i class="fab fa-instagram"></i></a>
-                      <a href="https://dribbble.com/" id="dribbble" class="nav-link btn bg-light social-link"><i class="fab fa-dribbble"></i></a>
-                      <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" id="github" target="_blank" " class="nav-link btn bg-light social-link"
-                      ><i class="fa-brands fa-github"></i></a>
-                      <style>
-                        
-                        .social-link{
-                            transition: 0.2s ease-in !important;
-                        }
-                        #facebook {
-                            background-color: #f0f0f0; /* Default light background */
-                            color: #3b5998; /* Default Facebook blue for the icon */
-                            transition: background-color 0.3s ease, color 0.3s ease;
-                        }
-                        #facebook:hover {
-                            background-color: #3b5998; /* Facebook blue on hover */
-                            color: #ffffff; /* White icon on hover */
-                        }
-                       
-                        #twitter {  
-    
-                            color: #010a10; /* Default X blue for the icon */
-                            transition: background-color 0.3s ease, color 0.3s ease;
-                        }
-                        #instagram {
-                            background-color: #f0f0f0; /* Default light background */
-                            color: #e1306c; /* Default Instagram pink for the icon */
-                            transition: background-color 0.3s ease, color 0.3s ease;
-                        }
-
-                        #instagram:hover {
-                            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* Instagram gradient */
-                            color: #ffffff; /* White icon on hover */
-                        }
-                        
-                        
-                        #dribbble{
-                            background-color: #f0f0f0; /* Default light background */
-                            color: #ea4c89; /* Default Dribbble pink for the icon */
-                            transition: background-color 0.3s ease, color 0.3s ease;
-                        }
-
-                        #dribbble:hover {
-                            background-color: #ea4c89; /* Dribbble pink on hover */
-                            color: #ffffff; /* White icon on hover */
-                        }
-
-                      </style>
+                      <a href="https://www.facebook.com/" id="facebook" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
+                      <a href="https://x.com/" id="twitter" class="nav-link btn bg-light"><i class="fa-brands fa-x-twitter"></i></a>
+                      <a href="https://www.instagram.com/"  id="instagram" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
+                      <a href="https://dribbble.com/" id="dribbble" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
+                      <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" id="github" target="_blank"
+                        class="nav-link btn bg-light"><i class="fa-brands fa-github"></i></a>
                     </div>
                   </div>
         
