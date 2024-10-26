@@ -204,12 +204,7 @@
 
 
 <!-- Script for Navbar Toggle -->
- <script>
-    function toggleMenu() {
-    const menu = document.getElementById('nav-menu');
-    menu.classList.toggle('active');
-}
- </script>
+
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 </head>
@@ -234,12 +229,12 @@
     
     }
     
-    .nav-links1 {
+    /* .nav-links1 {
     display: flex;
     gap: 30px;
-    }
+    } */
     
-    .hamburger {
+    /* .hamburger {
     display: none;
     cursor: pointer;
     flex-direction: column;
@@ -255,7 +250,7 @@
     }
 
     @media (max-width: 1024px) {
-        .logo h1 a{
+        .logo a h2{
         font-size: 30px;   
     }
     .nav-links1 {
@@ -270,7 +265,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        /* Add styling for visibility, like color, size, etc. */
+        Add styling for visibility, like color, size, etc.
     }
 
     .nav-links1 {
@@ -298,12 +293,12 @@
     }
 }
 
-/* Additional styling for smaller screens */
+Additional styling for smaller screens
 @media (max-width: 576px) {
     .logo {
         margin-left: -75px;
     }
-    .logo h1 a {
+    .logo a h2 {
         font-size: 30px;
     }
     .dropdown {
@@ -324,10 +319,10 @@
     .logo {
         margin-left: -65px;
     }
-    .logo h1 a {
+    .logo a h2 {
         font-size: 24px;
     }
-}
+} */
     
     
     .dropdown-menu {
@@ -357,7 +352,9 @@
             <header>
     
                 <div class="logo">
-                    <h1><a href="index.html">WordWise</a></h1>
+                    <a href="index.html">
+                        <h2>WordWise</h2>
+                      </a>
                 </div>
                 <div class="hamburger" id="hamburger" onclick="toggleHamburgerMenu()">
                     <span></span>
@@ -487,6 +484,8 @@
     }
 </script>
 
+
+
 <!-- Styles -->
 <style>
     .form-popup {
@@ -578,10 +577,7 @@
 
 <!-- JavaScript for Hamburger Menu Toggle -->
 <script>
-function toggleHamburgerMenu() {
-const navLinks = document.getElementById('navLinks');
-navLinks.classList.toggle('active');
-}
+
 </script>
 
 
@@ -1539,6 +1535,9 @@ document.getElementById("backToTop").addEventListener("click", function() {
 <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
 <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 <script src="script.js"></script>
+
+
+
 
 
 

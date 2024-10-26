@@ -42,12 +42,12 @@
         </a>
       </div>
 
-      <div class="hamburger" id="hamburger">
+      <div class="hamburger" id="hamburger" onclick="toggleHamburgerMenu()">
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <div class="nav-links1">
+      <div class="nav-links1" id="navLinks">
         <a href= "index.html">Home</a>
         <a href= "blog.html">Leading Blog</a>
         <a href= "start_writing.html">Start Writing</a>
@@ -368,6 +368,17 @@
   </div>
 </nav>
  
+
+
+<!-- <style>
+  @media(max-width: 376px){
+    .layout-container{
+      padding-right: 2.3rem;
+    }
+  }
+</style> -->
+
+
   <!--header-->
     <!--mainn-->
     <main id="site-main" style="margin-top: 8rem;">
@@ -1365,10 +1376,7 @@ body {
   </footer>
   <!-- Script for Navbar Toggle -->
   <script>
-    function toggleMenu() {
-      const menu = document.getElementById('nav-menu');
-      menu.classList.toggle('active');
-    }
+    
   </script>
   <!-- .footer -->
   <!-- this script is for twitter icon  starts -->
@@ -1483,7 +1491,7 @@ body {
 <div class="gtranslate_wrapper"></div>
 <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
 <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
-
+<script src="script.js"></script>
 
 </body>
 </html>
