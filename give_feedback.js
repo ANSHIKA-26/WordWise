@@ -1,3 +1,41 @@
+const trustedDomains = [
+    'gmail.com',
+    'outlook.com',
+    'yahoo.com',
+    'protonmail.com',
+    'icloud.com',
+    'tutanota.com',
+    'hotmail.com',
+    'live.com',
+    'mail.com',
+    'zoho.com',
+    'gmx.com',
+    'aol.com',
+    'fastmail.com',
+    'yandex.com',
+    '*.edu',
+    '*.ac.uk',
+    '*.edu.in',
+    '*.edu.au',
+    'examplecompany.com',
+    'mailfence.com',
+    'posteo.de',
+    'runbox.com'
+];
+
+// Email validation function to check format and domain
+function validateEmail(email) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format validation
+    const domain = email.split('@')[1];
+
+    return (
+        emailPattern.test(email) && 
+        trustedDomains.some((trusted) => 
+            trusted.includes('*') ? domain.endsWith(trusted.slice(1)) : domain === trusted
+        )
+    );
+}
+
 document.getElementById('feedbackForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form submission
 
@@ -9,6 +47,12 @@ document.getElementById('feedbackForm').addEventListener('submit', function(even
 
     if (name === '' || email === '' || feedback === '' || rating === '') {
         alert('Please fill out all fields.');
+        return;
+    }
+
+    // Trusted email validation
+    if (!validateEmail(email)) {
+        alert('Please enter a valid email address from a trusted provider.');
         return;
     }
 
