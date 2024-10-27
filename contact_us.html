@@ -686,6 +686,14 @@
   <script src="progress_bar.js"></script>
 
   <script src="main.js"></script>
+  <form id="contactForm" method="POST" action="process_contact.php">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <button type="submit">Submit</button>
+    <p id="formStatus" style="display:none;"></p> <!-- Message placeholder -->
+</form>
+
 
   <!-- added script for contact form  -->
 
