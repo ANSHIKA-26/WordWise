@@ -553,6 +553,44 @@ main
     const closePopup = document.getElementById('closePopup');
     const feedbackResult = document.getElementById('feedback-result');
 
+      const trustedDomains = [
+      'gmail.com',
+      'outlook.com',
+      'yahoo.com',
+      'protonmail.com',
+      'icloud.com',
+      'tutanota.com',
+      'hotmail.com',
+      'live.com',
+      'mail.com',
+      'zoho.com',
+      'gmx.com',
+      'aol.com',
+      'fastmail.com',
+      'yandex.com',
+      '*.edu',
+      '*.ac.uk',
+      '*.edu.in',
+      '*.edu.au',
+      'examplecompany.com',
+      'mailfence.com',
+      'posteo.de',
+      'runbox.com'
+  ];
+
+  // Email validation function to check format and domain
+  function validateEmail(email) {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format validation
+      const domain = email.split('@')[1];
+
+      return (
+          emailPattern.test(email) && 
+          trustedDomains.some((trusted) => 
+              trusted.includes('*') ? domain.endsWith(trusted.slice(1)) : domain === trusted
+          )
+      );
+  }
+
     submitBtn.addEventListener('click', () => {
       const name = document.getElementById('Name').value.trim();
       const email = document.getElementById('email2').value.trim();
@@ -579,6 +617,11 @@ if (message === '') {
     alert('Please enter a feedback message!');
     return; // Stop execution if name is empty
 }
+if (!validateEmail(email)) {
+        alert('Please enter a valid email address from a trusted provider.');
+        return;
+    }
+
       
       // Display feedback result in popup
       feedbackResult.innerHTML = `Thank you, ${name}!<br>Your feedback: ${message}<br>Rating: ${rating} stars`;
