@@ -1,12 +1,20 @@
-# 📖 WordWise Blogging Website 📝 
+
+# 📖 **WordWise** Blogging Website 📝
+ 
 **WordWise** is a responsive, user-friendly blogging platform designed to enrich vocabulary and engage readers with insightful articles. Built using **HTML**, **CSS**, and **JavaScript**, the website offers an enjoyable experience with an interactive interface. Whether you're here to read blogs or explore topics, WordWise is for everyone.
 
----
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
+
 
 ## 📈 GitHub Repository Stats
 | 🌟 **Stars** | 🍴 **Forks** | 🐛 **Issues** | 🔔 **Open PRs** | 🔕 **Closed PRs** | 🛠️ **Languages** | ✅ **Contributors** |
 |--------------|--------------|---------------|-----------------|------------------|------------------|------------------|
 | ![GitHub stars](https://img.shields.io/github/stars/ANSHIKA-26/WordWise) | ![forks](https://img.shields.io/github/forks/ANSHIKA-26/WordWise) | ![issues](https://img.shields.io/github/issues/ANSHIKA-26/WordWise?color=32CD32) | ![pull requests](https://img.shields.io/github/issues-pr/ANSHIKA-26/WordWise?color=FFFF8F) | ![Closed PRs](https://img.shields.io/github/issues-pr-closed/ANSHIKA-26/WordWise?color=20B2AA) | ![Languages](https://img.shields.io/github/languages/count/ANSHIKA-26/WordWise?color=20B2AA) | ![Contributors](https://img.shields.io/github/contributors/ANSHIKA-26/WordWise?color=00FA9A) |
+
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 ## Featured In
 
@@ -23,7 +31,9 @@
    </tr>
 </table>
 
----
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
 ## 🌟 Table of Contents
 - [Key Features](#-key-features-)
 - [Technologies Used](#techUsed)
@@ -37,7 +47,9 @@
 - [Ending Note](#endingNote)
 - [Join Us!](#joinUs)
 - [Contributors](#our-valuable-contributors-️)
----
+
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 ## ✨ Key Features ✨
 - **📱 Responsive Design**
@@ -50,7 +62,8 @@
 - **⭐ User Engagement**
   - Readers can share their thoughts and feedback directly on the Contact Us page.
 
----
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 <a name="techUsed"></a>
 ## ⚙️ Technologies Used ⚙️
@@ -63,7 +76,8 @@
 3. **⬛ JavaScript**
    - Adds interactivity and dynamic features, enriching user engagement through blog navigation, comment sections, and form validations.
 
----
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 <a name="HTContribute"></a>
 ## 🚀 How to Contribute to This Project
@@ -114,13 +128,18 @@ We’re excited to have you contribute to the **WordWise Blogging Website** proj
 9. **🔎 Review Changes**
    - The project manager will review your PR, and if approved, your request will be merged.
 
----
- ## Usage
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
+<a name="usage"></a>
+## <img src="https://media2.giphy.com/media/kL3ZvNKk4hyR1B8hVt/giphy.gif" width="35" height="35"> Usage
 - Open the website and navigate through the articles.
 - Use the search bar to find specific topics.
 - Click on any article to read in detail.
 
----
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
 <a name="contribution"></a>
 ## <img src="https://github.com/Meetjain1/wanderlust/assets/133582566/90f3930e-5a12-4a4e-8ac9-0dc7d5396adb" width="35" height="35"> Contribution
 
@@ -136,7 +155,9 @@ Kindly go through [CONTRIBUTING.md](CONTRIBUTING.md) to understand everything fr
 
 If you would like to contribute to the project, please follow our contribution guidelines.
 
----
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
 <a name="CodeOfConduct"></a>
 ## <h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Handshake.png" width="35" height="35"> Code of Conduct</h2>
 
@@ -149,9 +170,11 @@ We are committed to fostering a welcoming and inclusive environment for everyone
 Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md) to foster an inclusive community.
 If anyone violates these standards, they may be banned from the community.
 
----
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
 <a name="contributionGuideLines"></a>
-## Guidelines For Contribution
+## <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/TwinkAAa.gif" width="30" height="30"> Guidelines For Contribution
 
 Please follow these guidelines to help maintain the quality and organization of the project. This ensures that contributions and issues are effectively tracked, addressed, and resolved.
 
@@ -177,8 +200,11 @@ Please follow these guidelines to help maintain the quality and organization of 
 
 ### 4. Raise a Pull Request (PR)
 - **Follow the PR template** when raising a Pull Request.
----
-## Pull Request Guidelines
+
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
+## <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/TwinkAAa.gif" width="25" height="25"> Pull Request Guidelines
 
 To ensure smooth collaboration and maintain the quality of the project, please follow these guidelines when creating a Pull Request (PR).
 
@@ -205,20 +231,24 @@ Before submitting a PR, ensure that:
   - References to any related issues (e.g., "Fixes Does not visible 'Load More Post...' #123").
   - Any specific areas where the reviewer should focus.
 
----
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
 <a name="contributionPoints"></a>
-## 🏆 Contribution Points
+## <img src="https://media2.giphy.com/media/wX7I4l8SfFyG8rqhsd/giphy.gif?cid=6c09b952m0inehgzvwoln1kl9s80vkse0bk8iddo83ja367n&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s" width="35" height="35"> Contribution Points
 All tasks will be assigned various levels based on complexity and required skills. Each level provides different points:
 - **🥇 Level 1**: 10 Points  
 - **🥈 Level 2**: 25 Points  
 - **🥉 Level 3**: 45 Points  
 
----
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
-## GSSoC Guidelines 
+## <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/TwinkAAa.gif" width="25" height="25"> GSSoC Guidelines 
 It is important to adhere to the guidelines; violations can affect your profile. Review the guidelines [here](https://github.com/GSSoC24/Contributor/tree/main/gssoc-guidelines).
 
----
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 <a name="endingNote"></a>
 ## 📄 Ending Note
@@ -226,18 +256,22 @@ Thank you for checking out the WordWise Blogging Website! We hope you find this 
 
 If you have any questions or need assistance, please feel free to reach out through the Issues section of this repository.
 
----
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
+
 <a name="joinUs"></a>
 ## 🙌🏻 Join Us!
 We encourage you to explore the website, share your thoughts, and get involved in improving the project. Let’s make this blogging experience even better together!
 
----
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 ## Our Valuable Contributors ❤️✨
 
 [![Contributors](https://contrib.rocks/image?repo=say-het/WordWise)](https://github.com/say-het/WordWise/graphs/contributors)
 
----
+<!--line-->
+<img src="https://www.animatedimages.org/data/media/562/animated-line-image-0184.gif" width="1920" />
 
 <div align="center">
     <a href="#top">
