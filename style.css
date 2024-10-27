@@ -395,9 +395,26 @@ html, body {
   background: #f4978e; 
 }
 
-
+footer a{
+  color:black;
+}
 body.dark-mode footer a{
- background-color: #333;
+ background-color: #f7f7f7;
+  color: #ffffff;
+}
+
+body.dark-mode footer p{
+  color: #000000;
+}
+
+body.dark-mode footer h2{
+  color: #f2dede;
+}
+bod
+body.dark-mode footer address{
+  color: #f2dede;
+}
+body.dark-mode footer .phone{
   color: #f2dede;
 }
 
@@ -405,15 +422,51 @@ body.dark-mode footer p{
   color: #f2dede;
 }
 
-body.dark-mode footer h2{
-  color: #f2dede;
+body.dark-mode .text-title{
+  color:#f2dede ;
 }
-body.dark-mode footer address{
-  color: #f2dede;
+.footer-title {
+    position: relative; /* Allows for positioning */
+    display: inline-block; /* Fits the text content */
+    color: #333; /* Text color */
+    font-size: 24px; /* Adjust font size as needed */
+    text-decoration: none; /* Remove default underline */
+    transition: color 0.3s ease; /* Smooth color transition */
 }
-body.dark-mode footer .phone{
-  color: #f2dede;
+
+.footer-title:hover {
+    color: #f8b5b5; /* Change color on hover (optional) */
+    text-decoration: none; /* Remove default underline to customize */
 }
+
+.footer-title:hover::after {
+    content: ''; /* Pseudo-element for custom underline */
+    position: absolute; /* Position relative to the title */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
+    bottom: -2px; /* Position just below the text */
+    height: 2px; /* Thickness of the underline */
+    background: #f8b5b5; /* Underline color */
+    transform: scaleX(1); /* Show underline */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.footer-title::after {
+    content: ''; /* Create a pseudo-element */
+    position: absolute; /* Position it relative to the title */
+    left: 0; /* Align to the left */
+    right: 0; /* Align to the right */
+    bottom: -2px; /* Position below the text */
+    height: 2px; /* Thickness of the underline */
+    background: #f8b5b5; /* Underline color */
+    transform: scaleX(0); /* Initially hide it */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.footer-title:hover::after {
+    transform: scaleX(1); /* Show underline on hover */
+}
+
 /* Signup input bar in footer*/
 .signup-container {
   width: 90%;
@@ -465,7 +518,7 @@ body.dark-mode footer .phone{
   text-decoration: none;
 }
 .feature-post .text-title {
-  color: #b0b0b0; /* Light grey color for titles */
+  color: var(--text-color); /* Light grey color for titles */
 }
 
 .feature-post .secondary-title {
@@ -480,7 +533,9 @@ body.dark-mode footer .phone{
   text-decoration: none; /* Remove underline for links */
 } 
 
-
+.text-title{
+  color: white;
+}
 
 .form-popup {
   display: none;
@@ -515,6 +570,7 @@ body.dark-mode .bookmark-section {
   background-color: #141414; /* Dark background for the bookmark section */
   color: #ffffff; /* Optional: Change text color to white for better contrast */
 }
+
 body.dark-mode .bookmark-section h1{ 
   color: #ffffff; /* Optional: Change text color to white for better contrast */
 }
@@ -1702,9 +1758,7 @@ a {
 
 }
 
-.text-dark {
-  color: var(--text-color);
-}
+
  
 .text-primary {
   color: var(--text-color);
@@ -1960,9 +2014,11 @@ a {
 }
 
 #footer {
-  padding-top: 5em; 
+  padding-top: 3.2em; 
 }
-
+#foot_line{
+  color:#f8b5b5;
+}
 #footer .feature-post .flex-item {
   margin-bottom: 10px;
 }
@@ -2334,7 +2390,7 @@ h1 {
     margin-left: -5%;
   }
 }
-
+.darl-mode
 .accordion__wrapper {
   background-color: #f3b5af;
   box-shadow: 0px 60px 56px -12px rgba(9, 40, 163, 0.05);
@@ -2457,7 +2513,15 @@ h1 {
     color: black;
 }
 
-
+[data-theme="dark"] #foot_para{
+  color: #e7e5e5;/*form heading made light-colored in dark theme*/
+}
+#mailhover{
+  color:var(--text-color);
+}
+[data-theme="dark"] #mailhover{
+  color: #e7e5e5;/*form heading made light-colored in dark theme*/
+}
 
 footer .text-lg {
   margin: 10px 0 0 0;
