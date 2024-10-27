@@ -15,6 +15,8 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="Scroll_and_progressbar.css" />
+  <script src="give_feedback.js" defer></script>
+
   <style>
     /* Custom popup styles */
     .send-btn {
@@ -552,19 +554,30 @@ main
     const feedbackResult = document.getElementById('feedback-result');
 
     submitBtn.addEventListener('click', () => {
-      const name = document.getElementById('Name').value;
-      const email = document.getElementById('email2').value;
-      const message = document.getElementById('message').value;
+      const name = document.getElementById('Name').value.trim();
+      const email = document.getElementById('email2').value.trim();
+      const message = document.getElementById('message').value.trim();
       const rating = document.querySelector('input[name="rating"]:checked')?.value;
 
 
        // Email validation regex
        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// Validate name
+if (name === '') {
+    alert('Please enter your name!');
+    return; // Stop execution if name is empty
+}
+
 // Validate email
 if (!emailPattern.test(email)) {
-    alert('Please enter a valid email address.');
+    alert('Please enter a valid email address!');
     return; // Stop execution if email is invalid
+}
+
+if (message === '') {
+    alert('Please enter a feedback message!');
+    return; // Stop execution if name is empty
 }
       
       // Display feedback result in popup
@@ -732,6 +745,8 @@ if (!emailPattern.test(email)) {
   <script src="./darkMode.js"></script>
 
   <script src="progress_bar.js"></script>
+  <script src="give_feedback.js"></script>
+
 
   <script src="main.js"></script>
 
