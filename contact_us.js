@@ -5,15 +5,32 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const trustedDomains = [
-  'gmail.com', 'outlook.com', 'yahoo.com', 
-  'protonmail.com', 'icloud.com', 'tutanota.com',
-  'hotmail.com', 'live.com', 'mail.com', 
-  'zoho.com', 'gmx.com', 'aol.com', 'fastmail.com', 
-  'yandex.com', '*.edu', '*.ac.uk'
+  'gmail.com',
+  'outlook.com',
+  'yahoo.com',
+  'protonmail.com',
+  'icloud.com',
+  'tutanota.com',
+  'hotmail.com',
+  'live.com',
+  'mail.com',
+  'zoho.com',
+  'gmx.com',
+  'aol.com',
+  'fastmail.com',
+  'yandex.com',
+  '*.edu',
+  '*.ac.uk',
+  '*.edu.in',
+  '*.edu.au',
+  'examplecompany.com',
+  'mailfence.com',
+  'posteo.de',
+  'runbox.com'
 ];
 
 // Email validation function to check format and domain
-function validateEmail(email) {
+function ValidateTrustEmail(email) {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format validation
   const domain = email.split('@')[1];
 
@@ -39,7 +56,7 @@ async function SendEmail(event) {
     return;
   }
 
-  if (!validateEmail(email)) {
+  if (!ValidateTrustEmail(email)) {
     alert("Please enter a valid email address from a trusted provider.");
     return;
   }
