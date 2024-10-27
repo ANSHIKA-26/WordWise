@@ -6,18 +6,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function SendEmail(event) {
   event.preventDefault();
+
   const Name = document.getElementById("Name").value;
   const email = document.getElementById("email2").value;
   const phone = document.getElementById("phone").value;
   const message = document.getElementById("message").value;
 
-  console.log(Name,email,phone,message);
+  console.log(Name, email, phone, message);
 
+  // Trusted email domains
+  const trustedDomains = [
+    'gmail.com',
+    'outlook.com',
+    'yahoo.com',
+    'protonmail.com',
+    'icloud.com',
+    'tutanota.com',
+    'hotmail.com',
+    'live.com',
+    'mail.com',
+    'zoho.com',
+    'gmx.com',
+    'aol.com',
+    'fastmail.com',
+    'yandex.com',
+    '*.edu',
+    '*.ac.uk',
+    '*.edu.in',
+    '*.edu.au',
+    'examplecompany.com',
+    'mailfence.com',
+    'posteo.de',
+    'runbox.com'
+];
+
+  // Extract domain from email
+  const emailDomain = email.split('@')[1];
+
+  // Verify email domain
+  if (!trustedDomains.includes(emailDomain)) {
+    alert("Please use an email from a trusted provider.");
+    return;
+  }
+
+  // Verify message length
   if (message.length < 10) {
     alert("Message must be at least 10 characters long.");
     return;
   }
-  //console.log("Email value:", email , Name, phone, message); 
+
   const data = {
     Name: Name,
     email: email,
@@ -35,6 +72,7 @@ async function SendEmail(event) {
     });
 
     const result = await response.json();
+
     if (response.ok) {
       const form = document.getElementById("contactForm");
       const popup = document.getElementById("popupMessage");
