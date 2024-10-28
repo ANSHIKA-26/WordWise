@@ -22,6 +22,24 @@ form input, form select, form textarea {
   font-size: 1rem;
 }
 
+/* Add pink border on hover for input fields */
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="password"]:hover,
+textarea:hover {
+  border: 2px solid #ff69b4 !important; /* pink border color with !important */
+}
+
+/* Focus style for a consistent look on focus */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  border: 2px solid #ff69b4 !important; /* pink border with !important */
+  box-shadow: 0 0 5px rgba(255, 105, 180, 0.3); /* subtle pink shadow */
+  outline: none;
+}
+
 /* Theme-specific Adjustments */
 body.dark-mode .blog-form-container {
   background-color: rgba(34, 33, 33, 0.6);
