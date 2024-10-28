@@ -2449,13 +2449,83 @@ h1 {
   border: none;
 }
 
-/* Word of the Day Dark Mode Styles */
-[data-theme="dark"] #word-of-the-day,
-[data-theme="dark"] #word-of-the-day h2,
-[data-theme="dark"] #word-of-the-day #word,
-[data-theme="dark"] #word-of-the-day #definition {
-    color: black;
+/* Light mode styles */
+#word-of-the-day {
+  border: 2px solid rgb(248, 181, 181);
+  padding: 20px;
+  border-radius: 5px;
+  color: black;
+  width: 90%;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: 60px;
+  margin-bottom: 60px;
 }
+
+/* Header style */
+#word-of-the-day h2 {
+  font-size: xx-large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #242e4c;
+}
+
+/* Icon style */
+#word-of-the-day span {
+  font-size: 1.2em;
+  margin-right: 8px;
+}
+
+/* Divider line */
+#word-of-the-day hr {
+  border: none;
+  height: 1px;
+  background-color: #333;
+  margin: 10px auto;
+  width: 80%;
+}
+
+/* Word style */
+#word-of-the-day #word {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #333;
+  margin: 10px 0;
+}
+
+/* Definition style */
+#word-of-the-day #definition {
+  font-size: 1em;
+  color: #555;
+  margin: 10px 0;
+}
+
+/* Dark mode styles using [data-theme="dark"] */
+[data-theme="dark"] #word-of-the-day {
+  border: 2px solid #555;
+  color: #ddd;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] #word-of-the-day h2 {
+  color: #ffffff; /* Brighter white for the header */
+}
+
+[data-theme="dark"] #word-of-the-day hr {
+  background-color: #888;
+}
+
+[data-theme="dark"] #word-of-the-day #word {
+  color: #e0e0e0; /* Light white for the word */
+}
+
+[data-theme="dark"] #word-of-the-day #definition {
+  color: #e0e0e0; /* Slightly dimmer white for the definition */
+}
+
+/* 
 
 
 
@@ -3655,3 +3725,4 @@ nav1{
     text-align: center;
   }
 }
+
