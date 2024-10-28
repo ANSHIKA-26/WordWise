@@ -532,11 +532,62 @@ main
         </div>
       </div>
 
-      <button type="button" onclick="SendEmail(event)" class="submitbtn">
+      <button type="button" onclick="saveFeedback(event)" class="submitbtn">
         Send
       </button>
     </form>
+    
 
+    <!-- script to submit form -->
+    <script>
+      async function saveFeedback(event) {
+        event.preventDefault(); // Prevent form from reloading the page
+    
+        // Get form data
+        const name = document.getElementById("Name").value;
+        const email = document.getElementById("email2").value;
+        const feedback = document.getElementById("message").value;
+        const rating = document.querySelector('input[name="rating"]:checked')?.value;
+    
+        // Check if all fields are filled
+        if (!name || !email || !feedback || !rating) {
+          alert("Please fill out all fields and rate us.");
+          return;
+        }
+    
+        // Prepare data object
+        const data = {
+          name,
+          userfeedback: feedback,
+          email,
+          rating: parseInt(rating),
+        };
+    
+        try {
+          // Send data to the API
+          const response = await fetch('http://localhost:5000/api/feedback/savefeedback', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          });
+    
+          // Handle response
+          if (response.ok) {
+         
+            document.getElementById("contactForm").reset(); // Reset form
+          } else {
+            const errorData = await response.json();
+       
+          }
+        } catch (error) {
+          console.error("Error:", error);
+       
+        }
+      }
+    </script>
+    
     <!-- Custom popup -->
     <div class="overlay" id="overlay"></div>
     <div class="popup" id="popupMessage">
