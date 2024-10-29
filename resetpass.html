@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reset Password</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: rgba(238, 216, 187, 0.849);
+      }
+      .container {
+        width: 100%;
+        max-width: 400px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      h2 {
+        margin-bottom: 20px;
+        color: #333;
+      }
+      .password-field {
+        position: relative;
+        margin: 8px 0;
+      }
+      input[type="password"] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      input[type="email"] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      .eye-icon {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+      }
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      .error {
+        color: red;
+        font-size: 14px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Reset Your Password</h2>
+      <form id="resetForm">
+        <div class="password-field">
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+        <div class="password-field">
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter new password"
+            required
+          />
+          <span class="eye-icon" onclick="togglePassword('password')">👁️</span>
+        </div>
+        <div class="password-field">
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm new password"
+            required
+          />
+          <span class="eye-icon" onclick="togglePassword('confirmPassword')"
+            >👁️</span
+          >
+        </div>
+        <button type="button" onclick="submitResetPassword()">
+          Reset Password
+        </button>
+        <p id="errorMessage" class="error"></p>
+      </form>
+    </div>
+
+    <script>
+      function togglePassword(fieldId) {
+        const field = document.getElementById(fieldId);
+        field.type = field.type === "password" ? "text" : "password";
+      }
+
+      async function submitResetPassword() {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const confirmPassword =
+          document.getElementById("confirmPassword").value;
+        const errorMessage = document.getElementById("errorMessage");
+
+        // Basic validation
+        if (password !== confirmPassword) {
+          errorMessage.textContent = "Passwords do not match.";
+          return;
+        }
+
+        if (password.length < 6) {
+          errorMessage.textContent =
+            "Password must be at least 8 characters long.";
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            "http://localhost:5000/api/users/resetpassword",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                email,
+                password,
+              }),
+            }
+          );
+
+          const data = await response.json();
+
+          if (response.ok && data.success) {
+            alert("Password reset successfully!");
+          } else {
+            errorMessage.textContent = "Failed to reset password. Try again.";
+          }
+        } catch (error) {
+          errorMessage.textContent =
+            "An error occurred. Please try again later.";
+          console.error("Error:", error);
+        }
+      }
+    </script>
+  </body>
+</html>
