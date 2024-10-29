@@ -1352,47 +1352,60 @@ Additional styling for smaller screens
             <p id="word"></p>
             <p id="definition"></p>
         </div>
+ 
+    </div>
+</section>
+
+<!-- Word of the Day Section -->
+<div id="word-of-the-day">
+    
+    <h2>
+        Word of the Day
+    </h2>
+    <span>📘</span>
+    <hr>
+    <p id="word">Placeholder Word</p>
+    <p id="definition">Placeholder Definition</p>
+</div>
 
 
+<!-- Newsletter Section -->
+<section id="wordwise-newsletter" class="wordwise-newsletter-section">
+  <div class="wordwise-newsletter-container">
+    <h2>Subscribe to Our Newsletter</h2>
+    <p>Stay updated with the latest articles and insights from WordWise.</p>
+    <form class="wordwise-newsletter-form" id="newsletterForm" novalidate>
+      <input type="email" id="emailInput" placeholder="Enter your email address" required
+        style="border: 1px solid pink; transition: transform 0.2s ease, box-shadow 0.2s ease;"
+        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 8px 2px pink';"
+        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+      <div id="error-message" style="color: red; display: none;">Please include '@' in your email address.</div>
+      <div id="sub"><button type="submit">Subscribe</button></div>
+    </form>
+  </div>
 
-        <!-- Newsletter Section -->
-        <section id="wordwise-newsletter" class="wordwise-newsletter-section">
-            <div class="wordwise-newsletter-container">
-                <h2>Subscribe to Our Newsletter</h2>
-                <p>Stay updated with the latest articles and insights from WordWise.</p>
-                <form class="wordwise-newsletter-form" id="newsletterForm" novalidate>
-                    <input type="email" id="emailInput" placeholder="Enter your email address" required
-                        style="border: 1px solid pink; transition: transform 0.2s ease, box-shadow 0.2s ease;"
-                        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 8px 2px pink';"
-                        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
-                    <div id="error-message" style="color: red; display: none;">Please include '@' in your email address.
-                    </div>
-                    <div id="sub"><button type="submit">Subscribe</button></div>
-                </form>
-            </div>
+  <!-- Toast Popup -->
+  <div id="toast" class="toast hidden"></div>
+</section>
 
-            <!-- Toast Popup -->
-            <div id="toast" class="toast hidden"></div>
-        </section>
+<style>
+  /* Style the email input field */
+  #emailInput {
+    border: 1px solid pink; 
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
 
-        <style>
-            /* Style the email input field */
-            #emailInput {
-                border: 1px solid pink;
-                transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-            }
-
-            /* Hover effect for glow */
-            #emailInput:hover {
-                transform: scale(1.05);
-                box-shadow: 0 0 8px 2px pink;
-            }
-        </style>
+  /* Hover effect for glow */
+  #emailInput:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 8px 2px pink; 
+  }
+</style>
 
 
-        <!-- Include the Newsletter.js script file -->
-        <script src="./backend/newsLetter.js"></script>
-    </main>
+<!-- Include the Newsletter.js script file -->
+<script src="./backend/newsLetter.js"></script>
+     </main>
     <!--mainn-->
     <div class="chatbot-container">
         <button class="chatbot-button group" id="chatbot-toggle">
