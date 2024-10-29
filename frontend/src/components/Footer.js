@@ -1,6 +1,24 @@
 import '../styles/footer.css';
 
 export function renderFooter() {
+    useEffect(() => {
+        window.embeddedChatbotConfig = {
+            chatbotId: "HIkhhN3sRdJ0J8ah5jjfv",
+            domain: "www.chatbase.co"
+        };
+
+        const script = document.createElement('script');
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.defer = true;
+        script.setAttribute('chatbotId', 'HIkhhN3sRdJ0J8ah5jjfv');
+        script.setAttribute('domain', 'www.chatbase.co');
+
+        document.body.appendChild(script);
+
+        return () => {
+            document.body.removeChild(script);
+        };
+    }, []);
     const footer = document.getElementById('footer');
     footer.innerHTML = `
         <footer class="bg-gray-800 text-white py-8">
