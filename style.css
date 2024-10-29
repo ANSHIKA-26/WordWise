@@ -1731,7 +1731,8 @@ a {
 
 .secondary-title {
   font-family: "poppins", sans-serif;
-  margin-left: 18px;
+  margin-left: 20px;
+  margin-right: 36px;
   margin-top: 22px;
   color: var(--text-color);
 }
