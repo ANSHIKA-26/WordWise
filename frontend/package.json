@@ -14,6 +14,6 @@
     "vite": "^4.3.9"
   },
   "dependencies": {
-    "wordwise-frontend": "file:"
+     "firebase": "^11.0.1"
   }
 }
