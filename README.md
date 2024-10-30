@@ -3,6 +3,11 @@
 
 ---
 
+## 📈 GitHub Repository Stats
+| 🌟 **Stars** | 🍴 **Forks** | 🐛 **Issues** | 🔔 **Open PRs** | 🔕 **Closed PRs** | 🛠️ **Languages** | ✅ **Contributors** |
+|--------------|--------------|---------------|-----------------|------------------|------------------|------------------|
+| ![GitHub stars](https://img.shields.io/github/stars/ANSHIKA-26/WordWise) | ![forks](https://img.shields.io/github/forks/ANSHIKA-26/WordWise) | ![issues](https://img.shields.io/github/issues/ANSHIKA-26/WordWise?color=32CD32) | ![pull requests](https://img.shields.io/github/issues-pr/ANSHIKA-26/WordWise?color=FFFF8F) | ![Closed PRs](https://img.shields.io/github/issues-pr-closed/ANSHIKA-26/WordWise?color=20B2AA) | ![Languages](https://img.shields.io/github/languages/count/ANSHIKA-26/WordWise?color=20B2AA) | ![Contributors](https://img.shields.io/github/contributors/ANSHIKA-26/WordWise?color=00FA9A) |
+
 ## Featured In
 
 <table>

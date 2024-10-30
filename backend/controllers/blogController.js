@@ -1,4 +1,5 @@
 import Blog from "../models/blog.js";
+import Comment from "../models/comment.js";
 
 export const createBlog = async (req, res) => {
   try {
@@ -50,5 +51,40 @@ export const getSingleBlog = async (req, res) => {
     res.status(200).json(blog);
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+};
+
+export const saveComment = async (req, resp) => {
+  try {
+    const { name, comment } = req.body;
+
+    if (!name || !comment) {
+      return resp.status(400).send({
+        message: "all fields are required",
+        success: false,
+      });
+    }
+
+    const newcomment = await new Comment({
+      name: name,
+      comment: comment,
+    });
+
+    newcomment.save();
+
+    if (newcomment) {
+      return resp.status(200).send({
+        success: true,
+        message: "new comment added",
+        newcomment,
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    return resp.status(500).send({
+      success: false,
+      message: "internal server error",
+      error,
+    });
   }
 };

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WordWise</title>
+    <title>WordWise - Start Writing</title>
     <link rel="shortcut icon" type="image/x-icon" href="/images/favi.webp" />
     <!--font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -76,12 +76,12 @@
             <h2>WordWise</h2>
           </a>
         </div>
-        <div class="hamburger" id="hamburger">
+        <div class="hamburger" id="hamburger" onclick="toggleHamburgerMenu()">
           <span></span>
           <span></span>
           <span></span>
         </div>
-        <div class="nav-links1">
+        <div class="nav-links1" id="navLinks">
             <a href="index.html">Home</a>
             <a href="blog.html">Leading Blog</a>
             <a href="start_writing.html">Start Writing</a>
@@ -404,7 +404,7 @@
               <label>Collaborators:</label>
               <ul id="collaboratorsList"></ul>
               <input type="text" id="newCollaborator" placeholder="Enter collaborator's email">
-              <button type="button" id="addCollaborator">Add Collaborator</button>
+              <button type="button" id="addCollaborator" class="add-collaborator">Add Collaborator</button>
             </div>
             <label for="collaborativeContent">Collaborative Content:</label>
             <textarea id="collaborativeContent" placeholder="Start collaborative writing here..."></textarea>
@@ -418,13 +418,19 @@
               rows="10"
               placeholder="Add any additional content here..."
             ></textarea>
-            <button type="button" id="start-voice-input" style="position: absolute; top: 10.5px; right: 0px;">
+            <button type="button" id="start-voice-input" 
+            style="position: absolute; 
+            top: 10.5px; 
+            right: 0px;
+            margin: 10px;
+            font-size: 20px; 
+            padding: 7px;">
               🎤
             </button>
           </div>
 
 <!-- Add a button to get writing suggestions -->
-<button type="button" id="getSuggestions" style="margin-top: 10px;">Get Suggestions</button>
+<button type="button" id="getSuggestions" style="margin-top: 10px;" class="get-suggestions">Get Suggestions</button>
 
 <!-- Placeholder to show the suggestions -->
 <div id="suggestionsContainer" style="margin-top: 15px;">
@@ -451,176 +457,149 @@
 
     <!-- footer -->
 
-    <footer id="footer" style="margin-top: 30px">
+    <footer id="footer">
       <div class="footer-container">
-        <div class="row mb-3 col-3-main">
-          <div class="col-3">
-            <div id="about-us">
-              <h2 class="footer-title secondary-title">About Us</h2>
+          <div class="row mb-3 col-3-main">
+              <div class="col-3">
+                 <div id = "about-us">
+                  <h2 class="footer-title secondary-title" >About Us</h2>
 
-              <div class="secondary-title text-secondary">
-                <p class="mt-2 style="text-align: left;">
-                  We are a close-knit team of passionate storytellers dedicated
-                  to sharing captivating content with the world.
-                </p>
+                    <div class="secondary-title text-secondary " >
+                       <p class="mt-2 text-lg" style="text-align: left;" >
+                        We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the world.
+                       </p>
 
-                <address>
-                  <i class="fas fa-map-marker-alt text-primary"></i>
-                  5 South Main Street Los Angeles, ZZ-9611 USA
-                </address>
+                       <address class="mt-2">
+                           <i class="fas fa-map-marker-alt text-primary"></i>
+                           5 South Main Street Los Angeles, ZZ-9611 USA
+                       </address>
 
-                <div class="phone">
-                  <i class="fas fa-mobile text-primary"></i>
-                  125-896-485
-                </div>
+                       <div class="phone mt-2">
+                           <i class="fas fa-mobile text-primary"></i>
+                           125-896-485
+                       </div>
 
-                <div class="email">
-                  <a href="mailto: dailysupport@gmail.com" style="color: 3B3B58"
-                    ><i class="fas fa-envelope text-primary"></i>
-                    <span>dailysupport@gmail.com</span>
-                  </a>
-                </div>
-                <div> <a href="privacy.html" style="color: #520be1e7;">Privacy Policy</a> </div> 
-              </div>
-            </div>
-          </div>
-          <div class="col-3" style="margin-bottom: 40px">
-            <h2 class="footer-title secondary-title">Feature Post</h2>
-
-            <div class="feature-post">
-              <div class="flex-item">
-                <article class="article">
-                  <div class="d-flex">
-                    <a class="d-flex" href="#">
-                      <img src="./assets/img9.webp" class="object-fit" alt="" />
-                      <div class="px-1" style="width: 300px">
-                        <a href="#" class="text-title display-2 text-dark">
-                          Embrace the beauty of nature through our enchanting
-                          blog, where we celebrate the wonders of the natural
-                          world
+                      <div class="email mt-2">
+                            <a href="mailto: dailysupport@gmail.com" style="color: 3B3B58;"><i class="fas fa-envelope text-primary"></i>
+                           <span id="mailhover">dailysupport@gmail.com</span>
+                           <style>
+                            #mailhover:hover{
+                                color: #f44336;
+                                transition: color 0.5s ease-out;
+                            }
+                           </style>
                         </a>
-                        <p class="secondary-title text-secondary display-3">
-                          <span
-                            ><i class="far fa-clock text-primary"></i> Wed 02,
-                            2022
-                          </span>
-                        </p>
-                      </div>
-                    </a>
-                  </div>
-                </article>
+                       </div>
+
+                       <div>
+                        <img src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5" alt="Web views" style="height: 20px;width: 150px;margin-top: 40px;">
+                       </div>
+                    </div>
+
+                 </div>
               </div>
-              <div class="flex-item">
-                <article class="article">
-                  <div class="d-flex">
-                    <a class="d-flex" href="#">
-                      <img src="./assets/img1.webp" class="object-fit" alt="" />
-                      <div class="px-1" style="width: 300px">
-                        <a href="#" class="text-title display-2 text-dark">
-                          Embark on unforgettable journeys through our travel
-                          blog, where wanderlust meets inspiration
-                        </a>
-                        <p class="secondary-title text-secondary display-3">
-                          <span
-                            ><i class="far fa-clock text-primary"></i> Wed 05,
-                            2020
-                          </span>
-                        </p>
+              <div class="col-3">
+                  <h2 class="footer-title secondary-title">Feature Post</h2>
+
+                  <div class="feature-post">
+                      <div class="flex-item">
+                        <article class="article">
+                            <div class="d-flex" style="align-items: flex-start; ">
+                                <a class="d-flex" href="#">
+                                    <img src="./assets/img9.webp" class="object-fit" alt="">
+                                    <div class="px-1" style="width: 300px; ">
+                                        <a href="#" class="text-title display-2 text-dark">
+                                            Embrace the beauty of nature through our enchanting blog, where we celebrate the wonders of the natural world
+                                        </a>
+                                        <p class="secondary-title text-secondary " style="margin-top:3px;margin-left:0px; text-align: left; ">
+                                            <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </article>
+
                       </div>
-                    </a>
+                      <div class="flex-item">
+                       <article class="article">
+                           <div class="d-flex" style="align-items: flex-start; ">
+                               <a class="d-flex" href="#">
+                                   <img src="./assets/img1.webp" class="object-fit" alt="">
+                                   <div class="px-1" style="width: 300px;">
+                                       <a href="#" class="text-title display-2 text-dark">
+                                        Embark on unforgettable journeys through our travel blog, where wanderlust meets inspiration
+                                       </a>
+                                       <p class="secondary-title text-secondary display-3" style="margin-top:3px;margin-left:0px; text-align: left;">
+                                            <span><i class="far fa-clock text-primary"></i> Wed 05, 2020 </span>
+                                       </p>
+                                   </div>
+                               </a>
+                           </div>
+                       </article>
+                        </div>
+                        <div class="flex-item">
+                           <article class="article">
+                               <div class="d-flex" style="align-items: flex-start; ">
+                                   <a class="d-flex " href="#" >
+                                       <img src="./assets/img2.webp" class="object-fit" alt="">
+                                       <div class="px-1" style="width: 300px;">
+                                           <a href="#" class="text-title display-2 text-dark">
+                                            Gaming Adventures Unleashed
+                                           </a>
+                                           <p class="secondary-title text-secondary display-3" style="margin-top:3px;margin-left:0px; text-align: left;">
+                                                <span><i class="far fa-clock text-primary"></i> Wed 02, 2021 </span>
+                                           </p>
+                                       </div>
+                                   </a>
+                               </div>
+                           </article>
+                       </div>
                   </div>
-                </article>
               </div>
-              <div class="flex-item">
-                <article class="article">
-                  <div class="d-flex">
-                    <a class="d-flex" href="#">
-                      <img src="./assets/img2.webp" class="object-fit" alt="" />
-                      <div class="px-1" style="width: 300px">
-                        <a href="#" class="text-title display-2 text-dark">
-                          Gaming Adventures Unleashed
-                        </a>
-                        <p class="secondary-title text-secondary display-3">
-                          <span
-                            ><i class="far fa-clock text-primary"></i> Wed 02,
-                            2021
-                          </span>
-                        </p>
-                      </div>
-                    </a>
+              <div class="col-3">
+                   <h2 class="footer-title secondary-title">Popular Tags</h2>
+
+                   <div class="tags">
+                       <div class="d-flex-gap flex-wrap">
+                           <a href="#" class="nav-link btn bg-light pop-link">Travel</a>
+                           <a href="#" class="nav-link btn bg-light pop-link">Food</a>
+                           <a href="#" class="nav-link btn bg-light pop-link">Lifestyle</a>
+                           <a href="#" class="nav-link btn bg-light pop-link">Techonogy</a>
+                           <a href="#" class="nav-link btn bg-light pop-link">Fashion</a>
+                       </div>
+                       <style>
+                        .pop-link{
+                            transition: 1.0s ease !important;
+                        }
+
+                       </style>
+                   </div>
+
+                   <h2 class="footer-title secondary-title mt-5">Connect with us</h2>
+
+                   <div class="tags social" id="contact">
+                    <div class="d-flex-gap flex-wrap">
+                      <a href="https://www.facebook.com/" id="facebook" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
+                      <a href="https://x.com/" id="twitter" class="nav-link btn bg-light"><i class="fa-brands fa-x-twitter"></i></a>
+                      <a href="https://www.instagram.com/"  id="instagram" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
+                      <a href="https://dribbble.com/" id="dribbble" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
+                      <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" id="github" target="_blank"
+                        class="nav-link btn bg-light"><i class="fa-brands fa-github"></i></a>
+                    </div>
                   </div>
-                </article>
+        
               </div>
-            </div>
           </div>
-          <div class="col-3">
-            <h2 class="footer-title secondary-title">Popular Tags</h2>
 
-            <div class="tags">
-              <div class="d-flex-gap flex-wrap">
-                <a href="#" class="nav-link btn bg-light">Travel</a>
-                <a href="#" class="nav-link btn bg-light">Food</a>
-                <a href="#" class="nav-link btn bg-light">Lifestyle</a>
-                <a href="#" class="nav-link btn bg-light">Techonogy</a>
-                <a href="#" class="nav-link btn bg-light">Fashion</a>
-              </div>
-            </div>
 
-            <h2 class="footer-title secondary-title mt-2">Connect with us</h2>
-
-            <div class="tags social" id="contact">
-              <div class="d-flex-gap flex-wrap">
-                <a href="https://www.facebook.com/" id="facebook" class="nav-link btn bg-light"
-                  ><i class="fab fa-facebook-f"></i
-                ></a>
-                <a href="https://x.com/" id="twitter" class="nav-link btn bg-light"
-                  ><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="https://www.instagram.com/"  id="instagram" class="nav-link btn bg-light"
-                  ><i class="fab fa-instagram"></i
-                ></a>
-                <a href="https://dribbble.com/" id="dribbble" class="nav-link btn bg-light"
-                  ><i class="fab fa-dribbble"></i
-                ></a>
-                <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" id="github" target="_blank" class="nav-link btn bg-light"
-                  ><i class="fa-brands fa-github"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-      <!-- the authentication copyright -->
-      <div class="wordwise-footer">
+       <!-- the authentication copyright -->
+       <div class="wordwise-footer">
         <div class="wordwise-footer-content">
-          <p>
-            &copy; <span id="current-year"></span> WordWise. All rights
-            reserved.
-          </p>
-          <!-- Add the FAQ button here -->
-          <button id="faqButton" class="btn btn-primary">FAQ</button>
+          <p class="last">&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
         </div>
-      </div>
-
-      <!-- FAQ Modal -->
-      <div id="faqModal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>Frequently Asked Questions</h2>
-          <div class="faq-item">
-            <h3>What is WordWise?</h3>
-            <p>WordWise is a blogging platform that covers various topics including travel, technology, lifestyle, and more.</p>
-          </div>
-          <div class="faq-item">
-            <h3>How can I start writing?</h3>
-            <p>You can start writing by filling out the form on this page. Make sure to provide a catchy heading, select a topic, and write your content in the text area provided.</p>
-          </div>
-          <div class="faq-item">
-            <h3>Can I upload images with my blog post?</h3>
-            <p>Yes, you can upload an image to accompany your blog post using the "Upload Image" field in the form.</p>
-          </div>
-          <!-- Add more FAQ items as needed -->
-        </div>
-      </div>
-    </footer>
+    </div>
+  </footer>
     <!-- .footer -->
      <!-- this script is to display the year in the copyright authentication in the footer -->
      <script>
@@ -750,8 +729,9 @@
     <style>
       .wordwise-footer-content {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
+        
       }
 
       #faqButton {
@@ -810,7 +790,7 @@
 <div class="gtranslate_wrapper"></div>
 <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
 <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
-
+<script src="script.js"></script>
 
   </body>
 </html>

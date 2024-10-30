@@ -73,6 +73,13 @@
 </head>
 
 <body>
+  <style>
+    body.dark-mode footer a{
+      background: none;
+    }
+  </style>
+  <div class="bookmark-section">
+    
   <div class= "progress-container">
     <div class= "progress-bar" id="progress-bar"></div>
   </div>
@@ -129,7 +136,24 @@
     </header>
   </div>
 </nav>
-<h1 style="text-align: center; color: #333; margin: 20px 0;">My Reading List</h1>
+<script>
+    const checkbox = document.getElementById('checkbox');
+
+    checkbox.addEventListener('change', () => {
+        document.body.classList.toggle('dark-mode', checkbox.checked);
+        // Optionally save the user's preference to local storage
+        localStorage.setItem('dark-mode', checkbox.checked);
+    });
+
+    // Check local storage for the user's preference on page load
+    if (localStorage.getItem('dark-mode') === 'true') {
+        document.body.classList.add('dark-mode');
+        checkbox.checked = true; // Set the checkbox to checked if dark mode is enabled
+    }
+
+</script>
+
+<h1 style="text-align: center; margin: 20px 0;">My Reading List</h1>
 <main id="reading-list" style="max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f8f9fa; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);">
     <div id="bookmark-message" style="text-align: center; margin-bottom: 20px; font-size: 1.2em; color: #555;">
         <!-- Dynamic message will be displayed here -->
@@ -290,5 +314,10 @@
         </div>
     
       </footer>
+      
+  </div>
+  <div class="gtranslate_wrapper"></div>
+<script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 </body>
 </html>
