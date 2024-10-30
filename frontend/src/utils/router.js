@@ -5,6 +5,7 @@ import { renderCategories } from '../pages/Categories.js';
 import { renderAbout } from '../pages/About.js';
 import { renderContact } from '../pages/Contact.js';
 import { renderFeedback } from '../pages/Feedback.js';
+import { renderProfilePage } from '../pages/BloggerProfile.js';
 
 const routes = {
     '/': renderHome,
@@ -13,7 +14,8 @@ const routes = {
     '/categories': renderCategories,
     '/about': renderAbout,
     '/contact': renderContact,
-    '/feedback': renderFeedback
+    '/feedback': renderFeedback,
+    '/profile': renderProfilePage
 };
 
 export function router() {

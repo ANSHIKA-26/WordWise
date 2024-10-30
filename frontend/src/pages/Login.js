@@ -1,12 +1,11 @@
 // Function to render the login UI
 export function renderLogin(container) {
     container.innerHTML = `
-        <div id="auth-status" class="text-gray-600 text-sm font-medium mr-2">
-            Loading...
+        <div id="auth-status" class="flex items-center bg-[#8b5cf6] hover:bg-[#753ff1] text-white text-sm font-medium mr-2 space-x-4 p-2 shadow-lg rounded-md border-none hidden ">
         </div>
 
         <div class="flex justify-evenly">
-            <button id="google-login-btn" class="bg-[#8b5cf6] flex hover:bg-[#753ff1] text-white font-semibold py-2 px-4 rounded shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300 ease-in-out mb-4 hidden">
+            <button id="google-login-btn" class="bg-[#8b5cf6] flex hover:bg-[#753ff1] text-white font-semibold py-2 px-4 rounded shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition duration-300 ease-in-out mb-4">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo" class="w-5 h-5 mr-1">    
             Sign in with Google
             </button>
@@ -29,13 +28,13 @@ import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signO
 
 // Initialize Firebase
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID",
-    measurementId: "YOUR_MEASUREMENT_ID"
+    apiKey: "AIzaSyDwowmzH0skVhieH3KPgIP8_vQBzhJmIi4",
+    authDomain: "wordwise-d1607.firebaseapp.com",
+    projectId: "wordwise-d1607",
+    storageBucket: "wordwise-d1607.appspot.com",
+    messagingSenderId: "426579758621",
+    appId: "1:426579758621:web:5bc883cd5eea3a416940f4",
+    measurementId: "G-QL9ZF6G3HH"
 };
 
 
@@ -49,13 +48,23 @@ function initializeUser(user) {
     const googleBtn = document.getElementById('google-login-btn');
     const signoutBtn = document.getElementById('logout-btn')
     if (user) {
-        authStatus.innerHTML = `Logged in as: ${user.displayName}`;
+        authStatus.innerHTML = `View profile: ${user.displayName}`;
         googleBtn.classList.add('hidden');
         signoutBtn.classList.remove('hidden');
+        authStatus.classList.remove('hidden')
+
+        authStatus.style.cursor = 'pointer';
+        authStatus.addEventListener('click', () => {
+            const name = user.displayName ? encodeURIComponent(user.displayName) : 'unknown';
+            const email = user.email ? encodeURIComponent(user.email) : 'unknown';
+            const profilePic = user.photoURL ? encodeURIComponent(user.photoURL) : '';
+
+            window.location.href = `/profile?name=${name}&email=${email}&profilePic=${profilePic}`;
+        });
     } else {
         authStatus.innerHTML = '';
-        googleBtn.classList.remove('hidden');
         signoutBtn.classList.add('hidden');
+        authStatus.removeEventListener('click', () => { });
     }
 }
 
@@ -76,10 +85,11 @@ function signInWithGoogle() {
 }
 
 // Function to log out the user
-function signOut() {
+export default function signOut() {
     firebaseSignOut(auth)
         .then(() => {
             initializeUser(null);
+            document.getElementById('google-login-btn').classList.remove('hidden')
         })
         .catch((error) => {
             console.error('Error during sign-out:', error);
