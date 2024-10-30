@@ -15,5 +15,6 @@
   },
   "dependencies": {
     "firebase": "^11.0.1"
+   "wordwise-frontend": "file:"
   }
 }
