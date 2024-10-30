@@ -550,3 +550,9 @@ img {
 [data-theme="dark"] .new-category-box:hover .new-post-excerpt {
   color: var(--hover-text-color);
 }
+.dark .article{
+  background-color: none;	  background-color: none;
+}
+.secondary-title >p{
+  padding: 15px 1px;
+}	
