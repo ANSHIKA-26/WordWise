@@ -60,7 +60,7 @@ export function renderNavbar() {
         themeToggleDarkIcon.classList.remove('hidden');
     }
 
-    themeToggleBtn.addEventListener('click', function() {
+    themeToggleBtn.addEventListener('click', function () {
         // toggle icons inside button
         themeToggleDarkIcon.classList.toggle('hidden');
         themeToggleLightIcon.classList.toggle('hidden');
