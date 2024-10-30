@@ -195,8 +195,8 @@ img {
 }
 
 .footer-container {
-    width: 90%;
-    margin: 0 auto;
+    padding: 0 80px;
+    margin:  auto;
 }
 
 .footer-row {
@@ -500,4 +500,7 @@ img {
 [data-theme="dark"] .new-category-box:hover .new-post-title,
 [data-theme="dark"] .new-category-box:hover .new-post-excerpt {
   color: var(--hover-text-color);
+}
+.dark .article{
+  background-color: none;
 }
