@@ -29,21 +29,13 @@ import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signO
 
 // Initialize Firebase
 const firebaseConfig = {
-
-    apiKey: "AIzaSyDwowmzH0skVhieH3KPgIP8_vQBzhJmIi4",
-
-    authDomain: "wordwise-d1607.firebaseapp.com",
-
-    projectId: "wordwise-d1607",
-
-    storageBucket: "wordwise-d1607.appspot.com",
-
-    messagingSenderId: "426579758621",
-
-    appId: "1:426579758621:web:5bc883cd5eea3a416940f4",
-
-    measurementId: "G-QL9ZF6G3HH"
-
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID",
+    measurementId: "YOUR_MEASUREMENT_ID"
 };
 
 
