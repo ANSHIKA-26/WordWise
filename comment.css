@@ -1,7 +1,7 @@
 *{
     box-sizing:border-box ;
 }
-body{
+/* body{
     display: block;
     margin: 0;
     padding: 0;
@@ -9,7 +9,7 @@ body{
     font-size: 16px;
     background-color:rgb(230 224 216);
     margin-top: 20px;
-}
+} */
 .flex{
     display:flex ;
     justify-content: space-between;
@@ -67,7 +67,7 @@ img{
     gap:10px;
    }
    
-   .icon {
+   .icons {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,11 +80,12 @@ img{
     color: #009cff;
     cursor: pointer;
    } */
-   .icon.like:hover, .icon.like.active {
+   body.dark-mode { --background-color: #121212; --text-color: #ffffff; --comment-bg-color: #1e1e1e; --border-color: #333; --box-shadow-color: rgba(255, 255, 255, 0.1); --icon-color: #bbbbbb; --icon-hover-color: #ffffff; --link-color: #82b1ff; --button-bg-color: #1e88e5; --button-hover-bg-color: #1565c0; --text-area-bg-color: #2e2e2e; --text-area-border-color: #555; }
+   .icons.like:hover, .icons.like.active {
      color: #1e90ff; 
      cursor: pointer;
  }
-   .icon.dislike:hover, .icon.dislike.active { 
+   .icons.dislike:hover, .icons.dislike.active { 
     color: #ff6347;
     cursor: pointer;
  }
