@@ -1,78 +1,374 @@
 {
-    "words": [
-        { "word": "Abundance", "definition": "A large quantity of something, often associated with wealth and prosperity." },
-        { "word": "Achievement", "definition": "A thing done successfully, typically by effort, courage, or skill." },
-        { "word": "Awareness", "definition": "Knowledge or perception of a situation or fact; consciousness." },
-        { "word": "Balance", "definition": "A state in which different things occur in equal or proper amounts." },
-        { "word": "Belief", "definition": "An acceptance that something exists or is true, especially without proof." },
-        { "word": "Bravery", "definition": "Courageous behavior or character." },
-        { "word": "Clarity", "definition": "The quality of being clear and easy to understand; lucidity." },
-        { "word": "Compassion", "definition": "Sympathetic pity and concern for the sufferings or misfortunes of others." },
-        { "word": "Courage", "definition": "The ability to do something that frightens one; bravery." },
-        { "word": "Creativity", "definition": "The use of imagination or original ideas to create something." },
-        { "word": "Dream", "definition": "A cherished aspiration, ambition, or ideal." },
-        { "word": "Empowerment", "definition": "The process of becoming stronger and more confident in one’s own abilities." },
-        { "word": "Enthusiasm", "definition": "Intense and eager enjoyment, interest, or approval." },
-        { "word": "Faith", "definition": "Complete trust or confidence in someone or something." },
-        { "word": "Focus", "definition": "The center of interest or activity; the state of concentrating attention." },
-        { "word": "Forgiveness", "definition": "The action or process of forgiving or being forgiven." },
-        { "word": "Fortitude", "definition": "Courage in pain or adversity." },
-        { "word": "Gratitude", "definition": "The quality of being thankful; readiness to show appreciation." },
-        { "word": "Growth", "definition": "The process of increasing in physical size, maturity, or development." },
-        { "word": "Harmony", "definition": "The quality of forming a pleasing and consistent whole." },
-        { "word": "Hope", "definition": "A feeling of expectation and desire for a certain thing to happen." },
-        { "word": "Imagination", "definition": "The ability of the mind to be creative or resourceful." },
-        { "word": "Inspiration", "definition": "The process of being mentally stimulated to do or feel something." },
-        { "word": "Intuition", "definition": "The ability to understand something instinctively, without the need for conscious reasoning." },
-        { "word": "Joy", "definition": "A feeling of great pleasure and happiness." },
-        { "word": "Kindness", "definition": "The quality of being friendly, generous, and considerate." },
-        { "word": "Law of Attraction", "definition": "The belief that positive or negative thoughts bring positive or negative experiences into a person's life." },
-        { "word": "Manifestation", "definition": "The act of bringing something into reality through thoughts and beliefs." },
-        { "word": "Mindfulness", "definition": "The quality of being present and fully engaged with the current moment." },
-        { "word": "Motivation", "definition": "The reason or reasons one has for acting or behaving in a particular way." },
-        { "word": "Optimism", "definition": "Hopefulness and confidence about the future or the successful outcome of something." },
-        { "word": "Passion", "definition": "A strong feeling of enthusiasm or excitement for something or about doing something." },
-        { "word": "Peace", "definition": "Freedom from disturbance; tranquility." },
-        { "word": "Persistence", "definition": "Firm or obstinate continuance in a course of action in spite of difficulty or opposition." },
-        { "word": "Positivity", "definition": "The practice of being or tendency to be positive or optimistic in attitude." },
-        { "word": "Potential", "definition": "Having or showing the capacity to develop into something in the future." },
-        { "word": "Purpose", "definition": "The reason for which something is done or created or for which something exists." },
-        { "word": "Radiance", "definition": "The quality or state of being radiant; brightness or warmth." },
-        { "word": "Resilience", "definition": "The capacity to recover quickly from difficulties; toughness." },
-        { "word": "Simplicity", "definition": "The quality or condition of being easy to understand or do; plainness." },
-        { "word": "Success", "definition": "The accomplishment of an aim or purpose." },
-        { "word": "Tenacity", "definition": "The quality or fact of being able to grip something firmly; grip." },
-        { "word": "Trust", "definition": "Firm belief in the reliability, truth, ability, or strength of someone or something." },
-        { "word": "Unity", "definition": "The state of being united or joined as a whole." },
-        { "word": "Vision", "definition": "The ability to think about or plan the future with imagination or wisdom." },
-        { "word": "Wisdom", "definition": "The quality of having experience, knowledge, and good judgment." },
-        { "word": "Zeal", "definition": "Great energy or enthusiasm in pursuit of a cause or objective." },
-        { "word": "Adventure", "definition": "An unusual and exciting experience or activity." },
-        { "word": "Awakening", "definition": "An act of waking from sleep or a realization of something important." },
-        { "word": "Benevolence", "definition": "The quality of being well-meaning and kind." },
-        { "word": "Cherish", "definition": "To protect and care for someone lovingly." },
-        { "word": "Diligence", "definition": "Careful and persistent work or effort." },
-        { "word": "Empathy", "definition": "The ability to understand and share the feelings of another." },
-        { "word": "Felicity", "definition": "Intense happiness; the ability to find appropriate expression for one's thoughts." },
-        { "word": "Gentleness", "definition": "The quality of being kind, soft, or mild." },
-        { "word": "Happiness", "definition": "The state of being happy." },
-        { "word": "Ingenuity", "definition": "The quality of being clever, original, and inventive." },
-        { "word": "Joyfulness", "definition": "The state of being joyful; the quality of being happy." },
-        { "word": "Kismet", "definition": "A fate or destiny; often used in the context of love." },
-        { "word": "Love", "definition": "An intense feeling of deep affection." },
-        { "word": "Mindset", "definition": "The established set of attitudes held by someone." },
-        { "word": "Nurture", "definition": "To care for and encourage the growth or development of someone or something." },
-        { "word": "Openness", "definition": "The quality of being open to new ideas, experiences, and information." },
-        { "word": "Positivity", "definition": "The practice of being or tendency to be positive or optimistic in attitude." },
-        { "word": "Quest", "definition": "A long or arduous search for something." },
-        { "word": "Radiate", "definition": "To emit energy, especially light or heat, in the form of rays." },
-        { "word": "Satisfaction", "definition": "Fulfillment of one's wishes, expectations, or needs." },
-        { "word": "Transformation", "definition": "A thorough or dramatic change in form or appearance." },
-        { "word": "Understanding", "definition": "The ability to comprehend; a personal view of an idea or a situation." },
-        { "word": "Vitality", "definition": "The state of being strong and active; energy." },
-        { "word": "Wisdom", "definition": "The quality of having experience, knowledge, and good judgment." },
-        { "word": "Xenial", "definition": "Hospitable, especially to strangers." },
-        { "word": "Yearning", "definition": "A feeling of intense longing for something." },
-        { "word": "Zenith", "definition": "The time at which something is most powerful or successful." }
-    ]
+  "words": [
+    {
+      "word": "Abundance",
+      "definition": "A large quantity of something, often associated with wealth and prosperity.",
+      "sentence": "The garden was filled with an abundance of flowers, creating a vibrant and lively atmosphere."
+    },
+    {
+      "word": "Achievement",
+      "definition": "A thing done successfully, typically by effort, courage, or skill.",
+      "sentence": "Graduating at the top of his class was a significant achievement for him."
+    },
+    {
+      "word": "Awareness",
+      "definition": "Knowledge or perception of a situation or fact; consciousness.",
+      "sentence": "Raising awareness about environmental issues is crucial for future generations."
+    },
+    {
+      "word": "Balance",
+      "definition": "A state in which different things occur in equal or proper amounts.",
+      "sentence": "She tries to maintain a balance between her work and personal life."
+    },
+    {
+      "word": "Belief",
+      "definition": "An acceptance that something exists or is true, especially without proof.",
+      "sentence": "His belief in kindness helped him through difficult times."
+    },
+    {
+      "word": "Bravery",
+      "definition": "Courageous behavior or character.",
+      "sentence": "Her bravery during the rescue operation was commendable."
+    },
+    {
+      "word": "Clarity",
+      "definition": "The quality of being clear and easy to understand; lucidity.",
+      "sentence": "The clarity of her speech made the complex topic accessible to everyone."
+    },
+    {
+      "word": "Compassion",
+      "definition": "Sympathetic pity and concern for the sufferings or misfortunes of others.",
+      "sentence": "His compassion for animals led him to volunteer at the shelter."
+    },
+    {
+      "word": "Courage",
+      "definition": "The ability to do something that frightens one; bravery.",
+      "sentence": "It took a lot of courage for her to speak in front of the large crowd."
+    },
+    {
+      "word": "Creativity",
+      "definition": "The use of imagination or original ideas to create something.",
+      "sentence": "Her creativity shone through in the design of the new product."
+    },
+    {
+      "word": "Dream",
+      "definition": "A cherished aspiration, ambition, or ideal.",
+      "sentence": "Her dream of becoming a doctor kept her motivated through medical school."
+    },
+    {
+      "word": "Empowerment",
+      "definition": "The process of becoming stronger and more confident in one’s own abilities.",
+      "sentence": "The workshop focused on empowerment and self-confidence for young women."
+    },
+    {
+      "word": "Enthusiasm",
+      "definition": "Intense and eager enjoyment, interest, or approval.",
+      "sentence": "His enthusiasm for the project was infectious among the team."
+    },
+    {
+      "word": "Faith",
+      "definition": "Complete trust or confidence in someone or something.",
+      "sentence": "Her faith in her friends never wavered, even in hard times."
+    },
+    {
+      "word": "Focus",
+      "definition": "The center of interest or activity; the state of concentrating attention.",
+      "sentence": "With focus, he completed the task in record time."
+    },
+    {
+      "word": "Forgiveness",
+      "definition": "The action or process of forgiving or being forgiven.",
+      "sentence": "Forgiveness helped him let go of past grievances and move on."
+    },
+    {
+      "word": "Fortitude",
+      "definition": "Courage in pain or adversity.",
+      "sentence": "She showed remarkable fortitude through her illness."
+    },
+    {
+      "word": "Gratitude",
+      "definition": "The quality of being thankful; readiness to show appreciation.",
+      "sentence": "He expressed his gratitude for the support he received during tough times."
+    },
+    {
+      "word": "Growth",
+      "definition": "The process of increasing in physical size, maturity, or development.",
+      "sentence": "The growth of the company over the years has been impressive."
+    },
+    {
+      "word": "Harmony",
+      "definition": "The quality of forming a pleasing and consistent whole.",
+      "sentence": "Living in harmony with nature brings a sense of peace."
+    },
+    {
+      "word": "Hope",
+      "definition": "A feeling of expectation and desire for a certain thing to happen.",
+      "sentence": "Hope for a better future kept them going through difficult times."
+    },
+    {
+      "word": "Imagination",
+      "definition": "The ability of the mind to be creative or resourceful.",
+      "sentence": "A child’s imagination can turn the simplest objects into magical creations."
+    },
+    {
+      "word": "Inspiration",
+      "definition": "The process of being mentally stimulated to do or feel something.",
+      "sentence": "Her resilience was an inspiration to everyone around her."
+    },
+    {
+      "word": "Intuition",
+      "definition": "The ability to understand something instinctively, without the need for conscious reasoning.",
+      "sentence": "She relied on her intuition to make the tough decision."
+    },
+    {
+      "word": "Joy",
+      "definition": "A feeling of great pleasure and happiness.",
+      "sentence": "The joy on her face was unmistakable as she received the award."
+    },
+    {
+      "word": "Kindness",
+      "definition": "The quality of being friendly, generous, and considerate.",
+      "sentence": "Her kindness to strangers is what makes her well-loved in the community."
+    },
+    {
+      "word": "Law of Attraction",
+      "definition": "The belief that positive or negative thoughts bring positive or negative experiences into a person's life.",
+      "sentence": "She practices the Law of Attraction by focusing on her dreams every day."
+    },
+    {
+      "word": "Manifestation",
+      "definition": "The act of bringing something into reality through thoughts and beliefs.",
+      "sentence": "She believes that positive thinking leads to the manifestation of her goals."
+    },
+    {
+      "word": "Mindfulness",
+      "definition": "The quality of being present and fully engaged with the current moment.",
+      "sentence": "Practicing mindfulness helped him reduce his stress levels significantly."
+    },
+    {
+      "word": "Motivation",
+      "definition": "The reason or reasons one has for acting or behaving in a particular way.",
+      "sentence": "Her motivation to succeed drove her to work harder each day."
+    },
+    {
+      "word": "Optimism",
+      "definition": "Hopefulness and confidence about the future or the successful outcome of something.",
+      "sentence": "His optimism brightened up the room, even during tough times."
+    },
+    {
+      "word": "Passion",
+      "definition": "A strong feeling of enthusiasm or excitement for something or about doing something.",
+      "sentence": "His passion for music was evident in every performance."
+    },
+    {
+      "word": "Peace",
+      "definition": "Freedom from disturbance; tranquility.",
+      "sentence": "Meditation brings a sense of peace and calm to her life."
+    },
+    {
+      "word": "Persistence",
+      "definition": "Firm or obstinate continuance in a course of action in spite of difficulty or opposition.",
+      "sentence": "Persistence was key to achieving her ambitious goals."
+    },
+    {
+      "word": "Positivity",
+      "definition": "The practice of being or tendency to be positive or optimistic in attitude.",
+      "sentence": "Her positivity was contagious, lifting everyone's spirits."
+    },
+    {
+      "word": "Potential",
+      "definition": "Having or showing the capacity to develop into something in the future.",
+      "sentence": "His potential in sports was recognized at an early age."
+    },
+    {
+      "word": "Purpose",
+      "definition": "The reason for which something is done or created or for which something exists.",
+      "sentence": "Finding a sense of purpose can be a powerful motivator."
+    },
+    {
+      "word": "Radiance",
+      "definition": "The quality or state of being radiant; brightness or warmth.",
+      "sentence": "Her smile had a radiance that brightened up the room."
+    },
+    {
+      "word": "Resilience",
+      "definition": "The capacity to recover quickly from difficulties; toughness.",
+      "sentence": "His resilience in the face of adversity was inspiring."
+    },
+    {
+      "word": "Simplicity",
+      "definition": "The quality or condition of being easy to understand or do; plainness.",
+      "sentence": "She appreciated the simplicity of a quiet, uncluttered life."
+    },
+    {
+      "word": "Success",
+      "definition": "The accomplishment of an aim or purpose.",
+      "sentence": "Her business became a success after years of hard work."
+    },
+    {
+      "word": "Tenacity",
+      "definition": "The quality or fact of being able to grip something firmly; grip.",
+      "sentence": "His tenacity in reaching his goals was unwavering."
+    },
+    {
+      "word": "Trust",
+      "definition": "Firm belief in the reliability, truth, ability, or strength of someone or something.",
+      "sentence": "Building trust takes time but is invaluable in relationships."
+    },
+    {
+      "word": "Unity",
+      "definition": "The state of being united or joined as a whole.",
+      "sentence": "The community came together in unity to support those in need."
+    },
+    {
+      "word": "Vision",
+      "definition": "The ability to think about or plan the future with imagination or wisdom.",
+      "sentence": "Her vision for the company transformed it into a leader in its industry."
+    },
+    {
+      "word": "Wisdom",
+      "definition": "The quality of having experience, knowledge, and good judgment.",
+      "sentence": "He was respected for his wisdom and ability to give sound advice."
+    },
+    {
+      "word": "Zeal",
+      "definition": "Great energy or enthusiasm in pursuit of a cause or objective.",
+      "sentence": "Her zeal for learning languages was evident from her progress."
+    },
+    {
+      "word": "Adventure",
+      "definition": "An unusual and exciting experience or activity.",
+      "sentence": "They embarked on an adventure across the country by bike."
+    },
+    {
+      "word": "Awakening",
+      "definition": "An act of waking from sleep or the realization of something important.",
+      "sentence": "Reading the book was an awakening to new perspectives."
+    },
+    {
+      "word": "Benevolence",
+      "definition": "The quality of being well-meaning and kind.",
+      "sentence": "Her benevolence was evident in her constant acts of kindness towards others."
+    },
+    {
+      "word": "Cherish",
+      "definition": "To protect and care for someone lovingly.",
+      "sentence": "He would always cherish the memories of his childhood home."
+    },
+    {
+      "word": "Diligence",
+      "definition": "Careful and persistent work or effort.",
+      "sentence": "Her diligence in her studies led to excellent academic achievements."
+    },
+    {
+      "word": "Empathy",
+      "definition": "The ability to understand and share the feelings of another.",
+      "sentence": "His empathy made him a trusted friend who could offer true comfort."
+    },
+    {
+      "word": "Felicity",
+      "definition": "Intense happiness; the ability to find appropriate expression for one's thoughts.",
+      "sentence": "The felicity she felt on her wedding day was unforgettable."
+    },
+    {
+      "word": "Gentleness",
+      "definition": "The quality of being kind, soft, or mild.",
+      "sentence": "His gentleness was clear in the way he treated animals with care."
+    },
+    {
+      "word": "Happiness",
+      "definition": "The state of being happy.",
+      "sentence": "Finding happiness in the small moments brought peace to her life."
+    },
+    {
+      "word": "Ingenuity",
+      "definition": "The quality of being clever, original, and inventive.",
+      "sentence": "His ingenuity helped solve complex problems in the project."
+    },
+    {
+      "word": "Joyfulness",
+      "definition": "The state of being joyful; the quality of being happy.",
+      "sentence": "Her joyfulness was contagious, lifting the spirits of everyone around her."
+    },
+    {
+      "word": "Kismet",
+      "definition": "A fate or destiny; often used in the context of love.",
+      "sentence": "They met unexpectedly, convinced it was kismet that brought them together."
+    },
+    {
+      "word": "Love",
+      "definition": "An intense feeling of deep affection.",
+      "sentence": "His love for his family was unwavering and strong."
+    },
+    {
+      "word": "Mindset",
+      "definition": "The established set of attitudes held by someone.",
+      "sentence": "Adopting a positive mindset can transform your outlook on life."
+    },
+    {
+      "word": "Nurture",
+      "definition": "To care for and encourage the growth or development of someone or something.",
+      "sentence": "Parents nurture their children to help them grow into confident adults."
+    },
+    {
+      "word": "Openness",
+      "definition": "The quality of being open to new ideas, experiences, and information.",
+      "sentence": "Her openness to change made her adaptable in any situation."
+    },
+    {
+      "word": "Positivity",
+      "definition": "The practice of being or tendency to be positive or optimistic in attitude.",
+      "sentence": "Her positivity was a source of encouragement for her friends."
+    },
+    {
+      "word": "Quest",
+      "definition": "A long or arduous search for something.",
+      "sentence": "Their quest for knowledge took them around the world."
+    },
+    {
+      "word": "Radiate",
+      "definition": "To emit energy, especially light or heat, in the form of rays.",
+      "sentence": "She seemed to radiate happiness wherever she went."
+    },
+    {
+      "word": "Satisfaction",
+      "definition": "Fulfillment of one's wishes, expectations, or needs.",
+      "sentence": "He felt a deep satisfaction after completing the challenging project."
+    },
+    {
+      "word": "Transformation",
+      "definition": "A thorough or dramatic change in form or appearance.",
+      "sentence": "The transformation of the landscape over the years was incredible."
+    },
+    {
+      "word": "Understanding",
+      "definition": "The ability to comprehend; a personal view of an idea or a situation.",
+      "sentence": "She showed understanding by listening carefully to his concerns."
+    },
+    {
+      "word": "Vitality",
+      "definition": "The state of being strong and active; energy.",
+      "sentence": "Her vitality and enthusiasm made her a lively presence at work."
+    },
+    {
+      "word": "Wisdom",
+      "definition": "The quality of having experience, knowledge, and good judgment.",
+      "sentence": "Her wisdom was often sought after by friends in need of guidance."
+    },
+    {
+      "word": "Xenial",
+      "definition": "Hospitable, especially to strangers.",
+      "sentence": "Their xenial nature made visitors feel instantly at home."
+    },
+    {
+      "word": "Yearning",
+      "definition": "A feeling of intense longing for something.",
+      "sentence": "He had a deep yearning to explore distant lands and cultures."
+    },
+    {
+      "word": "Zenith",
+      "definition": "The time at which something is most powerful or successful.",
+      "sentence": "The athlete reached the zenith of her career with her latest victory."
+    }
+  ]
 }
