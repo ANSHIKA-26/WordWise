@@ -10,9 +10,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="/images/favi.webp" />
 
     <!--font awesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
     <!--swiper slider css-->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
@@ -26,11 +25,11 @@
     <!--css-->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="Scroll_and_progressbar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
     <style>
         /* Chatbot Container */
+        
         .chatbot-container {
             position: fixed;
             bottom: 20px;
@@ -39,12 +38,9 @@
             /* Adjust as needed */
             z-index: 1000;
             /* Ensure it appears above other elements */
-
         }
-
-
-
         /* Chatbot Button */
+        
         .chatbot-button {
             background-color: #007bff;
             /* Change to your preferred color */
@@ -59,16 +55,16 @@
             height: 50px;
             /* Adjusted size */
         }
-
         /* Button Image */
+        
         .chatbot-button img {
             width: 30px;
             /* Adjusted image size */
             height: 30px;
             /* Adjusted image size */
         }
-
         /* Tooltip Text */
+        
         .tooltip-text {
             display: none;
             /* Hide by default */
@@ -87,14 +83,14 @@
             /* Prevent text from wrapping */
             line-height: 20px
         }
-
         /* Show Tooltip on Hover */
+        
         .chatbot-button:hover .tooltip-text {
             display: block;
             /* Show on hover */
         }
-
         /* Chat Window Styles */
+        
         .chat-window {
             position: fixed;
             bottom: 90px;
@@ -113,8 +109,8 @@
             z-index: 1000;
             /* Ensure it appears above other elements */
         }
-
         /* Iframe for Chatbot HTML */
+        
         #chat-iframe {
             width: 100%;
             /* Full width of the chat window */
@@ -123,60 +119,54 @@
             border: none;
             /* Remove border */
         }
-
+        
         @media (max-width: 1200px) {
             .footer-container {
                 padding: 20px;
             }
-
             .col-3-main {
                 flex-direction: row;
                 flex-wrap: wrap;
             }
-
             .col-3 {
                 width: 33.33%;
             }
         }
-
+        
         @media (max-width: 992px) {
             .col-3 {
                 width: 50%;
                 /* Stack 2 columns side by side on medium screens */
             }
         }
-
+        
         @media (max-width: 768px) {
             .col-3 {
                 width: 100%;
                 /* Stack all columns vertically on small screens */
                 margin-bottom: 20px;
             }
-
             .feature-post div {
                 flex-direction: column;
             }
-
             .tags {
                 text-align: center;
             }
         }
-
+        
         @media (max-width: 576px) {
             .feature-post div {
                 align-items: center;
             }
-
             .tags.social {
                 justify-content: center;
             }
-
             .wordwise-footer-content {
                 text-align: center;
             }
         }
-
         /* Optional: You can also set max-width for images */
+        
         img.object-fit {
             max-width: 100%;
             /* Makes images responsive */
@@ -190,23 +180,21 @@
             max-width: 350px;
             padding: 20px;
         }
-
+        
         .form-group input {
             width: 100%;
             padding: 1px;
-
             display: inline-block;
             border: 1px solid #ccc;
             /* box-sizing: border-box; */
             font-size: 16px;
         }
-
+        
         .form-container h2 {
             font-size: 24px;
             margin-bottom: 20px;
             text-align: center;
         }
-
         /* .btn {
     background-color: #4CAF50;
     color: white;
@@ -217,15 +205,15 @@
     width: 100%;
     font-size: 16px;
 } */
-
+        
         .btn:hover {
             opacity: 0.8;
         }
-
+        
         .cancel {
             background-color: #f44336;
         }
-
+        
         .toggle-button {
             cursor: pointer;
             color: #007bff;
@@ -255,17 +243,14 @@
     <!-- Styles -->
     <style>
         /* General Styles */
-
+        
         .logo h1 a {
             font-size: 40px;
-
         }
-
         /* .nav-links1 {
     display: flex;
     gap: 30px;
     } */
-
         /* .hamburger {
     display: none;
     cursor: pointer;
@@ -355,8 +340,7 @@ Additional styling for smaller screens
         font-size: 24px;
     }
 } */
-
-
+        
         .dropdown-menu {
             display: none;
             position: absolute;
@@ -365,7 +349,7 @@ Additional styling for smaller screens
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             z-index: 1;
         }
-
+        
         .dropdown:hover .dropdown-menu {
             display: block;
         }
@@ -413,21 +397,17 @@ Additional styling for smaller screens
 
                 <!-- Login Form -->
                 <div class="form-popup" id="loginForm">
-                    <form class="form-container" onsubmit="return validateLoginForm()"
-                        style="max-width: 400px; margin: auto;">
+                    <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
                         <span class="close-icon" onclick="closeForm('login')">&times;</span>
                         <h2 class="text-center">Login</h2>
                         <div class="form-group">
                             <label for="loginEmail"><b>Email</b></label>
-                            <input type="email" class="form-control" id="loginEmail" placeholder="Enter Email"
-                                name="email" required>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="Enter Email" name="email" required>
                         </div>
                         <div class="form-group position-relative">
                             <label for="loginPsw"><b>Password</b></label>
-                            <input type="password" class="form-control" id="loginPsw" placeholder="Enter Password"
-                                name="psw" required minlength="6">
-                            <i class="bi bi-eye eye-icon" id="toggleLoginPassword"
-                                onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
+                            <input type="password" class="form-control" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+                            <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
                         </div>
                         <div class="forgot">
                             <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
@@ -442,8 +422,7 @@ Additional styling for smaller screens
                         <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
                             <img src="./assets/google_icon.webp" alt="Google Logo" class="google-logo">
                             Sign in with Google</button>
-                        <button type="button" class="btn btn-secondary w-100"
-                            onclick="closeForm('login')">CLOSE</button>
+                        <button type="button" class="btn btn-secondary w-100" onclick="closeForm('login')">CLOSE</button>
                         <!-- Link to Signup Page -->
                         <div class="new">
                             <p>Don't have an account? <a href="javascript:void(0);" onclick="openForm('signup')">Sign up
@@ -454,41 +433,33 @@ Additional styling for smaller screens
 
                 <!-- Signup Form -->
                 <div class="form-popup" id="signupForm">
-                    <form class="form-container" onsubmit="return validateSignupForm()"
-                        style="max-width: 400px; margin: auto;">
+                    <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
                         <span class="close-icon" onclick="closeForm('signup')">&times;</span>
                         <h2 class="text-center">Signup</h2>
                         <div class="form-group">
                             <label for="name"><b>Full Name</b></label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name"
-                                required>
+                            <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="signupEmail"><b>Email</b></label>
-                            <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email"
-                                name="email" required>
+                            <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required>
                         </div>
                         <div class="form-group position-relative">
                             <label for="signupPsw"><b>Password</b></label>
-                            <input type="password" class="form-control" id="signupPsw" placeholder="Enter Password"
-                                name="psw" required minlength="6">
-                            <i class="bi bi-eye eye-icon" id="toggleSignupPassword"
-                                onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
+                            <input type="password" class="form-control" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+                            <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
                         </div>
                         <div class="form-group position-relative">
                             <label for="confirmPsw"><b>Confirm Password</b></label>
-                            <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password"
-                                name="confirmPsw" required minlength="6">
-                            <i class="bi bi-eye eye-icon" id="toggleConfirmPassword"
-                                onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
+                            <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+                            <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
                         </div>
                         <button type="submit" class="btn btn-primary w-100 mb-3">SIGNUP</button>
                         <!-- Google Sign-In Button -->
                         <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
                             <img src="./assets/google_icon.webp" alt="Google Logo" class="google-logo">
                             Sign in with Google</button>
-                        <button type="button" class="btn btn-secondary w-100"
-                            onclick="closeForm('signup')">CLOSE</button>
+                        <button type="button" class="btn btn-secondary w-100" onclick="closeForm('signup')">CLOSE</button>
                         <!-- Link to Login Page -->
                         <div class="new">
                             <p>Already have an account? <a href="javascript:void(0);" onclick="openForm('login')">Login
@@ -553,29 +524,28 @@ Additional styling for smaller screens
                             border-radius: 10px;
                             box-sizing: border-box;
                         }
-
                     }
-
+                    
                     .form-container h2 {
                         margin-bottom: 20px;
                         color: #333;
                     }
-
+                    
                     .form-group {
                         margin-bottom: 15px;
                     }
-
+                    
                     .form-control {
                         border-radius: 5px;
                         padding: 10px;
                         box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
                     }
-
+                    
                     .btn {
                         margin-top: 10px;
                         border-radius: 5px;
                     }
-
+                    
                     .eye-icon {
                         position: absolute;
                         right: 15px;
@@ -583,30 +553,52 @@ Additional styling for smaller screens
                         cursor: pointer;
                         color: #007bff;
                     }
-
+                    
                     .close-icon {
                         font-size: 24px;
                         cursor: pointer;
                         float: right;
                     }
-
+                    
                     .position-relative {
                         position: relative;
                     }
-
+                    
                     .btn-primary:hover {
                         background-color: #0056b3;
                     }
-
+                    
                     .btn-secondary:hover {
                         background-color: #6c757d;
+                    }
+                    
+                    .scroll-to-top {
+                        background-color: #0066cc;
+                        /* Button color */
+                        color: white;
+                        /* Text color */
+                        border: none;
+                        /* No border */
+                        border-radius: 5px;
+                        /* Rounded corners */
+                        padding: 10px 15px;
+                        /* Padding for better appearance */
+                        cursor: pointer;
+                        /* Pointer cursor on hover */
+                        margin-top: 10px;
+                        /* Space between the paragraph and button */
+                    }
+                    
+                    .scroll-to-top:hover {
+                        background-color: #005bb5;
+                        /* Darker shade on hover */
                     }
                 </style>
 
                 <!-- Bootstrap Icons -->
-                <link rel="stylesheet"
-                    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-                <script src="backend/signup/signup.js"></script> <!-- Link to your JavaScript file -->
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+                <script src="backend/signup/signup.js"></script>
+                <!-- Link to your JavaScript file -->
 
                 <!-- Theme Switch -->
                 <div class="theme-switch-wrapper">
@@ -629,7 +621,6 @@ Additional styling for smaller screens
 
     <!-- JavaScript for Hamburger Menu Toggle -->
     <script>
-
     </script>
 
 
@@ -646,20 +637,18 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img1.webp"
-                                            class="img-fluid ">
+                                        <img style="height: 250px;width:300px" src="./assets/img1.webp" class="img-fluid ">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="blog.html" class="text-title display-1 text-dark">
                                         Roaming Routes
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 01,2020 &nbsp;</span>
-                                       <a href="comment1.html"> <span><i class="bi bi-chat-fill"></i> 13</span></a>
+                                        <a href="comment1.html"> <span><i class="bi bi-chat-fill"></i> 13</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -682,14 +671,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img2.webp"
-                                            class="img-fluid ">
+                                        <img style="height: 250px;width:300px" src="./assets/img2.webp" class="img-fluid ">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="gaming_chronicles.html" class="text-title display-1 text-dark">
                                         Gaming Chronicles
 
@@ -697,7 +684,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Mon 13,2023 &nbsp;</span>
-                                     <a href="comment2.html" > <span><i class="bi bi-chat-fill"></i> 12</span></a> 
+                                        <a href="comment2.html"> <span><i class="bi bi-chat-fill"></i> 12</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -721,14 +708,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img3.webp"
-                                            class="img-fluid ">
+                                        <img style="height: 250px;width:300px" src="./assets/img3.webp" class="img-fluid ">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Virtual Realms
 
@@ -737,7 +722,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 09,2023 &nbsp;</span>
-                                     <a href="comment3.html" > <span><i class="bi bi-chat-fill"></i> 19</span></a> 
+                                        <a href="comment3.html"> <span><i class="bi bi-chat-fill"></i> 19</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -760,14 +745,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img4.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img4.webp" class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Laptop life
 
@@ -776,7 +759,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Tue 07,2019 &nbsp;</span>
-                                    <a href="comment4.html">  <span><i class="bi bi-chat-fill"></i> 06</span></a>  
+                                        <a href="comment4.html"> <span><i class="bi bi-chat-fill"></i> 06</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -799,14 +782,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img5.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img5.webp" class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Mouthwatering Memoirs
 
@@ -815,7 +796,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Tue 02,2021 &nbsp;</span>
-                                      <a href="comment5.html"> <span><i class="bi bi-chat-fill"></i> 10</span></a> 
+                                        <a href="comment5.html"> <span><i class="bi bi-chat-fill"></i> 10</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -840,14 +821,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img6.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img6.webp" class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Tech travels
 
@@ -856,7 +835,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                    <a href="comment6.html">   <span><i class="bi bi-chat-fill"></i> 12</span></a> 
+                                        <a href="comment6.html"> <span><i class="bi bi-chat-fill"></i> 12</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -879,14 +858,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img7.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img7.webp" class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Culinary Delights
 
@@ -895,7 +872,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                     <a href="comment7.html"> <span><i class="bi bi-chat-fill"></i> 12</span></a>  
+                                        <a href="comment7.html"> <span><i class="bi bi-chat-fill"></i> 12</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -918,14 +895,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img8.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img8.webp" class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Voyage Vista: Where Travel Dreams Take Flight
 
@@ -934,7 +909,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                     <a href="comment8.html">  <span><i class="bi bi-chat-fill"></i> 12</span></a> 
+                                        <a href="comment8.html"> <span><i class="bi bi-chat-fill"></i> 12</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -957,14 +932,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img9.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img9.webp" class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Beak & Claw: A Chronicle of Birds in the Wild
 
@@ -973,7 +946,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                      <a href="comment9.html"> <span><i class="bi bi-chat-fill"></i> 12</span></a> 
+                                        <a href="comment9.html"> <span><i class="bi bi-chat-fill"></i> 12</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -996,14 +969,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img10.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img10.webp" class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Wild Whispers: Listening to Nature's Creatures
 
@@ -1012,7 +983,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                      <a href="comment10.html" > <span><i class="bi bi-chat-fill"></i> 12</span></a>
+                                        <a href="comment10.html"> <span><i class="bi bi-chat-fill"></i> 12</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -1035,14 +1006,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img11.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img11.webp" class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Aesthetic Abodes: Inspirations from Architectural Design
 
@@ -1051,7 +1020,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                     <a href="comment11.html" > <span><i class="bi bi-chat-fill"></i> 12</span></a> 
+                                        <a href="comment11.html"> <span><i class="bi bi-chat-fill"></i> 12</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -1073,14 +1042,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img12.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img12.webp" class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Nature's Kaleidoscope: A Symphony of Colors and Life
 
@@ -1090,7 +1057,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                    <a href="comment12.html">   <span><i class="bi bi-chat-fill"></i> 12</span></a> 
+                                        <a href="comment12.html"> <span><i class="bi bi-chat-fill"></i> 12</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -1113,12 +1080,10 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img13.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img13.webp" class="img-fluid">
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Chirp & Flutter: Tales from the Aviary
 
@@ -1127,7 +1092,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                     <a href="comment13.html">  <span><i class="bi bi-chat-fill"></i> 12</span></a> 
+                                        <a href="comment13.html"> <span><i class="bi bi-chat-fill"></i> 12</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -1150,14 +1115,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img14.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img14.webp" class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Unlocking the Power of the Mind: A Journey to Self-Discovery
 
@@ -1166,7 +1129,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                      <a href="comment14.html" > <span><i class="bi bi-chat-fill"></i> 12</span></a>
+                                        <a href="comment14.html"> <span><i class="bi bi-chat-fill"></i> 12</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -1186,18 +1149,16 @@ Additional styling for smaller screens
 
                 </div>
                 <div style="display: flex;justify-content: center;">
-                    <button class="btn load-posts-btn secondary-title text-light"
-                        style="height:50px;width:200px;font-size: large;border-radius: 20px;">Load More
+                    <button class="btn load-posts-btn secondary-title text-light" style="height:50px;width:200px;font-size: large;border-radius: 20px;">Load More
                         Posts...</button>
                 </div>
             </div>
             <script>
-
                 const heartButtons = document.querySelectorAll('.heart-btn');
 
 
-                heartButtons.forEach(function (button) {
-                    button.addEventListener('click', function () {
+                heartButtons.forEach(function(button) {
+                    button.addEventListener('click', function() {
 
                         const heartIcon = this.querySelector('.heart-icon');
 
@@ -1275,9 +1236,7 @@ Additional styling for smaller screens
                         </div>
                         <div class="accordion__content">
                             <!-- <i class="fa-solid fa-comments"></i> -->
-                            <p class="accordion__answer">You can easily switch between dark and light themes by clicking
-                                the theme toggle button located in the website header. This allows you to customize your
-                                viewing experience according to your preference.</p>
+                            <p class="accordion__answer">You can easily switch between dark and light themes by clicking the theme toggle button located in the website header. This allows you to customize your viewing experience according to your preference.</p>
                         </div>
                     </div>
 
@@ -1290,10 +1249,9 @@ Additional styling for smaller screens
                         </div>
                         <div class="accordion__content">
                             <!-- <i class="fa-solid fa-comments"></i> -->
-                            <p class="accordion__answer">The 'Start Writing' page provides a simple interface for
-                                quickly creating and publishing blog posts. Just click "Start Writing" from the
-                                navigation bar, fill in your title, content, and tags, and publish your blog with a
-                                single click.</p>
+                            <p class="accordion__answer">The 'Start Writing' page provides a simple interface for quickly creating and publishing blog posts. Just click "Start Writing" from the navigation bar, fill in your title, content, and tags, and publish your blog with a single
+                                click.
+                            </p>
                         </div>
                     </div>
 
@@ -1306,9 +1264,7 @@ Additional styling for smaller screens
                         </div>
                         <div class="accordion__content">
                             <!-- <i class="fa-solid fa-comments"></i> -->
-                            <p class="accordion__answer">The sliding bar on the home page features the latest blogs
-                                published on the platform. It updates automatically and allows users to easily scroll
-                                through and click on any blog that catches their attention.</p>
+                            <p class="accordion__answer">The sliding bar on the home page features the latest blogs published on the platform. It updates automatically and allows users to easily scroll through and click on any blog that catches their attention.</p>
                         </div>
                     </div>
 
@@ -1321,9 +1277,7 @@ Additional styling for smaller screens
                         </div>
                         <div class="accordion__content">
                             <!-- <i class="fa-solid fa-comments"></i> -->
-                            <p class="accordion__answer">Top picks are curated by a combination of editor
-                                recommendations and user engagement metrics, such as views, likes, and comments, to
-                                highlight the best content available on Word Wise.</p>
+                            <p class="accordion__answer">Top picks are curated by a combination of editor recommendations and user engagement metrics, such as views, likes, and comments, to highlight the best content available on Word Wise.</p>
                         </div>
                     </div>
 
@@ -1337,9 +1291,7 @@ Additional styling for smaller screens
 
                         <div class="accordion__content">
                             <!-- <i class="fa-solid fa-comments"></i> -->
-                            <p class="accordion__answer">You can stay updated by following your favorite authors or
-                                topics, and by checking the sliding bar for the latest blog posts. You can also
-                                subscribe to newsletters or enable notifications for real-time updates.</p>
+                            <p class="accordion__answer">You can stay updated by following your favorite authors or topics, and by checking the sliding bar for the latest blog posts. You can also subscribe to newsletters or enable notifications for real-time updates.</p>
                         </div>
                     </div>
                 </div>
@@ -1368,19 +1320,19 @@ Additional styling for smaller screens
             #word-of-the-day {
                 font-family: Arial, sans-serif;
             }
-
+            
             .word-entry {
                 display: flex;
                 align-items: center;
                 margin-bottom: 8px;
             }
-
+            
             .word-entry h3 {
                 margin: 0;
                 font-weight: bold;
                 margin-right: 5px;
             }
-
+            
             .word-entry p {
                 margin: 0;
             }
@@ -1393,9 +1345,7 @@ Additional styling for smaller screens
                 <h2>Subscribe to Our Newsletter</h2>
                 <p>Stay updated with the latest articles and insights from WordWise.</p>
                 <form class="wordwise-newsletter-form" id="newsletterForm" novalidate>
-                    <input type="email" id="emailInput" placeholder="Enter your email address" required
-                        style="border: 1px solid pink; transition: transform 0.2s ease, box-shadow 0.2s ease;"
-                        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 8px 2px pink';"
+                    <input type="email" id="emailInput" placeholder="Enter your email address" required style="border: 1px solid pink; transition: transform 0.2s ease, box-shadow 0.2s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 8px 2px pink';"
                         onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
                     <div id="error-message" style="color: red; display: none;">Please include '@' in your email address.
                     </div>
@@ -1409,12 +1359,13 @@ Additional styling for smaller screens
 
         <style>
             /* Style the email input field */
+            
             #emailInput {
                 border: 1px solid pink;
                 transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
             }
-
             /* Hover effect for glow */
+            
             #emailInput:hover {
                 transform: scale(1.05);
                 box-shadow: 0 0 8px 2px pink;
@@ -1444,13 +1395,13 @@ Additional styling for smaller screens
 
     <script>
         // JavaScript Functionality
-        document.getElementById('chatbot-toggle').addEventListener('click', function () {
+        document.getElementById('chatbot-toggle').addEventListener('click', function() {
             const chatWindow = document.getElementById('chat-window');
             // Toggle visibility of the chat window
             chatWindow.style.display = chatWindow.style.display === 'none' || chatWindow.style.display === '' ? 'flex' : 'none';
         });
 
-        document.getElementById('close-chat').addEventListener('click', function () {
+        document.getElementById('close-chat').addEventListener('click', function() {
             document.getElementById('chat-window').style.display = 'none'; // Hide chat on close
         });
     </script>
@@ -1464,8 +1415,7 @@ Additional styling for smaller screens
 
                         <div class="secondary-title text-secondary ">
                             <p class="mt-2 text-lg" style="text-align: left;">
-                                We are a close-knit team of passionate storytellers dedicated to sharing captivating
-                                content with the world.
+                                We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the world.
                             </p>
 
                             <address class="mt-2">
@@ -1474,8 +1424,7 @@ Additional styling for smaller screens
                             </address>
 
                             <div class="phone mt-2">
-                                <i class="fas fa-mobile text-primary"></i>
-                                125-896-485
+                                <i class="fas fa-mobile text-primary"></i> 125-896-485
                             </div>
 
                             <div class="email mt-2">
@@ -1492,8 +1441,7 @@ Additional styling for smaller screens
                             </div>
 
                             <div>
-                                <img src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5"
-                                    alt="Web views" style="height: 20px;width: 150px;margin-top: 40px;">
+                                <img src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5" alt="Web views" style="height: 20px;width: 150px;margin-top: 40px;">
                             </div>
                         </div>
 
@@ -1513,8 +1461,7 @@ Additional styling for smaller screens
                                                 Embrace the beauty of nature through our enchanting blog, where we
                                                 celebrate the wonders of the natural world
                                             </a>
-                                            <p class="secondary-title text-secondary "
-                                                style="margin-top:3px;margin-left:0px; text-align: left; ">
+                                            <p class="secondary-title text-secondary " style="margin-top:3px;margin-left:0px; text-align: left; ">
                                                 <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
                                             </p>
                                         </div>
@@ -1533,8 +1480,7 @@ Additional styling for smaller screens
                                                 Embark on unforgettable journeys through our travel blog, where
                                                 wanderlust meets inspiration
                                             </a>
-                                            <p class="secondary-title text-secondary display-3"
-                                                style="margin-top:3px;margin-left:0px; text-align: left;">
+                                            <p class="secondary-title text-secondary display-3" style="margin-top:3px;margin-left:0px; text-align: left;">
                                                 <span><i class="far fa-clock text-primary"></i> Wed 05, 2020 </span>
                                             </p>
                                         </div>
@@ -1551,8 +1497,7 @@ Additional styling for smaller screens
                                             <a href="#" class="text-title display-2 text-dark">
                                                 Gaming Adventures Unleashed
                                             </a>
-                                            <p class="secondary-title text-secondary display-3"
-                                                style="margin-top:3px;margin-left:0px; text-align: left;">
+                                            <p class="secondary-title text-secondary display-3" style="margin-top:3px;margin-left:0px; text-align: left;">
                                                 <span><i class="far fa-clock text-primary"></i> Wed 02, 2021 </span>
                                             </p>
                                         </div>
@@ -1592,8 +1537,7 @@ Additional styling for smaller screens
                                     class="fab fa-instagram"></i></a>
                             <a href="https://dribbble.com/" id="dribbble" class="nav-link btn bg-light"><i
                                     class="fab fa-dribbble"></i></a>
-                            <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31"
-                                id="github" target="_blank" class="nav-link btn bg-light"><i
+                            <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" id="github" target="_blank" class="nav-link btn bg-light"><i
                                     class="fa-brands fa-github"></i></a>
                         </div>
                     </div>
@@ -1607,8 +1551,18 @@ Additional styling for smaller screens
         <div class="wordwise-footer">
             <div class="wordwise-footer-content">
                 <p class="last">&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
+                <button id="scrollToTop" class="scroll-to-top">↑ Back to Top</button>
             </div>
         </div>
+        <script>
+            document.getElementById('scrollToTop').addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth' // Smooth scrolling effect
+                });
+            });
+        </script>
+
     </footer>
     <!-- .footer -->
     <!-- this script is for twitter icon  starts -->
@@ -1627,9 +1581,9 @@ Additional styling for smaller screens
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
     <script>
-
         // For Loader Page
         const preloader = document.querySelector("#loader");
+
         function Finish_Loader() {
             preloader.style.display = "none";
         }
@@ -1639,7 +1593,7 @@ Additional styling for smaller screens
     <script src="progress_bar.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        window.addEventListener("scroll", function () {
+        window.addEventListener("scroll", function() {
             var scrollPosition = window.scrollY;
             var height = document.body.offsetHeight - window.innerHeight;
             if (scrollPosition > 90) {
@@ -1649,8 +1603,11 @@ Additional styling for smaller screens
             }
         });
 
-        document.getElementById("backToTop").addEventListener("click", function () {
-            window.scrollTo({ top: 0, behavior: "smooth" });
+        document.getElementById("backToTop").addEventListener("click", function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
         });
     </script>
 
@@ -1662,9 +1619,18 @@ Additional styling for smaller screens
             duration: 2500,
             delay: 400
         });
-        ScrollReveal().reveal('.revel1', { delay: 5, origin: 'left' });
-        ScrollReveal().reveal('.revel2', { delay: 5, origin: 'bottom' });
-        ScrollReveal().reveal('.revel3', { delay: 5, origin: 'right' });
+        ScrollReveal().reveal('.revel1', {
+            delay: 5,
+            origin: 'left'
+        });
+        ScrollReveal().reveal('.revel2', {
+            delay: 5,
+            origin: 'bottom'
+        });
+        ScrollReveal().reveal('.revel3', {
+            delay: 5,
+            origin: 'right'
+        });
     </script>
     <script src="google_signin.js"></script>
     <script src="profiledropdown.js"></script>
@@ -1673,7 +1639,13 @@ Additional styling for smaller screens
 
 
     <div class="gtranslate_wrapper"></div>
-    <script>window.gtranslateSettings = { "default_language": "en", "detect_browser_language": true, "wrapper_selector": ".gtranslate_wrapper" }</script>
+    <script>
+        window.gtranslateSettings = {
+            "default_language": "en",
+            "detect_browser_language": true,
+            "wrapper_selector": ".gtranslate_wrapper"
+        }
+    </script>
     <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
     <script src="script.js"></script>
 
