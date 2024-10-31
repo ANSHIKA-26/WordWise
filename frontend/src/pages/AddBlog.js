@@ -70,7 +70,7 @@ export function renderAddBlog(container) {
 
     // Add form submission logic
     const form = document.getElementById('add-blog-form');
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function (e) {
         e.preventDefault();
         const title = document.getElementById('title').value.trim();
         const category = document.getElementById('category').value;

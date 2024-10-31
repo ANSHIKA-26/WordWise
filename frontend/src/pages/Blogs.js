@@ -1,5 +1,6 @@
 const blogPosts = [
     {
+        id: 1,
         title: "Mastering Vocabulary: 10 Words to Boost Your Language Skills",
         excerpt: "Expand your vocabulary and improve your language proficiency with these essential words...",
         date: "2023-05-15",
@@ -7,6 +8,7 @@ const blogPosts = [
         imagePath: "../assets/blog/4.webp"
     },
     {
+        id: 2,
         title: "Essential Grammar Rules for Clear Communication",
         excerpt: "Master these fundamental grammar rules to enhance your language skills and communicate more effectively...",
         date: "2023-05-20",
@@ -14,6 +16,7 @@ const blogPosts = [
         imagePath: "../assets/blog/2.webp"
     },
     {
+        id: 3,
         title: "Mastering Pronunciation: Tips and Tricks",
         excerpt: "Improve your accent and speak more clearly with these pronunciation techniques...",
         date: "2023-05-25",
@@ -60,10 +63,10 @@ export function renderBlogs(container) {
 }
 
 function renderBlogPosts(posts) {
-    return posts.map(post => renderBlogPost(post.title, post.excerpt, post.date, post.tags, post.imagePath)).join('');
+    return posts.map(post => renderBlogPost(post.id, post.title, post.excerpt, post.date, post.tags, post.imagePath)).join('');
 }
 
-function renderBlogPost(title, excerpt, date, tags, imagePath) {
+function renderBlogPost(id, title, excerpt, date, tags, imagePath) {
     return `
         <article class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
             <img src="${imagePath}" alt="${title}" class="w-full h-48 object-cover" onerror="this.onerror=null; this.src='/placeholder.svg?height=200&width=400';">
@@ -81,6 +84,12 @@ function renderBlogPost(title, excerpt, date, tags, imagePath) {
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l5 5a2 2 0 01.586 1.414v5c0 .512-.195 1.024-.586 1.414l-5 5a2 2 0 01-1.414.586H7a2 2 0 01-2-2v-8a2 2 0 012-2z" />
                     </svg>
                     <span class="font-medium text-gray-900 dark:text-white">${tags}</span>
+                    <a href="/readmore" class="flex items-center ml-4 text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-500 cursor-pointer">
+                        Read More
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
                 </div>
             </div>
         </article>
