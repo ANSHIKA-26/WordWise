@@ -3,9 +3,9 @@ import dotenv from "dotenv";
 import connectDB from "./utils/db.js";
 import blogRoutes from "./routes/blogRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
-import feedbackRoutes from "./routes/feebackroute.js";
-import contactRoutes from "./routes/contactRoute.js";
-import cors from "cors";
+ import feedbackRoutes from "./routes/feedbackRoute.js";
+  import contactRoutes from "./routes/contactRoute.js";
+ import cors from "cors";
 
 dotenv.config();
 const app = express();
