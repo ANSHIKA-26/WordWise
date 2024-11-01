@@ -63,11 +63,39 @@ export function renderContact(container) {
     `;
 
     // Form submission
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
+    document.getElementById('contactForm').addEventListener('submit', async function (e) {
         e.preventDefault();
-        // Here you would typically send the form data to your server
-        // For this example, we'll just show a success message
-        document.getElementById('formSuccess').classList.remove('hidden');
-        this.reset();
+
+        // Create a new FormData object from the form
+        const formData = new FormData(this);
+
+        // Convert FormData to an object
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            // Send form data to backend API
+            const response = await fetch('http://localhost:5000/api/contact/saveContact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            console.log(response)
+
+            if (response.ok) {
+                // Display success message and reset the form
+                document.getElementById('formSuccess').classList.remove('hidden');
+                this.reset();
+            } else {
+                // Handle error response
+                const errorData = await response.json();
+                console.error("Error submitting form:", errorData.message);
+            }
+        } catch (error) {
+            console.error("Error submitting form:", error);
+        }
     });
+
+
 }
