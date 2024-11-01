@@ -57,7 +57,7 @@ export function renderAbout(container) {
 
                 <section class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
                     <h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Get in Touch</h2>
-                    <form id="contactForm" class="space-y-4">
+                    <form id="getInTouch" class="space-y-4">
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
                             <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:bg-gray-700 dark:text-white">
@@ -89,13 +89,47 @@ export function renderAbout(container) {
     fetchContributors();
 
     // Form submission
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
+    document.getElementById('getInTouch').addEventListener('submit', async function (e) {
         e.preventDefault();
-        // Here you would typically send the form data to your server
-        // For this example, we'll just show a success message
-        document.getElementById('formSuccess').classList.remove('hidden');
-        this.reset();
+
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        // Prepare data to send to the backend
+        const formData = {
+            name: name,
+            email: email,
+            message: message
+        };
+
+        try {
+            // Send form data to the backend
+            const response = await fetch('http://localhost:5000/api/getInTouch/saveGetInTouch', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            console.log(response)
+            // Check if the response was successful
+            if (response.ok) {
+                console.log("Form successfully submitted:", formData);
+                document.getElementById('formSuccess').classList.remove('hidden');
+                this.reset();
+            } else {
+                console.error("Form submission failed:", response.statusText);
+                alert("There was an issue submitting the form. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            alert("There was an error connecting to the server. Please try again.");
+        }
     });
+
 }
 
 async function fetchContributors() {
