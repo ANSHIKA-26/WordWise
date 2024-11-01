@@ -2134,8 +2134,10 @@ a {
   max-width: 300px;
   /* overflow: hidden; */
   height: auto;
+  margin-top: 25px;
   transition: transform 0.3s ease;
-  box-shadow: 0 0 10px rgb(249, 81, 81);
+    box-shadow: 0 0 10px rgb(249, 81, 81);  
+  
   border-radius: 20px;
 }
 
@@ -2147,7 +2149,7 @@ a {
 
 .card:hover .overflow-img {
   transform: scale(1.1);
-  box-shadow: 7px 7px 10px rgb(184, 0, 0);
+  box-shadow: 0 0 4px 2px rgba(251, 81, 81, 0.6), 0 0 20px rgba(251, 81, 81, 0.4);
   transition: all 0.2s ease-in-out;
 }
 
