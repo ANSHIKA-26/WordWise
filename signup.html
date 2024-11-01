@@ -37,6 +37,16 @@
         font-size: 12px;
         margin-top: 5px;
       }
+      /* Social login button styling */
+      .auth-options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+        align-items: center;
+      }
+
+      
     </style>
   </head>
   <body>
@@ -116,7 +126,23 @@
           </div>
         </div>
       </div>
-    </main>
+     <!-- Social Login Options at Bottom -->
+     <div class="auth-options">
+      <!-- Google Login Button -->
+      <a id="btn-google" class="social-login btn-google" href="https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmyaccount.google.com%2F&ec=GAlAwAE&hl=en_GB&service=accountsettings&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S1527110508%3A1729760212648495&ddm=0">
+        <img src="images/google-icon.png" alt="Google Icon" class="icon" />
+        <span>Continue with Google</span>
+      </a>
+
+      <!-- Facebook Login Button -->
+      <a id="btn-facebook" class="social-login btn-facebook" href="https://www.facebook.com/login/">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="Facebook Icon" class="icon" />
+        <span>Continue with Facebook</span>
+      </a>
+    </div>
+  </div>
+</div>
+</main>
 
     <!-- Font Awesome for icons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
