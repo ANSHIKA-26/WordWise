@@ -13,10 +13,10 @@
   gap: 60px;
 }
 .new-category-box {
-  /*background: #f9f9f9;*/ 
+  
   border-radius: .75rem;
   box-shadow: 0 10px 20px rgb(0, 0, 0);
-  transition: transform 0.3s, box-shadow 0.3s;
+  /* transition: transform 0.3s, box-shadow 0.3s; */
   width: 19rem;
   display: flex;
   flex-direction: column;
@@ -29,6 +29,10 @@
   box-sizing: border-box;
   box-shadow: 0 10px 20px -5px rgba(0,0,0,0.5);
   color: white;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease-in-out;
+  
 
 }
 
@@ -87,19 +91,61 @@ img {
   border-radius: 0 0 .75rem .75rem;
 }
 
-.new-category-box:hover .s1, .new-category-box:hover .s2 {
+/* .new-category-box:hover .s1, .new-category-box:hover .s2 {
   width: 100%;
-}
-
+} */
+/* 
 .new-category-box:hover img {
   transform: scale(1.1);
+} */
+
+.new-post-thumbnail img {
+  position: absolute;
+  top : 0; 
+  left : 0  ; 
+  z-index: 0 ;
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-.new-post-content {
+.new-category-box:hover .new-post-thumbnail img {
+  transform: scale(1.1);  /* Slight zoom-in effect */
+  opacity: 0.3;          /* Transparency on hover */
+}
+
+
+
+
+/* .new-post-content {
   display: flex;
   flex-direction: column;
   padding: 15px;
+} */
+.new-post-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay for better contrast */
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  z-index: 1;
 }
+
+.new-category-box:hover .new-post-content {
+  opacity: 1;
+}
+.new-post-title, .new-post-excerpt, .section-btn {
+  color: #fff; /* White text for visibility over the dark background */
+}
+
 
 .new-post-title {
   font-size: 17px;
@@ -130,7 +176,7 @@ img {
   margin-left: 2px;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 40px;
+  height: 45px;
 }
 
 .new-read-more-link {
@@ -153,6 +199,9 @@ img {
 .new-read-more-link:hover {
   background: #0e25cf;
 }
+
+
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -501,3 +550,9 @@ img {
 [data-theme="dark"] .new-category-box:hover .new-post-excerpt {
   color: var(--hover-text-color);
 }
+.dark .article{
+  background-color: none;	  background-color: none;
+}
+.secondary-title >p{
+  padding: 15px 1px;
+}	

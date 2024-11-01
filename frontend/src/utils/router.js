@@ -6,6 +6,7 @@ import { renderAbout } from '../pages/About.js';
 import { renderContact } from '../pages/Contact.js';
 import { renderFeedback } from '../pages/Feedback.js';
 import { renderProfilePage } from '../pages/BloggerProfile.js';
+import { renderFullBlogPost } from '../pages/ReadMoreBlog.js';
 
 const routes = {
     '/': renderHome,
@@ -15,7 +16,8 @@ const routes = {
     '/about': renderAbout,
     '/contact': renderContact,
     '/feedback': renderFeedback,
-    '/profile': renderProfilePage
+    '/profile': renderProfilePage,
+    '/readmore': renderFullBlogPost,
 };
 
 export function router() {
