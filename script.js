@@ -166,3 +166,14 @@ function closeOnOutsideClick(event) {
     document.removeEventListener("click", closeOnOutsideClick); // Remove the listener
   }
 }
+
+function updateVisitorCount() {
+
+  let visitorCount = localStorage.getItem('visitorCount') ? parseInt(localStorage.getItem('visitorCount')) : 0;
+
+  visitorCount++;
+
+  localStorage.setItem('visitorCount', visitorCount);
+
+  document.getElementById('visitorCount').innerText = visitorCount;
+}

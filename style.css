@@ -3836,3 +3836,26 @@ h1 + p, p + p {
  font-size: 14px; 
   color: var(--text-color);
 }
+
+.containerWebsiteViews {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    margin-top: 1vh;
+    background-color: #f8b5b5;
+    width: 12vw;
+}
+.containerText p,
+.containerNumbers p {
+    margin-left: 10px;
+    font-weight: 600;
+}
+.containerNumbers {
+    width: 2.5vw;
+    background-color: #403c3c;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.containerNumbers p {
+    color: white;
+}
