@@ -421,7 +421,7 @@ body.dark .support a {
 .category-btn {
   padding: 12px 20px; /* Padding for a better touch target */
   background-color: #ec8791; /* Primary color from the palette */
-  color: #ffffff; /* White text color */
+  color: #11080800; /* White text color */
   border: 2px solid transparent; /* Transparent border for hover effect */
   border-radius: 5px; /* Rounded corners */
   transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transitions */
@@ -431,7 +431,7 @@ body.dark .support a {
 
 .category-btn:hover {
   background-color:#ec8791; /* Darker shade on hover */
-  color: #ffffff; /* Keep text color white on hover */
+  color: #060606; /* Keep text color white on hover */
   border-color: #ec8791; /* Maintain the border color on hover */
 }
 

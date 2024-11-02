@@ -3836,3 +3836,36 @@ h1 + p, p + p {
  font-size: 14px; 
   color: var(--text-color);
 }
+
+
+.d-flex-gap {
+  display: flex;
+  gap: 15px; /* Space between buttons */
+  flex-wrap: wrap; /* Wrap items to the next line if necessary */
+  justify-content: center; /* Center the buttons horizontally */
+}
+
+.category-btn {
+  padding: 12px 20px; /* Padding for a better touch target */
+  background-color: #ec8791; /* Primary color from the palette */
+  color: #1a171700; /* White text color */
+  border: 2px solid transparent; /* Transparent border for hover effect */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transitions */
+  text-decoration: none; /* Remove underline */
+  font-size: 16px; /* Font size */
+}
+
+.category-btn:hover {
+  background-color:#ec8791; /* Darker shade on hover */
+  color: #060606; /* Keep text color white on hover */
+  border-color: #ec8791; /* Maintain the border color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .d-flex-gap {
+      flex-direction: column; /* Stack buttons on smaller screens */
+      align-items: center; /* Center buttons on small screens */
+  }
+}
