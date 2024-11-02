@@ -14,12 +14,12 @@
     <style>
       .input-field {
         position: relative;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
       }
 
       .input-box {
         width: 100%;
-        padding-right: 40px; /* Extra space for icons */
+        padding-right: 30px;
         padding-left: 10px;
         height: 40px;
         box-sizing: border-box;
@@ -33,11 +33,11 @@
         transform: translateY(-50%);
         color: black;
         font-size: 18px;
-        margin-top: 15px;
+        margin-top: 10px;
       }
 
       .toggle-eye {
-        right: 40px; /* Space for close button */
+        right: 40px;
       }
 
       .close-btn {
@@ -48,17 +48,56 @@
 
       .toggle-eye:hover,
       .close-btn:hover {
-        color: #555; /* Change color on hover for better UX */
+        color: #555;
       }
 
-      /* Animation for smooth transitions */
-      .input-box {
-        transition: all 0.3s ease;
+      /* Adjusted height and padding for the login box */
+      .box-login {
+        width: 100%;
+        max-width: 500px;
+        padding: 30px;
+        border: 5px solid #ddd;
+        border-radius: 30px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        margin-top: 20px;
       }
 
-      .fa-eye,
-      .fa-eye-slash {
-        transition: all 0.3s ease;
+      /* Social login button styling */
+      .auth-options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+        align-items: center;
+      }
+
+      .social-login-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 300px;
+        padding: 10px;
+        color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+        text-align: center;
+      }
+
+      .google-login-btn {
+        background-color: #4CAF50;
+      }
+
+      .facebook-login-btn {
+        background-color: #3B5998;
+      }
+
+      .social-login-btn img.icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
       }
     </style>
   </head>
@@ -75,45 +114,21 @@
           <li><a href="blog.html">Leading Blog</a></li>
           <li><a href="start_writing.html">Start Writing</a></li>
           <li><a href="category.html">Categories</a></li>
-
           <li><a href="contact_us.html">Contact Us</a></li>
-          <li><a href="contact_us.html">Give Feedback</a></li>
+          <li><a href="give_feedback.html">Give Feedback</a></li>
         </ul>
       </nav>
 
       <div class="auth-buttons">
-        <div class="nav-item dropdown" style="list-style-type: none">
-          <button class="dropbtn">
-            <img
-              width="30px"
-              src="images/profile.webp"
-              alt="Profile"
-              class="profile-icon"
-              onclick="toggleDropdown()"
-            />
-          </button>
-          <div id="profile-dropdown" class="dropdown-content">
-            <div class="login-signup-form">
-              <a href="login.html">Log In</a>
-              <a href="signup.html">Sign Up</a>
-            </div>
-          </div>
-        </div>
+        <a href="login.html" class="auth-btn">Log In</a>
+        <a href="signup.html" class="auth-btn">Sign Up</a>
       </div>
       <div class="theme-switch-wrapper">
         <label class="theme-switch" for="checkbox">
           <input type="checkbox" id="checkbox" />
           <div class="slider">
-            <img
-              src="https://img.icons8.com/emoji/48/000000/sun-emoji.png"
-              alt="Sun"
-              class="icon sun-icon"
-            />
-            <img
-              src="https://img.icons8.com/emoji/48/000000/crescent-moon-emoji.png"
-              alt="Moon"
-              class="icon moon-icon"
-            />
+            <img src="https://img.icons8.com/emoji/48/000000/sun-emoji.png" alt="Sun" class="icon sun-icon" />
+            <img src="https://img.icons8.com/emoji/48/000000/crescent-moon-emoji.png" alt="Moon" class="icon moon-icon" />
           </div>
         </label>
         <span id="mode-label">Light Mode</span>
@@ -129,8 +144,8 @@
           </div>
           <div class="input-group">
             <div class="input-field">
-              <label for="Name">Email</label><br />
-              <input type="email" class="input-box name" aria-label="email" placeholder="Enter Name" />
+              <label for="email">Email</label><br />
+              <input type="email" class="input-box" aria-label="email" placeholder="Enter Email" />
             </div>
 
             <!-- Password field with eye icon and cross button -->
@@ -139,7 +154,7 @@
               <input
                 type="password"
                 id="password"
-                class="input-box pass"
+                class="input-box"
                 aria-label="password"
                 placeholder="Enter Password"
               />
@@ -149,7 +164,6 @@
               >
                 <i id="eye-icon" class="fa fa-eye-slash"></i>
               </span>
-              <!-- Close button to clear input -->
               <span class="close-btn" onclick="clearInput('password')">&times;</span>
             </div>
 
@@ -167,6 +181,21 @@
           <div class="new">
             <span>New User?</span>
             <a href="signup.html">Sign Up</a>
+          </div>
+
+          <!-- Social Login Options at Bottom -->
+          <div class="auth-options">
+            <!-- Google Login Button -->
+            <a id="google-login-btn" class="social-login-btn google-login-btn" href="https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmyaccount.google.com%2F&ec=GAlAwAE&hl=en_GB&service=accountsettings&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S1527110508%3A1729760212648495&ddm=0">
+              <img src="images/google-icon.png" alt="Google Icon" class="icon" />
+              <span>Continue with Google</span>
+            </a>
+
+            <!-- Facebook Login Button -->
+            <a id="facebook-login-btn" class="social-login-btn facebook-login-btn" href="https://www.facebook.com/login/">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="Facebook Icon" class="icon" />
+              <span>Continue with Facebook</span>
+            </a>
           </div>
         </div>
       </div>
@@ -191,7 +220,6 @@
         }
       }
 
-      // Clear input field
       function clearInput(inputId) {
         document.getElementById(inputId).value = "";
       }

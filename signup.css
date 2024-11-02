@@ -127,3 +127,41 @@ header div h2 a.home-link{
     color: brown;
     font-weight: bolder;
 }
+.social-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; /* Space above the buttons */
+}
+
+.btn-google,
+.btn-facebook {
+    width: 30%;
+    height: 50px;
+    margin: 10px 0; /* Space between buttons */
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.4s;
+    color: white;
+}
+
+.btn-google {
+    background: #db4437; /* Google Red */
+    box-shadow: 0px 4px 20px rgba(169, 115, 61, 0.726);
+}
+
+.btn-facebook {
+    background: #3b5998; /* Facebook Blue */
+    box-shadow: 0px 4px 20px rgba(169, 115, 61, 0.726);
+}
+
+.btn-google:hover {
+    background: #c1351d; /* Darker Google Red */
+}
+
+.btn-facebook:hover {
+    background: #2d4373; /* Darker Facebook Blue */
+}
