@@ -10,23 +10,28 @@
     <link rel="shortcut icon" type="image/x-icon" href="/images/favi.webp" />
 
     <!--font awesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"
-    />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <!--swiper slider css-->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="preload" href="https://unpkg.com/swiper/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"></noscript>
 
     <!-- bootstrap icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
 
     <!-- for scroll reveal -->
-    <script src="https://unpkg.com/scrollreveal"></script>
+      <!-- Preconnect for faster loading of external resources -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+   
 
     <!--css-->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="Scroll_and_progressbar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"
-    />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"></noscript>
     <style>
         /* Chatbot Container */
         
@@ -186,7 +191,7 @@
             padding: 1px;
             display: inline-block;
             border: 1px solid #ccc;
-            /* box-sizing: border-box; */
+             
             font-size: 16px;
         }
         
@@ -195,16 +200,7 @@
             margin-bottom: 20px;
             text-align: center;
         }
-        /* .btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
-} */
+       
         
         .btn:hover {
             opacity: 0.8;
@@ -224,6 +220,8 @@
 
     <!-- Script for Navbar Toggle -->
 
+   
+    <script src="https://unpkg.com/scrollreveal" defer></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 </head>
@@ -247,99 +245,7 @@
         .logo h1 a {
             font-size: 40px;
         }
-        /* .nav-links1 {
-    display: flex;
-    gap: 30px;
-    } */
-        /* .hamburger {
-    display: none;
-    cursor: pointer;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 25px;
-    height: 22px;
-    }
-    
-    .hamburger span {
-    width: 100%;
-    height: 3px;
-    background-color: #333;
-    }
-
-    @media (max-width: 1024px) {
-        .logo a h2{
-        font-size: 30px;   
-    }
-    .nav-links1 {
-    gap: 10px;
-    }
-.nav-links1 a{
-    font-size: 16px;
-}
-    }
-    @media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        Add styling for visibility, like color, size, etc.
-    }
-
-    .nav-links1 {
-        display: none;
-        flex-direction: column;
-        gap: 10px;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background-color: #fff;
-        padding: 20px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 2px;
-    }
-
-    .nav-links1.active {
-        display: flex;
-    }
-
-    .dropdown {
-        position: relative;
-       margin-left: 200px;
-       
-    }
-}
-
-Additional styling for smaller screens
-@media (max-width: 576px) {
-    .logo {
-        margin-left: -75px;
-    }
-    .logo a h2 {
-        font-size: 30px;
-    }
-    .dropdown {
-        position: relative;
-       margin-left: 60px;
-       
-    }
-    ul.dropdown-menu{
-        border-radius: 2px;
-    }
-    
-    .theme-switch-wrapper {
-        margin-right: -80px;
-    }
-}
-
-@media (max-width: 345px) {
-    .logo {
-        margin-left: -65px;
-    }
-    .logo a h2 {
-        font-size: 24px;
-    }
-} */
+        
         
         .dropdown-menu {
             display: none;
@@ -776,8 +682,7 @@ Additional styling for smaller screens
                             </div>
                         </article>
                     </div>
-                    <!-- article-->
-                    <!-- article-->
+                 
                     <div class="grid-item revel2">
                         <article class="article">
                             <div class="card">
@@ -1223,7 +1128,7 @@ Additional styling for smaller screens
         </section>
         <section class="faq" id="faq">
 
-            <!-- </section> -->
+            
             <div class="container_1">
                 <div class="accordion__wrapper">
                     <h1 class="accordion__title">Frequently Asked Questions</h1>
@@ -1236,7 +1141,7 @@ Additional styling for smaller screens
                             </span>
                         </div>
                         <div class="accordion__content">
-                            <!-- <i class="fa-solid fa-comments"></i> -->
+                           
                             <p class="accordion__answer">You can easily switch between dark and light themes by clicking the theme toggle button located in the website header. This allows you to customize your viewing experience according to your preference.</p>
                         </div>
                     </div>
@@ -1249,7 +1154,7 @@ Additional styling for smaller screens
                             </span>
                         </div>
                         <div class="accordion__content">
-                            <!-- <i class="fa-solid fa-comments"></i> -->
+                           
                             <p class="accordion__answer">The 'Start Writing' page provides a simple interface for quickly creating and publishing blog posts. Just click "Start Writing" from the navigation bar, fill in your title, content, and tags, and publish your blog with a single
                                 click.
                             </p>
@@ -1264,7 +1169,7 @@ Additional styling for smaller screens
                             </span>
                         </div>
                         <div class="accordion__content">
-                            <!-- <i class="fa-solid fa-comments"></i> -->
+                           
                             <p class="accordion__answer">The sliding bar on the home page features the latest blogs published on the platform. It updates automatically and allows users to easily scroll through and click on any blog that catches their attention.</p>
                         </div>
                     </div>
@@ -1277,7 +1182,7 @@ Additional styling for smaller screens
                             </span>
                         </div>
                         <div class="accordion__content">
-                            <!-- <i class="fa-solid fa-comments"></i> -->
+                           
                             <p class="accordion__answer">Top picks are curated by a combination of editor recommendations and user engagement metrics, such as views, likes, and comments, to highlight the best content available on Word Wise.</p>
                         </div>
                     </div>
@@ -1291,7 +1196,7 @@ Additional styling for smaller screens
                         </div>
 
                         <div class="accordion__content">
-                            <!-- <i class="fa-solid fa-comments"></i> -->
+                           
                             <p class="accordion__answer">You can stay updated by following your favorite authors or topics, and by checking the sliding bar for the latest blog posts. You can also subscribe to newsletters or enable notifications for real-time updates.</p>
                         </div>
                     </div>
@@ -1442,7 +1347,7 @@ Additional styling for smaller screens
                             </div>
 
                             <div>
-                                <!-- <img src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5" alt="Web views" style="height: 20px;width: 150px;margin-top: 40px;"> -->
+                               
                                  <div class="containerWebsiteViews">
                                     <div class="containerText"><p>Website Views</p></div>
                                     <div class="containerNumbers"><p id="visitorCount">0</p></div>
@@ -1571,14 +1476,16 @@ Additional styling for smaller screens
     </footer>
     <!-- .footer -->
     <!-- this script is for twitter icon  starts -->
-    <script src="https://kit.fontawesome.com/856f4a44d7.js" crossorigin="anonymous"></script>
-    <!-- this script is for twitter icon  ends -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
-    <script src="./backend/login-Auth/login.js"></script>
-    <script src="./backend/signup/signup.js"></script>
-    <script src="SignIn_SignUp.js"></script>
-    <script src="darkMode.js"></script>
+  <!-- Font Awesome Scripts -->
+<script src="https://kit.fontawesome.com/856f4a44d7.js" crossorigin="anonymous" async defer></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous" async defer></script>
+
+<!-- Custom Scripts -->
+<script src="main.js" async defer></script>
+<script src="./backend/login-Auth/login.js" async defer></script>
+<script src="./backend/signup/signup.js" async defer></script>
+<script src="SignIn_SignUp.js" async defer></script>
+<script src="darkMode.js" async defer></script>
 
 
     <!-- this script is to display the year in the copyright authentication in the footer -->
