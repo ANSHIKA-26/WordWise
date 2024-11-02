@@ -1,54 +1,62 @@
-const blogPosts = [
-    {
-        id: 1,
-        title: "Mastering Vocabulary: 10 Words to Boost Your Language Skills",
-        excerpt: "Expand your vocabulary and improve your language proficiency with these essential words...",
-        date: "2023-05-15",
-        tags: "Vocabulary, Learning Tips",
-        imagePath: "../assets/blog/4.webp"
-    },
-    {
-        id: 2,
-        title: "Essential Grammar Rules for Clear Communication",
-        excerpt: "Master these fundamental grammar rules to enhance your language skills and communicate more effectively...",
-        date: "2023-05-20",
-        tags: "Grammar, Writing",
-        imagePath: "../assets/blog/2.webp"
-    },
-    {
-        id: 3,
-        title: "Mastering Pronunciation: Tips and Tricks",
-        excerpt: "Improve your accent and speak more clearly with these pronunciation techniques...",
-        date: "2023-05-25",
-        tags: "Pronunciation, Speaking",
-        imagePath: "../assets/blog/3.webp"
+const fetchBlogData = async () => {
+    try {
+        const response = await fetch('http://localhost:5000/api/addBlog/getAllBlog');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.log('Error fetching blogs:', error);
     }
-];
+};
 
-export function renderBlogs(container) {
-    container.innerHTML = `
-        <div class="container mx-auto px-4 py-8">
-            <header class="mb-8">
-                <h1 class="text-4xl font-bold mb-2 text-gray-900 dark:text-white">WordWise Blog</h1>
-                <p class="text-xl text-gray-600 dark:text-gray-400">Insights and tips for language learners</p>
-            </header>
 
-            <div class="flex flex-col md:flex-row gap-8">
-                <main class="md:w-2/3" id="blog-posts-container">
-                    <div class="grid gap-6">
-                        ${renderBlogPosts(blogPosts)}
-                    </div>
-                </main>
 
-                <aside class="md:w-1/3">
-                    ${renderSearchWidget()}
-                    ${renderCategoriesWidget()}
-                    ${renderRecentPostsWidget()}
-                </aside>
+export async function renderBlogs(container) {
+    try {
+        const blogPosts = await fetchBlogData(); // Fetch the blog data
+        console.log(blogPosts)
+
+        // Check if blogPosts is valid
+        if (!blogPosts || blogPosts.length === 0) {
+            container.innerHTML = '<p>No blog posts available.</p>';
+            return;
+        }
+
+        // Render the blog layout
+        container.innerHTML = `
+            <div class="container mx-auto px-4 py-8">
+                <header class="mb-8">
+                    <h1 class="text-4xl font-bold mb-2 text-gray-900 dark:text-white">WordWise Blog</h1>
+                    <p class="text-xl text-gray-600 dark:text-gray-400">Insights and tips for language learners</p>
+                </header>
+
+                <div class="flex flex-col md:flex-row gap-8">
+                    <main class="md:w-2/3" id="blog-posts-container">
+                        <div class="grid gap-6">
+                            ${renderBlogPosts(blogPosts)} <!-- Render blog posts here -->
+                        </div>
+                    </main>
+
+                    <aside class="md:w-1/3">
+                        ${renderSearchWidget()}
+                        ${renderCategoriesWidget()}
+                        ${renderRecentPostsWidget()}
+                    </aside>
+                </div>
             </div>
-        </div>
-    `;
+        `;
 
+        // Set up the search functionality
+        setupSearch(blogPosts);
+    } catch (error) {
+        console.log('Error rendering blogs:', error);
+        container.innerHTML = '<p>Error loading blog posts. Please try again later.</p>';
+    }
+}
+
+function setupSearch(blogPosts) {
     document.getElementById('search-input').addEventListener('input', function () {
         const query = this.value.toLowerCase();
         const filteredPosts = blogPosts.filter(post =>
@@ -63,10 +71,15 @@ export function renderBlogs(container) {
 }
 
 function renderBlogPosts(posts) {
-    return posts.map(post => renderBlogPost(post.id, post.title, post.excerpt, post.date, post.tags, post.imagePath)).join('');
+    return posts.map(post => renderBlogPost(post.id, post.title, post.excerpt, post.date, post.tags, post.featuredImage, post.publish)).join('');
 }
 
-function renderBlogPost(id, title, excerpt, date, tags, imagePath) {
+function renderBlogPost(id, title, excerpt, date, tags, imageUrl, publish) {
+    if (!publish) return;
+    let imagePath = " ";
+    if (imageUrl) {
+        imagePath = `http://localhost:5000/${imageUrl.replace(/\\/g, '/')}`;
+    }
     return `
         <article class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
             <img src="${imagePath}" alt="${title}" class="w-full h-48 object-cover" onerror="this.onerror=null; this.src='/placeholder.svg?height=200&width=400';">
