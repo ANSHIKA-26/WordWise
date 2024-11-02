@@ -1,6 +1,7 @@
 import BlogPost from '../models/addBlog.js';
 import multer from 'multer';
 import path from 'path';
+import fs from 'fs';
 
 // Configure multer for file uploads
 const storage = multer.diskStorage({
@@ -19,11 +20,28 @@ const upload = multer({ storage: storage });
 // Function to save a new blog post
 export async function saveBlog(req, res) {
     try {
-        const { title, category, summary, excerpt, tags, publish } = req.body;
-        const featuredImage = req.file ? req.file.path : null; // Assuming `req.file` is set if an image is uploaded
+        const { title, category, summary, excerpt, tags, publish, featuredImage } = req.body;
 
-        console.log(req.body);
-        console.log(req.file);
+        // If an image is uploaded, use its path
+        let imagePath = req.file ? req.file.path : null;
+
+        // Handle base64 image if provided
+        if (featuredImage && featuredImage.startsWith('data:image/')) {
+            // Extract the base64 part of the image data
+            const base64Image = featuredImage.split(';base64,').pop();
+            // Convert base64 string to Buffer
+            const buffer = Buffer.from(base64Image, 'base64');
+
+            // Create a path to save the image
+            const imagePathFromBase64 = `uploads/${Date.now()}.png`; // Use a unique name based on timestamp
+
+            // Save the image buffer to a file
+            await fs.promises.writeFile(imagePathFromBase64, buffer);
+            imagePath = imagePathFromBase64; // Set imagePath to the saved file path
+        }
+
+        // Log request body and file info
+
 
         // Check if required fields are provided
         if (!title || !category || !summary || !excerpt) {
@@ -38,7 +56,7 @@ export async function saveBlog(req, res) {
             excerpt,
             tags,
             publish,
-            featuredImage
+            featuredImage: imagePath // Use the determined image path
         });
 
         console.log(newBlog);
@@ -56,6 +74,7 @@ export async function saveBlog(req, res) {
         res.status(500).json({ message: "Failed to create blog post.", error });
     }
 }
+
 
 // Function to retrieve all blog posts
 export async function getAllBlog(req, res) {

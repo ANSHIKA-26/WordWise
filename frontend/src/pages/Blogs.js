@@ -11,8 +11,6 @@ const fetchBlogData = async () => {
     }
 };
 
-
-
 export async function renderBlogs(container) {
     try {
         const blogPosts = await fetchBlogData(); // Fetch the blog data
@@ -41,15 +39,16 @@ export async function renderBlogs(container) {
 
                     <aside class="md:w-1/3">
                         ${renderSearchWidget()}
-                        ${renderCategoriesWidget()}
+                        ${renderCategoriesWidget(blogPosts)} <!-- Pass blogPosts to categories widget -->
                         ${renderRecentPostsWidget()}
                     </aside>
                 </div>
             </div>
         `;
 
-        // Set up the search functionality
+        // Set up the search and category filtering functionality
         setupSearch(blogPosts);
+        setupCategoryFilter(blogPosts);
     } catch (error) {
         console.log('Error rendering blogs:', error);
         container.innerHTML = '<p>Error loading blog posts. Please try again later.</p>';
@@ -70,13 +69,29 @@ function setupSearch(blogPosts) {
     });
 }
 
+function setupCategoryFilter(blogPosts) {
+    const categoryLinks = document.querySelectorAll('.category-link');
+    categoryLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent default anchor click behavior
+            const selectedCategory = this.dataset.category;
+            const filteredPosts = selectedCategory === 'all'
+                ? blogPosts
+                : blogPosts.filter(post => post.category === selectedCategory); // Filter by category
+
+            const blogPostsContainer = document.getElementById('blog-posts-container');
+            blogPostsContainer.innerHTML = `<div class="grid gap-6">${renderBlogPosts(filteredPosts)}</div>`;
+        });
+    });
+}
+
 function renderBlogPosts(posts) {
     return posts.map(post => renderBlogPost(post.id, post.title, post.excerpt, post.date, post.tags, post.featuredImage, post.publish)).join('');
 }
 
 function renderBlogPost(id, title, excerpt, date, tags, imageUrl, publish) {
-    if (!publish) return;
-    let imagePath = " ";
+    if (!publish) return '';
+    let imagePath = "";
     if (imageUrl) {
         imagePath = `http://localhost:5000/${imageUrl.replace(/\\/g, '/')}`;
     }
@@ -89,14 +104,8 @@ function renderBlogPost(id, title, excerpt, date, tags, imageUrl, publish) {
                 </h2>
                 <p class="text-gray-600 dark:text-gray-300 mb-4">${excerpt}</p>
                 <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
                     <time datetime="${date}">${formatDate(date)}</time>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l5 5a2 2 0 01.586 1.414v5c0 .512-.195 1.024-.586 1.414l-5 5a2 2 0 01-1.414.586H7a2 2 0 01-2-2v-8a2 2 0 012-2z" />
-                    </svg>
-                    <span class="font-medium text-gray-900 dark:text-white">${tags}</span>
+                    <span class="ml-4 font-medium text-gray-900 dark:text-white">${tags}</span>
                     <a href="/readmore" class="flex items-center ml-4 text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-500 cursor-pointer">
                         Read More
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -123,22 +132,21 @@ function renderSearchWidget() {
     `;
 }
 
-function renderCategoriesWidget() {
-    // Your categories widget code here
-    return `<div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6">
+function renderCategoriesWidget(blogPosts) {
+    const categories = Array.from(new Set(blogPosts.map(post => post.category))).sort();
+    return `
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6">
             <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Categories</h2>
             <ul class="space-y-2">
-                <li><a href="/blog/category/vocabulary" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Vocabulary</a></li>
-                <li><a href="/blog/category/grammar" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Grammar</a></li>
-                <li><a href="/blog/category/pronunciation" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Pronunciation</a></li>
-                <li><a href="/blog/category/culture" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Culture</a></li>
-                <li><a href="/blog/category/learning-tips" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Learning Tips</a></li>
+                <li><a href="#" class="category-link text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white" data-category="all">All</a></li>
+                ${categories.map(category => `
+                    <li><a href="#" class="category-link text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white" data-category="${category}">${category}</a></li>
+                `).join('')}
             </ul>
         </div>`;
 }
 
 function renderRecentPostsWidget() {
-    // Your recent posts widget code here
     return `<div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
             <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Recent Posts</h2>
             <ul class="space-y-2">
