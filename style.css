@@ -3837,61 +3837,34 @@ h1 + p, p + p {
   color: var(--text-color);
 }
 
-.containerWebsiteViews {
-    display: flex;
-    justify-content: space-between;
-    border-radius: 10px;
-    margin-top: 1vh;
-    background-color: #f8b5b5;
-    width: 12vw;
-}
-.containerText p,
-.containerNumbers p {
-    margin-left: 10px;
-    font-weight: 600;
-}
-.containerNumbers {
-    width: 2.5vw;
-    background-color: #403c3c;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-.containerNumbers p {
-    color: white;
+.d-flex-gap {
+  display: flex;
+  gap: 15px; /* Space between buttons */
+  flex-wrap: wrap; /* Wrap items to the next line if necessary */
+  justify-content: center; /* Center the buttons horizontally */
 }
 
-.profile-icon {
-
-  border-radius: 50%;
-  position: relative;
-  margin-left: 20px; /* Adjust space between Login button and Profile icon */
-
+.category-btn {
+  padding: 12px 20px; /* Padding for a better touch target */
+  background-color: #ec8791; /* Primary color from the palette */
+  color: #1a171700; /* White text color */
+  border: 2px solid transparent; /* Transparent border for hover effect */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transitions */
+  text-decoration: none; /* Remove underline */
+  font-size: 16px; /* Font size */
 }
 
-.dropdown-menu {
-
-  display: none;
-  position: absolute;
-  top: 35px; /* Adjust based on the height of your navbar */
-  right: 0;
-  background-color: white;
-  color: black;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  z-index: 1;
-
+.category-btn:hover {
+  background-color:#ec8791; /* Darker shade on hover */
+  color: #060606; /* Keep text color white on hover */
+  border-color: #ec8791; /* Maintain the border color on hover */
 }
 
-.dropdown-menu a {
-
-  display: block;
-  padding: 10px 15px;
-  text-decoration: none;
-
-}
-
-.dropdown-menu a:hover {
-
-  background-color: #f1f1f1;
-
+/* Responsive Design */
+@media (max-width: 768px) {
+  .d-flex-gap {
+      flex-direction: column; /* Stack buttons on smaller screens */
+      align-items: center; /* Center buttons on small screens */
+  }
 }
