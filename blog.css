@@ -1,0 +1,309 @@
+/* Shadow Effect on Image */
+.thumbnail {
+    display: inline-block;
+    border-radius: 12px; /* Increased border radius for a smoother look */
+    overflow: hidden; /* Ensures the shadow stays within rounded corners */
+  }
+  
+  .thumbnail-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 4px 15px rgba(0, 0, 0, 0.3); /* Layered shadow for more depth */
+    transition: box-shadow 0.4s ease; /* Smooth transition for hover */
+  }
+  
+  /* Hover Effect */
+  .thumbnail-img:hover {
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5), 0 8px 20px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+  }
+  
+  /* Content Container */
+.content-container {
+    background-color: #1e1e1e; /* Dark background for better readability */
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  /* Content Text */
+  .content p {
+    color: #f5f5f5; /* Light color for dark background */
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: justify;
+    margin: 0;
+  }
+  
+  /* Heading Style */
+  .content-container .display-1 {
+    font-weight: 600;
+    font-size: 24px;
+    color: #f9b0b0; /* Slightly brighter color for the title */
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  /* Hover Effect */
+  .content-container:hover {
+    transform: scale(1.02); /* Slight zoom effect */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); /* Enhanced shadow on hover */
+  }
+  
+  /* Additional Styling for Links */
+  .content-container a {
+    color: #f9b0b0;
+    transition: color 0.3s ease;
+  }
+  
+  .content-container a:hover {
+    color: #e56b6f; /* Brighter color on hover */
+  }
+  
+  /* Container Styling */
+.post-footer-container {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Tags Styling */
+  .tag-link {
+    background-color: #333;
+    color: #f9b0b0;
+    margin: 5px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .tag-link:hover {
+    background-color: #f9b0b0;
+    color: #333;
+  }
+  
+  /* Author Section Styling */
+  .author-avatar {
+    width: 100px; /* Increased size */
+    height: 100px; /* Increased size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .author-avatar img {
+    width: 100%; /* Makes the image responsive */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 50%; /* Keeps it circular */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Retains shadow effect */
+  }
+  
+  .author-name {
+    font-size: 20px;
+    color: #f9b0b0;
+    margin: 10px 0 5px;
+  }
+  
+  .author-bio {
+    font-size: 14px;
+    color: #ddd;
+    margin-bottom: 10px;
+  }
+  
+  /* Social Media Links */
+  .social-links .social-icon {
+    color: #f9b0b0;
+    font-size: 18px;
+    margin: 0 8px;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: #333;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .social-links .social-icon:hover {
+    background-color: #f9b0b0;
+    color: #333;
+    transform: scale(1.1);
+  }
+  
+  /* Post Navigation Container */
+.post-navigation {
+    background-color: #2a2a2a; /* Dark background for contrast */
+    padding: 30px; /* Increased padding for better spacing */
+    border-radius: 10px; /* More pronounced border radius */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+  }
+  
+  /* Post Container */
+  .post-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Ensures the cards are of equal height */
+  }
+  
+  /* Post Card */
+  .post-card {
+    background-color: #3b3b3b; /* Slightly lighter background for post cards */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 48%; /* Adjusting width for proper spacing */
+    display: flex; /* Flex layout for content alignment */
+    flex-direction: column; /* Stack content vertically */
+  }
+  
+  .post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7); /* Enhanced shadow on hover */
+  }
+  
+  /* Navigation Label */
+  .nav-label {
+    padding: 15px;
+    color: #f9b0b0; /* Light color for links */
+    font-weight: bold;
+    text-align: center; /* Center-align label text */
+  }
+  
+  /* Navigation Link */
+  .nav-link {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center align for the entire link */
+    transition: color 0.3s ease;
+    font-size: 1.2rem; /* Increased font size for better readability */
+  }
+  
+  .nav-link:hover {
+    color: #f9b0b0; /* Hover color change */
+  }
+  
+  /* Post Article */
+  .post-article {
+    display: flex;
+    flex-direction: column; /* Stack image and content */
+    flex: 1; /* Ensure equal height for content */
+  }
+  
+  /* Post Image */
+  .post-image img {
+    width: 100%;
+    height: auto;
+    border-bottom: 4px solid #f9b0b0; /* Bottom border for image */
+    transition: transform 0.3s ease; /* Smooth scale on hover */
+  }
+  
+  .post-image img:hover {
+    transform: scale(1.05); /* Slight scale effect on hover */
+  }
+  
+  /* Post Content */
+  .post-content {
+    padding: 15px;
+    flex-grow: 1; /* Allow content to fill available space */
+  }
+  
+  /* Post Category */
+  .post-category {
+    margin-bottom: 10px;
+    text-align: center; /* Center the category */
+  }
+  
+  .category-link {
+    background-color: #555; /* Category background */
+    color: #f9b0b0;
+    padding: 8px 12px; /* More padding for better touch area */
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Added transition */
+  }
+  
+  .category-link:hover {
+    background-color: #f9b0b0; /* Change category background on hover */
+    color: #333; /* Change text color on hover */
+  }
+  
+  /* Post Title */
+  .post-title {
+    font-size: 1.4rem; /* Increased font size for titles */
+    color: #ffffff; /* White text for contrast */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .post-title:hover {
+    color: #f9b0b0; /* Change title color on hover */
+    text-decoration: underline; /* Underline on hover for emphasis */
+  }
+  
+  /* Section Title */
+.section-title {
+    text-align: center;
+    color: #f9b0b0; /* Light color for contrast */
+    font-size: 2rem; /* Larger font size for title */
+    margin-bottom: 20px;
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transitions */
+  }
+  
+  .section-title:hover {
+    color: #ea5541; /* Change to pink on hover */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Subtle shadow effect */
+  }
+  /* Categories Section */
+.categories {
+    background-color: #2a2a2a; /* Dark background */
+    padding: 30px; /* Padding for spacing */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    margin: 30px 0; /* Margin to separate from other sections */
+  }
+  
+  /* Category Heading */
+  .category-heading {
+    text-align: center;
+    color: #f9b0b0; /* Light color for contrast */
+    font-size: 2rem; /* Larger font size for heading */
+    margin-bottom: 20px; /* Space below heading */
+    transition: color 0.3s ease; /* Smooth color transition */
+  }
+  
+  /* Category Item */
+  .category-list {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+  }
+  
+  .category-item {
+    margin-bottom: 15px; /* Space between items */
+  }
+  
+  .category-link {
+    display: block;
+    background-color: #3b3b3b; /* Dark background for links */
+    padding: 15px; /* Padding for clickable area */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    color: #ffffff; /* White text for contrast */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+  }
+  
+  .category-link:hover {
+    background-color: #ea5541; /* Pink background on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+  }
+  
+  .category-link span {
+    font-size: 1.2rem; /* Slightly larger font size for text */
+  }
+  
+  

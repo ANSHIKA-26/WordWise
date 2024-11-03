@@ -20,6 +20,7 @@
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="Scroll_and_progressbar.css">
+  <link rel="stylesheet" href="blog.css">
 
 
 
@@ -396,92 +397,180 @@
       <!-- <div class="col-8"> -->
       <article id="post">
         <!--article heading-->
-        <div class="heading text-center">
-          <div class="Category">
-            <a href="#" class="nav-link" id="travel">Travel</a>
+       
+        
+        <div class="heading text-center" style="padding: 20px; background-color: #30322f; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+          <div class="Category" style="display: inline-block; margin-bottom: 10px;">
+            <a href="#" class="nav-link" id="travel" style="color: #ea5541; font-weight: bold; font-size: 1.2rem;">Travel</a>
           </div>
-          <a href="bookmarks.html" class="nav-link"
-            style="float: right; margin-left: auto; color: #f9b0b0; transition: all 0.4s ease-in-out;">My Reading
-            List</a>
-          <div class="title">
-            <h2 class="text-title text-dark display-1" looking for feedback></h2>
+          <a href="bookmarks.html" class="nav-link button" style="float: right; margin-left: auto;">
+            My Reading List
+          </a>
+        
+          <div class="title" style="margin-top: 20px;">
+            <h2 class="text-title" style="font-size: 2.5rem; font-weight: 700; color: #f9b0b0;">Looking for Feedback</h2>
           </div>
-          <div class="meta">
-            <a href="#" class="link display-2 text-secondary px-1">
-              <i class="fa-solid fa-user" style="color:  #f9b0b0;" id="fa"></i>anshika arora
+        
+          <div class="meta" style="margin-top: 15px; font-size: 1rem; color: #f9b0b0;">
+            <a href="#" class="link text-secondary px-2 meta-item" style="display: inline-flex; align-items: center;">
+              <i class="fa-solid fa-user" style="color: #ea5541; margin-right: 5px; font-size: 1.3rem;"></i> Anshika Arora
             </a>
-            <a href="#" class="link display-2 text-secondary px-1">
-              <i class="fa-solid fa-clock" style="color:  #f9b0b0;" id="fa"></i>feb 12, 2021
+            <a href="#" class="link text-secondary px-2 meta-item" style="display: inline-flex; align-items: center;">
+              <i class="fa-solid fa-clock" style="color: #ea5541; margin-right: 5px; font-size: 1.3rem;"></i> Feb 12, 2021
             </a>
-            <a href="./blog.html#coment" class="link display-2 text-secondary px-1">
-              <i class="fa-solid fa-comments" style="color:  #f9b0b0;" id="fa"></i>3
+            <a href="./blog.html#coment" class="link text-secondary px-2 meta-item" style="display: inline-flex; align-items: center;">
+              <i class="fa-solid fa-comments" style="color: #ea5541; margin-right: 5px; font-size: 1.3rem;"></i> 3
             </a>
-            <a href="#" class="link display-2 text-secondary px-1 bookmark-btn" id="bookmark">
-              <i class="fa-solid fa-bookmark" style="color: #f9b0b0;" id="bookmark-icon"></i>
-              <span id="bookmark-text" style="color: f9b0b0;">Bookmark</span>
+            <a href="#" class="link text-secondary px-2 meta-item" id="bookmark" style="display: inline-flex; align-items: center;">
+              <i class="fa-solid fa-bookmark" style="color: #ea5541; margin-right: 5px; font-size: 1.3rem;" id="bookmark-icon"></i>
+              <span id="bookmark-text" style="color: #f9b0b0;">Bookmark</span>
             </a>
           </div>
-
-
         </div>
+        
+        <style>
+          /* Dark Mode Adjustments */
+          .heading {
+            background-color: #30322f;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          }
+        
+          .text-title {
+            margin: 0;
+            color: #f9b0b0;
+          }
+        
+          .Category .nav-link {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ea5541;
+          }
+        
+          .meta .link {
+            font-size: 1rem;
+            color: #f9b0b0;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.4s ease;
+          }
+        
+          .meta i {
+            font-size: 1.3rem;
+            transition: color 0.3s;
+          }
+        
+          /* Hover Effect for Meta Items */
+          .meta .meta-item:hover {
+            background-color: rgba(249, 176, 176, 0.1);
+            color: #f9b0b0;
+            border-radius: 5px;
+            padding: 6px 8px;
+            transform: scale(1.05);
+          }
+        
+          .meta .meta-item:hover i {
+            color: #f9b0b0;
+          }
+        
+          /* Button and Hover Effects */
+          .button {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 5px;
+            color: #f9b0b0;
+            transition: all 0.4s ease;
+            font-weight: 600;
+          }
+        
+          .button:hover {
+            background-color: #f9b0b0;
+            color: #30322f;
+            transform: scale(1.05);
+            box-shadow: 0px 4px 12px rgba(249, 176, 176, 0.4);
+          }
+        
+          /* Responsive */
+          @media (max-width: 768px) {
+            .meta {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
+            }
+        
+            .meta .link {
+              margin-top: 8px;
+            }
+        
+            .heading .title h2 {
+              font-size: 1.8rem;
+            }
+          }
+        </style>
+        
+        
+        
+        
         <!--thumbnail-->
-        <div class="thumbnail mt-3">
-          <img src="./assets/img1.webp" class="thumbnail" alt="">
+        <div class="thumbnail mt-3" style="border-radius: 8px; overflow: hidden;">
+          <img src="./assets/img1.webp" class="thumbnail-img" alt="">
         </div>
         <!--content-->
-        <div class="content text-dark display-1 secondary-title mt-3">
-          <p>
-
-
-            In the realm of mechanical marvels, our journey begins an odyssey of speed, freedom, and human ingenuity:
-            the automobile. A symphony of gears and pistons, it has reshaped the world, granting us the power to
-            traverse great distances with unparalleled ease. Join me as we delve into the rich history, exhilarating
-            innovations, and unforgettable memories that revolve around the ever-evolving wonder that is the car.
-
-            At the dawn of the 19th century, the world witnessed the birth of the automobile, a contraption that
-            combined the visions of brilliant minds like Karl Benz, Gottlieb Daimler, and Henry Ford. In these early
-            days, the car was a novelty, a wondrous oddity with a top speed of a brisk trotting horse. Yet, it laid the
-            groundwork for an automotive revolution that would forever change the landscape of our existence. Fast
-            forward to today, and the automobile stands as a symbol of progress, blending elegance and performance, as
-            we race forward into the future.
-          </p>
-
+        <div class="content-container">
+          <div class="content text-light display-1 secondary-title mt-3">
+            <p>
+              In the realm of mechanical marvels, our journey begins an odyssey of speed, freedom, and human ingenuity: the automobile.
+              A symphony of gears and pistons, it has reshaped the world, granting us the power to traverse great distances with
+              unparalleled ease. Join me as we delve into the rich history, exhilarating innovations, and unforgettable memories that
+              revolve around the ever-evolving wonder that is the car.
+        
+              At the dawn of the 19th century, the world witnessed the birth of the automobile, a contraption that combined the visions
+              of brilliant minds like Karl Benz, Gottlieb Daimler, and Henry Ford. In these early days, the car was a novelty, a wondrous
+              oddity with a top speed of a brisk trotting horse. Yet, it laid the groundwork for an automotive revolution that would
+              forever change the landscape of our existence. Fast forward to today, and the automobile stands as a symbol of progress,
+              blending elegance and performance, as we race forward into the future.
+            </p>
+          </div>
         </div>
-
+        
 
       </article>
       <!--post footer-->
-      <div class="post-footer mb-3">
-        <div class="post-tags d-flex flex-wrap justify-content-center">
-          <a href="#" class="nav-link btn bg-light">Travel</a>
-          <a href="#" class="nav-link btn bg-light">Food</a>
-          <a href="#" class="nav-link btn bg-light">Lifestyle</a>
-          <a href="#" class="nav-link btn bg-light">Technology</a>
-          <a href="#" class="nav-link btn bg-light">Fashion</a>
-
-        </div>
-        <div class="post-author text-center">
-          <div class="author-avatar">
-            <img src="./assets/face/face1.webp" class="rounded">
-
+      <div class="post-footer-container">
+        <div class="post-footer mb-3">
+          <!-- Post Tags -->
+          <div class="post-tags d-flex flex-wrap justify-content-center mb-4">
+            <a href="#" class="tag-link btn">Travel</a>
+            <a href="#" class="tag-link btn">Food</a>
+            <a href="#" class="tag-link btn">Lifestyle</a>
+            <a href="#" class="tag-link btn">Technology</a>
+            <a href="#" class="tag-link btn">Fashion</a>
           </div>
-          <div class="author-info py-2">
-            <h3 class="text-dark">Amy Tan</h3>
-            <p class="text-secondary secondary-title">
-              Author Info
-            </p>
-            <div class="post-tags d-flex flex-wrap justify-content-center">
-              <a href="#" id="facebook" class="nav-link btn bg-light"><i class="fa-brands fa-facebook"></i></a>
-              <a href="#" id="instagram" class="nav-link btn bg-light"><i class="fa-brands fa-instagram"></i></a>
-              <a href="#" id="twitter" class="nav-link btn bg-light"><i class="fa-brands fa-twitter"></i></a>
-              <a href="#" id="dribbble" class="nav-link btn bg-light"><i class="fa-brands fa-dribbble"></i></a>
-              <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" id="github"
-                target="_blank" class="nav-link btn bg-light"><i class="fa-brands fa-github"></i></a>
-
-
+      
+          <!-- Author Section -->
+          <div class="post-author text-center">
+            <div class="author-avatar mb-2">
+              <img src="./assets/face/face1.webp" class="rounded-circle" alt="Author's avatar">
+            </div>
+            <div class="author-info py-2">
+              <h3 class="author-name">Amy Tan</h3>
+              <p class="author-bio">Author Info</p>
+      
+              <!-- Social Media Links -->
+              <div class="social-links d-flex justify-content-center mt-3">
+                <a href="#" class="social-icon" id="facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="social-icon" id="instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon" id="twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="social-icon" id="dribbble"><i class="fa-brands fa-dribbble"></i></a>
+                <a href="https://github.com/ANSHIKA-26" id="github" target="_blank" class="social-icon"><i class="fa-brands fa-github"></i></a>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+      
         <!--post related -->
         <!-- post related -->
         <div class="post-navigation">
@@ -546,11 +635,9 @@
           <div class="comments-section">
             <div class="comments-container">
               <h2 class="section-title">
-                <span class="title-text">
-                  Join the Conversation
-                </span>
+                <span class="title-text">Join the Conversation</span>
               </h2>
-
+        
               <!-- Comment Form -->
               <div class="comment-form">
                 <h3 class="form-title">Share Your Thoughts</h3>
@@ -571,7 +658,7 @@
                   </button>
                 </form>
               </div>
-
+        
               <!-- Comment List -->
               <div id="commentList" class="comment-list">
                 <!-- Existing comments will be loaded here -->
@@ -579,6 +666,7 @@
             </div>
           </div>
         </section>
+        
 
         <script>
           // Comment data structure
@@ -1044,36 +1132,37 @@
       <div class="col-4">
         <aside id="sidebar" class="px-1">
 
-          <!--categories-->
-          <section class="categories">
-            <center>
-              <h2 class="category-heading">Categories</h2>
-            </center>
-            <div class="category-item">
-              <a href="#" class="d-flex justify-content-between text-dark">
-                <span>Design</span>
-                <span>5</span>
-              </a>
-            </div>
-            <div class="category-item">
-              <a href="#" class="d-flex justify-content-between text-dark">
-                <span>Illustrations</span>
-                <span>10</span>
-              </a>
-            </div>
-            <div class="category-item">
-              <a href="#" class="d-flex justify-content-between text-dark">
-                <span>Fashion</span>
-                <span>5</span>
-              </a>
-            </div>
-            <div class="category-item">
-              <a href="#" class="d-flex justify-content-between text-dark">
-                <span>Graphic</span>
-                <span>4</span>
-              </a>
-            </div>
-          </section>
+         <!-- Categories Section -->
+<section class="categories">
+  <h2 class="category-heading">Categories</h2>
+  <div class="category-list">
+    <div class="category-item">
+      <a href="#" class="category-link d-flex justify-content-between text-dark">
+        <span>Design</span>
+        <span>5</span>
+      </a>
+    </div>
+    <div class="category-item">
+      <a href="#" class="category-link d-flex justify-content-between text-dark">
+        <span>Illustrations</span>
+        <span>10</span>
+      </a>
+    </div>
+    <div class="category-item">
+      <a href="#" class="category-link d-flex justify-content-between text-dark">
+        <span>Fashion</span>
+        <span>5</span>
+      </a>
+    </div>
+    <div class="category-item">
+      <a href="#" class="category-link d-flex justify-content-between text-dark">
+        <span>Graphic</span>
+        <span>4</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 
           <style>
             :root {
