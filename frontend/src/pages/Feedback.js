@@ -2,11 +2,11 @@ export function renderFeedback(container) {
     container.innerHTML = `
         <div class="container mx-auto px-4 py-8">
             <header class="mb-8">
-                <h1 class="text-4xl font-bold mb-2 text-gray-900 dark:text-white">Feedback</h1>
-                <p class="text-xl text-gray-600 dark:text-gray-400">Help us improve WordWise</p>
+                <h1 class="text-4xl font-bold mb-2 text-gray-900 dark:text-white" data-aos="fade-right" data-aos-delay="100">Feedback</h1>
+                <p class="text-xl text-gray-600 dark:text-gray-400" data-aos="fade-right" data-aos-delay="300">Help us improve WordWise</p>
             </header>
 
-            <main class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+            <main class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6" data-aos="fade-up" data-aos-delay="500">
                 <form id="feedbackForm" class="space-y-6">
                     <div>
                         <label for="overallExperience" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">How would you rate your overall experience with WordWise?</label>

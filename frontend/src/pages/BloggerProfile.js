@@ -23,7 +23,7 @@ export function renderProfilePage(container) {
         <div class="w-4/5 mx-auto p-6 pb-20">
             <div class='flex w-full justify-between'>
                 <!-- Draft Form -->
-                <div class="p-6 bg-white dark:bg-gray-800 dark:text-gray-200 rounded-lg shadow-md w-3/5">
+                <div class="p-6 bg-white dark:bg-gray-800 dark:text-gray-200 rounded-lg shadow-md w-3/5" data-aos="fade-up" data-aos-delay="100">
                     <h2 class="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">Draft a New Blog</h2>
                     <p class="text-gray-600 dark:text-gray-400 mb-6">Create and save your blog drafts below.</p>
                     <input type="text" id="draft-title" placeholder="Blog Title..." class=" bg-gray-300 dark:bg-gray-700 p-3 w-full rounded-lg shadow-sm" />
@@ -42,7 +42,7 @@ export function renderProfilePage(container) {
                     <button id="save-draft-btn" class="mt-4 bg-blue-600 text-white px-6 py-3 rounded-md shadow-lg hover:bg-blue-700 w-full">Save Draft</button>
                 </div>
                 <!-- Profile Header -->
-                <div class="bg-white dark:bg-gray-800 dark:text-gray-200 p-6 rounded-lg border-2 border-blue-300 shadow-lg w-1/3 h-64 flex flex-col items-center">
+                <div class="bg-white dark:bg-gray-800 dark:text-gray-200 p-6 rounded-lg border-2 border-blue-300 shadow-lg w-1/3 h-64 flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">
                     <button id="logout-btn" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-4 rounded shadow-md relative left-[135px] -top-4">Sign out</button>
                     <img src="${userDetails.profilePic}" alt="Profile" class="rounded-full object-cover w-28 h-28 border-4 border-gray-200" />
                     <h1 class="text-2xl text-center font-semibold text-gray-800 dark:text-gray-100 tracking-wide">${userDetails.name}</h1>

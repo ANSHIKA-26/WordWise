@@ -2,12 +2,12 @@ export function renderAbout(container) {
     container.innerHTML = `
         <div class="container mx-auto px-4 py-8">
             <header class="mb-8">
-                <h1 class="text-4xl font-bold mb-2 text-gray-900 dark:text-white">About WordWise</h1>
-                <p class="text-xl text-gray-600 dark:text-gray-400">Your trusted companion in language learning</p>
+                <h1 class="text-4xl font-bold mb-2 text-gray-900 dark:text-white" data-aos="fade-right" data-aos-delay="100">About WordWise</h1>
+                <p class="text-xl text-gray-600 dark:text-gray-400" data-aos="fade-right" data-aos-delay="300">Your trusted companion in language learning</p>
             </header>
 
             <main class="grid gap-8">
-                <section class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                <section class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6" data-aos="fade-up" data-aos-delay="500">
                     <h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Our Mission</h2>
                     <p class="text-gray-700 dark:text-gray-300 mb-4">
                         At WordWise, we believe that language is the key to understanding and connecting with the world. Our mission is to make language learning accessible, enjoyable, and effective for everyone, regardless of their background or learning style.
@@ -18,7 +18,7 @@ export function renderAbout(container) {
                     </div>
                 </section>
 
-                <section class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                <section class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6" data-aos="fade-up" data-aos-delay="800">
                     <h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">What Makes Us Unique</h2>
                     <div class="grid md:grid-cols-2 gap-4">
                         <div class="bg-green-100 dark:bg-green-900 p-4 rounded-lg">
@@ -40,7 +40,7 @@ export function renderAbout(container) {
                     </div>
                 </section>
 
-                <section class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                <section class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6" data-aos="fade-up" data-aos-delay="500">
                     <h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Contributors</h2>
                     <p class="text-gray-700 dark:text-gray-300 mb-4">
                         WordWise is an open-source project, and we're grateful for the contributions of developers from around the world. Here are our top contributors:
@@ -55,7 +55,7 @@ export function renderAbout(container) {
                     </div>
                 </section>
 
-                <section class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                <section class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6" data-aos="fade-up" data-aos-delay="500">
                     <h2 class="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Get in Touch</h2>
                     <form id="getInTouch" class="space-y-4">
                         <div>
