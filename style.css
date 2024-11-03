@@ -3837,7 +3837,6 @@ h1 + p, p + p {
   color: var(--text-color);
 }
 
-
 .d-flex-gap {
   display: flex;
   gap: 15px; /* Space between buttons */
