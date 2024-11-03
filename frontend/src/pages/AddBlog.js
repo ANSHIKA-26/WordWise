@@ -40,9 +40,9 @@ export function renderAddBlog(container) {
                     </div>
 
                     <div class="mb-6">
-                        <label for="content" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Content</label>
-                        <textarea id="content" name="content" rows="10" required
-                                  class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"></textarea>
+                        <label for="excerpt" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Content</label>
+                        <textarea id="excerpt" name="excerpt" rows="10" required
+                        class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"></textarea>
                     </div>
 
                     <div class="mb-6">
@@ -69,30 +69,56 @@ export function renderAddBlog(container) {
     `;
 
     // Add form submission logic
+    // Updated form submission logic
     const form = document.getElementById('add-blog-form');
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', async function (e) {
         e.preventDefault();
-        const title = document.getElementById('title').value.trim();
-        const category = document.getElementById('category').value;
-        const summary = document.getElementById('summary').value.trim();
-        const content = document.getElementById('content').value.trim();
 
-        if (!title || !category || !summary || !content) {
+        const title = document.getElementById('title').value;
+        const category = document.getElementById('category').value;
+        const summary = document.getElementById('summary').value;
+        const excerpt = document.getElementById('excerpt').value;
+        const tags = document.getElementById('tags').value;
+        const publish = document.getElementById('publish').checked;
+        const featuredImage = document.getElementById('featured-image').files[0];
+
+        if (!title || !category || !summary || !excerpt) {
             alert('Please fill out all required fields.');
             return;
         }
 
-        // Here you would typically send the form data to your server
-        console.log('Form submitted:', {
-            title,
-            category,
-            summary,
-            content,
-            tags: document.getElementById('tags').value,
-            publish: document.getElementById('publish').checked
-        });
+        // Prepare the form data
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('category', category);
+        formData.append('summary', summary);
+        formData.append('excerpt', excerpt);
+        formData.append('tags', tags);
+        formData.append('publish', publish);
+        if (featuredImage) {
+            formData.append('featuredImage', featuredImage); // Ensure key matches backend
+        }
 
-        // Reset form after submission
-        form.reset();
+        try {
+            const response = await fetch('http://localhost:5000/api/addBlog/saveBlog', {
+                method: 'POST',
+                body: formData // Send formData directly
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                console.log('Blog post created:', result);
+                alert('Blog post successfully created!');
+                form.reset(); // Reset the form after successful submission
+            } else {
+                console.error('Error creating blog post:', response.statusText);
+                alert('Failed to create blog post. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again.');
+        }
     });
+
+
 }

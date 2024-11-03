@@ -418,8 +418,8 @@ Additional styling for smaller screens
                                 transition: 0.5s ease;
                             }
                         </style>
-                        <!-- Google Sign-In Button -->
-                        <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+                        <!-- Google Login Button -->
+                        <button type="button" class="btn google-btn" onclick="window.location.href='https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmyaccount.google.com%2F&ec=GAlAwAE&hl=en_GB&service=accountsettings&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S1527110508%3A1729760212648495&ddm=0'">
                             <img src="./assets/google_icon.webp" alt="Google Logo" class="google-logo">
                             Sign in with Google</button>
                         <button type="button" class="btn btn-secondary w-100" onclick="closeForm('login')">CLOSE</button>
@@ -456,7 +456,7 @@ Additional styling for smaller screens
                         </div>
                         <button type="submit" class="btn btn-primary w-100 mb-3">SIGNUP</button>
                         <!-- Google Sign-In Button -->
-                        <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
+                        <button type="button" class="btn google-btn" onclick="window.location.href='https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmyaccount.google.com%2F&ec=GAlAwAE&hl=en_GB&service=accountsettings&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S1527110508%3A1729760212648495&ddm=0'">
                             <img src="./assets/google_icon.webp" alt="Google Logo" class="google-logo">
                             Sign in with Google</button>
                         <button type="button" class="btn btn-secondary w-100" onclick="closeForm('signup')">CLOSE</button>
@@ -1442,7 +1442,11 @@ Additional styling for smaller screens
                             </div>
 
                             <div>
-                                <img src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5" alt="Web views" style="height: 20px;width: 150px;margin-top: 40px;">
+                                <!-- <img src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5" alt="Web views" style="height: 20px;width: 150px;margin-top: 40px;"> -->
+                                 <div class="containerWebsiteViews">
+                                    <div class="containerText"><p>Website Views</p></div>
+                                    <div class="containerNumbers"><p id="visitorCount">0</p></div>
+                                 </div>
                             </div>
                         </div>
 
@@ -1584,6 +1588,7 @@ Additional styling for smaller screens
         const preloader = document.querySelector("#loader");
 
         function Finish_Loader() {
+            updateVisitorCount();
             preloader.style.display = "none";
         }
     </script>
