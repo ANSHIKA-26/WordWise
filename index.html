@@ -386,10 +386,26 @@ Additional styling for smaller screens
                 <div class="dropdown">
                     <!-- Profile Icon -->
     
-                    <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
-                        <i class="fas fa-user-circle"></i>
+                    <a href="javascript:void(0);" class="profile-link" style="display: flex; align-items: center; text-decoration: none;" onclick="toggleMenu()">
+                        <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
+                            <i class="fas fa-user-circle" style="font-size: 50px; color: #ffffff; margin-top: -17px;"></i>
+                        </a>
                     </a>
-                
+                    
+                    
+                    <style>
+                        /* Profile Link Hover Effect */
+                        .profile-link:hover {
+                            transform: scale(1.05); /* Slightly enlarge on hover */
+                        }
+                    
+                        /* Profile Icon Hover Effect */
+                        .profile-link:hover .fas {
+                            border-color: #f9b0b0; /* Change border color on hover */
+                            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+                        }
+                    </style>
+                    
                 
                 
                     <!-- Dropdown Menu -->
