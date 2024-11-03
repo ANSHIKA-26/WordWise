@@ -40,7 +40,7 @@ export async function renderBlogs(container) {
                     <aside class="md:w-1/3">
                         ${renderSearchWidget()}
                         ${renderCategoriesWidget(blogPosts)} <!-- Pass blogPosts to categories widget -->
-                        ${renderRecentPostsWidget()}
+                        ${renderRecentPostsWidget(blogPosts)}
                     </aside>
                 </div>
             </div>
@@ -146,16 +146,28 @@ function renderCategoriesWidget(blogPosts) {
         </div>`;
 }
 
-function renderRecentPostsWidget() {
+function renderRecentPostsWidget(blogPosts) {
+    // Sort blog posts by createdAt date in ascending order
+    blogPosts.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
     return `<div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
             <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Recent Posts</h2>
             <ul class="space-y-2">
-                <li><a href="/blog/post-4" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">The Art of Conversation</a></li>
-                <li><a href="/blog/post-5" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Idioms Around the World</a></li>
-                <li><a href="/blog/post-6" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Effective Note-Taking Strategies</a></li>
+                ${blogPosts.map(post => {
+        const postDate = new Date(post.createdAt);
+        const formattedDate = `${monthNames[postDate.getMonth()]} ${postDate.getDate()}, ${postDate.getFullYear()}`;
+        return `<li class="flex justify-between items-center">
+                                <a href="/blog/${post._id}" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white w-[70%]">${post.title}</a>
+                                <span class="text-sm text-gray-500 dark:text-gray-400 w-1/4">${formattedDate}</span>
+                            </li>`;
+    }).join('')}
             </ul>
         </div>`;
 }
+
+
 
 function formatDate(date) {
     return new Date(date).toLocaleDateString('en-US', {
