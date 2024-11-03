@@ -17,7 +17,7 @@
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="start_writing.css" />
-    <link rel="stylesheet" href="Scroll_and_progressbar.css" />
+    <link rel="stylesheet" href="Scroll_and_progressbar.css">
 
     <style>
       * {
@@ -455,46 +455,54 @@
 
     <!-- main -->
 
+
     <!-- footer -->
+  <footer id="footer">
+    <div class="footer-container">
+      <div class="row mb-3 col-3-main">
+        <div class="col-3">
+          <div id="about-us">
+            <h2 class="footer-title secondary-title">About Us</h2>
 
-    <footer id="footer">
-      <div class="footer-container">
-          <div class="row mb-3 col-3-main">
-              <div class="col-3">
-                 <div id = "about-us">
-                  <h2 class="footer-title secondary-title" >About Us</h2>
+            <div class="secondary-title text-secondary ">
+              <p class="mt-2 text-lg" style="text-align: left;">
+                We are a close-knit team of passionate storytellers dedicated to sharing captivating
+                content with the world.
+              </p>
 
-                    <div class="secondary-title text-secondary " >
-                       <p class="mt-2 text-lg" style="text-align: left;" >
-                        We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the world.
-                       </p>
+              <address class="mt-2">
+                <i class="fas fa-map-marker-alt text-primary"></i>
+                5 South Main Street Los Angeles, ZZ-9611 USA
+              </address>
 
-                       <address class="mt-2">
-                           <i class="fas fa-map-marker-alt text-primary"></i>
-                           5 South Main Street Los Angeles, ZZ-9611 USA
-                       </address>
+              <div class="phone mt-2">
+                <i class="fas fa-mobile text-primary"></i>
+                125-896-485
+              </div>
 
-                       <div class="phone mt-2">
-                           <i class="fas fa-mobile text-primary"></i>
-                           125-896-485
-                       </div>
+              <div class="email mt-2">
+                <a href="mailto: dailysupport@gmail.com" style="color: 3B3B58;"><i
+                    class="fas fa-envelope text-primary"></i>
+                  <span>dailysupport@gmail.com</span>
+                </a>
+              </div>
+              <div> <a href="privacy.html" style="color: #520be1e7;">Privacy Policy</a> </div> 
+              <div>
+                <img
+                  src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5"
+                  alt="Web views" style="height: 20px;width: 150px;margin-top: 40px;">
+              </div>
+            </div>
 
-                      <div class="email mt-2">
-                            <a href="mailto: dailysupport@gmail.com" style="color: 3B3B58;"><i class="fas fa-envelope text-primary"></i>
-                           <span id="mailhover">dailysupport@gmail.com</span>
-                           <style>
-                            #mailhover:hover{
-                                color: #f44336;
-                                transition: color 0.5s ease-out;
-                            }
-                           </style>
-                        </a>
-                       </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <h2 class="footer-title secondary-title">Feature Post</h2>
+
 
                        <div>
                         <img src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5" alt="Web views" style="height: 20px;width: 150px;margin-top: 40px;">
                        </div>
-                    </div>
 
                  </div>
               </div>
@@ -557,6 +565,7 @@
                   </div>
               </div>
               <div class="col-3">
+
                 <h2 class="footer-title secondary-title">Popular Tags</h2>
                 <div class="tags">
                   <div class="d-flex-gap flex-wrap">
@@ -589,16 +598,17 @@
                         </a>
                     </div>
                 </div>
-            </div>
-          </div>
 
 
+    </div>
+    <!-- the authentication copyright -->
+    <div class="wordwise-footer">
+      <div class="wordwise-footer-content">
+        <p>
+          &copy; <span id="current-year"></span> WordWise. All rights
+          reserved.
+        </p>
       </div>
-       <!-- the authentication copyright -->
-       <div class="wordwise-footer">
-        <div class="wordwise-footer-content">
-          <p class="last">&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
-        </div>
     </div>
   </footer>
     <!-- .footer -->
