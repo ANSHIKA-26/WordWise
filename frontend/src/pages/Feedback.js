@@ -1,3 +1,4 @@
+import toastr from "toastr";
 export function renderFeedback(container) {
     container.innerHTML = `
         <div class="container mx-auto px-4 py-8">
@@ -99,12 +100,16 @@ export function renderFeedback(container) {
                 document.getElementById('formSuccess').classList.remove('hidden');
                 this.reset();
                 document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth' });
+                toastr.info('Thanks for your feedback')
             } else {
                 const errorData = await response.json();
                 console.error("Error submitting form:", errorData);
+                toastr.error('Error submitting feedback')
             }
         } catch (error) {
             console.error("Error submitting form:", error);
+            toastr.error('Error submitting feedback')
+
         }
     });
 }
@@ -133,4 +138,23 @@ function renderTextarea(id, label, rows = 3) {
             <textarea id="${id}" name="${id}" rows="${rows}" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white"></textarea>
         </div>
     `;
+}
+
+
+toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": true,
+    "progressBar": true,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
 }
