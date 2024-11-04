@@ -86,10 +86,10 @@ function setupCategoryFilter(blogPosts) {
 }
 
 function renderBlogPosts(posts) {
-    return posts.map(post => renderBlogPost(post.id, post.title, post.excerpt, post.date, post.tags, post.featuredImage, post.publish)).join('');
+    return posts.map(post => renderBlogPost(post._id, post.title, post.excerpt, post.createdAt, post.tags, post.featuredImage, post.publish, post.likes)).join('');
 }
 
-function renderBlogPost(id, title, excerpt, date, tags, imageUrl, publish) {
+function renderBlogPost(id, title, excerpt, date, tags, imageUrl, publish, likes) {
     if (!publish) return '';
     let imagePath = "";
     if (imageUrl) {
@@ -106,17 +106,90 @@ function renderBlogPost(id, title, excerpt, date, tags, imageUrl, publish) {
                 <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
                     <time datetime="${date}">${formatDate(date)}</time>
                     <span class="ml-4 font-medium text-gray-900 dark:text-white">${tags}</span>
-                    <a href="/readmore" class="flex items-center ml-4 text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-500 cursor-pointer">
+                    <a href="/readmore/${id}" class="flex items-center ml-4 text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-500 cursor-pointer">
                         Read More
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
                     </a>
                 </div>
+                <div class="mt-4 flex items-center">
+                    <button 
+                        onclick="handleReaction('${id}')" 
+                        class="flex items-center text-gray-600 dark:text-gray-300 hover:text-red-500 dark:hover:text-red-400 cursor-pointer transition-all duration-200 ease-in-out"
+                    >
+                        <svg 
+                            id="heart-icon-${id}" 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            class="h-6 w-6 mr-2 transition-transform duration-200 ease-in-out transform" 
+                            fill="none" 
+                            viewBox="0 0 24 24" 
+                            stroke="currentColor"
+                        >
+                            <path 
+                                stroke-linecap="round" 
+                                stroke-linejoin="round" 
+                                stroke-width="2" 
+                                d="M12 21c-1.104-.002-2.113-.365-3.022-1.023C6.568 18.482 4 15.673 4 12.528c0-2.58 1.812-4.528 4.25-4.528 1.1 0 2.161.458 2.884 1.178a4.053 4.053 0 0 1 2.884-1.178c2.438 0 4.25 1.948 4.25 4.528 0 3.145-2.568 5.954-4.978 7.449-.909.658-1.918 1.021-3.022 1.023z"
+                            />
+                        </svg>
+                        <span id="reaction-count-${id}" class="text-sm font-semibold mt-[6px]">${likes}</span>
+                        <span class="ml-1 text-sm mt-[6px]">Likes</span>
+                    </button>
+                </div>
             </div>
         </article>
     `;
 }
+
+window.handleReaction = async function (postId) {
+    const reactionCountElement = document.getElementById(`reaction-count-${postId}`);
+    const heartIcon = document.getElementById(`heart-icon-${postId}`);
+    let currentCount = parseInt(reactionCountElement.innerText, 10);
+
+    // Check if the heart is currently filled
+    const isFilled = heartIcon.getAttribute("fill") === "currentColor";
+
+    // Toggle the heart fill color and update count with animation
+    const newCount = isFilled ? currentCount - 1 : currentCount + 1;
+    heartIcon.classList.toggle("text-red-500", !isFilled);
+    heartIcon.setAttribute("fill", !isFilled ? "currentColor" : "none");
+    reactionCountElement.innerText = newCount;
+
+    // Add a quick scale animation for visual feedback
+    heartIcon.classList.add("scale");
+    setTimeout(() => heartIcon.classList.remove("scale"), 150);
+
+    // Send updated like count to the server
+    try {
+        const response = await fetch(`http://localhost:5000/api/addBlog/updateLikes`, {
+            method: "PATCH", // Change POST to PATCH
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ postId, liked: !isFilled }), // Ensure liked reflects the new state
+        });
+
+        if (!response.ok) {
+            throw new Error("Server error");
+        }
+
+        const data = await response.json();
+        // Update the like count based on the server response
+        reactionCountElement.innerText = data.likesCount; // Ensure the server returns likesCount
+    } catch (error) {
+        console.error("Failed to update like on server:", error);
+
+        // Revert the UI changes if the server update fails
+        heartIcon.classList.toggle("text-red-500", isFilled);
+        heartIcon.setAttribute("fill", isFilled ? "currentColor" : "none");
+        reactionCountElement.innerText = currentCount; // Revert to previous count
+    }
+};
+
+
+
+
 
 function renderSearchWidget() {
     return `
