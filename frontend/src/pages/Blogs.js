@@ -60,14 +60,24 @@ function setupSearch(blogPosts) {
         const query = this.value.toLowerCase();
         const filteredPosts = blogPosts.filter(post =>
             post.title.toLowerCase().includes(query) ||
-            post.excerpt.toLowerCase().includes(query) ||
-            post.tags.toLowerCase().includes(query)
+            post.excerpt.toLowerCase().includes(query)
         );
 
         const blogPostsContainer = document.getElementById('blog-posts-container');
-        blogPostsContainer.innerHTML = `<div class="grid gap-6">${renderBlogPosts(filteredPosts)}</div>`;
+
+        if (filteredPosts.length === 0) {
+            blogPostsContainer.innerHTML = `
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden p-6 text-center">
+                    <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">No Blogs Found</h2>
+                    <p class="text-gray-600 dark:text-gray-300">Try searching with different keywords.</p>
+                </div>
+            `;
+        } else {
+            blogPostsContainer.innerHTML = `<div class="grid gap-6">${renderBlogPosts(filteredPosts)}</div>`;
+        }
     });
 }
+
 
 function setupCategoryFilter(blogPosts) {
     const categoryLinks = document.querySelectorAll('.category-link');
