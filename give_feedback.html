@@ -112,14 +112,11 @@
   <div class="layout-container" style="margin-bottom: 4rem;">
 
     <header>
-
-
-
       <div class="logo">
         <a href="index.html">
           <div class="logo">
             <h2>WordWise</h2>
-            <p class="logo-tagline">Empowering Words,<br>Inspiring Minds</p>
+          
         </div>
         </a>
       </div>
@@ -500,29 +497,37 @@
           --hover-color: #2980b9;
           --text-color: #333;
           --bg-color: #f5f5f5;
-          --form-bg: #ffffff;
+          --form-bg: #212529; /* Darker background for dark mode */
+          --nav-bg: #1a1d20;
+          --logo-color: #ffffff;
+          --input-border: #5a6268; /* Adjusted input border color for dark mode */
+          --input-text: #e9ecef; /* Adjusted input text color for dark mode */
+          --button-color: #0288f5; /* Brighter button color for dark mode */
       }
 
       /* Light mode variables */
       [data-theme="light"] {
-          --primary-color: #3498db;
-          --hover-color: #2980b9;
+          --primary-color: #0692ef;
+          --hover-color: #0797f7;
           --text-color: #333;
           --bg-color: #f5f5f5;
           --form-bg: #ffffff;
-          --nav-bg: #ffffff;
+          --nav-bg: #3B3B58;
           --logo-color: #333;
       }
 
       /* Dark mode variables */
       [data-theme="dark"] {
-          --primary-color: #4dabf7;
-          --hover-color: #339af0;
+          --primary-color: #0288f5;
+          --hover-color: #078af5fd;
           --text-color: #e9ecef;
           --bg-color: #212529;
-          --form-bg: #343a40;
+          --form-bg: #212529; /* Darker background for dark mode */
           --nav-bg: #1a1d20;
           --logo-color: #ffffff;
+          --input-border: #5a6268; /* Adjusted input border color for dark mode */
+          --input-text: #e9ecef; /* Adjusted input text color for dark mode */
+          --button-color: #0288f5; /* Brighter button color for dark mode */
       }
 
       * {
@@ -549,11 +554,11 @@
       }
 
       .logo h2 {
-          font-family: 'Playfair Display', serif;
-          font-size: 2.2rem;
-          color: var(--logo-color);
+          font-family: sans-serif , 22px Montserrat;
+          font-size: 40px;
+          color: #3B3B58;
           font-weight: 700;
-          letter-spacing: 0.5px;
+          letter-spacing: 2px;
       }
 
       .logo-tagline {
@@ -620,44 +625,38 @@
 
       /* Form Styling */
       .form-container {
-          max-width: 600px;
-          margin: 2rem auto;
-          background: var(--form-bg);
-          padding: 2.5rem;
-          border-radius: 15px;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      }
+  max-width: 600px;
+  margin: 2rem auto;
+  background: var(--form-bg);
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border: 2px solid #333; /* Add a darker border for dark mode */
+}
 
       .form-header {
-          text-align: center;
-          margin-bottom: 2.5rem;
-      }
+        
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #6c5ce7; /* Use a dark blue color that works well in both light and dark modes */
+}
 
-      .form-header h2 {
-          font-family: 'Playfair Display', serif;
-          font-size: 2.2rem;
-          color: #6784f7;
-          margin-bottom: 0.5rem;
-      }
+      
 
-      .form-header p {
-          color: #052088;
-          font-size: 1rem;
-      }
 
       .form-group {
-          margin-bottom: 1.8rem;
+          margin-bottom: 2rem; /* More spacing between form fields */
       }
 
       .form-group label {
           display: block;
           margin-bottom: 0.8rem;
-          color:#052088;
+          color: var(--text-color);
           font-weight: 500;
           font-size: 1.1rem;
       }
       .rating-container label{
-        color: #052088;
+        color: var(--text-color);
       }
       
 
@@ -666,12 +665,12 @@
       .form-group textarea {
           width: 100%;
           padding: 2rem;
-          border: 2px solid #6d6262;
+          border: 2px solid var(--input-border);
           border-radius: 8px;
           font-size: 1rem;
           transition: all 0.3s ease;
           background-color: var(--form-bg);
-          color: var(--text-color);
+          color: var(--input-text);
       }
 
       .form-group input:focus,
@@ -684,7 +683,7 @@
       .submit-btn {
           width: 100%;
           padding: 1rem;
-          background-color: #6784f7;
+          background-color: var(--button-color); /* Brighter button color for dark mode */
           color: white;
           border: none;
           border-radius: 8px;
@@ -705,14 +704,15 @@
 
   /* Change color of selected stars */
   .star-rating input[type="radio"]:checked ~ label {
-      color: #6784f7;
+      color: #e9ecef;
   }
 
   /* Hover effect */
   .star-rating label:hover,
   .star-rating label:hover ~ label {
-      color: #6784f7;
+      color: #e9ecef;
   }
+  
 
 
   </style>
