@@ -458,15 +458,15 @@ body.dark-mode footer .phone{
 }
 /* .feature-post .text-title {
   color: #726464; /* Light grey color for titles */
- */
+ 
 
-/* .feature-post .secondary-title {
-  color: #a0a0a0; /* Slightly lighter grey for secondary text */
- */
+  /* .feature-post .secondary-title {
+  color: #a0a0a0; /* Slightly lighter grey for secondary text*/
+   */
 
-.feature-post .text-secondary {
+/* .feature-post .text-secondary {
   color: #5d5353; /* Light grey for date/time text */
-}
+ */
 
 .feature-post a {
   text-decoration: none; /* Remove underline for links */
