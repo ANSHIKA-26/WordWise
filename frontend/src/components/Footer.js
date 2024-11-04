@@ -1,5 +1,7 @@
 import '../styles/footer.css';
 import { renderLogin } from '../pages/Login';
+import { renderTranslator } from '../pages/GoogleTranslator';
+
 
 export function renderFooter() {
     const footer = document.getElementById('footer');
@@ -10,6 +12,7 @@ export function renderFooter() {
                     <div class="w-full md:w-1/3 mb-6 md:mb-0" data-aos="fade-up" data-aos-delay="100">
                         <h3 class="text-2xl font-bold mb-4">WordWise</h3>
                         <p class="text-gray-400">Empowering language learners worldwide through innovative and engaging educational tools.</p>
+                       <div class="flex justify-center items-center text-gray-500 text-sm" > Select you Native Language:  <div id="google-translator-container" class="flex justify-center items-center ml-2"></div> </div> 
                     </div>
                     <div class="w-full md:w-1/3 mb-6 md:mb-0" data-aos="fade-up" data-aos-delay="300">
                         <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
@@ -57,4 +60,6 @@ export function renderFooter() {
     // Now, call renderLogin to render login UI inside the div with id 'login-container'
     const loginContainer = document.getElementById('login-container');
     renderLogin(loginContainer);
+    const googleTranslator = document.getElementById('google-translator-container');
+    renderTranslator(googleTranslator)
 }
