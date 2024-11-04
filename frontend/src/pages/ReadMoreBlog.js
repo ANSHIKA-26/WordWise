@@ -45,7 +45,7 @@ export function renderFullBlogPost(container) {
 
     if (blog) {
         container.innerHTML = `
-        <article class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+        <article class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden " data-aos="fade-up" data-aos-delay="100">
             <img src="${blog.imagePath}" alt="${blog.title}" class="w-full h-64 object-cover" onerror="this.onerror=null; this.src='/placeholder.svg?height=300&width=800';">
             <div class="p-6">
                 <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">${blog.title}</h1>
