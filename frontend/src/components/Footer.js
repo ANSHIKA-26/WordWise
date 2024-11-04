@@ -1,5 +1,7 @@
 import '../styles/footer.css';
 import { renderLogin } from '../pages/Login';
+import { renderTranslator } from '../pages/GoogleTranslator';
+
 
 export function renderFooter() {
     const footer = document.getElementById('footer');
@@ -7,11 +9,12 @@ export function renderFooter() {
         <footer class="bg-gray-800 text-white py-8">
             <div class="container mx-auto px-4">
                 <div class="flex flex-wrap justify-between">
-                    <div class="w-full md:w-1/3 mb-6 md:mb-0">
+                    <div class="w-full md:w-1/3 mb-6 md:mb-0" data-aos="fade-up" data-aos-delay="100">
                         <h3 class="text-2xl font-bold mb-4">WordWise</h3>
                         <p class="text-gray-400">Empowering language learners worldwide through innovative and engaging educational tools.</p>
+                       <div class="flex justify-center items-center text-gray-500 text-sm" > Select you Native Language:  <div id="google-translator-container" class="flex justify-center items-center ml-2"></div> </div> 
                     </div>
-                    <div class="w-full md:w-1/3 mb-6 md:mb-0">
+                    <div class="w-full md:w-1/3 mb-6 md:mb-0" data-aos="fade-up" data-aos-delay="300">
                         <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
                         <ul class="space-y-2">
                             <li><a href="/" class="text-gray-400 hover:text-white transition-colors duration-300">Home</a></li>
@@ -20,7 +23,7 @@ export function renderFooter() {
                             <li><a href="/contact" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
                         </ul>
                     </div>
-                    <div class="w-full md:w-1/3">
+                    <div class="w-full md:w-1/3" data-aos="fade-up" data-aos-delay="500">
                         <h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
                         <div class="flex space-x-4 justify-center mb-4">
                             <!-- Social icons -->
@@ -46,7 +49,7 @@ export function renderFooter() {
                         <div id="login-container" class="flex justify-center items-center"></div> 
                     </div>
                 </div>
-                <div class="mt-8 border-t border-gray-700 pt-8 text-center">
+                <div class="mt-8 border-t border-gray-700 pt-8 text-center" data-aos="zoom-in"  data-aos-delay="400">
                     <p class="text-gray-400">&copy; ${new Date().getFullYear()} WordWise. All rights reserved.</p>
                     <p class="text-gray-400 mt-2">An open-source project dedicated to language learning.</p>
                 </div>
@@ -57,4 +60,6 @@ export function renderFooter() {
     // Now, call renderLogin to render login UI inside the div with id 'login-container'
     const loginContainer = document.getElementById('login-container');
     renderLogin(loginContainer);
+    const googleTranslator = document.getElementById('google-translator-container');
+    renderTranslator(googleTranslator)
 }

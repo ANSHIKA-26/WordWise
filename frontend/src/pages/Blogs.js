@@ -26,8 +26,8 @@ export async function renderBlogs(container) {
         container.innerHTML = `
             <div class="container mx-auto px-4 py-8">
                 <header class="mb-8">
-                    <h1 class="text-4xl font-bold mb-2 text-gray-900 dark:text-white">WordWise Blog</h1>
-                    <p class="text-xl text-gray-600 dark:text-gray-400">Insights and tips for language learners</p>
+                    <h1 class="text-4xl font-bold mb-2 text-gray-900 dark:text-white" data-aos="fade-right" data-aos-delay="100">WordWise Blog</h1>
+                    <p class="text-xl text-gray-600 dark:text-gray-400" data-aos="fade-right" data-aos-delay="300">Insights and tips for language learners</p>
                 </header>
 
                 <div class="flex flex-col md:flex-row gap-8">
@@ -40,7 +40,7 @@ export async function renderBlogs(container) {
                     <aside class="md:w-1/3">
                         ${renderSearchWidget()}
                         ${renderCategoriesWidget(blogPosts)} <!-- Pass blogPosts to categories widget -->
-                        ${renderRecentPostsWidget()}
+                        ${renderRecentPostsWidget(blogPosts)}
                     </aside>
                 </div>
             </div>
@@ -60,14 +60,24 @@ function setupSearch(blogPosts) {
         const query = this.value.toLowerCase();
         const filteredPosts = blogPosts.filter(post =>
             post.title.toLowerCase().includes(query) ||
-            post.excerpt.toLowerCase().includes(query) ||
-            post.tags.toLowerCase().includes(query)
+            post.excerpt.toLowerCase().includes(query)
         );
 
         const blogPostsContainer = document.getElementById('blog-posts-container');
-        blogPostsContainer.innerHTML = `<div class="grid gap-6">${renderBlogPosts(filteredPosts)}</div>`;
+
+        if (filteredPosts.length === 0) {
+            blogPostsContainer.innerHTML = `
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden p-6 text-center">
+                    <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">No Blogs Found</h2>
+                    <p class="text-gray-600 dark:text-gray-300">Try searching with different keywords.</p>
+                </div>
+            `;
+        } else {
+            blogPostsContainer.innerHTML = `<div class="grid gap-6">${renderBlogPosts(filteredPosts)}</div>`;
+        }
     });
 }
+
 
 function setupCategoryFilter(blogPosts) {
     const categoryLinks = document.querySelectorAll('.category-link');
@@ -96,7 +106,7 @@ function renderBlogPost(id, title, excerpt, date, tags, imageUrl, publish) {
         imagePath = `http://localhost:5000/${imageUrl.replace(/\\/g, '/')}`;
     }
     return `
-        <article class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+        <article class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden" data-aos="fade-right" data-aos-delay="500">
             <img src="${imagePath}" alt="${title}" class="w-full h-48 object-cover" onerror="this.onerror=null; this.src='/placeholder.svg?height=200&width=400';">
             <div class="p-6">
                 <h2 class="text-2xl font-semibold mb-2">
@@ -120,7 +130,7 @@ function renderBlogPost(id, title, excerpt, date, tags, imageUrl, publish) {
 
 function renderSearchWidget() {
     return `
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6" data-aos="fade-up" data-aos-delay="100">
             <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Search</h2>
             <div class="relative">
                 <input type="text" id="search-input" placeholder="Search blog posts" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md pl-10 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
@@ -135,7 +145,7 @@ function renderSearchWidget() {
 function renderCategoriesWidget(blogPosts) {
     const categories = Array.from(new Set(blogPosts.map(post => post.category))).sort();
     return `
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6" data-aos="fade-up" data-aos-delay="300">
             <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Categories</h2>
             <ul class="space-y-2">
                 <li><a href="#" class="category-link text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white" data-category="all">All</a></li>
@@ -146,16 +156,29 @@ function renderCategoriesWidget(blogPosts) {
         </div>`;
 }
 
-function renderRecentPostsWidget() {
-    return `<div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-            <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Recent Posts</h2>
+
+function renderRecentPostsWidget(blogPosts) {
+    // Sort blog posts by createdAt date in ascending order
+    blogPosts.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    return `<div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6" data-aos="fade-up" data-aos-delay="500">
+             <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Recent Posts</h2>
             <ul class="space-y-2">
-                <li><a href="/blog/post-4" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">The Art of Conversation</a></li>
-                <li><a href="/blog/post-5" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Idioms Around the World</a></li>
-                <li><a href="/blog/post-6" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Effective Note-Taking Strategies</a></li>
+                ${blogPosts.map(post => {
+        const postDate = new Date(post.createdAt);
+        const formattedDate = `${monthNames[postDate.getMonth()]} ${postDate.getDate()}, ${postDate.getFullYear()}`;
+        return `<li class="flex justify-between items-center">
+                                <a href="/blog/${post._id}" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white w-[70%]">${post.title}</a>
+                                <span class="text-sm text-gray-500 dark:text-gray-400 w-1/4">${formattedDate}</span>
+                            </li>`;
+    }).join('')}
             </ul>
         </div>`;
 }
+
+
 
 function formatDate(date) {
     return new Date(date).toLocaleDateString('en-US', {

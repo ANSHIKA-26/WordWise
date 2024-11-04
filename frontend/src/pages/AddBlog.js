@@ -2,12 +2,12 @@ export function renderAddBlog(container) {
     container.innerHTML = `
         <div class="container mx-auto px-4 py-8">
             <header class="mb-8">
-                <h1 class="text-4xl font-bold mb-2 text-gray-900 dark:text-white">Create New Blog Post</h1>
-                <p class="text-xl text-gray-600 dark:text-gray-400">Share your insights and tips with the WordWise community</p>
+                <h1 class="text-4xl font-bold mb-2 text-gray-900 dark:text-white" data-aos="fade-right" data-aos-delay="100">Create New Blog Post</h1>
+                <p class="text-xl text-gray-600 dark:text-gray-400" data-aos="fade-right" data-aos-delay="300">Share your insights and tips with the WordWise community</p>
             </header>
 
             <main class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-                <form id="add-blog-form" enctype="multipart/form-data">
+                <form id="add-blog-form" enctype="multipart/form-data" data-aos="fade-up" data-aos-delay="300">
                     <div class="mb-6">
                         <label for="title" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Title</label>
                         <input type="text" id="title" name="title" required
