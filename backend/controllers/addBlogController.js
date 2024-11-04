@@ -20,7 +20,7 @@ const upload = multer({ storage: storage });
 // Function to save a new blog post
 export async function saveBlog(req, res) {
     try {
-        const { title, category, summary, excerpt, tags, publish, featuredImage } = req.body;
+        const { title, category, summary, excerpt, tags, publish, likes, featuredImage } = req.body;
 
         // If an image is uploaded, use its path
         let imagePath = req.file ? req.file.path : null;
@@ -56,6 +56,7 @@ export async function saveBlog(req, res) {
             excerpt,
             tags,
             publish,
+            likes,
             featuredImage: imagePath // Use the determined image path
         });
 
@@ -103,5 +104,36 @@ export async function getBlog(req, res) {
         res.status(500).json({ message: "Failed to retrieve blog post.", error });
     }
 }
+
+
+
+export async function updateLikes(req, res) {
+    const { postId, liked } = req.body; // Destructure liked from the body
+    console.log(postId + " " + liked);
+
+    try {
+        // Find the post by ID
+        const post = await BlogPost.findById(postId);
+        console.log(post);
+
+        if (!post) {
+            return res.status(404).json({ message: "Post not found" });
+        }
+
+        // Update the likes count based on the "liked" value
+        post.likes = liked ? post.likes + 1 : Math.max(post.likes - 1, 0); // Update post.likes, not BlogPost.likes
+
+        // Save the updated post
+        await post.save();
+
+        // Respond with the new likes count
+        return res.status(200).json({ likesCount: post.likes }); // Use post.likes
+    } catch (error) {
+        console.error("Error updating likes:", error);
+        return res.status(500).json({ message: "Failed to update likes" });
+    }
+}
+
+
 
 export { upload };

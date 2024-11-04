@@ -95,6 +95,7 @@ export function renderAddBlog(container) {
         formData.append('excerpt', excerpt);
         formData.append('tags', tags);
         formData.append('publish', publish);
+        formData.append('likes', 0);
         if (featuredImage) {
             formData.append('featuredImage', featuredImage); // Ensure key matches backend
         }
