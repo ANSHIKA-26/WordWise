@@ -1,3 +1,4 @@
+import toastr from "toastr";
 export function renderAbout(container) {
     container.innerHTML = `
         <div class="container mx-auto px-4 py-8">
@@ -119,12 +120,15 @@ export function renderAbout(container) {
             if (response.ok) {
                 console.log("Form successfully submitted:", formData);
                 document.getElementById('formSuccess').classList.remove('hidden');
+                toastr.info('We will reach you soon !')
                 this.reset();
             } else {
+                toastr.warning('Form submission failed')
                 console.error("Form submission failed:", response.statusText);
                 alert("There was an issue submitting the form. Please try again.");
             }
         } catch (error) {
+            toastr.error('Error submitting form')
             console.error("Error submitting form:", error);
             alert("There was an error connecting to the server. Please try again.");
         }
@@ -158,4 +162,24 @@ function renderContributor(username, profileUrl, avatarUrl) {
             </a>
         </div>
     `;
+}
+
+
+
+toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": true,
+    "progressBar": true,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
 }
