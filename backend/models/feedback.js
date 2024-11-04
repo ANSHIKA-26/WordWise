@@ -1,29 +1,46 @@
-import { mongoose } from "mongoose";
+import mongoose from 'mongoose';
 
-const feedbackSchema = new mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    userfeedback: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    email: {
-      type: String,
-      required: true,
-    },
-    rating: {
-      type: Number,
-      required: true,
-    },
+const feedbackSchema = new mongoose.Schema({
+  overallExperience: {
+    type: Number,
+    required: true,
+    min: 1,
+    max: 5
   },
-  { timestamps: true }
-);
+  featuresUsed: {
+    type: [String],
+    enum: ['vocabulary', 'grammar', 'pronunciation', 'reading', 'listening'],
+    required: true
+  },
+  mostHelpfulFeature: {
+    type: String,
+    enum: ['vocabulary', 'grammar', 'pronunciation', 'reading', 'listening'],
+    required: true
+  },
+  improvement: {
+    type: String,
+    trim: true
+  },
+  newFeatures: {
+    type: String,
+    trim: true
+  },
+  recommendation: {
+    type: Number,
+    required: true,
+    min: 1,
+    max: 5
+  },
+  additionalComments: {
+    type: String,
+    trim: true
+  },
+  submittedAt: {
+    type: Date,
+    default: Date.now
+  }
+});
 
-const feedback = mongoose.model(" feedback", feedbackSchema);
+const Feedback = mongoose.model("Feedback", feedbackSchema);
 
-export default feedback;
+export default Feedback;

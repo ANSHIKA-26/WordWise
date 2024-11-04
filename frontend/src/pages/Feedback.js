@@ -9,28 +9,28 @@ export function renderFeedback(container) {
             <main class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
                 <form id="feedbackForm" class="space-y-6">
                     <div>
-                        <label for="overall-experience" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">How would you rate your overall experience with WordWise?</label>
+                        <label for="overallExperience" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">How would you rate your overall experience with WordWise?</label>
                         <div class="flex items-center space-x-4">
-                            ${renderRatingInputs('overall-experience', 5)}
+                            ${renderRatingInputs('overallExperience', 5)}
                         </div>
                     </div>
 
                     <div>
-                        <label for="features-used" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Which features of WordWise have you used? (Select all that apply)</label>
+                        <label for="featuresUsed" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Which features of WordWise have you used? (Select all that apply)</label>
                         <div class="space-y-2">
                             ${renderCheckboxes([
-                                { id: 'feature-vocabulary', value: 'vocabulary', label: 'Vocabulary Exercises' },
-                                { id: 'feature-grammar', value: 'grammar', label: 'Grammar Lessons' },
-                                { id: 'feature-pronunciation', value: 'pronunciation', label: 'Pronunciation Practice' },
-                                { id: 'feature-reading', value: 'reading', label: 'Reading Comprehension' },
-                                { id: 'feature-listening', value: 'listening', label: 'Listening Exercises' }
-                            ])}
+        { id: 'feature-vocabulary', value: 'vocabulary', label: 'Vocabulary Exercises' },
+        { id: 'feature-grammar', value: 'grammar', label: 'Grammar Lessons' },
+        { id: 'feature-pronunciation', value: 'pronunciation', label: 'Pronunciation Practice' },
+        { id: 'feature-reading', value: 'reading', label: 'Reading Comprehension' },
+        { id: 'feature-listening', value: 'listening', label: 'Listening Exercises' }
+    ])}
                         </div>
                     </div>
 
                     <div>
-                        <label for="most-helpful" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Which feature did you find most helpful?</label>
-                        <select id="most-helpful" name="most-helpful" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                        <label for="mostHelpfulFeature" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Which feature did you find most helpful?</label>
+                        <select id="mostHelpfulFeature" name="mostHelpfulFeature" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
                             <option value="">Select a feature</option>
                             <option value="vocabulary">Vocabulary Exercises</option>
                             <option value="grammar">Grammar Lessons</option>
@@ -41,16 +41,16 @@ export function renderFeedback(container) {
                     </div>
 
                     ${renderTextarea('improvement', 'What aspect of WordWise do you think needs the most improvement?')}
-                    ${renderTextarea('new-features', 'Are there any new features you\'d like to see added to WordWise?')}
+                    ${renderTextarea('newFeatures', 'Are there any new features you\'d like to see added to WordWise?')}
 
                     <div>
-                        <label for="recommend" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">How likely are you to recommend WordWise to a friend or colleague?</label>
+                        <label for="recommendation" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">How likely are you to recommend WordWise to a friend or colleague?</label>
                         <div class="flex items-center space-x-4">
-                            ${renderRatingInputs('recommend', 5)}
+                            ${renderRatingInputs('recommendation', 5)}
                         </div>
                     </div>
 
-                    ${renderTextarea('additional-comments', 'Do you have any additional comments or suggestions?', 4)}
+                    ${renderTextarea('additionalComments', 'Do you have any additional comments or suggestions?', 4)}
 
                     <div>
                         <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-600">
@@ -66,15 +66,46 @@ export function renderFeedback(container) {
         </div>
     `;
 
-    // Form submission
-    document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+    document.getElementById('feedbackForm').addEventListener('submit', async function (e) {
         e.preventDefault();
-        // Here you would typically send the form data to your server
-        // For this example, we'll just show a success message
-        document.getElementById('formSuccess').classList.remove('hidden');
-        this.reset();
-        // Scroll to the success message
-        document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth' });
+
+        const formData = new FormData(this);
+        const data = {};
+
+        formData.forEach((value, key) => {
+            if (key === 'features-used') {
+                if (!data.featuresUsed) {
+                    data.featuresUsed = [];
+                }
+                data.featuresUsed.push(value);
+            } else {
+                data[key] = ['overallExperience', 'recommendation'].includes(key) ? parseInt(value, 10) : value;
+            }
+        });
+
+        console.log(data);
+
+        try {
+            const response = await fetch('http://localhost:5000/api/feedback/saveFeedback', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                console.log("Form submitted successfully:", await response.json());
+                document.getElementById('formSuccess').classList.remove('hidden');
+                this.reset();
+                document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                const errorData = await response.json();
+                console.error("Error submitting form:", errorData);
+            }
+        } catch (error) {
+            console.error("Error submitting form:", error);
+        }
     });
 }
 

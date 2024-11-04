@@ -275,17 +275,22 @@
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
             border-radius: 10px;
             box-sizing: border-box;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for movement and shadow effect */
           }
-  
+        
           .form-container h2 {
             margin-bottom: 20px;
             color: #333;
+            text-align: center; /* Centered the heading */
           }
-  
+        
           .form-group {
             margin-bottom: 15px;
+            display: flex;
+            flex-direction: column; /* Ensures vertical stacking of form elements */
+            align-items: stretch; /* Stretches form controls to fill the container */
           }
-  
+        
           .form-control {
             border-radius: 5px;
             padding: 12px;
@@ -293,65 +298,90 @@
             line-height: 1.5;
             box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
             width: 100%;
+            transition: box-shadow 0.3s; /* Added transition for focus effect */
           }
-  
+        
+          .form-control:focus {
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Enhanced focus effect */
+            outline: none; /* Remove default outline */
+          }
+        
           .forgot {
             text-align: right;
             margin-left: 50px;
             font-size: 10px;
             margin-top: -40px;
-  
           }
-  
+        
           .btn {
             margin-top: 10px;
             border-radius: 5px;
+            padding: 10px 20px; /* Increased padding for better button size */
+            font-size: 16px; /* Adjusted font size */
+            text-align: center; /* Center text within the button */
           }
-  
+        
           .eye-icon {
             position: absolute;
             right: 15px;
             top: 38px;
             cursor: pointer;
             color: #007bff;
+            font-size: 20px; /* Increased icon size */
+            transition: transform 0.3s; /* Added transition for hover effect */
           }
-  
+        
+          .eye-icon:hover {
+            transform: scale(1.2); /* Scale icon on hover */
+          }
+        
           .close-icon {
             font-size: 24px;
             cursor: pointer;
             float: right;
+            transition: transform 0.3s; /* Added transition for hover effect */
           }
-  
+        
+          .close-icon:hover {
+            transform: scale(1.2); /* Scale icon on hover */
+          }
+        
           .position-relative {
             position: relative;
           }
-  
+        
           /* Login button jumping issue fix */
           .btn-primary {
-            transition: all 0.3s ease;
-            /* Smooth transition */
+            transition: all 0.3s ease; /* Smooth transition */
+            background-color: #007bff; /* Original button color */
+            color: white; /* Text color */
           }
-  
+        
           .btn-primary:hover {
-            background-color: #0056b3;
+            background-color: #0056b3; /* Hover color */
           }
-  
+        
           .google-btn {
             display: flex;
             align-items: center;
             justify-content: center;
+            background-color: #db4437; /* Google button color */
+            color: white; /* Text color */
+            padding: 10px 20px; /* Increased padding for better button size */
+            border-radius: 5px;
+            transition: background-color 0.3s; /* Added transition for hover effect */
           }
-  
+        
+          .google-btn:hover {
+            background-color: #c13525; /* Hover color for Google button */
+          }
+        
           .google-logo {
-            width: 20px;
-            height: 20px;
+            width: 24px; /* Increased logo size */
+            height: 24px; /* Increased logo size */
             margin-right: 10px;
           }
-  
-          .btn-primary:hover {
-            background-color: #0056b3;
-          }
-  
+        
           .strength-meter {
             height: 10px;
             width: 0;
@@ -361,7 +391,24 @@
             color: white;
             font-size: 12px;
           }
+        
+          /* Styles for contact icons */
+          .contact-icons {
+            display: flex; /* Changed to flex for horizontal alignment */
+            justify-content: center; /* Center the icons */
+            margin-top: 20px; /* Added margin for spacing */
+          }
+        
+          .contact-icons a {
+            margin: 0 10px; /* Horizontal spacing between icons */
+            transition: transform 0.3s; /* Added transition for hover effect */
+          }
+        
+          .contact-icons a:hover {
+            transform: scale(1.1); /* Scale icons on hover */
+          }
         </style>
+        
   
   
         <script src="signup.js"></script>
@@ -412,8 +459,8 @@
       margin-bottom: 20px;
       text-align: center;
   ">
-    <h1 style="font-size: 48px; margin-bottom: 20px; color: var(--text-color);">Get in Touch</h1>
-    <p style="font-size: 18px; color: var(--text-color);">
+    <h1 class="fade-in" style="font-size: 48px; margin-bottom: 20px; color: var(--text-color);">Get in Touch</h1>
+    <p class="fade-in" style="font-size: 18px; color: var(--text-color);">
       We are here for you. Let us know how we can assist you.
     </p>
     <div class="tags social" id="contact">
@@ -425,7 +472,8 @@
         <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" id="github" target="_blank" class="nav-link btn bg-light circle-icon"><i class="fa-brands fa-github"></i></a>
       </div>
     </div>
-  </div>
+</div>
+
 
 
   <!-- Right Section with Form -->
@@ -489,7 +537,8 @@
 
       <button type="button" onclick="SendEmail(event)" class="submitbtn">
         Send
-      </button>
+    </button>
+    
     </form>
     <div id="backToTop" title="Back to Top">
       <i class="fas fa-arrow-up"></i>
@@ -523,173 +572,218 @@
   }
 </style>
 
-
-
-  <!-- footer -->
-  <footer id="footer">
-    <div class="footer-container">
+<!-- footer -->
+<footer id="footer">
+  <div class="footer-container">
       <div class="row mb-3 col-3-main">
-        <div class="col-3">
-          <div id="about-us">
-            <h2 class="footer-title secondary-title">About Us</h2>
-
-            <div class="secondary-title text-secondary ">
-              <p class="mt-2 text-lg" style="text-align: left;">
-                We are a close-knit team of passionate storytellers dedicated to sharing captivating
-                content with the world.
-              </p>
-
-              <address class="mt-2">
-                <i class="fas fa-map-marker-alt text-primary"></i>
-                5 South Main Street Los Angeles, ZZ-9611 USA
-              </address>
-
-              <div class="phone mt-2">
-                <i class="fas fa-mobile text-primary"></i>
-                125-896-485
-              </div>
-
-              <div class="email mt-2">
-                <a href="mailto: dailysupport@gmail.com" style="color: 3B3B58;"><i
-                    class="fas fa-envelope text-primary"></i>
-                  <span>dailysupport@gmail.com</span>
-                </a>
-              </div>
-              <div> <a href="privacy.html" style="color: #520be1e7;">Privacy Policy</a> </div> 
-              <div>
-                <img
-                  src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5"
-                  alt="Web views" style="height: 20px;width: 150px;margin-top: 40px;">
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <div class="col-3">
-          <h2 class="footer-title secondary-title">Feature Post</h2>
-
-          <div class="feature-post">
-            <div class="flex-item">
-              <article class="article">
-                <div class="d-flex" style="align-items: flex-start; ">
-                  <a class="d-flex" href="#">
-                    <img src="./assets/img9.webp" class="object-fit" alt="">
-                    <div class="px-1" style="width: 300px; ">
-                      <a href="#" class="text-title display-2 text-dark">
-                        Embrace the beauty of nature through our enchanting blog, where we
-                        celebrate the wonders of the natural world
-                      </a>
-                      <p class="secondary-title text-secondary "
-                        style="margin-top:3px;margin-left:0px; text-align: left; ">
-                        <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
+          <div class="col-3">
+              <div id="about-us">
+                  <h2 class="footer-title secondary-title">About Us</h2>
+                  <div class="secondary-title text-secondary">
+                      <p class="mt-2 text-lg" style="text-align: left;">
+                          We are a close-knit team of passionate storytellers dedicated to sharing captivating
+                          content with the world.
                       </p>
-                    </div>
-                  </a>
-                </div>
-              </article>
-
-            </div>
-            <div class="flex-item">
-              <article class="article">
-                <div class="d-flex" style="align-items: flex-start; ">
-                  <a class="d-flex" href="#">
-                    <img src="./assets/img1.webp" class="object-fit" alt="">
-                    <div class="px-1" style="width: 300px;">
-                      <a href="#" class="text-title display-2 text-dark">
-                        Embark on unforgettable journeys through our travel blog, where
-                        wanderlust meets inspiration
+                      <address class="mt-2">
+                          <i class="fas fa-map-marker-alt text-primary"></i>
+                          5 South Main Street Los Angeles, ZZ-9611 USA
+                      </address>
+                      <div class="phone mt-2">
+                          <i class="fas fa-mobile text-primary"></i>
+                          125-896-485
+                      </div>
+                      <div class="email mt-2">
+                          <a href="mailto:dailysupport@gmail.com" style="color: #3B3B58;">
+                              <i class="fas fa-envelope text-primary"></i>
+                              <span>dailysupport@gmail.com</span>
+                          </a>
+                      </div>
+                      <div>
+                          <a href="privacy.html" style="color: #520be1e7;">Privacy Policy</a>
+                      </div>
+                      <div>
+                          <img
+                              src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5"
+                              alt="Web views" style="height: 20px;width: 150px;margin-top: 10px;">
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-3">
+              <h2 class="footer-title secondary-title">Featured Post</h2>
+              <div class="feature-post">
+                  <div class="flex-item">
+                      <article class="article">
+                          <div class="d-flex" style="align-items: flex-start;">
+                              <a class="d-flex" href="#">
+                                  <img src="./assets/img9.webp" class="object-fit" alt="">
+                                  <div class="px-1" style="width: 300px;">
+                                      <a href="#" class="text-title display-2 text-dark">
+                                          Embrace the beauty of nature through our enchanting blog, where we
+                                          celebrate the wonders of the natural world
+                                      </a>
+                                      <p class="secondary-title text-secondary"
+                                         style="margin-top:3px;margin-left:0px; text-align: left;">
+                                          <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
+                                      </p>
+                                  </div>
+                              </a>
+                          </div>
+                      </article>
+                  </div>
+                  <div class="flex-item">
+                      <article class="article">
+                          <div class="d-flex" style="align-items: flex-start;">
+                              <a class="d-flex" href="#">
+                                  <img src="./assets/img1.webp" class="object-fit" alt="">
+                                  <div class="px-1" style="width: 300px;">
+                                      <a href="#" class="text-title display-2 text-dark">
+                                          Embark on unforgettable journeys through our travel blog, where
+                                          wanderlust meets inspiration
+                                      </a>
+                                      <p class="secondary-title text-secondary display-3"
+                                         style="margin-top:3px;margin-left:0px; text-align: left;">
+                                          <span><i class="far fa-clock text-primary"></i> Wed 05, 2020 </span>
+                                      </p>
+                                  </div>
+                              </a>
+                          </div>
+                      </article>
+                  </div>
+                  <div class="flex-item">
+                      <article class="article">
+                          <div class="d-flex" style="align-items: flex-start;">
+                              <a class="d-flex" href="#">
+                                  <img src="./assets/img2.webp" class="object-fit" alt="">
+                                  <div class="px-1" style="width: 300px;">
+                                      <a href="#" class="text-title display-2 text-dark">
+                                          Gaming Adventures Unleashed
+                                      </a>
+                                      <p class="secondary-title text-secondary display-3"
+                                         style="margin-top:3px;margin-left:0px; text-align: left;">
+                                          <span><i class="far fa-clock text-primary"></i> Wed 02, 2021 </span>
+                                      </p>
+                                  </div>
+                              </a>
+                          </div>
+                      </article>
+                  </div>
+              </div>
+          </div>
+          <div class="col-3">
+              <h2 class="footer-title secondary-title">Popular Tags</h2>
+              <div class="tags">
+                <div class="d-flex-gap flex-wrap">
+                  <a href="./blog.html" class="nav-link btn category-btn">Travel</a>
+                  <a href="./blog.html" class="nav-link btn category-btn">Food</a>
+                  <a href="./blog.html" class="nav-link btn category-btn">Lifestyle</a>
+                  <a href="./blog.html" class="nav-link btn category-btn">Technology</a>
+                  <a href="./blog.html" class="nav-link btn category-btn">Fashion</a>
+              </div>
+              
+              </div>
+              <h2 class="footer-title secondary-title mt-5">Connect with us</h2>
+              <div class="tags social" id="contact">
+                  <div class="d-flex-gap flex-wrap">
+                      <a href="https://www.facebook.com/" id="facebook" class="nav-link btn bg-light">
+                          <i class="fab fa-facebook-f"></i>
                       </a>
-                      <p class="secondary-title text-secondary display-3"
-                        style="margin-top:3px;margin-left:0px; text-align: left;">
-                        <span><i class="far fa-clock text-primary"></i> Wed 05, 2020 </span>
-                      </p>
-                    </div>
-                  </a>
-                </div>
-              </article>
-            </div>
-            <div class="flex-item">
-              <article class="article">
-                <div class="d-flex" style="align-items: flex-start; ">
-                  <a class="d-flex " href="#">
-                    <img src="./assets/img2.webp" class="object-fit" alt="">
-                    <div class="px-1" style="width: 300px;">
-                      <a href="#" class="text-title display-2 text-dark">
-                        Gaming Adventures Unleashed
+                      <a href="https://x.com/" id="twitter" class="nav-link btn bg-light">
+                          <i class="fa-brands fa-x-twitter"></i>
                       </a>
-                      <p class="secondary-title text-secondary display-3"
-                        style="margin-top:3px;margin-left:0px; text-align: left;">
-                        <span><i class="far fa-clock text-primary"></i> Wed 02, 2021 </span>
-                      </p>
-                    </div>
-                  </a>
-                </div>
-              </article>
-            </div>
+                      <a href="https://www.instagram.com/" id="instagram" class="nav-link btn bg-light">
+                          <i class="fab fa-instagram"></i>
+                      </a>
+                      <a href="https://dribbble.com/" id="dribbble" class="nav-link btn bg-light">
+                          <i class="fab fa-dribbble"></i>
+                      </a>
+                      <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" id="github" target="_blank"
+                         class="nav-link btn bg-light">
+                          <i class="fab fa-github"></i>
+                      </a>
+                  </div>
+              </div>
           </div>
-        </div>
-        <div class="col-3">
-          <h2 class="footer-title secondary-title">Popular Tags</h2>
-
-          <div class="tags">
-            <div class="d-flex-gap flex-wrap">
-              <a href="#" class="nav-link btn bg-light ">Travel</a>
-              <a href="#" class="nav-link btn bg-light">Food</a>
-              <a href="#" class="nav-link btn bg-light">Lifestyle</a>
-              <a href="#" class="nav-link btn bg-light">Techonogy</a>
-              <a href="#" class="nav-link btn bg-light">Fashion</a>
-            </div>
-          </div>
-
-          <h2 class="footer-title secondary-title mt-5">Connect with us</h2>
-
-          <div class="tags social" id="contact">
-            <div class="d-flex-gap flex-wrap">
-              <a href="https://www.facebook.com/" id="facebook" class="nav-link btn bg-light"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://x.com/" id="twitter" class="nav-link btn bg-light"><i class="fa-brands fa-x-twitter"></i></a>
-              <a href="https://www.instagram.com/"  id="instagram" class="nav-link btn bg-light"><i class="fab fa-instagram"></i></a>
-              <a href="https://dribbble.com/" id="dribbble" class="nav-link btn bg-light"><i class="fab fa-dribbble"></i></a>
-              <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" id="github" target="_blank"
-                class="nav-link btn bg-light"><i class="fa-brands fa-github"></i></a>
-            </div>
-          </div>
-
-        </div>
       </div>
-
-
-    </div>
-    <!-- the authentication copyright -->
-    <div class="wordwise-footer">
+  </div>
+  <!-- the authentication copyright -->
+  <div class="wordwise-footer">
       <div class="wordwise-footer-content">
-        <p>
-          &copy; <span id="current-year"></span> WordWise. All rights
-          reserved.
-        </p>
+          <p>
+              &copy; <span id="current-year"></span> WordWise. All rights
+              reserved.
+          </p>
       </div>
-    </div>
-  </footer>
-  <!-- this script is to display the year in the copyright authentication in the footer -->
-  <script>
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-  </script>
+  </div>
+</footer>
+<!-- this script is to display the year in the copyright authentication in the footer -->
+<script>
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
 
-  <script src="./darkMode.js"></script>
+<script src="./darkMode.js"></script>
+<script src="progress_bar.js"></script>
+<script src="main.js"></script>
 
-  <script src="progress_bar.js"></script>
+<!-- added script for contact form  -->
+<script src="contact_us.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script src="profiledropdown.js"></script>
 
-  <script src="main.js"></script>
-
-  <!-- added script for contact form  -->
-
-  <script src= "contact_us.js"></script>
-  <script src= "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src= "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-  <script src= "profiledropdown.js"></script>
-
-  <div class="gtranslate_wrapper"></div>
+<div class="gtranslate_wrapper"></div>
 <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
 <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 <script src="script.js"></script>
+<div id="back-to-top" class="back-to-top">
+  <i class="fas fa-chevron-up"></i>
+</div>
 
-</body>
+<style>
+  .back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+  }
+</style>
+
+<script>
+  const backToTopButton = document.getElementById('back-to-top');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backToTopButton.classList.add('show');
+    } else {
+      backToTopButton.classList.remove('show');
+    }
+  });
+
+  backToTopButton.addEventListener('click', ()=>{
+    window.scrollTo({
+      top: 0,
+      behavior:'smooth'
+    });
+  });
+</script>
+
+
+
+ 
