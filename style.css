@@ -1525,25 +1525,9 @@ body.dark .support a {
  
 }
 
-.d-flex-gap {
-  margin: 10px 15px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  
-   /* justify-content: space-around; */
-}
 
-.d-flex-gap a {
-  transition: all 0.2s ease;
-  font-weight: 600;
-  color: var(--text-color);
-}
 
-.d-flex-gap a i {
-  font-size: 24px;
-  
-}
+
 
 .flex-column {
   flex-direction: column; /* Stack items vertically */
@@ -3750,12 +3734,7 @@ h1 + p, p + p {
   color: var(--text-color);
 }
 
-.d-flex-gap {
-  display: flex;
-  gap: 15px; /* Space between buttons */
-  flex-wrap: wrap; /* Wrap items to the next line if necessary */
-  justify-content: center; /* Center the buttons horizontally */
-}
+
 
 .category-btn {
   padding: 12px 20px; /* Padding for a better touch target */
@@ -3780,4 +3759,52 @@ h1 + p, p + p {
       flex-direction: column; /* Stack buttons on smaller screens */
       align-items: center; /* Center buttons on small screens */
   }
+}
+.d-flex-gap {
+  display: flex;
+  gap: 15px; /* Space between buttons */
+  flex-wrap: wrap; /* Wrap items to the next line if necessary */
+  justify-content: center; /* Center the buttons horizontally */
+}.d-flex-gap a {
+  transition: all 0.2s ease;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.d-flex-gap a i {
+  font-size: 24px;
+  
+}.d-flex-gap {
+  margin: 10px 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  
+   /* justify-content: space-around; */
+}
+
+
+
+.footer-title {
+  text-align: center;
+}
+
+/* Center-align the icon container and set gap between icons */
+#contact .d-flex-gap {
+  display: flex;
+  justify-content: center;
+  gap: 1px; /* Adjust the spacing between icons */
+  flex-wrap: wrap;
+}
+
+/* Style each social icon button */
+#contact .nav-link {
+  width: 50px; /* Ensure all icons are the same size */
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Make them circular */
+  font-size: 20px; /* Adjust icon size */
+  padding: 0;
 }
