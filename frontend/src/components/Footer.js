@@ -21,6 +21,7 @@ export function renderFooter() {
                             <li><a href="/about" class="text-gray-400 hover:text-white transition-colors duration-300">About</a></li>
                             <li><a href="/blogs" class="text-gray-400 hover:text-white transition-colors duration-300">Blog</a></li>
                             <li><a href="/contact" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
+                            <li><a href="/termsOfUse" class="text-gray-400 hover:text-white transition-colors duration-300">Terms Of Use</a></li>
                         </ul>
                     </div>
                     <div class="w-full md:w-1/3" data-aos="fade-up" data-aos-delay="500">
