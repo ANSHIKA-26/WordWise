@@ -17,7 +17,7 @@ const routes = {
     '/contact': renderContact,
     '/feedback': renderFeedback,
     '/profile': renderProfilePage,
-    '/readmore': renderFullBlogPost,
+    '/readmore/:id': renderFullBlogPost,
 };
 
 export function router() {
