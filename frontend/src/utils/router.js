@@ -18,9 +18,10 @@ const routes = {
     '/contact': renderContact,
     '/feedback': renderFeedback,
     '/profile': renderProfilePage,
+ 
     '/readmore': renderFullBlogPost,
     '/termsOfUse': renderTermsOfUse,
-};
+ };
 
 export function router() {
     const path = window.location.pathname;
