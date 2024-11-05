@@ -2397,7 +2397,7 @@ h1 {
   text-align: center;
   font-family: Arial, sans-serif;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-left: 60px;
+  /* margin-left: 60px; */
   margin-bottom: 60px;
 }
 
@@ -3760,6 +3760,46 @@ h1 + p, p + p {
       align-items: center; /* Center buttons on small screens */
   }
 }
+
+@media (max-width: 769px) {
+  #word-of-the-day{
+
+    margin-left: 15px;
+  }
+  
+}
+@media (max-width: 821px){
+  #word-of-the-day{
+    
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 1025px){
+  #word-of-the-day{
+   
+    margin-left: 28px;
+  }
+}
+@media (max-width: 541px){
+  #word-of-the-day{
+    margin-left: 0px;
+    margin-right: 200px;
+  
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
 .d-flex-gap {
   display: flex;
   gap: 15px; /* Space between buttons */
@@ -3783,8 +3823,6 @@ h1 + p, p + p {
    /* justify-content: space-around; */
 }
 
-
-
 .footer-title {
   text-align: center;
 }
@@ -3807,4 +3845,3 @@ h1 + p, p + p {
   border-radius: 50%; /* Make them circular */
   font-size: 20px; /* Adjust icon size */
   padding: 0;
-}
