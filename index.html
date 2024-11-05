@@ -10,46 +10,34 @@
     <link rel="shortcut icon" type="image/x-icon" href="/images/favi.webp" />
 
     <!--font awesome-->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    </noscript>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <!--swiper slider css-->
-    <link rel="preload" href="https://unpkg.com/swiper/swiper-bundle.min.css" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    </noscript>
+    <link rel="preload" href="https://unpkg.com/swiper/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"></noscript>
 
     <!-- bootstrap icons -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-        as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    </noscript>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
 
     <!-- for scroll reveal -->
-
+  
 
     <!--css-->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="Scroll_and_progressbar.css">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    </noscript>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"></noscript>
 
 
 
-    <!-- Preconnect for faster loading of external resources -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://unpkg.com">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+        <!-- Preconnect for faster loading of external resources -->
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+        <link rel="preconnect" href="https://unpkg.com">
+        <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <style>
         /* Chatbot Container */
-
+        
         .chatbot-container {
             position: fixed;
             bottom: 20px;
@@ -59,9 +47,8 @@
             z-index: 1000;
             /* Ensure it appears above other elements */
         }
-
         /* Chatbot Button */
-
+        
         .chatbot-button {
             background-color: #007bff;
             /* Change to your preferred color */
@@ -76,18 +63,16 @@
             height: 50px;
             /* Adjusted size */
         }
-
         /* Button Image */
-
+        
         .chatbot-button img {
             width: 30px;
             /* Adjusted image size */
             height: 30px;
             /* Adjusted image size */
         }
-
         /* Tooltip Text */
-
+        
         .tooltip-text {
             display: none;
             /* Hide by default */
@@ -106,16 +91,14 @@
             /* Prevent text from wrapping */
             line-height: 20px
         }
-
         /* Show Tooltip on Hover */
-
+        
         .chatbot-button:hover .tooltip-text {
             display: block;
             /* Show on hover */
         }
-
         /* Chat Window Styles */
-
+        
         .chat-window {
             position: fixed;
             bottom: 90px;
@@ -134,9 +117,8 @@
             z-index: 1000;
             /* Ensure it appears above other elements */
         }
-
         /* Iframe for Chatbot HTML */
-
+        
         #chat-iframe {
             width: 100%;
             /* Full width of the chat window */
@@ -145,61 +127,54 @@
             border: none;
             /* Remove border */
         }
-
+        
         @media (max-width: 1200px) {
             .footer-container {
                 padding: 20px;
             }
-
             .col-3-main {
                 flex-direction: row;
                 flex-wrap: wrap;
             }
-
             .col-3 {
                 width: 33.33%;
             }
         }
-
+        
         @media (max-width: 992px) {
             .col-3 {
                 width: 50%;
                 /* Stack 2 columns side by side on medium screens */
             }
         }
-
+        
         @media (max-width: 768px) {
             .col-3 {
                 width: 100%;
                 /* Stack all columns vertically on small screens */
                 margin-bottom: 20px;
             }
-
             .feature-post div {
                 flex-direction: column;
             }
-
             .tags {
                 text-align: center;
             }
         }
-
+        
         @media (max-width: 576px) {
             .feature-post div {
                 align-items: center;
             }
-
             .tags.social {
                 justify-content: center;
             }
-
             .wordwise-footer-content {
                 text-align: center;
             }
         }
-
         /* Optional: You can also set max-width for images */
-
+        
         img.object-fit {
             max-width: 100%;
             /* Makes images responsive */
@@ -213,7 +188,7 @@
             max-width: 350px;
             padding: 20px;
         }
-
+        
         .form-group input {
             width: 100%;
             padding: 1px;
@@ -222,13 +197,12 @@
             /* box-sizing: border-box; */
             font-size: 16px;
         }
-
+        
         .form-container h2 {
             font-size: 24px;
             margin-bottom: 20px;
             text-align: center;
         }
-
         /* .btn {
     background-color: #4CAF50;
     color: white;
@@ -239,15 +213,15 @@
     width: 100%;
     font-size: 16px;
 } */
-
+        
         .btn:hover {
             opacity: 0.8;
         }
-
+        
         .cancel {
             background-color: #f44336;
         }
-
+        
         .toggle-button {
             cursor: pointer;
             color: #007bff;
@@ -277,11 +251,10 @@
     <!-- Styles -->
     <style>
         /* General Styles */
-
+        
         .logo h1 a {
             font-size: 40px;
         }
-
         /* .nav-links1 {
     display: flex;
     gap: 30px;
@@ -375,7 +348,7 @@ Additional styling for smaller screens
         font-size: 24px;
     }
 } */
-
+        
         .dropdown-menu {
             display: none;
             position: absolute;
@@ -384,7 +357,7 @@ Additional styling for smaller screens
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             z-index: 1;
         }
-
+        
         .dropdown:hover .dropdown-menu {
             display: block;
         }
@@ -420,14 +393,12 @@ Additional styling for smaller screens
 
                 <div class="dropdown">
                     <!-- Profile Icon -->
-
-                    <a href="javascript:void(0);" class="profile-link"
-                        style="display: flex; align-items: center; text-decoration: none;" onclick="toggleMenu()">
-                        <img src="https://i.postimg.cc/NFFmtc9K/xnz-Mst5-V-400x400.jpg" alt="Profile Icon"
-                            style="width: 50px; height: 50px; border-radius: 50%; margin-top: -17px;">
-                    </a>
+    
+                        <a href="javascript:void(0);" class="profile-link" style="display: flex; align-items: center; text-decoration: none;" onclick="toggleMenu()">
+                            <img src="https://i.postimg.cc/NFFmtc9K/xnz-Mst5-V-400x400.jpg" alt="Profile Icon" style="width: 50px; height: 50px; border-radius: 50%; margin-top: -17px;">
+                        </a>
                     </li>
-
+                
                     <!-- Dropdown Menu -->
                     <ul class="dropdown-menu" id="profileMenu" style="display: none; position: absolute; z-index: 1;">
                         <li><a href="./profile.html">My Profile</a></li>
@@ -435,44 +406,40 @@ Additional styling for smaller screens
                         <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
                     </ul>
                 </div>
-
+                
                 <script>
                     function toggleMenu() {
                         const menu = document.getElementById('profileMenu');
                         menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
                     }
-
+                
                     // Close the dropdown if the user clicks outside of it
-                    window.onclick = function (event) {
+                    window.onclick = function(event) {
                         const menu = document.getElementById('profileMenu');
                         if (!event.target.matches('.profile-link img') && menu.style.display === 'block') {
                             menu.style.display = 'none';
                         }
                     }
                 </script>
-
+                
                 <!-- Login Form -->
                 <div class="form-popup" id="loginForm">
-                    <form class="form-container" onsubmit="return validateLoginForm()"
-                        style="max-width: 400px; margin: auto;">
+                    <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
                         <span class="close-icon" onclick="closeForm('login')">&times;</span>
                         <h2 class="text-center">Login</h2>
                         <div class="form-group">
                             <label for="loginEmail"><b>Email</b></label>
-                            <input type="email" class="form-control" id="loginEmail" placeholder="Enter Email"
-                                name="email" required>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="Enter Email" name="email" required>
                         </div>
                         <div class="form-group position-relative">
                             <label for="loginPsw"><b>Password</b></label>
-                            <input type="password" class="form-control" id="loginPsw" placeholder="Enter Password"
-                                name="psw" required minlength="6">
-                            <i class="bi bi-eye eye-icon" id="toggleLoginPassword"
-                                onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
+                            <input type="password" class="form-control" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+                            <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
                         </div>
                         <div class="remember-me">
                             <input type="checkbox" id="remember-me" />
                             <label for="remember-me">Remember Me</label>
-                          </div>
+                        </div>
                         <div class="forgot">
                             <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
                         </div>
@@ -483,12 +450,10 @@ Additional styling for smaller screens
                             }
                         </style>
                         <!-- Google Login Button -->
-                        <button type="button" class="btn google-btn"
-                            onclick="window.location.href='https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmyaccount.google.com%2F&ec=GAlAwAE&hl=en_GB&service=accountsettings&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S1527110508%3A1729760212648495&ddm=0'">
+                        <button type="button" class="btn google-btn" onclick="window.location.href='https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmyaccount.google.com%2F&ec=GAlAwAE&hl=en_GB&service=accountsettings&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S1527110508%3A1729760212648495&ddm=0'">
                             <img src="./assets/google_icon.webp" alt="Google Logo" class="google-logo">
                             Sign in with Google</button>
-                        <button type="button" class="btn btn-secondary w-100"
-                            onclick="closeForm('login')">CLOSE</button>
+                        <button type="button" class="btn btn-secondary w-100" onclick="closeForm('login')">CLOSE</button>
                         <!-- Link to Signup Page -->
                         <div class="new">
                             <p>Don't have an account? <a href="javascript:void(0);" onclick="openForm('signup')">Sign up
@@ -499,33 +464,26 @@ Additional styling for smaller screens
 
                 <!-- Signup Form -->
                 <div class="form-popup" id="signupForm">
-                    <form class="form-container" onsubmit="return validateSignupForm()"
-                        style="max-width: 400px; margin: auto;">
+                    <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
                         <span class="close-icon" onclick="closeForm('signup')">&times;</span>
                         <h2 class="text-center">Signup</h2>
                         <div class="form-group">
                             <label for="name"><b>Full Name</b></label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name"
-                                required>
+                            <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="signupEmail"><b>Email</b></label>
-                            <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email"
-                                name="email" required>
+                            <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required>
                         </div>
                         <div class="form-group position-relative">
                             <label for="signupPsw"><b>Password</b></label>
-                            <input type="password" class="form-control" id="signupPsw" placeholder="Enter Password"
-                                name="psw" required minlength="6">
-                            <i class="bi bi-eye eye-icon" id="toggleSignupPassword"
-                                onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
+                            <input type="password" class="form-control" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+                            <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
                         </div>
                         <div class="form-group position-relative">
                             <label for="confirmPsw"><b>Confirm Password</b></label>
-                            <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password"
-                                name="confirmPsw" required minlength="6">
-                            <i class="bi bi-eye eye-icon" id="toggleConfirmPassword"
-                                onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
+                            <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+                            <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
                         </div>
                         <div class="remember-me">
                             <input type="checkbox" id="remember-me" />
@@ -533,12 +491,10 @@ Additional styling for smaller screens
                         </div>
                         <button type="submit" class="btn btn-primary w-100 mb-3">SIGNUP</button>
                         <!-- Google Sign-In Button -->
-                        <button type="button" class="btn google-btn"
-                            onclick="window.location.href='https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmyaccount.google.com%2F&ec=GAlAwAE&hl=en_GB&service=accountsettings&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S1527110508%3A1729760212648495&ddm=0'">
+                        <button type="button" class="btn google-btn" onclick="window.location.href='https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmyaccount.google.com%2F&ec=GAlAwAE&hl=en_GB&service=accountsettings&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S1527110508%3A1729760212648495&ddm=0'">
                             <img src="./assets/google_icon.webp" alt="Google Logo" class="google-logo">
                             Sign in with Google</button>
-                        <button type="button" class="btn btn-secondary w-100"
-                            onclick="closeForm('signup')">CLOSE</button>
+                        <button type="button" class="btn btn-secondary w-100" onclick="closeForm('signup')">CLOSE</button>
                         <!-- Link to Login Page -->
                         <div class="new">
                             <p>Already have an account? <a href="javascript:void(0);" onclick="openForm('login')">Login
@@ -555,6 +511,7 @@ Additional styling for smaller screens
 
                         <label for="email">Email Address</label>
                         <input type="email" id="email" placeholder="Enter your email" required />
+
                         <button class="btn" onclick="submitForgotPassword()">Submit</button>
                         <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
                     </div>
@@ -603,7 +560,6 @@ Additional styling for smaller screens
                 </script>
 
 
-
                 <!-- Styles -->
                 <style>
                     .form-popup {
@@ -628,27 +584,27 @@ Additional styling for smaller screens
                             box-sizing: border-box;
                         }
                     }
-
+                    
                     .form-container h2 {
                         margin-bottom: 20px;
                         color: #333;
                     }
-
+                    
                     .form-group {
                         margin-bottom: 15px;
                     }
-
+                    
                     .form-control {
                         border-radius: 5px;
                         padding: 10px;
                         box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
                     }
-
+                    
                     .btn {
                         margin-top: 10px;
                         border-radius: 5px;
                     }
-
+                    
                     .eye-icon {
                         position: absolute;
                         right: 15px;
@@ -656,25 +612,25 @@ Additional styling for smaller screens
                         cursor: pointer;
                         color: #007bff;
                     }
-
+                    
                     .close-icon {
                         font-size: 24px;
                         cursor: pointer;
                         float: right;
                     }
-
+                    
                     .position-relative {
                         position: relative;
                     }
-
+                    
                     .btn-primary:hover {
                         background-color: #0056b3;
                     }
-
+                    
                     .btn-secondary:hover {
                         background-color: #6c757d;
                     }
-
+                    
                     .scroll-to-top {
                         background-color: #0066cc;
                         /* Button color */
@@ -691,7 +647,7 @@ Additional styling for smaller screens
                         margin-top: 10px;
                         /* Space between the paragraph and button */
                     }
-
+                    
                     .scroll-to-top:hover {
                         background-color: #005bb5;
                         /* Darker shade on hover */
@@ -699,8 +655,7 @@ Additional styling for smaller screens
                 </style>
 
                 <!-- Bootstrap Icons -->
-                <link rel="stylesheet"
-                    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
                 <script src="backend/signup/signup.js"></script>
                 <!-- Link to your JavaScript file -->
 
@@ -741,21 +696,18 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img1.webp"
-                                            class="img-fluid ">
+                                        <img style="height: 250px;width:300px" src="./assets/img1.webp" class="img-fluid ">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="blog.html" class="text-title display-1 text-dark">
                                         Roaming Routes
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 01,2020 &nbsp;</span>
-                                        <a href="comment1.html"> <span class="comment-icon"><i
-                                                    class="bi bi-chat-fill"></i> 13</span></a>
+                                        <a href="comment1.html"> <span class="comment-icon" ><i class="bi bi-chat-fill"></i> 13</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn" style="position: absolute; bottom: -20px;">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -779,14 +731,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img2.webp"
-                                            class="img-fluid ">
+                                        <img style="height: 250px;width:300px" src="./assets/img2.webp" class="img-fluid ">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="gaming_chronicles.html" class="text-title display-1 text-dark">
                                         Gaming Chronicles
 
@@ -794,8 +744,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Mon 13,2023 &nbsp;</span>
-                                        <a href="comment2.html"> <span class="comment-icon"><i
-                                                    class="bi bi-chat-fill"></i> 12</span></a>
+                                        <a href="comment2.html"> <span class="comment-icon"><i class="bi bi-chat-fill"></i> 12</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn" style="position: absolute; bottom: -20px;">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -819,14 +768,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img3.webp"
-                                            class="img-fluid ">
+                                        <img style="height: 250px;width:300px" src="./assets/img3.webp" class="img-fluid ">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Virtual Realms
 
@@ -835,8 +782,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 09,2023 &nbsp;</span>
-                                        <a href="comment3.html"> <span class="comment-icon"><i
-                                                    class="bi bi-chat-fill"></i> 19</span></a>
+                                        <a href="comment3.html"> <span class="comment-icon"><i class="bi bi-chat-fill"></i> 19</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn" style="position: absolute; bottom: -20px;">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -859,14 +805,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img4.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img4.webp" class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Laptop life
 
@@ -875,8 +819,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Tue 07,2019 &nbsp;</span>
-                                        <a href="comment4.html"> <span class="comment-icon"><i
-                                                    class="bi bi-chat-fill"></i> 06</span></a>
+                                        <a href="comment4.html"> <span class="comment-icon"><i class="bi bi-chat-fill"></i> 06</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn" style="position: absolute; bottom: -20px;">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -899,14 +842,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img5.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img5.webp" class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Mouthwatering Memoirs
 
@@ -915,8 +856,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Tue 02,2021 &nbsp;</span>
-                                        <a href="comment5.html"> <span class="comment-icon"><i
-                                                    class="bi bi-chat-fill"></i> 10</span></a>
+                                        <a href="comment5.html"> <span class="comment-icon"><i class="bi bi-chat-fill"></i> 10</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn" style="position: absolute; bottom: -20px;">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -941,14 +881,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img6.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img6.webp" class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Tech travels
 
@@ -957,8 +895,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                        <a href="comment6.html"> <span class="comment-icon"><i
-                                                    class="bi bi-chat-fill"></i> 12</span></a>
+                                        <a href="comment6.html"> <span class="comment-icon"><i class="bi bi-chat-fill"></i> 12</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn" style="position: absolute; bottom: -20px;">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -981,14 +918,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img7.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img7.webp" class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Culinary Delights
 
@@ -997,8 +932,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                        <a href="comment7.html"> <span class="comment-icon"><i
-                                                    class="bi bi-chat-fill"></i> 12</span></a>
+                                        <a href="comment7.html"> <span class="comment-icon"><i class="bi bi-chat-fill"></i> 12</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn" style="position: absolute; bottom: -20px;">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -1021,14 +955,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img8.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img8.webp" class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Voyage Vista: Where Travel Dreams Take Flight
 
@@ -1037,8 +969,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                        <a href="comment8.html"> <span class="comment-icon"><i
-                                                    class="bi bi-chat-fill"></i> 12</span></a>
+                                        <a href="comment8.html"> <span class="comment-icon"><i class="bi bi-chat-fill"></i> 12</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn" style="position: absolute; bottom: -20px;">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -1061,14 +992,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img9.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img9.webp" class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Beak & Claw: A Chronicle of Birds in the Wild
 
@@ -1077,8 +1006,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                        <a href="comment9.html"> <span class="comment-icon"><i
-                                                    class="bi bi-chat-fill"></i> 12</span></a>
+                                        <a href="comment9.html"> <span class="comment-icon"><i class="bi bi-chat-fill"></i> 12</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn" style="position: absolute; bottom: -20px;">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -1101,14 +1029,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img10.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img10.webp" class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Wild Whispers: Listening to Nature's Creatures
 
@@ -1117,8 +1043,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                        <a href="comment10.html"> <span class="comment-icon"><i
-                                                    class="bi bi-chat-fill"></i> 12</span></a>
+                                        <a href="comment10.html"> <span class="comment-icon"><i class="bi bi-chat-fill"></i> 12</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn" style="position: absolute; bottom: -20px;">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -1141,14 +1066,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img11.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img11.webp" class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Aesthetic Abodes: Inspirations from Architectural Design
 
@@ -1157,8 +1080,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                        <a href="comment11.html"> <span class="comment-icon"><i
-                                                    class="bi bi-chat-fill"></i> 12</span></a>
+                                        <a href="comment11.html"> <span class="comment-icon"><i class="bi bi-chat-fill"></i> 12</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn" style="position: absolute; bottom: -20px;">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -1180,14 +1102,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img12.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img12.webp" class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Nature's Kaleidoscope: A Symphony of Colors and Life
 
@@ -1197,8 +1117,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                        <a href="comment12.html"> <span class="comment-icon"><i
-                                                    class="bi bi-chat-fill"></i> 12</span></a>
+                                        <a href="comment12.html"> <span class="comment-icon"><i class="bi bi-chat-fill"></i> 12</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn" style="position: absolute; bottom: -20px;">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -1221,12 +1140,10 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img13.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img13.webp" class="img-fluid">
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Chirp & Flutter: Tales from the Aviary
 
@@ -1235,8 +1152,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                        <a href="comment13.html"> <span class="comment-icon"><i
-                                                    class="bi bi-chat-fill"></i> 12</span></a>
+                                        <a href="comment13.html"> <span class="comment-icon"><i class="bi bi-chat-fill"></i> 12</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn" style="position: absolute; bottom: -20px;">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -1259,14 +1175,12 @@ Additional styling for smaller screens
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img style="height: 250px;width:300px" src="./assets/img14.webp"
-                                            class="img-fluid">
+                                        <img style="height: 250px;width:300px" src="./assets/img14.webp" class="img-fluid">
 
 
                                     </a>
                                 </div>
-                                <div class="card-body text-center px-1"
-                                    style="width: 300px;margin-top: 30px; text-align: center;">
+                                <div class="card-body text-center px-1" style="width: 300px;margin-top: 30px; text-align: center;">
                                     <a href="#" class="text-title display-1 text-dark">
                                         Unlocking the Power of the Mind: A Journey to Self-Discovery
 
@@ -1275,8 +1189,7 @@ Additional styling for smaller screens
                                     </a>
                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;">
                                         <span><i class="fa-regular fa-calendar"></i> Wed 02,2023 &nbsp;</span>
-                                        <a href="comment14.html"> <span class="comment-icon"><i
-                                                    class="bi bi-chat-fill"></i> 12</span></a>
+                                        <a href="comment14.html"> <span class="comment-icon"><i class="bi bi-chat-fill"></i> 12</span></a>
                                         <span class="heart-container">
                                             <button class="heart-btn" style="position: absolute; bottom: -20px;">
                                                 <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg"
@@ -1296,8 +1209,7 @@ Additional styling for smaller screens
 
                 </div>
                 <div style="display: flex;justify-content: center;">
-                    <button class="btn load-posts-btn secondary-title text-light"
-                        style="height:50px;width:200px;font-size: large;border-radius: 20px;">Load More
+                    <button class="btn load-posts-btn secondary-title text-light" style="height:50px;width:200px;font-size: large;border-radius: 20px;">Load More
                         Posts...</button>
                 </div>
             </div>
@@ -1305,8 +1217,8 @@ Additional styling for smaller screens
                 const heartButtons = document.querySelectorAll('.heart-btn');
 
 
-                heartButtons.forEach(function (button) {
-                    button.addEventListener('click', function () {
+                heartButtons.forEach(function(button) {
+                    button.addEventListener('click', function() {
 
                         const heartIcon = this.querySelector('.heart-icon');
 
@@ -1384,9 +1296,7 @@ Additional styling for smaller screens
                         </div>
                         <div class="accordion__content">
                             <!-- <i class="fa-solid fa-comments"></i> -->
-                            <p class="accordion__answer">You can easily switch between dark and light themes by clicking
-                                the theme toggle button located in the website header. This allows you to customize your
-                                viewing experience according to your preference.</p>
+                            <p class="accordion__answer">You can easily switch between dark and light themes by clicking the theme toggle button located in the website header. This allows you to customize your viewing experience according to your preference.</p>
                         </div>
                     </div>
 
@@ -1399,10 +1309,7 @@ Additional styling for smaller screens
                         </div>
                         <div class="accordion__content">
                             <!-- <i class="fa-solid fa-comments"></i> -->
-                            <p class="accordion__answer">The 'Start Writing' page provides a simple interface for
-                                quickly creating and publishing blog posts. Just click "Start Writing" from the
-                                navigation bar, fill in your title, content, and tags, and publish your blog with a
-                                single
+                            <p class="accordion__answer">The 'Start Writing' page provides a simple interface for quickly creating and publishing blog posts. Just click "Start Writing" from the navigation bar, fill in your title, content, and tags, and publish your blog with a single
                                 click.
                             </p>
                         </div>
@@ -1417,9 +1324,7 @@ Additional styling for smaller screens
                         </div>
                         <div class="accordion__content">
                             <!-- <i class="fa-solid fa-comments"></i> -->
-                            <p class="accordion__answer">The sliding bar on the home page features the latest blogs
-                                published on the platform. It updates automatically and allows users to easily scroll
-                                through and click on any blog that catches their attention.</p>
+                            <p class="accordion__answer">The sliding bar on the home page features the latest blogs published on the platform. It updates automatically and allows users to easily scroll through and click on any blog that catches their attention.</p>
                         </div>
                     </div>
 
@@ -1432,9 +1337,7 @@ Additional styling for smaller screens
                         </div>
                         <div class="accordion__content">
                             <!-- <i class="fa-solid fa-comments"></i> -->
-                            <p class="accordion__answer">Top picks are curated by a combination of editor
-                                recommendations and user engagement metrics, such as views, likes, and comments, to
-                                highlight the best content available on Word Wise.</p>
+                            <p class="accordion__answer">Top picks are curated by a combination of editor recommendations and user engagement metrics, such as views, likes, and comments, to highlight the best content available on Word Wise.</p>
                         </div>
                     </div>
 
@@ -1448,9 +1351,7 @@ Additional styling for smaller screens
 
                         <div class="accordion__content">
                             <!-- <i class="fa-solid fa-comments"></i> -->
-                            <p class="accordion__answer">You can stay updated by following your favorite authors or
-                                topics, and by checking the sliding bar for the latest blog posts. You can also
-                                subscribe to newsletters or enable notifications for real-time updates.</p>
+                            <p class="accordion__answer">You can stay updated by following your favorite authors or topics, and by checking the sliding bar for the latest blog posts. You can also subscribe to newsletters or enable notifications for real-time updates.</p>
                         </div>
                     </div>
                 </div>
@@ -1479,19 +1380,19 @@ Additional styling for smaller screens
             #word-of-the-day {
                 font-family: Arial, sans-serif;
             }
-
+            
             .word-entry {
                 display: flex;
                 align-items: center;
                 margin-bottom: 8px;
             }
-
+            
             .word-entry h3 {
                 margin: 0;
                 font-weight: bold;
                 margin-right: 5px;
             }
-
+            
             .word-entry p {
                 margin: 0;
             }
@@ -1504,9 +1405,7 @@ Additional styling for smaller screens
                 <h2>Subscribe to Our Newsletter</h2>
                 <p>Stay updated with the latest articles and insights from WordWise.</p>
                 <form class="wordwise-newsletter-form" id="newsletterForm" novalidate>
-                    <input type="email" id="emailInput" placeholder="Enter your email address" required
-                        style="border: 1px solid pink; transition: transform 0.2s ease, box-shadow 0.2s ease;"
-                        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 8px 2px pink';"
+                    <input type="email" id="emailInput" placeholder="Enter your email address" required style="border: 1px solid pink; transition: transform 0.2s ease, box-shadow 0.2s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 8px 2px pink';"
                         onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
                     <div id="error-message" style="color: red; display: none;">Please include '@' in your email address.
                     </div>
@@ -1520,14 +1419,13 @@ Additional styling for smaller screens
 
         <style>
             /* Style the email input field */
-
+            
             #emailInput {
                 border: 1px solid pink;
                 transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
             }
-
             /* Hover effect for glow */
-
+            
             #emailInput:hover {
                 transform: scale(1.05);
                 box-shadow: 0 0 8px 2px pink;
@@ -1557,13 +1455,13 @@ Additional styling for smaller screens
 
     <script>
         // JavaScript Functionality
-        document.getElementById('chatbot-toggle').addEventListener('click', function () {
+        document.getElementById('chatbot-toggle').addEventListener('click', function() {
             const chatWindow = document.getElementById('chat-window');
             // Toggle visibility of the chat window
             chatWindow.style.display = chatWindow.style.display === 'none' || chatWindow.style.display === '' ? 'flex' : 'none';
         });
 
-        document.getElementById('close-chat').addEventListener('click', function () {
+        document.getElementById('close-chat').addEventListener('click', function() {
             document.getElementById('chat-window').style.display = 'none'; // Hide chat on close
         });
     </script>
@@ -1577,8 +1475,7 @@ Additional styling for smaller screens
 
                         <div class="secondary-title text-secondary ">
                             <p class="mt-2 text-lg" style="text-align: left;">
-                                We are a close-knit team of passionate storytellers dedicated to sharing captivating
-                                content with the world.
+                                We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the world.
                             </p>
 
                             <address class="mt-2">
@@ -1605,14 +1502,10 @@ Additional styling for smaller screens
 
                             <div>
                                 <!-- <img src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5" alt="Web views" style="height: 20px;width: 150px;margin-top: 40px;"> -->
-                                <div class="containerWebsiteViews">
-                                    <div class="containerText">
-                                        <p>Website Views</p>
-                                    </div>
-                                    <div class="containerNumbers">
-                                        <p id="visitorCount">0</p>
-                                    </div>
-                                </div>
+                                 <div class="containerWebsiteViews">
+                                    <div class="containerText"><p>Website Views</p></div>
+                                    <div class="containerNumbers"><p id="visitorCount">0</p></div>
+                                 </div>
                             </div>
                         </div>
 
@@ -1632,8 +1525,7 @@ Additional styling for smaller screens
                                                 Embrace the beauty of nature through our enchanting blog, where we
                                                 celebrate the wonders of the natural world
                                             </a>
-                                            <p class="secondary-title text-secondary "
-                                                style="margin-top:3px;margin-left:0px; text-align: left; ">
+                                            <p class="secondary-title text-secondary " style="margin-top:3px;margin-left:0px; text-align: left; ">
                                                 <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
                                             </p>
                                         </div>
@@ -1652,8 +1544,7 @@ Additional styling for smaller screens
                                                 Embark on unforgettable journeys through our travel blog, where
                                                 wanderlust meets inspiration
                                             </a>
-                                            <p class="secondary-title text-secondary display-3"
-                                                style="margin-top:3px;margin-left:0px; text-align: left;">
+                                            <p class="secondary-title text-secondary display-3" style="margin-top:3px;margin-left:0px; text-align: left;">
                                                 <span><i class="far fa-clock text-primary"></i> Wed 05, 2020 </span>
                                             </p>
                                         </div>
@@ -1670,8 +1561,7 @@ Additional styling for smaller screens
                                             <a href="#" class="text-title display-2 text-dark">
                                                 Gaming Adventures Unleashed
                                             </a>
-                                            <p class="secondary-title text-secondary display-3"
-                                                style="margin-top:3px;margin-left:0px; text-align: left;">
+                                            <p class="secondary-title text-secondary display-3" style="margin-top:3px;margin-left:0px; text-align: left;">
                                                 <span><i class="far fa-clock text-primary"></i> Wed 02, 2021 </span>
                                             </p>
                                         </div>
@@ -1684,14 +1574,14 @@ Additional styling for smaller screens
                 <div class="col-3">
                     <h2 class="footer-title secondary-title">Popular Tags</h2>
                     <div class="tags">
-                        <div class="d-flex-gap flex-wrap">
-                            <a href="./blog.html" class="nav-link btn category-btn">Travel</a>
-                            <a href="./blog.html" class="nav-link btn category-btn">Food</a>
-                            <a href="./blog.html" class="nav-link btn category-btn">Lifestyle</a>
-                            <a href="./blog.html" class="nav-link btn category-btn">Technology</a>
-                            <a href="./blog.html" class="nav-link btn category-btn">Fashion</a>
-                        </div>
-
+                      <div class="d-flex-gap flex-wrap">
+                        <a href="./blog.html" class="nav-link btn category-btn">Travel</a>
+                        <a href="./blog.html" class="nav-link btn category-btn">Food</a>
+                        <a href="./blog.html" class="nav-link btn category-btn">Lifestyle</a>
+                        <a href="./blog.html" class="nav-link btn category-btn">Technology</a>
+                        <a href="./blog.html" class="nav-link btn category-btn">Fashion</a>
+                    </div>
+                    
                     </div>
                     <h2 class="footer-title secondary-title mt-5">Connect with us</h2>
                     <div class="tags social" id="contact">
@@ -1708,8 +1598,8 @@ Additional styling for smaller screens
                             <a href="https://dribbble.com/" id="dribbble" class="nav-link btn bg-light">
                                 <i class="fab fa-dribbble"></i>
                             </a>
-                            <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31"
-                                id="github" target="_blank" class="nav-link btn bg-light">
+                            <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" id="github" target="_blank"
+                               class="nav-link btn bg-light">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
@@ -1727,7 +1617,7 @@ Additional styling for smaller screens
             </div>
         </div>
         <script>
-            document.getElementById('scrollToTop').addEventListener('click', function () {
+            document.getElementById('scrollToTop').addEventListener('click', function() {
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth' // Smooth scrolling effect
@@ -1762,7 +1652,7 @@ Additional styling for smaller screens
     <script src="progress_bar.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        window.addEventListener("scroll", function () {
+        window.addEventListener("scroll", function() {
             var scrollPosition = window.scrollY;
             var height = document.body.offsetHeight - window.innerHeight;
             if (scrollPosition > 90) {
@@ -1772,7 +1662,7 @@ Additional styling for smaller screens
             }
         });
 
-        document.getElementById("backToTop").addEventListener("click", function () {
+        document.getElementById("backToTop").addEventListener("click", function() {
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
@@ -1826,54 +1716,54 @@ Additional styling for smaller screens
 
     <div id="back-to-top" class="back-to-top">
         <i class="fas fa-chevron-up"></i>
-    </div>
-
-    <style>
+      </div>
+    
+      <style>
         .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background-color: #007bff;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: opacity 0.3s;
-            opacity: 0;
-            visibility: hidden;
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          width: 50px;
+          height: 50px;
+          background-color: #007bff;
+          color: white;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          transition: opacity 0.3s;
+          opacity: 0;
+          visibility: hidden;
         }
-
+    
         .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
+          opacity: 1;
+          visibility: visible;
         }
-    </style>
-
-    <script>
+      </style>
+    
+      <script>
         const backToTopButton = document.getElementById('back-to-top');
-
+    
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopButton.classList.add('show');
-            } else {
-                backToTopButton.classList.remove('show');
-            }
+          if (window.scrollY > 300) {
+            backToTopButton.classList.add('show');
+          } else {
+            backToTopButton.classList.remove('show');
+          }
         });
-
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+    
+        backToTopButton.addEventListener('click', ()=>{
+          window.scrollTo({
+            top: 0,
+            behavior:'smooth'
+          });
         });
-    </script>
-
-
+      </script>
+    
+    
 </body>
 
 </html>
