@@ -95,6 +95,10 @@ function setupCategoryFilter(blogPosts) {
     });
 }
 
+
+
+
+
 function renderBlogPosts(posts) {
     return posts.map(post => renderBlogPost(post._id, post.title, post.excerpt, post.createdAt, post.tags, post.featuredImage, post.publish, post.likes)).join('');
 }
@@ -109,11 +113,25 @@ function renderBlogPost(id, title, excerpt, date, tags, imageUrl, publish, likes
     const postUrl = `http://localhost:5000/api/addBlog/getBlog/${id}`;
 
     return `
-    <article class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden" data-aos="fade-right" data-aos-delay="500">
+     <article class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden" data-aos="fade-right" data-aos-delay="500">
         <img src="${imagePath}" alt="${title}" class="w-full h-48 object-cover" onerror="this.onerror=null; this.src='/placeholder.svg?height=200&width=400';">
         <div class="p-6">
             <h2 class="text-2xl font-semibold mb-2">
                 <a href="${postUrl}" class="text-gray-900 dark:text-white hover:underline">${title}</a>
+                 <div>
+                    <button class="speak-button-${id} text-white text-sm" onclick="handlePlay('${id}')" 
+                            data-title="${title.replace(/"/g, '&quot;')}" 
+                            data-excerpt="${excerpt.replace(/"/g, '&quot;')}">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-6 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z" />
+                        </svg>
+                    </button> 
+                    <button class="pause-button-${id} text-white text-sm hidden"  onclick="handlePause('${id}')">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-6 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 4h4v16h-4zM6 4h4v16H6z" />
+                    </svg>
+                    </button>
+                    </div>
             </h2>
             <p class="text-gray-600 dark:text-gray-300 mb-4">${excerpt}</p>
             <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
@@ -139,6 +157,7 @@ function renderBlogPost(id, title, excerpt, date, tags, imageUrl, publish, likes
                         fill="none" 
                         viewBox="0 0 24 24" 
                         stroke="currentColor"
+ 
                     >
                         <path 
                             stroke-linecap="round" 
@@ -174,6 +193,56 @@ function renderBlogPost(id, title, excerpt, date, tags, imageUrl, publish, likes
     </article>
 `;
 }
+
+let speechInstance = null; // Store the current SpeechSynthesisUtterance instance
+let isPaused = false;
+let currentPosition = 0; // To store the position where we paused
+
+window.handlePlay = function (id) {
+    const button = document.querySelector(`button[onclick="handlePlay('${id}')"]`);
+    if (button) {
+        const title = button.dataset.title;
+        const excerpt = button.dataset.excerpt;
+        const textToSpeak = `${title}. ${excerpt}`;
+        document.getElementsByClassName(`pause-button-${id}`)[0].classList.remove('hidden')
+        document.getElementsByClassName(`speak-button-${id}`)[0].classList.add('hidden')
+
+        // If speech is paused, resume from the saved position
+        if (isPaused && speechInstance) {
+            isPaused = false;
+            window.speechSynthesis.speak(speechInstance);
+        } else {
+            // Create a new SpeechSynthesisUtterance instance
+            speechInstance = new SpeechSynthesisUtterance(textToSpeak.slice(currentPosition));
+            speechInstance.lang = 'en-US';
+            speechInstance.pitch = 1;
+            speechInstance.rate = 1;
+
+            // Event listener to track speech progress and save current position
+            speechInstance.onboundary = function (event) {
+                if (event.name === 'word') {
+                    currentPosition = event.charIndex;
+                }
+            };
+
+            // Play the speech
+            window.speechSynthesis.speak(speechInstance);
+        }
+    }
+};
+
+window.handlePause = function (id) {
+    document.getElementsByClassName(`pause-button-${id}`)[0].classList.add('hidden')
+    document.getElementsByClassName(`speak-button-${id}`)[0].classList.remove('hidden')
+    if (speechInstance && !isPaused) {
+        window.speechSynthesis.cancel();
+        isPaused = true;
+    }
+};
+
+
+
+
 
 window.handleReaction = async function (postId) {
     const reactionCountElement = document.getElementById(`reaction-count-${postId}`);
