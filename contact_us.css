@@ -365,7 +365,7 @@ body.dark .support a {
 .tags.social {
     display: flex;
     justify-content: center; /* Center the icons */
-    margin-top: 20px; /* Space above icons */
+   /* Space above icons */
 }
 
 .circle-icon {
