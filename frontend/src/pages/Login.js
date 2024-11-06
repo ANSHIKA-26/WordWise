@@ -1,4 +1,22 @@
 // Function to render the login UI
+import { initializeApp } from "firebase/app";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut as firebaseSignOut } from "firebase/auth";
+
+// Initialize Firebase
+const firebaseConfig = {
+    apiKey: "AIzaSyDwowmzH0skVhieH3KPgIP8_vQBzhJmIi4",
+    authDomain: "wordwise-d1607.firebaseapp.com",
+    projectId: "wordwise-d1607",
+    storageBucket: "wordwise-d1607.appspot.com",
+    messagingSenderId: "426579758621",
+    appId: "1:426579758621:web:5bc883cd5eea3a416940f4",
+    measurementId: "G-QL9ZF6G3HH"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const googleAuthProvider = new GoogleAuthProvider();
+
 export function renderLogin(container) {
     container.innerHTML = `
         <div id="auth-status" class="flex items-center bg-[#8b5cf6] hover:bg-[#753ff1] text-white text-sm font-medium mr-2 space-x-4 p-2 shadow-lg rounded-md border-none hidden ">
