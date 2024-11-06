@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Reading Goal</title>
+ 
+  <h1 style="color: hsl(0, 47%, 26%);">Today’s Chapter: Set Your Daily Reading Target</h1>
+  <style>
+    /* Main Container */
+    .benefits-section {
+      width: 90%;
+      max-width: 1200px;
+      margin: 40px auto;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      color: #5a4d4a;
+    }
+
+    /* Section Title */
+    .benefits-title {
+      font-size: 2em;
+      color: #d27979;
+      margin-bottom: 20px;
+    }
+
+    /* Benefits Container */
+    .benefits-cards {
+      display: flex;
+      flex-wrap: nowrap; /* Prevents wrapping */
+      overflow-x: auto; /* Allows horizontal scrolling on smaller screens */
+      padding-bottom: 10px;
+      justify-content: space-around;
+      gap: 20px;
+    }
+
+    /* Individual Benefit Card */
+    .benefit-card {
+      background-color: #ffe6cc;
+      padding: 20px;
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .benefit-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Benefit Icon */
+    .benefit-icon {
+      font-size: 2.5em;
+      color: #d27979;
+      margin-bottom: 10px;
+    }
+
+    /* Benefit Title */
+    .benefit-title {
+      font-size: 1.2em;
+      color: #8c7a75;
+      margin-bottom: 10px;
+    }
+
+    /* Benefit Description */
+    .benefit-description {
+      font-size: 0.9em;
+      color: #5a4d4a;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Benefits of Reading Section -->
+  <div class="benefits-section">
+    <h2 class="benefits-title">Benefits of Reading</h2>
+    <div class="benefits-cards">
+      
+      <!-- Individual Benefit Card 1 -->
+      <div class="benefit-card">
+        <div class="benefit-icon">📚</div>
+        <h3 class="benefit-title">Knowledge Gain</h3>
+        <p class="benefit-description">Reading expands your knowledge on various topics, helping you grow intellectually and gain new perspectives.</p>
+      </div>
+
+      <!-- Individual Benefit Card 2 -->
+      <div class="benefit-card">
+        <div class="benefit-icon">🧠</div>
+        <h3 class="benefit-title">Mental Stimulation</h3>
+        <p class="benefit-description">It helps keep your brain active and engaged, reducing stress and potentially slowing cognitive decline.</p>
+      </div>
+
+      <!-- Individual Benefit Card 3 -->
+      <div class="benefit-card">
+        <div class="benefit-icon">💡</div>
+        <h3 class="benefit-title">Improved Focus</h3>
+        <p class="benefit-description">Reading increases your ability to concentrate and focus, making you more productive in other tasks as well.</p>
+      </div>
+
+      <!-- Individual Benefit Card 4 -->
+      <div class="benefit-card">
+        <div class="benefit-icon">🌌</div>
+        <h3 class="benefit-title">Stress Reduction</h3>
+        <p class="benefit-description">Reading a good story can transport you to another world, easing your stress and helping you relax.</p>
+      </div>
+
+      <!-- Individual Benefit Card 5 -->
+      <div class="benefit-card">
+        <div class="benefit-icon">📝</div>
+        <h3 class="benefit-title">Vocabulary Expansion</h3>
+        <p class="benefit-description">Reading introduces you to new words and phrases, which helps improve your language and communication skills.</p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    /* Body Styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: rgb(244, 237, 227); 
+      color: #5a4d4a; 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* Goal Container Styling */
+    .goal-container {
+      width: 90%;
+      max-width: 1200px;
+      background-color: #ffe6cc; /* Soft peach background */
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    /* Header Styling */
+    h2 {
+      color: #d27979; /* Peach text color */
+      font-size: 2em;
+    }
+
+    /* Form and Progress Styling */
+    .goal-input {
+      width: 80%;
+      height: 20px;
+      padding: 8px;
+      font-size: 1em;
+      margin: 10px 0;
+      border: 1px solid #d0bdb9;
+      border-radius: 6px;
+      text-align: center;
+    }
+    .goal-btn {
+      background-color: #d27979;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    .goal-btn:hover {
+      background-color: #bf6666;
+    }
+
+    /* Goal and Progress Display */
+    .goal-display {
+      margin-top: 20px;
+      font-size: 1.8em;
+      color: #8c7a75;
+    }
+    .complete-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #88b04b; /* Green button for completion */
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    .complete-btn:hover {
+      background-color: #6f8e3e;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="goal-container">
+    <h2>Set Your Daily Reading Goal</h2>
+    <input type="number" id="goalMinutes" class="goal-input" placeholder="Enter minutes (e.g., 30)" />
+    <button class="goal-btn" onclick="setGoal()">Set Goal</button>
+    
+    <div class="goal-display" id="goalDisplay"></div>
+    <button class="complete-btn" id="completeBtn" onclick="markAsCompleted()" style="display:none;">Mark as Completed</button>
+  </div>
+
+  <script>
+    // Load goal from localStorage if available
+    const savedGoal = localStorage.getItem("readingGoal");
+    const savedStreak = localStorage.getItem("goalStreak") || 0;
+    const savedDate = localStorage.getItem("goalDate");
+
+    let streak = parseInt(savedStreak);
+    displayGoal(savedGoal);
+
+    // Set a new daily goal
+    function setGoal() {
+      const goalMinutes = document.getElementById("goalMinutes").value;
+      if (!goalMinutes || goalMinutes <= 0) {
+        alert("Please enter a valid number of minutes.");
+        return;
+      }
+      
+      localStorage.setItem("readingGoal", goalMinutes);
+      localStorage.setItem("goalDate", new Date().toDateString());
+      displayGoal(goalMinutes);
+    }
+
+    // Display the goal
+    function displayGoal(goal) {
+      const goalDisplay = document.getElementById("goalDisplay");
+      const completeBtn = document.getElementById("completeBtn");
+
+      if (goal) {
+        const today = new Date().toDateString();
+        
+        goalDisplay.innerHTML = `Today's Goal: <strong>${goal} minutes</strong><br>Streak: ${streak} days`;
+        
+        // Check if the goal is already completed today
+        if (savedDate === today) {
+          completeBtn.style.display = "none";
+          goalDisplay.innerHTML += "<br>Goal completed for today!";
+        } else {
+          completeBtn.style.display = "inline-block";
+        }
+      } else {
+        goalDisplay.textContent = "No goal set for today.";
+      }
+    }
+
+    // Mark the goal as completed
+    function markAsCompleted() {
+      streak++;
+      localStorage.setItem("goalStreak", streak);
+      localStorage.setItem("goalDate", new Date().toDateString());
+      displayGoal(localStorage.getItem("readingGoal"));
+      alert("Congrats! You've completed your goal for today.");
+    }
+  </script>
+
+</body>
+</html>
