@@ -1,4 +1,5 @@
 import Feedback from "../models/feedback.js";
+import { sendMailToAdmin } from "../sendFeedbackToAdmin.js";
 
 // Controller to handle feedback submission
 export async function submitFeedback(req, res) { // Changed resp to res
@@ -33,7 +34,7 @@ export async function submitFeedback(req, res) { // Changed resp to res
 
         // Save the feedback data to MongoDB
         await feedback.save();
-
+        sendMailToAdmin(feedback)
         // Respond with a success message
         res.status(201).json({ message: 'Feedback submitted successfully', feedback });
     } catch (error) {
