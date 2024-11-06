@@ -38,7 +38,11 @@
                     </div>
 
                 </div>
-                    <button class="edit-profile-btn edit_profiled">Edit Profile</button>
+                  <a href="#">
+
+                      <button class="edit-profile-btn edit_profiled">Edit Profile</button>
+                  </a>
+                    
                 </a>
             </div>
         </div>
@@ -91,6 +95,49 @@
             </div>
 
         </section>
+        <style>
+            @media (max-width: 768px) {
+                .fas.fa-home {
+    font-size: 20px; /* Smaller size for smaller screens */
+    top: 10px; /* Adjust the distance from top */
+    left: 10px; /* Adjust the distance from left */
+  }
+   .edit_profiled{
+    right: 0;
+    left: 0;
+   }
+  .profile-card {
+    padding: 15px;
+  }
+
+  .profile-header {
+    flex-direction: column;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-info {
+    text-align: center;
+    padding-right: 2rem;
+  }
+
+  .edit-profile-btn {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .profile-detail-card {
+    padding: 12px;
+  }
+
+  .card {
+    padding: 12px;
+  }
+}
+        </style>
 
 </body>
 
