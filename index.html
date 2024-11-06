@@ -393,11 +393,9 @@ Additional styling for smaller screens
 
                 <div class="dropdown">
                     <!-- Profile Icon -->
-    
-                        <a href="javascript:void(0);" class="profile-link" style="display: flex; align-items: center; text-decoration: none;" onclick="toggleMenu()">
-                            <img src="https://i.postimg.cc/NFFmtc9K/xnz-Mst5-V-400x400.jpg" alt="Profile Icon" style="width: 50px; height: 50px; border-radius: 50%; margin-top: -17px;">
-                        </a>
-                    </li>
+                    <a href="javascript:void(0);" class="profile-link" style="display: flex; align-items: center; text-decoration: none;" onclick="toggleMenu()">
+                        <img id="dropdownProfileImage" src="https://i.postimg.cc/NFFmtc9K/xnz-Mst5-V-400x400.jpg" alt="Profile Icon" style="width: 50px; height: 50px; border-radius: 50%; margin-top: -17px;">
+                    </a>
                 
                     <!-- Dropdown Menu -->
                     <ul class="dropdown-menu" id="profileMenu" style="display: none; position: absolute; z-index: 1;">
@@ -408,6 +406,7 @@ Additional styling for smaller screens
                 </div>
                 
                 <script>
+                    // Function to toggle the visibility of the dropdown menu
                     function toggleMenu() {
                         const menu = document.getElementById('profileMenu');
                         menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
@@ -420,7 +419,22 @@ Additional styling for smaller screens
                             menu.style.display = 'none';
                         }
                     }
+                
+                    // Update the profile image in the dropdown menu based on the selected avatar stored in localStorage
+                    document.addEventListener("DOMContentLoaded", function() {
+                        // Retrieve the saved avatar from localStorage
+                        const savedAvatar = localStorage.getItem("selectedAvatar");
+                
+                        // If an avatar is saved, update the profile image
+                        if (savedAvatar) {
+                            const dropdownProfileImage = document.getElementById("dropdownProfileImage");
+                            if (dropdownProfileImage) {
+                                dropdownProfileImage.src = savedAvatar;  // Update the image source
+                            }
+                        }
+                    });
                 </script>
+                
                 
                 <!-- Login Form -->
                 <div class="form-popup" id="loginForm">
