@@ -102,11 +102,8 @@
               <li><a href="#login" onclick="openForm('login')">Login</a></li>
               <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
           </ul>
-      </div>
+        </div>
    
-          
-   
-  
     <!--  Login Form -->
   <div class="form-popup" id="loginForm">
     <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
@@ -132,7 +129,6 @@
         </button>
     </form>
   </div>
-  
   
   <!-- Signup Form -->
   <div class="form-popup" id="signupForm">
@@ -167,7 +163,7 @@
           Sign in with Google</button>
     </form>
   </div>
-  
+
   <!-- Forgot Password Modal -->
   <div id="forgot-password-modal" class="modal">
     <div class="form-container modal-content">
@@ -344,9 +340,7 @@
         }
     }
   </script>
-  
-  
-  
+
           <div class="theme-switch-wrapper">
             <label class="theme-switch" for="checkbox">
               <input type="checkbox" id="checkbox" />
@@ -451,7 +445,11 @@
       </div>
     </main>
 
-    <button id="backToTop">⬆️</button>
+    <!-- <button id="backTotop ">⬆️</button>  -->
+    </form>
+    <div id="backToTop " title="Back to Top">
+      <i class="fas fa-arrow-up"></i>
+    </div> 
 
     <!-- main -->
 
@@ -591,6 +589,8 @@
           </div>
       </div>
   </div>
+  
+  
   <!-- the authentication copyright -->
   <div class="wordwise-footer">
       <div class="wordwise-footer-content">
@@ -792,12 +792,10 @@
 <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
 <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 <script src="script.js"></script>
-<div id="back-to-top" class="back-to-top">
-  <i class="fas fa-chevron-up"></i>
-</div>
+
 
 <style>
-  .back-to-top {
+  #backtoTop {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -816,10 +814,12 @@
     visibility: hidden;
   }
 
-  .back-to-top.show {
+  #back-to-top.show {
     opacity: 1;
     visibility: visible;
   }
+
+   
 </style>
 
 <script>
@@ -840,6 +840,9 @@
     });
   });
 </script>
+
+
+
 
 
   </body>
