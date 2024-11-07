@@ -1,97 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="testp.css"> <!-- Link to your CSS file -->
-
-    <script src="testp.js" defer></script>
-
     <title>Profile Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: pink;
+            padding: 20px;
+        }
 
+        .container {
+
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            margin-top: 150px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-display {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+            border: 2px solid gray;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #cancelButton {
+            background-color: #dc3545;
+        }
+
+        #cancelButton:hover {
+            background-color: #c82333;
+        }
+
+        #passwordReset {
+            margin-top: 20px;
+        }
+
+        #passwordReset input {
+            margin-bottom: 10px;
+        }
+
+    </style>
 </head>
-
 <body>
-
-    <div class="profile-container">
-
-        <div class="content-section">
-            <h2>Your Profile</h2>
-            <a href="index.html">
-                <i class="fas fa-home"></i>
-            </a>
-            <div class="profile-card">
-                <div class="profile-header">
-                    <img src="https://i.postimg.cc/NFFmtc9K/xnz-Mst5-V-400x400.jpg" alt="Profile Image" class="profile-image">
-
-                    <div class="profile-info">
-                        <h3 class="profile-name">Skylar Reed</h3>
-                        <p class="profile-email">Email: skylar.reed@example.com</p>
-                        <p class="profile-phone">Phone: +987 654 3210</p>
-                        <p class="profile-bio">Joined: October 31, 2024</p>
-                        <p class="profile-bio">About Me: Hello!🙋🏻‍♂️ Join me as we explore the world together—one destination at a time! 😎</p>
-                        <p id="last-active">Last active: 31/10/2024, 11:12 PM</p>
-
-                    </div>
-
-                </div>
-                    <button class="edit-profile-btn edit_profiled">Edit Profile</button>
-                </a>
+    <div class="container">
+        <h1>User Profile</h1>
+        <div id="profileDisplay" class="profile-display">
+            <img id="profileImage" src="no-profile-photo.png" alt="Profile Image" class="profile-img">
+            <div class="profile-info">
+                <p><strong>Username:</strong> <span id="displayUsername">john_doe</span></p>
+                <p><strong>Email:</strong> <span id="displayEmail">john@example.com</span></p>
+                <p><strong>Bio:</strong> <span id="displayBio">Welcome to my profile!</span></p>
+                <p><strong>Password:</strong> <span id="displayPassword">******</span> <button id="resetPasswordButton">Reset Password</button></p>
             </div>
         </div>
 
-        <div class="content-section">
-
-            <h2>Account Details</h2>
-            <div class="profile-details">
-                <div class="profile-detail-card" id="profileCard">
-                    <h3>Address</h3>
-                    <p id="addressText" contenteditable="false">789 Pine Lane, Austin, TX 73301</p>
-                    <a href="#"><button class="edit-profile-btn">Edit</button></a>
+        <div id="profileEdit" style="display: none;">
+            <form id="profileForm">
+                <div class="form-group">
+                    <label for="imageUpload">Profile Image:</label>
+                    <input type="file" id="imageUpload" accept="image/*">
                 </div>
-
-                <div class="profile-detail-card">
-                    <h3>Change Password</h3>
-                    <p>*********63</p>
-                    <button class="edit-profile-btn">Change</button></a>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" value="john_doe">
                 </div>
-
-                <div class="profile-detail-card">
-                    <h3>Privacy Settings</h3>
-                    <p>Visibility Status: Public</p>
-                    <a href="#">
-                    <button class="edit-profile-btn">Edit</button></a>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="john@example.com">
                 </div>
-
-                <div class="profile-detail-card">
-                    <h3>Recent Activity</h3>
-                    <p>Updated profile information</p>
-                    <a href="#">
-                    <button class="edit-profile-btn">View</button></a>
+                <div class="form-group">
+                    <label for="bio">Bio:</label>
+                    <textarea id="bio" name="bio">Welcome to my profile!</textarea>
                 </div>
-
-            </div>
+                <button type="submit">Save</button>
+                <button type="button" id="cancelButton">Cancel</button>
+            </form>
         </div>
 
-        <section class="content-section">
+        <!-- Password Reset Section -->
+        <div id="passwordReset" style="display: none;">
+            <h2>Reset Your Password</h2>
+            <form id="passwordForm">
+                <div class="form-group">
+                    <label for="newPassword">New Password:</label>
+                    <input type="password" id="newPassword" required placeholder="Enter new password">
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" required placeholder="Confirm new password">
+                </div>
+                <button type="submit">Reset Password</button>
+                <button type="button" id="cancelPasswordResetButton">Cancel</button>
+            </form>
+            <div id="passwordResetMessage"></div>
+        </div>
 
-            <h2>Notifications</h2>
-            <div class="card">
-                <p>Your profile has been updated successfully!</p>
+        <a href="index.html">
+            <button>Go To Home page</button>
+        </a>
+        <button id="editButton">Edit Profile</button>
+    </div>
 
-                <button class="edit-profile-btn">View Notification</button>
-            </div>
-            <div class="card">
-                <p>Joshef Roy has sent you a friend request. Accept or decline?</p>
+    <script>
+        const editButton = document.getElementById('editButton');
+        const profileDisplay = document.getElementById('profileDisplay');
+        const profileEdit = document.getElementById('profileEdit');
+        const cancelButton = document.getElementById('cancelButton');
+        const profileForm = document.getElementById('profileForm');
 
-                <button class="edit-profile-btn">View Notification</button>
-            </div>
+        const resetPasswordButton = document.getElementById('resetPasswordButton');
+        const passwordReset = document.getElementById('passwordReset');
+        const cancelPasswordResetButton = document.getElementById('cancelPasswordResetButton');
+        const passwordForm = document.getElementById('passwordForm');
+        const passwordResetMessage = document.getElementById('passwordResetMessage');
 
-        </section>
+        // Function to toggle between display and edit mode
+        editButton.addEventListener('click', function() {
+            profileDisplay.style.display = 'none';
+            profileEdit.style.display = 'block';
+            document.getElementById('username').focus(); // Set focus to the username field
+        });
 
+        cancelButton.addEventListener('click', function() {
+            resetProfileForm();
+        });
+
+        // Handle form submission for profile update
+        profileForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent page refresh
+
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const bio = document.getElementById('bio').value;
+            const imageUpload = document.getElementById('imageUpload').files[0];
+
+            // Update profile display
+            document.getElementById('displayUsername').textContent = username;
+            document.getElementById('displayEmail').textContent = email;
+            document.getElementById('displayBio').textContent = bio;
+
+            // Update profile image if an image is uploaded
+            if (imageUpload) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profileImage').src = e.target.result; // Set the uploaded image as profile image
+                };
+                reader.readAsDataURL(imageUpload);
+            }
+
+            // Show profile display and hide edit form
+            profileDisplay.style.display = 'flex';
+            profileEdit.style.display = 'none';
+        });
+
+        // Reset the form and return to profile display
+        function resetProfileForm() {
+            // Reset form values
+            document.getElementById('username').value = document.getElementById('displayUsername').textContent;
+            document.getElementById('email').value = document.getElementById('displayEmail').textContent;
+            document.getElementById('bio').value = document.getElementById('displayBio').textContent;
+
+            // Hide edit form and show profile display
+            profileEdit.style.display = 'none';
+            profileDisplay.style.display = 'flex';
+        }
+
+        // Show password reset form
+        resetPasswordButton.addEventListener('click', function() {
+            profileDisplay.style.display = 'none';
+            passwordReset.style.display = 'block';
+        });
+
+        // Handle password reset form submission
+        passwordForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (newPassword !== confirmPassword) {
+                passwordResetMessage.innerText = 'Passwords do not match. Please try again.';
+                passwordResetMessage.style.color = 'red';
+                return;
+            }
+
+            // Simulate updating the password
+            document.getElementById('displayPassword').textContent = '******'; // Hide the password
+            passwordResetMessage.innerText = 'Your password has been successfully reset!';
+            passwordResetMessage.style.color = 'green';
+
+            // Hide password reset form and show profile display
+            setTimeout(() => {
+                passwordReset.style.display = 'none';
+                profileDisplay.style.display = 'flex';
+            }, 1500); // Delay to simulate password reset success
+        });
+
+        // Cancel password reset
+        cancelPasswordResetButton.addEventListener('click', function() {
+            passwordReset.style.display = 'none';
+            profileDisplay.style.display = 'flex';
+        });
+    </script>
 </body>
-
 </html>

@@ -21,7 +21,7 @@
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
 
     <!-- for scroll reveal -->
-  
+
 
     <!--css-->
     <link rel="stylesheet" href="style.css">
@@ -37,7 +37,7 @@
         <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <style>
         /* Chatbot Container */
-        
+
         .chatbot-container {
             position: fixed;
             bottom: 20px;
@@ -48,7 +48,7 @@
             /* Ensure it appears above other elements */
         }
         /* Chatbot Button */
-        
+
         .chatbot-button {
             background-color: #007bff;
             /* Change to your preferred color */
@@ -64,7 +64,7 @@
             /* Adjusted size */
         }
         /* Button Image */
-        
+
         .chatbot-button img {
             width: 30px;
             /* Adjusted image size */
@@ -72,7 +72,7 @@
             /* Adjusted image size */
         }
         /* Tooltip Text */
-        
+
         .tooltip-text {
             display: none;
             /* Hide by default */
@@ -92,13 +92,13 @@
             line-height: 20px
         }
         /* Show Tooltip on Hover */
-        
+
         .chatbot-button:hover .tooltip-text {
             display: block;
             /* Show on hover */
         }
         /* Chat Window Styles */
-        
+
         .chat-window {
             position: fixed;
             bottom: 90px;
@@ -118,7 +118,7 @@
             /* Ensure it appears above other elements */
         }
         /* Iframe for Chatbot HTML */
-        
+
         #chat-iframe {
             width: 100%;
             /* Full width of the chat window */
@@ -127,7 +127,7 @@
             border: none;
             /* Remove border */
         }
-        
+
         @media (max-width: 1200px) {
             .footer-container {
                 padding: 20px;
@@ -140,14 +140,14 @@
                 width: 33.33%;
             }
         }
-        
+
         @media (max-width: 992px) {
             .col-3 {
                 width: 50%;
                 /* Stack 2 columns side by side on medium screens */
             }
         }
-        
+
         @media (max-width: 768px) {
             .col-3 {
                 width: 100%;
@@ -161,7 +161,7 @@
                 text-align: center;
             }
         }
-        
+
         @media (max-width: 576px) {
             .feature-post div {
                 align-items: center;
@@ -174,7 +174,7 @@
             }
         }
         /* Optional: You can also set max-width for images */
-        
+
         img.object-fit {
             max-width: 100%;
             /* Makes images responsive */
@@ -188,7 +188,7 @@
             max-width: 350px;
             padding: 20px;
         }
-        
+
         .form-group input {
             width: 100%;
             padding: 1px;
@@ -197,7 +197,7 @@
             /* box-sizing: border-box; */
             font-size: 16px;
         }
-        
+
         .form-container h2 {
             font-size: 24px;
             margin-bottom: 20px;
@@ -213,15 +213,15 @@
     width: 100%;
     font-size: 16px;
 } */
-        
+
         .btn:hover {
             opacity: 0.8;
         }
-        
+
         .cancel {
             background-color: #f44336;
         }
-        
+
         .toggle-button {
             cursor: pointer;
             color: #007bff;
@@ -251,7 +251,7 @@
     <!-- Styles -->
     <style>
         /* General Styles */
-        
+
         .logo h1 a {
             font-size: 40px;
         }
@@ -267,7 +267,7 @@
     width: 25px;
     height: 22px;
     }
-    
+
     .hamburger span {
     width: 100%;
     height: 3px;
@@ -276,7 +276,7 @@
 
     @media (max-width: 1024px) {
         .logo a h2{
-        font-size: 30px;   
+        font-size: 30px;
     }
     .nav-links1 {
     gap: 10px;
@@ -314,7 +314,7 @@
     .dropdown {
         position: relative;
        margin-left: 200px;
-       
+
     }
 }
 
@@ -329,12 +329,12 @@ Additional styling for smaller screens
     .dropdown {
         position: relative;
        margin-left: 60px;
-       
+
     }
     ul.dropdown-menu{
         border-radius: 2px;
     }
-    
+
     .theme-switch-wrapper {
         margin-right: -80px;
     }
@@ -348,7 +348,7 @@ Additional styling for smaller screens
         font-size: 24px;
     }
 } */
-        
+
         .dropdown-menu {
             display: none;
             position: absolute;
@@ -357,7 +357,7 @@ Additional styling for smaller screens
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             z-index: 1;
         }
-        
+
         .dropdown:hover .dropdown-menu {
             display: block;
         }
@@ -393,12 +393,12 @@ Additional styling for smaller screens
 
                 <div class="dropdown">
                     <!-- Profile Icon -->
-    
+
                         <a href="javascript:void(0);" class="profile-link" style="display: flex; align-items: center; text-decoration: none;" onclick="toggleMenu()">
                             <img src="https://i.postimg.cc/NFFmtc9K/xnz-Mst5-V-400x400.jpg" alt="Profile Icon" style="width: 50px; height: 50px; border-radius: 50%; margin-top: -17px;">
                         </a>
                     </li>
-                
+
                     <!-- Dropdown Menu -->
                     <ul class="dropdown-menu" id="profileMenu" style="display: none; position: absolute; z-index: 1;">
                         <li><a href="./profile.html">My Profile</a></li>
@@ -406,13 +406,13 @@ Additional styling for smaller screens
                         <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
                     </ul>
                 </div>
-                
+
                 <script>
                     function toggleMenu() {
                         const menu = document.getElementById('profileMenu');
                         menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
                     }
-                
+
                     // Close the dropdown if the user clicks outside of it
                     window.onclick = function(event) {
                         const menu = document.getElementById('profileMenu');
@@ -421,7 +421,7 @@ Additional styling for smaller screens
                         }
                     }
                 </script>
-                
+
                 <!-- Login Form -->
                 <div class="form-popup" id="loginForm">
                     <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
@@ -584,27 +584,27 @@ Additional styling for smaller screens
                             box-sizing: border-box;
                         }
                     }
-                    
+
                     .form-container h2 {
                         margin-bottom: 20px;
                         color: #333;
                     }
-                    
+
                     .form-group {
                         margin-bottom: 15px;
                     }
-                    
+
                     .form-control {
                         border-radius: 5px;
                         padding: 10px;
                         box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
                     }
-                    
+
                     .btn {
                         margin-top: 10px;
                         border-radius: 5px;
                     }
-                    
+
                     .eye-icon {
                         position: absolute;
                         right: 15px;
@@ -612,25 +612,25 @@ Additional styling for smaller screens
                         cursor: pointer;
                         color: #007bff;
                     }
-                    
+
                     .close-icon {
                         font-size: 24px;
                         cursor: pointer;
                         float: right;
                     }
-                    
+
                     .position-relative {
                         position: relative;
                     }
-                    
+
                     .btn-primary:hover {
                         background-color: #0056b3;
                     }
-                    
+
                     .btn-secondary:hover {
                         background-color: #6c757d;
                     }
-                    
+
                     .scroll-to-top {
                         background-color: #0066cc;
                         /* Button color */
@@ -647,7 +647,7 @@ Additional styling for smaller screens
                         margin-top: 10px;
                         /* Space between the paragraph and button */
                     }
-                    
+
                     .scroll-to-top:hover {
                         background-color: #005bb5;
                         /* Darker shade on hover */
@@ -1380,19 +1380,19 @@ Additional styling for smaller screens
             #word-of-the-day {
                 font-family: Arial, sans-serif;
             }
-            
+
             .word-entry {
                 display: flex;
                 align-items: center;
                 margin-bottom: 8px;
             }
-            
+
             .word-entry h3 {
                 margin: 0;
                 font-weight: bold;
                 margin-right: 5px;
             }
-            
+
             .word-entry p {
                 margin: 0;
             }
@@ -1419,13 +1419,13 @@ Additional styling for smaller screens
 
         <style>
             /* Style the email input field */
-            
+
             #emailInput {
                 border: 1px solid pink;
                 transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
             }
             /* Hover effect for glow */
-            
+
             #emailInput:hover {
                 transform: scale(1.05);
                 box-shadow: 0 0 8px 2px pink;
@@ -1581,7 +1581,7 @@ Additional styling for smaller screens
                         <a href="./blog.html" class="nav-link btn category-btn">Technology</a>
                         <a href="./blog.html" class="nav-link btn category-btn">Fashion</a>
                     </div>
-                    
+
                     </div>
                     <h2 class="footer-title secondary-title mt-5">Connect with us</h2>
                     <div class="tags social" id="contact">
@@ -1717,7 +1717,7 @@ Additional styling for smaller screens
     <div id="back-to-top" class="back-to-top">
         <i class="fas fa-chevron-up"></i>
       </div>
-    
+
       <style>
         .back-to-top {
           position: fixed;
@@ -1737,16 +1737,16 @@ Additional styling for smaller screens
           opacity: 0;
           visibility: hidden;
         }
-    
+
         .back-to-top.show {
           opacity: 1;
           visibility: visible;
         }
       </style>
-    
+
       <script>
         const backToTopButton = document.getElementById('back-to-top');
-    
+
         window.addEventListener('scroll', () => {
           if (window.scrollY > 300) {
             backToTopButton.classList.add('show');
@@ -1754,7 +1754,7 @@ Additional styling for smaller screens
             backToTopButton.classList.remove('show');
           }
         });
-    
+
         backToTopButton.addEventListener('click', ()=>{
           window.scrollTo({
             top: 0,
@@ -1762,8 +1762,8 @@ Additional styling for smaller screens
           });
         });
       </script>
-    
-    
+
+
 </body>
 
 </html>
