@@ -540,7 +540,7 @@
       </div>
 
       <div class="form-group" style="margin-bottom: 20px">
-        <input type="tel" id="phone" placeholder="Phone Number" name="phone" required style="
+        <input type="number" id="phone" placeholder="Phone Number" name="phone" required style="
           width: 100%;
           padding: 10px 0;
           font-size: 16px;
@@ -551,8 +551,10 @@
           border-bottom: 2px solid var(--text-color);
           outline: none;
         " />
-      </div>
 
+        <span id="error-message" style="color: red; display: none;">Please enter up to 10 digits.</span>
+      </div>
+      
       <div class="form-group" style="margin-bottom: 20px">
         <textarea id="message" name="message" placeholder="Message" required style="
           width: 100%;
@@ -798,6 +800,23 @@
     visibility: visible;
   }
 </style>
+
+<script>
+  const phoneInput = document.getElementById('phone');
+  const errorMessage = document.getElementById('error-message');
+
+  phoneInput.addEventListener('input', function () {
+      const value = phoneInput.value;
+      const digitsOnly = value.replace(/\D/g, '');
+      if (digitsOnly.length > 10) {
+
+          phoneInput.value = digitsOnly.slice(0, 10);
+          errorMessage.style.display = 'block';
+      } else {
+          errorMessage.style.display = 'none'; 
+      }
+  });
+</script>
 
 <script>
   const backToTopButton = document.getElementById('back-to-top');
