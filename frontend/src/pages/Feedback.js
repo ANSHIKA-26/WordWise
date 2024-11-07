@@ -84,7 +84,6 @@ export function renderFeedback(container) {
             }
         });
 
-        console.log(data);
 
         try {
             const response = await fetch('http://localhost:5000/api/feedback/saveFeedback', {
@@ -96,7 +95,6 @@ export function renderFeedback(container) {
             });
 
             if (response.ok) {
-                console.log("Form submitted successfully:", await response.json());
                 document.getElementById('formSuccess').classList.remove('hidden');
                 this.reset();
                 document.getElementById('formSuccess').scrollIntoView({ behavior: 'smooth' });

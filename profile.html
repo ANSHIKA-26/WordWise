@@ -86,15 +86,6 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>User Profile</h1>
-        <div id="profileDisplay" class="profile-display">
-            <img id="profileImage" src="no-profile-photo.png" alt="Profile Image" class="profile-img">
-            <div class="profile-info">
-                <p><strong>Username:</strong> <span id="displayUsername">john_doe</span></p>
-                <p><strong>Email:</strong> <span id="displayEmail">john@example.com</span></p>
-                <p><strong>Bio:</strong> <span id="displayBio">Welcome to my profile!</span></p>
-                <p><strong>Password:</strong> <span id="displayPassword">******</span> <button id="resetPasswordButton">Reset Password</button></p>
             </div>
         </div>
 
@@ -121,23 +112,6 @@
             </form>
         </div>
 
-        <!-- Password Reset Section -->
-        <div id="passwordReset" style="display: none;">
-            <h2>Reset Your Password</h2>
-            <form id="passwordForm">
-                <div class="form-group">
-                    <label for="newPassword">New Password:</label>
-                    <input type="password" id="newPassword" required placeholder="Enter new password">
-                </div>
-                <div class="form-group">
-                    <label for="confirmPassword">Confirm Password:</label>
-                    <input type="password" id="confirmPassword" required placeholder="Confirm new password">
-                </div>
-                <button type="submit">Reset Password</button>
-                <button type="button" id="cancelPasswordResetButton">Cancel</button>
-            </form>
-            <div id="passwordResetMessage"></div>
-        </div>
 
         <a href="index.html">
             <button>Go To Home page</button>
