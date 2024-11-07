@@ -65,6 +65,8 @@ async function SendEmail(event) {
     alert("Message must be at least 10 characters long.");
     return;
   }
+  // If validation passes
+  alert('Form submitted successfully!');
 
   const data = { Name, email, phone, message };
 
@@ -85,7 +87,6 @@ async function SendEmail(event) {
     }
   } catch (error) {
     console.error("Error sending email:", error);
-    alert("Error sending email. Please try again later.");
   }
 }
 
@@ -119,3 +120,23 @@ function hidePopup() {
 function handleErrorResponse(result) {
   alert(`Error: ${result.message || 'An unexpected error occurred.'}`);
 }
+function validateForm() {
+  const phonePattern = /^\d{10}$/; //for 10-digit phone numbers
+  // Validate phone number
+  if (!phonePattern.test(phone)) {
+      alert('Please enter a valid phone number (10 digits).');
+      return; // Stop further execution
+  }
+}
+
+function restrictInputToNumbers(event) {
+  const key = event.key;
+  if (!/^\d$/.test(key) && key !== "Backspace" && key !== "Delete") {
+      event.preventDefault(); // Prevent input if it's not a digit
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const phoneInput = document.getElementById('phone');
+  phoneInput.addEventListener('keydown', restrictInputToNumbers);
+});
