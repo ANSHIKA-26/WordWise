@@ -35,7 +35,7 @@ githu * {
  align-items: center;
   position: fixed;
   background: rgb(248, 214, 104) center;
-  z-index: 99;
+  z-index: 1000;
 }
 /* From Uiverse.io by Nawsome */ 
 .loadingspinner {
@@ -555,7 +555,7 @@ background: var(--light);
 }
 #backToTop {
   position: fixed;
-  bottom: 30px;
+  bottom: 80px;
   right: 10px;
   width: 60px;
   height: 60px;
