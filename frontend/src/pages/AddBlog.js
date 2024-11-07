@@ -1,3 +1,5 @@
+import toastr from 'toastr';
+
 export function renderAddBlog(container) {
     container.innerHTML = `
         <div class="container mx-auto px-4 py-8">
@@ -95,6 +97,7 @@ export function renderAddBlog(container) {
         formData.append('excerpt', excerpt);
         formData.append('tags', tags);
         formData.append('publish', publish);
+        formData.append('likes', 0);
         if (featuredImage) {
             formData.append('featuredImage', featuredImage); // Ensure key matches backend
         }
@@ -107,18 +110,34 @@ export function renderAddBlog(container) {
 
             if (response.ok) {
                 const result = await response.json();
-                console.log('Blog post created:', result);
-                alert('Blog post successfully created!');
+                toastr.success('Blog post created successfully')
                 form.reset(); // Reset the form after successful submission
             } else {
                 console.error('Error creating blog post:', response.statusText);
-                alert('Failed to create blog post. Please try again.');
+                toastr.error('Failed to create blog post. Please try again.')
             }
         } catch (error) {
             console.error('Error:', error);
             alert('An error occurred. Please try again.');
+            toastr.error('An error occurred. Please try again.')
         }
     });
+}
 
-
+toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": true,
+    "progressBar": true,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
 }

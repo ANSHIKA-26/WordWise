@@ -1323,7 +1323,7 @@
               </div>
               <h2 class="footer-title secondary-title mt-5">Connect with us</h2>
               <div class="tags social" id="contact">
-                  <div class="d-flex-gap flex-wrap">
+                  <div class="d-flex-gap flex-wrap" style="">
                       <a href="https://www.facebook.com/" id="facebook" class="nav-link btn bg-light">
                           <i class="fab fa-facebook-f"></i>
                       </a>
@@ -1613,6 +1613,29 @@
         display: none;
       }
     }
+    .footer-title {
+    text-align: center;
+}
+
+/* Center-align the icon container and set gap between icons */
+#contact .d-flex-gap {
+    display: flex;
+    justify-content: center;
+    gap: 1px; /* Adjust the spacing between icons */
+    flex-wrap: wrap;
+}
+
+/* Style each social icon button */
+#contact .nav-link {
+    width: 50px; /* Ensure all icons are the same size */
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Make them circular */
+    font-size: 20px; /* Adjust icon size */
+    padding: 0;
+}
   </style>
 
 

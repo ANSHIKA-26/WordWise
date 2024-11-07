@@ -1,3 +1,4 @@
+import toastr from "toastr";
 export function renderContact(container) {
     container.innerHTML = `
         <div class="container mx-auto px-4 py-8">
@@ -86,16 +87,41 @@ export function renderContact(container) {
             if (response.ok) {
                 // Display success message and reset the form
                 document.getElementById('formSuccess').classList.remove('hidden');
+                toastr.info('We will contact you soon !')
                 this.reset();
             } else {
                 // Handle error response
                 const errorData = await response.json();
                 console.error("Error submitting form:", errorData.message);
+                toastr.error('Error submitting contact form ')
+
             }
         } catch (error) {
             console.error("Error submitting form:", error);
+            toastr.error('Error submitting contact form')
+
         }
     });
 
 
+}
+
+
+
+toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": true,
+    "progressBar": true,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
 }

@@ -7,6 +7,7 @@ import { renderContact } from '../pages/Contact.js';
 import { renderFeedback } from '../pages/Feedback.js';
 import { renderProfilePage } from '../pages/BloggerProfile.js';
 import { renderFullBlogPost } from '../pages/ReadMoreBlog.js';
+import { renderTermsOfUse } from '../pages/TermsOfUse.js';
 
 const routes = {
     '/': renderHome,
@@ -17,8 +18,10 @@ const routes = {
     '/contact': renderContact,
     '/feedback': renderFeedback,
     '/profile': renderProfilePage,
+ 
     '/readmore': renderFullBlogPost,
-};
+    '/termsOfUse': renderTermsOfUse,
+ };
 
 export function router() {
     const path = window.location.pathname;

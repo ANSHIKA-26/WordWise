@@ -5,8 +5,10 @@ import blogRoutes from "./routes/blogRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import feedbackRoutes from "./routes/feedbackRoute.js";
 import contactRoutes from "./routes/contactRoute.js";
+import ratingRoutes from "./routes/ratingRoutes.js";
 import getInTouch from "./routes/getInTouchRoutes.js";
 import addBlog from "./routes/addBlogRoutes.js";
+import subscribe from "./routes/subscribeRoutes.js";
 import cors from "cors";
 import path from "path"; // Import path module
 import { fileURLToPath } from "url"; // Import fileURLToPath
@@ -30,9 +32,11 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads"))); // Adjust 
 app.use("/api/users", userRoutes);
 app.use("/api/blogs", blogRoutes);
 app.use("/api/feedback", feedbackRoutes);
+app.use("/api/rating", ratingRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/getInTouch", getInTouch);
 app.use("/api/addBlog", addBlog);
+app.use("/api/newsletter", subscribe);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

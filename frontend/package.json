@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "firebase": "^11.0.1",
+    "toastr": "^2.1.4",
     "wordwise-frontend": "file:"
   }
 }

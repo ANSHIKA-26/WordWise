@@ -46,16 +46,16 @@ body.dark-mode nav a {
 .form-control {
     border-radius: 5px;
     padding: 12px;
-    font-size: 16px; 
-    line-height: 1.5; 
+    font-size: 16px;
+    line-height: 1.5;
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 100%;
 }
 
 .forgot {
-    text-align: right; 
+    text-align: right;
     margin-left: 50px;
-    font-size: 10px;   
+    font-size: 10px;
     margin-top: -40px;
 
 }
@@ -85,7 +85,8 @@ body.dark-mode nav a {
 
 /* Login button jumping issue fix */
 .btn-primary {
-    transition: all 0.3s ease; /* Smooth transition */
+    transition: all 0.3s ease;
+    /* Smooth transition */
 }
 
 .btn-primary:hover {
@@ -106,4 +107,19 @@ body.dark-mode nav a {
 
 .btn-primary:hover {
     background-color: #0056b3;
+}
+
+.open {
+    background: #0f1522f0;
+    position: absolute;
+    left: 42%;
+    display: flex !important;
+    align-items: start;
+    top: 0%;
+    height: 100vh;
+    border-radius: 15px;
+    padding: 30px;
+    padding-top: 30px;
+    padding-top: 75px;
+    z-index: 9;
 }

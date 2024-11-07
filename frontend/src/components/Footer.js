@@ -1,6 +1,7 @@
 import '../styles/footer.css';
 import { renderLogin } from '../pages/Login';
 import { renderTranslator } from '../pages/GoogleTranslator';
+import toastr from 'toastr';
 
 
 export function renderFooter() {
@@ -21,6 +22,7 @@ export function renderFooter() {
                             <li><a href="/about" class="text-gray-400 hover:text-white transition-colors duration-300">About</a></li>
                             <li><a href="/blogs" class="text-gray-400 hover:text-white transition-colors duration-300">Blog</a></li>
                             <li><a href="/contact" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
+                            <li><a href="/termsOfUse" class="text-gray-400 hover:text-white transition-colors duration-300">Terms Of Use</a></li>
                         </ul>
                     </div>
                     <div class="w-full md:w-1/3" data-aos="fade-up" data-aos-delay="500">
@@ -49,6 +51,28 @@ export function renderFooter() {
                         <div id="login-container" class="flex justify-center items-center"></div> 
                     </div>
                 </div>
+                <div class="p-6 w-full flex flex-col items-center justify-center">
+                    <form id="subscribeForm" class="w-full md:w-8/12 flex flex-col items-center md:flex-row">
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Your Name"
+                        class="mb-4 md:mb-0 md:mr-2 px-4 py-2 w-full md:w-1/2 rounded-md border border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 text-gray-800"
+                    />
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Your Email"
+                        class="mb-4 md:mb-0 md:mr-2 px-4 py-2 w-full md:w-1/2 rounded-md border border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 text-gray-800"
+                    />
+                    <button
+                        type="submit"
+                        class="px-6 py-2 text-white bg-red-600 rounded-md hover:bg-red-800 transition-colors duration-200"
+                    >
+                        Subscribe
+                    </button>
+                    </form>
+                </div>
                 <div class="mt-8 border-t border-gray-700 pt-8 text-center" data-aos="zoom-in"  data-aos-delay="400">
                     <p class="text-gray-400">&copy; ${new Date().getFullYear()} WordWise. All rights reserved.</p>
                     <p class="text-gray-400 mt-2">An open-source project dedicated to language learning.</p>
@@ -62,4 +86,62 @@ export function renderFooter() {
     renderLogin(loginContainer);
     const googleTranslator = document.getElementById('google-translator-container');
     renderTranslator(googleTranslator)
+
+    document.getElementById("subscribeForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        // Get the values of the input fields
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+
+        // Define the API endpoint
+        const apiEndpoint = "http://localhost:5000/api/newsletter/subscribe";
+
+        // Submit the data to the API
+        fetch(apiEndpoint, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name, email }),
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Handle the response from the API
+                toastr.success("Subscription successful!");
+                document.getElementById("name").value = '';
+                document.getElementById("email").value = '';
+            })
+            .catch(error => {
+                // Handle errors
+                console.error("There was a problem with the fetch operation:", error);
+                alert("There was an error with your subscription.");
+            });
+    });
+}
+
+
+
+
+toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": true,
+    "progressBar": true,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
 }
