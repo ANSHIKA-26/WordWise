@@ -54,7 +54,7 @@ main
                 <div class="profile-detail-card">
                     <h3>Change Password</h3>
                     <p>*********63</p>
-                    <button class="edit-profile-btn">Change</button>
+                    <button class="edit-profile-btn" id="changePasswordBtn">Change</button>
                 </div>
 
                 <div class="profile-detail-card">
@@ -93,6 +93,23 @@ edit
 
     </div>
 
+    <!-- Change Password Modal -->
+    <div id="changePasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeChangePasswordModal">&times;</span>
+            <h2>Change Password</h2>
+            <form id="changePasswordForm">
+                <label for="currentPassword">Current Password:</label>
+                <input type="text" id="currentPassword" required><br>
+                <label for="newPassword">New Password:</label>
+                <input type="password" id="newPassword" required><br>
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" required><br>
+                <button type="submit">Update Password</button>
+            </form>
+        </div>
+    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Load saved profile information from localStorage
@@ -119,6 +136,35 @@ edit
             if (savedAvatar) {
                 document.getElementById("profileImage").src = savedAvatar;
             }
+
+            // Open Change Password Modal
+            document.getElementById("changePasswordBtn").addEventListener("click", function() {
+                console.log("Opening Change Password Modal");
+                document.getElementById("changePasswordModal").style.display = "block";
+            });
+
+            // Close Change Password Modal
+            document.getElementById("closeChangePasswordModal").addEventListener("click", function() {
+                document.getElementById("changePasswordModal").style.display = "none";
+            });
+
+            // Handle Change Password Form Submission
+            document.getElementById("changePasswordForm").addEventListener("submit", function(e) {
+                e.preventDefault();
+                const currentPassword = document.getElementById("currentPassword").value;
+                const newPassword = document.getElementById("newPassword").value;
+                const confirmPassword = document.getElementById("confirmPassword").value;
+
+                if (newPassword === confirmPassword) {
+                    // Save the new password in sessionStorage (for now)
+                    sessionStorage.setItem("userPassword", newPassword);
+                    alert("Password updated successfully!");
+                    document.getElementById("changePasswordModal").style.display = "none";
+                } else {
+                    alert("Passwords do not match!");
+                }
+            });
+
         });
     </script>
 
