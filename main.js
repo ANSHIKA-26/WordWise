@@ -63,22 +63,6 @@ function myFunction() {
   }
 }
 
-function validateSignupForm() {
-  var password = document.getElementById("signupPsw").value;
-  var confirmPassword = document.getElementById("confirmPsw").value;
-
-  // Check if passwords match
-  if (password !== confirmPassword) {
-    alert("Passwords do not match. Please try again.");
-    return false; // Prevent form submission
-  }
-
-  // Additional validation (if any)
-  // You can add further checks here, e.g., email format validation, password strength, etc.
-
-  return true; // Allow form submission if everything is valid
-}
-
 // Open the specific form (login or signup)
 function openForm(formType) {
   // Hide both forms first
@@ -298,3 +282,129 @@ if (hamburger && navLinks1) {
 } else {
   console.warn("Hamburger or Nav Links not found on this page.");
 }
+
+
+
+// Function to validate and handle login form submission
+async function validateLoginForm() {
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPsw").value;
+
+  try {
+    const response = await fetch('http://127.0.0.1:5000/api/users/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email, password })
+    });
+
+    const result = await response.json();
+    console.log(result);
+    console.log(result.token);
+
+    if (response.ok) {
+      localStorage.setItem('authToken', result.token);
+      alert("You are logged in");
+      closeForm('login');
+      window.location.reload(); // Reload to show the user as logged in
+    } else {
+      alert(result.message || 'Login failed. Please try again.');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('An error occurred. Please try again later.');
+  }
+
+  return false; // Prevent default form submission
+}
+
+// Function to validate and handle signup form submission
+async function validateSignupForm() {
+  const username = document.getElementById("name").value;
+  const email = document.getElementById("signupEmail").value;
+  const password = document.getElementById("signupPsw").value;
+  const confirmPassword = document.getElementById("confirmPsw").value;
+
+  // Check if password and confirm password match
+  if (password !== confirmPassword) {
+    alert("Passwords do not match.");
+    return false;
+  }
+
+  try {
+    const response = await fetch('http://127.0.0.1:5000/api/users/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username, email, password })
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      localStorage.setItem('authToken', result.token);
+      alert(result.message);
+      closeForm('signup');
+      window.location.reload(); // Reload to show the user as logged in
+    } else {
+      alert(result.message || 'Signup failed. Please try again.');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('An error occurred. Please try again later.');
+  }
+
+  return false; // Prevent default form submission
+}
+
+// Utility function to toggle password visibility
+function togglePasswordVisibility(inputId, iconId) {
+  const input = document.getElementById(inputId);
+  const icon = document.getElementById(iconId);
+  
+  if (input.type === "password") {
+    input.type = "text";
+    icon.classList.remove("bi-eye");
+    icon.classList.add("bi-eye-slash");
+  } else {
+    input.type = "password";
+    icon.classList.remove("bi-eye-slash");
+    icon.classList.add("bi-eye");
+  }
+}
+
+
+// Function to check login status and toggle menu options
+function checkLoginStatus() {
+  const authToken = localStorage.getItem('authToken');
+  const profileLink = document.getElementById('profileLink');
+  const loginLink = document.getElementById('loginLink');
+  const signupLink = document.getElementById('signupLink');
+  const logoutLink = document.getElementById('logoutLink');
+
+  if (authToken) {
+      // User is logged in: show "My Profile" and "Logout", hide "Login" and "Signup"
+      profileLink.style.display = 'block';
+      logoutLink.style.display = 'block';
+      loginLink.style.display = 'none';
+      signupLink.style.display = 'none';
+  } else {
+      // User is not logged in: show "Login" and "Signup", hide "My Profile" and "Logout"
+      profileLink.style.display = 'none';
+      logoutLink.style.display = 'none';
+      loginLink.style.display = 'block';
+      signupLink.style.display = 'block';
+  }
+}
+
+
+
+// Function to handle user logout
+function logoutUser() {
+  localStorage.removeItem('authToken'); // Remove token
+  alert('You have been logged out.');
+  checkLoginStatus(); // Update menu after logout
+}
+

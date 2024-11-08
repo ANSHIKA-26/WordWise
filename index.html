@@ -9,8 +9,6 @@
     <!--favicon-->
     <link rel="shortcut icon" type="image/x-icon" href="/images/favi.webp" />
 
-    <link rel="manifest" href="/manifest.json">
-
     <!--font awesome-->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style"
         onload="this.onload=null;this.rel='stylesheet'">
@@ -296,7 +294,7 @@
     width: 25px;
     height: 22px;
     }
-
+    
     .hamburger span {
     width: 100%;
     height: 3px;
@@ -305,7 +303,7 @@
 
     @media (max-width: 1024px) {
         .logo a h2{
-        font-size: 30px;
+        font-size: 30px;   
     }
     .nav-links1 {
     gap: 10px;
@@ -343,7 +341,7 @@
     .dropdown {
         position: relative;
        margin-left: 200px;
-
+       
     }
 }
 
@@ -358,12 +356,12 @@ Additional styling for smaller screens
     .dropdown {
         position: relative;
        margin-left: 60px;
-
+       
     }
     ul.dropdown-menu{
         border-radius: 2px;
     }
-
+    
     .theme-switch-wrapper {
         margin-right: -80px;
     }
@@ -423,7 +421,7 @@ Additional styling for smaller screens
                 <div class="dropdown">
                     <!-- Profile Icon -->
 
-
+ 
                     <a href="javascript:void(0);" class="profile-link"
                         style="display: flex; align-items: center; text-decoration: none;" onclick="toggleMenu()">
                         <img id="dropdownProfileImage" src="https://i.postimg.cc/NFFmtc9K/xnz-Mst5-V-400x400.jpg"
@@ -432,17 +430,22 @@ Additional styling for smaller screens
 
                     </a>
 
+ 
 
                     <!-- Dropdown Menu -->
                     <ul class="dropdown-menu" id="profileMenu" style="display: none; position: absolute; z-index: 1;">
-                        <li><a href="./profile.html">My Profile</a></li>
-                        <li><a href="#login" onclick="openForm('login')">Login</a></li>
-                        <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
+                        <li id="profileLink" style="display: none;"><a href="./profile.html"
+                                onclick="toggleProfileMenu()">My Profile</a></li>
+                        <li id="loginLink"><a href="#login" onclick="openForm('login')">Login</a></li>
+                        <li id="signupLink"><a href="#signup" onclick="openForm('signup')">Signup</a></li>
+                        <li id="logoutLink" style="display: none;"><a href="javascript:void(0);"
+                                onclick="logoutUser()">Logout</a></li>
                     </ul>
                 </div>
 
+
+
                 <script>
-                    // Function to toggle the visibility of the dropdown menu
                     function toggleMenu() {
                         const menu = document.getElementById('profileMenu');
                         menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
@@ -455,31 +458,15 @@ Additional styling for smaller screens
                             menu.style.display = 'none';
                         }
                     }
-
-                    // Update the profile image in the dropdown menu based on the selected avatar stored in localStorage
-                    document.addEventListener("DOMContentLoaded", function () {
-                        // Retrieve the saved avatar from localStorage
-                        const savedAvatar = localStorage.getItem("selectedAvatar");
-
-                        // If an avatar is saved, update the profile image
-                        if (savedAvatar) {
-                            const dropdownProfileImage = document.getElementById("dropdownProfileImage");
-                            if (dropdownProfileImage) {
-                                dropdownProfileImage.src = savedAvatar;  // Update the image source
-                            }
-                        }
-                    });
+ 
                 </script>
-
-
-
-
-
 
                 <!-- Login Form -->
                 <div class="form-popup" id="loginForm">
-                    <form class="form-container" onsubmit="return validateLoginForm()"
-                        style="max-width: 400px; margin: auto;">
+                    <!-- Someone either didnt give the Javascript for this or some pr ended up deleting it -->
+                    <!--the validateLoginForm is not there... -->
+                    <form class="form-container" onsubmit="validateLoginForm()" style="max-width: 400px; margin: auto;">
+ 
                         <span class="close-icon" onclick="closeForm('login')">&times;</span>
                         <h2 class="text-center">Login</h2>
                         <div class="form-group">
@@ -524,8 +511,9 @@ Additional styling for smaller screens
 
                 <!-- Signup Form -->
                 <div class="form-popup" id="signupForm">
-                    <form class="form-container" onsubmit="return validateSignupForm()"
-                        style="max-width: 400px; margin: auto;">
+ 
+                    <form class="form-container" onsubmit="validateSignupForm()"
+                         style="max-width: 400px; margin: auto;">
                         <span class="close-icon" onclick="closeForm('signup')">&times;</span>
                         <h2 class="text-center">Signup</h2>
                         <div class="form-group">
@@ -588,6 +576,30 @@ Additional styling for smaller screens
 
                 <!-- Toggle Password Visibility Script -->
                 <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const authToken = localStorage.getItem('authToken');
+                        console.log(authToken)
+                        const profileLink = document.getElementById('profileLink');
+                        const loginLink = document.getElementById('loginLink');
+                        const signupLink = document.getElementById('signupLink');
+                        const logoutLink = document.getElementById('logoutLink');
+
+                        if (authToken) {
+                            // User is logged in: show "My Profile" and "Logout", hide "Login" and "Signup"
+                            profileLink.style.display = 'block';
+                            logoutLink.style.display = 'block';
+                            loginLink.style.display = 'none';
+                            signupLink.style.display = 'none';
+                        } else {
+                            // User is not logged in: show "Login" and "Signup", hide "My Profile" and "Logout"
+                            profileLink.style.display = 'none';
+                            logoutLink.style.display = 'none';
+                            loginLink.style.display = 'block';
+                            signupLink.style.display = 'block';
+                        }
+                    });
+                    // Call the checkLoginStatus function on page load to set up the menu correctly
+
                     function togglePasswordVisibility(passwordFieldId, iconId) {
                         const passwordField = document.getElementById(passwordFieldId);
                         const togglePassword = document.getElementById(iconId);
@@ -747,10 +759,7 @@ Additional styling for smaller screens
         </div>
 
     </nav>
-    </form>
-    <div id="backToTop" title="Back to Top">
-        <i class="fas fa-arrow-up"></i>
-    </div>
+ 
 
     <!-- JavaScript for Hamburger Menu Toggle -->
     <script>
@@ -1902,7 +1911,7 @@ Additional styling for smaller screens
         });
     </script>
 
-    <script src="scripts.js"></script> <!-- Link to your service worker registration script -->
+ 
 
 </body>
 
