@@ -421,12 +421,16 @@ Additional styling for smaller screens
                 <div class="dropdown">
                     <!-- Profile Icon -->
 
+ 
                     <a href="javascript:void(0);" class="profile-link"
                         style="display: flex; align-items: center; text-decoration: none;" onclick="toggleMenu()">
-                        <img src="https://i.postimg.cc/NFFmtc9K/xnz-Mst5-V-400x400.jpg" alt="Profile Icon"
+                        <img id="dropdownProfileImage" src="https://i.postimg.cc/NFFmtc9K/xnz-Mst5-V-400x400.jpg"
+                            alt="Profile Icon"
                             style="width: 50px; height: 50px; border-radius: 50%; margin-top: -17px;">
+
                     </a>
-                    </li>
+
+ 
 
                     <!-- Dropdown Menu -->
                     <ul class="dropdown-menu" id="profileMenu" style="display: none; position: absolute; z-index: 1;">
@@ -454,6 +458,7 @@ Additional styling for smaller screens
                             menu.style.display = 'none';
                         }
                     }
+ 
                 </script>
 
                 <!-- Login Form -->
@@ -461,6 +466,7 @@ Additional styling for smaller screens
                     <!-- Someone either didnt give the Javascript for this or some pr ended up deleting it -->
                     <!--the validateLoginForm is not there... -->
                     <form class="form-container" onsubmit="validateLoginForm()" style="max-width: 400px; margin: auto;">
+ 
                         <span class="close-icon" onclick="closeForm('login')">&times;</span>
                         <h2 class="text-center">Login</h2>
                         <div class="form-group">
@@ -505,8 +511,9 @@ Additional styling for smaller screens
 
                 <!-- Signup Form -->
                 <div class="form-popup" id="signupForm">
+ 
                     <form class="form-container" onsubmit="validateSignupForm()"
-                        style="max-width: 400px; margin: auto;">
+                         style="max-width: 400px; margin: auto;">
                         <span class="close-icon" onclick="closeForm('signup')">&times;</span>
                         <h2 class="text-center">Signup</h2>
                         <div class="form-group">
@@ -752,6 +759,7 @@ Additional styling for smaller screens
         </div>
 
     </nav>
+ 
 
     <!-- JavaScript for Hamburger Menu Toggle -->
     <script>
@@ -1903,6 +1911,7 @@ Additional styling for smaller screens
         });
     </script>
 
+ 
 
 </body>
 
