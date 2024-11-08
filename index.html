@@ -1555,7 +1555,61 @@ Additional styling for smaller screens
             <!-- Toast Popup -->
             <div id="toast" class="toast hidden"></div>
         </section>
+<script>
+    document.getElementById('newsletterForm').onsubmit = async function(event) {
+  event.preventDefault(); // Prevent the form from refreshing the page
 
+  const emailInput = document.getElementById('emailInput');
+  const email = emailInput.value;
+  const errorMessage = document.getElementById('error-message');
+  const toast = document.getElementById('toast');
+
+  // Basic validation to check if email contains '@'
+  if (!email.includes('@')) {
+    errorMessage.style.display = 'block';
+    return;
+  } else {
+    errorMessage.style.display = 'none';
+  }
+
+  try {
+    // Call the API
+    const response = await fetch('http://localhost:5000/api/contact/newsletter', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    const result = await response.json();
+
+    // Show toast with feedback
+    if (response.ok) {
+      showToast("You've successfully subscribed to the newsletter!");
+      emailInput.value = ''; // Clear the input after success
+    } else {
+      showToast(result.message || 'Failed to subscribe. Please try again.');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    showToast('An error occurred. Please try again.');
+  }
+};
+
+// Function to display toast message
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.classList.remove('hidden');
+  
+  // Hide toast after 3 seconds
+  setTimeout(() => {
+    toast.classList.add('hidden');
+  }, 3000);
+}
+
+    </script>
         <style>
             /* Style the email input field */
 
