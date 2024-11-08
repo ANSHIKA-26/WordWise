@@ -3753,59 +3753,12 @@ h1 + p, p + p {
   border-color: #ec8791; /* Maintain the border color on hover */
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .d-flex-gap {
-      flex-direction: column; /* Stack buttons on smaller screens */
-      align-items: center; /* Center buttons on small screens */
-  }
-}
-
-@media (max-width: 769px) {
-  #word-of-the-day{
-
-    margin-left: 15px;
-  }
-  
-}
-@media (max-width: 821px){
-  #word-of-the-day{
-    
-    margin-left: 10px;
-  }
-}
-
-@media (max-width: 1025px){
-  #word-of-the-day{
-   
-    margin-left: 28px;
-  }
-}
-@media (max-width: 541px){
-  #word-of-the-day{
-    margin-left: 0px;
-    margin-right: 200px;
-  
-  }
-
-}
-
-
-
-
-
-
-
-
-
-
-
 .d-flex-gap {
   display: flex;
-  gap: 15px; /* Space between buttons */
   flex-wrap: wrap; /* Wrap items to the next line if necessary */
   justify-content: center; /* Center the buttons horizontally */
-}.d-flex-gap a {
+}
+.d-flex-gap a {
   transition: all 0.2s ease;
   font-weight: 600;
   color: var(--text-color);
@@ -3813,14 +3766,11 @@ h1 + p, p + p {
 
 .d-flex-gap a i {
   font-size: 24px;
-  
-}.d-flex-gap {
+}
+.d-flex-gap {
   margin: 10px 15px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  
-   /* justify-content: space-around; */
 }
 
 .footer-title {
@@ -3865,4 +3815,52 @@ h1 + p, p + p {
 #twitter:hover{
   color: white;
   background-color: #14171A;
+}
+
+.all-tags a{
+  width: 300px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .accordion__title, .faq h1 {
+    margin-bottom: 1rem;
+  }
+
+  .accordion__wrapper{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .d-flex-gap {
+      align-items: center;
+  }
+}
+
+@media (max-width: 769px) {
+  #word-of-the-day{
+
+    margin-left: 15px;
+  }
+  
+}
+@media (max-width: 821px){
+  #word-of-the-day{
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 1025px){
+  #word-of-the-day{
+    margin-left: 28px;
+  }
+}
+@media (max-width: 541px){
+  #word-of-the-day{
+    margin-left: 0px;
+    margin-right: 200px;
+  }
+
 }
