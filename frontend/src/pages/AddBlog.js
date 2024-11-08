@@ -41,11 +41,23 @@ export function renderAddBlog(container) {
                                   class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"></textarea>
                     </div>
 
-                    <div class="mb-6">
-                        <label for="excerpt" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Content</label>
+                  <div class="mb-6 relative">
+                    <label for="excerpt" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Content</label>
+                    <div class="relative">
+                        <!-- Button for generating content -->
+                        <button id="generateContent" class="absolute top-2 right-2 text-2xl text-gray-500 dark:text-gray-300 hover:text-indigo-500 cursor-pointer" title="Generate AI Content">
+                            ✨
+                            <span class="tooltip absolute right-[95%] mr-2 hidden text-sm bg-gray-800 text-white p-1 rounded-md">
+                                Generate AI Content
+                            </span>
+                        </button>
+
+                        <!-- Textarea for content -->
                         <textarea id="excerpt" name="excerpt" rows="10" required
-                        class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"></textarea>
+                            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"></textarea>
                     </div>
+                </div>
+
 
                     <div class="mb-6">
                         <label for="tags" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Tags (comma-separated)</label>
@@ -70,8 +82,71 @@ export function renderAddBlog(container) {
         </div>
     `;
 
-    // Add form submission logic
-    // Updated form submission logic
+
+    const generateContent = document.getElementById('generateContent');
+
+    generateContent.addEventListener('click', async function (e) {
+        const title = document.getElementById('title').value;
+        const summary = document.getElementById('summary').value;
+        const excerpt = document.getElementById('excerpt');
+
+        // Check if the title is empty
+        if (title === '' && summary === '') {
+            toastr.error('Enter title and summary for more relavant content');
+            return;
+        }
+
+        try {
+            // Configure toastr to keep the message displayed until manually cleared
+            toastr.options = {
+                timeOut: 0, // Infinite timeout
+                extendedTimeOut: 0, // Prevents auto-hiding on hover
+                tapToDismiss: false // Prevents closing on click
+            };
+
+            // Display the loading message
+            let loadingToastr = toastr.info('Your content is getting ready, please wait!');
+
+            // Fetch content from the API using title and summary
+            let response = await fetch('http://127.0.0.1:8000/generate-content', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ title: title, summary: summary })
+            });
+
+            // Clear the loading message after the response
+            toastr.clear(loadingToastr);
+
+            // Check if the response is successful
+            if (response.ok) {
+                let data = await response.json();
+
+                // Display generated content in the textarea
+                excerpt.value = data.content;
+
+                // Show success message
+                toastr.success('Content generated successfully!');
+            } else {
+                toastr.error('Failed to generate content. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            toastr.error('An error occurred. Please check the console for details.');
+        } finally {
+            // Clear the loading message in case of any error or completion
+            toastr.clear(loadingToastr);
+        }
+
+    });
+
+
+
+
+
+
+
     const form = document.getElementById('add-blog-form');
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
