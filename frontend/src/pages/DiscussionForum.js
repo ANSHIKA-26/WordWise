@@ -1,32 +1,54 @@
 export async function renderDiscussionForum(container) {
-    // Initialize questions data
-    let questions = JSON.parse(localStorage.getItem('questions')) || [];
-
-    // Helper function to save questions to localStorage
-    const saveQuestions = () => {
-        localStorage.setItem('questions', JSON.stringify(questions));
+    // Fetch questions data from the backend
+    const fetchQuestions = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/api/discussion/getQuestion');
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error fetching questions:', error);
+            return [];
+        }
     };
 
-    // Function to handle adding a new question
-    const addQuestion = (content) => {
+    // Helper function to save a new question to the backend
+    const addQuestion = async (content) => {
         const newQuestion = {
-            id: Date.now(),
             content: content,
             answered: false,
             answer: '',
         };
-        questions.push(newQuestion);
-        saveQuestions();
-        render();
+        try {
+            const response = await fetch('http://localhost:5000/api/discussion/postQuestion', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newQuestion),
+            });
+            const savedQuestion = await response.json();
+            window.location.reload()
+        } catch (error) {
+            console.error('Error adding question:', error);
+        }
     };
 
-    // Function to handle adding an answer to a question
-    const addAnswer = (questionId, answerContent) => {
-        questions = questions.map(q =>
-            q.id === questionId ? { ...q, answered: true, answer: answerContent } : q
-        );
-        saveQuestions();
-        render();
+    // Helper function to add an answer to a question
+    const addAnswer = async (questionId, answerContent) => {
+        const answer = { answer: answerContent };
+        try {
+            const response = await fetch(`http://localhost:5000/api/discussion/${questionId}/answer`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(answer),
+            });
+            const updatedQuestion = await response.json();
+            window.location.reload()
+        } catch (error) {
+            console.error('Error adding answer:', error);
+        }
     };
 
     // Function to render the Question Card
@@ -55,12 +77,13 @@ export async function renderDiscussionForum(container) {
             answerSection.appendChild(answerText);
             card.appendChild(answerSection);
         } else {
-            const answerForm = renderAnswerForm(question.id);
+            const answerForm = renderAnswerForm(question._id);
             card.appendChild(answerForm);
         }
 
         return card;
     };
+
     // Function to render the Question Form
     const renderQuestionForm = () => {
         const formContainer = document.createElement('div');
@@ -117,93 +140,55 @@ export async function renderDiscussionForum(container) {
         return formContainer;
     };
 
-
-
     // Function to render the list of questions
-    const renderQuestionList = () => {
-        // Create container divs for unanswered and answered sections
+    const renderQuestionList = async () => {
+        const questions = await fetchQuestions();
+
+        // Create containers for unanswered and answered sections
         const unansweredContainer = document.createElement('div');
         const answeredContainer = document.createElement('div');
 
         // Create titles for unanswered and answered questions
+        const unansweredTitleContainer = document.createElement('div');
         const unansweredTitle = document.createElement('h2');
         unansweredTitle.textContent = 'Unanswered Questions';
         unansweredTitle.classList.add('text-2xl', 'font-semibold', 'mb-4', 'text-gray-800', 'dark:text-white');
 
+        const answeredTitleContainer = document.createElement('div');
         const answeredTitle = document.createElement('h2');
         answeredTitle.textContent = 'Answered Questions';
         answeredTitle.classList.add('text-2xl', 'font-semibold', 'mb-4', 'text-gray-800', 'dark:text-white', 'mt-8');
 
         // Append the titles to their respective containers
-        unansweredContainer.appendChild(unansweredTitle);
-        answeredContainer.appendChild(answeredTitle);
+        unansweredTitleContainer.appendChild(unansweredTitle);
+        answeredTitleContainer.appendChild(answeredTitle);
 
-        // Filter questions into answered and unanswered arrays
-        const unansweredQuestions = questions.filter(q => !q.answered);
-        const answeredQuestions = questions.filter(q => q.answered);
-
-        // Create a wrapper div for unanswered questions
+        // Create containers for the question cards
         const unansweredCardsContainer = document.createElement('div');
-        unansweredCardsContainer.classList.add('flex', 'gap-9', 'flex-wrap'); // Add space between cards
-
-        // Handle unanswered questions
-        if (unansweredQuestions.length === 0) {
-            const noUnansweredMessage = document.createElement('p');
-            noUnansweredMessage.textContent = 'No unanswered questions yet.';
-            unansweredCardsContainer.appendChild(noUnansweredMessage);
-        } else {
-            unansweredQuestions.forEach(q => {
-                const questionCard = renderQuestionCard(q);
-                unansweredCardsContainer.appendChild(questionCard);
-            });
-        }
-
-        // Create a wrapper div for answered questions
         const answeredCardsContainer = document.createElement('div');
-        answeredCardsContainer.classList.add('flex', 'gap-9', 'flex-wrap'); // Add space between cards
+        answeredCardsContainer.classList.add('flex', 'flex-wrap', 'gap-5')
+        unansweredCardsContainer.classList.add('flex', 'flex-wrap', 'gap-5')
 
-        // Handle answered questions
-        if (answeredQuestions.length === 0) {
-            const noAnsweredMessage = document.createElement('p');
-            noAnsweredMessage.textContent = 'No answered questions yet.';
-            answeredCardsContainer.appendChild(noAnsweredMessage);
-        } else {
-            answeredQuestions.forEach(q => {
-                const questionCard = renderQuestionCard(q);
+        questions.forEach((question) => {
+            const questionCard = renderQuestionCard(question);
+            if (question.answered) {
                 answeredCardsContainer.appendChild(questionCard);
-            });
-        }
+            } else {
+                unansweredCardsContainer.appendChild(questionCard);
+            }
+        });
 
-        // Append the card containers to their respective sections
-        unansweredContainer.appendChild(unansweredCardsContainer);
-        answeredContainer.appendChild(answeredCardsContainer);
+        // Clear previous content
+        container.innerHTML = '';
 
-        // Append both sections to the container
-        container.appendChild(unansweredContainer);
-        container.appendChild(answeredContainer);
+        // Append new content
+        container.appendChild(renderQuestionForm());
+        container.appendChild(unansweredTitleContainer);
+        container.appendChild(unansweredCardsContainer);
+        container.appendChild(answeredTitleContainer);
+        container.appendChild(answeredCardsContainer);
     };
 
 
-
-    const render = () => {
-        container.innerHTML = '';  // Clear the container
-
-        // Create the heading for the forum
-        const heading = document.createElement('h1');
-        heading.textContent = 'Wordwise Discussion Forum';
-        heading.classList.add('text-3xl', 'font-bold', 'mb-6', 'text-gray-800', 'dark:text-white');
-        container.appendChild(heading);
-
-        // First, append the question form at the top
-        const questionForm = renderQuestionForm();
-        container.appendChild(questionForm);
-
-        // Then, append the question list (answered and unanswered)
-        const questionList = renderQuestionList();
-        container.appendChild(questionList);
-    };
-
-
-
-    render();  // Initial render
+    renderQuestionList();
 }
