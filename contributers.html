@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>WordWise - Contributors</title>
+
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="Scroll_and_progressbar.css">
+
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"></noscript>
+</head>
+<body>
+    <nav>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <!-- Navigation Bar  -->
+        <div class="layout-container">
+
+            <header>
+
+                <div class="logo">
+                    <a href="index.html">
+                        <h2>WordWise</h2>
+                    </a>
+                </div>
+                <div class="hamburger" id="hamburger" onclick="toggleHamburgerMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="nav-links1" id="navLinks">
+                    <a href="index.html">Home</a>
+                    <a href="blog.html">Leading Blog</a>
+                    <a href="contributers.html">Contributers</a>
+                    <a href="start_writing.html">Start Writing</a>
+                    <a href="category.html">Categories</a>
+                    <a href="contact_us.html">Contact Us</a>
+                    <a href="give_feedback.html">Give Feedback</a>
+                
+                </div>
+
+                <div class="dropdown">
+                    <!-- Profile Icon -->
+
+
+                    <a href="javascript:void(0);" class="profile-link" style="display: flex; align-items: center; text-decoration: none;" onclick="toggleMenu()">
+                        <img id="dropdownProfileImage" src="https://i.postimg.cc/NFFmtc9K/xnz-Mst5-V-400x400.jpg" alt="Profile Icon" style="width: 50px; height: 50px; border-radius: 50%; margin-top: -17px;">
+
+                    </a>
+                
+
+                    <!-- Dropdown Menu -->
+                    <ul class="dropdown-menu" id="profileMenu" style="display: none; position: absolute; z-index: 1;">
+                        <li><a href="./profile.html">My Profile</a></li>
+                        <li><a href="#login" onclick="openForm('login')">Login</a></li>
+                        <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
+                    </ul>
+                </div>
+
+                <script>
+                    // Function to toggle the visibility of the dropdown menu
+                    function toggleMenu() {
+                        const menu = document.getElementById('profileMenu');
+                        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+                    }
+
+                    // Close the dropdown if the user clicks outside of it
+                    window.onclick = function(event) {
+                        const menu = document.getElementById('profileMenu');
+                        if (!event.target.matches('.profile-link img') && menu.style.display === 'block') {
+                            menu.style.display = 'none';
+                        }
+                    }
+                
+                    // Update the profile image in the dropdown menu based on the selected avatar stored in localStorage
+                    document.addEventListener("DOMContentLoaded", function() {
+                        // Retrieve the saved avatar from localStorage
+                        const savedAvatar = localStorage.getItem("selectedAvatar");
+                
+                        // If an avatar is saved, update the profile image
+                        if (savedAvatar) {
+                            const dropdownProfileImage = document.getElementById("dropdownProfileImage");
+                            if (dropdownProfileImage) {
+                                dropdownProfileImage.src = savedAvatar;  // Update the image source
+                            }
+                        }
+                    });
+                </script>
+
+
+                
+                
+
+
+                <!-- Login Form -->
+                <div class="form-popup" id="loginForm">
+                    <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
+                        <span class="close-icon" onclick="closeForm('login')">&times;</span>
+                        <h2 class="text-center">Login</h2>
+                        <div class="form-group">
+                            <label for="loginEmail"><b>Email</b></label>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="Enter Email" name="email" required>
+                        </div>
+                        <div class="form-group position-relative">
+                            <label for="loginPsw"><b>Password</b></label>
+                            <input type="password" class="form-control" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+                            <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
+                        </div>
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember-me" />
+                            <label for="remember-me">Remember Me</label>
+                        </div>
+                        <div class="forgot">
+                            <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
+                        </div>
+                        <button type="submit" class="btn btn-secondary w-100 mb-3">LOGIN</button>
+                        <style>
+                            .btn:hover {
+                                transition: 0.5s ease;
+                            }
+                        </style>
+                        <!-- Google Login Button -->
+                        <button type="button" class="btn google-btn" onclick="window.location.href='https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmyaccount.google.com%2F&ec=GAlAwAE&hl=en_GB&service=accountsettings&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S1527110508%3A1729760212648495&ddm=0'">
+                            <img src="./assets/google_icon.webp" alt="Google Logo" class="google-logo">
+                            Sign in with Google</button>
+                        <button type="button" class="btn btn-secondary w-100" onclick="closeForm('login')">CLOSE</button>
+                        <!-- Link to Signup Page -->
+                        <div class="new">
+                            <p>Don't have an account? <a href="javascript:void(0);" onclick="openForm('signup')">Sign up
+                                    here</a></p>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Signup Form -->
+                <div class="form-popup" id="signupForm">
+                    <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
+                        <span class="close-icon" onclick="closeForm('signup')">&times;</span>
+                        <h2 class="text-center">Signup</h2>
+                        <div class="form-group">
+                            <label for="name"><b>Full Name</b></label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupEmail"><b>Email</b></label>
+                            <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required>
+                        </div>
+                        <div class="form-group position-relative">
+                            <label for="signupPsw"><b>Password</b></label>
+                            <input type="password" class="form-control" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+                            <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
+                        </div>
+                        <div class="form-group position-relative">
+                            <label for="confirmPsw"><b>Confirm Password</b></label>
+                            <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+                            <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
+                        </div>
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember-me" />
+                            <label for="remember-me">Remember Me</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 mb-3">SIGNUP</button>
+                        <!-- Google Sign-In Button -->
+                        <button type="button" class="btn google-btn" onclick="window.location.href='https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmyaccount.google.com%2F&ec=GAlAwAE&hl=en_GB&service=accountsettings&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S1527110508%3A1729760212648495&ddm=0'">
+                            <img src="./assets/google_icon.webp" alt="Google Logo" class="google-logo">
+                            Sign in with Google</button>
+                        <button type="button" class="btn btn-secondary w-100" onclick="closeForm('signup')">CLOSE</button>
+                        <!-- Link to Login Page -->
+                        <div class="new">
+                            <p>Already have an account? <a href="javascript:void(0);" onclick="openForm('login')">Login
+                                    here</a></p>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Forgot Password Modal -->
+                <div id="forgot-password-modal" class="modal">
+                    <div class="form-container modal-content">
+                        <h2>Forgot Password</h2>
+                        <p>Please enter your email address to reset your password.</p>
+
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email" required />
+
+                        <button class="btn" onclick="submitForgotPassword()">Submit</button>
+                        <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
+                    </div>
+                </div>
+
+                <!-- Toggle Password Visibility Script -->
+                <script>
+                    function togglePasswordVisibility(passwordFieldId, iconId) {
+                        const passwordField = document.getElementById(passwordFieldId);
+                        const togglePassword = document.getElementById(iconId);
+                        if (passwordField.type === 'password') {
+                            passwordField.type = 'text';
+                            togglePassword.classList.remove('bi-eye');
+                            togglePassword.classList.add('bi-eye-slash');
+                        } else {
+                            passwordField.type = 'password';
+                            togglePassword.classList.remove('bi-eye-slash');
+                            togglePassword.classList.add('bi-eye');
+                        }
+                    }
+                </script>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const rememberMeCheckbox = document.getElementById("remember-me");
+                        const usernameInput = document.getElementById("username");
+
+                        // Load saved username if it exists
+                        if (localStorage.getItem("rememberedUsername")) {
+                            usernameInput.value = localStorage.getItem("rememberedUsername");
+                            rememberMeCheckbox.checked = true;
+                        }
+
+                        // When the form is submitted, save the username if "Remember Me" is checked
+                        document.querySelector(".sign-in-form").addEventListener("submit", function (e) {
+                            e.preventDefault(); // Prevent default form submission
+
+                            if (rememberMeCheckbox.checked) {
+                                localStorage.setItem("rememberedUsername", usernameInput.value);
+                            } else {
+                                localStorage.removeItem("rememberedUsername");
+                            }
+
+                            // Add form submission logic here
+                        });
+                    });
+                </script>
+
+
+                <!-- Styles -->
+                <style>
+                    .form-popup {
+                        .form-popup {
+                            display: none;
+                            /* Hidden by default */
+                            position: fixed;
+                            /* Stay in place */
+                            z-index: 9;
+                            /* Sit on top */
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                            /* Center the popup */
+                            width: 100%;
+                            max-width: 500px;
+                            /* Limit width */
+                            padding: 20px;
+                            background-color: white;
+                            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+                            border-radius: 10px;
+                            box-sizing: border-box;
+                        }
+                    }
+
+                    .form-container h2 {
+                        margin-bottom: 20px;
+                        color: #333;
+                    }
+
+                    .form-group {
+                        margin-bottom: 15px;
+                    }
+
+                    .form-control {
+                        border-radius: 5px;
+                        padding: 10px;
+                        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+                    }
+
+                    .btn {
+                        margin-top: 10px;
+                        border-radius: 5px;
+                    }
+
+                    .eye-icon {
+                        position: absolute;
+                        right: 15px;
+                        top: 38px;
+                        cursor: pointer;
+                        color: #007bff;
+                    }
+
+                    .close-icon {
+                        font-size: 24px;
+                        cursor: pointer;
+                        float: right;
+                    }
+
+                    .position-relative {
+                        position: relative;
+                    }
+
+                    .btn-primary:hover {
+                        background-color: #0056b3;
+                    }
+
+                    .btn-secondary:hover {
+                        background-color: #6c757d;
+                    }
+
+                    .scroll-to-top {
+                        background-color: #0066cc;
+                        /* Button color */
+                        color: white;
+                        /* Text color */
+                        border: none;
+                        /* No border */
+                        border-radius: 5px;
+                        /* Rounded corners */
+                        padding: 10px 15px;
+                        /* Padding for better appearance */
+                        cursor: pointer;
+                        /* Pointer cursor on hover */
+                        margin-top: 10px;
+                        /* Space between the paragraph and button */
+                    }
+
+                    .scroll-to-top:hover {
+                        background-color: #005bb5;
+                        /* Darker shade on hover */
+                    }
+                </style>
+
+                <!-- Bootstrap Icons -->
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+                <script src="backend/signup/signup.js"></script>
+                <!-- Link to your JavaScript file -->
+
+                <!-- Theme Switch -->
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox">
+                        <div class="slider">
+                            <img src="https://img.icons8.com/emoji/48/000000/sun-emoji.png" alt="Sun"
+                                class="icon sun-icon">
+                            <img src="https://img.icons8.com/emoji/48/000000/crescent-moon-emoji.png" alt="Moon"
+                                class="icon moon-icon">
+                        </div>
+                    </label>
+                    <span id="mode-label"></span>
+                </div>
+
+            </header>
+        </div>
+    </nav>
+    <br><br><br><br><br><br>
+
+    <center><h4>Our Valueable Contributers </h4></center>
+
+    <br><br><br>
+  <div id="contributors-container" class="contributors-container">
+    <!-- Contributors will be displayed here -->
+  </div>
+
+<!-- footer -->
+<footer id="footer">
+    <div class="footer-container">
+        <div class="row mb-3 col-3-main">
+            <div class="col-3">
+                <div id="about-us">
+                    <h2 class="footer-title secondary-title">About Us</h2>
+
+                    <div class="secondary-title text-secondary ">
+                        <p class="mt-2 text-lg" style="text-align: left;">
+                            We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the world.
+                        </p>
+
+                        <address class="mt-2">
+                            <i class="fas fa-map-marker-alt text-primary"></i>
+                            5 South Main Street Los Angeles, ZZ-9611 USA
+                        </address>
+
+                        <div class="phone mt-2">
+                            <i class="fas fa-mobile text-primary"></i> 125-896-485
+                        </div>
+
+                        <div class="email mt-2">
+                            <a href="mailto: dailysupport@gmail.com" style="color: 3B3B58;"><i
+                                    class="fas fa-envelope text-primary"></i>
+                                <span id="mailhover">dailysupport@gmail.com</span>
+                                <style>
+                                    #mailhover:hover {
+                                        color: #f44336;
+                                        transition: color 0.5s ease-out;
+                                    }
+                                </style>
+                            </a>
+                        </div>
+
+                        <div>
+                            <!-- <img src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5" alt="Web views" style="height: 20px;width: 150px;margin-top: 40px;"> -->
+                             <div class="containerWebsiteViews">
+                                <div class="containerText"><p>Website Views</p></div>
+                                <div class="containerNumbers"><p id="visitorCount">0</p></div>
+                             </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-3">
+                <h2 class="footer-title secondary-title">Feature Post</h2>
+
+                <div class="feature-post">
+                    <div class="flex-item">
+                        <article class="article">
+                            <div class="d-flex" style="align-items: flex-start; ">
+                                <a class="d-flex" href="#">
+                                    <img src="./assets/img9.webp" class="object-fit" alt="">
+                                    <div class="px-1" style="width: 300px; ">
+                                        <a href="#" class="text-title display-2 text-dark">
+                                            Embrace the beauty of nature through our enchanting blog, where we
+                                            celebrate the wonders of the natural world
+                                        </a>
+                                        <p class="secondary-title text-secondary " style="margin-top:3px;margin-left:0px; text-align: left; ">
+                                            <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </article>
+
+                    </div>
+                    <div class="flex-item">
+                        <article class="article">
+                            <div class="d-flex" style="align-items: flex-start; ">
+                                <a class="d-flex" href="#">
+                                    <img src="./assets/img1.webp" class="object-fit" alt="">
+                                    <div class="px-1" style="width: 300px;">
+                                        <a href="#" class="text-title display-2 text-dark">
+                                            Embark on unforgettable journeys through our travel blog, where
+                                            wanderlust meets inspiration
+                                        </a>
+                                        <p class="secondary-title text-secondary display-3" style="margin-top:3px;margin-left:0px; text-align: left;">
+                                            <span><i class="far fa-clock text-primary"></i> Wed 05, 2020 </span>
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="flex-item">
+                        <article class="article">
+                            <div class="d-flex" style="align-items: flex-start; ">
+                                <a class="d-flex " href="#">
+                                    <img src="./assets/img2.webp" class="object-fit" alt="">
+                                    <div class="px-1" style="width: 300px;">
+                                        <a href="#" class="text-title display-2 text-dark">
+                                            Gaming Adventures Unleashed
+                                        </a>
+                                        <p class="secondary-title text-secondary display-3" style="margin-top:3px;margin-left:0px; text-align: left;">
+                                            <span><i class="far fa-clock text-primary"></i> Wed 02, 2021 </span>
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <h2 class="footer-title secondary-title">Popular Tags</h2>
+                <div class="tags">
+                  <div class="d-flex-gap flex-wrap">
+                    <a href="./blog.html" class="nav-link btn category-btn">Travel</a>
+                    <a href="./blog.html" class="nav-link btn category-btn">Food</a>
+                    <a href="./blog.html" class="nav-link btn category-btn">Lifestyle</a>
+                    <a href="./blog.html" class="nav-link btn category-btn">Technology</a>
+                    <a href="./blog.html" class="nav-link btn category-btn">Fashion</a>
+                </div>
+
+                </div>
+                <h2 class="footer-title secondary-title mt-5">Connect with us</h2>
+                <div class="tags social" id="contact">
+                    <div class="d-flex-gap flex-wrap">
+                        <a href="https://www.facebook.com/" id="facebook" class="nav-link btn bg-light">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/" id="twitter" class="nav-link btn bg-light">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/" id="instagram" class="nav-link btn bg-light">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://dribbble.com/" id="dribbble" class="nav-link btn bg-light">
+                            <i class="fab fa-dribbble"></i>
+                        </a>
+                        <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" id="github" target="_blank"
+                           class="nav-link btn bg-light">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- the authentication copyright -->
+    <div class="wordwise-footer">
+        <div class="wordwise-footer-content">
+            <p class="last">&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
+            <button id="scrollToTop" class="scroll-to-top">↑ Back to Top</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById('scrollToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Smooth scrolling effect
+            });
+        });
+    </script>
+
+</footer>
+<!-- .footer -->
+  
+  
+<style>
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f7fc;
+}
+
+
+h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+h4 {
+  font-size: 40px;
+  margin-top: 30px;
+
+}
+
+p {
+  font-size: 1.2em;
+}
+
+.contributors-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.contributor-card {
+  background-color:#f8b5b5;
+  border-radius: 10px;
+  width: 200px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.contributor-card:hover {
+  transform: scale(1.05);
+}
+
+.contributor-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.contributor-card .name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.contributor-card .contributions {
+  color: #555;
+}
+
+
+@media (max-width: 1200px) {
+            .footer-container {
+                padding: 20px;
+            }
+            .col-3-main {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .col-3 {
+                width: 33.33%;
+            }
+        }
+   </style>
+
+
+
+
+  <script>
+  const contributorsContainer = document.getElementById('contributors-container');
+
+// Replace with your repository details
+const owner = 'OWNER_NAME';  // e.g., 'facebook'
+const repo = 'REPO_NAME';    // e.g., 'react'
+
+// GitHub API endpoint for fetching contributors
+const apiUrl = `https://api.github.com/repos/ANSHIKA-26/WordWise/contributors`;
+
+async function fetchContributors() {
+  try {
+    const response = await fetch(apiUrl);
+    
+    // If the response is successful, parse the data
+    if (!response.ok) {
+      throw new Error('Failed to fetch contributors');
+    }
+
+    const data = await response.json();
+
+    // Loop through contributors and create HTML for each one
+    data.forEach(contributor => {
+      const contributorCard = document.createElement('div');
+      contributorCard.classList.add('contributor-card');
+
+      contributorCard.innerHTML = `
+        <img src="${contributor.avatar_url}" alt="${contributor.login}'s Avatar">
+        <div class="name">${contributor.login}</div>
+        <div class="contributions">${contributor.contributions} contributions</div>
+      `;
+
+      // Append the contributor card to the container
+      contributorsContainer.appendChild(contributorCard);
+    });
+  } catch (error) {
+    console.error('Error fetching contributors:', error);
+    contributorsContainer.innerHTML = '<p>No Internet</p>';
+  }
+}
+
+// Fetch contributors when the page loads
+fetchContributors();
+
+  </script>
+  
+  
+</body>
+</html>
