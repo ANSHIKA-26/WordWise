@@ -3812,6 +3812,16 @@ h1 + p, p + p {
   font-size: 20px; /* Adjust icon size */
   padding: 0;
 }
+.post-tags #facebook,#instagram,#twitter,#dribbble,#github{
+  width: 50px; /* Ensure all icons are the same size */
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Make them circular */
+  font-size: 20px; /* Adjust icon size */
+  padding: 0;
+}
 #twitter:hover{
   color: white;
   background-color: #14171A;
