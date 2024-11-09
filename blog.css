@@ -18,151 +18,184 @@
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5), 0 8px 20px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
   }
   
-  /* Content Container */
+ /* Color variables for light and dark themes */
+ :root {
+  --card-bg-color-light: #f5efe4; /* Light mode card background (cream) */
+  --card-bg-color-dark: #2a2a2a; /* Dark mode card background */
+  --text-color-light: #333333; /* Dark text for light mode */
+  --text-color-dark: #e0e0e0; /* Light text for dark mode */
+  --shadow-light: rgba(0, 0, 0, 0.2); /* Soft shadow for light mode */
+  --shadow-dark: rgba(0, 0, 0, 0.7); /* Stronger shadow for dark mode */
+  --highlight-color-light: #f9b0b0; /* Light mode highlight color */
+  --highlight-color-dark: #f9b0b0; /* Dark mode highlight color */
+  --tag-bg-color-light: #fff; /* Light mode tag background */
+  --tag-bg-color-dark: #333; /* Dark mode tag background */
+  --post-navigation-bg-light: #f5efe4; /* Light mode background for post navigation */
+  --post-navigation-bg-dark: #2a2a2a; /* Dark mode background for post navigation */
+  --post-bg-light: #ffffff; /* Light mode post card background */
+  --post-bg-dark: #3b3b3b; /* Dark mode post card background */
+  --post-hover-bg-light: #e6e6e6; /* Light mode post card hover background */
+  --post-hover-bg-dark: #2c2c2c; /* Dark mode post card hover background */
+  --post-shadow-light: rgba(0, 0, 0, 0.2); /* Light mode shadow */
+  --post-shadow-dark: rgba(0, 0, 0, 0.5); /* Dark mode shadow */
+  --post-hover-shadow-light: rgba(0, 0, 0, 0.3); /* Light mode hover shadow */
+  --post-hover-shadow-dark: rgba(0, 0, 0, 0.7); /* Dark mode hover shadow */
+  --border-radius: 10px; /* Consistent border radius for both modes */
+}
+
+/* Card container styles */
 .content-container {
-    background-color: #1e1e1e; /* Dark background for better readability */
-    padding: 20px 30px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Shadow for depth */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
-  }
+  padding: 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Light mode card background, shadow, and text color */
+[data-theme="light"] .content-container {
+  background-color: var(--card-bg-color-light);
+  box-shadow: 0 4px 15px var(--shadow-light); /* Softer shadow for light mode */
+  color: var(--text-color-light); /* Black text for readability */
+}
+
+/* Dark mode card background, shadow, and text color */
+[data-theme="dark"] .content-container {
+  background-color: var(--card-bg-color-dark);
+  box-shadow: 0 4px 15px var(--shadow-dark); /* Strong shadow for dark mode */
+  color: var(--text-color-dark); /* White text for readability */
+}
+
+/* Secondary title styling */
+.secondary-title {
+  color: inherit; /* Inherit text color from parent */
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 15px;
+  padding: 10px; /* Optional: Add padding for better appearance */
+}
+
+/* Paragraph text adjustments */
+.content p {
+  font-size: 1.1rem;
+  line-height: 1.6; /* Improved line spacing */
+  margin: 10px 0; /* Consistent spacing between paragraphs */
+  color: inherit; /* Inherit text color for light and dark mode */
+}
+
   
-  /* Content Text */
-  .content p {
-    color: #f5f5f5; /* Light color for dark background */
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
-    line-height: 1.8;
-    text-align: justify;
-    margin: 0;
-  }
-  
-  /* Heading Style */
-  .content-container .display-1 {
-    font-weight: 600;
-    font-size: 24px;
-    color: #f9b0b0; /* Slightly brighter color for the title */
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  
-  /* Hover Effect */
-  .content-container:hover {
-    transform: scale(1.02); /* Slight zoom effect */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); /* Enhanced shadow on hover */
-  }
-  
-  /* Additional Styling for Links */
-  .content-container a {
-    color: #f9b0b0;
-    transition: color 0.3s ease;
-  }
-  
-  .content-container a:hover {
-    color: #e56b6f; /* Brighter color on hover */
-  }
-  
-  /* Container Styling */
+ /* Container Styling */
 .post-footer-container {
-    background-color: #1e1e1e;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  }
-  
-  /* Tags Styling */
-  .tag-link {
-    background-color: #333;
-    color: #f9b0b0;
-    margin: 5px;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-weight: 500;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .tag-link:hover {
-    background-color: #f9b0b0;
-    color: #333;
-  }
-  
-  /* Author Section Styling */
-  .author-avatar {
-    width: 100px; /* Increased size */
-    height: 100px; /* Increased size */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 15px;
-  }
-  
-  .author-avatar img {
-    width: 100%; /* Makes the image responsive */
-    height: auto; /* Maintains aspect ratio */
-    border-radius: 50%; /* Keeps it circular */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Retains shadow effect */
-  }
-  
-  .author-name {
-    font-size: 20px;
-    color: #f9b0b0;
-    margin: 10px 0 5px;
-  }
-  
-  .author-bio {
-    font-size: 14px;
-    color: #ddd;
-    margin-bottom: 10px;
-  }
-  
-  /* Social Media Links */
-  .social-links .social-icon {
-    color: #f9b0b0;
-    font-size: 18px;
-    margin: 0 8px;
-    padding: 8px;
-    border-radius: 50%;
-    background-color: #333;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .social-links .social-icon:hover {
-    background-color: #f9b0b0;
-    color: #333;
-    transform: scale(1.1);
-  }
-  
-  /* Post Navigation Container */
-.post-navigation {
-    background-color: #2a2a2a; /* Dark background for contrast */
-    padding: 30px; /* Increased padding for better spacing */
-    border-radius: 10px; /* More pronounced border radius */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
-  }
-  
-  /* Post Container */
-  .post-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch; /* Ensures the cards are of equal height */
-  }
-  
-  /* Post Card */
-  .post-card {
-    background-color: #3b3b3b; /* Slightly lighter background for post cards */
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 48%; /* Adjusting width for proper spacing */
-    display: flex; /* Flex layout for content alignment */
-    flex-direction: column; /* Stack content vertically */
-  }
-  
-  .post-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7); /* Enhanced shadow on hover */
-  }
+  background-color: var(--card-bg-color-dark); /* Default to dark mode background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--shadow-dark);
+}
+
+[data-theme="light"] .post-footer-container {
+  background-color: var(--card-bg-color-light); /* Light mode background */
+  box-shadow: 0 4px 12px var(--shadow-light);
+}
+
+/* Tags Styling */
+.tag-link {
+  background-color: var(--tag-bg-color-dark); /* Default dark background */
+  color: var(--highlight-color-dark); /* Set text color to match social icons */
+  margin: 5px;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect for tags */
+.tag-link:hover {
+  background-color: var(--highlight-color-dark);
+  color: #333;
+}
+
+[data-theme="light"] .tag-link {
+  background-color: var(--tag-bg-color-light); /* Light mode tag background */
+  color: var(--highlight-color-light); /* Light mode text color */
+}
+
+[data-theme="light"] .tag-link:hover {
+  background-color: var(--highlight-color-light);
+  color: #333;
+}
+
+/* Author Section Styling */
+.author-name {
+  font-size: 20px;
+  color: var(--highlight-color-dark); /* Color matches social icons */
+  margin: 10px 0 5px;
+}
+
+[data-theme="light"] .author-name {
+  color: var(--highlight-color-light); /* Light mode author name color */
+}
+
+.author-bio {
+  font-size: 14px;
+  color: #ddd;
+  margin-bottom: 10px;
+}
+
+/* Social Media Links */
+.social-links .social-icon {
+  color: var(--highlight-color-dark); /* Matches the tag and author text color */
+  font-size: 18px;
+  margin: 0 8px;
+  padding: 8px;
+  border-radius: 50%;
+  background-color: #333;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links .social-icon:hover {
+  background-color: var(--highlight-color-dark);
+  color: #333;
+  transform: scale(1.1);
+}
+
+/* Container Styling */
+.post-footer-container {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Post Footer Styling */
+.post-footer {
+  margin-bottom: 3rem;
+}
+
+/* Author Avatar Styling */
+.author-avatar {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.author-avatar img {
+  width: 100%; /* Makes the image responsive */
+  height: auto; /* Maintains aspect ratio */
+  border-radius: 50%; /* Keeps it circular */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Retains shadow effect */
+}
+
+/* Social Links Styling */
+.social-links .social-icon {
+  color: var(--highlight-color-dark); /* Matches the color for text */
+}
+
+[data-theme="light"] .social-links .social-icon {
+  color: var(--highlight-color-light);
+}
+ 
   
   /* Navigation Label */
   .nav-label {
@@ -307,3 +340,78 @@
   }
   
   
+.d-flex-gap {
+  display: flex;
+  gap: 15px; /* Space between buttons */
+  flex-wrap: wrap; /* Wrap items to the next line if necessary */
+  justify-content: center; /* Center the buttons horizontally */
+}.d-flex-gap a {
+  transition: all 0.2s ease;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.d-flex-gap a i {
+  font-size: 24px;
+  
+}.d-flex-gap {
+  margin: 10px 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  
+   /* justify-content: space-around; */
+}
+
+.footer-title {
+  text-align: center;
+}
+
+/* Center-align the icon container and set gap between icons */
+#contact .d-flex-gap {
+  display: flex;
+  justify-content: center;
+  gap: 1px; /* Adjust the spacing between icons */
+  flex-wrap: wrap;
+}
+
+/* Style each social icon button */
+#contact .nav-link {
+  width: 50px; /* Ensure all icons are the same size */
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Make them circular */
+  font-size: 20px; /* Adjust icon size */
+  padding: 0;
+}
+
+footer .secondary-title.text-secondary.display-3 {
+  font-size: 0.875rem; /* Reduced font size */
+}
+
+/* Decrease the font size of the date paragraphs */
+footer .secondary-title.text-secondary {
+  font-size: 0.875rem; /* Reduced font size */
+}
+footer .secondary-title.text-secondary {
+  font-size: 0.875rem; /* Reduced font size */
+  font-weight: normal; /* Ensure text is not bold */
+}
+
+footer .footer-title.secondary-title {
+  font-size: 1.75rem; /* Adjust the size as needed */
+}
+
+
+.feature-post .flex-item .article .text-title {
+  margin-bottom: 5px; /* Adjust this value to decrease spacing between title and date */
+}
+
+.feature-post .flex-item .article .secondary-title {
+  margin-top: 2px; /* Adjust this value to decrease spacing between date and the content */
+}
+.feature-post .flex-item {
+  margin-bottom: 10px; /* Adjust this to decrease the space between posts */
+}
