@@ -35,7 +35,7 @@ githu * {
  align-items: center;
   position: fixed;
   background: rgb(248, 214, 104) center;
-  z-index: 99;
+  z-index: 1000;
 }
 /* From Uiverse.io by Nawsome */ 
 .loadingspinner {
@@ -555,7 +555,7 @@ background: var(--light);
 }
 #backToTop {
   position: fixed;
-  bottom: 30px;
+  bottom: 80px;
   right: 10px;
   width: 60px;
   height: 60px;
@@ -3834,6 +3834,22 @@ h1 + p, p + p {
   gap: 1px; /* Adjust the spacing between icons */
   flex-wrap: wrap;
 }
+.bg-lights {
+  padding: 12px 20px;
+  background-color: #ec8791;
+  color: #1a171700;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+
+[data-mode="dark"].bg-light {
+  background-color:#333;
+}
+
 
 /* Style each social icon button */
 #contact .nav-link {
@@ -3845,3 +3861,8 @@ h1 + p, p + p {
   border-radius: 50%; /* Make them circular */
   font-size: 20px; /* Adjust icon size */
   padding: 0;
+}
+#twitter:hover{
+  color: white;
+  background-color: #14171A;
+}

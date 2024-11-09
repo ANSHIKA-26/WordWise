@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WordWise - Start Writing</title>
+    <title>WordWise - FAQs Forum</title>
     <link rel="shortcut icon" type="image/x-icon" href="/images/favi.webp" />
     <!--font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -92,9 +92,11 @@
         </div>
         <div class="dropdown">
           <!-- Profile Icon -->
-          <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
-            <i class="fas fa-user-circle"></i>
 
+          <a href="javascript:void(0);" class="profile-link profile-icon" style="display: flex; align-items: center; text-decoration: none;" onclick="toggleMenu()">
+              <i class="fas fa-user-circle"></i>
+          </a>
+      
 
           <!-- Dropdown Menu -->
           <ul class="dropdown-menu" id="profileMenu" style="display: none; position: absolute; z-index: 1;">
@@ -388,7 +390,7 @@
               </div>
             </label>
             <span id="mode-label"></span>
-                
+                
           </div>
         </header>
       </div>
@@ -397,83 +399,138 @@
     <!-- main -->
     <!-- main -->
     <main style="margin-top: 8rem;">
-      <div class="blog-form-container">
-        <form id="blogForm" onsubmit="PostBlog(event)">
-          <h2 style="margin-bottom: 15px">Start Writing</h2>
-
-          <label for="blogHeading">Blog Heading:</label>
-          <input
-            type="text"
-            id="blogHeading"
-            name="heading"
-            placeholder="Enter blog heading"
-            required
-          />
-
-          <label for="blogTopic">Select Topic:</label>
-          <select id="blogTopic" name="topic" required>
-            <option value="" disabled selected>Select a topic</option>
-            <option value="Travel">Travel</option>
-            <option value="Technology">Technology</option>
-            <option value="Lifestyle">Lifestyle</option>
-          </select>
-
-          <label for="blogImage">Upload Image:</label>
-          <input type="file" id="blogImage" name="image" accept="image/*" />
-
-          <!-- Collaborative Writing Section -->
-          <div id="collaborativeSection">
-            <h3>Collaborative Writing</h3>
-            <div id="collaborators">
-              <label>Collaborators:</label>
-              <ul id="collaboratorsList"></ul>
-              <input type="text" id="newCollaborator" placeholder="Enter collaborator's email">
-              <button type="button" id="addCollaborator" class="add-collaborator">Add Collaborator</button>
-            </div>
-            <label for="collaborativeContent">Collaborative Content:</label>
-            <textarea id="collaborativeContent" placeholder="Start collaborative writing here..."></textarea>
-          </div>
-
-          <label for="blogContent">Additional Content:</label>
-          <div style="position: relative;">
-            <textarea
-              id="blogContent"
-              name="content"
-              rows="10"
-              placeholder="Add any additional content here..."
-            ></textarea>
-            <button type="button" id="start-voice-input" 
-            style="position: absolute; 
-            top: 10.5px; 
-            right: 0px;
-            margin: 10px;
-            font-size: 20px; 
-            padding: 7px;">
-              🎤
+        <div class="blog-form-container">
+          <form id="blogForm" onsubmit="postQuestion(event)">
+            <h2 style="margin-bottom: 15px">FAQs Forum</h2>
+      
+            <label for="blogHeading">Ask a Question:</label>
+            <input
+              type="text"
+              id="blogHeading"
+              name="heading"
+              placeholder="Enter your question"
+              required
+              style="width: 100%; padding: 10px; margin-top: 10px; border-radius: 5px; border: 1px solid #ddd;"
+            />
+            <button
+              class="btn load-posts-btn secondary-title text-light"
+              style="height:50px;width:100%;font-size: large;border-radius: 20px;"
+              type="submit"
+            >
+              Submit Question
             </button>
+          </form>
+        </div>
+      
+        <!-- Answered Questions Section -->
+        <div style="margin-top: 30px;">
+          <h2>Answered Questions</h2>
+          <div id="answeredQuestionsContainer" style="margin-top: 15px;">
+            <!-- Answered questions will be displayed here -->
+            <div style="padding: 15px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 10px; background-color: #f9f9f9;">
+              <p style="font-weight: bold;">Q: What is the capital of France?</p>
+              <div style="margin-left: 20px; color: #555;">
+                <p>A: The capital of France is Paris.</p>
+              </div>
+            </div>
+            <div style="padding: 15px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 10px; background-color: #f9f9f9;">
+              <p style="font-weight: bold;">Q: What is the largest ocean in the world?</p>
+              <div style="margin-left: 20px; color: #555;">
+                <p>A: The Pacific Ocean is the largest ocean in the world.</p>
+              </div>
+            </div>
           </div>
-
-<!-- Add a button to get writing suggestions -->
-<button type="button" id="getSuggestions" style="margin-top: 10px;" class="get-suggestions">Get Suggestions</button>
-
-<!-- Placeholder to show the suggestions -->
-<div id="suggestionsContainer" style="margin-top: 15px;">
-    <h4>Suggestions:</h4>
-    <p id="suggestionsText">Your suggestions will appear here...</p>
-</div>
-          <label for="writerName">Your Name:</label>
-          <input
-            type="text"
-            id="writerName"
-            name="writerName"
-            placeholder="Enter your name"
-            required
-          />
-
-          <button type="submit">Submit Blog</button>
-        </form>
+        </div>
+      
+        <!-- Unanswered Questions Section -->
+        <div style="margin-top: 30px;">
+          <h2>Unanswered Questions</h2>
+          <div id="unansweredQuestionsContainer" style="margin-top: 15px;">
+            <!-- Unanswered questions will be displayed here -->
+            <div style="padding: 15px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 10px; background-color: #f9f9f9;">
+              <p style="font-weight: bold;">Q: What is the square root of 64?</p>
+              <button
+                class="btn load-posts-btn secondary-title text-light"
+                style="height: 50px; width: 100%; font-size: large; border-radius: 20px; cursor: pointer;"
+                onclick="openModal('unanswered1')"
+              >
+                Answer Question
+              </button>
+            </div>
+            <div style="padding: 15px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 10px; background-color: #f9f9f9;">
+              <p style="font-weight: bold;">Q: What is the chemical symbol for gold?</p>
+              <button
+                class="btn load-posts-btn secondary-title text-light"
+                style="height: 50px; width: 100%; font-size: large; border-radius: 20px; cursor: pointer;"
+                onclick="openModal('unanswered2')"
+              >
+                Answer Question
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+      
+      <!-- Modal Popup for Answer -->
+      <div id="answerModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center; padding: 20px;">
+        <div style="background-color: #fff; padding: 20px; border-radius: 8px; width: 50%; text-align: center;">
+          <h3>Answer the Question</h3>
+          <textarea id="answerInput" placeholder="Enter your answer here" style="width: 100%; height: 100px; margin-top: 10px; padding: 10px; border-radius: 5px;"></textarea>
+          <br />
+          <button onclick="submitAnswer()" class="btn load-posts-btn secondary-title text-light" style="width: 100%; font-size: large; border-radius: 20px; margin-top: 10px;">Submit Answer</button>
+          <button onclick="closeModal()" class="btn load-posts-btn secondary-title text-light" style="width: 100%; font-size: large; border-radius: 20px; margin-top: 10px;">Cancel</button>
+        </div>
       </div>
-    </main>
+      
+      <script>
+        let currentQuestionId = null;
+      
+        // Open the modal to answer a question
+        function openModal(questionId) {
+          currentQuestionId = questionId;  // Store the current question ID
+          document.getElementById("answerModal").style.display = "flex";
+        }
+      
+        // Close the modal
+        function closeModal() {
+          document.getElementById("answerModal").style.display = "none";
+        }
+      
+        // Submit the answer
+        async function submitAnswer() {
+          const answerContent = document.getElementById("answerInput").value.trim();
+      
+          if (!answerContent) {
+            alert("Please enter an answer.");
+            return;
+          }
+      
+          // Here, you would send the answer to the backend with the currentQuestionId
+          console.log("Answer submitted for question ID", currentQuestionId);
+          console.log("Answer content:", answerContent);
+      
+          // Close the modal and clear the input
+          closeModal();
+          document.getElementById("answerInput").value = "";
+        }
+      
+        // Handle question submission (for asking a new question)
+        function postQuestion(event) {
+          event.preventDefault();
+          const questionInput = document.getElementById("blogHeading");
+          const questionContent = questionInput.value.trim();
+      
+          if (questionContent) {
+            // You would send this to the backend in a real app
+            console.log("New question submitted:", questionContent);
+            questionInput.value = ""; // Clear input field
+          } else {
+            alert("Please enter a question.");
+          }
+        }
+      </script>
+      
+      
 
     <!-- <button id="backTotop ">⬆️</button>  -->
     </form>

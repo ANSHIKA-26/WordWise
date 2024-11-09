@@ -73,14 +73,49 @@
        
         <div class="dropdown">
             <!-- Profile Icon -->
-            <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
+
+            <a href="javascript:void(0);" class="profile-link profile-icon" style="display: flex; align-items: center; text-decoration: none;" onclick="toggleMenu()">
                 <i class="fas fa-user-circle"></i>
+
+            </a>
+    
             <!-- Dropdown Menu -->
-            <ul class="dropdown-menu" id="dropdownMenu">
+            <ul class="dropdown-menu" id="profileMenu" style="display: none; position: absolute; z-index: 1;">
+                <li><a href="./profile.html">My Profile</a></li>
                 <li><a href="#login" onclick="openForm('login')">Login</a></li>
                 <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
             </ul>
         </div>
+
+        <script>
+            // Function to toggle the visibility of the dropdown menu
+            function toggleMenu() {
+                const menu = document.getElementById('profileMenu');
+                menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            }
+
+            // Close the dropdown if the user clicks outside of it
+            window.onclick = function(event) {
+                const menu = document.getElementById('profileMenu');
+                if (!event.target.matches('.profile-link img') && menu.style.display === 'block') {
+                    menu.style.display = 'none';
+                }
+            }
+        
+            // Update the profile image in the dropdown menu based on the selected avatar stored in localStorage
+            document.addEventListener("DOMContentLoaded", function() {
+                // Retrieve the saved avatar from localStorage
+                const savedAvatar = localStorage.getItem("selectedAvatar");
+        
+                // If an avatar is saved, update the profile image
+                if (savedAvatar) {
+                    const dropdownProfileImage = document.getElementById("dropdownProfileImage");
+                    if (dropdownProfileImage) {
+                        dropdownProfileImage.src = savedAvatar;  // Update the image source
+                    }
+                }
+            });
+        </script>
      
         
      
@@ -231,7 +266,7 @@
         right: 15px;
         top: 38px;
         cursor: pointer;
-        color: #007bff;
+        color: #fac8db;
     }
   
     .close-icon {
@@ -355,7 +390,7 @@
                     <div class="new-post-list">
                         <article class="new-post-item">
                             <div class="new-post-thumbnail">
-                                <img src="./assets/img5.webp" alt="Post Image">
+                                <img src="https://img.freepik.com/premium-photo/flavorful-masala-octopus-curry-cooked-traditional-indian-pot_1106454-25571.jpg" alt="Post Image">
                                 <span class="s1"></span>
                                 <span class="s2"></span>
                             </div>
@@ -380,7 +415,7 @@
                     <div class="new-post-list">
                         <article class="new-post-item">
                             <div class="new-post-thumbnail">
-                                <img src="./assets/img21.webp" alt="Post Image">
+                                <img src="https://global-uploads.webflow.com/5ca5fe687e34be0992df1fbe/639abf0c915ba06c97a03c59_TREKKING%20MOUNTAIN%20AH22%20COL%20DES%20ARAVIS%20-%20001%20---%20Expires%20on%2014-04-2027.jpg" alt="Post Image">
                                 <span class="s1"></span>
                                 <span class="s2"></span>
                             </div>
@@ -404,7 +439,7 @@
                     <div class="new-post-list">
                         <article class="new-post-item">
                             <div class="new-post-thumbnail">
-                                <img src="./assets/img2.webp" alt="Post Image">
+                                <img src="https://th.bing.com/th/id/OIP.5ncZMYBcfIS0t4ANcnpbrwHaHa?w=522&h=522&rs=1&pid=ImgDetMain" alt="Post Image">
                                 <span class="s1"></span>
                                 <span class="s2"></span>
                             </div>
@@ -428,7 +463,7 @@
                     <div class="new-post-list">
                         <article class="new-post-item">
                             <div class="new-post-thumbnail">
-                                <img src="./assets/img7.webp" alt="Post Image">
+                                <img src="https://i.pinimg.com/originals/fe/cf/da/fecfdad6c91516ad4dd20ae57de639cd.jpg" alt="Post Image">
                                 <span class="s1"></span>
                                 <span class="s2"></span>
                             </div>
@@ -452,7 +487,7 @@
                     <div class="new-post-list">
                         <article class="new-post-item">
                             <div class="new-post-thumbnail">
-                                <img src="./assets/health.webp" alt="Post Image">
+                                <img src="https://mcm.edu/app/uploads/2022/05/AdobeStock_93394779-scaled.jpeg" alt="Post Image">
                                 <span class="s1"></span>
                                 <span class="s2"></span>
                             </div>
@@ -476,7 +511,7 @@
                     <div class="new-post-list">
                         <article class="new-post-item">
                             <div class="new-post-thumbnail">
-                                <img src="./assets/fashion.webp" alt="Post Image">
+                                <img src="https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="Post Image">
                                 <span class="s1"></span>
                                 <span class="s2"></span>
                             </div>
@@ -511,19 +546,19 @@
 
             <!-- Slide images -->
             <div class="slide first">
-                <img src="./assets/slider/img1.webp" alt="Slide 1">
+                <img src="https://lailaroohifaisaldesigns.com/cdn/shop/collections/0F4A6135.jpg?v=1672925043" alt="Slide 1">
             </div>
             <div class="slide">
-                <img src="./assets/slider/img2.webp" alt="Slide 2">
+                <img src="https://global-uploads.webflow.com/5ca5fe687e34be0992df1fbe/639abf0c915ba06c97a03c59_TREKKING%20MOUNTAIN%20AH22%20COL%20DES%20ARAVIS%20-%20001%20---%20Expires%20on%2014-04-2027.jpg" alt="Slide 2">
             </div>
             <div class="slide">
-                <img src="./assets/slider/img3.webp" alt="Slide 3">
+                <img src="https://images.pexels.com/photos/3184195/pexels-photo-3184195.jpeg?cs=srgb&dl=group-of-people-eating-together-3184195.jpg&fm=jpg" alt="Slide 3">
             </div>
             <div class="slide">
-                <img src="./assets/slider/img4.webp" alt="Slide 4">
+                <img src="https://img.grouponcdn.com/seocms/37R5CmAiW5aTSrUBAxuNrN3wUJwf/hero_lowerquality_FEATURE_50STATES_031120_MW_jpg-1600x960" alt="Slide 4">
             </div>
             <div class="slide">
-                <img src="./assets/slider/img5.webp" alt="Slide 5">
+                <img src="https://th.bing.com/th/id/R.46eb6d1c0c1c05b0e4bea73782db5b59?rik=9wqgYhf0SEREdw&riu=http%3a%2f%2fstatic1.squarespace.com%2fstatic%2f5c6a987c0cf57dde01887628%2f5c6a9bd69140b77a89d62153%2f60897b71f318a602de4f9fba%2f1634503218853%2fIMG_7507.jpg%3fformat%3d1500w&ehk=ZXnl5a44WPBlCi7XYGPQope3wLzGDxado%2fh2iEB7eS0%3d&risl=&pid=ImgRaw&r=0" alt="Slide 5">
             </div>
             <div class="slide">
                 <img src="./assets/slider/img6.webp" alt="Slide 6">
@@ -616,7 +651,7 @@
                           <article class="article">
                               <div class="d-flex" style="align-items: flex-start; ">
                                   <a class="d-flex" href="#">
-                                      <img src="./assets/img9.webp" class="object-fit" alt="">
+                                      <img src="https://th.bing.com/th/id/OIP.E4IJcali_762Oo_vNhhbFgHaEK?w=277&h=180&c=7&r=0&o=5&pid=1.7" class="object-fit" alt="">
                                       <div class="px-1" style="width: 300px; ">
                                           <a href="#" class="text-title display-2 text-dark">
                                               Embrace the beauty of nature through our enchanting blog, where we celebrate the wonders of the natural world
@@ -634,7 +669,7 @@
                          <article class="article">
                              <div class="d-flex" style="align-items: flex-start; ">
                                  <a class="d-flex" href="#">
-                                     <img src="./assets/img1.webp" class="object-fit" alt="">
+                                     <img src="https://stlpolished.com/wp-content/uploads/2017/02/Highway.jpg" class="object-fit" alt="">
                                      <div class="px-1" style="width: 300px;">
                                          <a href="#" class="text-title display-2 text-dark">
                                           Embark on unforgettable journeys through our travel blog, where wanderlust meets inspiration
@@ -651,7 +686,7 @@
                              <article class="article">
                                  <div class="d-flex" style="align-items: flex-start; ">
                                      <a class="d-flex " href="#" >
-                                         <img src="./assets/img2.webp" class="object-fit" alt="">
+                                         <img src="https://th.bing.com/th/id/OIP.Dquq8xoJl3G5XCrmFYsDJQHaE7?w=242&h=180&c=7&r=0&o=5&pid=1.7" class="object-fit" alt="">
                                          <div class="px-1" style="width: 300px;">
                                              <a href="#" class="text-title display-2 text-dark">
                                               Gaming Adventures Unleashed
@@ -963,6 +998,9 @@ const app = new Vue({
   </div>
 
   <style>
+        body{
+    scroll-behavior: smooth;
+  }
     .back-to-top {
       position: fixed;
       bottom: 20px;

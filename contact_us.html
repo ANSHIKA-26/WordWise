@@ -117,15 +117,48 @@
 
       <div class="dropdown">
         <!-- Profile Icon -->
+
         <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
-          <i class="fas fa-user-circle"></i>
+          <i class="fas fa-user-circle"></i> </a>
+
 
         <!-- Dropdown Menu -->
-        <ul class="dropdown-menu" id="dropdownMenu">
-          <li><a href="#login" onclick="openForm('login')">Login</a></li>
-          <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
+        <ul class="dropdown-menu" id="profileMenu" style="display: none; position: absolute; z-index: 1;">
+            <li><a href="./profile.html">My Profile</a></li>
+            <li><a href="#login" onclick="openForm('login')">Login</a></li>
+            <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
         </ul>
-      </div>
+    </div>
+
+    <script>
+        // Function to toggle the visibility of the dropdown menu
+        function toggleMenu() {
+            const menu = document.getElementById('profileMenu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            const menu = document.getElementById('profileMenu');
+            if (!event.target.matches('.profile-link img') && menu.style.display === 'block') {
+                menu.style.display = 'none';
+            }
+        }
+    
+        // Update the profile image in the dropdown menu based on the selected avatar stored in localStorage
+        document.addEventListener("DOMContentLoaded", function() {
+            // Retrieve the saved avatar from localStorage
+            const savedAvatar = localStorage.getItem("selectedAvatar");
+    
+            // If an avatar is saved, update the profile image
+            if (savedAvatar) {
+                const dropdownProfileImage = document.getElementById("dropdownProfileImage");
+                if (dropdownProfileImage) {
+                    dropdownProfileImage.src = savedAvatar;  // Update the image source
+                }
+            }
+        });
+    </script>
 
 
 
@@ -507,7 +540,7 @@
       </div>
 
       <div class="form-group" style="margin-bottom: 20px">
-        <input type="tel" id="phone" placeholder="Phone Number" name="phone" required style="
+        <input type="number" id="phone" placeholder="Phone Number" name="phone" required style="
           width: 100%;
           padding: 10px 0;
           font-size: 16px;
@@ -518,8 +551,10 @@
           border-bottom: 2px solid var(--text-color);
           outline: none;
         " />
-      </div>
 
+        <span id="error-message" style="color: red; display: none;">Please enter up to 10 digits.</span>
+      </div>
+      
       <div class="form-group" style="margin-bottom: 20px">
         <textarea id="message" name="message" placeholder="Message" required style="
           width: 100%;
@@ -538,10 +573,7 @@
         Send
     </button>
     
-    </form>
-    <div id="backToTop" title="Back to Top">
-      <i class="fas fa-arrow-up"></i>
-    </div>
+  
     
   </div>
 </div>
@@ -570,6 +602,11 @@
     }
   }
 </style>
+
+</form>
+<div id="backToTop" title="Back to Top">
+  <i class="fas fa-arrow-up"></i>
+</div>
 
 <!-- footer -->
 <footer id="footer">
@@ -763,6 +800,23 @@
     visibility: visible;
   }
 </style>
+
+<script>
+  const phoneInput = document.getElementById('phone');
+  const errorMessage = document.getElementById('error-message');
+
+  phoneInput.addEventListener('input', function () {
+      const value = phoneInput.value;
+      const digitsOnly = value.replace(/\D/g, '');
+      if (digitsOnly.length > 10) {
+
+          phoneInput.value = digitsOnly.slice(0, 10);
+          errorMessage.style.display = 'block';
+      } else {
+          errorMessage.style.display = 'none'; 
+      }
+  });
+</script>
 
 <script>
   const backToTopButton = document.getElementById('back-to-top');

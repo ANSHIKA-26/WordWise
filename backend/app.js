@@ -9,6 +9,9 @@ import ratingRoutes from "./routes/ratingRoutes.js";
 import getInTouch from "./routes/getInTouchRoutes.js";
 import addBlog from "./routes/addBlogRoutes.js";
 import subscribe from "./routes/subscribeRoutes.js";
+import discussion from "./routes/discussionRoutes.js";
+import faqRoutes from "./routes/faqRoutes.js";
+
 import cors from "cors";
 import path from "path"; // Import path module
 import { fileURLToPath } from "url"; // Import fileURLToPath
@@ -37,6 +40,8 @@ app.use("/api/contact", contactRoutes);
 app.use("/api/getInTouch", getInTouch);
 app.use("/api/addBlog", addBlog);
 app.use("/api/newsletter", subscribe);
+app.use("/api/discussion", discussion);
+app.use("/api/faq", faqRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

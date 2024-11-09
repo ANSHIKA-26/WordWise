@@ -59,15 +59,48 @@
 
         <div class="dropdown">
           <!-- Profile Icon -->
+
           <a href="#" class="profile-icon" id="profileDropdown" onclick="toggleDropdown()">
-            <i class="fas fa-user-circle"></i>
+            <i class="fas fa-user-circle"></i> </a>
+
 
           <!-- Dropdown Menu -->
-          <ul class="dropdown-menu" id="dropdownMenu">
-            <li><a href="#login" onclick="openForm('login')">Login</a></li>
-            <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
+          <ul class="dropdown-menu" id="profileMenu" style="display: none; position: absolute; z-index: 1;">
+              <li><a href="./profile.html">My Profile</a></li>
+              <li><a href="#login" onclick="openForm('login')">Login</a></li>
+              <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
           </ul>
-        </div>
+      </div>
+
+      <script>
+          // Function to toggle the visibility of the dropdown menu
+          function toggleMenu() {
+              const menu = document.getElementById('profileMenu');
+              menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+          }
+
+          // Close the dropdown if the user clicks outside of it
+          window.onclick = function(event) {
+              const menu = document.getElementById('profileMenu');
+              if (!event.target.matches('.profile-link img') && menu.style.display === 'block') {
+                  menu.style.display = 'none';
+              }
+          }
+      
+          // Update the profile image in the dropdown menu based on the selected avatar stored in localStorage
+          document.addEventListener("DOMContentLoaded", function() {
+              // Retrieve the saved avatar from localStorage
+              const savedAvatar = localStorage.getItem("selectedAvatar");
+      
+              // If an avatar is saved, update the profile image
+              if (savedAvatar) {
+                  const dropdownProfileImage = document.getElementById("dropdownProfileImage");
+                  if (dropdownProfileImage) {
+                      dropdownProfileImage.src = savedAvatar;  // Update the image source
+                  }
+              }
+          });
+      </script>
 
 
 
@@ -400,23 +433,23 @@
             <a href="#" class="nav-link" id="travel">Travel</a>
           </div>
           <a href="bookmarks.html" class="nav-link"
-            style="float: right; margin-left: auto; color: #f9b0b0; transition: all 0.4s ease-in-out;">My Reading
+            style="float: right; margin-left: auto; color: #df9797; transition: all 0.4s ease-in-out; font-weight: bolder;">My Reading
             List</a>
           <div class="title">
             <h2 class="text-title text-dark display-1" looking for feedback></h2>
           </div>
           <div class="meta">
             <a href="#" class="link display-2 text-secondary px-1">
-              <i class="fa-solid fa-user" style="color:  #f9b0b0;" id="fa"></i>anshika arora
+              <i class="fa-solid fa-user" style="color:  #df9797; font-weight: bolder;" id="fa"></i>anshika arora
             </a>
             <a href="#" class="link display-2 text-secondary px-1">
-              <i class="fa-solid fa-clock" style="color:  #f9b0b0;" id="fa"></i>feb 12, 2021
+              <i class="fa-solid fa-clock" style="color:  #df9797; font-weight: bolder;" id="fa"></i>feb 12, 2021
             </a>
             <a href="./blog.html#coment" class="link display-2 text-secondary px-1">
-              <i class="fa-solid fa-comments" style="color:  #f9b0b0;" id="fa"></i>3
+              <i class="fa-solid fa-comments" style="color: #df9797; font-weight: bolder;" id="fa"></i>3
             </a>
             <a href="#" class="link display-2 text-secondary px-1 bookmark-btn" id="bookmark">
-              <i class="fa-solid fa-bookmark" style="color: #f9b0b0;" id="bookmark-icon"></i>
+              <i class="fa-solid fa-bookmark" style="color:#df9797; font-weight: bolder;" id="bookmark-icon"></i>
               <span id="bookmark-text" style="color: f9b0b0;">Bookmark</span>
             </a>
           </div>
@@ -1408,6 +1441,9 @@
   </script>
 
   <style>
+      body{
+    scroll-behavior: smooth;
+  }
     .faq-button-container {
       text-align: center;
       margin-top: 20px;
