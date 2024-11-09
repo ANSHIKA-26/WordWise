@@ -20,9 +20,7 @@
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="Scroll_and_progressbar.css">
-
-
-
+  <link rel="stylesheet" href="blog.css">
 
 </head>
 
@@ -61,244 +59,271 @@
 
         <div class="dropdown">
           <!-- Profile Icon -->
-
+  
           <a href="javascript:void(0);" class="profile-link profile-icon" style="display: flex; align-items: center; text-decoration: none;" onclick="toggleMenu()">
               <i class="fas fa-user-circle"></i>
+  
           </a>
-      
-
+  
           <!-- Dropdown Menu -->
           <ul class="dropdown-menu" id="profileMenu" style="display: none; position: absolute; z-index: 1;">
-              <li><a href="./profile.html">My Profile</a></li>
+            
               <li><a href="#login" onclick="openForm('login')">Login</a></li>
               <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
           </ul>
       </div>
-
       <script>
-          // Function to toggle the visibility of the dropdown menu
-          function toggleMenu() {
-              const menu = document.getElementById('profileMenu');
-              menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-          }
-
-          // Close the dropdown if the user clicks outside of it
-          window.onclick = function(event) {
-              const menu = document.getElementById('profileMenu');
-              if (!event.target.matches('.profile-link img') && menu.style.display === 'block') {
-                  menu.style.display = 'none';
-              }
-          }
-      
-          // Update the profile image in the dropdown menu based on the selected avatar stored in localStorage
-          document.addEventListener("DOMContentLoaded", function() {
-              // Retrieve the saved avatar from localStorage
-              const savedAvatar = localStorage.getItem("selectedAvatar");
-      
-              // If an avatar is saved, update the profile image
-              if (savedAvatar) {
-                  const dropdownProfileImage = document.getElementById("dropdownProfileImage");
-                  if (dropdownProfileImage) {
-                      dropdownProfileImage.src = savedAvatar;  // Update the image source
-                  }
-              }
-          });
-      </script>
-
-
-
-
-        <!--  Login Form -->
-        <div class="form-popup" id="loginForm">
-          <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
-            <span class="close-icon" onclick="closeForm('login')">&times;</span>
-            <h2 class="text-center">Login</h2>
-            <div class="form-group">
-              <label for="loginEmail"><b>Email</b></label>
-              <input type="email" class="form-control" id="loginEmail" placeholder="Enter Email" name="email" required>
-            </div>
-            <div class="form-group position-relative">
-              <label for="loginPsw"><b>Password</b></label>
-              <input type="password" class="form-control" id="loginPsw" placeholder="Enter Password" name="psw" required
-                minlength="6">
-              <i class="bi bi-eye eye-icon" id="toggleLoginPassword"
-                onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
-            </div>
-            <div class="forgot">
-              <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
-            </div>
-            <button type="submit" class="btn btn-primary w-100 mb-3">LOGIN</button>
-            <!-- Google Sign-In Button -->
-            <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
-              <img src="./assets/google_icon.webp" alt="Google Logo" class="google-logo">
-              Sign in with Google
-            </button>
-          </form>
-        </div>
-
-        <!-- Signup Form -->
-        <div class="form-popup" id="signupForm">
-          <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
-            <span class="close-icon" onclick="closeForm('signup')">&times;</span>
-            <h2 class="text-center">Signup</h2>
-            <div class="form-group">
-              <label for="name"><b>Full Name</b></label>
-              <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required
-                pattern="[a-zA-Z ]+" oninvalid="this.setCustomValidity('Numbers and Symbols are not allowed')"
-                oninput="this.setCustomValidity('')">
-            </div>
-            <div class="form-group">
-              <label for="signupEmail"><b>Email</b></label>
-              <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required>
-            </div>
-            <div class="form-group position-relative">
-              <label for="signupPsw"><b>Password</b></label>
-              <input type="password" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6"
-                oninput="checkPasswordStrength()">
-              <i class="bi bi-eye eye-icon" id="toggleSignupPassword"
-                onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
-              <div id="passwordStrength" class="strength-meter"></div>
-            </div>
-
-            <div class="form-group position-relative">
-              <label for="confirmPsw"><b>Confirm Password</b></label>
-              <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password"
-                name="confirmPsw" required minlength="6">
-              <i class="bi bi-eye eye-icon" id="toggleConfirmPassword"
-                onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
-            </div>
-            <button type="submit" class="btn btn-primary w-100 mb-3">SIGNUP</button>
-            <!-- Google Sign-In Button -->
-            <button type="button" class="btn google-btn" onclick="handleGoogleLogin()">
-              <img src="./assets/google_icon.webp" alt="Google Logo" class="google-logo">
-              Sign in with Google</button>
-          </form>
-        </div>
-
-        <!-- Forgot Password Modal -->
-        <div id="forgot-password-modal" class="modal">
-          <div class="form-container modal-content">
-            <h2>Forgot Password</h2>
-            <p>Please enter your email address to reset your password.</p>
-
-            <label for="email">Email Address</label>
-            <input type="email" id="email" placeholder="Enter your email" required />
-
-            <button class="btn" onclick="submitForgotPassword()">Submit</button>
-            <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
-          </div>
-        </div>
-
-        <!-- Toggle Password Visibility Script -->
-        <script>
-          function togglePasswordVisibility(passwordFieldId, iconId) {
-            const passwordField = document.getElementById(passwordFieldId);
-            const togglePassword = document.getElementById(iconId);
-            if (passwordField.type === 'password') {
-              passwordField.type = 'text';
-              togglePassword.classList.remove('bi-eye');
-              togglePassword.classList.add('bi-eye-slash');
-            } else {
-              passwordField.type = 'password';
-              togglePassword.classList.remove('bi-eye-slash');
-              togglePassword.classList.add('bi-eye');
+        function toggleMenu() {
+            const menu = document.getElementById('profileMenu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            const menu = document.getElementById('profileMenu');
+            if (!event.target.matches('.profile-link img') && menu.style.display === 'block') {
+                menu.style.display = 'none';
             }
-          }
-        </script>
-
-        <!-- Updated CSS Styles -->
-        <style>
-          .form-popup {
-            display: none;
-            position: fixed;
-            z-index: 9;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            max-width: 500px;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
-            border-radius: 10px;
-            box-sizing: border-box;
-          }
-
-          .form-container h2 {
-            margin-bottom: 20px;
-            color: #333;
-          }
-
-          .form-group {
-            margin-bottom: 15px;
-          }
-
-          .form-control {
-            border-radius: 5px;
-            padding: 12px;
-            font-size: 16px;
-            line-height: 1.5;
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
-            width: 100%;
-          }
-
-          .forgot {
-            text-align: right;
-            margin-left: 50px;
-            font-size: 10px;
-            margin-top: -40px;
-
-          }
-
-          .btn {
-            margin-top: 10px;
-            border-radius: 5px;
-          }
-
-          .eye-icon {
-            position: absolute;
-            right: 15px;
-            top: 38px;
-            cursor: pointer;
-            color: #007bff;
-          }
-
-          .close-icon {
-            font-size: 24px;
-            cursor: pointer;
-            float: right;
-          }
-
-          .position-relative {
-            position: relative;
-          }
-
-          /* Login button jumping issue fix */
-          .btn-primary {
-            transition: all 0.3s ease;
-            /* Smooth transition */
-          }
-
-          .btn-primary:hover {
-            background-color: #0056b3;
-          }
-
-          .google-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
-
-          .google-logo {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-          }
-
-          .btn-primary:hover {
-            background-color: #0056b3;
-          }
-        </style>
+        }
+    </script>
+    
+     
+    
+        
+                  <!-- Login Form -->
+                  <div class="form-popup" id="loginForm">
+                    <form class="form-container" onsubmit="return validateLoginForm()" style="max-width: 400px; margin: auto;">
+                        <span class="close-icon" onclick="closeForm('login')">&times;</span>
+                        <h2 class="text-center">Login</h2>
+                        <div class="form-group">
+                            <label for="loginEmail"><b>Email</b></label>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="Enter Email" name="email" required>
+                        </div>
+                        <div class="form-group position-relative">
+                            <label for="loginPsw"><b>Password</b></label>
+                            <input type="password" class="form-control" id="loginPsw" placeholder="Enter Password" name="psw" required minlength="6">
+                            <i class="bi bi-eye eye-icon" id="toggleLoginPassword" onclick="togglePasswordVisibility('loginPsw', 'toggleLoginPassword')"></i>
+                        </div>
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember-me" />
+                            <label for="remember-me">Remember Me</label>
+                        </div>
+                        <div class="forgot">
+                            <a href="javascript:void(0);" onclick="openForgotPassword()">Forgot Password?</a>
+                        </div>
+                        <button type="submit" class="btn btn-secondary w-100 mb-3">LOGIN</button>
+                        <style>
+                            .btn:hover {
+                                transition: 0.5s ease;
+                            }
+                        </style>
+                        <!-- Google Login Button -->
+                        <button type="button" class="btn google-btn" onclick="window.location.href='https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmyaccount.google.com%2F&ec=GAlAwAE&hl=en_GB&service=accountsettings&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S1527110508%3A1729760212648495&ddm=0'">
+                            <img src="./assets/google_icon.webp" alt="Google Logo" class="google-logo">
+                            Sign in with Google</button>
+                        <button type="button" class="btn btn-secondary w-100" onclick="closeForm('login')">CLOSE</button>
+                        <!-- Link to Signup Page -->
+                        <div class="new">
+                            <p>Don't have an account? <a href="javascript:void(0);" onclick="openForm('signup')">Sign up
+                                    here</a></p>
+                        </div>
+                    </form>
+                </div>
+  
+                <!-- Signup Form -->
+                <div class="form-popup" id="signupForm">
+                    <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
+                        <span class="close-icon" onclick="closeForm('signup')">&times;</span>
+                        <h2 class="text-center">Signup</h2>
+                        <div class="form-group">
+                            <label for="name"><b>Full Name</b></label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signupEmail"><b>Email</b></label>
+                            <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required>
+                        </div>
+                        <div class="form-group position-relative">
+                            <label for="signupPsw"><b>Password</b></label>
+                            <input type="password" class="form-control" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
+                            <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
+                        </div>
+                        <div class="form-group position-relative">
+                            <label for="confirmPsw"><b>Confirm Password</b></label>
+                            <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
+                            <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
+                        </div>
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember-me" />
+                            <label for="remember-me">Remember Me</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 mb-3">SIGNUP</button>
+                        <!-- Google Sign-In Button -->
+                        <button type="button" class="btn google-btn" onclick="window.location.href='https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmyaccount.google.com%2F&ec=GAlAwAE&hl=en_GB&service=accountsettings&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S1527110508%3A1729760212648495&ddm=0'">
+                            <img src="./assets/google_icon.webp" alt="Google Logo" class="google-logo">
+                            Sign in with Google</button>
+                        <button type="button" class="btn btn-secondary w-100" onclick="closeForm('signup')">CLOSE</button>
+                        <!-- Link to Login Page -->
+                        <div class="new">
+                            <p>Already have an account? <a href="javascript:void(0);" onclick="openForm('login')">Login
+                                    here</a></p>
+                        </div>
+                    </form>
+                </div>
+  
+                <!-- Forgot Password Modal -->
+                <div id="forgot-password-modal" class="modal">
+                    <div class="form-container modal-content">
+                        <h2>Forgot Password</h2>
+                        <p>Please enter your email address to reset your password.</p>
+  
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email" required />
+  
+                        <button class="btn" onclick="submitForgotPassword()">Submit</button>
+                        <button class="btn cancel" onclick="closeForgotPasswordModal()">Cancel</button>
+                    </div>
+                </div>
+  
+                <!-- Toggle Password Visibility Script -->
+                <script>
+                    function togglePasswordVisibility(passwordFieldId, iconId) {
+                        const passwordField = document.getElementById(passwordFieldId);
+                        const togglePassword = document.getElementById(iconId);
+                        if (passwordField.type === 'password') {
+                            passwordField.type = 'text';
+                            togglePassword.classList.remove('bi-eye');
+                            togglePassword.classList.add('bi-eye-slash');
+                        } else {
+                            passwordField.type = 'password';
+                            togglePassword.classList.remove('bi-eye-slash');
+                            togglePassword.classList.add('bi-eye');
+                        }
+                    }
+                </script>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const rememberMeCheckbox = document.getElementById("remember-me");
+                        const usernameInput = document.getElementById("username");
+  
+                        // Load saved username if it exists
+                        if (localStorage.getItem("rememberedUsername")) {
+                            usernameInput.value = localStorage.getItem("rememberedUsername");
+                            rememberMeCheckbox.checked = true;
+                        }
+  
+                        // When the form is submitted, save the username if "Remember Me" is checked
+                        document.querySelector(".sign-in-form").addEventListener("submit", function (e) {
+                            e.preventDefault(); // Prevent default form submission
+  
+                            if (rememberMeCheckbox.checked) {
+                                localStorage.setItem("rememberedUsername", usernameInput.value);
+                            } else {
+                                localStorage.removeItem("rememberedUsername");
+                            }
+  
+                            // Add form submission logic here
+                        });
+                    });
+                </script>
+  
+  
+    <!-- CSS Styles -->
+    
+                  <!-- Styles -->
+                  <style>
+                    .form-popup {
+                        .form-popup {
+                            display: none;
+                            /* Hidden by default */
+                            position: fixed;
+                            /* Stay in place */
+                            z-index: 9;
+                            /* Sit on top */
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                            /* Center the popup */
+                            width: 100%;
+                            max-width: 500px;
+                            /* Limit width */
+                            padding: 20px;
+                            background-color: white;
+                            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+                            border-radius: 10px;
+                            box-sizing: border-box;
+                        }
+                    }
+                    
+                    .form-container h2 {
+                        margin-bottom: 20px;
+                        color: #333;
+                    }
+                    
+                    .form-group {
+                        margin-bottom: 15px;
+                    }
+                    
+                    .form-control {
+                        border-radius: 5px;
+                        padding: 10px;
+                        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+                    }
+                    
+                    .btn {
+                        margin-top: 10px;
+                        border-radius: 5px;
+                    }
+                    
+                    .eye-icon {
+                        position: absolute;
+                        right: 15px;
+                        top: 38px;
+                        cursor: pointer;
+                        color: #007bff;
+                    }
+                    
+                    .close-icon {
+                        font-size: 24px;
+                        cursor: pointer;
+                        float: right;
+                    }
+                    
+                    .position-relative {
+                        position: relative;
+                    }
+                    
+                    .btn-primary:hover {
+                        background-color: #0056b3;
+                    }
+                    
+                    .btn-secondary:hover {
+                        background-color: #6c757d;
+                    }
+                    
+                    .scroll-to-top {
+                        background-color: #0066cc;
+                        /* Button color */
+                        color: white;
+                        /* Text color */
+                        border: none;
+                        /* No border */
+                        border-radius: 5px;
+                        /* Rounded corners */
+                        padding: 10px 15px;
+                        /* Padding for better appearance */
+                        cursor: pointer;
+                        /* Pointer cursor on hover */
+                        margin-top: 10px;
+                        /* Space between the paragraph and button */
+                    }
+                    
+                    .scroll-to-top:hover {
+                        background-color: #005bb5;
+                        /* Darker shade on hover */
+                    }
+                </style>
+  
         <!-- Toggle Password Visibility Script -->
         <script>
           function togglePasswordVisibility(passwordFieldId, iconId) {
@@ -429,7 +454,9 @@
       <!-- <div class="col-8"> -->
       <article id="post">
         <!--article heading-->
-        <div class="heading text-center">
+       
+        
+       <div class="heading text-center">
           <div class="Category">
             <a href="#" class="nav-link" id="travel">Travel</a>
           </div>
@@ -454,67 +481,66 @@
               <span id="bookmark-text" style="color: f9b0b0;">Bookmark</span>
             </a>
           </div>
-
-
-        </div>
+       
+        
         <!--thumbnail-->
-        <div class="thumbnail mt-3">
-          <img src="./assets/img1.webp" class="thumbnail" alt="">
+        <div class="thumbnail mt-3" style="border-radius: 8px; overflow: hidden;">
+          <img src="./assets/img1.webp" class="thumbnail-img" alt="">
         </div>
         <!--content-->
-        <div class="content text-dark display-1 secondary-title mt-3">
-          <p>
-
-
-            In the realm of mechanical marvels, our journey begins an odyssey of speed, freedom, and human ingenuity:
-            the automobile. A symphony of gears and pistons, it has reshaped the world, granting us the power to
-            traverse great distances with unparalleled ease. Join me as we delve into the rich history, exhilarating
-            innovations, and unforgettable memories that revolve around the ever-evolving wonder that is the car.
-
-            At the dawn of the 19th century, the world witnessed the birth of the automobile, a contraption that
-            combined the visions of brilliant minds like Karl Benz, Gottlieb Daimler, and Henry Ford. In these early
-            days, the car was a novelty, a wondrous oddity with a top speed of a brisk trotting horse. Yet, it laid the
-            groundwork for an automotive revolution that would forever change the landscape of our existence. Fast
-            forward to today, and the automobile stands as a symbol of progress, blending elegance and performance, as
-            we race forward into the future.
-          </p>
-
+        <div class="content-container">
+          <div class="content text-light display-1 secondary-title mt-3">
+            <p>
+              In the realm of mechanical marvels, our journey begins an odyssey of speed, freedom, and human ingenuity: the automobile.
+              A symphony of gears and pistons, it has reshaped the world, granting us the power to traverse great distances with
+              unparalleled ease. Join me as we delve into the rich history, exhilarating innovations, and unforgettable memories that
+              revolve around the ever-evolving wonder that is the car.
+        
+              At the dawn of the 19th century, the world witnessed the birth of the automobile, a contraption that combined the visions
+              of brilliant minds like Karl Benz, Gottlieb Daimler, and Henry Ford. In these early days, the car was a novelty, a wondrous
+              oddity with a top speed of a brisk trotting horse. Yet, it laid the groundwork for an automotive revolution that would
+              forever change the landscape of our existence. Fast forward to today, and the automobile stands as a symbol of progress,
+              blending elegance and performance, as we race forward into the future.
+            </p>
+          </div>
         </div>
-
+        
 
       </article>
       <!--post footer-->
-      <div class="post-footer mb-3">
-        <div class="post-tags d-flex flex-wrap justify-content-center">
-          <a href="#" class="nav-link btn bg-light">Travel</a>
-          <a href="#" class="nav-link btn bg-light">Food</a>
-          <a href="#" class="nav-link btn bg-light">Lifestyle</a>
-          <a href="#" class="nav-link btn bg-light">Technology</a>
-          <a href="#" class="nav-link btn bg-light">Fashion</a>
-
-        </div>
-        <div class="post-author text-center">
-          <div class="author-avatar">
-            <img src="./assets/face/face1.webp" class="rounded">
-
+      <div class="post-footer-container">
+        <div class="post-footer mb-3">
+          <!-- Post Tags -->
+          <div class="post-tags d-flex flex-wrap justify-content-center mb-4">
+            <a href="#" class="tag-link btn">Travel</a>
+            <a href="#" class="tag-link btn">Food</a>
+            <a href="#" class="tag-link btn">Lifestyle</a>
+            <a href="#" class="tag-link btn">Technology</a>
+            <a href="#" class="tag-link btn">Fashion</a>
           </div>
-          <div class="author-info py-2">
-            <h3 class="text-dark">Amy Tan</h3>
-            <p class="text-secondary secondary-title">
-              Author Info
-            </p>
-            <div class="post-tags d-flex flex-wrap justify-content-center">
-              <a href="#" id="facebook" class="nav-link btn bg-light"><i class="fa-brands fa-facebook"></i></a>
-              <a href="#" id="instagram" class="nav-link btn bg-light"><i class="fa-brands fa-instagram"></i></a>
-              <a href="#" id="twitter" class="nav-link btn bg-light"><i class="fa-brands fa-twitter"></i></a>
-              <a href="#" id="dribbble" class="nav-link btn bg-light"><i class="fa-brands fa-dribbble"></i></a>
-              <a href="https://github.com/ANSHIKA-26?tab=overview&from=2022-12-01&to=2022-12-31" id="github"
-                target="_blank" class="nav-link btn bg-light"><i class="fa-brands fa-github"></i></a>
-
-
+      
+          <!-- Author Section -->
+          <div class="post-author text-center">
+            <div class="author-avatar mb-2">
+              <img src="./assets/face/face1.webp" class="rounded-circle" alt="Author's avatar">
+            </div>
+            <div class="author-info py-2">
+              <h3 class="author-name">Amy Tan</h3>
+              <p class="author-bio">Author Info</p>
+      
+              <!-- Social Media Links -->
+              <div class="social-links d-flex justify-content-center mt-3">
+                <a href="#" class="social-icon" id="facebook"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="social-icon" id="instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon" id="twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="social-icon" id="dribbble"><i class="fa-brands fa-dribbble"></i></a>
+                <a href="https://github.com/ANSHIKA-26" id="github" target="_blank" class="social-icon"><i class="fa-brands fa-github"></i></a>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+      
         <!--post related -->
         <!-- post related -->
         <div class="post-navigation">
@@ -579,11 +605,9 @@
           <div class="comments-section">
             <div class="comments-container">
               <h2 class="section-title">
-                <span class="title-text">
-                  Join the Conversation
-                </span>
+                <span class="title-text">Join the Conversation</span>
               </h2>
-
+        
               <!-- Comment Form -->
               <div class="comment-form">
                 <h3 class="form-title">Share Your Thoughts</h3>
@@ -604,7 +628,7 @@
                   </button>
                 </form>
               </div>
-
+        
               <!-- Comment List -->
               <div id="commentList" class="comment-list">
                 <!-- Existing comments will be loaded here -->
@@ -612,6 +636,7 @@
             </div>
           </div>
         </section>
+        
 
         <script>
           // Comment data structure
@@ -1077,36 +1102,37 @@
       <div class="col-4">
         <aside id="sidebar" class="px-1">
 
-          <!--categories-->
-          <section class="categories">
-            <center>
-              <h2 class="category-heading">Categories</h2>
-            </center>
-            <div class="category-item">
-              <a href="#" class="d-flex justify-content-between text-dark">
-                <span>Design</span>
-                <span>5</span>
-              </a>
-            </div>
-            <div class="category-item">
-              <a href="#" class="d-flex justify-content-between text-dark">
-                <span>Illustrations</span>
-                <span>10</span>
-              </a>
-            </div>
-            <div class="category-item">
-              <a href="#" class="d-flex justify-content-between text-dark">
-                <span>Fashion</span>
-                <span>5</span>
-              </a>
-            </div>
-            <div class="category-item">
-              <a href="#" class="d-flex justify-content-between text-dark">
-                <span>Graphic</span>
-                <span>4</span>
-              </a>
-            </div>
-          </section>
+         <!-- Categories Section -->
+<section class="categories">
+  <h2 class="category-heading">Categories</h2>
+  <div class="category-list">
+    <div class="category-item">
+      <a href="#" class="category-link d-flex justify-content-between text-dark">
+        <span>Design</span>
+        <span>5</span>
+      </a>
+    </div>
+    <div class="category-item">
+      <a href="#" class="category-link d-flex justify-content-between text-dark">
+        <span>Illustrations</span>
+        <span>10</span>
+      </a>
+    </div>
+    <div class="category-item">
+      <a href="#" class="category-link d-flex justify-content-between text-dark">
+        <span>Fashion</span>
+        <span>5</span>
+      </a>
+    </div>
+    <div class="category-item">
+      <a href="#" class="category-link d-flex justify-content-between text-dark">
+        <span>Graphic</span>
+        <span>4</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 
           <style>
             :root {
@@ -1238,111 +1264,106 @@
     <i class="fas fa-arrow-up"></i>
   </div>
 
-  <!-- footer -->
-  <footer id="footer">
-    <div class="footer-container">
-        <div class="row mb-3 col-3-main">
-            <div class="col-3">
-               <div id = "about-us">
-                <h2 class="footer-title secondary-title" >About Us</h2>
-
-                  <div class="secondary-title text-secondary " >
-                     <p class="mt-2 text-lg" style="text-align: left;" >
-                      We are a close-knit team of passionate storytellers dedicated to sharing captivating content with the world.
-                     </p>
-
-                     <address class="mt-2">
-                         <i class="fas fa-map-marker-alt text-primary"></i>
-                         5 South Main Street Los Angeles, ZZ-9611 USA
-                     </address>
-
-                     <div class="phone mt-2">
-                         <i class="fas fa-mobile text-primary"></i>
-                         125-896-485
-                     </div>
-
-                    <div class="email mt-2">
-                          <a href="mailto: dailysupport@gmail.com" style="color: 3B3B58;"><i class="fas fa-envelope text-primary"></i>
-                         <span id="mailhover">dailysupport@gmail.com</span>
-                         <style>
-                          #mailhover:hover{
-                              color: #f44336;
-                              transition: color 0.5s ease-out;
-                          }
-                         </style>
-                      </a>
-                     </div>
-
-                     <div>
-                      <!-- <img src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5" alt="Web views" style="height: 20px;width: 150px;margin-top: 40px;"> -->
-                        <div class="containerWebsiteViews">
-                          <div class="containerText"><p>Website Views</p></div>
-                          <div class="containerNumbers"><p id="visitorCount">0</p></div>
-                        </div>
-                     </div>
+     
+<!-- footer -->
+<footer id="footer">
+  <div class="footer-container">
+      <div class="row mb-3 col-3-main">
+          <div class="col-3">
+              <div id="about-us">
+                  <h2 class="footer-title secondary-title">About Us</h2>
+                  <div class="secondary-title text-secondary">
+                      <p class="mt-2 text-lg" style="text-align: left;">
+                          We are a close-knit team of passionate storytellers dedicated to sharing captivating
+                          content with the world.
+                      </p>
+                      <address class="mt-2">
+                          <i class="fas fa-map-marker-alt text-primary"></i>
+                          5 South Main Street Los Angeles, ZZ-9611 USA
+                      </address>
+                      <div class="phone mt-2">
+                          <i class="fas fa-mobile text-primary"></i>
+                          125-896-485
+                      </div>
+                      <div class="email mt-2">
+                          <a href="mailto:dailysupport@gmail.com" style="color: #3B3B58;">
+                              <i class="fas fa-envelope text-primary"></i>
+                              <span>dailysupport@gmail.com</span>
+                          </a>
+                      </div>
+                      <div>
+                          <a href="privacy.html" style="color: #520be1e7;">Privacy Policy</a>
+                      </div>
+                      <div>
+                          <img
+                              src="https://hits.sh/anshika-26.github.io/WordWise.svg?label=Website%20Views&extraCount=1515&color=30322f&labelColor=F5B3B5"
+                              alt="Web views" style="height: 20px;width: 150px;margin-top: 10px;">
+                      </div>
                   </div>
-
-               </div>
-            </div>
-            <div class="col-3">
-                <h2 class="footer-title secondary-title">Feature Post</h2>
-
-                <div class="feature-post">
-                    <div class="flex-item">
+              </div>
+          </div>
+          <div class="col-3">
+              <h2 class="footer-title secondary-title">Featured Post</h2>
+              <div class="feature-post">
+                  <div class="flex-item">
                       <article class="article">
-                          <div class="d-flex" style="align-items: flex-start; ">
+                          <div class="d-flex" style="align-items: flex-start;">
                               <a class="d-flex" href="#">
                                   <img src="./assets/img9.webp" class="object-fit" alt="">
-                                  <div class="px-1" style="width: 300px; ">
+                                  <div class="px-1" style="width: 300px;">
                                       <a href="#" class="text-title display-2 text-dark">
-                                          Embrace the beauty of nature through our enchanting blog, where we celebrate the wonders of the natural world
+                                          Embrace the beauty of nature through our enchanting blog, where we
+                                          celebrate the wonders of the natural world
                                       </a>
-                                      <p class="secondary-title text-secondary " style="margin-top:3px;margin-left:0px; text-align: left; ">
+                                      <p class="secondary-title text-secondary"
+                                         style="margin-top:3px;margin-left:0px; text-align: left;">
                                           <span><i class="far fa-clock text-primary"></i> Wed 02, 2022 </span>
                                       </p>
                                   </div>
                               </a>
                           </div>
                       </article>
-
-                    </div>
-                    <div class="flex-item">
-                     <article class="article">
-                         <div class="d-flex" style="align-items: flex-start; ">
-                             <a class="d-flex" href="#">
-                                 <img src="./assets/img1.webp" class="object-fit" alt="">
-                                 <div class="px-1" style="width: 300px;">
-                                     <a href="#" class="text-title display-2 text-dark">
-                                      Embark on unforgettable journeys through our travel blog, where wanderlust meets inspiration
-                                     </a>
-                                     <p class="secondary-title text-secondary display-3" style="margin-top:3px;margin-left:0px; text-align: left;">
+                  </div>
+                  <div class="flex-item">
+                      <article class="article">
+                          <div class="d-flex" style="align-items: flex-start;">
+                              <a class="d-flex" href="#">
+                                  <img src="./assets/img1.webp" class="object-fit" alt="">
+                                  <div class="px-1" style="width: 300px;">
+                                      <a href="#" class="text-title display-2 text-dark">
+                                          Embark on unforgettable journeys through our travel blog, where
+                                          wanderlust meets inspiration
+                                      </a>
+                                      <p class="secondary-title text-secondary display-3"
+                                         style="margin-top:3px;margin-left:0px; text-align: left;">
                                           <span><i class="far fa-clock text-primary"></i> Wed 05, 2020 </span>
-                                     </p>
-                                 </div>
-                             </a>
-                         </div>
-                     </article>
-                      </div>
-                      <div class="flex-item">
-                         <article class="article">
-                             <div class="d-flex" style="align-items: flex-start; ">
-                                 <a class="d-flex " href="#" >
-                                     <img src="./assets/img2.webp" class="object-fit" alt="">
-                                     <div class="px-1" style="width: 300px;">
-                                         <a href="#" class="text-title display-2 text-dark">
+                                      </p>
+                                  </div>
+                              </a>
+                          </div>
+                      </article>
+                  </div>
+                  <div class="flex-item">
+                      <article class="article">
+                          <div class="d-flex" style="align-items: flex-start;">
+                              <a class="d-flex" href="#">
+                                  <img src="./assets/img2.webp" class="object-fit" alt="">
+                                  <div class="px-1" style="width: 300px;">
+                                      <a href="#" class="text-title display-2 text-dark">
                                           Gaming Adventures Unleashed
-                                         </a>
-                                         <p class="secondary-title text-secondary display-3" style="margin-top:3px;margin-left:0px; text-align: left;">
-                                              <span><i class="far fa-clock text-primary"></i> Wed 02, 2021 </span>
-                                         </p>
-                                     </div>
-                                 </a>
-                             </div>
-                         </article>
-                     </div>
-                </div>
-            </div>
-            <div class="col-3">
+                                      </a>
+                                      <p class="secondary-title text-secondary display-3"
+                                         style="margin-top:3px;margin-left:0px; text-align: left;">
+                                          <span><i class="far fa-clock text-primary"></i> Wed 02, 2021 </span>
+                                      </p>
+                                  </div>
+                              </a>
+                          </div>
+                      </article>
+                  </div>
+              </div>
+          </div>
+          <div class="col-3">
               <h2 class="footer-title secondary-title">Popular Tags</h2>
               <div class="tags">
                 <div class="d-flex-gap flex-wrap all-tags">
@@ -1356,7 +1377,7 @@
               </div>
               <h2 class="footer-title secondary-title mt-5">Connect with us</h2>
               <div class="tags social" id="contact">
-                  <div class="d-flex-gap flex-wrap" style="">
+                  <div class="d-flex-gap flex-wrap">
                       <a href="https://www.facebook.com/" id="facebook" class="nav-link btn bg-light">
                           <i class="fab fa-facebook-f"></i>
                       </a>
@@ -1376,14 +1397,15 @@
                   </div>
               </div>
           </div>
-        </div>
-
-
-    </div>
-     <!-- the authentication copyright -->
-     <div class="wordwise-footer">
+      </div>
+  </div>
+  <!-- the authentication copyright -->
+  <div class="wordwise-footer">
       <div class="wordwise-footer-content">
-        <p class="last">&copy; <span id="current-year"></span> WordWise. All rights reserved.</p>
+          <p>
+              &copy; <span id="current-year"></span> WordWise. All rights
+              reserved.
+          </p>
       </div>
   </div>
 </footer>

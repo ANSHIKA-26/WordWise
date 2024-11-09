@@ -1,0 +1,423 @@
+/* Shadow Effect on Image */
+.thumbnail {
+    display: inline-block;
+    border-radius: 12px; /* Increased border radius for a smoother look */
+    overflow: hidden; /* Ensures the shadow stays within rounded corners */
+  }
+  
+  .thumbnail-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 4px 15px rgba(0, 0, 0, 0.3); /* Layered shadow for more depth */
+    transition: box-shadow 0.4s ease; /* Smooth transition for hover */
+  }
+  
+  /* Hover Effect */
+  .thumbnail-img:hover {
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5), 0 8px 20px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+  }
+  
+ /* Color variables for light and dark themes */
+ :root {
+  --card-bg-color-light: #f5efe4; /* Light mode card background (cream) */
+  --card-bg-color-dark: #2a2a2a; /* Dark mode card background */
+  --text-color-light: #333333; /* Dark text for light mode */
+  --text-color-dark: #e0e0e0; /* Light text for dark mode */
+  --shadow-light: rgba(0, 0, 0, 0.2); /* Soft shadow for light mode */
+  --shadow-dark: rgba(0, 0, 0, 0.7); /* Stronger shadow for dark mode */
+  --highlight-color-light: #f9b0b0; /* Light mode highlight color */
+  --highlight-color-dark: #f9b0b0; /* Dark mode highlight color */
+  --tag-bg-color-light: #fff; /* Light mode tag background */
+  --tag-bg-color-dark: #333; /* Dark mode tag background */
+  --post-navigation-bg-light: #f5efe4; /* Light mode background for post navigation */
+  --post-navigation-bg-dark: #2a2a2a; /* Dark mode background for post navigation */
+  --post-bg-light: #ffffff; /* Light mode post card background */
+  --post-bg-dark: #3b3b3b; /* Dark mode post card background */
+  --post-hover-bg-light: #e6e6e6; /* Light mode post card hover background */
+  --post-hover-bg-dark: #2c2c2c; /* Dark mode post card hover background */
+  --post-shadow-light: rgba(0, 0, 0, 0.2); /* Light mode shadow */
+  --post-shadow-dark: rgba(0, 0, 0, 0.5); /* Dark mode shadow */
+  --post-hover-shadow-light: rgba(0, 0, 0, 0.3); /* Light mode hover shadow */
+  --post-hover-shadow-dark: rgba(0, 0, 0, 0.7); /* Dark mode hover shadow */
+  --border-radius: 10px; /* Consistent border radius for both modes */
+}
+
+/* Card container styles */
+.content-container {
+  padding: 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+/* Light mode card background, shadow, and text color */
+[data-theme="light"] .content-container {
+  background-color: var(--card-bg-color-light);
+  box-shadow: 0 4px 15px var(--shadow-light); /* Softer shadow for light mode */
+  color: var(--text-color-light); /* Black text for readability */
+}
+
+/* Dark mode card background, shadow, and text color */
+[data-theme="dark"] .content-container {
+  background-color: var(--card-bg-color-dark);
+  box-shadow: 0 4px 15px var(--shadow-dark); /* Strong shadow for dark mode */
+  color: var(--text-color-dark); /* White text for readability */
+}
+
+/* Secondary title styling */
+.secondary-title {
+  color: inherit; /* Inherit text color from parent */
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 15px;
+  padding: 10px; /* Optional: Add padding for better appearance */
+}
+
+/* Paragraph text adjustments */
+.content p {
+  font-size: 1.1rem;
+  line-height: 1.6; /* Improved line spacing */
+  margin: 10px 0; /* Consistent spacing between paragraphs */
+  color: inherit; /* Inherit text color for light and dark mode */
+}
+
+  
+ /* Container Styling */
+.post-footer-container {
+  background-color: var(--card-bg-color-dark); /* Default to dark mode background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--shadow-dark);
+}
+
+[data-theme="light"] .post-footer-container {
+  background-color: var(--card-bg-color-light); /* Light mode background */
+  box-shadow: 0 4px 12px var(--shadow-light);
+}
+
+/* Tags Styling */
+.tag-link {
+  background-color: var(--tag-bg-color-dark); /* Default dark background */
+  color: var(--highlight-color-dark); /* Set text color to match social icons */
+  margin: 5px;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect for tags */
+.tag-link:hover {
+  background-color: var(--highlight-color-dark);
+  color: #333;
+}
+
+[data-theme="light"] .tag-link {
+  background-color: var(--tag-bg-color-light); /* Light mode tag background */
+  color: var(--highlight-color-light); /* Light mode text color */
+}
+
+[data-theme="light"] .tag-link:hover {
+  background-color: var(--highlight-color-light);
+  color: #333;
+}
+
+/* Author Section Styling */
+.author-name {
+  font-size: 20px;
+  color: var(--highlight-color-dark); /* Color matches social icons */
+  margin: 10px 0 5px;
+}
+
+[data-theme="light"] .author-name {
+  color: var(--highlight-color-light); /* Light mode author name color */
+}
+
+.author-bio {
+  font-size: 14px;
+  color: #ddd;
+  margin-bottom: 10px;
+}
+
+/* Social Media Links */
+.social-links .social-icon {
+  color: var(--highlight-color-dark); /* Matches the tag and author text color */
+  font-size: 18px;
+  margin: 0 8px;
+  padding: 8px;
+  border-radius: 50%;
+  background-color: #333;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links .social-icon:hover {
+  background-color: var(--highlight-color-dark);
+  color: #333;
+  transform: scale(1.1);
+}
+
+/* Container Styling */
+.post-footer-container {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Post Footer Styling */
+.post-footer {
+  margin-bottom: 3rem;
+}
+
+/* Author Avatar Styling */
+.author-avatar {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.author-avatar img {
+  width: 100%; /* Makes the image responsive */
+  height: auto; /* Maintains aspect ratio */
+  border-radius: 50%; /* Keeps it circular */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Retains shadow effect */
+}
+
+/* Social Links Styling */
+.social-links .social-icon {
+  color: var(--highlight-color-dark); /* Matches the color for text */
+}
+
+[data-theme="light"] .social-links .social-icon {
+  color: var(--highlight-color-light);
+}
+ 
+  
+  /* Navigation Label */
+  .nav-label {
+    padding: 15px;
+    color: #f9b0b0; /* Light color for links */
+    font-weight: bold;
+    text-align: center; /* Center-align label text */
+  }
+  
+  /* Navigation Link */
+  .nav-link {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center align for the entire link */
+    transition: color 0.3s ease;
+    font-size: 1.2rem; /* Increased font size for better readability */
+  }
+  
+  .nav-link:hover {
+    color: #f9b0b0; /* Hover color change */
+  }
+  
+  /* Post Article */
+  .post-article {
+    display: flex;
+    flex-direction: column; /* Stack image and content */
+    flex: 1; /* Ensure equal height for content */
+  }
+  
+  /* Post Image */
+  .post-image img {
+    width: 100%;
+    height: auto;
+    border-bottom: 4px solid #f9b0b0; /* Bottom border for image */
+    transition: transform 0.3s ease; /* Smooth scale on hover */
+  }
+  
+  .post-image img:hover {
+    transform: scale(1.05); /* Slight scale effect on hover */
+  }
+  
+  /* Post Content */
+  .post-content {
+    padding: 15px;
+    flex-grow: 1; /* Allow content to fill available space */
+  }
+  
+  /* Post Category */
+  .post-category {
+    margin-bottom: 10px;
+    text-align: center; /* Center the category */
+  }
+  
+  .category-link {
+    background-color: #555; /* Category background */
+    color: #f9b0b0;
+    padding: 8px 12px; /* More padding for better touch area */
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Added transition */
+  }
+  
+  .category-link:hover {
+    background-color: #f9b0b0; /* Change category background on hover */
+    color: #333; /* Change text color on hover */
+  }
+  
+  /* Post Title */
+  .post-title {
+    font-size: 1.4rem; /* Increased font size for titles */
+    color: #ffffff; /* White text for contrast */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .post-title:hover {
+    color: #f9b0b0; /* Change title color on hover */
+    text-decoration: underline; /* Underline on hover for emphasis */
+  }
+  
+  /* Section Title */
+.section-title {
+    text-align: center;
+    color: #f9b0b0; /* Light color for contrast */
+    font-size: 2rem; /* Larger font size for title */
+    margin-bottom: 20px;
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Smooth transitions */
+  }
+  
+  .section-title:hover {
+    color: #ea5541; /* Change to pink on hover */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Subtle shadow effect */
+  }
+  /* Categories Section */
+.categories {
+    background-color: #2a2a2a; /* Dark background */
+    padding: 30px; /* Padding for spacing */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+    margin: 30px 0; /* Margin to separate from other sections */
+  }
+  
+  /* Category Heading */
+  .category-heading {
+    text-align: center;
+    color: #f9b0b0; /* Light color for contrast */
+    font-size: 2rem; /* Larger font size for heading */
+    margin-bottom: 20px; /* Space below heading */
+    transition: color 0.3s ease; /* Smooth color transition */
+  }
+  
+  /* Category Item */
+  .category-list {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+  }
+  
+  .category-item {
+    margin-bottom: 15px; /* Space between items */
+  }
+  
+  .category-link {
+    display: block;
+    background-color: #3b3b3b; /* Dark background for links */
+    padding: 15px; /* Padding for clickable area */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    color: #ffffff; /* White text for contrast */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+  }
+  
+  .category-link:hover {
+    background-color: #ea5541; /* Pink background on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+  }
+  
+  .category-link span {
+    font-size: 1.2rem; /* Slightly larger font size for text */
+  }
+  
+  
+.d-flex-gap {
+  display: flex;
+  gap: 15px; /* Space between buttons */
+  flex-wrap: wrap; /* Wrap items to the next line if necessary */
+  justify-content: center; /* Center the buttons horizontally */
+}.d-flex-gap a {
+  transition: all 0.2s ease;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.d-flex-gap a i {
+  font-size: 24px;
+  
+}.d-flex-gap {
+  margin: 10px 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  
+   /* justify-content: space-around; */
+}
+
+.footer-title {
+  text-align: center;
+}
+
+/* Center-align the icon container and set gap between icons */
+#contact .d-flex-gap {
+  display: flex;
+  justify-content: center;
+  gap: 1px; /* Adjust the spacing between icons */
+  flex-wrap: wrap;
+}
+
+/* Style each social icon button */
+#contact .nav-link {
+  width: 50px; /* Ensure all icons are the same size */
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Make them circular */
+  font-size: 20px; /* Adjust icon size */
+  padding: 0;
+}
+
+footer .secondary-title.text-secondary.display-3 {
+  font-size: 0.875rem; /* Reduced font size */
+}
+
+/* Decrease the font size of the date paragraphs */
+footer .secondary-title.text-secondary {
+  font-size: 0.875rem; /* Reduced font size */
+}
+footer .secondary-title.text-secondary {
+  font-size: 0.875rem; /* Reduced font size */
+  font-weight: normal; /* Ensure text is not bold */
+}
+
+footer .footer-title.secondary-title {
+  font-size: 1.75rem; /* Adjust the size as needed */
+}
+
+
+
+
+
+
+
+
+.feature-post .flex-item .article .text-title {
+  margin-bottom: 5px; /* Adjust this value to decrease spacing between title and date */
+}
+
+.feature-post .flex-item .article .secondary-title {
+  margin-top: 2px; /* Adjust this value to decrease spacing between date and the content */
+}
+.feature-post .flex-item {
+  margin-bottom: 10px; /* Adjust this to decrease the space between posts */
+}

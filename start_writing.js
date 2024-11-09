@@ -123,3 +123,4 @@ async function getWritingSuggestions() {
 
 
 document.getElementById("getSuggestions").addEventListener("click", getWritingSuggestions);
+
