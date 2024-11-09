@@ -417,20 +417,20 @@ function toggleMenu() {
 <script>window.gtranslateSettings = {"default_language":"en","detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
 <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 <div id="back-to-top" class="back-to-top">
-  <i class="fas fa-chevron-up"></i>
+  <i class="fas fa-arrow-up"></i>
 </div>
 
 <style>
     body{
     scroll-behavior: smooth;
-  }
+    }
   .back-to-top {
     position: fixed;
     bottom: 20px;
     right: 20px;
     width: 50px;
     height: 50px;
-    background-color: #007bff;
+    background-color:var(--primary-color);;
     color: white;
     border-radius: 50%;
     display: flex;
@@ -439,8 +439,7 @@ function toggleMenu() {
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: opacity 0.3s;
-    opacity: 0;
-    visibility: hidden;
+    
   }
 
   .back-to-top.show {
