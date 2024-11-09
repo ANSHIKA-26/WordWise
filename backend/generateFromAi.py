@@ -44,9 +44,17 @@ def generate_content():
             return jsonify({"error": "Title and summary are required"}), 400
 
         # Define a prompt using the title and summary to generate content
-        prompt = (f"Write a detailed and informative blog post on the topic: '{title}'. "
-                  f"Use the following summary as a reference: '{summary}'. "
-                  "Make it engaging and informative, and elaborate based on the provided summary in 200 words.")
+        prompt = (
+                    f"Write a detailed and informative blog post on the topic: '{title}'. "
+                    f"Use the following summary as a reference: '{summary}'. "
+                    "Make it engaging and informative, and elaborate based on the provided summary in 200 words."
+                    "Generate the output in the following format: "
+                    "<Content of the blog post here(in single paragraph of about 150 words)>"
+                    "<5 category in single line each category should be comma seperated>"
+                    "<3 tags in single line each tags should be comma seperated>"
+                )
+
+
 
         # Call the generative model with the title and summary prompt
         model = palm.GenerativeModel('gemini-pro')
