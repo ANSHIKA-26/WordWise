@@ -434,11 +434,3 @@ body.dark .support a {
   color: #060606; /* Keep text color white on hover */
   border-color: #ec8791; /* Maintain the border color on hover */
 }
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .d-flex-gap {
-      flex-direction: column; /* Stack buttons on smaller screens */
-      align-items: center; /* Center buttons on small screens */
-  }
-}
