@@ -9,7 +9,6 @@ const blogPostSchema = new mongoose.Schema({
     category: {
         type: String,
         required: true,
-        enum: ['vocabulary', 'grammar', 'pronunciation', 'culture', 'learning-tips'] // Add more categories as needed
     },
     summary: {
         type: String,

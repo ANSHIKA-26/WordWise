@@ -17,19 +17,6 @@ export function renderAddBlog(container) {
                     </div>
 
                     <div class="mb-6">
-                        <label for="category" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Category</label>
-                        <select id="category" name="category" required
-                                class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
-                            <option value="">Select a category</option>
-                            <option value="vocabulary">Vocabulary</option>
-                            <option value="grammar">Grammar</option>
-                            <option value="pronunciation">Pronunciation</option>
-                            <option value="culture">Culture</option>
-                            <option value="learning-tips">Learning Tips</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-6">
                         <label for="featured-image" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Featured Image</label>
                         <input type="file" id="featured-image" name="featured-image" accept="image/*"
                                class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
@@ -41,23 +28,30 @@ export function renderAddBlog(container) {
                                   class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"></textarea>
                     </div>
 
-                  <div class="mb-6 relative">
-                    <label for="excerpt" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Content</label>
-                    <div class="relative">
-                        <!-- Button for generating content -->
-                        <button id="generateContent" class="absolute top-2 right-2 text-2xl text-gray-500 dark:text-gray-300 hover:text-indigo-500 cursor-pointer" title="Generate AI Content">
-                            ✨
-                            <span class="tooltip absolute right-[95%] mr-2 hidden text-sm bg-gray-800 text-white p-1 rounded-md">
-                                Generate AI Content
-                            </span>
-                        </button>
+                    <div class="mb-6 relative">
+                        <label for="excerpt" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Content</label>
+                        <div class="relative">
+                            <!-- Button for generating content -->
+                            <button id="generateContent" class="absolute top-2 right-2 text-2xl text-gray-500 dark:text-gray-300 hover:text-indigo-500 cursor-pointer" title="Generate AI Content">
+                                ✨
+                                <span class="tooltip absolute right-[95%] mr-2 hidden text-sm bg-gray-800 text-white p-1 rounded-md">
+                                    Generate AI Content
+                                </span>
+                            </button>
 
-                        <!-- Textarea for content -->
-                        <textarea id="excerpt" name="excerpt" rows="10" required
-                            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"></textarea>
+                            <!-- Textarea for content -->
+                            <textarea id="excerpt" name="excerpt" rows="10" required
+                                class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"></textarea>
+                        </div>
                     </div>
-                </div>
 
+                    <div class="mb-6">
+                        <label for="category" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Category</label>
+                        <select id="category" name="category" required
+                                class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                            <!-- Categories will be populated here dynamically -->
+                        </select>
+                    </div>
 
                     <div class="mb-6">
                         <label for="tags" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Tags (comma-separated)</label>
@@ -82,7 +76,6 @@ export function renderAddBlog(container) {
         </div>
     `;
 
-
     const generateContent = document.getElementById('generateContent');
 
     generateContent.addEventListener('click', async function (e) {
@@ -92,7 +85,7 @@ export function renderAddBlog(container) {
 
         // Check if the title is empty
         if (title === '' && summary === '') {
-            toastr.error('Enter title and summary for more relavant content');
+            toastr.error('Enter title and summary for more relevant content');
             return;
         }
 
@@ -116,6 +109,7 @@ export function renderAddBlog(container) {
                 body: JSON.stringify({ title: title, summary: summary })
             });
 
+
             // Clear the loading message after the response
             toastr.clear(loadingToastr);
 
@@ -123,28 +117,60 @@ export function renderAddBlog(container) {
             if (response.ok) {
                 let data = await response.json();
 
-                // Display generated content in the textarea
-                excerpt.value = data.content;
+                const lines = data.content.split("\n").map(line => line.trim());
 
-                // Show success message
+                // Extract content, category, and tags
+                let servercontent = "";
+                let servercategory = "";
+                let servertags = "";
+
+                lines.forEach(line => {
+                    if (line.startsWith("**Category:**") || line.startsWith("**Categories:**")) {
+                        servercategory = line.replace("**Category:**", "").replace("**Categories:**", "").replace("**Categories**:", "").trim();
+                    } else if (line.startsWith("**Tags:**")) {
+                        servertags = line.replace("**Tags:**", "").replace("**Tags**:", "").trim();
+                    } else if (line) {
+                        servercontent += line + " "; // Append to content
+                    }
+                });
+
+                // Display generated content in the textarea
+                excerpt.value = servercontent;
+
+                // // Show success message
+
+                const categories = servercategory.split(",").map(category => category.trim());
+
+                const selectElement = document.getElementById("category");
+                selectElement.innerHTML = '';
+
+                const defaultOption = document.createElement("option");
+                defaultOption.value = "";
+                defaultOption.textContent = "Select Category";
+                defaultOption.disabled = true;
+                defaultOption.selected = true;
+                selectElement.appendChild(defaultOption);
+                categories.forEach(category => {
+                    const option = document.createElement("option");
+                    option.value = category;
+                    option.textContent = category;
+                    selectElement.appendChild(option);
+                });
+
+                // // Update the tags field with comma-separated tags
+                const tagsInput = document.getElementById('tags');
+                tagsInput.value = servertags
+
                 toastr.success('Content generated successfully!');
+
             } else {
                 toastr.error('Failed to generate content. Please try again.');
             }
         } catch (error) {
             console.error('Error:', error);
             toastr.error('An error occurred. Please check the console for details.');
-        } finally {
-            // Clear the loading message in case of any error or completion
-            toastr.clear(loadingToastr);
         }
-
     });
-
-
-
-
-
 
 
     const form = document.getElementById('add-blog-form');
