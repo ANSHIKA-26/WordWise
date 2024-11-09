@@ -123,3 +123,25 @@ async function getWritingSuggestions() {
 
 
 document.getElementById("getSuggestions").addEventListener("click", getWritingSuggestions);
+
+// Function to toggle the dropdown menu
+function toggleDropdown() {
+  const profileMenu = document.getElementById("profileMenu");
+  if (profileMenu.style.display === "none" || profileMenu.style.display === "") {
+    profileMenu.style.display = "block"; // Show the dropdown menu
+  } else {
+    profileMenu.style.display = "none"; // Hide the dropdown menu
+  }
+}
+
+// Function to open the login or signup form
+function openForm(formType) {
+  // For example, you could use this to display modal windows or redirect to pages
+  if (formType === 'login') {
+    // Open login form logic (e.g., show modal or redirect)
+    alert('Opening Login Form');
+  } else if (formType === 'signup') {
+    // Open signup form logic (e.g., show modal or redirect)
+    alert('Opening Signup Form');
+  }
+}
