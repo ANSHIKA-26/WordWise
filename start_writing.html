@@ -102,7 +102,7 @@
 
         <!-- Dropdown Menu -->
         <ul class="dropdown-menu" id="profileMenu" style="display: none; position: absolute; z-index: 1;">
-          <li><a href="./profile.html">My Profile</a></li>
+        
             <li><a href="#login" onclick="openForm('login')">Login</a></li>
             <li><a href="#signup" onclick="openForm('signup')">Signup</a></li>
         </ul>
@@ -831,20 +831,7 @@
 </div>
 
 <style>
-
-  .back-to-top {
-
-<div id="backToTop" title="Back to Top">
-
-  <i class="fas fa-arrow-up" style="margin-left: 18px;"></i>
-
-  </div>
-
-<style>
-
-  
-
-  #backtoTop {
+  #backToTop {
     position: fixed;
     bottom: 20px;
     right: 30px;
@@ -863,15 +850,29 @@
     visibility: hidden;
   }
 
-  .back-to-top.show {
+  #backToTop.show {
     opacity: 1;
     visibility: visible;
   }
 </style>
+</head>
+<body>
+
+<!-- Content of the page goes here -->
+<div style="height: 1500px;">
+  <h1>Scroll down to see the "Back to Top" button</h1>
+</div>
+
+<!-- Back to Top Button -->
+<div id="backToTop" title="Back to Top">
+  <i class="fas fa-arrow-up" style="margin-left: 18px;"></i>
+</div>
 
 <script>
-  const backToTopButton = document.getElementById('back-to-top');
+  // Get the Back to Top button element
+  const backToTopButton = document.getElementById('backToTop');
 
+  // Add scroll event to show/hide the button
   window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
       backToTopButton.classList.add('show');
@@ -880,14 +881,14 @@
     }
   });
 
-  backToTopButton.addEventListener('click', ()=>{
+  // Add click event to scroll to the top smoothly
+  backToTopButton.addEventListener('click', () => {
     window.scrollTo({
       top: 0,
-      behavior:'smooth'
+      behavior: 'smooth'
     });
   });
 </script>
 
-
-  </body>
+</body>
 </html>
