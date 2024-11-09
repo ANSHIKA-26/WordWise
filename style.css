@@ -3833,6 +3833,10 @@ h1 + p, p + p {
   .d-flex-gap {
       align-items: center;
   }
+
+  .all-tags a{
+    width: 300px;
+  }
 }
 
 @media (max-width: 769px) {
