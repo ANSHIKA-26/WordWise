@@ -3817,10 +3817,6 @@ h1 + p, p + p {
   background-color: #14171A;
 }
 
-.all-tags a{
-  width: 300px;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
   .accordion__title, .faq h1 {
