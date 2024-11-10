@@ -121,6 +121,26 @@ async function getWritingSuggestions() {
   }
 }
 
+// Get the Back to Top button element
+const backToTopButton = document.getElementById('backToTop');
+
+// Add scroll event to show/hide the button
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    backToTopButton.classList.add('show');
+  } else {
+    backToTopButton.classList.remove('show');
+  }
+});
+
+// Add click event to scroll to the top smoothly
+backToTopButton.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
 
 document.getElementById("getSuggestions").addEventListener("click", getWritingSuggestions);
 
