@@ -127,6 +127,15 @@
             border: none;
             /* Remove border */
         }
+
+        .is-valid {
+        border-color: #28a745;
+    }
+
+    .is-invalid {
+        border-color: #dc3545;
+    }
+
         
         @media (max-width: 1200px) {
             .footer-container {
@@ -464,41 +473,62 @@ Additional styling for smaller screens
 
                 <!-- Signup Form -->
                 <div class="form-popup" id="signupForm">
+                    <form class="form-container" onsubmit="validateSignupForm(event)" style="max-width: 400px; margin: auto;">
+
                     <form class="form-container" onsubmit="return validateSignupForm()" style="max-width: 400px; margin: auto;">
+
                         <span class="close-icon" onclick="closeForm('signup')">&times;</span>
                         <h2 class="text-center">Signup</h2>
+                        
                         <div class="form-group">
                             <label for="name"><b>Full Name</b></label>
                             <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name" required>
                         </div>
+                        
                         <div class="form-group">
                             <label for="signupEmail"><b>Email</b></label>
+
+                            <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required oninput="debouncedValidateEmail()">
+
                             <input type="email" class="form-control" id="signupEmail" placeholder="Enter Email" name="email" required>
+
                         </div>
+                        
                         <div class="form-group position-relative">
                             <label for="signupPsw"><b>Password</b></label>
                             <input type="password" class="form-control" id="signupPsw" placeholder="Enter Password" name="psw" required minlength="6">
                             <i class="bi bi-eye eye-icon" id="toggleSignupPassword" onclick="togglePasswordVisibility('signupPsw', 'toggleSignupPassword')"></i>
                         </div>
+                        
                         <div class="form-group position-relative">
                             <label for="confirmPsw"><b>Confirm Password</b></label>
                             <input type="password" class="form-control" id="confirmPsw" placeholder="Confirm Password" name="confirmPsw" required minlength="6">
                             <i class="bi bi-eye eye-icon" id="toggleConfirmPassword" onclick="togglePasswordVisibility('confirmPsw', 'toggleConfirmPassword')"></i>
                         </div>
+                        
                         <div class="remember-me">
                             <input type="checkbox" id="remember-me" />
                             <label for="remember-me">Remember Me</label>
                         </div>
+                        
                         <button type="submit" class="btn btn-primary w-100 mb-3">SIGNUP</button>
+                        
                         <!-- Google Sign-In Button -->
                         <button type="button" class="btn google-btn" onclick="window.location.href='https://accounts.google.com/v3/signin/identifier?authuser=0&continue=https%3A%2F%2Fmyaccount.google.com%2F&ec=GAlAwAE&hl=en_GB&service=accountsettings&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S1527110508%3A1729760212648495&ddm=0'">
                             <img src="./assets/google_icon.webp" alt="Google Logo" class="google-logo">
+
+                            Sign in with Google
+                        </button>
+                        
+                        <button type="button" class="btn btn-secondary w-100" onclick="closeForm('signup')">CLOSE</button>
+                        
+
                             Sign in with Google</button>
                         <button type="button" class="btn btn-secondary w-100" onclick="closeForm('signup')">CLOSE</button>
+
                         <!-- Link to Login Page -->
                         <div class="new">
-                            <p>Already have an account? <a href="javascript:void(0);" onclick="openForm('login')">Login
-                                    here</a></p>
+                            <p>Already have an account? <a href="javascript:void(0);" onclick="openForm('login')">Login here</a></p>
                         </div>
                     </form>
                 </div>
@@ -1778,9 +1808,72 @@ Additional styling for smaller screens
             behavior:'smooth'
           });
         });
+
+    </script>
+
+<script>
+    // Debounce function to limit validation frequency
+    function debounce(func, delay) {
+        let debounceTimer;
+        return function (...args) {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => func.apply(this, args), delay);
+        };
+    }
+
+    // Validate the entire signup form
+    function validateSignupForm(event) {
+        event.preventDefault(); // Prevent form submission for validation
+
+        // Validate email and proceed if valid
+        if (!validateEmail()) return;
+
+        // Add other field validations here if needed
+
+        alert("Form submitted successfully!");
+    }
+
+    // Debounced function to validate email
+    const debouncedValidateEmail = debounce(validateEmail, 500);
+
+    // Validate email format and apply feedback
+    function validateEmail() {
+        const emailInput = document.getElementById("signupEmail");
+        const email = emailInput.value;
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (emailPattern.test(email)) {
+            emailInput.classList.remove("is-invalid");
+            emailInput.classList.add("is-valid");
+            return true;
+        } else {
+            emailInput.classList.remove("is-valid");
+            emailInput.classList.add("is-invalid");
+            return false;
+        }
+    }
+
+    // Toggle Password Visibility
+    function togglePasswordVisibility(passwordFieldId, toggleIconId) {
+        const passwordField = document.getElementById(passwordFieldId);
+        const toggleIcon = document.getElementById(toggleIconId);
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            toggleIcon.classList.remove("bi-eye");
+            toggleIcon.classList.add("bi-eye-slash");
+        } else {
+            passwordField.type = "password";
+            toggleIcon.classList.remove("bi-eye-slash");
+            toggleIcon.classList.add("bi-eye");
+        }
+    }
+</script>
+
+
       </script>
     
     
+
 </body>
 
 </html>
