@@ -9,6 +9,7 @@ import { renderProfilePage } from '../pages/BloggerProfile.js';
 import { renderFullBlogPost } from '../pages/ReadMoreBlog.js';
 import { renderTermsOfUse } from '../pages/TermsOfUse.js';
 import { renderDiscussionForum } from '../pages/DiscussionForum.js';
+import { renderStories } from '../pages/Stories.js';
 
 const routes = {
     '/': renderHome,
@@ -22,6 +23,7 @@ const routes = {
     '/discussion': renderDiscussionForum,
     '/readmore': renderFullBlogPost,
     '/termsOfUse': renderTermsOfUse,
+    '/stories': renderStories,
 };
 
 export function router() {
