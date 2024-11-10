@@ -226,25 +226,31 @@
   bottom: 80px;
   right: 25px;
   display: none; /* Initially hidden */
-  background-color: #007bff;
+  background-color: #f4978e;
   color: white;
   border: none;
   padding: 10px 15px;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 0px;
+  font-size: inherit;
   z-index: 1000;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 /* Change color on hover */
 .scroll-top-btn:hover {
-  background-color: #007bff;
+  background-color: white;
+  color: #f4978e;
+  transform: scale(1.1);
 }
 
 /* FontAwesome icon */
 .scroll-top-btn i {
-  font-size: 20px;
+  font-size: 24px;
+  transition: color 0.3s;
+}
+.scroll-top-btn:hover i {
+  color: #f4978e;
 }
     </style>
 
