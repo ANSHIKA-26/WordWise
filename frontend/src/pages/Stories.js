@@ -5,34 +5,53 @@ export function renderStories(container) {
     let category = '';
 
     // Function to fetch posts from localStorage
-    const fetchPosts = () => {
-        const storedPosts = localStorage.getItem('posts');
-        if (storedPosts) {
-            posts = JSON.parse(storedPosts);
+    const fetchPosts = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/api/stories/getposts');
+            if (response.ok) {
+                // Get the list of posts from the backend
+                const fetchedPosts = await response.json();
+                posts = fetchedPosts; // Update the local posts array
+                render();  // Render posts on the page
+            } else {
+                console.error('Error fetching posts:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error fetching posts:', error);
         }
-        render();  // Render after fetching posts
     };
 
     // Function to handle form submission
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (title && content && category) {
             const newPost = { title, content, category, date: new Date().toISOString() };
 
-            // Add new post to the posts array
-            posts.unshift(newPost);
+            try {
+                // Send the new post data to the backend API
+                const response = await fetch('http://localhost:5000/api/stories/saveposts', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(newPost),
+                });
 
-            // Save the updated posts to localStorage
-            localStorage.setItem('posts', JSON.stringify(posts));
-            // Clear form fields
-            title = '';
-            content = '';
-            category = '';
+                if (response.ok) {
+                    // Clear form fields
+                    title = '';
+                    content = '';
+                    category = '';
 
-            render();  // Re-render after saving the post
+                    await fetchPosts();
 
-
+                } else {
+                    console.error('Error submitting post:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error submitting post:', error);
+            }
         }
     };
 
