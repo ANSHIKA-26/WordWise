@@ -236,6 +236,41 @@
             color: #007bff;
             margin-left: 10px;
         }
+
+/* Style for the scroll-to-top button */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 80px;
+  right: 15px;
+  height: 60px;
+  width: 60px;
+  display: none; /* Initially hidden */
+  background-color: #f4978e;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: inherit;
+  z-index: 1000;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Change color on hover */
+.scroll-top-btn:hover {
+  background-color: white;
+  color: #f4978e;
+  transform: scale(1.1);
+}
+
+/* FontAwesome icon */
+.scroll-top-btn i {
+  font-size: 24px;
+  transition: color 0.3s;
+}
+.scroll-top-btn:hover i {
+  color: #f4978e;
+}
     </style>
 
 
@@ -246,6 +281,12 @@
 </head>
 
 <body onload="Finish_Loader()">
+
+        <!-- adding scroll button -->
+        <button id="scrollTopBtn" class="scroll-top-btn">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
     <!-- pre load -->
     <div id="loader">
         <div class="loadingspinner">
@@ -1258,6 +1299,27 @@ Additional styling for smaller screens
                 });
             </script>
 
+<script>
+// Get the button
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+// Show the button when the user scrolls down 300px from the top
+window.onscroll = function() {
+  if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+    scrollTopBtn.style.display = "block";
+  } else {
+    scrollTopBtn.style.display = "none";
+  }
+};
+
+// When the user clicks the button, scroll to the top of the document
+scrollTopBtn.addEventListener("click", function() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Smooth scrolling effect
+  });
+});
+</script>
 
         </section>
         <!--blog post section-->
