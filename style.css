@@ -2700,7 +2700,7 @@ h1 {
 }
 #twitter:hover{
   color: white;
-  background-color: #14171A;
+  background-color: black;
 }
 #github:hover{
   color: white;
@@ -3825,10 +3825,10 @@ h1 + p, p + p {
   font-size: 20px; /* Adjust icon size */
   padding: 0;
 }
-#twitter:hover{
+/* #twitter:hover{
   color: white;
   background-color: #14171A;
-}
+} */
 
 /* Responsive Design */
 @media (max-width: 768px) {
